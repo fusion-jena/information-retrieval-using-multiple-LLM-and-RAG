@@ -1,0 +1,11 @@
+The strategy implemented to monitor the model performance during training involves using a meta-model and a process called Recursive Feature Elimination and Cross-Validation (RFECV). 
+
+Firstly, five base models (TKNN, TRF, TAdaBoost, TXGBoost, and TLightGBM) are used to generate prediction results for the training and validation samples. These base models are then combined in a column manner to form two new datasets, T and V. 
+
+Next, the Random Forest (RF) algorithm is applied to the T dataset to generate the prediction results (α1, α2, α3, α4, α5) of the training data T by 5-fold cross-validation. These results are then stacked in rows to form a new dataset, A. 
+
+Subsequently, the V dataset is used to obtain (β1, β2, β3, β4, β5) by predicting V. The classification result B is then obtained by voting. 
+
+To monitor the model performance during training, the RFECV process is implemented. This process involves recursively removing the features with the lowest importance scores from the current feature combinations until the cross-validation accuracy reaches the highest level. In this process, a five-fold cross-validation is used to select the number and combinations of features. 
+
+This strategy allows for the monitoring of the model performance during training by recursively eliminating features with low importance scores and selecting the optimal features that can reduce the redundancy caused by multi-source feature datasets and improve model performance.

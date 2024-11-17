@@ -1,0 +1,137 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Three models (Models 4, 5, and 6) were trained using our own data 
+(clusters of extracted numbers), as described above, as input for training, 
+whereas the other three models (Models 1, 2, and 3) were trained with 
+the modified National Institute of Standards and Technology (MNIST) 
+dataset of handwritten digits, which can be used to train classification 
+models (Deng, 2012).
+
+To determine the ideal training–test split for our model, we used k- 
+fold  cross-validation  (k  = 5,  epochs  = 500,  imagesize  = 640).  The 
+epochs provide the number of repetitions for training, and the image size 
+is  expressed in  pixels. k-fold  cross-validation  (Rodriguez et  al., 2010) 
+was used to determine the best training test set for the model. Hereby, 
+the data are split into k different training–test sets. The model was not 
+trained on the entire dataset but on each training split. The result was an 
+investigation of the best data split. Functions of the Python library scikit- 
+learn  (scikit-learn  developers,  2023)  were  used  to  split  the  data  and 
+investigate the results of each trained model. In addition, YOLO training 
+losses and mAP50 values of each model were investigated. The split with 
+the  highest  mAP50  value  indicates  the  highest  number  of  correctly 
+predicted labels for the model trained on a specific split. We used the
+
+3.3. Results from the number classification 
+
+The  models  listed  in  Table  6  were  trained  and  investigated  for 
+number recognition. The image size for training was set to 640 pixels. 
+The  model  was  trained  to  discriminate  between  10  classes,  each  of 
+which represented a digit in the sequence of 0–9. 
+
+Model 1 exhibited the highest precision. However, the training and 
+validation data used here were MNIST images; hence, they were trained 
+to predict  these numbers accurately. However,  the clusters cannot be 
+recognized in the same manner. Therefore, Model 1 was not suitable for 
+predicting the number of trees. Model 2 showed signs of overfitting the 
+MNIST data; thus, our test data were not recognized in most instances. 
+Model 4 was trained on our data and performed the best when classi-
+fying the numbers extracted from the point cloud.
+
+TP 
+
+37.12 
+41.05 
+
+FN 
+
+20.15 
+31.71 
+
+0.0374 * 
+0.0455 * 
+
+2.3818 
+3.2014 
+
+TN 
+
+34.25 
+34.40 
+
+FP 
+
+44.48 
+47.28  
+
+Table 6 
+Summary of the models trained for number recognition. Models 4, 5, and 6 were trained on the numbers from our point cloud data, while the others (model 1, 2 and 3) 
+were trained on numbers from the MNIST dataset ((1) means that the original MNIST data was used, whereas (2) refers to MNIST data that was changed in size and 
+placement to resemble our data). Model 4 (bold) is the model that was most suitable to predict numbers in our data. The training time was taken on a Lenovo Legion 
+Y520 with Linux Mint 20.2 Cinnamon Edition operating system.  
+
+Nr 
+
+Base model 
+
+Training Data 
+
+Training Epochs 
+
+Train – Val Split 
+
+Precision 
+
+Recall 
+
+mAP50 
+
+Training Time 
+
+1 
+2 
+3 
+4 
+
+5 
+
+6 
+
+YOLOv8n 
+#4 
+#4 
+YOLOv8n 
+
+YOLOv8n 
+
+#1 
+
+MNIST(1) 
+MNIST(2) 
+MNIST(2) 
+Tree  
+Markings 
+Tree  
+Markings 
+Tree  
+Markings 
+
+10 
+10 
+3 
+500 – early stopping: 270
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, the given information does not explicitly state what type of hardware resources were used for training the deep learning models. It only mentions that the training times were recorded on a Lenovo Legion Y520 laptop running Linux Mint 20.2 Cinnamon Edition operating system. Without further details about the specifications of this laptop or any additional hardware resources mentioned, it is impossible to definitively answer the query regarding the use of GPUs, TPUs, or other hardware resources for training the deep learning models.

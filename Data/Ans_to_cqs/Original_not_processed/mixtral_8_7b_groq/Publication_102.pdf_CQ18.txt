@@ -1,0 +1,9 @@
+Answer:::
+
+To monitor the model performance during training, the early stopping technique was implemented. This technique is based on the model's performance on the validation set. It helps to avoid overfitting, which is a common issue in machine learning models where the model learns the training data too well, to the point where it performs poorly on unseen data.
+
+In the context provided, the early stopping technique was applied to both Model-1 and Model-2. Model-1 was trained for 7 hours, and Model-2, which has a feature extractor, was trained for 17 hours. The longer training time for Model-2 can be attributed to the fact that it was initialized with pre-trained weights, which provided some prior relevant information and allowed it to converge faster.
+
+The training was done using a batch size of 8 on an Nvidia GeForce RTX 2060 GPU. The models' performance was monitored using the training loss curve (Figure 3), which shows the training loss function gradient vs. the iteration curve for both Basic UNet (Model-1) and UNet with EfficientNet-B5 feature extractor architecture (Model-2). The diagonal red line in Figure 4 represents the case of no errors, i.e., perfect prediction. The closer the points are to the line, the better the prediction.
+
+Additionally, the performance of the models was evaluated on the testing images, as shown in Table 1. The root mean square error (RMSE) and mean absolute error (MAE) were used as the evaluation metrics. Model-2, with the EfficientNet-B5 feature extractor, outperformed Model-1 for both the SSL and elephants’ data sets in terms of the counting prediction. This indicates that Model-2 generalized better to unseen data, further highlighting the effectiveness of the early stopping technique in monitoring and improving the model's performance during training.

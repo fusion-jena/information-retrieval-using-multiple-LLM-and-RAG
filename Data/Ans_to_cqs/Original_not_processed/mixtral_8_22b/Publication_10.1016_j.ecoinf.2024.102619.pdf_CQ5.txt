@@ -1,0 +1,94 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+For the CNN, The large number of hyperparameters (Table 4) and 
+high  computational  demand,  mean  that  an  exhaustive  grid-search  is 
+inappropriate.  Instead  our  preliminary  work  showed  that  common 
+default parameters, were suitable for our data. These include a batch- 
+size of 32 images and a cross-entropy loss function. We also used the 
+Adam learning rate optimizer (Kingma and Ba, 2015), which automat-
+ically adjusted our initial learning rate of 1e-03 during training in a way 
+that  improved  performance.  Adam  is  computationally  efficient  and 
+straight-forward to use. In preliminary work, each model was set to train 
+for  100  epochs  maximum.  However  for  later  time-saving  and  better 
+automation, we enabled early stopping if the validation error (loss) did 
+not reduce for 10 epochs. This identified a suitable number of epochs for 
+each dataset: 14, 14 and 23 epochs for Datasets 1, 2 and 3, respectively.
+
+Krizhevsky, A., Sutskever, I., Hinton, G.E., 2012. ImageNet classification with deep 
+convolutional neural networks. In: Advances in Neural Information Processing 
+Systems, vol. 25. Curran Associates, Inc. URL. https://papers.nips.cc/paper/2012/ha 
+sh/c399862d3b9d6b76c8436e924a68c45b-Abstract.html. 
+
+Langenk¨amper, D., Zurowietz, M., Schoening, T., Nattkemper, T.W., 2017. BIIGLE 2.0 - 
+browsing and annotating large marine image collections, Frontiers in marine. 
+Science 4, 83. https://doi.org/10.3389/fmars.2017.00083. 
+
+Langenk¨amper, D., Simon-Lled´o, E., Hosking, B., Jones, D.O.B., Nattkemper, T.W., 
+
+2019a. On the impact of citizen science-derived data quality on deep learning based 
+classification in marine images. PLoS One 14 (6), e0218086. https://doi.org/ 
+10.1371/journal.pone.0218086.
+
+Pytorch (Paszke et al., 2019) ML framework for deep learning (CNNs). 
+These libraries also include tools for data pre-processing, model selec-
+tion and evaluation. To keep our model training and analysis pipelines 
+comparable, we use skorch, a scikit-learn compatible neural network li-
+brary that wraps PyTorch. This allows the same scikit-learn training and 
+evaluation procedure to be used for both models. Skorch is also helpful 
+for end-users in CNN training, as it has a clear and simple interface. It 
+only requires end-users to add the prepared datasets, model and specify 
+the associated hyperparameters (Table 4). Documentation for the entire 
+machine learning pipeline can be found at (PyTorch, 2023) for Pytorch 
+(Paszke  et  al.,  2019;  scikit-learn,  2023)  for  scikit-learn  and  (skorch, 
+2022)  for  skorch.  Commercial  restrictions  apply  to  the  availability  of 
+data  used  in  this  work.  However,  links  to  public  code  examples  of
+
+2.2.4. Feature extraction & visualisation 
+
+In  each  of  our  ML  pipelines,  every  image  that  passes  through  the 
+VGG16 feature extractor (Fig. 2) results in a matrix of 1 × 4096 features. 
+These  are  then  passed  as  inputs  to  the  classifier.  This  happens  auto-
+matically in the CNN approach, as the classification (FC) layers are still 
+present in the architecture. 
+
+These extracted ‘deep’ features are numerous and difficult to inter-
+pret. Therefore, before undertaking any classification of the extracted 
+
+EcologicalInformatics81(2024)1026195C.A. Game et al.                                                                                                                                                                                                                                
+
+Table 4 
+Model hyperparameter glossary for CNN & SVM training.  
+
+CNN: 
+Batch size 
+
+Epochs 
+Loss 
+
+function 
+
+Learning 
+rate 
+
+Optimizer 
+
+SVM: 
+C 
+
+γ
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the specific datasets used in the deep learning pipeline. However, it mentions three different datasets referred to as Datasets 1, 2, and 3. Each dataset had its own optimal number of epochs determined by early stopping criteria: 14, 14, and 23 epochs for Datasets 1, 2, and 3, respectively. Unfortunately, without additional context or references, it is impossible to determine what these datasets contain or their sources.

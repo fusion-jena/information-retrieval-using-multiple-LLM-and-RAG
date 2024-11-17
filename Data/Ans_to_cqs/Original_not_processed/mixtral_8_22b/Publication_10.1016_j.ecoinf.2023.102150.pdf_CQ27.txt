@@ -1,0 +1,142 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1 
+Number of training images, validation images (used for model validation during 
+model  training)  and  out-of-sample  test  images  (used  for  external  model  vali-
+dation after training was finished) as well as number of new images selected 
+from  the  images  taken  between  summer  2020  and  summer  2021  for  model 
+retraining.  
+
+Class 
+
+Number of 
+training 
+images 
+
+Number of 
+validation 
+images 
+
+Number of 
+out-of-sample 
+test images 
+
+Number of new 
+training images 
+for model 
+retraining 
+
+Bad 
+
+6453 
+
+quality 
+
+Bird 
+Empty 
+Least 
+
+weasel 
+Lemming 
+Shrew 
+Stoat 
+Vole 
+TOTAL 
+
+3382 
+9444 
+1725 
+
+9449 
+9265 
+4024 
+9894 
+53636 
+
+677 
+
+219 
+979 
+98 
+
+967 
+962 
+438 
+1024 
+5364 
+
+549 
+
+119 
+3301 
+69 
+
+647 
+584 
+64 
+919 
+6252 
+
+306 
+
+195 
+533 
+424 
+
+449 
+416 
+425 
+528 
+3276
+
+We trained a deep neural network in R (R Core Team, 2022) using the 
+R-package  keras  (Chollet  et  al.,  2017),  an  interface  to  TensorFlow 
+(Abadi et al., 2015) for R. We used the ResNet50 architecture (for details 
+about the model architecture see He et al., 2016) with an adam opti-
+mizer (Kingma and Ba, 2014). We trained the model from scratch for 55 
+
+EcologicalInformatics76(2023)1021504H. B¨ohner et al.                                                                                                                                                                                                                                 
+
+Fig. 3. The camera trap developed by Soininen et al. (2015) consists of a Reconyx camera that is mounted on the ceiling of a metal box that can be entered by small 
+mammals. The camera traps are protected with stones when placed in the field.
+
+some images from the previous years to the training data set. We then 
+retrained the neural network as described before.
+
+2.4. Model retraining 
+
+Based on the quality check, the researcher can decide whether model 
+
+performance  is  satisfactory  or  if  the  model  performance  should  be 
+improved by selecting new training images and retraining the model. If 
+images from new sites have been classified, model performance can be 
+improved by including images from these sites in the training data set. If 
+the model had problems with some classes; e.g. identification of some 
+species,  it  might  help  to  include  more  images  of  these  species  in  the 
+training data set. When selecting new training images, the model output 
+from the original model can be helpful to find images that meet a certain 
+criteria, e.g. to find images of a certain species. However, all training 
+images should be reviewed manually instead of relying on model out-
+puts only to avoid misclassified training images. 
+
+2.5. Manual classification
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide information about the deployment process of the trained deep learning model. Therefore, I cannot provide a detailed answer regarding the specific steps followed for model deployment such as model serialization or platform selection.
+
+However, generally speaking, once a deep learning model has been trained and validated, it needs to be deployed into a production environment where it can receive real-time input and generate predictions. This usually involves saving the model weights and architecture in a format that can be loaded later, known as model serialization. Then, the serialized model can be integrated into a suitable platform or application depending on the use case, which could range from web applications, mobile apps, IoT devices, etc.
+
+Since the text does not mention any specifics about the deployment process, we can assume that standard practices were likely followed based on the requirements and constraints of the project.

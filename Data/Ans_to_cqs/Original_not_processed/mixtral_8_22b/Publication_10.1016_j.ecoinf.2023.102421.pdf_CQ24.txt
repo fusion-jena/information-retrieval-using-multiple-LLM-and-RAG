@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.4. Hyperparameter optimisation 
+
+Hyperparameter  optimization  searches  for  the  best  set  of  hyper-
+parameters  for  a  machine  learning  model  that  can  perform  best  on  a 
+given  task.  In  many  packages,  random  or  grid  search  is  the  default 
+method  for  selecting  optimal  hyperparameters  (Snoek  et  al.,  2012). 
+There are many studies on the selections of optimization algorithms for 
+theoretical  problems  or  engineering  applications,  in  which  various 
+versions  of  Bayesian  optimizers  and  Swarm-based  algorithms  were 
+compared (Stenger et al., 2019; Stenger and Dirk, 2022).
+
+MSAVI =
+
+GREEN (cid:0) BLUE 
+2NIR + 1 (cid:0)
+
+√
+
+̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+(2NIR + 1)2 (cid:0) 8(NIR (cid:0) RED)
+
+predictive efficiency, handle large datasets, and reduce training time. It 
+is typically recommended for tabular datasets. LightGBM differs from 
+other tree-based methods by implementing leaf-wise splits that create 
+more  complex  trees,  which  are  more  efficient  in  reducing  loss  and 
+resulting  in  higher  accuracy.  The  split  is  based  on  a  novel  sampling 
+method named Gradient-Based One-Side Sampling (Ke et al., 2017), in 
+which data with small gradients are excluded, and the rest are used for
+
+information  gain  estimation  and  tree  growth.  This  algorithm  is 
+controlled by several parameter groups, including (1) Boosting param-
+eters such as Max_depth, Learning_rate, and gamma, and (2) Learning 
+task  parameters  such  as  loss  function  type,  evaluation  metric,  and 
+number of iterations. As a result, the model becomes more complex as 
+the tree grows, but more loss is reduced than level-wise, and the algo-
+rithm learns faster. 
+
+EcologicalInformatics79(2024)1024214Q.-T. Bui et al.
+
+As  machine  learning  models  have  been  increasingly  deployed  in 
+critical applications, there may be a growing demand for interpretable 
+and explainable hyperparameter optimization techniques. Methods that 
+provide transparency and explainability in the hyperparameter tuning 
+process  could  gain  importance  to  ensure  fairness,  accountability,  and 
+transparency in developing machine learning models. Machine learning 
+algorithms are considered robust classification and regression methods 
+in which models are trained and learned from input data to improve the 
+prediction of unseen data. However, the internal process is not under-
+standable, as  it is  considered a  black-box stage. To  better understand 
+interactions  between  features,  we  evaluated  several  performance  in-
+dicators,  such  as  feature  importance,  feature  interactions,  and  contri-
+butions of all features. The Shapley values provide a way to distribute
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The piece of context does not directly address the issue of handling randomness in the deep learning pipeline, specifically regarding random seed values. However, I can still provide some general information about this topic.
+
+Randomness in deep learning pipelines often comes from sources like weight initialization, shuffling of training examples, dropout regularization, etc. Random seeds are used to control these sources of randomness so that experiments can be reproduced.
+
+To handle randomness, one common strategy is to fix the random seed before running any code involving random operations. This ensures that every run will produce identical results, making comparisons easier and debugging simpler. Another approach is to use multiple runs with different random seeds and then average the results. This helps to mitigate the effects of individual bad initializations or unfavorable shuffles.
+
+Additionally, some libraries offer deterministic modes where they attempt to eliminate all sources of non-determinism. For example, TensorFlow has a tf.config.experimental.enable_op_determinism() function that makes certain ops behave consistently across runs.
+
+However, it should be noted that eliminating all randomness might not always be desirable. Some amount of randomness can help prevent overfitting and aid in exploring the solution space during optimization. Therefore, finding a balance between controlling randomness and allowing enough variability is crucial.

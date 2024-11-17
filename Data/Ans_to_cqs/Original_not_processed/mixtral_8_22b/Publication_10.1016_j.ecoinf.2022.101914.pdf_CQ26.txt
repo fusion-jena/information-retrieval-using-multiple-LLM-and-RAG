@@ -1,0 +1,77 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+to model performance by a single component model built with subop-
+timal training data. However, RF outperformed all the ensemble models, 
+suggesting  that  if  researchers  use  a  single  modeling  approach,  they 
+should consider using RF. It should be noted that we found RF to be more 
+sensitive to the number of background points used to train the model 
+than  other  modeling  methods.  However,  researchers  or  practitioners 
+might choose to use a single modeling approach that is found to be less 
+sensitive to the number of background points, like a GLM or MaxEnt. In 
+this situation, since the gain in performance is minimal, the decision on 
+how many background points to use might be instead made to minimize 
+computation time and answer time-sensitive questions related to con-
+servation  actions.  Nevertheless,  using  an  ensemble  of  models  helps 
+overcome any issues that any single model might have, as demonstrated
+
+2.7. Subsetting background points 
+
+We  made  three  random  selections  of  background  points  from  the 
+training dataset for use during model construction. First, we made the 
+“1×” selection, which selected the same number of background points as 
+presences in the training dataset. Second, we made the “10×” selection, 
+which selected a number of background points equal to ten times the 
+number of presences in the training dataset. Third, we made the “10 K” 
+selection, which selected 10,000 background points from the training 
+dataset.  We  used  this  approach  to  maintain  consistency  across  back-
+ground  points  used  to  train  each  model  so  there  was  no  variation  in 
+model results due to variation in the response variable. 
+
+2.8. Training individual models
+
+2012). Furthermore, the popular software MaxEnt, a machine learning 
+approach, is known to perform well with a large number of background 
+points (Barbet-Massin et al., 2012). Although the information is useful, 
+the within-group inconsistencies described above can be confusing when 
+modelers need to decide the number of background points to use in the 
+context of ensemble modeling. It remains unclear how the number of 
+background  points  selected to  train  each  component model  might  in-
+fluence the overall performance of an ensemble model.
+
+We  have  provided  further  evidence  that  individual  modeling  ap-
+proaches perform better when the number of background points used to 
+train each model is optimized for that particular modeling algorithm. 
+Given the popularity of ensemble modeling approaches in the scientific 
+literature,  we  went  further  and  demonstrated  how  the  number  of 
+background  points  used  to  train  individual  models  can  influence  the 
+performance of ensemble models. We tested ensemble models built with 
+four combinations of background points and found that the ensemble 
+performed slightly better (based on AUC) when all individual models 
+used  to  train  the  ensemble  were  built  with  their  optimal  number  of 
+background points (Fig. 4). Although there is only a small increase in 
+performance, this potentially highlights the ability of ensemble models 
+to balance the strengths and weaknesses of the component models, even
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide direct information about addressing data bias specifically in the context of deep learning pipelines. However, it discusses some relevant concepts that could be applied to mitigate data imbalance, such as stratification and diverse data collection.
+
+In the context of species distribution modeling, the authors mention making three random selections of background points from the training dataset for use during model construction. This process resembles stratified sampling, where the goal is to ensure that different classes or categories in the dataset are represented proportionally. By selecting the same number of background points as presences ("1x" selection), ten times the number of presences ("10x" selection"), or a fixed number of 10,000 background points ("10K" selection), the authors aim to maintain consistency across background points used to train each model. This approach minimizes variations in model results due to differences in the response variable.
+
+Although not explicitly mentioned, oversampling and undersampling techniques could also be employed to handle class imbalances in datasets. Oversampling involves duplicating examples from the minority class, while undersampling reduces instances from the majority class. These techniques help achieve a balanced dataset, improving the model's predictive capabilities.
+
+Diverse data collection is another strategy that can indirectly reduce data bias. Collecting various types of data from multiple sources ensures that the dataset represents real-world scenarios accurately. While not directly discussed in the given context, incorporating diverse data can improve the generalizability and robustness of models.
+
+In summary, although the text does not directly address data bias in deep learning pipelines, it touches upon relevant strategies such as stratified sampling, oversampling, undersampling, and diverse data collection. These techniques can help manage data imbalances and biases, ultimately enhancing the performance and reliability of machine learning models.

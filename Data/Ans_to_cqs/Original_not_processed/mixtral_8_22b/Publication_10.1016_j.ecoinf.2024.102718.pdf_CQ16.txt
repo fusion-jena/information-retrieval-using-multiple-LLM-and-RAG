@@ -1,0 +1,115 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+such as Reduc-
+the model, various callbacks
+eLROnPlateau, ModelCheckpoint, and EarlyStopping are included.
+These callbacks dynamically modify the learning rate while preserving
+the optimal model
+iteration according to the validation accuracy.
+Throughout the training phase, spanning 35 epochs with a batch size of
+16, that is meticulously recorded using metrics such as accuracy, pre-
+cision, recall, F1-score, AUC, model size, and analysis time providing a
+
+Refers to the size of the trained model, usually measured in terms of parameters or memory
+footprint.
+Measures the time taken by the model to process a single input and generate an output
+prediction.
+Represents the number of arithmetic operations performed by the model during inference or
+training.
+Measures the time taken by the model to process a given dataset or perform a specific task.
+
+CK = po (cid:0) pe
+1 (cid:0) pe
+
+where po is the observed agreement and pe is
+
+the expected agreement.
+
+Precision =
+
+True Positives
+True Positives + False Positives
+
+True Positives
+True Positives + False Negatives
+
+Recall =
+F1 = 2 × Precision × Recall
+Precision + Recall
+–
+
+–
+
+–
+
+–
+
+EcologicalInformatics82(2024)1027188A. Chakrabarty et al.
+
+Table 6
+Leaf Disease Classification Performance for PlantVillage Dataset (With Noise Added).
+
+Model
+
+ViT
+Xception
+Inception V3
+DenseNet 169
+VGG 16
+ResNet 50
+Proposed BEiT (12 M)
+
+Acc
+
+90.33
+88.69
+89.33
+91.26
+90.33
+92.82
+97.33
+
+Loss
+
+adaptability, the implementation employs various callbacks, including
+learning rate reduction (ReduceLROnPlateau), model checkpointing
+(ModelCheckpoint), and early stopping (EarlyStopping). This custom-
+ized model is integrated into an ensemble model, which incorporates a
+final dense layer with softmax activation to facilitate the classification
+task. The training procedure is carried out using a generator-based
+method, with a specific focus on assessing the model’s performance on
+both the training and validation datasets by implementing established
+callbacks.
+
+4. Experimental setup
+
+For our research reproducibility in Algorithm 1, the definitions
+include T and ℰ, denoting the paths to the training and testing dataset
+directories, respectively. The functions Dtrain and Dtest represent data
+generators for training and testing datasets, where parameters such as α,
+β, γ, and δ control aspects like rescaling and augmentation. The batch
+size for training and testing is denoted by B, while Gtrain and Gtest
+represent the respective data generators. The class weights computed for
+addressing class imbalance are denoted by wc, and M stands for our
+proposed model, encompassing its architecture and compilation pa-
+rameters. The number of training epochs is represented by n, and P and
+Q denote the steps per epoch for training and validation, respectively.
+Predicted outputs and their class labels from the model are represented
+by ̂y and ̂yc, while ytrue signifies the true class labels from the testing
+dataset. In our model reproducibility in the testing phase in Algorithm 2,
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The training completion criteria mentioned in the provided context include the use of various callbacks such as ReduceLROnPlateau, ModelCheckpoint, and EarlyStopping. These callbacks help in modifying the learning rate dynamically based on the validation accuracy and preserving the best performing model iteration throughout the training phase. Specifically, the ReduceLROnPlateau callback reduces the learning rate when a metric has stopped improving, while the EarlyStopping callback stops the training process if a monitored metric has stopped improving after a certain number of epochs. Additionally, the ModelCheckpoint callback saves the best model based on a specified metric, typically validation accuracy or loss. Therefore, these callbacks collectively ensure that the training process is halted once the desired level of performance is achieved, preventing overfitting and unnecessary computational resources usage.

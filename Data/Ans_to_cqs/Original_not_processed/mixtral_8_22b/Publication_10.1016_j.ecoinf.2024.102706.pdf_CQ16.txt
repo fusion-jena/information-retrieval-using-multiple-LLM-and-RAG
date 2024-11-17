@@ -1,0 +1,124 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+tible to overfitting; therefore, it is crucial to address this issue by tuning
+the hyperparameters.
+
+Model
+
+Train
+
+Test
+
+Linear Regression
+Elastic Net
+Support Vector Machine
+Random Forest
+Extreme Gradient Boosting
+Light Gradient Boosting Machine
+
+R2
+
+0.58
+0.58
+0.66
+0.66
+0.66
+0.69
+
+R2
+
+0.59
+0.59
+0.63
+0.64
+0.64
+0.64
+
+RMSE
+
+rRMSE (%)
+
+MAE
+
+0.17
+0.18
+0.17
+0.16
+0.16
+0.16
+
+23.28
+23.30
+22.26
+22.00
+21.95
+21.92
+
+0.14
+0.14
+0.12
+0.13
+0.12
+0.12
+
+cover. The interquartile range for observed: Q1 = 65%, Q2 (median) =
+86%, and Q3 = 96%, and predicted: Q1 = 63%–69%, Q2 = 83%–87%,
+and Q3 = 88% –91%. The minimum and maximum canopy cover for
+observed and all the models are 0% and 100%, respectively. Similarly,
+the density of the observed and predicted canopy cover is higher in Q3 as
+the violin's shape is expanded in those regions.
+
+3.3. Variable importance
+
+XGboost is an advanced version of the gradient-boosting decision
+tree method (Friedman, 2001), a composition of multiple decision trees.
+The XGboost combines different week regression trees into a robust
+model, where each tree can correct the residuals from previous tree
+predictions (Yu et al., 2020). The hyperparameters encompass variables
+such as max_depth (the upper limit on tree depth), n_estimators (quan-
+tity of iterations), eta (shrinkage factor), learning_rate (augments model
+stability by moderating step weights), min_child_weight (minimum total
+weight sum of observations required in a child), colsample_bytree
+(portion of columns chosen randomly per tree), subsample (portion of
+observations randomly chosen per tree), and gamma or alias: min_spli-
+t_loss (minimum loss decrease necessary for a split).
+
+100
+5
+0.05
+20
+0.9
+0.8
+5
+
+linear as a simple statistical model and the rest of the advanced machine
+learning models as machine learning. The regression analyses were
+conducted using Python 3.12.2, distributed by Anaconda Inc. The Scikit-
+learn library (Pedregosa et al., 2011) was employed for all models except
+those utilising XGboost and LightGBM. For XGboost and LightGBM
+models, the respective Python libraries “xgboost” (Chen and Guestrin,
+2016) and “lightgbm” (Ke et al., 2017) were utilised. Additionally, a 5-
+fold cross-validation grid search strategy was implemented to tune
+hyperparameters within the training dataset for all machine learning
+models, leveraging functionalities inherent in their respective Python
+packages. The information on hyperparameters and their optimised
+value for all machine learning models are presented in Table 4. More-
+over, we converted the canopy cover output percentage to a fraction
+(0–1) for convenience and smoothness in the further calculation.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the given context, there isn't explicit mention of specific criteria used to determine when training is complete. However, some common methods used in machine learning include monitoring the validation loss or accuracy during training and stopping when these metrics reach a plateau or no longer improve significantly. Another approach could be setting a fixed number of epochs or iterations for training. In this case, a 5-fold cross-validation grid search strategy was implemented to tune hyperparameters within the training dataset for all machine learning models. This suggests that the training process might have been stopped based on the performance achieved after tuning the hyperparameters. Nonetheless, without more detailed information about the exact training procedure followed, it is not possible to provide a definitive answer regarding the specific criteria used to determine when training is complete.

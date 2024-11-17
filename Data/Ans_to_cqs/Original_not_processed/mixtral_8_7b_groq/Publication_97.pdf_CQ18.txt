@@ -1,0 +1,11 @@
+Answer:::
+
+The strategy implemented to monitor the model performance during training involves generating batches of training images on the fly from source images, using a Python generator to create a stream of almost never repeated sub-images, and combining these sub-images into batches for neural network training. The training data is generated as batches of size (m, 256, 256, 3), where m is the batch size (m = 20 in their experiments), and the corresponding batches of mask data have shape (20, 256, 256, 1).
+
+To assess the network training, sub-images generated from image #2 (Table 1) were used. Images #4 and #6 were used for visualization and demonstration of the algorithm's efficacy. The validation data was obtained from satellite images for sites #2, #4, #6, which were separate from the sites used for training.
+
+Additionally, they performed a grid search over 216 different U-Net-like architectures to tune the architecture of the neural network. This process helped them identify the best U-Net architectures suitable for forest damage segmentation. The best result corresponded to the configuration when the number of layers was equal to 64, and dropout was applied.
+
+The high-intensity fluctuations of the loss function during training were attributed to the specificity of the algorithm used at the training stage. These fluctuations were caused by the random generation of training images and the fact that the same image was never shown twice during training.
+
+In summary, the strategy to monitor the model performance during training involves generating batches of training images on the fly, using a Python generator to create a stream of almost never repeated sub-images, and assessing the network training using separate validation data. Furthermore, they performed a grid search over different U-Net-like architectures to identify the best architectures for forest damage segmentation.

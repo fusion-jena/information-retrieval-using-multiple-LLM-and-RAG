@@ -1,0 +1,71 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+DenseNet: In 2017 Huang et al.[31] proposed a scheme to reduce hyper-parameters and guarantee 
+gradient  propagate,  which  aims  to  release  gradient  vanishing  through  feature  reuse  and  bypass. 
+DenseNet has a nice mathematical structure and high classification performance, but it needs a long 
+computational time.
+
+2.5. Model training 
+
+  To ensure the accuracy of the experimental results and obtain the best classification, the exact 
+parameters  and  functions  as  well  as  classifier  built-in  the  six  neural  network  models  are 
+designed as follows: 
+
+  The resolution of input data is 224×224 with Red Green Blue (RGB) format, and the inputs 
+
+are batch normalized before training; 
+
+  Batch size is applied which is set to 30 when training, but images are tested one by one; 
+  An  optimized  rectified  linear  activation,  Leaky  ReLU,  was  introduced  into  models  after 
+
+convolution or concatenate layer; 
+
+In MobileNet, width multiplier is 1.2, resolution multiplier is 1; 
+
+  Learning rate and dropout rate adopt same value 0.001, bias value is 0;  
+ 
+  For the neural networks with lower depth, the higher training epochs are, the higher probability 
+of over fitting is. Therefor models in which less than 100 layers adhibit raw data 60 epochs, 
+otherwise executed 80 epochs;
+
+convolutional neural network. Symmetry, 2: 256. 
+
+ [6].  Ayinde, B.O.B.A., Inanc, T.T.I.L., Zurada, J.M.J.Z. (2019) Regularizing deep neural networks by 
+enhancing diversity in feature extraction. IEEE Transactions on Neural Networks & Learning 
+Systems, 9: 2650-2661. 
+
+ [7].  Goodfellow, L., Yoshua B., Aaron, C. (2016) Deep learning. MIT Press. 
+ [8].  Jassmann,  T.J.,  Tashakkori,  R.,  Parry, R.M.  (2015) Leaf  classification  utilizing  a  convolutional 
+neural  network.  Institute  of  Electrical  and  Electronics  Engineers  Inc.  Fort  Lauderdale,  FL, 
+United states. 1-3. 
+
+ [9].  Laga, H., Kurtek, S., Srivastava, A., Golzarian, M., Miklavcic, S.J., 2007. A Riemannian elastic 
+metric for shape-based plant leaf classification. In: 2012 International Conference on Digital 
+Image Computing Techniques and Applications (DICTA). Fremantle, WA. 1-7. 
+
+[10]. Ling, H., Jacobs, D.W. (2007) Shape classification using the inner-distance. IEEE Transactions on
+
+AlexNet: In 2012, Krizhevsky et al.[28] constructed a model with more convolutional layers than 
+LeNet for better high-dimensional feature extraction, and then three fully connected layers are used after 
+flatten layer to pool channel information. This model employed rectified linear activation (ReLU) as 
+activation  function  to  speed  up  training  process,  which  partially  solved  the  vanishing  gradient  and 
+exploding problem. Features of each layer in AlexNet were depicted in Figure 2. Feature visualization 
+of  AlexNet  layer  by  layer.  The  annotations  above  are  defined  as  Name𝑑@k×k,  and  the  annotations 
+below  are  denominated  in  form  of  Operation𝑑@r×r.  Where d , k and r is  feature  depth,  convolution 
+kernel and image resolution, respectively..
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The paper does not explicitly mention specific regularization methods such as dropout or L2 regularization. However, there are some indications of techniques used to prevent overfitting. One method mentioned is the use of an optimized rectified linear activation, Leaky ReLU, which can help in preventing overfitting by introducing nonlinearity and reducing the risk of saturation. Additionally, the paper mentions adjusting the number of training epochs based on the depth of the neural network, with fewer epochs for shallower networks to avoid overfitting. Lastly, the paper discusses the use of batch normalization before training, which can also act as a form of regularization by reducing internal covariate shift and improving the stability of the learning process.

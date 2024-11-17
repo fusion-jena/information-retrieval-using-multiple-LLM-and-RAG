@@ -1,0 +1,11 @@
+Answer:::
+
+The strategy implemented to monitor the model performance during training involves the use of covariance-weighted bagging for both training and validation. This approach involves drawing many bootstrap samples of the data and training models on each, which are then aggregated to form an ensemble predictor. The key innovation here is the use of covariance weights, which are calculated using either a KDE (kernel density estimate) or spatial covariance approach. These weights are then used to down-weight over-sampled information during model training, with the goal of reducing bias and improving predictive performance.
+
+To assess the capacity for unbiased validation using this covariance-weighted bagging approach, results were benchmarked against five other methods, including out-of-bag validation. In the out-of-bag validation, the accuracy of the model is evaluated at simulated locations using out-of-bag predictions. These predictions are obtained during the bagging process by predicting the values at the data points that were not selected for each bootstrap sample, and averaging the results of these predicted values across all samples.
+
+The use of covariance-weighted bagging for both training and validation enables the monitoring of model performance during training, as well as the ability to obtain unbiased estimates of model performance without omitting portions of the feature space during validation. This is an important note, as it also enables the leveraging of spatial autocorrelation information for model prediction.
+
+In addition, the automatic variable selection and regularization behavior of the bagging model are observed under various clustering scenarios. This provides further insight into the model's ability to minimize biased training of machine learning models with clustered data.
+
+In summary, the strategy implemented to monitor the model performance during training involves the use of covariance-weighted bagging for both training and validation. This approach enables the monitoring of model performance during training, the ability to obtain unbiased estimates of model performance, and the leveraging of spatial autocorrelation information for model prediction. Additionally, the automatic variable selection and regularization behavior of the bagging model are observed under various clustering scenarios.

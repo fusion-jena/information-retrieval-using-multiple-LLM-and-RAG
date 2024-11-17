@@ -1,0 +1,83 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+overfitting. These samples are selected randomly from all areas that are 
+used in the training set, and are never used to fit the model. The model is 
+trained for 150 epochs and with a batch size of 128. Dropout (Srivastava 
+et al., 2014) with a rate of 0.3 is used during the training to make it more 
+stable. Furthermore, ADAM optimisation (Kingma and Ba, 2014) with a 
+learning  rate  of  0.0001  is  used  to  find  optimal  weights  in  the  neural 
+network in order to minimise the cross entropy loss between the net-
+work’s predictions and the pre-labelled data.
+
+Since the collection and annotation of data for the training of models, 
+as  the  one  in  this  paper,  is  a  labour-intensive  process,  it  would  be 
+valuable  to  perform  such  profound  investigations  and  quantify  the 
+amount of data that may be needed. Another way forward, which avoids 
+the labour intense labelling, would be to look for already annotated data 
+that have been used for other purposes and then use that data to build AI 
+models. One technique, which needs to be further investigated, in order 
+to facilitate the collected data better, is to generate additional synthet-
+ical  samples  from the  annotated  dataset, using  generative  adversarial 
+models,  such  as  in  the  presented  work  by  Fang  et  al.  (2019)  and  Li 
+(2019). In such approaches, several new samples are created in a real-
+istic  way,  adding  more  variation  and  more  samples  to  the  original 
+dataset. Hence, a small dataset can be extended with samples that are
+
+the texture with the texture representing hills. Furthermore, the exam-
+ples that are used, both in the training and the testing, comes from a 
+specific  region.  Hence,  in  order  to  not  be  biased,  a  future  sensitivity 
+analysis should be done over a multitude of tasks and using samples that 
+are uniformly sampled over the whole area where predictions are ex-
+pected to be performed.
+
+Acknowledgements 
+
+First  of  all,  we  would  like  to  thank  Matti  Ermold  at  the  Swedish 
+Environment Protection Agency who proposed the problem and guided 
+us to relevant material and data and supported us during the project. 
+Secondly,  we  would  like  to  thank  Anne-Catrin  Alm´er  and  Henrik 
+
+Lindblom  at  the  County  Administrativ  Board  of  J¨onk¨oping  for  the 
+manual annotation of wetlands which form the data on which the model 
+is trained. Thirdly, We would like to thank Martin Axelsson and Robin 
+Hellgren who explored possible models and worked with the targeted 
+problem and data in their bachelor thesis at the University of Sk¨ovde.  
+
+Appendix A. Network architecture  
+
+Table 1 
+Parameters for the CNN model that is used.  
+
+Hidden layers 
+
+Neurons 
+Kernel sizes 
+Dropout rate 
+Optimiser 
+Learning rate 
+
+= 6 
+
+= 128, 64, 64, 32, 32, 32 
+= 9 × 9, 9 × 9, 7 × 7, 7 × 7, 7 × 7, 5 × 5, 5 × 5 
+= 0.3 
+= Adam 
+= 0.0001  
+
+References
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The strategy implemented to monitor the model performance during training involves the use of validation samples. These samples are selected randomly from all areas used in the training set but are never used to fit the model. This approach allows for the evaluation of the model's performance without biasing its learning process. Additionally, dropout with a rate of 0.3 is used during training to enhance stability. The model is trained for 150 epochs with a batch size of 128. ADAM optimization with a learning rate of 0.0001 is employed to minimize the cross-entropy loss between the network's predictions and the pre-labeled data.

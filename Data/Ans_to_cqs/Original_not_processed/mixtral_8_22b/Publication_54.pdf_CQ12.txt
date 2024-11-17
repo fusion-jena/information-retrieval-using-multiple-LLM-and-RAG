@@ -1,0 +1,81 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+IV. EXPERIMENTAL SETTINGS
+To extract the relevant features of birds, we randomly split
+the endemic bird data into 3,132 images for training and
+760 images for testing. To allow the deep networks to con-
+verge and improve the ability of the model to generalize
+adeptly, we augmented the training dataset 10 times, resulting
+in a total of 31,320 images. Then, 25,056 (80%) images were
+used for training and 6,264 (20%) were used for validation.
+The Inception-ResNet-v2 model was trained using the mini-
+batch gradient descent algorithm with the batch size set to
+32 and the learning rate maintained at 0.0001. The Adam
+optimizer was used to ﬁne-tune the model with the following
+parameters:
+
+• Exponential decay rate of ﬁrst-moment estimation
+
+of 0.9.
+
+FIGURE 4. Flowchart for model validation.
+
+• Train the Inception-ResNet-v2 architecture on data aug-
+
+mented from original images.
+
+• Test the validation dataset and determine the misclassi-
+
+ﬁed images.
+
+• Randomly interchange the same amount of misclassiﬁed
+validation images with the training images and retrain
+the model again.
+
+• Repeat this process until the classiﬁer adapts to the
+
+speciﬁc target task.
+
+• Fit the model to evaluate the test set.
+In this way, the algorithm can tune itself and improve the
+generalizability of spatial features to the previously unseen
+domains present in the image.
+
+102976
+
+VOLUME 9, 2021
+
+Y.-P. Huang, H. Basanta: Recognition of Endemic Bird Species Using Deep Learning Models
+
+acquired while learning the 27 endemic bird species should be
+used to solve related tasks pertaining to the 29 endemic bird
+species. Otherwise, considerable time would be spent every
+time a new dataset of birds is used. Therefore, to implement
+the entire process, we adopted a deep-learning-based model
+(Inception-ResNet-v2) to train and learn the features of 27
+endemic bird species (source domain). Then, the learned fea-
+tures were transferred to a second target network to train the
+newly added dataset on endemic bird species (target domain).
+Thus, the problem was deﬁned as follows: for a given source
+domain DS and learning task LT and target domain DT
+and learning task TL, the transfer learning technique helps
+improve the learning of the target predictive function fT (·)
+in DT using the knowledge acquired from DS and LT , where
+DS (cid:54)= DT or LT (cid:54)= TL [25], [26]. Transfer learning method
+enables to utilize knowledge from previously learned tasks
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning model used in the pipeline is called Inception-ResNet-v2. This model is a variant of Convolutional Neural Networks (CNN), which are widely used for image recognition tasks due to their ability to automatically and adaptively learn spatial hierarchies of features. Inception-ResNet-v2 combines two popular architectures, namely Google's Inception and Microsoft's Residual Network (ResNet), to create a more powerful and efficient model. It uses residual connections within the Inception modules to help alleviate the vanishing gradient problem during training, allowing for deeper networks without sacrificing performance.

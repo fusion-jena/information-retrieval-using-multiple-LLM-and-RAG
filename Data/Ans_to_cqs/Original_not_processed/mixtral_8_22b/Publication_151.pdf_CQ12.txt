@@ -1,0 +1,196 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Evaluation on Simulated Data Sets
+DEPP training and parameter sensitivity.—We start by
+evaluating DEPP on simulated data sets, testing the
+ability to train the CNN model in reasonable times. As
+the training epochs advance, the loss function (1) drops
+rapidly and stabilizes after around 500 epochs in a typical
+case (Fig. S1 of the Supplementary material available on
+Dryad). Here, training, which is a one-time process for
+each reference tree, ﬁnished in around 20 min for the 200-
+taxon data set and 260 minutes for 10,000-taxon data set,
+on a machine with one 2080Ti NVIDIA GPU and 8 CPU
+cores. Placement of 1000 queries took 4 seconds for the
+200-taxon and 30 s for the 10,000-taxon data sets using a
+single CPU core. On the small 200-taxon data set, EPA-ng
+has an advantage in terms of running time. However, in
+the larger HGT data set (10,000-taxon), DEPP placements
+are faster than the alternatives with half the running time
+of EPA-ng. In terms of the memory usage, APPLES+JC
+
+{
+
+=
+
+=
+
+n
+i
+
+n
+i
+
+Di}
+{
+
+DR
+i }
+
+1 and
+
+Placement.—Once the CNN model is trained, we use it to
+map a given query sequence q to a vector of distances
+D1 ...Dn. For data sets with missing data (gaps), we
+compute two sets of distances,
+1,
+using the models with and without gap reconstruction,
+respectively. The ﬁnal distances is set to the weighted
+i , where �
+sum of the distances, that is, (1
+is the proportion of the sites with gaps in the query
+sequences. The weighted sum is used to reduce the
+impact of reconstructed bases (which are guessed, as
+opposed to being observed) on the ﬁnal distance and
+will be empirically tested. Given these distances, we then
+place q onto T using distance-based placement (Balaban
+et al. 2020), which uses dynamic programming to ﬁnd the
+dqi(T))2,
+placement with the minimum
+where dqi(T) represents the tree-based distance between
+(cid:30)
+the query and each taxon i (Fig. 1).
+
+�)Di +
+
+(Di −
+
+1 D−
+i
+
+�DR
+
+−
+
+n
+i
+
+=
+
+2
+
+by a running average of its recent magnitude to speed
+up training (Tieleman and Hinton 2012). The batch size
+is ﬁxed to 32. We check the training loss every 50 epochs
+and stop the training when the value of the loss function
+fails to decrease in two consecutive checks. The model
+with the optimal objective function value is chosen.
+
+{
+
+=
+
+=
+
+n
+i
+
+n
+i
+
+Di}
+{
+
+DR
+i }
+
+1 and
+
+≥
+
+in
+
+of
+
+As
+
+Appendix
+
+detailed
+the
+C
+available on Dryad at
+Supplementary material
+https://doi.org/10.6076/D14G68, a convolutional layer
+applies a set of parameterized kernels by convolving
+them across its input (i.e., using the dot product of
+the kernel entries and the input). Convolutional layers
+are usually used as feature extractors, and multiple
+layers are used to detect high-level abstraction from
+the input. Here, we use them to enable the model to
+go beyond the traditional
+i.i.d models of sequence
+evolution and capture k-mer signatures. The ﬁrst
+layer takes as input L features, each
+convolutional
+L matrix
+encoded as four channels, and outputs an 8
+by applying a kernel size of 1 (but applied to all four
+layers
+input channels). The next two convolutional
+each have a kernel size of 5 (i.e., operating on 5-mers).
+
+×
+
+l
+
+D
+o
+w
+n
+o
+a
+d
+e
+d
+
+f
+r
+o
+m
+h
+
+t
+t
+
+p
+s
+:
+/
+/
+
+i
+
+l
+
+i
+
+/
+
+/
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The pipeline uses a Convolutional Neural Network (CNN) model. This can be seen in several places throughout the text. Firstly, the term 'CNN' is explicitly mentioned in the first paragraph. Secondly, the architecture of the model is described in detail in the Appendix section, where it states that the model uses convolutional layers. These layers apply a set of parameterized kernels by convolving them across their inputs, which is a characteristic operation of CNNs. Furthermore, the model is designed to go beyond traditional independent and identically distributed (i.i.d.) models of sequence evolution and capture k-mer signatures, which aligns with the capabilities of CNNs in pattern recognition tasks.

@@ -1,0 +1,13 @@
+Answer:::
+
+The dataset used for deep learning model training was split using 5-fold cross validation, as described in section 2.5.2. of the provided context. This method involves dividing the dataset into five subsets, or folds. During each iteration of the cross validation process, one fold is used for evaluating the models, while the remaining four folds are used for training (90% of the images) and validation (10% of the images). This approach provides a robust and unbiased estimate of a model's performance, and it also helps in effective hyper-parameter tuning for improved overall performance.
+
+Before the implementation of deep learning models, all images were preprocessed by resizing them to the same resolution (227x197 pixels) and normalizing them to the [0,1] range. This preprocessing step is important for the models to perform well during training.
+
+The deep learning models used in this study were selected based on their ease for transfer learning and high performance on similar classification tasks. Six open source Convolutional Neural Networks (CNNs) were chosen, including VGG16, ResNet50, ResNet101, Inception-v3, DenseNet201, and EfficientNetB0.
+
+For model optimization, the Adam optimizer algorithm was used, along with a batch size of 10 and 100 epochs. The learning rates were chosen based on empirical trials over 100 epochs, with and without early stop approach. The early stop approach is a common technique in machine learning to halt the training process of a model prematurely if performance on a validation dataset fails to improve beyond a predefined threshold, thereby preventing overfitting and conserving computational resources.
+
+In terms of the best results, EfficientNetB0 with a learning rate of 10 showed the highest performances in accuracy, sensitivity, and f1-score, followed by Inception-v3 with the same learning rate. The confusion matrices for the remaining CNNs were also provided in Tables A.6 and A.7.
+
+In summary, the dataset was split using 5-fold cross validation, and the models were trained and validated using preprocessed images. The deep learning models were selected based on their ease for transfer learning and high performance on similar tasks, and they were optimized using the Adam optimizer algorithm, batch size of 10, and 100 epochs. The learning rates were chosen based on empirical trials, and the early stop approach was used to prevent overfitting.

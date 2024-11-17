@@ -1,0 +1,73 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The  experimental  results  suggest  that  there  might  be  room  to 
+improve the generalization capacity of the deep learning classifiers. That 
+could  be  achieved  by  better  exploiting  the  training  data,  e.g.,  with 
+additional data augmentation techniques, using recent advances in un-
+supervised learning techniques, such as self-supervised methods, or by 
+just simplifying the classifiers in terms of the number of parameters, thus 
+reducing the risk of overfitting. 
+
+Another direction for continuing this research is to exploit the clas-
+sification uncertainty further in an active learning context. The uncer-
+tainty measure could be used in interactively training the deep learning 
+models,  selecting  high-uncertainty  samples  in  the  datasets,  and 
+increasing their importance in the computation of the loss function. 
+
+CRediT authorship contribution statement
+
+The batch size was 32, and the early stopping procedure was used to 
+avoid over-fitting. The patience parameter, which controls the number 
+of epochs without improvements in the validation loss, was set to 10. 
+Each network, with a particular architecture and considering a specific 
+substratum characterization, was trained and executed three times, each 
+time with a different (random) initialization of the trainable parameters 
+and with a different data fold. As already mentioned, the results shown 
+in  the  next  section  are  averages  of  those  three  executions.  Data 
+augmentation was applied to all extracted patches: a 90∘  rotation and 
+vertical and horizontal flips. 
+
+4.4. Performance metrics
+
+The selected CNNs typically contain an encoder stage, often called a 
+feature  extractor,  which  reduces  the  spatial  resolution  of  the  input 
+through convolution and pooling operations in consecutive layers. The 
+encoder is then followed by fully connected layers of neurons that pre-
+dict the input image class based on the previously extracted features to 
+perform image classification. 
+
+After  briefly  introducing  the  chosen  CNN  architectures,  we  will 
+discuss the decision fusion process. That process is based on a decision 
+committee  that collects  the  predictions  of the  respective  CNN-trained 
+models.  We  will  also  explain  uncertainty  assessment  based  on  model 
+predictions. 
+
+3.1. VGG
+
+At  this  point,  it  is  important  to  observe  that,  if  not  considered 
+explicitly in the training procedure, such a problem (i.e., class imbal-
+ance) can introduce undesirable bias that may affect the performance of 
+a classifier, as it will be prone to predict the over-represented classes 
+more often due to the smaller impact of the errors associated with their 
+samples in computing overall accuracy. In the next section we describe 
+how we dealt with class imbalance in this work. 
+
+4.3. Experimental setup
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, while no explicit mention of specific techniques like stratified splitting, oversampling, undersampling, or diverse data collection is made, there is an indication of dealing with class imbalance. Class imbalance is one form of data bias where certain classes have more representation than others, leading to potential biases in the classifier's predictions.
+
+To mitigate this issue, the authors state that they addressed class imbalance in their work. However, the exact methodology employed is not detailed within the provided context. Therefore, while it is clear that some technique(s) were implemented to handle data bias related to class imbalance, the precise strategies remain unknown from the information available.

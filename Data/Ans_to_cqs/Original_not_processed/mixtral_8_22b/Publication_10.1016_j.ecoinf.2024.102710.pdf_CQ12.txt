@@ -1,0 +1,79 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4 https://github.com/HKathman/pam_annotation_experiments
+5 https://github.com/kahst/BirdNET-Analyzer/tree/main/checkpoints/V2.4
+6 https://tfhub.dev/google/vggish/1
+7 https://tfhub.dev/google/yamnet/1
+8 tensorflow.keras.applications.vgg16.VGG16(weights=’imagenet’).
+9 tensorflow.keras.applications.resnet_v2.ResNet152V2
+
+(weights=’imagenet’).
+
+Fig. 4. UMAP plots for different embedding layers of different embedding
+models for AnuraSet. For UMAP generation, we randomly select 5000 samples
+and discard all samples that are aligned to more than one class. Colors and
+shapes indicate the 10 classes with the highest occurrence frequency. Layers are
+numbered according to their distance from the classification layer, e.g. ‘Bird-
+Net-1’ is the last layer before the classification layer of the BirdNet model.
+
+EcologicalInformatics82(2024)1027105H. Kath et al.
+
+2.2.1. Model architectures
+
+Following Dufourq et al. (2022), we test ResNet152-V2 (He et al.,
+2016) and VGG16 (Simonyan and Zisserman, 2015); these are CNNs pre-
+trained on ImageNet (Deng et al., 2009), a dataset on the visual mo-
+dality. VGGish, a variant of VGG11A (Simonyan and Zisserman, 2015),
+and YAMNet, a MobileNet-V1 network (Howard et al., 2017), were pre-
+trained on AudioSet (Gemmeke et al., 2017), a dataset from the same
+target modality (audio) but a different domain (YouTube sound clips).
+BirdNet (Kahl et al., 2021) was trained on data from the target modality
+(audio) and a related domain (bird vocalisations from focal recordings,
+also annotated at species level).
+
+2.2.2. Model layers
+
+evaluation was done on focal and citizen-science datasets. Swaminathan
+et al. (2024) extend the observation to attention-based architectures pre-
+trained on human speech. Lauha et al. (2022) show that transfer
+learning can be helpful also for small networks trained from scratch on
+small, targeted datasets gathered from online resources such as Mac-
+aulay Library2 (as opposed to foundation models trained on large
+datasets). While the works cited above evaluate transfer learning models
+based on classification performance, McGinn et al. (2023) take a
+different approach and investigate the topology of fine grained, sub-
+species sound events in the embedding space afforded by BirdNet;
+they find that different call types of a same species (e.g., drumming
+versus vocalization) form distinct clusters, and that the vicinity of each
+
+Deep neural networks learn multiple representations of different
+levels of abstraction: the first layers reflect low level input features,
+while the last layers capture structure more directly related to the pre-
+dictions output by the model (Bengio, 2009). We evaluate embeddings
+at different layers within the CNNs. For VGG16 we investigate the last
+three layers before the final classification layer (‘fc2’,
+‘fc1’, and
+‘flatten’). For ResNet152-V2 we only investigate the last embedding
+layer (‘avg_pool’). Considering our future goal of implementing a real-
+time pipeline with transfer learning and active learning, we decide not
+to explore further layers of both visual domain models due to their large
+dimensionality (100,352 for both models). Since the models pre-trained
+on AudioSet were designed to be used as feature extractors, we only use
+the last layer for VGGish and the penultimate layer for YAMNet. For
+BirdNet we investigate the last three embedding layers, batch normali-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The pipeline uses Convolutional Neural Networks (CNNs) as its primary deep learning model. Specifically, it tests two popular CNN architectures - ResNet152-V2 and VGG16 - which have been pre-trained on ImageNet, a dataset on the visual modality. Additionally, other variants like VGGish and YAMNet, based on VGG11A and MobileNet-V1 respectively, have been employed. These models were pre-trained on AudioSet, a dataset from the audio modality. Furthermore, BirdNet, another CNN architecture, has been utilized, which was specifically trained on bird vocalizations from focal recordings. The choice of using CNNs is likely because they excel in processing grid-like topologies, making them suitable for image or audio data.

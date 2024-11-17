@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+training fashion, where the data labels are not utilized, the generative
+model is frozen and detached and exclusively employed to extract fea-
+tures for both training and testing data, following the representation
+learning literature (D'inc`a et al., 2023; Franceschini et al., 2022; Kor-
+omilas and Giannakopoulos, 2021; Paoletti et al., 2021d; Paoletti et al.,
+2022a). These features are then used to train an MLP.
+
+During the training and validation of the models, a stratified train-
+test split was employed. This procedure is particularly beneficial for
+imbalanced datasets as it maintains the proportion, in our case 80%–
+20%, for each class of the original dataset. This means that every class
+have approximately 80% of its samples in the train set and approxi-
+mately 20% in the validation set. This ensures that all classes participate
+in both the training and validation phases of the model. However, this
+stratified train-test split was not applied to the dataset composed of
+trajectories of length 13, but rather to the original trajectories of vari-
+able length. This was done to ensure that each trajectory belongs
+exclusively to either the train or validation splits, but not both. As a
+consequence, in terms of fixed-length trajectories, each with a length of
+13, we obtained 13,489 samples in training and 3448 samples in
+validation.
+
+5.1. Methods employed for comparisons
+
+During the training of the MLP, Adam optimizer (Kingma and Ba,
+2015) is used, as well as the scheduler which adjusts the learning rate
+when the network reaches a plateau. For the training, various parameter
+values and different regularization techniques were explored, with the
+option of using either Cross-Entropy or Focal Loss (Lin et al., 2017). In
+detail, the learning rate was set to 0.00001 and 0.0001, batch sizes of 8,
+16, 32, and 64 were tested, and weight decay was varied between
+0.0001 and 0.001 with a dropout of 0.1. Additionally, Focal Loss (Lin
+et al., 2017) introduce additional parameters to investigate: α and γ. The
+former serves as a balancing factor, either as a fixed value for all classes
+or as the inverse of each class frequency. The latter regulates the impact
+of the scaling factor; specifically, when set to zero, Focal Loss is equiv-
+alent to Cross-Entropy Loss. We experimented with α set as the inverse of
+
+During training, the diffusion model is provided with a dataset
+comprising trajectories of fixed length. Determining the appropriate
+length of these trajectories is a non-trivial task, as it can significantly
+impact the performance of the final model. To address this, we initially
+plotted the histogram of the original trajectory lengths and extracted
+statistics including the minimum, maximum, average, and median
+lengths. The analysis revealed that the majority of trajectories have a
+length of 13. Consequently, we established a standard trajectory length
+of 13 for our model. After segmenting the trajectories into fixed lengths
+of 13, we discard segments shorter than 6 detections. For segments with
+6 to 12 detections, we replicate their data points until they reach the
+required length of 13. Finally, we scale each coordinate of the fish
+detection within the range of [(cid:0) 1,1].
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: During the training and validation of the models, a stratified train-test split was employed. This procedure is particularly beneficial for imbalanced datasets as it maintains the proportion, in our case 80%–20%, for each class of the original dataset. This means that every class has approximately 80% of its samples in the train set and approximately 20% in the validation set. This ensures that all classes participate in both the training and validation phases of the model. However, this stratified train-test split was not applied to the dataset composed of trajectories of length 13, but rather to the original trajectories of variable length. This was done to ensure that each trajectory belongs exclusively to either the train or validation splits, but not both. As a consequence, in terms of fixed-length trajectories, each with a length of 13, we obtained 13,489 samples in training and 3448 samples in validation.

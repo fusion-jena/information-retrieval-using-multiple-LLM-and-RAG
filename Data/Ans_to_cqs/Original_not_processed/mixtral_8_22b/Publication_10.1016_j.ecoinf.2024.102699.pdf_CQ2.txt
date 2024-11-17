@@ -1,0 +1,109 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+inputs are fed into our models’ encoding process to perform a corre-
+sponding image classification (Dosovitskiy et al., 2021; Vaswani et al.,
+2017).
+
+In ecology, changes in environmental conditions are often closely linked to shifts in species diversity. This
+relationship can be investigated by analyzing avian vocalizations, which are robust indicators of trends in
+biodiversity. Within this contribution, we explored various data augmentation techniques and deep learning
+strategies for the classification of birdsong within natural soundscapes. For this purpose, we employed three
+fundamental deep neural network architectures, such as vision transformers, to classify 397 different bird spe-
+cies. To improve both the accuracy and generalizability of our models, we incorporated up to 19 well-established
+data augmentation techniques commonly used in audio classification. This included an iterative selection process
+where only augmentations that enhanced classification performance were selected. The primary augmentation
+technique involved the integration of various noise samples and non-bird audio elements, which significantly
+
+Table 2
+Overview of our augmentation strategies, their IDs, and related information. For DenseNet-161 and ViT-B/16, their training times are provided in minutes per epoch
+for the different augmentation methods. For IDs 5 and 6, we added noise of the bird audio detection data set from the DCASE challenge (Berger et al., 2018; Himawan
+et al., 2018; Liaqat et al., 2018), which is abbreviated as BAD.
+
+Data augmentation
+
+Time domain
+
+Frequency domain
+
+Spectrogram
+
+Training time [min. / epoch]
+
+DenseNet-161
+
+ViT-B/16
+
+Gaussian noise
+Pink noise (background)
+Primary background noise soundscapes
+Secondary background noise soundscapes
+Primary background noise (BAD)
+Secondary background noise (BAD)
+Background noise (e.g., wind, thunder, or aircrafts)
+Mixed up random bird species
+Horizontal roll
+Vertical roll
+Pitch shift
+Time mask
+Frequency mask
+Gain
+Loudness normalization
+Horizontal flip
+Vertical flip
+Time stretch
+tanh-based distortion
+
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+
+✓
+
+✓
+✓
+
+✓
+
+2.4. Model architecture
+
+The proposed model architectures are based on DenseNet-161
+(Huang et al., 2017) and ResNet-50 (He et al., 2016a, 2016b) as well
+as different vision transformers (ViT) (Dosovitskiy et al., 2021; Steiner
+et al., 2022) for sound event detection.
+
+The design of our SED models is inspired by the 2019 DCASE
+workshop and large-scale PANNs for audio pattern recognition (Kong
+et al., 2019). DenseNets are utilized to improve the information flow
+
+7 AudioSet project page, https://research.google.com/audioset/
+
+html
+
+8 librosa project page, https://librosa.org/doc/latest/index.
+
+EcologicalInformatics82(2024)1026996A.S. Kumar et al.
+
+Fig. 3. Comparison of different augmentation methods and their combinations in Table 4 using DenseNet-161 and ViT-B/16. Additionally, plot marks for the
+conducted experiments and their results are provided.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The paper discusses the use of deep learning strategies for the classification of birdsong within natural soundscapes. It employs three fundamental deep neural network architectures, including vision transformers, to classify 397 different bird species. The authors incorporate up to 19 well-established data augmentation techniques commonly used in audio classification. These include integrating various noise samples and non-bird audio elements.
+
+From these details, it can be inferred that the input data format used in the deep learning pipeline is primarily audio. However, since vision transformers are also mentioned as one of the employed architectures, it suggests that the audio data might have been converted into spectrogram images before being fed into the models. Spectrograms are visual representations of the spectrum of frequencies of a signal as they vary with time. Therefore, the data formats used in the deep learning pipeline would likely be audio and possibly spectrogram images derived from the audio files.

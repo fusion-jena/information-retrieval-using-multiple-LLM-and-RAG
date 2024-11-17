@@ -1,0 +1,75 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+respectively.  N  represented  the  number  of  images  in  the  test  set  or 
+validation set. 
+
+2.2.6. Model training and hyper-parameters 
+
+We  trained  models  on  the  training  sets  and  tracked  the  model 
+training process on the validation set. The training process was stopped 
+when  the  loss  value  of  the  model  on  the  validation  set  no  longer 
+decreased. We then tested the model performance on the test set. Our 
+computing platform was a Dell PowerEdge C4130 rack server with two 
+Tesla  K80  GPUs  and  256  GB  of  memory.  For  the  deep  learning  envi-
+ronment,  we  utilized  the  PyTorch  1.7.1  platform.  We  employed  the 
+Stochastic Gradient Descent (SGD) optimizer with a momentum value of 
+μ  = 0.9 to train the model. Other hyper-parameter settings for model 
+training were shown in Table S.4 of the Supporting Information. 
+
+3. Results 
+
+3.1. Experiment results of transfer strategy optimization
+
+When it comes to selecting update layers, we recommend selectively 
+updating the last few layers of the DCNN model to enhance its perfor-
+mance in empty image recognition. This approach can lead to a signif-
+icant  improvement  in  the  model’s  performance,  as  opposed  to  solely 
+updating  the  fully  connected  layer.  Specifically,  when  using  a  model 
+from  the  ResNext  or  ResNet  family  pre-trained  on  ImageNet  as  the 
+source model, we recommend using TLS_4 as the transfer strategy. In 
+contexts where pronounced discrepancies exist between the target and 
+source  domain  datasets,  it  could  prove  advantageous  to  augment  the 
+number of convolutional layers subject to update. For example, in the 
+case  of  ResNext  series  models,  using  TLS_3  can  further  enhance  the 
+performance of the transfer model.
+
+We  used  the  ResNext-101  model  to  systematically  study  transfer 
+learning techniques. This model combines the advantages of the ResNet 
+and InceptionV3 models, which are widely used for the empty image 
+recognition task. Our proposed optimal update layer schemes based on 
+the ResNext-101 model can be applied to any member of the ResNext 
+family  (i.e.,  ResNext-X,  where  X  = 18,  34,  50,  101,  152,  etc.).  We 
+speculate that these schemes are also suitable for models of the ResNet 
+family (i.e., ResNet-X, where X = 18, 34, 50, 101, 152, etc.), but further 
+validation is still needed in practical projects.
+
+2.2.3. Data splitting 
+
+Based on the conceptual model mentioned above, we split the data to 
+construct  the  source  and  target  domain  datasets  to  carry  out  transfer 
+learning experiments.  For the  ImageNet  dataset, we directly  used the 
+pre-trained model on ImageNet-1 k as the source model, so there was no 
+need to split the dataset. Both the SS and the LSM dataset are camera 
+trap  image  datasets.  Each  time  the  camera  is  triggered,  it  captures 
+multiple images in succession, called a capture event. A capture event 
+frequently  comprises  three  images.  Notably,  images  within  the  same 
+event are significantly similar to each other. Splitting the images in an 
+event into training and test sets may lead to poor generalization of the 
+DCNN  model. To  prevent  this, we kept  the integrity  of events  during 
+data splitting, putting all images of an event into the same dataset.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information about specific data augmentation techniques such as flipping, rotation, scaling, etc., that have been applied in the deep learning pipeline. However, it mentions that increasing the number of convolutional layers subject to update might be beneficial in cases where significant differences exist between the target and source domain datasets. This statement suggests that some form of data augmentation might have been considered while designing the deep learning pipeline, although the exact methods remain unclear from the provided context.

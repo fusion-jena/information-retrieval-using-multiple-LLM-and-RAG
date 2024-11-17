@@ -1,0 +1,87 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+optimizer (SGD) with a learning rate of 0.5 and momentum
+of 0.9. All models were trained on a training set within 10
+and 100 epochs (iterations).
+Fine-Tuning: We un-froze the base models and trained the
+weights of the top layers of these models along with the
+classiﬁer layer added in the previous step. The models were
+trained in 10 iterations to force the weights to be tuned from
+generic feature maps to feature associated with the leaf dataset.
+For a fair comparison, both V2 and V3 models were trained
+with the same dataset and training parameters, i.e. 235,704.
+The models were ﬁne-tuned and re-evaluated. The models
+were saved in the machine with all the class labels.
+
+models, pre-trained on 1.4M images from 1000 classes. First,
+the intermediate layer of all the models was selected to use
+for feature extraction. For this purpose, the output of the last
+layer (bottleneck layer) is commonly used prior to the ﬂatten
+operation. The reason is that all the fully connected layers
+are specialized to the task network was trained on; thus, the
+features learned by these layers will not be useful for the new
+task. The bottleneck features are more generic. Therefore, the
+base models were frozen, loaded with weights trained on the
+ImageNet dataset and used as a feature extractor. We added
+a dropout layer with a dropout rate of 0.2 to reduce the
+overﬁtting of the model. Finally, the top classiﬁer softmax
+layer was added for predicting the class for an input image.
+The model with the base model of MobileNetV2 was compiled
+and optimized with Adam optimizer. The other with the base
+model of MobileNetV3 were optimized with Gradient descent
+
+CNN comes with the disadvantages of a huge number
+of labelled training samples requirement for weighting pa-
+rameters and powerful GPUs for a faster learning process.
+With limited training samples, learning too many parameters
+directly will result in overﬁtting even after using over-ﬁtting
+prevention techniques such as Dropout [7]. Overﬁtting of a
+machine learning model includes more terms and uses more
+complicated approaches than necessary [8]. To make deep
+CNN ﬁt for small datasets while keeping high accuracy is
+a challenge. To overcome this challenge, transfer learning [9]
+offers the solution, which implies reusing previously attained
+knowledge in similar tasks. Some studies analyzed the use
+of transfer learning for many deep learning algorithms. These
+evaluations [10] concluded that transfer learning improves the
+accuracy of deep learning models, which apply deep features
+and ﬁne-tuning.
+
+A. Transfer Learning from Pre-trained Models
+
+When data used to train deep learning networks is not
+enough, and it is expensive to create labelled data, transfer
+learning, a promising paradigm,
+is applied to acquire the
+knowledge learned in previous settings. The most common
+strategies of transfer learning are feature extraction and ﬁne-
+tuning. For feature extraction, input data is provided to the
+pre-trained model, and activation values of many layers are
+stored to use as features. For ﬁne-tuning, the initial layers
+of the model are ﬁxed, and the ﬁnal layers of the model
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on August 29,2024 at 05:51:17 UTC from IEEE Xplore.  Restrictions apply. 
+
+Fig. 1. Transfer Learning of MobileNet-based Model for Leaf Classiﬁcation.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, two optimization techniques are mentioned for training the deep learning models - Stochastic Gradient Descent (SGD) and Adam.
+
+The first model, based on MobileNetV2, is optimized using the Adam optimizer. Adam is a popular optimization algorithm used in deep learning due to its ability to adaptively adjust the learning rate for each parameter. It combines the advantages of AdaGrad and RMSProp, providing an efficient method for gradient-based optimization of stochastic objective functions.
+
+On the other hand, the second model, based on MobileNetV3, is optimized using Stochastic Gradient Descent (SGD) with a learning rate of 0.5 and momentum of 0.9. SGD is another widely used optimization technique in deep learning. It updates the model parameters based on the average of gradients computed on randomly chosen individual examples from the training dataset. Momentum is often used alongside SGD to help accelerate convergence by accumulating past gradients and moving faster towards the optimal solution.
+
+Both models are trained within 10 to 100 epochs, allowing them to learn from the training data multiple times and improve their performance. Additionally, fine-tuning is performed on the models to further enhance their performance on the specific leaf classification task. Fine-tuning involves unfreezing the base models and retraining the weights of the top layers along with the classifier layer added earlier. This allows the models to tune their weights from general feature maps to those specifically associated with the leaf dataset.

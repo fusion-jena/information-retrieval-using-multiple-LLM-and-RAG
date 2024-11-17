@@ -1,0 +1,208 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Execution Time
+
+All runtimes reported in this section were measured on the Google Colab repository
+with a CPU running at 2.30GHz. Table 10 presents a detail of the runtime for each CNN
+model. The training runtime for VGG16, Xception, and ResNet50 is 22.27, 21.26, and
+30.8 min, respectively. Additionally, the prediction runtime for these models is 0.803,
+0.827, and 1.835 s, respectively. The training runtime for DenceNet121 and the proposed
+model is 18.34 and 16.43 min, and the prediction runtime is 4.134 and 0.976 s, respectively.
+Accordingly, the computation overhead varies from one model to another. However,
+PHE data are signiﬁcantly fast during both training and prediction and therefore the
+computation overhead of the proposed encryption schema is low.
+
+Remote Sens. 2021, 13, 2221
+
+21 of 26
+
+Figure 9. Training accuracy of different CNN models.
+
+Table 10. CNN models’ run-time.
+
+CNN Models
+
+Training Run-Time
+
+Prediction Run-Time
+
+Table 3. CNN Architecture.
+
+No.
+
+Layers
+
+Output Shape
+
+Parameters
+
+Dropout Rate
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+
+Input
+Convolutional
+Activation (ReLu)
+MaxPooling
+Convolutional
+Activation (ReLu)
+MaxPooling
+Convolutional
+Activation (ReLu)
+MaxPooling
+Dropout
+Flatten
+Fully Connected
+Activation (ReLu)
+Fully Connected
+Activation (softmax)
+
+128 × 128 × 3
+128 × 128 × 32
+—
+64 × 64 × 32
+64 × 64 × 32
+—
+32 × 32 × 32
+32 × 32 × 64
+—
+16 × 16 × 64
+16 × 16 × 64
+16,384
+64
+—
+4
+—
+
+—
+896
+—
+—
+9248
+—
+—
+18,496
+—
+—
+—
+—
+1,048,640
+—
+—
+260
+
+—
+—
+—
+—
+—
+—
+—
+—
+—
+—
+0.4
+—
+—
+—
+—
+—
+
+4.2.1. Data Augmentation
+
+Remote Sens. 2021, 13, 2221
+
+18 of 26
+
+Figure 6. Sample image data augmentation. (a) Rotation results; (b) Zoom results; (c) Shearing results; (d) Horizontal shift
+results; (e) Vertical shift results; (f) brightness results; (g) Horizontal ﬂip results; (h) Vertical ﬂip results.
+
+Remote Sens. 2021, 13, 2221
+
+19 of 26
+
+Figure 7. Model accuracy over plain data. (a) Training accuracy; (b) Validation accuracy.
+
+Figure 8. Model accuracy over encrypted data. (a) Training accuracy; (b) Validation accuracy.
+
+14.847.044
+29.916.844
+31.924.484
+8.002.756
+
+A comparison of the CNN models’ classiﬁcation accuracy, as obtained when trained
+on encrypted images, is presented in Table 9. The results show good classiﬁcation accuracy
+of all the pre-trained CNN models. As we note, DenseNet121 achieved the best accuracy
+among the four models, with an accuracy of 93.36% for training, 90.93% for validation and
+90.5% for testing.
+
+Table 9. Comparison of classiﬁcation accuracy between pre-trained CNN models using encrypted images.
+
+CNN Models
+
+Training Accuracy
+
+Validation Accuracy
+
+Prediction Accuracy
+
+VGG16
+Xception
+ResNet50
+DenseNet121
+The proposed model
+
+89.52%
+92.65%
+93.36%
+93.36%
+94.04%
+
+90%
+90.93%
+90.93%
+90.93%
+94.30%
+
+89%
+89.17%
+89.8%
+90.5%
+90.92%
+
+Figure 9 illustrates the training accuracy of the ﬁve CNN models: both the one we
+propose and the four pre-trained ones. We note that our proposed model provides better
+training accuracy compared to all four pre-trained CNN models.
+
+Execution Time
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, the performance of the deep learning models was evaluated using three main metrics: training accuracy, validation accuracy, and prediction accuracy. These metrics measure how well the models can correctly classify or predict the target variable based on the input features. Specifically, training accuracy measures the percentage of correct predictions made by the model on the training dataset, while validation accuracy evaluates the model's ability to generalize its learned patterns to new unseen data. Prediction accuracy, on the other hand, assesses the model's performance on real-world test data. In addition to these metrics, execution time was also considered as a factor affecting the overall efficiency of the models.

@@ -1,0 +1,57 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+WT-HMM using varying dataset sizes over 10 runs.
+
+Sequel to training the two HMMs independently, HMM1 and HMM2 
+are combined to form an ergodic-type HMM with 8 states and 4 mixture 
+weights. One of the HMMs is represented by the first 1–4 states, and the 
+other  HMM  is  represented  by  the  following  5–8  states.  Specifically, 
+states 1–4 depict the waveform of blue whale vocalizations while states 
+5–8  represent  the  noise  signal.  Subsequently,  the  feature  vectors 
+extracted from the test datasets are updated using the trained Gaussian 
+parameters to produce refined feature vectors. The V-alg employs these 
+refined feature vectors, along with T  and π, to classify the test dataset as 
+either blue whale vocalizations or noise. It is noteworthy that that the V- 
+alg switches from states 1–4 to states 5–8 with equal transition proba-
+bilities. Table 1 shows the parameters used for WT-HMM simulation. 
+
+3.2. Performance evaluation metrics
+
+∑
+
+emission  distribution parameters,  B ,  comprises of  three  components: 
+the mean, μ, the covariance matrix, 
+, and the mixture weight, σ. The 
+B  parameters are obtained utilizing the expectation-maximization (EM) 
+algorithm,  with  the  Baum-Welch (BM)  algorithm  (Baum  et  al.,  1970) 
+being a typical example of the EM algorithm. It is important to note that 
+the B  parameters assume a constant value at the initiation of the EM 
+process.  This  can  significantly  impact  the  convergence  of  the  HMM 
+training  algorithm.  Hence,  the  B  parameters  are  initialized  using  a 
+sequential  combination  of  the  k-means  clustering  algorithm  (Forgy, 
+1965) and the Gaussian Mixture Model (GMM) (Brown and Smaragdis, 
+2009), as illustrated in Fig. 6.
+
+Furthermore,  the  comparison  between  recording  months  provides 
+valuable insights into the tradeoffs  associated with dataset size  selec-
+tion. The superior performance of the WT-HMM in the 8 to 20-h dataset 
+size  range  for  both  months  suggests  the  most  suitable  range  for 
+achieving  high  accuracy.  This  finding  resonates  with  studies  empha-
+sizing the importance of selecting appropriate sample sizes for effective 
+model training (Kahl et al., 2021).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information on the specific hyperparameters such as learning rate or optimizer used in a deep learning model. Instead, it discusses the use of a Weighted Time-domain Hidden Markov Model (WT-HMM) for classifying blue whale vocalizations and noise signals. The WT-HMM consists of eight states and four mixture weights, where states 1-4 represent one HMM and states 5-8 represent another HMM. The emission distribution parameters, B, include the mean, covariance matrix, and mixture weight, which are obtained using the expectation-maximization (EM) algorithm, specifically the Baum-Welch (BM) algorithm. The B parameters are initialized using a sequential combination of the k-means clustering algorithm and the Gaussian Mixture Model (GMM). However, no explicit mention of deep learning hyperparameters like learning rate or optimizer was found in the provided context.

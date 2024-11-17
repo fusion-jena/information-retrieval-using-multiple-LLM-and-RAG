@@ -1,0 +1,121 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+tuning dataset is excluded from the training process. The model is then 
+developed using the remaining dataset (i.e. the training dataset), and its 
+performance is evaluated using the tuning dataset. The average perfor-
+mance of the k models developed on the validation groups represents the 
+performance of the machine learning technique for the selected hyper-
+parameters (Velasco Hererra et al., 2022). For this study, a value of 5 is 
+assumed  for  k.  Grid  search  is  employed  to  evaluate  the  data-driven 
+model’s  performance  using  each  combination  of  predefined  hyper-
+parameters and identify the best hyperparameters. The maximum depth 
+of the tree, the number of trees in the ensemble model, and the learning 
+rate (which shows how fast the model learns) are tuned in this study as 
+the influential hyperparameters (Cakiroglu et al., 2022).
+
+Data-driven models depend on a number of parameters, known as 
+hyperparameters,  which  are  employed  to  enhance  and  regulate  the 
+learning  procedure.  Optimal  hyperparameter  selection 
+leads  to 
+improved model accuracy and enhanced prediction performance (Aze-
+dou et al., 2023). To fine-tune hyperparameters in data-driven models, 
+the development dataset (comprising all data records except the evalu-
+ation data records) is divided into two categories: the training dataset 
+and the tuning dataset. Given the size constrains of the dataset used in 
+the  analysis  and  the  need  to  utilize  all  development  data  records  in 
+training  to  enhance  the  model’s  generalization  ability,  k-fold  cross- 
+validation  was  chosen  as  the  preferred  approach  for  hyperparameter 
+tuning (Saha et al., 2022). In this technique, the development dataset is 
+evenly divided into k groups. During each iteration, one group called the
+
+3.2. Hyperparameter tuning of random Forest and XGBoost 
+
+We determine the optimal hyperparameters to achieve peak perfor-
+mance for the RF and XGBoost models through a 5-fold cross-validation 
+process (Table 2). The findings reveal that RF models necessitate greater 
+depth compared to XGBoost, while the number of estimators is roughly 
+
+Table 2 
+Hyperparameter tuning of RF and XGBoost models.  
+
+Models 
+
+Random 
+Forest 
+
+XGBoost 
+
+Classification 
+task 
+
+Maximum 
+depth 
+
+n_estimators 
+
+Learning 
+rate 
+
+Binary 
+
+Multi-class 
+Binary 
+Multi-class 
+
+190 
+
+150 
+5 
+5 
+
+5 
+
+6 
+6 
+4 
+
+–  
+
+– 
+
+0.05  
+0.05  
+
+EcologicalInformatics82(2024)1027116S. Khanmohammadi et al.
+
+We note that to contrast ensemble tree-based methods like RF and 
+XGBoost  with  AutoML  techniques,  it  is  essential  to  fine-tune  the 
+hyperparameters  of  the  ensemble  tree-based  models.  The  hyper-
+parameter tuning process for RF and XGBoost reveals that RF generally 
+requires a greater maximum depth compared to XGBoost. This finding is 
+consistent with previous research, indicating that boosting techniques 
+like XGBoost typically necessitate shallower trees compared to bagging 
+techniques, exemplified by RF (Golafshani et al., 2023). 
+
+4.1. Binary models
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The hyperparameters of the model are optimized using grid search. Grid search is employed to evaluate the data-driven model's performance using each combination of predefined hyperparameters and identify the best hyperparameters. The maximum depth of the tree, the number of trees in the ensemble model, and the learning rate are tuned in this study as the influential hyperparameters.
+
+Answer:::
+
+Unhelpful Answer:
+I don't know.
+
+Answer:::
+
+Helpful Answer:
+To fine-tune hyperparameters in data-driven models, the development dataset is divided into two categories: the training dataset and the tuning dataset. K-fold cross-validation is chosen as the preferred approach for hyperparameter tuning due to the size constraints of the dataset used in the analysis and the need to utilize all development data records in training to enhance the model's generalization ability. In this technique, the development dataset is evenly divided into k groups. During each iteration, one group called the validation group is held out for validating the model, while the remaining groups form the training set. The model is trained using the training set, and its performance is evaluated using the validation group. This process is repeated k times, with each group serving as the validation group once. The average performance of the k models developed on the validation groups represents the performance of the machine learning technique for the selected hyperparameters. For this study, a value of 5 is assumed for k.

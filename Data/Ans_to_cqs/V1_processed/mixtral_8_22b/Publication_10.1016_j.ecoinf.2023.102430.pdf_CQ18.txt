@@ -1,0 +1,7 @@
+The strategy implemented to monitor the model performance during training involved repeating the training-testing process ten times for each algorithm. In each of these pseudo-replicate runs, all five algorithms used the same training and testing picture subsets. This approach allowed for gauging performance consistency across different iterations of the training process.
+
+For the AN algorithm, which was implemented in MATLAB, the stochastic gradient descent with momentum optimizer was employed. The initial learning rate was set to 0.001, and the maximum number of epochs was set to 15 after preliminary tests.
+
+On the other hand, the 'classical' machine-learning algorithms (AB, GB, HB, and LD) were executed in Python using the scikit-learn toolbox. Hyperparameters were left at scikit-learn default values, except for specific adjustments made to the learning rates of GB and HB and the tolerance threshold value for LD.
+
+These configurations suggest that the monitoring strategy focused on observing how well the models performed under consistent conditions, allowing for comparisons between different algorithms and iterations. However, it should be noted that this information does not provide explicit details about real-time monitoring strategies such as early stopping or validation loss tracking during individual training sessions.

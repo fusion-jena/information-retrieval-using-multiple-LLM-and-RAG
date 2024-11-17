@@ -1,0 +1,62 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+(IDRIS). A full description of the model architecture, dataset spatial split 
+and training procedure can be found in supplementary information (SI) 
+Box A. Finally, the settings of our species assemblage model are sum-
+marised in the Fig. 1.
+
+2.1.2. Predictive features 
+
+A large environmental context around each observation is collected 
+and provided to the model: 64 × 64 2D tensors sampled at the kilometre- 
+scale  resolution  and  centred  on  the  observation.  Predictors  include 
+WorldClim2  bioclimatic  variables,  Soilgrids  pedological  variables, 
+human  footprint  rasters,  terrestrial  ecoregions  of  the  world  and  the 
+observation location (longitude and latitude), see SI Box E for details. 
+Examples of input are shown in Fig. S5 and the full list of predictors is 
+given in Table S2. 
+
+2.2. Species assemblage model 
+
+2.2.1. Definition
+
+Fig. 1. Method summary scheme. The orchid observation set of 999,258 occurrences from 14,129 species (Section 2.1.1 and Box D) is enriched with predictive 
+features: WorldClim2 bioclimatic variables, Soilgrids pedological variables, Human Footprint rasters, terrestrial ecoregions of the world and location (description Box 
+E, list Table S2 and examples Fig. S5). Next, the Inception v3 model (Szegedy et al., 2016) is first trained with the observation set (Section 3.1.1). Secondly, it is used 
+to predict the most likely species assemblages on a global regular grid of 30-s resolution (Section 2.4.1). The calibration step, which determines the threshold λ on the 
+relative probability of species presence, is described theoretically in Section 2.2.2 and set in Section 3.1.2. When the model is provided with a predictor tensor in 
+inference, the final output is the associated species assemblage Sλ.
+
+After validating and calibrating the model on the validation set for 
+predicting species assemblages, a new training is started from scratch on 
+the entire dataset. It stops at the best epoch previously determined on 
+the  validation  set  (epoch  69).  The  aim  is  to  obtain  the  best  possible 
+model  weights  before  global-scale  inference.  Finally,  the  species  as-
+semblages  are  post-processed.  i)  Predictions  outside  the  continents 
+where species are known to occur (according to our observation dataset) 
+are removed, and ii) conditional probabilities associated with orchids 
+are normalised, see SI Box B for more details and resulting maps. 
+
+3.2. ℐO  indicator: Most critical status of the species in the assemblage 
+
+3.2.1. Global patterns
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: After the model has been trained and validated for predicting species assemblages, there are two main post-processing steps involved:
+
+1. Removal of predictions outside the continents where species are known to occur: This step involves removing any predictions made by the model that fall outside the geographical areas where the observed species are known to exist according to the available data. This helps ensure that the model's predictions are accurate and relevant to the specific regions being studied.
+2. Normalization of conditional probabilities associated with orchids: Once the irrelevant predictions have been removed, the next step is to normalize the conditional probabilities associated with orchids. This process ensures that the predicted probabilities accurately reflect the likelihood of observing different species within their respective habitats. More details about this step and the resulting maps can be found in Supplementary Information Box B.
+
+In summary, the post-processing steps involve removing irrelevant predictions and normalizing the conditional probabilities associated with orchids to improve the accuracy and relevance of the model's predictions.

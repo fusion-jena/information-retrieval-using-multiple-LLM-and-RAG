@@ -1,0 +1,77 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.4. Statistical Analyses
+
+We used Python [35] and fastai [30] for developing the deep learning CNN. We used
+R [36] for all statistical analyses, using packages sf [37] and raster [38] for data manipulation;
+ggplot2 [39], rasterVis [40] and cowplot [41] for plotting. We also used R for designing
+the website AusDams.org, using Shiny [42], Leaﬂet [43], Plotly [44] and using Joe Cheng’s
+Superzip template (https://shiny.rstudio.com/gallery/superzip-example.html).
+
+3. Results
+3.1. Reported Farm Dams
+
+There were 1,694,675 farm dams reported by regional and Federal authorities in
+Australia. The majority of farm dams were in New South Wales (37%), Victoria (26%),
+Queensland (17%) and Western Australia (10%; Table S1). Around three-quarters of Aus-
+tralia recorded at least one dam per 2000 km2, but the typical density near urban centres
+was 2–5 farm dams per km2 (Figure 2). The average size of a dam was ca. 1000 m2, ranging
+from 100 m2 to >105 m2 (Figure 3).
+
+3.2. Data Veriﬁcation
+
+We trained our deep learning CNN on 7362 labelled images using the same parameters
+detailed above, and we achieved an error rate of 0.1195 (11.95%) with a training loss of
+0.3462 and a validation loss of 0.2847. We further ﬁne-tuned the model by unfreezing the
+entire model and training at a 10-fold lower learning rate (10−4). The ﬁnal model achieved
+an accuracy of 94.8% (error rate of 5.2%) with a training loss of 0.1397 and a validation loss
+of 0.1446 with ten epochs (see confusion matrix in Figure S1).
+
+2.2.2. Correcting for False Positives
+
+Locations falsely classiﬁed as containing a dam (i.e., false positives, or commission
+error) act to overpredict the real number of dams in Australia. Therefore, we calculated
+the probability of false positives by using our deep learning CNN to analyse and validate
+ca. 2000 dams in each State and Territory sampled from our compiled database. To do so,
+
+Remote Sens. 2021, 13, 319
+
+4 of 15
+
+Supplementary Materials: The following items are available online at https://www.mdpi.com/20
+72-4292/13/2/319/s1. Figure S1: Confusion matrix for farm dam detection with our deep learning
+CNN. Figure S2: The surface area of unreported dams used to estimate their median water capacity.
+Figure S3: Examples of undocumented farm dams that were identiﬁed with our deep learning CNN.
+Figure S4: Step-by-step graphical diagram for the methods to calculate the absolute and relative
+rates in the construction of Australian farm dams. Figure S5: Predicted probability for a successful
+veriﬁcation (true positive) for each dam in our dataset. Figure S6: Estimated rates of annual increase
+in dam densities between the years 1988 and 2015 in each State and Territory of Australia. Figure S7:
+Historical trends in farm dam size with year of construction for each State and Territory. Table S1:
+Summary table for all farm dam datasets used in this study.
+
+Abstract: Farm dams are a ubiquitous limnological feature of agricultural landscapes worldwide.
+While their primary function is to capture and store water, they also have disproportionally large
+effects on biodiversity and biogeochemical cycling, with important relevance to several Sustainable
+Development Goals (SDGs). However, the abundance and distribution of farm dams is unknown
+in most parts of the world. Therefore, we used artiﬁcial intelligence and remote sensing data to
+address this critical global information gap. Speciﬁcally, we trained a deep learning convolutional
+neural network (CNN) on high-deﬁnition satellite images to detect farm dams and carry out the
+ﬁrst continental-scale assessment on density, distribution and historical trends. We found that in
+Australia there are 1.765 million farm dams that occupy an area larger than Rhode Island (4678 km2)
+and store over 20 times more water than Sydney Harbour (10,990 GL). The State of New South Wales
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the specific optimization technique used in the deep learning pipeline. However, it mentions that the final model was fine-tuned by unfreezing the entire model and training at a 10-fold lower learning rate (10^-4). This suggests that some form of gradient descent optimization algorithm was likely used, such as Stochastic Gradient Descent (SGD) or Adaptive Moment Estimation (Adam). Without additional details, it cannot be definitively stated which specific optimization technique was employed.

@@ -1,0 +1,74 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+shift and help to regularize our model as well. It consists of a parameterized
+centering and reduction of pre-activations. This facilitates optimization and enables
+to raise the learning rate leading to a quicker convergence. At the same time, it has
+a regularization effect because the centering and reduction of a neuron activation
+is linked to the mini-batch statistics. The mini-batch selection being stochastic at
+every iteration, a neuron activation is stochastic itself, and the model will not rely
+on it when it has no good effect on prediction.
+
+propagating errors. Cognitive modeling, 5(3).
+
+19. Nair, V. & Hinton, G. (2010). Rectiﬁed linear units improve restricted boltzmann machines.
+Proceedings of the 27th international conference on machine learning (ICML-10), 807–814.
+20. Ioffe, S. & Szegedy, C. (2015). Batch normalization: Accelerating deep network training by
+reducing internal covariate shift. International Conference on Machine Learning. 448–456.
+21. Dutrève, B. & Robert, S. (2016). INPN - Données ﬂore des CBN agrégées par la FCBN.
+Version 1.1. SPN - Service du Patrimoine naturel, Muséum national d’Histoire naturelle, Paris.
+Occurrence Dataset https://doi.org/10.15468/omae84 accessed via GBIF.org on 2017-08-30.
+22. Karger, D. N., Conrad, O., Bohner, J., Kawohl, T., Kreft, H., Soria-Auza, R.W. & Kessler,
+M. (2016). Climatologies at high resolution for the earth’s land surface areas. arXiv preprint
+arXiv:1607.00217.
+
+SNN, DNN and CNN models are ﬁtted with the package mxnet: All model
+0.03, 0.03), then we
+parameters were initialized with a uniform distribution U (
+applied a stochastic gradient descent algorithm with a momentum of 0.9, a
+batch-size of 50 (batch samples are randomly chosen at each iteration), and an initial
+8. The choice of initial learning rate was critical for a good
+learning rate of 10−
+optimization behavior. A too big learning rate can lead to training loss divergence,
+
+−
+
+190
+
+C. Botella et al.
+
+whereas when it is too small, learning can be very slow. We stopped when the
+average slope of the training mean loss had an absolute difference to 0 on the last 100
+3. The learning took approximately 5 min for SNN, 10 min for
+epochs inferior to 10−
+DNN, and 5 h for CNN (independently of the version).
+
+10.3.5 Evaluation Metrics
+
+• CNN is composed of two hidden convolutional layers and one last layer fully
+connected with 200 neurons, exactly similar to previous ones. The ﬁrst layer is
+composed of 64 convolution ﬁlters of kernel size (3, 3) and 1 line of 0 padding.
+The resulting feature maps are batch-normalized (same normalization for every
+pixels of a feature map) and transformed with a Relu. Then, an average pooling
+with a (8, 8) kernel and (8, 8) stride is applied. The second layer is composed of
+128 convolution ﬁlters of kernel size (5, 5) and 2 lines of padding, plus Batch-
+Normalization and ReLU. After, that a second average pooling with a (8, 8)
+kernel and (8, 8) kernel and (8, 8) stride reduces size of the 128 feature maps
+to one pixel. Those are collected in a vector by a ﬂattening operation preceding
+the fully connected layer. This architecture is not very deep. However, considered
+the restricted number of samples, a deep CNN would be very prone to over ﬁtting.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, there are several regularization techniques mentioned to prevent overfitting in the deep learning pipeline. One such technique is Batch Normalization, which accelerates deep network training by reducing internal covariate shift. Batch Normalization consists of a parameterized centering and reduction of pre-activations, which facilitates optimization and enables raising the learning rate, leading to quicker convergence. Additionally, it has a regularization effect because the centering and reduction of a neuron activation are linked to the mini-batch statistics. Since the mini-batch selection is stochastic at every iteration, a neuron activation becomes stochastic itself, and the model will not rely on it when it has no good effect on prediction. Another regularization method mentioned indirectly is the use of a shallow neural network architecture instead of a deeper one. In this case, considering the restricted number of samples, a deep CNN would be very prone to overfitting. Therefore, using a simpler architecture with fewer parameters helps reduce the risk of overfitting. Other common regularization techniques like Dropout or L2 Regularization are not explicitly mentioned in the provided context but could also be employed to further mitigate overfitting risks.

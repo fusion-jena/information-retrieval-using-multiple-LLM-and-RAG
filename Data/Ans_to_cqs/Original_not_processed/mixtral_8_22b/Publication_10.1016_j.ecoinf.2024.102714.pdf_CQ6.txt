@@ -1,0 +1,108 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+grass rush pasture in GMEP. However, if contextual datasets were pro-
+vided, these classes could be absorbed in appropriate wetland classes in
+the mapping, thus reducing discrepancies with GMEP data.
+
+>50% cover of U. galli
+
+Molina grassland
+>50% cover of M. caerulea
+Juncus rushes
+>50% cover of Juncus spp.
+
+LWHab classes
+(based on Phase-1)
+
+Broadleaved woodland
+Needleleaved woodland
+Improved grassland,
+Arable crops
+
+Bracken
+Acid grassland
+Neutral grassland
+Calcareous grassland
+Dry dwarf shrub heath (Ddsh)
+Wet dwarf shrub heath (Wdsh)
+Fen, Marshy grassland, and Swamp
+Modified bog
+Blanket bog
+Raised bog
+Open dune, Dune Grassland, Dune Heath,
+Dune Scrub
+Saltmarsh
+
+Ulex dominated scrub
+
+Molina grassland
+
+Juncus rushes
+
+* Perennial ryegrass, Trifolium repens, Ranunculus repens, Cynosurus cristatus, Poa trivialis.
+
+Fig. 4. Harmonisation of habitat classes within (a) GMEP to generate (c) GMEPmod demonstrated over one of the GMEP 1 km2 square (SquareID: EYAQHZ). LWHab
+map (b) is also shown to demonstrate the similarities and differences with GMEP and GMEPmod.
+
+EcologicalInformatics82(2024)1027147S.M. Punalekar et al.
+
+For the ML model, training and testing datasets were generated
+through reference to existing field datasets and VHR images (Section
+2.4.3, Table 2). Areas dominated by the target communities were digi-
+tised as polygons and all pixels contained were extracted. These poly-
+gons were then split into calibration and validation sets, with ~30% of
+pixels for each VT reserved for independent model validation. Splitting
+polygons rather than pixels minimises the effect of spatial autocorrela-
+tion on model accuracies (Karasiak et al., 2022). We used a python
+implementation of the XGBoostClassifier (Chen and Guestrin, 2016) to
+classify the VTs, given optimised random trees can be developed
+whereby each new tree learns from the errors of those previous. As input
+to the ML algorithm, the seasonal vegetation index composites from S2,
+backscatter composites from S1, elevation and slope were used, totalling
+up to 54 features (Appendix-A). The compositing periods were chosen
+
+a) Step-1: Comparing LWHabmod and GMEPmod (actual accuracies)
+b) Step-2: Applying decision rules based on the peat depth, particularly
+those affecting wetland/bog classes, to modify GMEPmod data labels.
+c) Step-3: Applying decision rules (in addition to Step-2) based on the
+Phase-1 Habitat map, and particularly those impacting on the clas-
+sification of grassland, heathland, and scrub classes, to modify the
+GMEPmod data labels.
+
+These exercises were repeated for the broad habitat classes by
+
+modifying the GMEPBHmod labels through Step-2 and Step-3.
+
+2.6.2. Accuracy assessment for Pembrokeshire County
+
+We undertook a dedicated survey of vegetated semi-natural habitats,
+in Pembrokeshire in 2022 (Fig. 2) using the EarthTrack mobile appli-
+cation developed through Living Wales (https://earthtrack.aber.ac.uk/)
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model, several preprocessing steps may be required depending on the nature of the dataset. Some common preprocessing techniques include:
+
+1. Normalization or standardization: This involves rescaling the values in the dataset so they fall within a specific range, such as between 0 and 1 or have a mean of 0 and a standard deviation of 1. This helps ensure that no single feature dominates the others during training.
+
+2. Data cleaning: This step involves removing any missing or inconsistent data points from the dataset. It might also involve handling outliers or imputing missing values.
+
+3. Feature engineering: This process involves creating new features from existing ones to improve the performance of the model. For example, polynomial features can be created from numerical variables, or binary features can be derived from categorical variables.
+
+4. Encoding categorical variables: Deep learning models typically require numeric inputs, so categorical variables need to be converted into numerical form. One popular method is one-hot encoding, which creates a separate binary variable for each category.
+
+5. Image augmentation: In case of image data, various transformations like rotation, flipping, zooming etc. can be applied to increase the size of the dataset and prevent overfitting.
+
+The choice of preprocessing technique depends on the type of data being used and the requirements of the deep learning model.

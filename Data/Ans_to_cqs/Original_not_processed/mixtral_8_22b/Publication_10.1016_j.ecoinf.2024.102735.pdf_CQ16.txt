@@ -1,0 +1,156 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+C and 27
+
+◦
+
+◦
+
+3. Methodology
+
+To provide clarity, this section begins with a brief overview of the
+methodology which includes each objective and the sequential steps
+undertaken to achieve them, followed by a detailed explanation of the
+methods employed for each objective.
+
+3.1. Overview of methodology
+
+Objective 1
+This objective involves the development of multiple machine-
+learning models using randomized subsets of training data to estimate
+
+Fig. 2. Flowchart of adopted methodology.
+
+effect of measurement uncertainties on chlorophyll-a predictions.
+
+While the overall methodology is shown in the flowchart in Fig. 2,
+this section provides the general outline of the methodology adopted to
+address objective 1.
+
+I. Data Acquisition
+
+i. High frequency (e.g., 15 min) continuous surface water
+quality data (e.g., pH, turbidity) were acquired from water
+quality sensors-YSI profiler deployed in Boyd Millpond by the
+Land Development Division of Greenville County, SC.
+
+III. Model Development
+
+i. All the datasets were divided randomly into two: 80 % for
+training the RF and SVR models and 20 % for testing the
+model, although the training set was further randomly
+
+sampled to select training and validation set to obtain opti-
+mized ML model hyperparameters.
+
+◦
+
+ii. Predictor variables for this objective were pH, temperature
+C), specific conductivity (μs/cm), turbidity (FNU), dissolved
+(
+oxygen (mg/l),
+saturated dissolved oxygen (%) and
+oxidation-reduction potential (mV) while the target variable
+is the continuous regression derived laboratory chlorophyll-a
+concentration (μg/l) as shown in Fig. 3.
+
+iii. Model training and testing processes were repeated for 1000
+iterations, utilizing distinct sample sets each time. During
+
+Table 1
+Example of the grab sample datasets utilized in the study.
+
+n
+
+Date
+
+Temperature
+◦
+(
+
+C)
+
+Turbidity
+(FNU)
+
+Dissolved
+Oxygen
+(DO) (mg/l)
+
+Saturated
+DO (%)
+
+ORP
+(mV)
+
+Specific
+Conductivity (μs/
+cm)
+
+pH
+
+VI. Uncertainty Estimation
+
+i. To accommodate uncertainties stemming from the utilization
+of distinct training datasets representing the different mea-
+surement data, prediction intervals were computed using 95 %
+confidence level. These intervals measure the range within
+which the actual values will likely fall due to the variability
+introduced by the different training datasets that mirrors
+varying measurements.
+
+Objective 2
+While the previous objective excluded chlorophyll-a sensor values
+
+among the predictors, this second objective was set to investigate the
+impact of including chlorophyll-a sensor values as a predictor on the
+chlorophyll-a predictions and uncertainty covered by the developed
+models.
+
+This section provides the general outline of the methodology adopted
+
+to address objective 2.
+
+I. Data Acquisition
+
+Similar steps as in (i through iii) of objective 1 were performed here.
+
+II. Data Processing
+
+Similar steps as in objective 1 were performed here.
+
+enhance learning of peak values as compared to that of the manually
+sampled data.
+
+4.2. Hyperparameter tuning
+
+For tuning purposes, the model structures were same as described in
+Table 3, with the manually sampled chlorophyll-a as output for the
+manually sampled scenarios and the continuous regression derived
+laboratory chlorophyll-a was the output for the high frequency data
+scenario. Using different random training datasets to develop the models
+enabled the realization of optimized parameters using the Optuna
+package. The multi-modal nature of some of the distribution of the pa-
+rameters indicates several peaks that provide a good trade-off between
+performance and computational cost. The distribution of the parameters
+slightly varies with each modeling scenario. For RF_w/o_Sensor, the
+modal n_estimators observed was 20, which increases to 50 in the RF_w/
+o_Sensor_cont. This shows the need for more regression trees to be
+
+EcologicalInformatics82(2024)1027359I. Busari et al.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The paper does not explicitly state the criteria used to determine when training is complete. However, it mentions that the training process is repeated for 1000 iterations, utilizing distinct sample sets each time. Additionally, during the training phase, the training set is further randomly sampled to select training and validation sets to obtain optimized machine learning model hyperparameters. This suggests that the authors may have used validation loss or another performance metric to evaluate the model during training and determine when to stop training. Without explicit information about the stopping criterion, we can only infer that the authors might have used a common practice such as early stopping based on validation loss or performance metrics.

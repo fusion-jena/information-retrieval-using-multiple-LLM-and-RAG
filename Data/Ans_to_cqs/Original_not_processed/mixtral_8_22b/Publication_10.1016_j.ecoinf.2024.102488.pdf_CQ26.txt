@@ -1,0 +1,151 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Ke, G., Meng, Q., Finley, T., Wang, T., Chen, W., Ma, W., Ye, Q., Liu, T.-Y., 2017. 
+LightGBM: A Highly Efficient Gradient Boosting Decision Tree, 31st Annual 
+Conference on Neural Information Processing Systems (NIPS). 
+
+Lang, M.W., Kasischke, E.S., 2008. Using C-band synthetic aperture radar data to monitor 
+
+forested wetland hydrology in Maryland’s coastal plain, USA. IEEE Trans. Geosci. 
+Remote Sens. 46 (2), 535–546. 
+
+Li, Q., Wong, F.K.K., Fung, T., 2021. Mapping multi-layered mangroves from 
+multispectral, hyperspectral, and LiDAR data. Remote Sens. Environ. 258. 
+Li, X., Zhao, C., Kang, M., Ma, M., 2022. Responses of net primary productivity to 
+
+phenological dynamics based on a data fusion algorithm in the northern Qinghai- 
+Tibet Plateau. Ecol. Indic. 142, 109239. 
+
+Liu, M., Yang, W., Zhu, X., Chen, J., Chen, X., Yang, L., Helmer, E.H., 2019. An improved
+
+4. Results 
+
+4.1. Evaluation of fusion quality 
+
+(1)  The  feature  dataset,  training  samples,  and  validation  samples 
+were used as input into five base models to generate prediction 
+results  (TKNN,  TRF,  TAdaBoost,  TXGBoost,  TLightGBM)  of  the  training 
+samples  and  prediction  results  (VKNN,  VRF,  VAdaBoost,  VXGBoost, 
+VLightGBM) of the validation samples.  
+
+(2)  TKNN, TRF, TAdaBoost, TXGBoost, and TLightGBM  were combined in a 
+column manner to obtain T, and VKNN, VRF, VAdaBoost, VXGBoost, 
+VLightGBM were combined in a column manner to obtain V.  
+(3)  Using T in the base model as training data for the meta-model, the 
+RF  algorithm  was  used  to  generate  the  prediction  results 
+(α1, α2, α3, α4, α5) of  training  data  T  by  5-fold  cross-validation. 
+Stack (α1, α2, α3, α4, α5) in rows to get A.  
+
+(4)  (β1
+
+, β2
+
+, β3
+
+, β4
+
+, β5
+
+) is  obtained  by  predicting  V.  Additionally,  the 
+
+classification result B was obtained by voting.
+
+3.3. Feature selection 
+
+This study used Recursive Feature Elimination and Cross-Validation 
+(RFECV) to select the optimal features that could reduce the redundancy 
+caused  by  multi-source  feature  datasets  and  improve  model  perfor-
+mance. RFECV is a wraparound approach to feature selection based on 
+
+Table 2 
+Training samples and validation samples.  
+
+Class 
+
+Number of training samples 
+
+Number of validation samples from image 
+
+Number of validation samples from field survey 
+
+P. australis 
+S. salsa 
+Tidal flat 
+Aquatic environment 
+Paddy field 
+Aquaculture pond 
+Dryland 
+Forested region 
+Developed land 
+Total 
+
+900 
+171 
+375 
+852 
+819 
+746 
+220 
+129 
+761 
+4973 
+
+336 
+55 
+150 
+248 
+223 
+277 
+67 
+59 
+375 
+1790 
+
+71 
+18 
+5 
+134 
+82 
+35 
+0 
+0 
+0 
+345 
+
+Total 
+
+1307 
+244 
+530 
+1234 
+1124 
+1058 
+287 
+188 
+1136 
+7108
+
+(2)  The features with the lowest importance scores are removed from 
+the  current  feature  combinations,  and  the  process  of  feature 
+pruning  is  repeated  recursively  until  the  cross-validation  accu-
+racy reaches the highest level. In the RFECV process, a five-fold 
+cross-validation  was  used  to  select  the  number  and  combina-
+tions of features. 
+
+3.4. Classification model and classification schemes
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information about specific techniques used to address data bias during preprocessing of the deep learning pipeline such as stratified splitting, oversampling, undersampling, or diverse data collection. However, it mentions the use of Recursive Feature Elimination and Cross-Validation (RFECV) for feature selection, which can help reduce redundancy caused by multi-source feature datasets and improve model performance. This technique involves removing features with the lowest importance scores recursively until the cross-validation accuracy reaches its highest level. It also uses a five-fold cross-validation to select the number and combinations of features. While this does not directly address data bias, it contributes to improving the overall quality of the dataset and potentially reducing any biases introduced through irrelevant or redundant features.

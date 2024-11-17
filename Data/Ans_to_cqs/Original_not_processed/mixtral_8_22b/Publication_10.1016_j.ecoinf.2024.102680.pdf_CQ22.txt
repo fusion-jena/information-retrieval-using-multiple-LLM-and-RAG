@@ -1,0 +1,72 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Precision is the number of true objects predicted by the model as a 
+proportion of the total number of detected objects, as shown in Eq. (10), 
+where  TP  represents  the  number  of  underwater  objects  correctly 
+detected  and  FP  signifies  the  number  of  backgrounds  misclassified  as 
+objects. Recall is the number of true objects predicted by the model as a 
+proportion of all the true detected objects, as shown in Eq. (11), where 
+FN denotes the number of true objects misidentified as backgrounds. The 
+calculation  formula for a  single  object category  is  shown in Eq. (12), 
+where P represents Precision and R represents Recall. Its value is the area 
+under  the  Precision (cid:0) Recall  curve.  The  calculation  formula  for  AP  is 
+shown  in Eq.  (13), where  M  represents  the number  of object species. 
+When calculating FPS, the batch size needs to be set to 1. The calculation
+
+However,  using  large  kernel  convolutions  usually  leads  to  over-
+whelming computational complexity, resulting in a sharp increase in the 
+number  of  network  parameters  and  network  computational  load.  To 
+overcome this issue, we used dilated convolution (Yu and Koltun, 2016) 
+and depthwise separable convolution to reduce computations. Dilated 
+convolution can increase the receptive field of the convolution kernel by 
+inserting “holes”  without adding parameters or increasing the compu-
+tational load. The equation for calculating the receptive field of dilated 
+convolution  is  shown  in  Eq.  (4),  where  n  represents  the  size  of  the 
+receptive field and d represents the dilation rate. 
+
+EcologicalInformatics82(2024)1026806H. Zhou et al.
+
+Owing to the insufficient clarity of underwater optical images, gen-
+eral deep learning networks have difficulty capturing accurate feature 
+information and cannot detect objects correctly. The original YOLOv8 
+network  uses  the  C2f  module  for  feature  extraction.  However,  this 
+module employs an split  operation on features after convolution. This 
+operation divides the input data into two non-overlapping parts, making 
+it  difficult  to  obtain  comprehensive  and  rich  feature  information 
+through half of the channel’s features. Specifically, the shape of features 
+F obtained after convolution is ℝN×H×W×C, where N represents the batch 
+size, C represents the channel number, and H and W denote the height 
+and width, respectively. The split  operation evenly divides F  into two 
+parts on the channel dimension with shapes of ℝN×H×W×0.5C, and these 
+two parts do not overlap. The original YOLOv8 convolves only half of
+
+The  first  row  is  the  baseline  model,  YOLOv8s.  Compared  to 
+YOLOv8s, the CSMB and LKSP modules improved the performance of 
+the baseline network. The CSMB module improved the AP50 by 1%, the 
+AP75  by 1.6%, and the AP by 0.8%, indicating that the CSMB module 
+effectively extracted features of underwater objects. The LKSP module 
+also  achieved  outstanding  performance  in  terms  of  AP  values.  It 
+perfectly replaced the SPPF module without significantly increasing the 
+number  of  parameters,  achieving  a  higher  level  of  accuracy  than  the 
+SPPF module. Although both modules increased the number of param-
+eters,  UODN  still  had  fewer  parameters  than  YOLOv8m,  and  its  AP 
+values  were  better  than  those  of  YOLOv8m.  The  parameters  of 
+YOLOv8m increased by 14.7 million, but its AP increased by only 0.6%. 
+The AP values of our LKSP module were similar to those of YOLOv8m, 
+but the LKSP module increased the number of parameters by only 0.6
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Two main metrics used to evaluate the performance of the deep learning model are Precision and Recall. Precision is calculated as the proportion of true objects predicted by the model out of the total number of detected objects. In other words, it measures how many of the detected objects are actually correct detections. On the other hand, Recall is calculated as the proportion of true objects predicted by the model out of all the true detected objects. In other words, it measures how many of the actual objects are being detected by the model. Additionally, Average Precision (AP) is also used to measure the overall performance of the model across different classes. It is defined as the area under the Precision-Recall curve. Furthermore, when evaluating the efficiency of the model, Frames Per Second (FPS) is often considered, which measures the speed of processing video frames.

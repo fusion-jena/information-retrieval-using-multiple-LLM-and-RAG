@@ -1,0 +1,11 @@
+The strategy implemented to monitor the model performance during training involves periodic fine-tuning of both the classification model and the embedding model. This is done while the termination condition has not been reached, and after every 2,000 active queries. 
+
+The training process begins with a pre-trained object detection model run on the images, followed by a pre-trained embedding model run on the crops produced by the object detection model. A small, randomly selected labelled dataset is then used to train the initial classification model. 
+
+To select the most informative unlabelled samples to be passed to the oracle for labelling, various criteria are employed. These are among the most popular query selection strategies for active learning. 
+
+After training the initial model, the classification model is fine-tuned on the entire labelled set of the target dataset. This process is repeated while the termination condition has not been reached. 
+
+Every time the number of active queries is a multiple of 2,000, the embedding model is also fine-tuned on the entire labelled set of the target dataset. This strategy allows for the monitoring of model performance during training, by periodically updating both the classification and embedding models with the most recent labelled data. 
+
+It's important to note that the specific termination condition is not mentioned in the provided context. However, this strategy ensures that the models are regularly updated with new labelled data, which can help to improve model performance over time.

@@ -1,0 +1,75 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+mapping probability samples that are exclusively used for map evalua-
+tion are often not available and therefore alternative methods have been 
+proposed.  In  machine  learning,  if  data  are  abundant,  a  common 
+approach is to randomly divide the full dataset used for modelling into 
+three parts: a training set, a validation set, and a test set (Hastie et al., 
+2009,  Chapter  7).  The  training  set  is  used  for  fitting  the  models,  the 
+validation set is used to estimate prediction error for model selection and 
+hyperparameter tuning, while the test set is used for assessing the ac-
+curacy of the final model. This paper addresses this latter testing phase, 
+with the specific aim to assess the accuracy of a thematic map produced 
+by a calibrated statistical prediction method. Data availability is often 
+limited  so that setting  aside a  test set  cannot always be afforded and 
+therefore resampling methods are used (Hastie et al., 2009; Steele et al.,
+
+1.  Simple random sample. This corresponds to a simple random sample 
+—without replacement— of the study area, where each location (i.e., 
+grid  cell)  has  equal  inclusion  probability.  Note  that  by  nature,  a 
+spatial simple random sample exhibits some degree of clustering and 
+hence differentiation in sampling intensity. This sample was added 
+as a reference case, and it was analysed the same way as the other 
+samples.  
+
+2.  Systematic random sample. This refers to sampling on a regular grid 
+producing equal density over the study area (cf. Su et al., 2020). The 
+grid  nodes  were  obtained  by  randomly  shifting  an  initial  square 
+sampling grid that was spaced so as to achieve the desired sample 
+size  (here  5000).  Next,  shifts  in  x  and  y  directions  were  applied, 
+where the shifts were sampled from a uniform distribution between
+
+Random  Forest  models  as  implemented  in  the  ranger  package 
+(Wright and Ziegler, 2017) predicting the target variables as a function 
+of the covariates were fitted using out-of-the-box hyperparameter set-
+tings.  The  only  exception  was  the  respect.unordered.factors 
+option,  which  was  set  to  TRUE to  ensure  the  categorical  land  cover 
+variable was properly used in the regression trees. Maps of AGB and OCS 
+were obtained by predicting with the fitted models using the covariate 
+maps.
+
+Each of the sampling designs 1–5 was repeated 100 times, every time 
+producing a different sample. The size of samples 1, 3, 4 and 5 corre-
+sponded to 5000 each. The systematic random samples’ size (2) varied 
+between 4998 and 5056; upon trying several grid spacings. This range 
+was the closest we got to the intended sample size of 5000. 
+
+2.3. Map accuracy metrics 
+
+The map accuracy metrics used in this work are the square root of the 
+mean  squared  prediction  error  (RMSE)  and  the  Nash  and  Sutcliffe 
+(1970)  model  efficiency  coefficient  (MEC),  which  quantifies  the 
+improvement made by the model (in this case the map) over using the 
+mean of the observations as the prediction. The metrics are defined in 
+Eqs. (5) and (6): 
+
+validation method applies case weights to the residuals at different lo-
+cations.  For  the  random,  the  blocked  spatial  and  the  weighted  cross- 
+validation methods, estimates of the map accuracy metrics were hence 
+computed by Eqs. 7 and 8:
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, the hyperparameters of the Random Forest models are optimized using out-of-the-box hyperparameter settings. However, there is one exception mentioned - the'respect.unordered.factors' option is explicitly set to TRUE to ensure proper use of the categorical land cover variable in the regression trees. No further details about any specific optimization techniques like grid search or random search are provided in the text.

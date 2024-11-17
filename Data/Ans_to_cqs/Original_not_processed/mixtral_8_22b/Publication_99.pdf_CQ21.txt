@@ -1,0 +1,75 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Fig. 4. (a)Sample image, (b) the generated mask and the masked image in (c) used for training reconstruction models.  
+
+EcologicalInformatics61(2021)1012435B.R. Hussein et al.                                                                                                                                                                                                                              
+
+parameters  were  used  in  each  category  unless  otherwise  specified. 
+Where available, the original implementation reported earlier in liter-
+ature were used (Isola et al., 2017; Liu et al., 2018). 
+
+3.3.1. PConv network
+
+Instead  of training the model from scratch, we opted for the  fine- 
+tuning process which helped in faster convergence, avoided overfitting 
+and  eliminated  the  limitations  of  the  small  dataset while  adding  per-
+formance  gains  (Yosinski  et  al.,  2014).  All  networks  were  initialized 
+with  pre-trained  weights  which  were  computed  and  optimized  using 
+ImageNet dataset (Russakovsky et al., 2015). During the training pro-
+cess, the mask generated for simulating the damaged leaf area together 
+with the masked image was used to train the network while an intact leaf 
+was used as a ground truth. All input images were scaled between 0 and 
+1. In each iteration, images were augmented by flipping horizontally or 
+vertically while a different mask was generated for that image. In other 
+words,  the  same  image  received  different  mask  during  each  iteration 
+which  was  used  as  a  form  of  regularization  and  hence  enabled  our 
+models to generalize better.
+
+(4) 
+
+(5) 
+
+Fig. 3 shows the general framework for training Pix2Pix model for 
+reconstructing herbarium leaves. We used a simple algorithm to produce 
+masks for simulating the artificial damage of the leaves. The produced 
+mask is combined with a normal leaf to form a new damaged leaf image. 
+For the training step, the model requires two inputs: one for the original 
+image  (damaged  leaf)  and  other  as  its  corresponding  transformation 
+(undamaged leaf). The generator network uses a U-net architecture with 
+skips connections to allow sharing of information between layers. For 
+the discriminator network, a CNN termed PatchGAN is used to classify a 
+patch of the image as a real or fake rather than the whole image at once 
+and the results from all patches are averaged to form the final score [15]. 
+The weights of the generator are then updated via the adversarial loss 
+together with the L1 loss between the generated image and the ground 
+truth.
+
+4. Results and discussion 
+
+All reconstruction models were trained for 50 epochs with a total of 
+2040 leaves used for training, 288 for validation and the remaining 596 
+for testing. In general, all models performed consistently well based on 
+the metrics used. While observing the performance of the models on a 
+256 × 256 image size, PConv model performed better with an average of 
+0.96 SSIM score across  all damage ratios compared to Pix2Pix  model 
+which achieved an average SSIM score of 0.93 across the three-damage 
+
+EcologicalInformatics61(2021)1012436B.R. Hussein et al.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't any explicit mention of specific postprocessing steps taken after the model training. However, it can be inferred that some common practices might have been followed such as calculating evaluation metrics like Structural Similarity Index Measure (SSIM), Mean Absolute Error (MAE), and Peak Signal-to-Noise Ratio (PSNR) to assess the quality of reconstructed images. These metrics help quantify the similarities and differences between the reconstructed images and their respective ground truth images. Additionally, visual inspection of the reconstructed images could also serve as a qualitative assessment method.
+
+It should be noted that this interpretation is based solely on the provided context and does not account for any additional postprocessing steps that may have been carried out but not mentioned explicitly. Therefore, without further details regarding the exact postprocessing procedures employed, it would be speculative to provide a more comprehensive list of potential postprocessing steps.

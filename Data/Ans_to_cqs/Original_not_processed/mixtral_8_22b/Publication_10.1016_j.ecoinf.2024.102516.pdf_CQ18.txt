@@ -1,0 +1,60 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+information usable as annotations for network training.
+
+To  train  the  network,  we  follow  the  base  method  proposed  in 
+K¨orschens et al. (2021b). This approach, which we will refer to as seg-
+mentation  pre-training,  is  motivated  by  four  aspects.  First,  there  is 
+usually only little training data available for plant cover estimation data, 
+as  annotating  such  images  is  highly  laborious.  CNNs  usually  require 
+large amounts of training data to perform well. Therefore, it would be 
+advantageous to be able to utilize additional external training data to 
+improve  the  training  results.  Second,  transfer  learning,  the  task  of 
+training the network on larger datasets first, followed by fine-tuning the 
+network on the target task, has been shown to improve the performance 
+of  CNNs  drastically  (Kornblith  et  al.,  2019).  Third,  in  previous  in-
+vestigations (K¨orschens et al., 2021a) also found that performing pre- 
+training  on  domain-related  image  data  (e.g.,  images  containing  the
+
+2.4. Network setup for investigations 
+
+For extracting plant species cover information for our investigations, 
+we  use  the  same  setup  as  described  in  K¨orschens  et  al.  (2021b)  with 
+slight differences. During all three phases, we use a ResNet50 (He et al., 
+2016),  which  is  initialized  with  ImageNet  (Russakovsky  et  al.,  2015) 
+weights from Keras (Chollet et al., 2015) before phase 1 and phase 2, as 
+well as the AdamW optimizer (Kingma and Ba, 2014; Loshchilov and 
+Hutter, 2017). During each phase, we use the ResNet in conjunction with 
+a  Feature  Pyramid  Network  (FPN)  (Lin  et  al.,  2017)  to  increase  the 
+network output resolution. Phase-specific parameters are listed in the 
+
+EcologicalInformatics80(2024)1025167M. K¨orschens et al.
+
+therefore also easily usable as training data. Therefore, this amount of 
+well-annotated  data  is  an  optimal  supplement  to  the  already  existing 
+plant cover annotation data. 
+
+While we have the option to pre-train our network for classification 
+and apply it on plant cover data afterward, we have shown in K¨orschens 
+et al. (2021b) that training a network for classification only often leads 
+to the network focussing on a small number of discriminative parts of the 
+plants instead of all visible parts. This can be especially detrimental in 
+plant  cover  prediction,  where  often  only  the  leaves  of  the  plants  are 
+visible, while the network focuses on the blossoms of the plants during 
+pre-training, as they are usually the most discriminative parts.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit details about the strategy used to monitor the model performance during training. However, based on common practices in deep learning, some possible strategies could include tracking metrics like accuracy or loss over epochs, using validation sets to evaluate generalization performance, or employing techniques like early stopping to prevent overfitting. The authors mention using the ResNet50 architecture with ImageNet weights and the AdamW optimizer, but do not specify any particular monitoring strategy.

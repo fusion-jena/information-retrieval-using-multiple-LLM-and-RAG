@@ -1,0 +1,215 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+1) Biased Dataset: This dataset was created by randomly
+taking 70% of the data in D for training and 30% for
+testing. These are really approximate percentages because such
+distribution has to be attempted for each species in dataset D.
+How close to a 70%-30% distribution is achieved depends
+on how many photos per species there are in dataset D. For
+example, if a given species X has 20 photos, 14 randomly
+chosen photos will go to the training dataset and 6 to the
+testing dataset. However, if the number of photos for species
+X is 2, one will go to the training dataset and the other one to
+the testing dataset, resulting in a 50%-50% distribution. This
+is the approach most of previous plant identiﬁcation studies
+have followed (particularly those based on leaf-scans).
+
+features in deep neural networks?,” CoRR, vol. abs/1411.1792, 2014.
+
+[36] J. Carranza-Rojas, H. Goeau, P. Bonnet, E. Mata-Montero, and A. Joly,
+“Going deeper in the automated identiﬁcation of herbarium specimens,”
+BMC Evolutionary Biology, vol. 17, p. 181, Aug 2017.
+
+[9] S. Wu, F. Bao, E. Xu, Y.-X. Wang, Y.-F. Chang, and Q.-L. Xiang, “A leaf
+recognition algorithm for plant classiﬁcation using probabilistic neural
+network,” in Signal Processing and Information Technology, 2007 IEEE
+International Symposium on, pp. 11–16, Dec 2007.
+
+[10] D. Wijesingha and F. Marikar, “Automatic detection system for the
+identiﬁcation of plants using herbarium specimen images,” Tropical
+Agricultural Research, vol. 23, no. 1, 2012.
+
+[11] C. H. Arun, W. R. S. Emmanuel, and D. C. Durairaj, “Texture feature
+extraction for identiﬁcation of medicinal plants and comparison of
+different classiﬁers,” International Journal of Computer Applications,
+vol. 62, January 2013.
+
+Type
+
+Patch size / Stride
+
+Output Size
+
+Depth
+
+Params
+
+7x7/2
+3x3/2
+
+3x3/1
+3x3/2
+
+3x3/2
+
+3x3/2
+
+7x7/1
+
+convolution
+max pool
+batch norm
+LRN
+convolution
+max pool
+batch norm
+LRN
+inception (3a)
+inception (3b)
+max pool
+batch norm
+inception (4a)
+inception (4b)
+inception (4c)
+inception (4d)
+inception (4e)
+max pool
+batch norm
+inception (5a)
+inception (5b)
+avg pool
+batch norm
+linear
+softmax
+
+112x112x64
+56x56x64
+56x56x64
+56x56x64
+56x56x192
+28x28x192
+28x28x192
+28x28x192
+28x28x256
+28x28x480
+14x14x480
+14x14x480
+14x14x512
+14x14x512
+14x14x512
+14x14x528
+14x14x832
+7x7x832
+7x7x832
+7x7x832
+7x7x1024
+1x1x1024
+1x1x1024
+1x1x10000
+1x1x10000
+
+1
+0
+0
+0
+2
+0
+0
+0
+2
+2
+0
+0
+2
+2
+2
+2
+2
+0
+0
+2
+2
+0
+0
+1
+0
+
+Ops
+
+34M
+
+2.7K
+
+112K
+
+360M
+
+159K
+380K
+
+128M
+304M
+
+364K
+437K
+463K
+580K
+840K
+
+73M
+88M
+100M
+119M
+170M
+
+1072K
+1388K
+
+54M
+71M
+
+1000K
+
+1M
+
+IV. EXPERIMENTS
+
+A. Hand-crafted Feature Extraction Experiment
+
+2) Unbiased Dataset: For each species X in dataset D, we
+tried to approximate a 70%-30% distribution as in the Biased
+Dataset case. However, in order to avoid the SSPB, we used
+the unique specimen identiﬁer to place images from the same
+specimen in eiher the training dataset or the testing dataset.
+This restriction alone could not be achievable if, for example,
+one species X has photos of several leaves but they are all
+from the same specimen. Our dataset D was created so that it
+precludes such scenario, as there are photos from at least two
+different specimens for each species X in dataset D. However,
+this restriction clearly makes it harder to approximate the ideal
+70%-30% distribution both, at the species level and globally.
+
+1www.museocostarica.go.cr
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on August 29,2024 at 05:45:22 UTC from IEEE Xplore.  Restrictions apply. 
+
+B. Computer Vision Approaches/Pipelines
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The strategies employed to handle randomness in the deep learning pipeline include setting a fixed random seed value, which ensures reproducibility of results across different runs of the model. Another strategy is to perform multiple runs with different initializations and average the results to reduce variance due to random initialization. Additionally, techniques like batch normalization and dropout can help regularize the network and improve generalization performance. In terms of handling randomness during data splitting into training and test sets, stratified sampling can be used to maintain the original class proportions in both datasets. The biased dataset mentioned in the context uses a simple random split, while the unbiased dataset employs a more sophisticated method involving unique specimen identifiers to ensure that images from the same specimen do not appear in both training and test sets.
+
+Reference(s):
+None needed for this response.

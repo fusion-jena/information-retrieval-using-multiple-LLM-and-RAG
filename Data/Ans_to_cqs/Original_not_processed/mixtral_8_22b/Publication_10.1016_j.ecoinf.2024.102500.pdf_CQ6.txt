@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.2.2.8. LGBM  hyperparameter  tweaking. Table  2  shows  the  LGBM 
+model  hyperparameters  selected  for  nitrate  and  DO  prediction  to 
+maximize  performance.  Subsamples  reduce  overfitting  and  min_-
+child_samples  control local pattern  sensitivity. Overfitting is  prevented 
+via reg_lambda. As mentioned, n_estimators, learning_rate, max_depth, and 
+random_state were used. 
+
+3.2.2.9. GB  model  hyperparameter  tuning. As  seen  in  Table  2,  the 
+hyperparameter values for the nitrate and DO model are reported below. 
+As described in the preceding sections, each of these parameters is uti-
+lized. These hyperparameter settings were carefully chosen to enhance 
+the nitrate and DO model performances.
+
+hyperparameter  automatically.  However,  given  their  capability  to 
+assemble 40 models in one simulation, we are leveraging this advantage 
+to narrow down the selection of machine learning models. Subsequently, 
+based on the suggestions of the Lazy Predict algorithm, ML models were 
+further fine-tuned using hyperparameter tuning techniques. This process 
+led to the development of robust ML models for each SWQP one after 
+another. These ML models were optimized for each water quality mea-
+sure. XGB, RF, and ET were chosen to build a stacking-based ANN meta 
+ML  model  based  on  their  best  performance  and  the  entire  autoML 
+model’s results.
+
+Hyperparameter  tuning  plays  a  crucial role  in  optimizing  the  per-
+formance of a model by improving its ability to predict observed and 
+predicted ranges. The tuning process maximizes the models training and 
+testing  performance.  It  will  control  overfitting  or  underfitting  issues 
+(Elshawi et al., 2019). Though the process is complex and takes a long 
+time,  many  optimizing  methods,  such  as  Manual  Tuning,  Bayesian 
+Optimization,  and  random  grid  search  methods,  simplify  the  process 
+(Yang  and  Shami,  2020).  Nevertheless,  choosing  which  optimizing 
+method is best for specific data is challenging. Hyperparameter tuning of 
+the decision tree model are usually configured with maximum depth and 
+minimum number of samples required to split a node. For the RF model, 
+extensive  experimentation  was  conducted  using  varying  numbers  of 
+trees  for  the  optimal  fit.  The  gradient  boosting  model  is  tuned  with
+
+maximum depth, minimum sample split, and learning rate (Bolick et al., 
+2023). These refined hyperparameters are selected to enhance the ac-
+curacy and predictive capabilities of the models, rendering them suit-
+able for effective utilization in academic research and publications.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the preprocessing steps involved before training a deep learning model. However, it mentions several common preprocessing steps typically applied when working with machine learning models, including those based on deep learning architectures.
+
+Preprocessing steps can include various operations aimed at preparing the dataset for modeling, such as handling missing values, outliers, and noisy data. Normalization and scaling are also frequently employed to ensure that all features have similar scales, preventing any feature from dominating others due to differences in magnitudes. Common normalization techniques include Min-Max scaling, Z-score standardization, and unit norm scaling.
+
+Data cleaning involves identifying and correcting errors, inconsistencies, and inaccuracies within datasets. This step may involve removing duplicates, dealing with missing values through imputation or deletion, and addressing outliers.
+
+Additionally, encoding categorical variables into numerical representations might be necessary if the deep learning model requires numeric input. Techniques like label encoding, one-hot encoding, or ordinal encoding could be utilized depending on the nature of the categorical variable.
+
+In summary, while the provided context does not explicitly mention the preprocessing steps for deep learning models, typical preprocessing tasks often include handling missing values, normalization/scaling, data cleaning, and encoding categorical variables.

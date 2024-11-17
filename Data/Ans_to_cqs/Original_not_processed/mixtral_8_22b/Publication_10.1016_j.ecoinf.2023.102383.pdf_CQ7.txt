@@ -1,0 +1,60 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+in the training phase. 
+
+3.4. Criterion for multi-scale feature map selection
+
+The number of deer instances in each image varies, ranging from 1 to 
+72. The frequency histogram illustrating this distribution is depicted in 
+Fig.  9,  and  an  example  image  containing  72  deer  annotations  is  dis-
+played in Fig. 10. According to Fig. 9, it is evident that the distribution of 
+deer numbers across the different images in the dataset is unbalanced, 
+which  may  raise  concerns  if  the  dataset  is  randomly  divided  into 
+training,  validation,  and  testing  subsets.  To  address  this  issue,  the 
+dataset is initially divided into separate subsets based on the number of 
+deer in each image. Within each subset, the images are further parti-
+tioned into three sections using a ratio of 75:15:15. Subsequently, the
+
+compressed,  reducing  to  only  a  few  pixels  in  deeper  CNN  layers.  For 
+instance, an object with dimensions of 15 × 15 pixels in a UAV thermal 
+image might be represented by just 1 pixel in the feature map from Layer 
+4 of ResNet152 (refer to Fig. 4). The limited spatial resolution can lead to 
+loss of fine details, making it difficult for the model to distinguish small 
+objects from the background. Through FPN, different feature maps from 
+different layers can complement each other, and deeper feature map can 
+receive some spatial information from shallower layers. However, still 
+certain  spatial  features  might  have  been  lost  during  the  process  of 
+convolution operations. Consequently, the models of FRC_ResNet18FPN 
+and FRC_ResNet34FPN can obtain higher AP for medium and large ob-
+jects than the remaining models because they have less CNN layers than 
+others.  Notably,  the  FRC_ResNet152FPN  obtains  the  best  detection
+
+the output of Layer4 and is upsampled by a factor of 2 denoted by D5. 
+The output of Layer3 undergoes a 1 × 1 convolutional layer to reduce its 
+channel dimensions to be same with C5  denoted by E4. By element-wise 
+addition, M4  is generated and satisfies with the equation of M4 = D5 +
+E4.  Then,  by  a  3 × 3  convolutional  operation,  the  feature  map  P4  is 
+created. Then, M4  is downsampled by a factor of 2 to be D4. The output 
+of  Layer2  undergoes  a  1 × 1  convolutional  layer  to  generate  E3.  By 
+element-wise addition, M3 is generated and satisfies with the equation of 
+M3 = D4 + E3. Similarly, M2  and M1  can be generated and satisfy the 
+following equations: M2 = D3 + E2  and M1 = D2 + E1. Subsequently, by 
+3 × 3 convolutional operations, M1, M2, M3, and M4 are used to generate 
+four feature maps denoted by P1, P2, P3, and P4. Finally, P5  is generated 
+by  downsampling  P4.  Five  feature  maps  are  resulted  and  denoted  as
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To address the concern of an unbalanced distribution of deer numbers across different images in the dataset, the dataset was first divided into separate subsets based on the number of deer in each image. Each subset was then partitioned into three sections using a ratio of 75:15:15. This division allowed for a more balanced representation of deer numbers within each section, which could help improve the performance of the deep learning model during training. Therefore, the criterion used to split the data for deep learning model training was based on the number of deer in each image, ensuring a more even distribution of deer numbers across the training, validation, and testing subsets.

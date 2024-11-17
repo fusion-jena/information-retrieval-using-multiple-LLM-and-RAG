@@ -1,0 +1,101 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+overall process mostly followed current best practices in deep learning 
+which are well summarized in (Chollet, 2017).
+
+Table 1 
+Our  model  design  follows  the  Wide  ResNet  approach  by  Zagoruyko  and 
+Komodakis and consists of 157 layers, of which 36 are weighted.  
+
+Group 
+
+Name 
+
+Input shape 
+
+Output shape 
+
+Pre-processing 
+
+ResStack 1 
+
+ResStack 2 
+
+ResStack 3 
+
+ResStack 4 
+
+Classification 
+
+5×5 Conv+BN+ReLU 
+Ma× pooling 
+Downsampling block 
+2 × ResBlock 
+Downsampling block 
+2 × ResBlock 
+Downsampling block 
+2 × ResBlock 
+Downsampling block 
+2 × ResBlock 
+4×10 Conv+BN + ReLU + DO 
+1×1 Conv+BN + ReLU + DO 
+1×1 Conv+BN + DO 
+Global LME pooling 
+Sigmoid activation 
+
+(1×64×384) 
+(32×64×384) 
+(32×64×192) 
+(64×32×96) 
+(64×32×96) 
+(128×16×48) 
+(128×16×48) 
+(256×8×24) 
+(256×8×24) 
+(512×4×12) 
+(512×4×12) 
+(512×1×3) 
+(1024×1×3) 
+(987×1×3) 
+(987×1) 
+
+(32×64×384) 
+(32×64×192) 
+(64×32×96) 
+(64×32×96) 
+(128×16×48) 
+(128×16×48) 
+(256×8×24) 
+(256×8×24) 
+(512×4×12) 
+(512×4×12) 
+(512×1×3) 
+(1024×1×3) 
+(987×1×3) 
+(987×1) 
+(987×1)
+
+diversify  the  training  data,  and  the  3-s  window  length  enables  the 
+implementation of this data augmentation method.
+
+et al., 2014; Northcott, 2014). However, the large number of training 
+and test recordings often forced participants to reduce the amount of 
+data used to extract features due to computational constraints. The de-
+ficiencies of low-level feature classification restricted significant prog-
+ress, and the need for more advanced classifiers became apparent.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit information about the specific postprocessing steps involved after the model training. However, based on common practices in deep learning, some possible postprocessing steps could include generating saliency maps, calculating metrics such as accuracy or F1 score, creating a confusion matrix, or performing cross-validation. These techniques help evaluate the performance of the trained model and identify areas for improvement. It is important to note that these methods may vary depending on the specific application and goals of the project.

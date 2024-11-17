@@ -1,0 +1,11 @@
+The strategy implemented to monitor the model performance during training involves calculating the Mean Absolute Error (MAE) values and comparing the inference-time to determine the most computationally efficient model. The MAE values are calculated using equation (4), where yi,j is the soft label of the i-th sample (the ground truth age is j), and pi is the vector of probability predicted from the i-th sample based on equation (3).
+
+In addition, the inference-time is measured to determine the maximum queries per second (QPS) achieved under real-world conditions. To do so, the dataset is expanded by a factor of five, from 8002 to 40,010 images. Then, batches of 50 images are fed into the model to warm up the hardware, before recording the inference-time of batches of 100 to quantify QPS. All models are tested under the same experiment setting and the same GPU to make comparisons between them fair.
+
+The models are trained using a five-fold SE Protocol with an OR method. The performance of different models is presented in Table 4, which shows the MAE and CS (3) (%) for each model. The results indicate that the RepVGG-A1 model has the lowest MAE value of 2.45 ± 0.44, while the ResNet-18 model has the highest CS (3) (%) of 64.10.
+
+Furthermore, the study also tested the models under different thresholds for CS to determine the better model within four types of networks (VGG, ResNet, RepVGG, and MobileNet-V3). The results are presented in Fig. 4, which shows that the RepVGG-A1 model performs better than the other models.
+
+However, it is worth noting that some models, such as ResNet-18 and ResNet-50, struggle with adult pandas, often categorizing pandas aged 17 to 25 with pandas aged 7 to 17 years.
+
+In summary, the strategy implemented to monitor the model performance during training involves calculating the MAE values and comparing the inference-time to determine the most computationally efficient model. The results indicate that the RepVGG-A1 model has the lowest MAE value, while the ResNet-18 model has the highest CS (3) (%) of 64.10. However, some models struggle with adult pandas, and further investigation is required to improve their performance.

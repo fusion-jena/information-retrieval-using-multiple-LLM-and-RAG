@@ -1,0 +1,90 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+structures with an increasing number of output channels, encouraging 
+the network to learn complex representations. To enhance the network's 
+capacity  for  capturing  fine-grained  features  and  context,  Spatial  and 
+Channel Attention (SCA) modules are integrated into the architecture. 
+These modules act as mechanisms for focusing on relevant spatial re-
+gions  and  channel-wise  information,  respectively.  These  attention 
+mechanisms are integrated at multiple stages in the network to enrich 
+the feature representations. The decoder upscales the feature maps and 
+fuses  information  from  the  encoder  using  skip  connections.  Each 
+decoder block consists of a transposed convolutional layer to increase 
+spatial  resolution,  followed  by  batch  normalization  and  ReLU  activa-
+tion.  The  final  stage  of  the  network  involves  upsampling  the  feature 
+maps, followed by a convolutional layer with 4 × 4 filters to produce the
+
+The network takes images with dimensions of 256 × 256 pixels and 
+three  color  channels  as  input.  It  follows  a  fully  convolutional  design, 
+with  each  layer  applying  2D  convolutions  using  4  × 4  filters.  Batch 
+Normalization and Leaky-ReLU activation functions are used after each 
+convolution  layer  to  facilitate  network  training  and  stability.  The 
+encoder consists of 5 blocks, which progressively reduce the spatial di-
+mensions and learn features. It starts with a convolutional layer with 32 
+output channels and strides of 2, followed by a residual block. The re-
+sidual block comprises a Conv-ReLU-Conv structure, where a convolu-
+tional layer is followed by a Rectified Linear Unit (ReLU) activation and 
+another convolutional layer. This configuration is designed to effectively 
+capture  and  enhance  image  features,  serving  as  a  critical  component 
+within the network's architecture. The residual block output is then fed
+
+Perceptual loss: We also used a perceptual loss inspired by the work 
+of Johnson et al. (Johnson et al., 2016), aiming to capture the global 
+dependency  between  underwater  images and  ground  truth  images by 
+considering deep features. This perceptual loss is defined based on the 
+VGG-19  network  (Simonyan  and  Zisserman,  2014),  which  is  a  deep 
+convolutional  neural  network  pre-trained  on  a  large  dataset.  The 
+perceptual  loss,  denoted  as  Lper,  quantifies  the  dissimilarity  between 
+feature  representations  of  the  generated  underwater  image  and  the 
+ground truth image as captured by VGG-19. It is calculated as the sum of 
+the ℓ1 absolute difference between feature maps in the ‘conv5_2’ layer of 
+the  VGG-19  network.  Mathematically,  the  perceptual  loss  can  be 
+expressed as: 
+
+Lper = 1
+
+CjHjWj
+
+∑
+
+⃦
+⃦Φj(Y) (cid:0) Φj
+
+(cid:0)
+
+(cid:0)
+
+⃦
+⃦
+X , Z))
+
+G
+
+j
+
+(6)
+
+10. Conclusion 
+
+In this study, we introduced an innovative GAN-based architecture 
+designed specifically for underwater image enhancement applications. 
+An essential advancement is incorporating spatial and channel attention 
+within  the  generator's encoder,  contributing to  enhanced  feature rep-
+resentation learning and subsequent improvements in image enhance-
+ment performance. Our comprehensive experiments, spanning diverse
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Where is the code repository of the deep learning pipeline available (e.g., GitHub, GitLab, BitBucket)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough context to determine where the code repository of the deep learning pipeline is available. The given text does not provide any information about the location or availability of the source code for the described deep learning model. Please check other sources or contact the authors directly for more details regarding the code repository.

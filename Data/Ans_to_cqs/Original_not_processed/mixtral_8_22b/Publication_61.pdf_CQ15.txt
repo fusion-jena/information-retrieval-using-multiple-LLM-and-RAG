@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Training a neural network requires to set several hyper-parameters
+such as the learning rate, number of epochs and batch size. The learning
+rate is a special one since it deﬁnes how much the weights are ‘moved’
+to decrease the loss. A bigger one could cause the network not to learn,
+on the other hand, a smaller one could require much more steps for
+learning. To decrease this issue, we train the network with Adam op-
+timizer (Kingma and Ba, 2015), a variant of the stochastic gradient
+optimization where the learning rate is adjusted automatically. The rest
+of the parameters are set empirically, more details are presented in the
+experiments section.
+
+5. Experiments
+
+In this section, we present the experimental characterization of the
+proposed approach. The implemented network was trained with Adam
+optimizer (Kingma and Ba, 2015) on a Inter Core i7 machine with
+NVIDIA GeForce 1080 GPU. The hyperparameters were set as follows:
+learning rate 0.01, number of epochs 150, batch size 2500.
+
+max pooling operation is performed, using a kernel of 2 × 2 and stride
+two. Next, the features are ﬂattened to a one dimension vector of size
+400. Later, three fully connected layers are applied with 120, 84, and 2
+nodes respectively. Until this point, the output of the CNN is a vector of
+real numbers called logits. Therefore, a LogSoftMax function is applied
+to convert the logits into a normalized probability distribution:
+
+tion. With the modiﬁed images a CNN was trained to classify three
+diﬀerent legume species: white bean, red bean and soybean. A relevant
+approach for deep learning is a form of transfer learning. It is well
+known that deep learning networks need large amounts of data to be
+trained, this has led to the use of pre-trained networks that are latter
+ﬁne-tuned with speciﬁc data of the addressed problem. The aim is to
+take advantage of the knowledge learned from one problem to apply it
+to another closely related problem. In (Ghazi et al., 2017), three re-
+cognized deep learning architectures, namely GoogLeNet, AlexNet, and
+VGGNet, were used to identify the plant species captured in a photo-
+graph. The authors studied the impact of critical factors (iteration size,
+
+5.3. Learned features
+
+During training, CNN adjust their weights in order to decrease the
+loss. Weights from ﬁnal layers are usually diﬃcult to make sense for
+humans but weights in ﬁrst layers are more easy to comprehend. In
+Fig. 14, we present the ﬁrst layer's ﬁlters that were learned by the
+network along with the feature maps for the example cactus presented
+in Fig. 13. As can be seen, the ﬁrst and second kernels of the CNN
+highlight some features such as the vertical edges, the third and fourth
+kernels perform a noise removal, the ﬁfth kernel sharp some features
+and ﬁnally the sixth kernel erase the background.
+
+5.4. Dataset extension
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text mentions that the proposed approach uses the Adam optimizer (Kingma and Ba, 2015) during the training process. This optimizer is a variant of the stochastic gradient descent optimization method, which is commonly used in deep learning pipelines. The main difference between Adam and traditional stochastic gradient descent (SGD) is that Adam adapts the learning rate for each weight individually based on its historical values, while SGD uses a single global learning rate for all weights. This adaptive behavior allows Adam to converge faster and achieve better performance compared to SGD in many cases. Additionally, the text does not mention any other optimization techniques being applied in the deep learning pipeline.

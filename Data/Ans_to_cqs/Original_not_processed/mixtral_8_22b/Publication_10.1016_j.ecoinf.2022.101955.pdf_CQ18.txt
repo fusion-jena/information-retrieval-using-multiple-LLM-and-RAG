@@ -1,0 +1,62 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Control() function helped to evaluate these tuning parameters for model 
+performance. Table S3 shows the parameterization settings (i.e. model 
+type,  number  of  tuning  parameters/iterations,  tuning  methods  and 
+description) for each of the four ML algorithms.
+
+2.3.2.3. ANN: artificial neural networks classification. In classifying with 
+the MLP ANN model, we used the package “nnet”, which provides pos-
+sibilities for adjusting weighted decay and size, thereby countering the 
+effects of model overfitting. We used an MLP ANN architecture with 1 
+hidden layer established as a default setting within the “nnet” package, 
+and with 6 neurons defined for our model inputs. The number of neurons 
+in the input layer was equal to the number of used bands (6), and the 
+output  layer  had  8  neurons  (representing  8  LULC  classes).  A  back 
+propagation learning algorithm was used during the training phase of 
+the model. Size and decay were used to define the primary model tuning 
+parameters, and the control () function was used to control for model 
+runs. As with the kNN approach, we defined the LULC classes of the test 
+datasets  as  target  variables  and  the  band  reflectance  values  as  pre-
+
+and  Kappas,  2017).  The  kNN  model  is  a  non-parametric  model  that 
+performs  LULC  classification  based  on  the  distance  between  k  closest 
+samples drawn from training datasets. The approach depends on thor-
+ough image (predictor) pre-processing so as to reduce sampling bias and 
+ensure equal treatment of predictors when computing distance (Kuhn 
+and Johnson, 2016). The SVM model uses support vectors (i.e. based on 
+a subset of training data points closest to decision boundaries) to locate 
+optimal decision boundaries that separate two LULC classes (Cortes and 
+Vapnik, 1995; Kuhn and Johnson, 2016). The ANN model is a mathe-
+matical model developed as an analogy of the human brain. Using an 
+interconnected  group  of  responsive  and  conducting  nodes,  the  ANN 
+model  mimics,  in  a  very  simplified  fashion,  the  functionality  of  the 
+human brain for knowledge acquisition, recall, synthesis and problem
+
+2.3.2.4. RF: random forest classification. With the RF approach, we used 
+the “randomForest” package. We allowed the model to set the number of 
+trees (ntree) and number of features in each split (mtry) by default so as 
+to ensure satisfactory model performance (Duro et al., 2012; Matlhodi 
+et al., 2019; Zhang and Roy, 2017). i.e. about 500 decision trees were 
+created  by  the  model  under  default  settings,  with  over  3000  training 
+samples randomly selected for training purposes under default settings. 
+
+EcologicalInformatics74(2023)1019554Y.G. Yuh et al.                                                                                                                                                                                                                                  
+
+2.3.3. Estimating classification accuracy
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The study employs various strategies to monitor the model performance during training across different machine learning algorithms. For instance, in the case of Artificial Neural Networks (ANN) classification, the authors use the 'nnet' package, which allows them to adjust weighted decay and size to counteract the effects of model overfitting. They also employ a Multilayer Perceptron (MLP) ANN architecture with one hidden layer and six neurons defined for their model inputs. The number of neurons in the input layer equals the number of used bands (six), while the output layer has eight neurons representing eight land use/land cover (LULC) classes. During the training phase, they utilize a backpropagation learning algorithm. The primary model tuning parameters are defined using size and decay, and the control() function is employed to manage model runs. Similarly, for Random Forest (RF) classification, the authors use the 'randomForest' package. They allow the model to set the number of trees (ntree) and the number of features in each split (mtry) by default to ensure satisfactory model performance. This results in approximately 500 decision trees created by the model under default settings, with more than 3000 training samples randomly selected for training purposes under default settings.

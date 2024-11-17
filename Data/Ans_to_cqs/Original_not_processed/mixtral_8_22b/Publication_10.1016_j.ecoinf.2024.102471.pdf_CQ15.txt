@@ -1,0 +1,122 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.3. Baseline models 
+
+Hybrid  CNN-LSTM  is  an  architecture  that  combines  the  temporal 
+modelling ability of the LSTM with the CNN ability to learn invariant 
+features  (Ayadi  and  Lachiri,  2022)  (Yadav  and  Vishwakarma,  2020) 
+(Ashraf  et  al.,  2023).  The  combination  of  Convolutional  Neural  Net-
+works  (CNN)  and  Long  Short-Term  Memory  (LSTM)  has  the  major 
+benefit of learning spatial and temporal data. CNN excels in extracting 
+spatial elements like edges, textures, and forms from an input. Mean-
+while,  an  LSTM  excels  in  extracting  temporal  data,  like  the  order  of 
+words in a phrase or frames in a movie. By combining the two, a model 
+
+EcologicalInformatics80(2024)1024719B. Swaminathan et al.
+
+3.1. Feature encoder 
+
+The feature encoder of the pre-trained Wav2vec model reduces the 
+dimensionality of the audio data, converting the raw waveform into a 
+sequence of feature vectors Z every 20 milliseconds. The main compo-
+nent of the feature encoder's architecture is seven layers of a 1D con-
+volutional neural network with 512 channels at each layer. The size of 
+the kernel and strides decreases as the layer progresses in the network. 
+The waveform is normalized before passing through the convolutional 
+layer, followed  by  layer  normalization and  GELU  activation function. 
+Finally,  latent  feature  vectors  represent  the  latent  feature  of  bird 
+vocalization.  Thus,  it  helps  the  model  to  identify  and  understand  the 
+sequential information in the vocalization audio of multi-bird species. 
+
+3.2. Context network
+
+Fig. 2. Wav2Vec pre-training phase.  
+
+quantized representation for the masked latent feature representation. 
+Diversity loss shown in (2) is also added to the objective function for 
+regularization during pre-training. 
+
+(
+
+Lm = (cid:0)
+
+log
+
+sim(ct ,qt )
+e
+k
+
+/
+
+∑
+
+q′∈Qt
+
+sim(ct ,q′)
+e
+k
+
+Ld =
+
+(cid:0)
+*
+
+1
+GV
+
+) )
+
+(cid:0)
+
+pg
+
+(cid:0) H
+
+(1)  
+
+(2) 
+
+In the supervised fine-tuning phase, the labelled dataset is used in 
+training the model to predict particular words or phonemes. Fig. 3 de-
+picts the process and components in the fine-tuning phase of wav2vec. 
+Phonemes are the smallest unit of sound, usually one or two letters, in 
+the language. During fine-tuning, the quantization module is removed. 
+Instead, a linear projection layer is added to the context network. Then 
+the model is fine-tuned on connectionist temporal classification (CTC) 
+loss for the Automatic Speech Recognition task. So, the wav2vec model 
+has a general understanding of phonemes present in human speech.
+
+4.4. Wav2Vec model description 
+
+After pre-processing, the whole dataset is splitted into training and 
+testing  of  various  ratio  including  70:30,  80:20  and  90:10  for  strong 
+performance  analysis.  As  a  part  of  training  proposed  model,  the  raw 
+audio signals of various bird species are given as input to extract 768- 
+dimensional  vector  as  features.  In  wav2vec,  after  the  transformer 
+block, there are three dense layers with ReLU activation function con-
+tains 1024, 512, and 256 hidden neurons, respectively. Followed by, one 
+classification layer with sigmoid activation function is kept to decide on 
+
+bird categories as output. For this technique, Adam is used as optimizer 
+with initial learning rate of order 10e-5 is appropriate for small weight 
+updates throughout the network while fine-tuning. Based on the manual 
+fine-tuning process, other hyper parameters such as epochs of 30 with 
+batch size 1 is chosen as optimal value. 
+
+4.5. Multi labelling framework
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Adam is used as an optimizer in the deep learning pipeline described in the context. It is mentioned that Adam is used as an optimizer with an initial learning rate of order 10e-5, which is appropriate for small weight updates throughout the network while fine-tuning. Other hyperparameters such as epochs of 30 with batch size 1 are also chosen as optimal values based on the manual fine-tuning process. However, no other optimization techniques are explicitly mentioned in the provided context.

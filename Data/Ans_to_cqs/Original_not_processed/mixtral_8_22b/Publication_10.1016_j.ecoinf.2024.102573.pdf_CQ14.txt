@@ -1,0 +1,111 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Furthermore, proposed models and their specific hyper-parameters do 
+not  always  behave  as  nicely  as  reported  outside  their  benchmark 
+datasets.
+
+Table 2 
+Test  results  (in  %)  of  the  frontends.  The  codes  ‘A’,’S’,  and  ‘M’  indicate  data 
+augmentation, standardization, and min-max normalization, respectively. Sinc 
+refers to SincNet+.  
+
+Model 
+
+accuracy 
+
+top-3 accuracy 
+
+f1-score 
+
+precision 
+
+recall 
+
+Mel-log-A 
+Mel-log 
+Mel-pcen-S 
+Mel-log-M 
+Mel-log-S 
+Mel-log-M-A 
+Mel-log-S-A 
+Mel-pcen 
+Mel-pcen-M 
+Mel-pcen-S-A 
+Mel-pcen-A 
+Mel-pcen-M-A 
+Stft-log-A 
+Stft-log 
+Stft-log-S 
+Stft-pcen 
+Stft-log-M-A 
+Stft-log-M 
+Stft-pcen-M 
+Stft-log-S-A 
+Stft-pcen-S 
+Stft-pcen-A 
+Stft-pcen-M-A 
+Stft-pcen-S-A 
+Sinc-log-A 
+Sinc-log 
+Sinc-log-M 
+Sinc-pcen 
+Sinc-log-S-A 
+Sinc-log-M-A 
+Sinc-pcen-M 
+Sinc-log-S 
+Sinc-pcen-S-A 
+Sinc-pcen-A 
+Sinc-pcen-S 
+Sinc-pcen-M-A 
+Leaf-log-M 
+Leaf-pcen-S 
+Leaf-log 
+Leaf-pcen 
+Leaf-log-S 
+Leaf-pcen-M 
+Leaf-pcen-S-A 
+Leaf-log-A 
+Leaf-pcen-A 
+Leaf-log-S-A 
+Leaf-log-M-A 
+Leaf-pcen-M-A
+
+and LEAF-B together reveal that the closeness of the results is due to 
+the adequacy of the (mel-)spectrogram and not the suboptimal choice of 
+the hyper-parameters in learnable frontends. Moreover, LEAF-B shows 
+that  a  learnable  frontend  prefers  log-linearly  spaced  filters  like  mel- 
+filterbanks. The filters adapted to the frequency characteristics of the 
+dataset when initialized inappropriately. Also, the occupied frequency 
+bands were faithful to the content of our bird dataset, while the filters 
+could  reach  16  kHz.  Overall  evidence  shows  that  STFT  and  mel- 
+
+EcologicalInformatics81(2024)1025737H. Ghaffari and P. Devos
+
+We think picking the best model based on very close results is not 
+informative. Although the learnable frontends were negligibly better in 
+performance, they were much worse in computation time. Also, if we 
+had not used the additional normalization with learnable frontends and 
+had  omitted  this  detail  while  using  it  as  default  with  the  (mel-)spec-
+trogram,  we  could  report  that  the  learnable  frontends  are  negligibly 
+inferior. Moreover, we did not experiment with fft and hop sizes to keep 
+the  number  of  experiments  manageable.  These  two  hyper-parameters 
+significantly  impact  the  performance  of  the  (mel-)spectrogram. 
+Although the kernel and hop sizes of the learnable frontends were fixed, 
+they had a slight advantage since the spreads of the Gaussian pooling 
+filters for downsampling were learnable.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about how the hyperparameters of the models were optimized. However, it mentions that the learnable frontends had a slight advantage because the spreads of the Gaussian pooling filters for downsampling were learnable. This suggests that some form of optimization or learning process was applied to these parameters. Additionally, the authors mention that they did not experiment with fft and hop sizes to keep the number of experiments manageable, implying that they might have considered tuning those hyperparameters but decided against it. Unfortunately, without more specific details, it cannot be determined whether techniques such as grid search or random search were employed for hyperparameter optimization.

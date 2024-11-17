@@ -1,0 +1,82 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Pytorch (Paszke et al., 2019) ML framework for deep learning (CNNs). 
+These libraries also include tools for data pre-processing, model selec-
+tion and evaluation. To keep our model training and analysis pipelines 
+comparable, we use skorch, a scikit-learn compatible neural network li-
+brary that wraps PyTorch. This allows the same scikit-learn training and 
+evaluation procedure to be used for both models. Skorch is also helpful 
+for end-users in CNN training, as it has a clear and simple interface. It 
+only requires end-users to add the prepared datasets, model and specify 
+the associated hyperparameters (Table 4). Documentation for the entire 
+machine learning pipeline can be found at (PyTorch, 2023) for Pytorch 
+(Paszke  et  al.,  2019;  scikit-learn,  2023)  for  scikit-learn  and  (skorch, 
+2022)  for  skorch.  Commercial  restrictions  apply  to  the  availability  of 
+data  used  in  this  work.  However,  links  to  public  code  examples  of
+
+2.2.3. Model preparation 
+
+The VGG16 network was sourced from the torch library and all layers 
+frozen, preventing any further training (updates to model parameters), 
+see Table 3. We then duplicated this network to provide a foundation for 
+each modelling approach. For our CNN þ SVM modelling approach we 
+kept the architecture up to the first FC layer (FC1), creating a feature 
+extractor (Fig. 2). We then paired it with an SVM, sourced from the scikit- 
+learn library. We evaluate two types of SVM: a linear SVM and a non- 
+linear SVM, known as a Radial Basis Function (RBF) (Fig. 3). An RBF 
+SVM is a good default choice, as it can find both a linear and non-linear 
+hyperplanes at high dimensions. 
+
+For  the  CNN  approach  however,  we  use  the  full  VGG16  network, 
+leaving the feature extractor and classifier intact. In its frozen state the
+
+2.2.5. Classification 
+
+Each  ML  approach  requires  hyperparameters  to  classify  imagery, 
+which when optimized during training can increase model performance, 
+see  Table  4  for  a  hyperparameter  glossary.  Given  the  computational 
+efficiency of the SVMs and the few hyperparameters required, each of 
+these can be optimized simply and relatively quickly (subject to dataset 
+size)  during  a  k-fold  (k = 5) cross-validated  fine  grid-search  on  the 
+training  data.  For  our  CNN  þ SVM  method,  we  followed  hyper-
+parameter  recommendations  by  (Hsu  et  al.,  2016),  authors  of  the 
+LIBSVM library (Chang and Lin, 2011). For our non-linear RBF SVM we 
+searched  hyperparameters  C = 23, 23.25, …, 27  and  γ = 2
+(cid:0) 13  & 
+(cid:0) 11. For the linear SVM, we used the same hyperparameter search for 
+2
+its sole parameter C. We also looked at the RBF and linear SVM with 
+
+(cid:0) 15, 2
+
+Fig. 3. A diagram of various support vector machines.
+
+From a coding perspective, training an SVM is extremely straight-
+forward, with training, optimisation and testing executed within only a 
+few simple lines of code. The relative complexity with the CNN þ SVM 
+approach,  and  by  extension  the  CNN  approach,  rather  lies  in  data 
+management and feature extraction. The complexity of these steps is not 
+so  much  related to the  actions required, but navigating  the extensive 
+literature and knowing “where to start”. As one of the contributions of 
+this paper we hope to better guide the user with clear and detailed de-
+scriptions  of  these  steps,  that  are  applicable  across  ML  frameworks 
+(Table 3). Aside from these preparations, training the CNN classifier is 
+further complicated since an optimal is not automatically found. Instead 
+performance  metrics  must  be  monitored  across  epochs  and  decisions 
+made on when to stop training - typically the point at which training and
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the purpose of the deep learning model (e.g., classification, segmentation, detection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The purpose of the deep learning model discussed in the given context is for image classification. Specifically, the VGG16 network, sourced from the torch library, is being utilized for this task. The model is employed in two different approaches: CNN + SVM and pure CNN. In the former approach, the VGG16 network is modified into a feature extractor by keeping the architecture up to the first fully connected layer (FC1). These extracted features are then fed into a Support Vector Machine (SVM) for classification. Two types of SVMs are evaluated: a linear SVM and a non-linear SVM, known as a Radial Basis Function (RBF). On the other hand, the latter approach uses the complete VGG16 network, including the feature extractor and classifier, for image classification. Both methods require hyperparameters for optimization during training to improve model performance.

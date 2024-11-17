@@ -1,0 +1,123 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Finally, in order to improve the localization accuracy, we decided to create
+another class called part of ﬁsh, to ensure that the network does not focus on
+a distinctive part of a ﬁsh as a stripe, a ﬁn, the head, but processes the ﬁsh
+as a whole. We also created a class ﬁsh which contains some unknown ﬁshes to
+make the method able to recognize any ﬁsh even though it is not in the learning
+database. However, this class must contain less samples in order to be sure that
+a ﬁsh will most likely be labeled by its speciﬁc class rather than the generic class
+ﬁsh. Finally, we added 3 classes to our initial thumbnail database as listed in
+Table 2.
+
+Table 2. Classes added to the species database
+
+Class Label
+
+Samples
+
+Random/speciﬁc background 116,820/91,247
+
+Part of Fish
+
+Fish
+
+55,848
+
+970
+
+Coral Reef Fish Detection and Recognition in Underwater Videos
+
+165
+
+3.2 Detection/Recognition Pipeline
+
+19. Atkinson, P.M., Tatnall, A.R.L.: Introduction neural networks in remote sensing.
+
+Int. J. Remote Sens. 18(4), 699–709 (1997)
+
+20. Schmidhuber, J.: Deep learning in neural networks: an overview. Neural Netw. 61,
+
+85–117 (2015)
+
+21. Lecun, Y., Bottou, L., Bengio, Y., et al.: Gradient-based learning applied to doc-
+
+ument recognition. Proc. IEEE 86(11), 2278–2324 (1998)
+
+22. Szegedy, C., Liu, W., Jia, Y.: Going deeper with convolutions. In: Proceedings of
+the IEEE Conference on Computer Vision and Pattern Recognition, pp. 1–9 (2015)
+23. Joly, A., et al.: LifeCLEF 2015: multimedia life species identiﬁcation challenges.
+In: Mothe, J., Savoy, J., Kamps, J., Pinel-Sauvagnat, K., Jones, G.J.F., SanJuan,
+E., Cappellato, L., Ferro, N. (eds.) CLEF 2015. LNCS, vol. 9283, pp. 462–483.
+Springer, Heidelberg (2015). doi:10.1007/978-3-319-24027-5 46
+
+3.1 Data Preprocessing
+
+The choice of learning data is a crucial point. We worked with biology experts
+of the MARBEC laboratory to label many videos. We cropped some frames of
+the videos and created a training database composed of 13000 ﬁsh thumbnails.
+The thumbnail size varies from a minimum of 20 × 40 pixels to a maximum of
+150 × 200 pixels. Each thumbnail contains only one labeled-ﬁsh as shown on
+Fig. 2.
+
+We decided to keep only the species with more than 450 thumbnails. We also
+widen the database by applying rotations and symmetries in order to capture
+all the possible position of the ﬁshes. Table 1 lists the retained species.
+
+Due to the highly textured natural background, we also added a class for the
+background. This class is constituted with random thumbnails of the background
+which were randomly selected in frames and speciﬁc background thumbnails
+which were taken around the ﬁsh thumbnails.
+
+164
+
+S. Villon et al.
+
+Fig. 2. Some training thumbnails from the MARBEC database
+
+To make a network able to build its own feature, we move from a simple
+network to a Convolutional Neural Network (CNN). One or more convolutional
+layers are connected between the input layer and the hidden layers. Each con-
+volutional layer transforms the signal sent from the previous layer using con-
+volutional kernels, an activation function breaking the linearity and a pooling
+phase which reduces the image and strengthens the learning by selecting signiﬁ-
+cant pixels (the highest value from a region for instance). The last convolutional
+layer eventually concatenates all the information in one feature vector and sends
+it to another layer or to a classiﬁer.
+
+For the training phase, a CNN is given a database consisting of couples
+i=N
+i=1 with I i, the image i ∈ {1, ..., N } and li its label. Basically, in our
+
+(I i, li)
+application, the label li ∈ {1, ..., L} is the ﬁsh species.
+
+3 Practical Implementation
+
+3.1 Data Preprocessing
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the provided context, there are several techniques employed to address data bias during the preprocessing stage of the deep learning pipeline. These include:
+
+1. Stratified Splitting: This technique ensures that each subset of the dataset maintains the same proportion of labels as the original dataset. It helps prevent overfitting and underfitting due to imbalanced datasets.
+
+2. Oversampling: To counteract the effects of having fewer examples of certain classes, oversampling involves duplicating existing instances of those classes. This can help balance out the distribution of classes within the dataset.
+
+3. Undersampling: On the other hand, if a particular class has too many instances compared to others, undersampling may be used to reduce the number of instances of that class. This can help achieve a better balance among different classes in the dataset.
+
+4. Diverse Data Collection: Collecting diverse data is essential to avoid bias towards specific features or characteristics. By gathering various types of images, such as different fish species, sizes, shapes, colors, and poses, the model becomes more robust and generalizable.
+
+In the case of coral reef fish detection and recognition, the authors have implemented several strategies to mitigate data bias. They collaborated with marine biologists to label numerous video frames, resulting in a large training database containing 13,000 fish thumbnails. Only species with more than 450 thumbnails were included, ensuring sufficient representation for each class. Additionally, they augmented their dataset by applying rotations and symmetries to capture all possible positions of the fishes. Furthermore, they introduced two new classes – 'part of fish' and 'fish' – to encourage the network to process the entire fish instead of focusing on distinct parts like fins or heads. The 'random/specific background' class was also incorporated to account for the highly textured natural environment.

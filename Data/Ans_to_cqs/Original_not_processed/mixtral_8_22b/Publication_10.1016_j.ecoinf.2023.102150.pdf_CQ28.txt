@@ -1,0 +1,87 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We trained a deep neural network in R (R Core Team, 2022) using the 
+R-package  keras  (Chollet  et  al.,  2017),  an  interface  to  TensorFlow 
+(Abadi et al., 2015) for R. We used the ResNet50 architecture (for details 
+about the model architecture see He et al., 2016) with an adam opti-
+mizer (Kingma and Ba, 2014). We trained the model from scratch for 55 
+
+EcologicalInformatics76(2023)1021504H. B¨ohner et al.                                                                                                                                                                                                                                 
+
+Fig. 3. The camera trap developed by Soininen et al. (2015) consists of a Reconyx camera that is mounted on the ceiling of a metal box that can be entered by small 
+mammals. The camera traps are protected with stones when placed in the field.
+
+The complete workflow is performed in the statistical software R (R 
+Core Team, 2022), a programming language used by most ecologists (Lai 
+et  al.,  2019).  Thus,  the  use  of  R  instead  of  python,  the  leading  pro-
+gramming language for deep learning tasks (Raschka et al., 2020), will 
+likely  lower  the  threshold  for  ecologist  of  implementing  automatic 
+image classification in their workflows. Most available frameworks for 
+automatic  image  classification  come  as  tools  with  a  graphical  user 
+interface or as R packages. Such tools and packages are designed to be 
+user-friendly with the aim to make machine learning models available 
+for  ecologists  without  programming  experience  (Tabak  et  al.,  2020). 
+However,  they  are  often  difficult  to  modify  and  researchers  are  then 
+obliged to develop their own tool for their specific needs instead of using 
+existing ones. Thus, we provide R-scripts for all steps of the workflow,
+
+been tasks for computer scientists (Tabak et al., 2020). To facilitate the 
+use of machine learning in ecology, several neural networks trained on 
+large  image  data  sets  are  now  publicly  available  via  simple  user
+
+306 
+
+195 
+533 
+424 
+
+449 
+416 
+425 
+528 
+3276  
+
+training  data  set. The  models were  trained on  a  cloud  service  with  1 
+GPU,  4  CPUs  and  16  GB  RAM  provided  by  Sigma2  -  the  National 
+Infrastructure  for  High  Performance  Computing  and  Data  Storage  in 
+Norway. 
+
+We evaluated the model performance on the validation data set and 
+the  out-of-sample  test  data  set  by  calculating  model  accuracy  as  the 
+number of correct predictions divided by the number of all images as 
+well as precision, recall and F1 score for each class (Appendix B): 
+
+Precision =
+
+Recall =
+
+TP
+TP + FP
+TP
+TP + FN
+precision*recall
+precision + recall
+
+F1 = 2*
+
+(TP = Truepositives)
+
+(FP = Falsepositives)
+
+(FN = Falsenegatives)
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which platform was used to deploy the deep learning model (e.g., AWS, Azure, Google Cloud platform)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning model was deployed on a cloud service with 1 GPU, 4 CPUs, and 16 GB RAM provided by Sigma2 - the National Infrastructure for High Performance Computing and Data Storage in Norway. However, it does not explicitly state which specific platform (such as AWS, Azure, or Google Cloud Platform) was used. Therefore, based on the given information, I cannot determine the exact platform used to deploy the deep learning model.

@@ -1,0 +1,112 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Remote Sens. 2020, 12, 343
+
+5 of 15
+
+Table 1. Five datasets created considering continuous or discrete training strategy for the forest
+classes and with or without the “Non-Forest” class. In the continuous strategy, the forest classes were:
+Open Forest with tree cover 10–40%, Closed Forest with tree cover 41–65%, and Dense Forest with
+tree cover 66–100%. In the discrete strategy, the forest classes were: Open Forest with tree cover 15%,
+Closed Forest with tree cover 55%, and Dense Forest with tree cover 95%). Number of samples (plots)
+used to train the CNN-based models (third column). See Table S1 in Supplementary Material for more
+information about the images used in the classes.
+
+CNN-Based
+Model type
+
+Continuous
+
+Discrete
+
+Continuous
+
+Discrete
+
+Continuous
+
+Tree Cover Classes
+
+Number of Samples
+
+Total Samples (n)
+
+Tree cover 10–40%
+Tree cover 41–65%
+Tree cover 66–100%
+
+Tree cover 15%
+Tree cover 55%
+Tree cover 95%
+
+Non-Forest
+Tree cover 10–40%
+Tree cover 41–65%
+Tree cover 66–100%
+
+(1) Database construction phase: ﬁve training datasets were built with examples of images with
+diﬀerent levels of tree cover, continuous and discrete approximations, and inclusion of auxiliary
+class “Non-Forest” (see Section 2.2 and Supplementary Material, Archive S2).
+
+(2) Training phase: training ﬁve CNN models based on Inception v.3 using two optimization
+
+techniques, transfer learning, and data augmentation (see Section 2.3).
+
+(3) Classiﬁcation phase: classiﬁcation of new 396 images with diﬀerent tree cover in global drylands
+(see Supplementary Material, Table S1 and Archive S3) with the built CNN-based model (see
+Section 2.4).
+
+(4) Validation phase: assessment of performance on the new images (see Section 2.5).
+
+2.2. Datasets Design
+
+Before building the training datasets for the CNN-based models, we compiled a global database
+
+of very high resolution satellite and aerial RGB images from two sources:
+
+•
+
+•
+
+For this, we obtained ﬁve models by training Inception v.3 on the ﬁve created datasets. Several
+studies have shown that increasing the size of the dataset using data augmentation improves the
+performance of the CNN-based models [49,50]. These techniques have been proposed to reduce the
+requirement of a large dataset for model training [43–45]. We conﬁgured the model parameters by
+training the last two fully connected network layers in our dataset using a learning rate of 0.001 and a
+decay factor of 16 every 30 epochs. As an optimization algorithm, we used RMSProp with a momentum
+of 0.9 and epsilon of 0.1.
+
+Remote Sens. 2020, 12, 343
+
+7 of 15
+
+between sensitivity and precision. We used ﬁve-fold cross-validation strategy to evaluate our approach
+and the baseline on the test dataset.
+
+3. Results
+
+3.1. Eﬀect of CNN Training Strategies on Performance to Estimating Tree Cover in Drylands
+
+The lowest F1-measure for tree cover classiﬁcation was observed in the two models trained with
+the datasets that included the Non-Forest class. Regarding the models trained on datasets of the same
+size that did not include a Non-Forest class (rows 2 and 3 in Figure 2), the CNN-based model with
+continuous categories obtained a higher F1-measure than the CNN-based model trained with discrete
+categories. The improvement in F1-measure thanks to the use of continuous categories in the training
+dataset was large (up to 6%) in Dense forest, null (0%) in Closed forest, and small (2%) in Open forest
+(Figure 2).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To monitor the model performance during training, the study employed a five-fold cross-validation strategy. This method involves dividing the dataset into five equal parts or folds. Four of these folds are used for training the model, while the remaining fold is used for validation. This process is repeated five times, each time with a different fold serving as the validation set. By doing so, the entire dataset is utilized for both training and validation, providing a robust measure of the model's performance.

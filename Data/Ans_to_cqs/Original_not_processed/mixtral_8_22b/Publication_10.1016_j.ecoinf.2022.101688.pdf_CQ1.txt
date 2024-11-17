@@ -1,0 +1,99 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Since CNNs require a fixed input size, we studied the vocalisations 
+within the presence class for each dataset to determine the character-
+istics of the calls which would allow us to create fixed input, which we 
+refer to as segments. For example, the Hainan gibbon calls vary from 2 to 
+9 s (Dufourq et al., 2021), and thus a suitable input size was 4 s to ensure 
+that the smallest call would fit within the segment. A longer input (>4 
+seconds) would result in CNNs with more network parameters, an un-
+desirable consequence as this would increase the chances to overfit. A 
+shorter input (<4 s) would not contain enough information, especially 
+in cases where the individual pulses that make up a call are long. A short 
+input could omit parts of the call. Preliminary experiments were con-
+ducted on the different datasets to minimise the input length as much as 
+possible,  thus  minimising  network  parameters.  The  characteristics  of
+
+Table 1 
+Pre-processing hyper-parameters for each dataset and the number of testing files 
+used.   
+
+Lemurs 
+
+Alethe 
+
+Gibbons 
+
+Whydah 
+
+Low pass filter cut off 
+Downsampling rate 
+Nyquist rate 
+Segment duration 
+Number of testing files 
+Testing time (min) 
+
+4000 
+9600 
+4800 
+4 
+46 
+1840 
+
+3100 
+6400 
+3200 
+2 
+27 
+810 
+
+2000 
+4800 
+2400 
+4 
+22 
+1300 
+
+9000 
+18400 
+9200 
+3 
+78 
+1560
+
+4. Results 
+
+Under many conditions, CNNs pre-trained on the ImageNet dataset 
+were  able  to  produce  classifiers  which  were  able  to  identify  calls  in 
+bioacoustic  datasets  with  a  high  degree  of  accuracy  (Table  3).  Our 
+comparison over the 12 pre-trained CNNs revealed that ResNet101V2 
+and ResNet152V2 produced the best results (Table 4). We compared the 
+CNNs when the feature extractor was frozen and when it was fine-tuned 
+and the difference in performance varied across the CNNs. Our findings 
+reveal that when only 25 samples are used freezing the feature extractor 
+results in CNNs that were as good as CNNs where the feature extractor 
+was fine-tuned (Fig. 6). However, when more data was used, fine-tuning 
+the feature extractor was the most optimal approach. Finally, we show 
+that  the  performance  of  the  CNNs  can  be  improved  when  taking  the
+
+consuming step which involves exploring various neural network hyper- 
+parameters to obtain the most optimal model. When combined, these 
+three  problems  render  the  creation  and  utilisation  of  CNNs  to  solve 
+bioacoustics research questions challenging to machine learning experts 
+and non-experts alike.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What methods are utilized for collecting raw data in the deep learning pipeline (e.g., surveys, sensors, public datasets)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The provided context does not explicitly mention the specific methods used for collecting raw data in the deep learning pipeline. However, it is implied that bioacoustic datasets are being used, which suggests that audio recordings or soundscapes might have been collected using recording devices such as microphones or acoustic sensors. These recordings could potentially come from field surveys, sensor networks, or publicly available datasets. It is also possible that the researchers themselves conducted fieldwork to collect the necessary audio data. Nevertheless, without explicit details about the data collection process, it cannot be definitively stated what methods were employed.

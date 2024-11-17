@@ -1,0 +1,92 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+EcologicalInformatics76(2023)10204610A.R. Sigurðard´ottir et al.                                                                                                                                                                                                                      
+
+Fig. B.1. Difference in predicted versus true age for European plaice when training the linear model on a training dataset of different size. Training size is shown 
+under each image. 
+
+Appendix C. Hyperparameter search 
+
+We  performed  hyperparameter  search  for  our  classification  and  regression  model  to  identify  the  right  level  of  regularization.  For  the  linear 
+regression model, we considered values of α  that determine the L2 regularization to be in the range {0.1, 0.6, 1.1, …, 19.1, 19.6}. The resulting 
+accuracy of the model is shown in Fig. C.1. We observe that the model shows stable performance for α values in the interval [5.0, 15.0]. For the
+
+training set. For SVC, we explored a C value in the interval [0.001, 1] 
+(see Fig. C.2 in the Appendix C. Based on that result, the hyperparameter 
+value chosen was C = 0.1. For ridge regression, we explored α values in 
+the interval [0.1, 19.6] and concluded that the performance of the model 
+is robust to the choice of the hyperparameter when it ranges from 5 to 15 
+(see Fig. C.1 in the Appendix C). Based on that result we chose to use α =
+6.0 for our experiments.
+
+3.3. Comparison with other models 
+
+Fig. 10 shows the plaice test set accuracy for the CLIP models and the 
+fine-tuned  models.  The  CLIP  regression  model  performs  the  best 
+achieving 55.9% accuracy with RMSE of 0.70 years, and 97.05% accu-
+racy when allowing a ±1 year margin of error like presented in Table 4. 
+The Inception models reached a considerably lower accuracy than 
+the other models, and we found it overfitting the training data consid-
+erably  faster  compared  to  ResNet  and  ViT.  Overall  the  CLIP  models 
+performed considerably better than the fine-tuned models. Comparing 
+the CLIP regression model to the ViT fine-tuning we see a 5.6% increase 
+in accuracy and a 0.19 decrease in the RMSE value. 
+
+3.4. Feature ablation
+
+2.3. Performance 
+
+For the evaluation of the performance of the models, we reported 
+accuracy, precision, recall, and F1-score. The performance metrics are 
+reported separately for each defined class. Averages over all classes are 
+reported as well. The Root Mean Squared Error (RMSE) was used as an 
+alternative performance metric. 
+
+By  counting  the  occurrences  of  true  positives  (TP),  true  negatives 
+(TN),  false positives  (FP),  and  false negatives  (FN) we  can define the 
+accuracy, precision, recall and F1-score of the models as follows: 
+
+EcologicalInformatics76(2023)1020464A.R. Sigurðard´ottir et al.                                                                                                                                                                                                                      
+
+Accuracy =
+
+TP + TN
+TP + TN + FP + FN
+
+,
+
+Precision =
+
+TP
+TP + FP
+
+,
+
+Recall =
+
+TP
+TP + FN
+
+,
+
+F1 (cid:0) score = 2
+
+Precision × Recall
+,
+Precision + Recall
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, it appears that the authors have employed several strategies to monitor the performance of their models during training. These include performing hyperparameter searches for both classification and regression models to find the appropriate level of regularization. They also evaluated various performance metrics such as accuracy, precision, recall, and F1-score, along with using the Root Mean Squared Error (RMSE) as an alternative performance metric. Additionally, they conducted feature ablations to understand the impact of specific features on the overall performance of the models. However, there isn't any explicit mention of a specific monitoring strategy or tool being utilized throughout the training process.

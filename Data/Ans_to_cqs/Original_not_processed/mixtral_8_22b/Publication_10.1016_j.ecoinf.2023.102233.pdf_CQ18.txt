@@ -1,0 +1,62 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Active  learning  iterations  used  a  batch  size  of  64,  ten  epochs  and 
+learning rate of 0.001. We used a grid search technique (Mohri et al., 
+2018) to tune hyperparameters of the final model including the number 
+of epochs, batch size and learning rate. 
+
+2.3.3. Active learning framework 
+
+We  applied  an  active  learning  approach  to  iteratively  train  and 
+improve  the  CNN  model.  The  active  learning  approach  is  depicted 
+within Fig. 3 and described below.
+
+Each successive model iteration was trained on 70% of the training 
+data and validated against 30% of the training data. The train/valida-
+tion split approach minimises potential overfitting of the model on small 
+samples sizes, when compared to a cross-validation approach (Vabalas 
+et  al.,  2019).  We  chose  F1  score  as  our  validation  metric,  which  is  a 
+standard performance metric that includes information on both model 
+precision and recall (Mohri et al., 2018,; Stowell, 2022). Iterative model 
+training stopped when the stopping criterion was reached, which was 
+when successive model iterations did not reduce the F1  score. A final 
+model was then trained using the combined training and validation data. 
+A  separate  test  dataset  was  used  for  final  testing/evaluation  of  the
+
+100 target calls. To overcome this challenge, we applied a random se-
+lection  approach  that  was  stratified  across  the  model’s  predictions 
+(logits).  While  this  approach  substantially  reduced  class  imbalance 
+within our evaluation data and allowed for the calculation of reliable 
+evaluation  metrics  (Raeder  et  al.,  2012),  the  nature  of  this  approach 
+alters  the  distribution  of  data  and  prohibits  evaluation  metrics  being 
+generalised  to  the  unlabelled  data.  Additional  research  is  needed  to 
+investigate more appropriate evaluation methods for highly imbalanced 
+and unlabelled test data.
+
+An active learning strategy requires consideration of biases that may 
+be  introduced  during  annotation  (Monarch,  2021).  While  annotation 
+bias is a consideration for all ML datasets, the active learning framework 
+allows ML models to be generated from smaller datasets and potentially 
+developed  by  fewer  annotators  compared  to,  for  example,  a  publicly 
+available  call  database  such  as  Xeno-canto  (Vellinga  and  Planqu´e, 
+2015). In our study, the final model’s predictions most closely reflected 
+the primary annotator’s labels, compared to the expert’s labels, which 
+suggests that the model is replicating biases of the training data (Koe-
+necke et al., 2020; Roh et al., 2019). Performance improvements may 
+therefore  be  achieved  through  the  inclusion  of  labelled  training  data
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The strategy implemented to monitor the model performance during training is depicted within Figure 3 and described below. Each successive model iteration was trained on 70% of the training data and validated against 30% of the training data. This train/validation split approach minimizes potential overfitting of the model on small sample sizes, when compared to a cross-validation approach. The F1 score was chosen as the validation metric, which is a standard performance metric that includes information on both model precision and recall. Iterative model training stopped when the stopping criterion was reached, which was when successive model iterations did not reduce the F1 score.

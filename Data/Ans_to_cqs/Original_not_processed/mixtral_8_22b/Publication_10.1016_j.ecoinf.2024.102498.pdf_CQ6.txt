@@ -1,0 +1,105 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Due to processing limitations in GEE, it is impossible to utilize many 
+samples and automate hyperparameter tuning. To fill this gap and avoid 
+overfitting,  the  validation  data  were  employed  for  tuning  the  key 
+hyperparameters for each model. Table 3 presents the hyperparameters 
+set for each model during training and validation. 
+
+5.3.2. Pixel-based approach 
+
+The  pixel-based  classification  approach  relies  on  the  spectral 
+
+Table 3 
+Hyperparameters were set for each machine learning technique within the GEE 
+platform.  
+
+Model 
+
+CART   
+
+RF   
+
+GTB   
+
+SVM   
+
+Hyperparameters 
+
+• Max nodes: No limit  
+• Min leaf population: 1 
+
+• Number of trees: 264  
+• Bag fraction: 0.5  
+• Variables per split: Root of the number of variables 
+
+• Number of trees: 20  
+• Shrinkage: 0.005  
+• Sampling rate: 0.7  
+• Loss: Least absolute deviation 
+
+• Kernel type: RBF  
+• SVM type: C_SVC  
+• Decision procedure: Voting
+
+An alternative approach to enhancing the accuracy of LULC maps is 
+to leverage deep learning techniques. These techniques operate patch- 
+wise,  where  each  patch  incorporates  sophisticated  features  extracted 
+from satellite imagery. This enables them to recognize intricate patterns 
+effectively.  Particularly,  Convolutional  Neural  Networks  (CNNs)  are 
+highly  effective  for  LULC  classification.  These  models  automatically 
+
+EcologicalInformatics80(2024)10249824M. Ganjirad and H. Bagheri
+
+Despite the powerful capabilities of the GEE, which provides a wide 
+range of functionalities for spatial data analysis, processing, and inter-
+pretation, this research encountered multiple limitations when using it 
+for  classification.  These  limitations  include  computational  time  con-
+straints, data processing  volume, and the combination of various fea-
+tures  within  the  platform.  In  cases  where  the  study  area  is  vast,  the 
+model training process requires many sample points to ensure training 
+data  completeness.  When  dealing  with  complex  LULC  schemes,  using 
+high-resolution  imagery  and  combining  various  spectral  features  and 
+indices  becomes  essential.  Moreover,  in  such  complex  scenarios, 
+adjusting the parameters of ML models is also necessary. It is not always 
+possible to handle a USGS 24 classification process for a large area with a 
+high-capacity model by employing a high volume of sample data. For
+
+5.3.1. Classification algorithms in GEE 
+
+In this study, 33,209 samples were collected using a stratified sam-
+pling  approach.  Of  these,  70%  were  allocated  for  training,  and  the 
+remaining 30% were employed for testing. Hyperparameter tuning for 
+ML models was performed using validation data (10% of training data). 
+This  research  utilized  CART,  RF,  GTB,  and  SVM  models  as  classifiers 
+within GEE. 
+
+EcologicalInformatics80(2024)1024989M. Ganjirad and H. Bagheri
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model, several preprocessing steps can be applied to improve its performance. Some common preprocessing steps include:
+
+1. Normalization: This involves rescaling input features so they have similar magnitudes or ranges. Common methods include min-max scaling, z-score normalization, and unit length normalization.
+
+2. Scaling: Similar to normalization, scaling adjusts the range of feature values but does not necessarily rescale them to a specific range. Examples include logarithmic scaling and power transformations like Box-Cox transformation.
+
+3. Cleaning: Data cleaning involves removing noise, outliers, missing values, and irrelevant information from the dataset. Techniques used for data cleaning may include imputation, smoothing, and filtering.
+
+4. Augmentation: Data augmentation generates new synthetic examples by applying random transformations to existing data. This helps increase the size of the dataset and improves generalization.
+
+5. Encoding: Categorical features need to be converted into numerical representations before being fed into a neural network. One-hot encoding and ordinal encoding are popular methods for converting categorical variables into numeric form.
+
+These preprocessing steps help prepare the data for efficient training and better prediction results. However, the choice of preprocessing method depends on the nature of the problem, the characteristics of the dataset, and the requirements of the deep learning algorithm.

@@ -1,0 +1,76 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+training  deep  noise  reduction  techniques.  There  are  also  challenges 
+when generating training data for fine-tuning. Generally, clean data is 
+collected, and noise profiles are superimposed to provide both the input 
+data  and  a  “denoised”  ground  truth.  Collecting  clean  recordings  is 
+infeasible  in  many  cases  or  requires  the  recording  of  captive  animals 
+which  may  not  be  representative  of  the  wider  population.  Adjacent 
+fields can generate human speech or music as required but this is not an 
+option for many bioacoustics applications.
+
+Deep learning-based denoising methods are most commonly applied 
+to  natural  language  processing  (NLP)  such  as  a  human  speech 
+enhancement. D´efossez et al. (Defossez et al., 2020) demonstrated the 
+potential for deep noise reduction techniques to achieve state-of-the-art 
+(SOTA) performance and be applied in sub-real time on limited hard-
+ware. These methods commonly operate on audio spectrograms but in 
+recent  years  SOTA  deep  learning  methods  (Wang  et  al.,  2021)  have 
+successfully  used  raw  waveform  data  (Luo and  Mesgarani,  2019; Luo 
+and Mesgarani, 2023) for wider applications such as source separation 
+and classification. This removes errors introduced when applying a Fast 
+Fourier  Transform  (FFT)  to  generate  a  time-frequency  representation 
+and reconstruction errors due to the loss of phase information. These 
+networks tend to require more data for training as the latent space must
+
+be  established  (Xie  et  al.,  2021).  Deep  noise  reduction  methods 
+(Defossez et al., 2020) often use a U-net architecture which consists of an 
+encoder and decoder section. The encoder produces a compressed latent 
+space representation. The decoder then uses this latent space to recon-
+struct the denoised waveform. Recently, transformer attention mecha-
+nisms have also been applied with great success (Cao et al., 2022; Luo 
+and  Mesgarani,  2019;  Luo  and  Mesgarani,  2023;  Zhang  et  al.,  2022; 
+Zhao et al., 2022). As most deep-noise reduction methods focus on NLP 
+applications, models are optimized for bandwidths ranging from 16 to 
+22  kHz.  Bioacoustics  applications  commonly  exceed  this  bandwidth. 
+Additionally, the sparsity of vocalisations in this application and many 
+other  bioacoustics  applications  makes  the  development  of  large-scale 
+datasets  infeasible  (Stowell,  2021).  These  factors  limit  the  success  of
+
+For many bioacoustic monitoring applications, noise reduction and 
+data  sparsity  are  key  considerations.  This  work  evaluates  various 
+traditional and deep learning-based audio enhancement methods with 
+sparse data to determine the applicability of common approaches. We 
+conclude that traditional methods remain a relevant approach for many 
+bioacoustics  applications.  Spectral  subtraction  performs  well  for 
+sparsely  spaced  features  and  outperforms  alternative  approaches  in 
+terms  of  efficiency  and  data  requirements.  Deep  learning-based  ap-
+proaches have seen significant development in recent years. Our results 
+demonstrate  that  fine-tuned  audio  enhancement  models  can  achieve 
+comparable or better performance compared to traditional approaches 
+in  terms  of  noise  reduction.  Audio  enhancement  models  can  also  be 
+trained  to  remove  transient  features,  a  key  advantage  compared  to
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not explicitly mention any specific techniques used to address data bias during preprocessing of the deep learning pipeline. However, it discusses some general challenges related to collecting and preparing training data for deep learning-based denoising methods in bioacoustics applications.
+
+One challenge mentioned is the difficulty in obtaining clean recordings, especially for wild animal populations. In some cases, capturing clean data might only be feasible by recording captive animals, which may not represent the broader population accurately. To overcome this issue, researchers could employ diverse data collection strategies, aiming to gather samples from different environments, seasons, and individual animals.
+
+Another challenge discussed is the generation of training data for fine-tuning deep learning models. Typically, clean data is collected, and noise profiles are superimposed to create both input data and a 'denoised' ground truth. This process might introduce biases if the selected noise profiles do not adequately represent the real-world conditions encountered in the target environment. Researchers should carefully select and balance their noise profiles to minimize potential biases.
+
+Although the text does not directly refer to stratified splitting, oversampling, or undersampling, these techniques could potentially help mitigate data imbalances and improve model performance. For instance, stratified splitting ensures that each class is proportionally represented across all data splits, while oversampling and undersampling adjust the distribution of classes within the dataset.
+
+In summary, while the text does not specifically list techniques used to address data bias during preprocessing of the deep learning pipeline, it highlights several challenges related to data collection and preparation in bioacoustics applications. Strategies like diverse data collection, careful selection of noise profiles, and possibly using techniques like stratified splitting, oversampling, or undersampling could help tackle these issues and reduce potential biases in the training data.

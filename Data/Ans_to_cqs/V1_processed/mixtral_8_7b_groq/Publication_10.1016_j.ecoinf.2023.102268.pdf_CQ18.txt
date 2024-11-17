@@ -1,0 +1,7 @@
+The strategy implemented to monitor the model performance during training involves several steps. First, the labeled dataset was split into training and testing datasets, with 70% of the data used for training and 30% for testing. Additionally, 50% of the training data was held-out for validation to assist with model selection and parameter optimization.
+
+To evaluate the performance of the classification model, a SVM with a cubic polynomial kernel was trained using the ResNet-50 fc1000 activations of the full training dataset. A 10-fold cross-validation was then used to define the score-to-posterior-probability transformation function. This function provides a basis for estimating the posterior probability for new observations, allowing for a more accurate evaluation of the model's performance.
+
+A confusion matrix was created to further assess the model's performance on the test data not seen during training. This matrix provides a visual representation of the model's ability to correctly classify the different sounds present within a broadband acoustic scene.
+
+Overall, the strategy for monitoring the model's performance during training involves a combination of dataset splitting, model evaluation using cross-validation and a confusion matrix, and the use of a score-to-posterior-probability transformation function. This approach allows for a thorough evaluation of the model's performance and provides a basis for continued improvement.

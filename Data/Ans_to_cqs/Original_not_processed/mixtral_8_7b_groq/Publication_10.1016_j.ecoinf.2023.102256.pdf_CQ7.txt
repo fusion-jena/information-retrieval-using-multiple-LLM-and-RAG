@@ -1,0 +1,13 @@
+Answer:::
+
+The bird song dataset was split into a training, validation, and testing dataset to train and evaluate the deep learning model's efficiency. For each species and country, 70% of the downloaded recordings were randomly selected for the training dataset, while the remaining 30% were kept for testing. This approach allows for a sufficient number of samples for the model to learn from while also reserving a separate set of data to evaluate the model's performance.
+
+The training dataset underwent data augmentation, where segments were obtained and randomly distributed between the training and validation sets with a ratio of 0.8/0.2. Data augmentation is a common technique used in deep learning to increase the size of the training dataset and reduce overfitting by creating modified versions of the original data.
+
+The model was trained for 40 epochs with a batch size of 8 segments and a learning rate of 0.001 using the Adam optimizer. Training the model for multiple epochs allows it to learn from the data multiple times, while a batch size of 8 segments is a common choice for training deep learning models. The learning rate of 0.001 is a small value that allows for a slow and steady learning process, while the Adam optimizer is an algorithm used for optimization in deep learning models.
+
+The training process was performed ten times to account for the effect of random weight initialization in neural networks. This is an important step as different initial weights can lead to different results, and performing the training process multiple times ensures that the results are not dependent on a specific set of initial weights.
+
+In each execution, the model was applied to the testing dataset, and the confusion matrix, number of True Positives (TP), False Positives (FP), True Negatives (TN), and False Negatives (FN) were recorded. These metrics are commonly used to evaluate the performance of deep learning models, with TP and TN representing correctly classified samples, while FP and FN represent incorrectly classified samples.
+
+In summary, the criteria used to split the data for deep learning model training include randomly selecting a portion of the data for training, testing, and validation, applying data augmentation to the training dataset, training the model for multiple epochs with a batch size and learning rate, and performing the training process multiple times to account for random weight initialization. These criteria ensure that the deep learning model is trained and evaluated efficiently and effectively.

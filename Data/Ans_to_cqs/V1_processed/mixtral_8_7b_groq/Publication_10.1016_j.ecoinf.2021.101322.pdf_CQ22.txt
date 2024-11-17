@@ -1,0 +1,17 @@
+The performance of the deep learning model, a Convolutional Neural Network (CNN), is evaluated using four different metrics. These metrics are test loss, mean squared error (MSE), mean average percentage error (MAPE), and accuracy (Acc%).
+
+Test loss is a general loss function calculated on the test dataset. It is a measure of how well the model can predict the age of rivers, seas, and spawning sites based on the input data. A lower test loss indicates a better performing model.
+
+Mean squared error (MSE) is a common metric used for regression problems. It measures the average squared difference between the predicted and actual values. A lower MSE indicates that the predictions are closer to the actual values.
+
+Mean average percentage error (MAPE) is another metric used for regression problems, specifically for tasks where the errors are measured as a percentage of the actual values. It is calculated as the average absolute difference between the predicted and actual values, expressed as a percentage of the actual values. A lower MAPE indicates that the predictions are closer to the actual values.
+
+Accuracy (Acc%) is a metric used for classification tasks. It is calculated by rounding the prediction to the nearest integer age and comparing it with the ground truth. The ground truth is the label provided by human readers. A higher accuracy indicates that the model is making correct predictions more often.
+
+In the context provided, accuracy is used for the spawning task, which is a classification task (predicting whether a site will spawn or not). For the river age and sea age tasks, which are regression tasks, MSE and MAPE are used.
+
+In addition, the number of images in the dataset (set size) for each task and the weighting of classes are given. The weighting of classes is particularly important for the spawning task, where the classes are not balanced (non-spawner: 0.5, previous spawner:19, farmed: 5.87, wild:0.54). The weighting ensures that the model takes into account the imbalance in the classes and does not bias towards the majority class.
+
+The CNN was implemented using the Keras and TensorFlow software packages and trained using minibatch gradient descent. The training was performed on Nvidia P100 accelerator cards with 12 GB of GPU memory. The CNN used a pre-trained EfficientNet–B4 model for transfer learning.
+
+In summary, the performance of the CNN is evaluated using test loss, MSE, MAPE, and accuracy. The choice of metric depends on the nature of the task (regression or classification). The CNN was implemented using Keras and TensorFlow, trained using minibatch gradient descent, and used a pre-trained EfficientNet–B4 model for transfer learning.

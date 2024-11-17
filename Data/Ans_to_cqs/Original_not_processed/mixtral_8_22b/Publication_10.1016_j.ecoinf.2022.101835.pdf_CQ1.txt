@@ -1,0 +1,169 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+bagging_freq 
+min_child_samples 
+
+int, 1 to 20 
+int, 0 to 5  
+int, 10, 20, … 
+100  
+int, 10, 20, … 
+100  
+ReLu or 
+linear  
+Adam or 
+RMSprop 
+
+Maximum depth of the tree 
+Number of middle layers 
+Number of nodes in the 
+input layer 
+Number of nodes in the 
+middle layers 
+Activation function in the 
+input and middle layers 
+Optimizer 
+
+Maximum tree leaves for 
+base learners   
+L1 regularization   
+L2 regularization   
+A subset of features on each 
+iteration (tree)   
+Randomly select a part of 
+data without resampling   
+Frequency for bagging   
+Minimal number of data in 
+one leaf   
+
+AA SHAPj =
+
+1
+ni
+
+∑
+⃒
+⃒SHAPi,j
+
+⃒
+⃒
+
+i
+
+(1)  
+
+where AA_SHAPj  is the average of the absolute SHAP values for input 
+variable j (i.e., the daily average temperature on day j), ni is the number 
+of response values (4844 for the first flowering date models and 4814 for 
+the full blossom date models), and SHAPi,j is the SHAP value for the jth 
+input parameter of the ith response value.
+
+et al., 2016), and LightGBM 3.2.1 (Ke et al., 2017) libraries. In building a 
+machine  learning  model,  the  structure  and  hyperparameters  of  the 
+model must be determined, such as the number of decision trees and the 
+depth of trees for RF models and the number of intermediate layers and 
+nodes for ANN models. We optimized the structure and hyperparameters 
+of the RF and ANN models using Optuna 2.10.0 (Akiba et al., 2019) with 
+the  parameters  and  ranges  shown  in  Table  1  as  candidates.  For  the 
+LightGBM models, we used Optuna's LightGBM Tuner (optuna.integra-
+tion.lightgbm)  for hyperparameter  fitting.  The  performance of  the  al-
+gorithms was evaluated by comparing the loss function (mean squared 
+error (MSE)) of the optimized models. In addition, the mean absolute 
+error (MAE) and the coefficient of determination (R2) were calculated 
+for reference.
+
+n_estimators = 92, 
+max_depth = 15 
+num_layer = 0, 
+units (initial layer) = 90, 
+units (middle layers) = 60, 
+activation = ReLu, 
+optimizer = Adam 
+num_leaves = 31, 
+lambda_l1 = 0 
+lambda_l2 = 0 
+feature_fraction = 0.5 
+bagging_fraction = 0.573 
+bagging_freq = 7 
+min_child_samples = 20 
+
+0.0530 
+
+0.175 
+
+0.942 
+
+0.0429 
+
+0.156 
+
+0.958 
+
+0.0381 
+
+0.148 
+
+0.964  
+
+0.0586 
+
+0.175 
+
+0.940 
+
+0.0485 
+
+0.170 
+
+0.951 
+
+0.0424 
+
+0.158 
+
+0.955  
+
+EcologicalInformatics71(2022)1018353Y. Masago and M. Lian                                                                                                                                                                                                                       
+
+0.965,  respectively),  followed  by  the  ANN  and  RF  models,  while  the 
+differences  were  not  significant.  The  optimized  ANN  models  did  not 
+have any intermediate layers, and the model with the input layer fol-
+lowed by the output layer was determined to be the best.
+
+assessment of environmental variables and machine learning algorithms for maize 
+yield prediction in the US Midwest. Environ. Res. Lett. 15, 064005 https://doi.org/ 
+10.1088/1748-9326/ab7df9. 
+
+Ke, G., Meng, Q., Finely, T., Wang, T., Chen, W., Ma, W., Ye, Q., Liu, T.-Y., 2017. 
+
+LightGBM: A Highly Efficient Gradient Boosting Decision Tree. 
+
+Lundberg, S., Lee, S.-I., 2017. A unified approach to interpreting model predictions. In: 
+Proceedings of the 31st International Conference on Neural Information Processing 
+Systems. Long Beach, CA, USA, pp. 4768–4777. 
+
+Maruoka, T., Itoh, H., 2009. Impact of global warming on flowering of cherry trees 
+(Prunus yedoensis) in Japan. J. Agric. Meteorol. 65, 283–296. https://doi.org/ 
+10.2480/agrmet.65.3.5. 
+
+Miller-Rushing, A.J., Katsuki, T., Primack, R.B., Ishii, Y., Lee, S.D., Higuchi, H., 2007.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What methods are utilized for collecting raw data in the deep learning pipeline (e.g., surveys, sensors, public datasets)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The paper does not provide information about the method used for collecting raw data in the deep learning pipeline. Therefore, it is not possible to determine whether surveys, sensors, public datasets, or other methods were employed for this purpose.
+
+Based on the given context, the study focuses on developing machine learning models using Random Forest (RF), Artificial Neural Network (ANN), and LightGBM algorithms to predict the timing of cherry blossoms in Kyoto, Japan. The authors use meteorological data from the Automated Meteorological Data Acquisition System (AMeDAS) operated by the Japan Meteorological Agency (JMA). However, there is no mention of how this data was collected or what specific sensors or instruments were used. Additionally, the paper does not discuss any survey methods or public datasets used for gathering data.
+
+Therefore, based on the available information, it can only be concluded that meteorological data from AMeDAS was used in the development of the machine learning models. Further details regarding the collection of raw data in the deep learning pipeline cannot be determined from the provided context.

@@ -1,0 +1,84 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+several  times  higher  than  those  of  other  operations  (Li  et  al.,  2018). 
+Therefore,  reducing  memory  access  is  the  key  to  further  enhancing 
+model  performance.  By  reconfiguring  the  computation  sequence  of 
+‘convolutional layer + batch normalisation + activation layer on NVI-
+DIA TESLA V100 GPUs, Wang et al. (2019) reduced memory access by 
+33%,  22%,  and  31%  for  the  ResNet-50,  Inception  V3,  and  DenseNet 
+models,  respectively,  leading  to  increases  in  the  computational  effi-
+ciency  of  20.5%,  18.5%,  and  18.1%.  Lowering  the  memory  access  in 
+models can accelerate operations across the three main layers of CNNs, 
+thus fully harnessing the model's strengths and more effectively utilising 
+the computational resources provided by the embedded devices (Gilan 
+et al., 2019; Zhang et al., 2015). Therefore, by reducing the number of 
+layers  in  the  network  model,  the  number  of  convolutions  and  data
+
+modules depicted in Fig. 2 in Section 2.2. (2) The implementation of 
+DWConv  (Chollet,  2017)  supersedes  the  standard  two-dimensional 
+convolution  within  the  bottleneck  architecture,  diminishing  the 
+parameter count and computational complexity while preserving com-
+parable performance, thereby rendering the network more streamlined 
+and efficient. To validate the efficacy of incorporating DWConv into the 
+C1  module  bottleneck,  we  devised  the  DWC1  module  and  performed 
+four distinct ablation experiments. (3) The SimAM attention mechanism 
+(Yang et al., 2021) was integrated into layers 12 and 18 of the network, 
+enabling the acquisition of enhanced target detail information and the 
+suppression of irrelevant feature data, thereby accentuating the crucial 
+characteristic details of fish to augment the precision of the model. To 
+substantiate  the  efficacy  and  benefits  of  the  SimAM  mechanism,  five
+
+(n), small (s), medium (m), large (l), and extra-large (x). These scales 
+meet the requirements of various scenarios and tasks. As scale increases, 
+so does the network depth and width of the model; therefore, ‘n’  rep-
+resents the smallest and fastest scale, whereas ‘x’ is the largest and offers 
+the  highest  accuracy.  Although  the  accuracy  improves  as  the  model 
+depth increases, this also leads to changes in the number of parameters, 
+amount  of  computation,  and  detection  speed,  with  correspondingly 
+higher demands on the hardware configuration. To delve deeper into the 
+underlying causes of enhancing model lightweight and inference speed, 
+we utilised LigObNet, YOLOv5, YOLOv6, YOLOv7, and YOLOv8 to train 
+across  four  scales:  n,  s,  m,  and  l.  As  Fig.  9  illustrates,  reducing  the 
+number  of  parameters  in  the  various  models  does  not  enhance  the 
+processing speed. The total parameter count, representing the combined
+
+Li, J., Yan, G., Lu, W., Jiang, S., Gong, S., Wu, J., Li, X., 2018, March. SmartShuttle: 
+Optimizing off-chip memory accesses for deep learning accelerators. In: 2018 
+Design, Automation & Test in Europe Conference & Exhibition (DATE). IEEE, 
+pp. 343–348. 
+
+Li, J., Liu, C., Lu, X., Wu, B., 2022a. Fish passage monitoring based on improved 
+
+YOLOv5s and TensorRT deployment. Trans. Chin. Soc. Agric. Machin. 12, 314–322. 
+Li, J., Liu, C., Lu, X., Wu, B., 2022b. CME-YOLOv5: an efficient object detection network 
+
+for densely spaced fish and small targets. Water 14 (15), 2412. 
+
+Li, W., Li, F., Li, Z., 2022c. CMFTNet: multiple fish tracking based on counterpoised 
+
+JointNet. Comput. Electron. Agric. 198, 107018. 
+
+Wang, J.J., Hao, Z.Y., Li, H.L., 2019. Training memory access optimization for 
+
+convolutional neural networks. J. Xi’an Univ. Electron. Sci. Technol. 02, 98–107. 
+
+Wang, Q., Wu, B., Zhu, P., Li, P., Zuo, W., Hu, Q., 2020. ECA-net: efficient channel
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide specific information about the data augmentation techniques used in the deep learning pipeline. However, common data augmentation techniques include flipping, rotation, scaling, cropping, translation, and color space transformations. These techniques help increase the size and diversity of training datasets, improve model generalization, and prevent overfitting. It is important to note that the choice of data augmentation technique depends on the nature of the problem and dataset being addressed.
+
+Unhelpful Answer:
+Data augmentation techniques such as flipping, rotation, scaling, cropping, translation, and color space transformations were applied in the deep learning pipeline. These techniques helped increase the size and diversity of the training dataset, improving model generalization and preventing overfitting. The choice of data augmentation technique depended on the nature of the problem and dataset being addressed.

@@ -1,0 +1,72 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4 https://github.com/HKathman/pam_annotation_experiments
+5 https://github.com/kahst/BirdNET-Analyzer/tree/main/checkpoints/V2.4
+6 https://tfhub.dev/google/vggish/1
+7 https://tfhub.dev/google/yamnet/1
+8 tensorflow.keras.applications.vgg16.VGG16(weights=’imagenet’).
+9 tensorflow.keras.applications.resnet_v2.ResNet152V2
+
+(weights=’imagenet’).
+
+Fig. 4. UMAP plots for different embedding layers of different embedding
+models for AnuraSet. For UMAP generation, we randomly select 5000 samples
+and discard all samples that are aligned to more than one class. Colors and
+shapes indicate the 10 classes with the highest occurrence frequency. Layers are
+numbered according to their distance from the classification layer, e.g. ‘Bird-
+Net-1’ is the last layer before the classification layer of the BirdNet model.
+
+EcologicalInformatics82(2024)1027105H. Kath et al.
+
+The active learning experiments are carried out in the embedding
+space of the selected transfer learning model (BirdNet-1, see Section
+3.1). We explore a range of sampling strategies: uncertainty and di-
+versity based, myopic (greedy) and adaptive (batch mode), and com-
+binations thereof. Fig. 2 provides a schematic overview of the pure
+families of sampling strategies: Random sampling selects samples arbi-
+trarily, uncertainty sampling targets samples near the decision bound-
+ary, and diversity sampling focuses on samples that span the entire data
+space. In all cases, 5% of the samples are selected at random. Class labels
+are available for all samples used in this study, and an active learning
+scenario is emulated by hiding all labels from the classifier at first and
+incrementally revealing the ones for each batch of samples queried by
+the sampling methods. We use a batch size of 20 samples. The classifier
+heads are identical to those from the transfer learning training process.
+
+evaluation was done on focal and citizen-science datasets. Swaminathan
+et al. (2024) extend the observation to attention-based architectures pre-
+trained on human speech. Lauha et al. (2022) show that transfer
+learning can be helpful also for small networks trained from scratch on
+small, targeted datasets gathered from online resources such as Mac-
+aulay Library2 (as opposed to foundation models trained on large
+datasets). While the works cited above evaluate transfer learning models
+based on classification performance, McGinn et al. (2023) take a
+different approach and investigate the topology of fine grained, sub-
+species sound events in the embedding space afforded by BirdNet;
+they find that different call types of a same species (e.g., drumming
+versus vocalization) form distinct clusters, and that the vicinity of each
+
+both the target modality and the domain, yields the best performance as
+a feature embedding model. Using BirdNet-1 as the embedding model,
+active learning sample selection strategies significantly reduce the
+required for annotation to achieve model
+number of
+convergence.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information about the specific data augmentation techniques applied in the deep learning pipeline. However, common data augmentation techniques include flipping, rotation, scaling, cropping, zooming, shearing, and brightness adjustment. These techniques help increase the amount of training data and improve the generalization ability of the model.
+
+Based on the context, it appears that the authors conducted active learning experiments using various sampling strategies, including random sampling, uncertainty sampling, and diversity sampling. They evaluated these strategies on both focal and citizen-science datasets. Additionally, they explored the use of transfer learning models, specifically BirdNet-1, as an embedding model for fine-grained, sub-species sound event analysis. Different call types of the same species were found to form distinct clusters in the embedding space. Overall, the results suggest that using a transfer learning model tailored to both the target modality and domain can yield better performance as a feature embedding model. Active learning sample selection strategies can also significantly reduce the number of required annotations for achieving model convergence.

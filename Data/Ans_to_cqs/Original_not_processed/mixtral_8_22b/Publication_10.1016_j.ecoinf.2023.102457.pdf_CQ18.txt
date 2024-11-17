@@ -1,0 +1,50 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+of length 2048. Model and code was run in Python version 3.10 based on 
+the code and methods presented in: https://github.com/kahst/BirdNET 
+-Analyzer.
+
+The second approach we used to extract embeddings was from the 
+pre-trained  BirdNET  model.  The  original  version  of  the  model  was
+
+capable of identifying 984 North American and European bird species by 
+sound (Kahl et al., 2021). BirdNET was trained using a dataset derived 
+from  three  primary  sources:  eBird,  Xeno-canto,  and  the  Macaulay  Li-
+brary  of  Natural  Sounds.  We  used  BirdNET  version  2.4  which  was 
+trained on over 6000 bird and non-bird species (https://github.com/kah 
+st/BirdNET-Analyzer). The task-specific model architecture of BirdNET 
+was derived from the family of residual networks (ResNets) (Kiyokawa 
+et al., 2019), that consists of 157 layers with >27 million parameters, 
+and was trained using extensive data pre-processing, augmentation, and 
+mixup. BirdNET creates a mel-scale spectrogram between 150 Hz and 
+15 kHz and returns 1024 embeddings per 3-s of audio sample. As with 
+the VGGish model, we took the mean and standard deviation for em-
+beddings over the entire duration of the call, resulting in a feature vector
+
+Using supervised classification, BirdNET returned the highest accu-
+racy of 98.2% ± 0.85 SD at 0 m. MFCCs and BirdNET performed simi-
+larly at closer distances while MFCCs returned the highest classification 
+accuracies at farther distances (> 150 m) with a minimum classification 
+accuracy  of  39.8%  ± 4.3  SD  at  300  m.  In  comparison  with  BirdNET, 
+VGGish and Wav2Vec 2.0 performed less well with VGGish and Wav2-
+Vec 2.0 returning maximum accuracies of respectively 76.4% ± 2.3 SD 
+and 52.7% ± 3 SD at 0 m. Acoustic indices performed the least well with 
+classification accuracies ranging between 17.1% ± 2.8 SD and 37.9% ±
+2.5  SD.  The  classification  accuracies  decrease  across  distance  for  all 
+feature extraction methods (Fig. 4).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough information available to provide a detailed response about the specific strategies implemented to monitor the model performance during training. However, it can be inferred that some form of monitoring was done due to the reported accuracy results. Typically, when training deep learning models like BirdNET, several strategies are employed to monitor their performance. These may include tracking metrics such as loss or accuracy on validation datasets, visualizing the learning process through tools like TensorBoard, or implementing early stopping mechanisms to prevent overfitting. Additionally, cross-validation techniques might have been utilized to ensure robustness and generalizability of the model. Nonetheless, without explicit details regarding these aspects, it remains uncertain what exact strategies were adopted for this particular case.

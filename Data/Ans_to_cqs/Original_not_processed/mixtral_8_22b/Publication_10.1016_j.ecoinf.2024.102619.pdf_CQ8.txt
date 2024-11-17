@@ -1,0 +1,63 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Pytorch (Paszke et al., 2019) ML framework for deep learning (CNNs). 
+These libraries also include tools for data pre-processing, model selec-
+tion and evaluation. To keep our model training and analysis pipelines 
+comparable, we use skorch, a scikit-learn compatible neural network li-
+brary that wraps PyTorch. This allows the same scikit-learn training and 
+evaluation procedure to be used for both models. Skorch is also helpful 
+for end-users in CNN training, as it has a clear and simple interface. It 
+only requires end-users to add the prepared datasets, model and specify 
+the associated hyperparameters (Table 4). Documentation for the entire 
+machine learning pipeline can be found at (PyTorch, 2023) for Pytorch 
+(Paszke  et  al.,  2019;  scikit-learn,  2023)  for  scikit-learn  and  (skorch, 
+2022)  for  skorch.  Commercial  restrictions  apply  to  the  availability  of 
+data  used  in  this  work.  However,  links  to  public  code  examples  of
+
+accessible platforms/frameworks such as PyTorch (PyTorch, 2023) and 
+TensorFlow  (Abadi  et  al.,  2016),  its  extensive  guidance  materials  for 
+implementation and well-documented high performance.
+
+From a coding perspective, training an SVM is extremely straight-
+forward, with training, optimisation and testing executed within only a 
+few simple lines of code. The relative complexity with the CNN þ SVM 
+approach,  and  by  extension  the  CNN  approach,  rather  lies  in  data 
+management and feature extraction. The complexity of these steps is not 
+so  much  related to the  actions required, but navigating  the extensive 
+literature and knowing “where to start”. As one of the contributions of 
+this paper we hope to better guide the user with clear and detailed de-
+scriptions  of  these  steps,  that  are  applicable  across  ML  frameworks 
+(Table 3). Aside from these preparations, training the CNN classifier is 
+further complicated since an optimal is not automatically found. Instead 
+performance  metrics  must  be  monitored  across  epochs  and  decisions 
+made on when to stop training - typically the point at which training and
+
+EcologicalInformatics81(2024)1026194C.A. Game et al.                                                                                                                                                                                                                                
+
+Fig. 2. Infographic of the ML workflows (CNN & CNN þ SVM) used in this study.  
+
+VGG16 network cannot be trained, we therefore unfroze (replaced) the 
+final  FC  layers  (FC2  &  FC3)  to  re-initialize  the  weights  for  training. 
+Training only these FC layers enables comparison to the CNN þ SVM 
+approach in which they have been replaced with an SVM classifier. We 
+also reduced the number of output nodes in FC3 from 1000 (number of 
+ImageNet  classes)  to  3,  to  prepare  the  CNN  to  classify  the  3  habitat 
+classes. 
+
+2.2.4. Feature extraction & visualisation
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Where is the code repository of the deep learning pipeline available (e.g., GitHub, GitLab, BitBucket)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide information about where the code repository of the deep learning pipeline is available. However, it mentions that documentation for the machine learning pipeline can be found at specific sources for each library or tool used in the pipeline, including PyTorch, scikit-learn, and skorch. Additionally, there is mention of commercial restrictions applying to the availability of data used in this work, but no explicit reference to any publicly accessible code repositories. Therefore, I do not know where the code repository of the deep learning pipeline is available.

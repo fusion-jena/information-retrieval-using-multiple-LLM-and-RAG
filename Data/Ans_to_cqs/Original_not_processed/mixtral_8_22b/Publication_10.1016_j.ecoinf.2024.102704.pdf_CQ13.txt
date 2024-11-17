@@ -1,0 +1,61 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+several  times  higher  than  those  of  other  operations  (Li  et  al.,  2018). 
+Therefore,  reducing  memory  access  is  the  key  to  further  enhancing 
+model  performance.  By  reconfiguring  the  computation  sequence  of 
+‘convolutional layer + batch normalisation + activation layer on NVI-
+DIA TESLA V100 GPUs, Wang et al. (2019) reduced memory access by 
+33%,  22%,  and  31%  for  the  ResNet-50,  Inception  V3,  and  DenseNet 
+models,  respectively,  leading  to  increases  in  the  computational  effi-
+ciency  of  20.5%,  18.5%,  and  18.1%.  Lowering  the  memory  access  in 
+models can accelerate operations across the three main layers of CNNs, 
+thus fully harnessing the model's strengths and more effectively utilising 
+the computational resources provided by the embedded devices (Gilan 
+et al., 2019; Zhang et al., 2015). Therefore, by reducing the number of 
+layers  in  the  network  model,  the  number  of  convolutions  and  data
+
+parameters of all the model layers, is linked to the required disk space
+
+(n), small (s), medium (m), large (l), and extra-large (x). These scales 
+meet the requirements of various scenarios and tasks. As scale increases, 
+so does the network depth and width of the model; therefore, ‘n’  rep-
+resents the smallest and fastest scale, whereas ‘x’ is the largest and offers 
+the  highest  accuracy.  Although  the  accuracy  improves  as  the  model 
+depth increases, this also leads to changes in the number of parameters, 
+amount  of  computation,  and  detection  speed,  with  correspondingly 
+higher demands on the hardware configuration. To delve deeper into the 
+underlying causes of enhancing model lightweight and inference speed, 
+we utilised LigObNet, YOLOv5, YOLOv6, YOLOv7, and YOLOv8 to train 
+across  four  scales:  n,  s,  m,  and  l.  As  Fig.  9  illustrates,  reducing  the 
+number  of  parameters  in  the  various  models  does  not  enhance  the 
+processing speed. The total parameter count, representing the combined
+
+The  memory  access  amount  of  the  model  refers  to  the  byte  size 
+required  to  access  the  storage  units  during  the  computation  of  the 
+feature maps of each layer, thereby reflecting the model's demand for 
+storage  unit  bandwidth.  In  addition  to  the  impact  of  floating-point 
+computations,  the  inference  speed  of  a  model  on  specific  hardware 
+also requires a comprehensive evaluation that considers both hardware 
+characteristics and the amount of memory access. Memory access, which 
+is  often  overlooked,  plays  a  significant  role  in  model  performance 
+assessment. Within the model architecture, the conventional combina-
+tion of convolution (Conv), batch normalisation (BN), and ReLU forms 
+>80% of the model structure (Guo et al., 2023). The convolution and BN 
+layers require bidirectional data and exhibit complex data dependencies 
+during computation, resulting in memory access energy costs that are
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, the given context does not provide information about the hyperparameters used in the deep learning model, such as the learning rate or optimizer. Instead, it focuses on techniques to reduce memory access and improve computational efficiency in Convolutional Neural Networks (CNNs) using different architectures like ResNet-50, Inception V3, and DenseNet. It discusses how reconfiguring the computation sequence of 'convolutional layer + batch normalization + activation layer' can lead to reductions in memory access and improvements in computational efficiency. Additionally, it mentions the use of different scales ('n','s','m', 'l', and 'x') to meet varying scenario and task requirements, but there is no mention of specific hyperparameters used in these models.

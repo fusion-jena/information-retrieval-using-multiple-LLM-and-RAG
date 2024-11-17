@@ -1,0 +1,129 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.3. Model optimization 
+
+The model performance optimization process is broadly divided into 
+two stages, as shown in Fig. 3. The R value of the validation set is used as 
+the performance indicator during the optimization process, whereby R is 
+maximized  using  the  grid  search  method.  During  the  first  stage,  the 
+neural network structure and the number of neurons in the hidden layers 
+are  adjusted.  In  total,  60  sets  of  combinations,  including  one  to  five 
+hidden layers and neurons with a range of 64–2048 (nth  power of 2), 
+were considered. The second stage involves adjusting the percentage of 
+the dropout layers, the learning rate, and the batch size, to achieve a 
+total of 192 combinations (4*4*3*4).
+
+2.1.3. Data partition 
+
+The raw dataset was randomly shuffled, after which the shuffled data 
+were divided into training, validation, and test sets. The training set was 
+used to learn the parameters of the model during the training process, 
+and the validation set was used to evaluate the modeling and tune its 
+hyperparameters. Finally, the performance and generalizability of the 
+optimal model were evaluated using the test set. The data partitioning 
+ratio between the training, validation, and test sets was set as 8:1:1 and 
+the random partition was repeated ten times to reduce the influence of 
+random splitting while ensuring converged performance (Geras et al., 
+2017). 
+
+2.2. MLP model and model assessments 
+
+2.2.1.
+
+Introduction of MLP
+
+the percentage value of the dropout layers, the learning rate, and the 
+batch size, the optimal model was obtained with an R value of 0.76.
+
+EcologicalInformatics81(2024)1026153M. Zhou et al.                                                                                                                                                                                                                                   
+
+Fig. 3. The performance optimization of the MLP model.  
+
+Table 1 
+Hyperparameters tuning ranges.  
+
+Hyperparameters 
+
+Type 
+
+Tuning range 
+
+The number of neural network layers 
+The number of neurons per layer 
+Dropout 
+Learning rate 
+Batch size 
+
+Integer 
+Integer 
+Float 
+Float 
+Integer 
+
+1–5 
+64, 128, 256, 512, 1024, 2048 
+0.1, 0.25, 0.35, 0.5 
+0.001, 0.0001, 0.00001 
+32, 64, 128, 256  
+
+Table 2 
+the optimal MLP architecture and parameters.  
+
+Layer type 
+
+Input 
+Dense 
+Batch normalization 
+Dropout 
+Dense 
+Batch normalization 
+Dropout 
+Dense(output) 
+Total parameters 
+
+Layer size 
+
+4200 
+2048 
+2048 
+2048 
+1024 
+1024 
+1024 
+1 
+10,715,137  
+
+Parameters 
+
+0 
+8,603,648 
+8192 
+0 
+2,098,176 
+4096 
+0 
+1025
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't any explicit information about specific post-processing steps such as saliency maps, metrics calculations, or confusion matrices. However, we can infer some possible post-processing steps based on the described methods for optimizing and evaluating the MLP model.
+
+After training the MLP model, it appears that the authors use the validation set to perform hyperparameter tuning via grid search. This step aims to maximize the R value, which serves as the performance indicator. They consider various combinations of neural network structures, numbers of neurons in hidden layers, percentages of dropout layers, learning rates, and batch sizes.
+
+Once they obtain the optimal model, the authors then proceed to evaluate its performance and generalizability using the test set. Although not explicitly mentioned, this evaluation likely includes calculating relevant metrics like accuracy, precision, recall, F1 score, etc., depending on the problem domain.
+
+Additionally, since the authors mention repeating the random partition of datasets ten times to ensure converged performance, it suggests that they might also be performing cross-validation techniques to further validate their results.
+
+However, without more detailed information regarding the specific task or problem domain, it is challenging to provide a definitive list of post-processing steps. Therefore, I recommend referring to best practices within the respective field when implementing these steps.

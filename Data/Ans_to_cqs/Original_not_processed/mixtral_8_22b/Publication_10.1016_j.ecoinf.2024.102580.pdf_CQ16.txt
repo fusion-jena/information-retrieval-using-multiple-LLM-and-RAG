@@ -1,0 +1,61 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+EcologicalInformatics81(2024)1025805R.K. James et al.                                                                                                                                                                                                                                
+
+Fig. 3. DETR Training curves showing overall training loss curve (left) for ground-truthed training (solid line) and validation sets (dashed line); mean Average 
+Precision  curve  for  the  validation  set  (middle),  and  Generalized  Intersection-over-Union  (IoU)  loss  curve  (right)  for  training  (solid  line)  and  validation  sets 
+(dashed line).
+
+Fig.  6. Model  retraining  results:  Accuracy,  precision  and  recall  of  models 
+retrained  on  incremental  datasets  ranging  from  0  to  69  new  images.  Dashed 
+lines show original model scores. Precision and recall are depicted vegetation 
+(black  circles),  bare  (light  grey  squares)  and  other  (dark  grey  triangles). The 
+size of the imagery dataset includes the training, validation and test images (e. 
+g., size 10 includes 6 training, 2 validation and 2 test ground-truth images). 
+
+3.3. Post-processing of output 
+
+3.3.1. Spatial patterns within seagrass meadow ecosystem
+
+The ground-truth dataset was divided randomly into training (80%), 
+validation (10%), and test (10%) sets (Fig. 1), this division of the im-
+agery allowed for a good-sized validation and test dataset for evaluating 
+the  model’s  accuracy,  while  maximizing  the  training  set.  During  the 
+training process, each image was subset and cropped into 6 overlapping 
+patches  matching  the  output  size  of  the  network  (388  × 388  pixels), 
+resulting  in  a  total  training  set  size  of  379  images.  In  addition,  data 
+
+EcologicalInformatics81(2024)1025803R.K. James et al.
+
+◦
+
+augmentation  techniques  were  used  to  artificially  create  a  larger 
+training  set  by  randomly  flipping  each  input  image  horizontally  and 
+vertically with a probability of 0.5 each and rotating the images by up to 
+180
+.  Weighted  cross-entropy  was  used  as  the  loss  function  and  the 
+stochastic  gradient  descent  optimization  algorithm  was  used  to  mini-
+mize the loss function. The model accuracy was assessed after each full 
+training set iteration (epoch), quantifying the proportion of correct class 
+predictions out of the total predictions made. Precision was determined 
+as  the  ratio  of  correct  predictions  to  the  total  number  of  predictions, 
+encompassing both false and accurate ones. Recall, on the other hand, 
+measured the ratio of correct predictions to the total number of pixels 
+that should be assigned to that specific class.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The model accuracy was assessed after each full training set iteration (epoch), quantifying the proportion of correct class predictions out of the total predictions made. This suggests that the completion of training may have been determined based on the performance of the model on the validation set after each epoch. Additionally, Fig. 3 shows the overall training loss curve for the ground-truthed training and validation sets, indicating that the training loss decreased over time, which could also suggest that the completion of training was determined based on the convergence of the training loss. However, it is not explicitly stated what specific criteria were used to determine when training was complete.

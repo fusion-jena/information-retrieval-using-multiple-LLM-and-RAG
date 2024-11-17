@@ -1,0 +1,86 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.3. Loss Functions 
+
+In this work, we used a linear combination of the adversarial loss 
+
+function Ladv, L1  loss function, and the perceptual loss function Lper. 
+
+Ltotal = Ladv + λ1Lper + λ2L1
+
+(4)  
+
+(2) 
+
+(3) 
+
+where λ1  and λ2  are scaling factors set to 7 and 3, respectively. 
+
+Adversarial Loss: We used adversarial loss to facilitate the training 
+of the generator network and the discriminator network in a competitive 
+manner. This loss function encourages the generator to minimize the log 
+probability  that  the  discriminator  assigns  to  the  generated  samples, 
+
+Fig. 4. PatchGAN Discriminator: It processes the image patch-wise, and each block in the output label map matrix shows whether the corresponding image patch is 
+real or fake.
+
+The network takes images with dimensions of 256 × 256 pixels and 
+three  color  channels  as  input.  It  follows  a  fully  convolutional  design, 
+with  each  layer  applying  2D  convolutions  using  4  × 4  filters.  Batch 
+Normalization and Leaky-ReLU activation functions are used after each 
+convolution  layer  to  facilitate  network  training  and  stability.  The 
+encoder consists of 5 blocks, which progressively reduce the spatial di-
+mensions and learn features. It starts with a convolutional layer with 32 
+output channels and strides of 2, followed by a residual block. The re-
+sidual block comprises a Conv-ReLU-Conv structure, where a convolu-
+tional layer is followed by a Rectified Linear Unit (ReLU) activation and 
+another convolutional layer. This configuration is designed to effectively 
+capture  and  enhance  image  features,  serving  as  a  critical  component 
+within the network's architecture. The residual block output is then fed
+
+Deep learning techniques have been successfully applied to under-
+water  image  enhancement  tasks,  helping  to  improve  the  quality  and 
+visibility of images captured in underwater environments. In this sec-
+tion, we briefly discuss a few examples. For instance, Li et al. (Li et al., 
+2018) developed WaterGAN deep learning-based generative adversarial 
+network model that performs network training for reducing the color 
+deviation  in  underwater  images.  Fabbri  et  al.  (Fabbri  et  al.,  2018) 
+developed UGAN by taking the idea of CycleGAN (Zhu et al., 2017) that 
+performs domain transformation to reconstruct degraded images. Guo 
+et al. (Guo et al., 2019) developed a novel multi-scale dense GAN by 
+adding a residual multi-scale dense block to the generator, improving 
+enhancement performance. Islam et al. (Islam et al., 2020a) presented 
+FUnIE-GAN  by  introducing  a  multi-model  objective  function  in  the
+
+As shown in Table 1. IBLA achieved moderate results, while Fusion 
+performed comparatively better with 20.87 and 0.857 for PSNR score 
+and SSIM, respectively, indicating good performance in noise reduction 
+and structural preservation. While UWCNN faced challenges in image 
+enhancement, with a PSNR of 15.25 and an SSIM of 0.656, indicating 
+limited noise reduction and structural preservation, other deep learning- 
+based  methods  have  performed  quite  well.  U-Transformer  and  Funie- 
+GAN delivered better results with a commendable PSNR of 21.64 and 
+21.03,  respectively,  and  an  SSIM  of  0.778  and  0.775,  respectively, 
+signifying  reduced  distortion  and  substantial  structural  similarity. 
+Water-Net  and  Ours  exhibited  outstanding  results.  Our  method  out-
+performed Water-Net, achieving a higher PSNR of 25.59 compared to 
+Water-Net's  24.36  and  achieving  the  highest  SSIM  value  of  0.893 
+compared to Water-Net's 0.885. 
+
+6.2. Non-Reference Evaluation
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it does not explicitly mention any specific optimization technique such as Stochastic Gradient Descent (SGD), Adaptive Moment Estimation (Adam), etc., that were applied in the deep learning pipeline. However, it can be inferred from the context that some form of optimization was employed during the training process of the networks mentioned. Specifically, the use of batch normalization and leaky ReLU activation functions suggests that these networks were trained using gradient descent based optimizers. Additionally, the presence of residual blocks within the encoder indicates that skip connections might have been utilized to mitigate the vanishing gradients problem, further suggesting the application of advanced optimization techniques like Adam or RMSprop. Nevertheless, without explicit information about the optimization techniques used, one cannot definitively state what specific optimization techniques were applied in the deep learning pipeline.

@@ -1,0 +1,9 @@
+The performance of the deep learning model is evaluated using the mean average (MA) methods, specifically the MA average top-1 accuracy. This metric measures the distance between predicted labels and labeled classes. It involves feeding multiple samples into the test model and obtaining their inference labels based on the highest score, which are then considered as their prediction labels. Finally, the accuracy is calculated by averaging these outcomes.
+
+For example, if there are 'n' images belonging to'm' classes, and they are fed into a model, the average accuracy can be represented by the formula:
+
+Average = 1/n * Σ [Σ L(F(x_i) = y_i)]
+
+where L(.) is a logical function that verifies whether the argument max index matches the instance label. In other words, L(.) returns 1 if F(x\_i) = y\_i, else it returns 0. Function F(.) finds the highest score from the classified outputs.
+
+Additionally, the model loss is determined by computing the compound loss, which combines the softmax cross-entropy and regularization loss. Softmax cross-entropy represents the distance between two distributions, while regularization loss helps minimize overfitting by striking a balance between model performance and complexity. Normalization of losses is achieved through introducing softmax, which maps true loss values within the range of zero to one.

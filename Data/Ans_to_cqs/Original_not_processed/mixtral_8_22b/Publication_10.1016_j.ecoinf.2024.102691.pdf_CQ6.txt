@@ -1,0 +1,84 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+was analysed using various evaluation matrices. During model training, 
+the input image size was set to 512 × 512 and the maximum batch size 
+was limited to 4. To prevent underfitting, all models were ensured to 
+follow back-propagation after accumulating the batch size 32 times. The 
+models were trained using a stochastic gradient descent (SGD) optimizer 
+with an initial learning rate of 0.01 and a cycle learning rate of 0.2, with 
+
+EcologicalInformatics82(2024)1026917S. Kaukab et al.
+
+Attention = f (w(n) , n)
+
+(1)  
+
+where,  n  represents  the  input  tensor  with  shape  [batch_size,  height, 
+width, channels].  It contains the input  data or feature map  used in a 
+neural network, w(n) is a weight tensor derived from n, typically ob-
+tained through some form of learned parameters or coefficients, and f (w 
+(n), n) represents the process of treating the input feature n. 
+
+The network architecture of the depth-attention YOLOv5 is shown in 
+Fig. 10. Unlike other attention mechanisms that are usually introduced 
+earlier in the network and trained along with the other layers, the depth- 
+attention mechanism was placed after the final processing layers of the 
+detection model. It remains unchanged and does not adapt during the 
+training  process.  This means that the depth-attention  weights are not 
+updated  during  training  and  remain  fixed  throughout  the  learning
+
+learning rate decay occurring after specific iterations. A total of 1000 
+sets of aligned RGB images and depth images were manually labelled 
+and divided into training (80% images), validation (10% images), and 
+test sets (10% images). Data augmentation techniques such as scaling, 
+panning, rotation, colour transformation, and mosaic were employed to 
+increase  the  number of  training samples and  improve  model general-
+ization ability. Pretrained weights were loaded to evaluate their impact 
+on detection results. Models were trained for 300 epochs and evaluated 
+on the validation set after each epoch. 
+
+A computer system running on a Windows 10 64-bit system with an 
+Intel i7 eight-core CPU (3.0 GHz), an Nvidia RTX 2060 12 GB Graphics 
+Processing Unit (GPU) (2176 CUDA cores), and 8 GB of memory were 
+used during the study. Further, CUDA 8.1, CUDNN 7.5, Python 3.8, and 
+Microsoft Visual Studio 9.0 software were utilized to attain the aim of 
+this study. 
+
+3.2. Model evaluation
+
+EcologicalInformatics82(2024)1026916S. Kaukab et al.                                                                                                                                                                                                                                 
+
+Fig. 9. Architecture of YOLOv5 with depth attention.  
+
+Fig. 10. YOLOv5 components mechanism.  
+
+method is compared and tested against other methods and fruits using 
+different input modals and fusion techniques. 
+
+3.1. Network training and hyper-parameters 
+
+The impact of using multi-modal information on model performance
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model, several preprocessing steps can be applied to the input data to ensure better performance and faster convergence. These may include:
+
+1. Normalization: Scaling pixel values between 0 and 1 or -1 and 1 helps maintain consistent scales across different features and accelerates optimization algorithms like Stochastic Gradient Descent (SGD). In this case, the authors mention setting the input image size to 512 x 512, which could also be considered part of the preprocessing step.
+
+2. Cleaning: Removing noise, irrelevant data points, or outliers from the dataset improves the overall quality of the input data and prevents overfitting. Although it isn't explicitly mentioned in the given text, cleaning might have been performed while preparing the dataset.
+
+3. Augmentation: Techniques like scaling, panning, rotation, color transformation, and mosaic are used to increase the number of training samples and enhance the model's generalization abilities. The authors specifically state employing these data augmentation techniques to achieve this goal.
+
+4. Splitting datasets: Dividing the available data into separate subsets for training, validation, and testing purposes allows for accurate assessment of the model's performance. Here, the authors split their dataset into 80% for training, 10% for validation, and 10% for testing.

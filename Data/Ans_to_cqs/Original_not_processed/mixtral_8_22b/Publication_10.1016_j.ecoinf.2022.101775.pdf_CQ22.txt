@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We  trained  algorithms  with  the  amount  of  data  available  after 
+manually  removing  the  testing  set,  as  described  above.  During  the 
+training, 10% of data served as the validation set to check for overfitting. 
+We used a min-max scaler reverted at the end to compute the perfor-
+mance metrics in the test set. In all cases, we used a batch size of 64 
+samples and trained the algorithm during 100 epochs using Adam as the 
+algorithm  to  optimize  the  network  parameters.  Algorithms  were 
+implemented in Pytorch (Paszke et al., n.d.) and models were trained 
+and tested in Google Colaboratory.2
+
+computing  performance  metrics.  To  avoid  bias  generated  by  random 
+data removal, we keep the data sets with the removed data for use with 
+all methods.
+
+This paper combines the interpretation and mathematical meaning 
+of MF with the learning capabilities of deep neural networks (DNNs), 
+allowing the proposed models to capture spatial-temporal characteris-
+tics of data but including several variables of interest (time, location) 
+into the inference process in order to improve the quality of imputations. 
+The first section of this article presents the general architecture of the 
+network  (based  on  the  literature  (Fan  and  Cheng,  2018)),  which  can 
+learn the low-dimensional space for the representations of sensors and 
+time and their evaluation with a standard MF model. The second section 
+describes  three  modifications  to  the  DMF  model  using  variations  of 
+embedding  layers  to  include  the  spatial-temporal  characteristics  and, 
+thus, better estimate the data. Finally, the performance of the models is 
+statistically measured to select the option that better fits the data. The
+
+‖ps‖2 + ‖qt‖2 + b2
+
+s + b2
+
+t
+
+)
+
+(4) 
+
+Consequently, the unknown parameters bs, bt, ps, qt can be estimated 
+optimizing  the  regularized  cost  function  using  stochastic  gradient 
+descent: 
+
+ps, qt, bs, bt = argmin
+ps,qt ,bs,bt
+
+L .
+
+2.2. Embedding layers 
+
+(5)  
+
+Embedding  layers  are  modules  of  deep  neural  networks  that  are 
+generally  implemented  in  natural  language  processing  problems 
+(Sharma  et  al.,  2020)  and  collaborative  filtering  (He  et  al.,  2017) 
+because they can solve the one-hot encoding problem (Yu et al., 2022), 
+where the latent representations in the classic models are composed of 
+sparse representations generally using vectors mainly composed of zero 
+layers  replace  such  dispersed  vectors  with 
+values.  Embedding
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the given context, it appears that the authors have not explicitly mentioned the specific performance metrics used to evaluate the deep learning model. However, they do mention that they computed performance metrics in the test set after training the algorithm. They also state that the performance of the models was statistically measured to select the best fit for the data. Unfortunately, without more information or direct reference to specific metrics like accuracy, precision, recall, F1 score, etc., it is impossible to definitively determine what metrics were used. Therefore, I cannot provide a precise answer based solely on the given context.

@@ -1,0 +1,162 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+respectively.  N  represented  the  number  of  images  in  the  test  set  or 
+validation set. 
+
+2.2.6. Model training and hyper-parameters 
+
+We  trained  models  on  the  training  sets  and  tracked  the  model 
+training process on the validation set. The training process was stopped 
+when  the  loss  value  of  the  model  on  the  validation  set  no  longer 
+decreased. We then tested the model performance on the test set. Our 
+computing platform was a Dell PowerEdge C4130 rack server with two 
+Tesla  K80  GPUs  and  256  GB  of  memory.  For  the  deep  learning  envi-
+ronment,  we  utilized  the  PyTorch  1.7.1  platform.  We  employed  the 
+Stochastic Gradient Descent (SGD) optimizer with a momentum value of 
+μ  = 0.9 to train the model. Other hyper-parameter settings for model 
+training were shown in Table S.4 of the Supporting Information. 
+
+3. Results 
+
+3.1. Experiment results of transfer strategy optimization
+
+2.2.3. Data splitting 
+
+Based on the conceptual model mentioned above, we split the data to 
+construct  the  source  and  target  domain  datasets  to  carry  out  transfer 
+learning experiments.  For the  ImageNet  dataset, we directly  used the 
+pre-trained model on ImageNet-1 k as the source model, so there was no 
+need to split the dataset. Both the SS and the LSM dataset are camera 
+trap  image  datasets.  Each  time  the  camera  is  triggered,  it  captures 
+multiple images in succession, called a capture event. A capture event 
+frequently  comprises  three  images.  Notably,  images  within  the  same 
+event are significantly similar to each other. Splitting the images in an 
+event into training and test sets may lead to poor generalization of the 
+DCNN  model. To  prevent  this, we kept  the integrity  of events  during 
+data splitting, putting all images of an event into the same dataset.
+
+When the SS dataset served as target domain datasets, we still uti-
+lized the validation and test sets from Table 2, referring to them as S_V 
+and S_T, respectively. Regarding the training sets, we randomly selected 
+capture  events  from  S_2_100  and  created  five  different  training  sets 
+containing 2000, 5000, 8000, 10,000, and 20,000 samples, respectively. 
+These  training  sets  were  labeled  as  S_2,  S_5,  S_8,  S_10,  and  S_20  (see 
+Table S.3 in the Supporting Information for the details), respectively.
+
+Fig. 1. Conceptual model of transfer learning. Si (i = 0,1, …,n) represented the five convolutional stages and the final fully connected stage (including softmax) of the 
+ResNext-101 model. 
+
+Table 2 
+Source domain data splitting on SS dataset.   
+
+Usage 
+
+Number of 
+images 
+
+Class 
+number 
+
+Description 
+
+S_2_10 
+
+Training 
+
+100,000 
+
+S_2_50 
+
+Training 
+
+500,000 
+
+S_2_100 
+
+Training 
+
+1,000,000 
+
+S_2_V 
+
+Validation 
+
+8095 
+
+S_2_T 
+
+Test 
+
+8118 
+
+S_10_10 
+S_10_50 
+S_10_100 
+S_10_V 
+S_10_T 
+
+Training 
+Training 
+Training 
+Validation 
+Test 
+
+100,000 
+500,000 
+1,000,000 
+61,693 
+60,342 
+
+2 
+
+2 
+
+2 
+
+2 
+
+2 
+
+10 
+10 
+10 
+10 
+10 
+
+Empty image vs. 
+Animal image 
+Empty image vs. 
+Animal image 
+Empty image vs. 
+Animal image 
+Empty image vs. 
+Animal image 
+Empty image vs. 
+Animal image 
+10 species 
+10 species 
+10 species 
+10 species 
+10 species  
+
+2.2.4. Experiment design  
+
+(1)  Transfer learning strategy optimization
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The data was split based on the conceptual model mentioned in the study. When using the ImageNet dataset, the pre-trained model on ImageNet-1k was directly used as the source model, eliminating the need for dataset splitting. However, when dealing with both the SS and LSM datasets, which are camera trap image datasets, special considerations were made due to their unique characteristics. Since multiple images are captured in succession during a single trigger event, these images are often highly similar to each other. To maintain the integrity of events during data splitting and avoid poor generalization of the DCNN model, all images belonging to the same event were placed in the same dataset.
+
+For the SS dataset serving as the target domain datasets, the validation and test sets remained unchanged, referred to as S\_V and S\_T, respectively. As for the training sets, they were created by randomly selecting capture events from S\_2\_100 and generating five different training sets containing 2000, 5000, 8000, 10,000, and 20,000 samples, respectively. These training sets were named S\_2, S\_5, S\_8, S\_10, and S\_20 accordingly. Detailed information about the data splitting can be found in Table S.3 of the Supporting Information.

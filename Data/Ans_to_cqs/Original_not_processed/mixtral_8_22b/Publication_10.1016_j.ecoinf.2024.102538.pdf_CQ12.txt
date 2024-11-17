@@ -1,0 +1,79 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+their  convolutional  kernels  and  pooling  layers.  Regarding  this  issue, 
+Zhang  et  al.  (2019)  incorporated  a  long  short-term  memory  (LSTM) 
+network to develop a 3DCNN-LSTM model as a classifier, making the 
+network more sensitive to the temporal changes in birdsong informa-
+tion. It is important to note that the use of RNNs such as the CRNN model 
+requires  more  computing  resources  for  training,  and  performance 
+improvement is not always guaranteed. Another common approach to 
+addressing  the  limitations  of  CNNs  is  to  introduce  attention  mecha-
+nisms.  For  example,  Soundception  (Sevilla  and  Glotin,  2017)  was 
+developed  by  introducing  time  and  time-frequency  attention  mecha-
+nisms to Inception V4; the resulting model achieved first place in the 
+BirdCLEF  2017  Competition.  Fu  et  al.  (2023)  proposed  an  improved 
+ACGAN model named DR-ACGAN based on the residual structure and an
+
+EcologicalInformatics80(2024)1025384Q. Wang et al.                                                                                                                                                                                                                                   
+
+Fig. 3. Architecture of the baseline model: the data first passes through the entry flow, then through the middle flow, which is repeated eight times, and finally 
+through the exit flow. The adapted first deep separable convolutional (DSC) block in the Exit flow is shown in (a). In this block, the Position Attention module (b) 
+receives the local feature A, which is fed into convolutional layers to generate three new feature maps: B, C, and D, respectively. The output feature E is then obtained 
+through matrix multiplication and element-wise summation operations.
+
+3.4. Baseline model 
+
+To assess the impact of hierarchical information, we established a 
+baseline  model  employing  a  single  classifier.  Considering  the  limited 
+computing resources, we adapted the Xception network Chollet (2017) 
+with  a  positional  attention  mechanism  Fu  et  al.  (2019)  to  ensure  the 
+effectiveness  of  bird  recognition.  Due  to  the  superiority  of  the  deep 
+separable  convolutional  (DSC)  structure,  the  Xception  architecture 
+outperforms other CNN architectures of the same caliber such as Resnet 
+and DenseNet, delivering significant performance improvement. More-
+over,  the  Xception  network  exhibits  quicker  training  and  inference 
+speeds compared to vision transformers.
+
+(⋅) =
+
+(3) 
+
+3.5.2. Modified to K levels 
+
+As illustrated in Fig. 5, we divided the baseline model into two parts. 
+The trunk network comprises the Entry flow, the Middle flow, and the 
+first DSC block of the Exit flow, while the last two separable convolution 
+layers  are  merged  into  one  hierarchical  block.  We  copied  the  hierar-
+chical block K times for K-level semantic feature learning. 
+
+By  performing  an  orthogonal  decomposition  of  features,  discrimi-
+native  features  are  separated  from  fine  level  region  representations. 
+Then,  the  specific  hierarchical  feature  can  be  calculated  using  the 
+following formula: 
+
+Fh,k(x) = Sk(x) + λSorth
+
+k
+
+(x),
+
+(4)  
+
+3.5.3. Hierarchical interaction
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The pipeline uses a modified version of the Xception network, which is a type of Convolutional Neural Network (CNN). This network has been adapted with a positional attention mechanism to improve its effectiveness in bird recognition tasks. The Xception network outperforms other CNN architectures like Resnet and DenseNet due to its deep separable convolutional (DSC) structure. Additionally, it offers faster training and inference speeds compared to vision transformers.

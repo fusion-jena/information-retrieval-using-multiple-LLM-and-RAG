@@ -1,0 +1,61 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The original feature extraction part of the meta-learning algorithms 
+was replaced with a CNN backbone, that is ResNet18 (He et al., 2016), 
+VGG16 (Simonyan and Zisserman, 2014), DenseNet121 (Huang et al., 
+2017) and AlexNet (Krizhevsky et al., 2012). Transfer learning was used 
+to  benefit  from  the  good  feature  extraction  capabilities  of  the  CNN 
+previously trained on the ImageNet database (Deng et al., 2009). The 
+ImageNet database contains 1000 object classes with 1,281,167 training 
+images, 50,000 validation images, and 100,000 test images. Although 
+this database does not contain spectrograms, its use in the context of 
+ecoacoustics with DL is common and has allowed the learning of a va-
+riety of image features useful for spectrogram classification (Florentin 
+et al., 2020; Lasseck, 2019).
+
+2.2. Fine-tuning of the pretrained CNN backbone 
+
+Fine-tuning of the pretrained CNN backbone was performed using 
+classical meta-metric learning architectures adapted from the EasyFSL
+
+pretrained DenseNet might fit the Darksound dataset well, but there are 
+no  guarantees  that it  will  work  on  another  dataset in  the  exact  same 
+manner. All the CNN backbones used in this experiment were previously 
+trained on the ImageNet database, a large but very general dataset. It has 
+been recently shown that using features extracted from models trained 
+on smaller but more specific datasets, that bird sound datasets, leads to 
+higher quality classification (Ghani et al., 2023; McGinn et al., 2023). 
+Consequently, using features extracted from a model trained on spec-
+trograms of bird sounds (e.g.  BirdNET algorithm (Kahl et  al., 2021)), 
+could  improve  the  parameter  initialization  of  UML  algorithms  of  the 
+MEC method.
+
+supervised-based  methods  that  rely  on  data  augmentation  to  create 
+image pairs that can be used to build training tasks (Khodadadeh et al., 
+2019), and (ii) clustering-based methods that use pseudo-labels gener-
+ated by a clustering algorithm to build training tasks (Hsu et al., 2018). 
+The  latter  method  can  however  suffer  from  label  inconsistency  or 
+limited diversity. This is partly due to the use of a clustering algorithm, 
+such as k-means, that does not classify outliers as noise. As a result, noisy 
+clustering labels (i.e. clusters with different ground truth labels parti-
+tioned  into  the  same  cluster)  can  be  used  incorrectly  for  training  the 
+meta-learning  algorithm,  leading  to  poor  performance  (Dong  et  al., 
+2022). Therefore, rethinking clustering-based pseudo-labeling for UML 
+using, for instance, a density-based spatial clustering algorithm for ap-
+plications with noise can help to overcome this problem.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit information about the specific data augmentation techniques applied in the deep learning pipeline. However, it mentions that supervised-based methods rely on data augmentation to create image pairs for building training tasks. Data augmentation techniques commonly used in deep learning pipelines include flipping, rotation, scaling, cropping, and color space transformations. These techniques help increase the size and diversity of the training set, improving the model's ability to generalize and reducing overfitting. In the absence of explicit details regarding the employed data augmentation techniques, one could infer that standard techniques such as those mentioned above may have been utilized.

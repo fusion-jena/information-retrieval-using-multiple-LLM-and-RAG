@@ -1,0 +1,82 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We applied the transfer learning and fine-tuning technique with the 
+deep learning model ResNet50 (He et al., 2016; Tan et al., 2018), which 
+was already pre-trained on ImageNet data (Deng et al., 2009). Transfer 
+learning is a technique that enabled us to overcome the issue of shortage 
+of  training  data  and  construct  a  model  efficiently  by  transferring 
+knowledge  from  a  similar  task  to,  in  this  case,  our  target  task.  The 
+implemented  architecture  received  RGB  images  of  224×224×3  as 
+inputs—in this case, color spectrograms of two-second durations—and 
+included  only  the  feature  extraction  layers  from  the  ResNet50,  dis-
+carding the superior classification layers (known as the top network). 
+The newly created model reconfigured the top network with two fully 
+connected  layers  (FC)  that  could  learn  new  features.  To  reduce  over-
+fitting and imitate the training of a set of different models, a dropout
+
+The  implemented  CNN  corresponded  to  a  modified  version  of 
+ResNet50, one of the dominant architectures in bioacoustic tasks, and, 
+although other authors have applied previous ImageNet training to the 
+bioacoustic  domain  (LeBien  et  al.,  2020;  Zhong  et  al.,  2021),  other 
+datasets such as Audio Set (Gemmeke et al., 2017) or VGG-Sound (Chen 
+et al., 2020) can be just as good as ImageNet for pre-training, either on 
+ResNet or on other architectures, such as VGGish, Inception or Mobile-
+Net. Another viable option is to pretrain with synthetic clicks or chirps 
+(Glotin  et  al.,  2017;  Yang  et  al.,  2021).  Models  already  available  in 
+mobile  apps  that  perform  this  same  spectrogram-based  identification 
+task are advancing rapidly. To date (October 2022), the BirdNet appli-
+cation (Kahl et al., 2021) allows for the identification of more than 3000 
+bird species (Wood et al., 2022). In the short term, this particular model
+
+training and 20% for testing with the presence and absence samples. In 
+the training stage, 10% of the dataset was used as a validation subset. It 
+was likely that samples extracted from the same audio file were sepa-
+rated, both for training and for testing and validation. However, this bias 
+was  reduced,  in  the  semi-automatic  labeling  stage,  by  limiting  the 
+extraction of samples to a maximum of three per file. 
+
+The  iterative  learning  process  of  the  model  was  executed  by  pro-
+posing 50 training epochs. The early stopping method was used with a 
+patience equal to 5, to avoid overfitting. In this way, optimal training 
+was achieved at the end of the ninth epoch, reaching a maximum loss of 
+(cid:0) 3  for  the  training  and  validation  subsets 
+4.5×10
+respectively. 
+
+(cid:0) 4  and  1.1×10
+
+2.8. Evaluation
+
+2021. Deep learning as a tool for ecology and evolution. Methods Ecol. Evol. https:// 
+doi.org/10.1111/2041-210X.13901. 
+
+EcologicalInformatics72(2022)10190910G. Morales et al.                                                                                                                                                                                                                                
+
+Bravo, S.P., Cueto, V.R., Gorosito, C.A., 2017. Migratory timing, rate, routes and 
+
+wintering areas of White-crested Elaenia (Elaenia albiceps chilensis), a key seed 
+disperser for Patagonian forest regeneration. PLoS One 12, e0170188. https://doi. 
+org/10.1371/journal.pone.0170188. 
+
+Butt, N., Chauvenet, A.L., Adams, V.M., Beger, M., Gallagher, R.V., Shanahan, D.F., 
+
+Navarino, comuna Cabo de Hornos, Chile., in: Anales del Instituto de la Patagonia, 
+pp. 25–33.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it appears that the researchers applied transfer learning and fine-tuning techniques using the ResNet50 deep learning model, which had been previously trained on ImageNet data. They utilized RGB images of size 224x224x3 as inputs, specifically color spectrograms of two-second durations. The implemented architecture included only the feature extraction layers from ResNet50, discarding the higher classification layers. Two fully connected layers were added to allow the model to learn new features. Dropout was employed to prevent overfitting and simulate the training of multiple distinct models.
+
+However, the context does not provide explicit information about specific preprocessing steps like normalization, scaling, or cleaning. These steps typically occur prior to feeding input data into a deep learning model. Normalization involves rescaling numeric values to a common range, often between 0 and 1, while scaling may involve standardizing data to have zero mean and unit variance. Cleaning refers to removing noise, outliers, or irrelevant data points from the dataset. Since these details are not mentioned in the provided context, I cannot definitively state what preprocessing steps were taken before training the deep learning model.

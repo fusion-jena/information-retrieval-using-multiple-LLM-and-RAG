@@ -1,0 +1,189 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The confusion matrix (Fig. 6), F1 curve (Fig. 7), P curve (Fig. 8), PR 
+curve (Fig. 9), R curve (Fig. 10) and final training plots (Fig. 11) are 
+shown for the training of the model with attention layer with epoch-150. 
+Some training batch outputs are shown in Fig. 12, and some validation 
+outputs are shown in Fig. 13. 
+
+EcologicalInformatics79(2024)10239812B. Bhagabati et al.                                                                                                                                                                                                                              
+
+Fig. 12. Training Output (Batch-1) showing the labels of the detected object.  
+
+Fig. 13. Validation Output (with images from the dataset). The bounding box and class name are generated and shown for the validated object by the model.
+
+In  order  to  determine  more  accurate  training  results  and  also  to 
+explore the effect of epoch upon training result, apart from 150 epochs, 
+the model with attention layer is trained with epoch values 100, 200, 
+and  250  under  a  uniform  training  environment  and  with  the  same 
+dataset.  The  training  summary  for  each  of  these  epochs  is  shown  in 
+Tables 5, 6 and 7 for epochs 100, 200, and 250, respectively. The trends 
+of mAP values with increasing epochs are shown in Figs. 14 and Fig. 15. 
+The size of the dataset used for custom training is sufficiently large. 
+Further, the DL model used in this work is tuned with optimized hyper 
+parameters  for  which  overfitting  and  under  fitting  situations  are  pre-
+vented from occurring. As mentioned above, the effort to over-train the 
+model has been avoided and graded MSE convergence (Figs. 7 to 11) has 
+been  adopted  to  fine-tune  the  model.  Results  obtained  for  different
+
+0.896 
+0.886 
+0.921 
+0.855 
+0.955 
+0.868 
+0.947 
+0.844 
+
+0.87 
+0.86 
+0.89 
+0.88 
+0.92 
+0.81 
+0.89 
+0.84 
+
+0.911 
+0.916 
+0.918 
+0.909 
+0.957 
+0.873 
+0.939 
+0.863 
+
+0.593 
+0.603 
+0.696 
+0.68 
+0.562 
+0.502 
+0.662 
+0.447  
+
+Table 6 
+Training summary for YOLOv5s with SENet Attention layer at epoch-200.  
+
+Class 
+
+P 
+
+R 
+
+mAP@0.5  mAP@0.5:0.95  Model Training 
+
+Time 
+
+4.32 h 
+
+All 
+Bear 
+Deer 
+Elephant 
+Leopard 
+Monkey 
+Tiger 
+WildBoar 
+
+0.892 
+0.873 
+0.932 
+0.823 
+0.944 
+0.872 
+0.963 
+0.837 
+
+0.88 
+0.88 
+0.91 
+0.86 
+0.91 
+0.84 
+0.9 
+0.84 
+
+0.915 
+0.927 
+0.941 
+0.893 
+0.948 
+0.868 
+0.953 
+0.872 
+
+0.598 
+0.619 
+0.718 
+0.669 
+0.569 
+0.495 
+0.67 
+0.449  
+
+Table 7 
+Training summary for YOLOv5s with SENet Attention layer at epoch-250.  
+
+Class 
+
+P 
+
+R 
+
+mAP@0.5  mAP@0.5:0.95  Model Training 
+
+Time 
+
+5.391 h 
+
+All 
+Bear 
+Deer 
+Elephant 
+Leopard 
+Monkey 
+Tiger 
+WildBoar 
+
+0.904 
+0.899 
+0.919 
+0.841 
+0.947 
+0.913 
+0.958 
+0.852 
+
+0.87 
+0.88 
+0.9 
+0.85 
+0.92 
+0.79 
+0.9 
+0.86
+
+5. Results and discussion 
+
+In this section, the results derived from the training of the proposed 
+model  and  the  results  obtained  by  deploying  the  trained  model  are 
+discussed. 
+
+5.1. Experimental result
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it appears that the authors have not explicitly stated the specific criteria they use to determine when training is complete. However, there are several indications that suggest how they might be making this decision. For instance, the authors mention using graded Mean Squared Error (MSE) convergence to fine-tune their models, implying that they may be monitoring the MSE loss during training. Additionally, they present various performance metrics such as precision, recall, mean Average Precision (mAP), and training time for different epochs (i.e., 100, 150, 200, and 250). This suggests that they could be evaluating the performance of their models after each epoch and deciding whether or not to continue training based on these metrics. Furthermore, they discuss avoiding overtraining the model and preventing overfitting and underfitting situations, indicating that they likely consider factors like model complexity and generalization ability when determining if training should continue. In conclusion, while the exact criteria used to decide when training is complete are not specified, it can be inferred that the authors monitor various performance metrics, evaluate model complexity, and ensure good generalization abilities to make this determination.

@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+• No-overfitting. In this setting, the optimization algorithm of CNNs is 
+Stochastic Gradient Descent (SGD), with a learning rate of 0.0001 
+and a weight decay of 0.5. The batch size is set to 32, the number of 
+training epochs to 200 and finally the batch-norm and dropout (0.5) 
+are used to reduce the overfitting level.  
+
+• Overfitting.  We  use  the  same  hyperparameters  setting  as  the  no- 
+overfitting  but  we  remove  the  use  of  batch-norm,  weight  decay 
+and dropout techniques to ensure that the model overfits.
+
+3.2.2.3. Label-only  (Choquette-Choo  et  al.,  2021). Rather  than  using 
+confidence predictions, query-based attacks restrict the attack to using 
+only the predicted labels from the target model. More precisely, label- 
+only attacks determine membership status by issuing multiple queries 
+to the target model. In practice, these queries are obtained by applying 
+adversarial  perturbations  to  the  input  sample  until  a  change  in  the 
+predicted label occurs. The attack assesses the perturbation’s size and 
+categorizes  a  data  sample  as  a  member  if  its  magnitude  surpasses  a 
+predefined threshold. More formally, if we have an estimate dist(x, y)
+representing a point’s l2-distance from the model’s boundary, the attack 
+predicts that x is a member when dist(x, y) ≥ τ, in which τ is a specific 
+threshold value.
+
+The architecture of VGG16, as depicted in Fig. 5, consists of five sets 
+of  convolutional  layers  alternating  with  five  max-pooling  layers,  fol-
+lowed by two fully connected layers and an output layer. The initial two 
+blocks comprise two convolutional layers each, employing respectively 
+64  and  128  filters.  The  subsequent  two  blocks  encompass  three  con-
+volutional  layers  with  respectively  256,  512  and  512  filters.  All  con-
+volutional filters have a size of 3 × 3 and the max-pooling layers utilize a 
+2 × 2 pool size with a stride of 2. During the SNN training process, we 
+fine-tuned VGG16 by unfreezing the last two blocks (block 4 and block 
+5), ensuring that their weights are updated in each epoch. Finally, ad-
+justments were made to the final dense layer in each CNN to account for 
+the specific number of classes representing beluga individuals in each 
+dataset.  Fine-tuning  of  these  deep  models  was  conducted  using  Sto-
+
+prominent  in  demanding  tasks  like  the  re-identification  of  marine 
+mammals in underwater environments. 
+
+The  challenge  of  generalization  often  arises  as  a  consequence  of 
+network overfitting during the training phase. In simplified terms, the 
+network’s  weight  parameters  are  adjusted to  optimize  their  fit  to  the 
+provided training examples, thus effectively “memorizing” the training 
+data. However, when applied to new and unseen data during testing, the 
+network’s  response  exhibits  a  more  balanced  consideration  of  the 
+diverse training examples. This discrepancy frequently leads to dimin-
+ished performance on the test dataset and might persist even after the 
+network  has undergone  prolonged training over  numerous epochs.  In 
+recent  years,  significant  research  endeavors  have  been  dedicated  to 
+mitigating overfitting challenges to enhance model generalization.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't any explicit information about the data augmentation techniques applied in the given context. Data augmentation techniques such as flipping, rotation, scaling, cropping, etc., can be used to increase the diversity of the training data without collecting new samples. These methods help prevent overfitting and improve the model's ability to generalize. However, since the context does not provide details regarding the specific data augmentation techniques employed, it is impossible to give a precise answer based solely on the available information.

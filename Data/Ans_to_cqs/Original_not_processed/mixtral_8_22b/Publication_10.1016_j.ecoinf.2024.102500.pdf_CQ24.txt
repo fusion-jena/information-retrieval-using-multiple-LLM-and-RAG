@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Geurts, P., Ernst, D., Wehenkel, L., 2006. Extremely randomized trees. Mach Learn 63, 
+
+3–42. https://doi.org/10.1007/s10994-006-6226-1. 
+
+Goodarzi, M.R., Niknam, A.R., Barzkar, A., Niazkar, M., Zare Mehrjerdi, Y., Abedi, M.J., 
+Heydari Pour, M., 2023a. Water quality index estimations using machine learning 
+algorithms: a case study of Yazd-Ardakan plain, Iran. Water 15, 1876. https://doi. 
+org/10.3390/w15101876. 
+
+Goodarzi, M.R., Niknam, A.R.R., Rahmati, S.H., Attar, N.F., 2023b. Assessing land use 
+changes’ effect on river water quality in the Dez Basin using land change modeler. 
+Environ. Monit. Assess. 195, 774. https://doi.org/10.1007/s10661-023-11265-y. 
+
+Haghiabi, A.H., Nasrolahi, A.H., Parsaie, A., 2018. Water quality prediction using 
+
+machine learning methods. Water Qual. Res. J. 53, 3–13. https://doi.org/10.2166/ 
+wqrj.2018.025.
+
+Table  2  lists  nine  grid  search  ML  models  with  fivefold  cross- 
+validation for four WQPs and hyperparameters. Model evaluation and 
+hyperparameter selection use cross-validation resampling. The dataset is 
+split  into  five  equal-sized  folds  using  fivefold  cross-validation.  Five 
+times, one of each fold, the training and assessment process is validated. 
+A  more  complete  model  performance  analysis  is  possible.  Averaging 
+coefficient of determination (R2) or RMSE across five iterations with five 
+folds  improves  model  performance  and  hyperparameter  tuning  effi-
+ciency estimation. The Python library’s randint command picks integers 
+within a range for hyperparameters like n_estimators and max_depth. We 
+use  the  uniform  command  for  discrete  or  continuous  values  inside  a 
+range,  like  the  min_samples_split  hyperparameter.  These  commands 
+examined  multiple  hyperparameter  value  ranges  to  establish  model
+
+n_estimators,  learning_rate,  max_features,  and  random_state  parameters. 
+With linear, square, and exponential loss functions, the loss parameter 
+specifies  the  function.  For  tuning,  the  square  loss  function  was 
+employed. Tuning emphasizes stability and robustness. The differences 
+reflect  aims  and  bagging  algorithmic  techniques.  The  bootstrap 
+parameter  in  ensemble  methods  like  BG,  RF,  and  ET  is  crucial.  Boot-
+strapping  for  tree  construction  enhances  diversity  and  randomness. 
+Instead of bootstrapping, DT focuses on recursive feature separation.
+
+Hyperparameter  tuning  plays  a  crucial role  in  optimizing  the  per-
+formance of a model by improving its ability to predict observed and 
+predicted ranges. The tuning process maximizes the models training and 
+testing  performance.  It  will  control  overfitting  or  underfitting  issues 
+(Elshawi et al., 2019). Though the process is complex and takes a long 
+time,  many  optimizing  methods,  such  as  Manual  Tuning,  Bayesian 
+Optimization,  and  random  grid  search  methods,  simplify  the  process 
+(Yang  and  Shami,  2020).  Nevertheless,  choosing  which  optimizing 
+method is best for specific data is challenging. Hyperparameter tuning of 
+the decision tree model are usually configured with maximum depth and 
+minimum number of samples required to split a node. For the RF model, 
+extensive  experimentation  was  conducted  using  varying  numbers  of 
+trees  for  the  optimal  fit.  The  gradient  boosting  model  is  tuned  with
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The context does not provide explicit information about handling randomness specifically in the deep learning pipeline. However, it mentions some strategies used in machine learning algorithms, including those based on decision trees, to manage randomness and improve model performance.
+
+One strategy mentioned is bootstrapping, which is used in ensemble methods like Bagging, Random Forest, and Extra Trees. Bootstrapping involves creating subsets of the original data, with replacement, to train different models. This introduces randomness and diversity, leading to improved overall performance.
+
+Another strategy discussed is hyperparameter tuning, which can help optimize model performance and prevent overfitting or underfitting. In this context, hyperparameters like n\_estimators, learning\_rate, max\_features, and random\_state are adjusted to find the best combination for a given problem. The tuning process may involve manual adjustments, Bayesian Optimization, or random grid search methods.
+
+While these strategies do not directly address managing randomness in the deep learning pipeline, they demonstrate general approaches to introducing controlled randomness and optimizing model performance in machine learning algorithms. To specifically address randomness in the deep learning pipeline, common practices include setting a fixed random seed value for reproducibility, using dropout layers to introduce randomness during training, and employing techniques like batch normalization to reduce internal covariate shift caused by random initialization.

@@ -1,0 +1,92 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Keywords: wetlands; Sentinel-1; Sentinel-2; Google Earth Engine; remote sensing; Alberta;
+segmentation convolutional neural nets; XGBoost; land cover; SAR; machine learning
+
+1. Introduction
+
+Machine learning—a method where a computer discovers rules to execute a data processing
+task, given training examples—can generally be divided into two categories: Shallow learning and
+deep learning methods [1]. Deep learning uses many successive layered representations of data
+(i.e., hundreds of convolutions/ﬁlters), while shallow learning typically uses one or two layered
+representations of the data [1]. Deep learning has shown great promise for tackling many tasks such as
+image recognition, natural language processing, speech recognition, superhuman Go playing, and
+autonomous driving [1–3].
+
+Remote Sens. 2020, 12, 2; doi:10.3390/rs12010002
+
+www.mdpi.com/journal/remotesensing
+
+The segmentation convolutional neural network was implemented in the Python programming
+language using the Keras [79] deep learning library. The speciﬁc architecture used was a U-Net CNN,
+which was originally developed for biomedical image segmentation [22]. The U-Net architecture
+is based on a fully convolutional network and was used since it typically requires fewer training
+patches and is able to train in a reasonable time [22]. A sample of the U-Net architecture can be seen in
+Appendix B. The inputs used by our CNN model were: ARI, Band 2, Band 3, Band 4, DEM, NDVI,
+Normalized Diﬀerence Water Index (NDWI), Plant Senescence Reﬂectance Index (PSRI), REIP, TPI,
+Topographic Roughness Index (TRI), TWI, VBF, VH (Table 1). Note that these inputs were diﬀerent
+from the XGB model, because diﬀerent inputs are needed to best optimize deep learning models. We
+
+Remote Sens. 2020, 12, 2
+
+8 of 20
+
+CNNs 140 trained on a patch-level learn low- and high-level features from the remote sensing data. For example, 141 waterline edges which delineate marshes and open water may only need simple edge detection 142 convolution filters, while fens and bogs may be differentiated by subtle variations in texture or color 143 (i.e., visible flow lines in fens). Within the last couple of years, a number of studies have attempted to 144 use deep learning for wetland mapping in Canada over small areas and have achieved promising 145 results when compared to alternative shallow learning methods [20,51,52]. 146 With the current status of machine learning and the history of Canadian wetland mapping in 147 mind, we propose a simple goal for this study: To compare deep learning (CNN) classifications with 148 shallow learning (XGBoost) classifications for wetland class mapping over a large region of Alberta, 149 Canada (397,958 km2) using the most up-to-date, open source, fusion of data sources from
+
+Table 2. Full comparison of training time, prediction time, optimization time (i.e., time to properly
+tune the model), and hardware for each model.
+
+Model
+
+Training Time
+(Hours)
+
+Prediction Time (Hours)
+
+Optimization
+Time (Hours)
+
+Hardware
+
+CNN
+
+XGB
+
+4
+
+4
+
+2.4. Validation
+
+4
+
+Unknown
+
+Desktop with 64 Gb of
+RAM and one Titan X
+(Maxwell) GPU.
+
+72—can be reduced by
+distributing prediction to more
+cores or more machines.
+
+2
+
+Desktop with 64 GB of
+ram and 64 logical cores.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, the type of deep learning model used in the pipeline is a Convolutional Neural Network (CNN). Specifically, the U-Net CNN architecture is employed, which was initially designed for biomedical image segmentation. This choice is made due to its ability to require fewer training patches and being capable of training within a reasonable time frame. The input data used by the CNN model includes various indices like ARI, Band 2, Band 3, Band 4, DEM, NDVI, Normalized Difference Water Index (NDWI), Plant Senescence Reflectance Index (PSRI), REIP, TPI, Topographic Roughness Index (TRI), TWI, VBF, and VH. These inputs differ from those used in the XGB model, as they are tailored to optimize deep learning models effectively.

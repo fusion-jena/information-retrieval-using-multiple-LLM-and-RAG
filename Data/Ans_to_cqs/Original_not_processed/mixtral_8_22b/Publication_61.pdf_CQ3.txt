@@ -1,0 +1,98 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+5.4. Dataset extension
+
+The proposed approach has shown good performance (accuracy) for
+cactus recognition in aerial images. One way to improve the current
+accuracy could be to make deeper the current CNN, however, im-
+proving the accuracy with a deeper network will tend to memorize the
+dataset due to the model capacity (Goodfellow et al., 2016), causing
+model overﬁtting. A better improvement to the current work is to in-
+clude more examples in the dataset. Such examples should be obtained
+under diﬀerent conditions, some variations are diﬀerent daylight con-
+ditions or diﬀerent year seasons. Diﬀerent season pictures will provide
+a distinctive context because the rainy season changes all valley's ve-
+getation.
+
+Fig. 11. Confusion matrix.
+
+Fig. 13. Example of a cactus image. The axes indicate pixel indices.
+
+136
+
+E. López-Jiménez, et al.
+
+Ecological Informatics 52 (2019) 131–138
+
+Fig. 14. Learned kernels and feature maps. The axes indicate pixel indices.
+
+6. Conclusions
+
+3. Dataset
+
+Deep learning approaches require a vast amount of examples to
+perform well, otherwise the models can overﬁt to the data. For ex-
+ample, COCO (common objects in context) dataset has more than
+330,000 of images (Lin et al., 2014). Under those circumstances, it is
+essential to build our own dataset due to the lack of previous in-
+formation. In this section, we present the methodology that we follow
+to build our dataset coupled with an analysis of it.
+
+3.1. Case of study
+
+The Tehuacán-Cuicatlán Valley is located in the south of Mexico,
+between the states of Puebla and Oaxaca. The center of the area is lo-
+cated at 18.1605° latitude and −97.4202° longitude (decimal degrees)
+and covers an area of 10,000 km2. See Fig. 2. Its arid condition is due to
+natural walls that surround it, by east the east mountain chain (sierra
+
+E. López-Jiménez, et al.
+
+Ecological Informatics 52 (2019) 131–138
+
+batch size, and data augmentation) aﬀect the ﬁne-tuning of pre-trained
+models. DeepPlant is another example of a system for plant identiﬁ-
+cation based on a CNN that uses a pre-training approach (Lee et al.,
+2015). Background textures it is always an element that complicates the
+classiﬁcation task. Xiao et al. proposed a segmentation and crop
+method, based on Fourier transformations and a K-means algorithm, to
+generate a region of interest in the images; the cropped images are then
+used to train a CNN for diﬀerent plant species classiﬁcation (Xiao et al.,
+2018). CNN have not been used only for taxonomic classiﬁcation of
+plants, but also for the detection of diseases that can aﬀect them
+(Sladojevic et al., 2016).
+
+Training a neural network requires to set several hyper-parameters
+such as the learning rate, number of epochs and batch size. The learning
+rate is a special one since it deﬁnes how much the weights are ‘moved’
+to decrease the loss. A bigger one could cause the network not to learn,
+on the other hand, a smaller one could require much more steps for
+learning. To decrease this issue, we train the network with Adam op-
+timizer (Kingma and Ba, 2015), a variant of the stochastic gradient
+optimization where the learning rate is adjusted automatically. The rest
+of the parameters are set empirically, more details are presented in the
+experiments section.
+
+5. Experiments
+
+In this section, we present the experimental characterization of the
+proposed approach. The implemented network was trained with Adam
+optimizer (Kingma and Ba, 2015) on a Inter Core i7 machine with
+NVIDIA GeForce 1080 GPU. The hyperparameters were set as follows:
+learning rate 0.01, number of epochs 150, batch size 2500.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The paper does not explicitly mention any specific data annotation techniques such as bounding box annotation or instance segmentation. However, it discusses the importance of building their own dataset due to the lack of existing information. They focus on creating a dataset from the Tehuacán-Cuicatlán Valley in Mexico, which includes various environmental conditions like different daylight conditions and seasons. Additionally, they use a segmentation and crop method based on Fourier transformations and a K-means algorithm to generate regions of interest in the images before training a CNN for classification tasks.

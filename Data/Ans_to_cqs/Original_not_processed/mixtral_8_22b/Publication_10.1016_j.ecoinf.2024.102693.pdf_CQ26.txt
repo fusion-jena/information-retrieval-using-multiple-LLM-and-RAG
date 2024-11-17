@@ -1,0 +1,85 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Yuan et al. (2022) claimed that the superior performance of a ViT can 
+primarily be attributed to extensive pre-training data. If a ViT is trained 
+from  scratch  on  a  medium-sized  dataset,  its  performance  lags  behind 
+that of a CNN model with comparable parameter sizes. To address this 
+limitation, they proposed Volo with the novel Outlook Attention as the 
+token mixer module, which enabled fine-grained token representation 
+and the aggregation of global information. 
+
+2.3. MLP-like model
+
+2.2. Transformer-like model 
+
+Transformer  was  proposed  by  Vaswani  et  al.  (2017)  and  initially 
+designed for Seq2Seq tasks, replacing long short-term memory (LSTM) 
+with a full-attention structure. It was primarily applied in NLP, and both 
+the  transformer  and  its  subsequent  iterations  demonstrated  excellent 
+performance in a wide range of downstream tasks. With the success of 
+the transformer in NLP, researchers have begun to explore its applica-
+tion in CV. 
+
+The core structure of the transformer-like visual model is an encoder 
+module, which comprises several stacked blocks. Each block consists of 
+two  components:  a  token  mixer  module  (Yu  et  al.,  2022)  for  fusing 
+spatial information and an MLP module for fusing channel information. 
+The main distinction among the different transformer-like visual models 
+lies in the variations in the token mixer module. For example, the token 
+mixer in a ViT (Dosovitskiy et al., 2020) is a self-attention module.
+
+The basic models were trained using a deep transfer-learning strat-
+egy based on fine-tuning. The model parameters were initialized using a 
+pre-trained model. The final classification layer was then replaced by a 
+fully connected layer, aligning its output dimension with the number of 
+classes  in  the  target  dataset.  Subsequently,  all  parameters  across  the 
+layers were fine-tuned on the target dataset. The basic models in all the 
+
+The  performances  of  the  four  basic  models  and  two  proposed 
+ensemble  methods  on  the  IP102  dataset  are  lised  in  Table  2.  The 
+parameter  sizes  of  the  four  basic  models  were  comparable,  with 
+approximately 24 M parameters for each model. However, there was a 
+significant variation in the performances of the basic models, as shown 
+in Table 2. ViP-Small/7 exhibited the lowest performance, whereas the 
+two  transformer-like  models  demonstrated  better  performance,  with 
+Volo-d1 achieving the highest performance.
+
+We compared the performance of our method with those of previous 
+studies using the IP102 dataset, as shown in Table 3. This table presentes 
+the  results  of  both  the  single  models  and  ensemble  methods.  By 
+comparing the four basic models in Table 2 with the single models in 
+Table  3,  it  is  evident  that  our  trained  basic  models  demonstrated 
+impressive performances on the IP102 dataset. For example, our trained 
+ResNet-50 exhibited a remarkable improvement of approximately 20% 
+in accuracy compared to the results reported by Wu et al. (2019), and 
+our  trained  ViT-S/16  outperformed  the  larger-scale  AA-Trans  (Wang 
+et al., 2023). This notable enhancement can be primarily attributed to 
+the implementation of advanced deep transfer-learning strategies and 
+the incorporation of multiple data augmentation techniques. Moreover, 
+the performance of Volo-d1 exceeded that of some larger-scale single 
+models  and  ensemble  methods.  This  observation  highlights  the
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The given context does not provide specific details about addressing data bias during preprocessing of the deep learning pipeline. However, I can share general techniques used to handle data bias, such as stratified splitting, oversampling, undersampling, and diverse data collection.
+
+Stratified splitting involves dividing the dataset into training and testing sets while maintaining the same class distribution in both sets. This technique ensures that the model learns from a representative sample of the entire dataset.
+
+Oversampling is a technique where the minority class samples are duplicated or synthesized to balance the class distribution. This helps prevent the model from being biased towards the majority class. Undersampling, on the other hand, involves removing samples from the majority class to achieve a balanced class distribution. Both oversampling and undersampling aim to mitigate the impact of imbalanced datasets on model performance.
+
+Diverse data collection refers to collecting data from various sources, demographics, or environments to ensure that the dataset represents real-world scenarios accurately. This technique reduces the risk of overfitting and improves the model's ability to generalize to new data.
+
+In summary, these techniques help address data bias during preprocessing of the deep learning pipeline by ensuring that the dataset is representative, balanced, and diverse.

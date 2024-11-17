@@ -1,0 +1,58 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2023; Yuan et al., 2021; Zhao et al., 2023c). The model’s initial learning 
+rate was set to 0.01, further refined via iterative testing. The number of 
+iterations was 150, with a batch size of 4, downsampling multiplier set 
+at 8, and utilized SGD optimizer, ReLu activation function, and Dice loss 
+function.
+
+to augment the feature map size, aligning with the encoder’s pooling 
+layer.  Each  decoder  module  concatenates  its  output  with  the  corre-
+sponding encoder output. The final decoder tensor undergoes convolu-
+tion and then traverses through a softmax layer, normalizing the output 
+probabilities for two classes at each pixel (Gao et al., 2022; He et al., 
+2022;  Qiu  et  al.,  2023).  The  model’s  initial  learning  rate  was  set  to 
+0.0001, subsequently fine-tuned through iterative testing. The number 
+of iterations was 150, the batch size was configured as 2, utilizing the 
+Adam optimizer, ReLu activation function, and Dice loss function. 
+
+(2)  Pspnet.  To  facilitate  the  integration  of  multi-scale  data  and
+
+2.3.1. Model architectures 
+
+(1)  Unet.  By  incorporating  an  encoder-decoder  structure  that  es-
+tablishes shortcut connections, Unet model extended upon FCN’s end-to- 
+end concept (Ronneberger et al., 2015). The input to the network is a 
+512  × 512  pixels  image  (Fig.  3).  The  encoder  (left  dashed  square) 
+downsamples the input tensor and encodes it into a vector with reduced 
+dimensions. It consists of multiple convolutional blocks, each including 
+a  3  × 3  convolutional  kernel  layer,  batch  normalization,  and  an 
+
+Fig. 1. (a) Overview of Tarim River Basin. (b) Remote sensing images of the study area.  
+
+EcologicalInformatics79(2024)1024093H. Wang et al.
+
+in  segmenting  densely  distributed  vegetation  areas  but  struggles  in 
+recognizing sparse vegetation patches. The pyramid pooling module of 
+Pspnet  model deeply analyzes the  semantically rich high-dimensional 
+feature layer,  enabling global and  local connections for the  final pre-
+diction. However, during the parsing process, it primarily extracts high- 
+dimensional features for different-sized small vegetation patches, inev-
+itably resulting in blurred segmentation due to the loss of image details 
+(Ngugi et al., 2020; Wang et al., 2022b).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit information about the postprocessing steps involved after the model training such as saliency maps, metrics calculation, or confusion matrix. Therefore, I cannot provide a specific answer based on the given context. However, generally speaking, postprocessing steps can vary depending on the type of deep learning task and the desired outcome. For example, in object detection tasks, non-maximum suppression might be used to eliminate redundant bounding boxes. In classification tasks, calculating accuracy, precision, recall, F1 score, ROC curves, etc., could be part of the postprocessing steps. Visualizations like saliency maps or heatmaps may also be generated to understand which parts of the input contributed most to the prediction. Ultimately, the choice of postprocessing steps depends on the requirements and goals of the project.

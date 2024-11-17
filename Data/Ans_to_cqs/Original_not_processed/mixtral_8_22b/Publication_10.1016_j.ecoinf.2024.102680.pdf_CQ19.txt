@@ -1,0 +1,73 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+However,  using  large  kernel  convolutions  usually  leads  to  over-
+whelming computational complexity, resulting in a sharp increase in the 
+number  of  network  parameters  and  network  computational  load.  To 
+overcome this issue, we used dilated convolution (Yu and Koltun, 2016) 
+and depthwise separable convolution to reduce computations. Dilated 
+convolution can increase the receptive field of the convolution kernel by 
+inserting “holes”  without adding parameters or increasing the compu-
+tational load. The equation for calculating the receptive field of dilated 
+convolution  is  shown  in  Eq.  (4),  where  n  represents  the  size  of  the 
+receptive field and d represents the dilation rate. 
+
+EcologicalInformatics82(2024)1026806H. Zhou et al.
+
+Owing to the insufficient clarity of underwater optical images, gen-
+eral deep learning networks have difficulty capturing accurate feature 
+information and cannot detect objects correctly. The original YOLOv8 
+network  uses  the  C2f  module  for  feature  extraction.  However,  this 
+module employs an split  operation on features after convolution. This 
+operation divides the input data into two non-overlapping parts, making 
+it  difficult  to  obtain  comprehensive  and  rich  feature  information 
+through half of the channel’s features. Specifically, the shape of features 
+F obtained after convolution is ℝN×H×W×C, where N represents the batch 
+size, C represents the channel number, and H and W denote the height 
+and width, respectively. The split  operation evenly divides F  into two 
+parts on the channel dimension with shapes of ℝN×H×W×0.5C, and these 
+two parts do not overlap. The original YOLOv8 convolves only half of
+
+The  first  row  is  the  baseline  model,  YOLOv8s.  Compared  to 
+YOLOv8s, the CSMB and LKSP modules improved the performance of 
+the baseline network. The CSMB module improved the AP50 by 1%, the 
+AP75  by 1.6%, and the AP by 0.8%, indicating that the CSMB module 
+effectively extracted features of underwater objects. The LKSP module 
+also  achieved  outstanding  performance  in  terms  of  AP  values.  It 
+perfectly replaced the SPPF module without significantly increasing the 
+number  of  parameters,  achieving  a  higher  level  of  accuracy  than  the 
+SPPF module. Although both modules increased the number of param-
+eters,  UODN  still  had  fewer  parameters  than  YOLOv8m,  and  its  AP 
+values  were  better  than  those  of  YOLOv8m.  The  parameters  of 
+YOLOv8m increased by 14.7 million, but its AP increased by only 0.6%. 
+The AP values of our LKSP module were similar to those of YOLOv8m, 
+but the LKSP module increased the number of parameters by only 0.6
+
+The backbone is the core part of the object detection network. Its 
+main function is to extract the feature information of objects from im-
+ages. The backbone used in UODN is CSMBDarknet, which is composed 
+of  the  Conv,  CSMB,  and  LKSP  modules.  CSMBDarknet  is  designed  to 
+effectively  extract  and  analyze  the  features  of  objects  in  underwater 
+environments.  Compared  with  the  backbone  of  YOLOv8,  cross  stage 
+partial  darknet  (CSPDarknet),  which  comprises  the  Conv,  cross  stage 
+partial  bottleneck  with  2  convolutions  (C2f),  and  spatial  pyramid 
+pooling fast (SPPF) modules, we used the CSMB module to replace the 
+C2f module for more effective feature extraction from underwater op-
+tical images, obtaining both shallow and deep feature maps. The shallow 
+feature maps have high-resolution feature projections, but the extracted 
+feature information is relatively basic and limited. In contrast, the deep
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, based on the given context, there is no explicit mention of the specific deep learning framework used to build the described models such as YOLOv8, CSMBDarknet, or any other mentioned models. Therefore, it would be impossible to determine whether they were built using TensorFlow, PyTorch, or another framework.

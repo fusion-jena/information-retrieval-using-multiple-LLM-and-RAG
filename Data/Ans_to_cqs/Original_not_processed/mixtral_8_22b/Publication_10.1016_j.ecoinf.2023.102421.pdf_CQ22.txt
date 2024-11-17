@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The training dataset, including 268 sample plots with 39 features in a 
+tabulated format, was used as input during the training process (opti-
+mizing  hyper-parameters  and  fitting  models  with  these  data).  The 
+training data set was divided into two parts, in which 80% was used for 
+training/validation, and the remaining 20% was kept as unseen data for 
+testing. To eliminate bias, 10-fold cross-validation was used during the 
+training  process,  and  mean  RMSE  was  used  as  the  objective  function 
+(lost function). Table 4 shows RMSE, MAE, and R2  using different op-
+timizers. In addition, we tested the differences between the RMSEs in 
+Table 4 using the Wilcoxon Signed-Rank test with paired samples. The 
+differences between (XGBoost-BO vs. XGBoost-TDO, XGBoost-BOHB vs. 
+XGBoost-TDO) or (LightGBM-BO vs. LightGBM-TDO, LightGBM-BOHB 
+vs.  LightGBM-TDO)  are  significant.  However,  the  performance  of 
+XGBoost-TDO  versus  LightGBM-TDO  appears  to  be  the  same (Fig.  3),
+
+2.4. Hyperparameter optimisation 
+
+Hyperparameter  optimization  searches  for  the  best  set  of  hyper-
+parameters  for  a  machine  learning  model  that  can  perform  best  on  a 
+given  task.  In  many  packages,  random  or  grid  search  is  the  default 
+method  for  selecting  optimal  hyperparameters  (Snoek  et  al.,  2012). 
+There are many studies on the selections of optimization algorithms for 
+theoretical  problems  or  engineering  applications,  in  which  various 
+versions  of  Bayesian  optimizers  and  Swarm-based  algorithms  were 
+compared (Stenger et al., 2019; Stenger and Dirk, 2022).
+
+2. Data and methods 
+
+The overall workflow of the proposed method is shown in (Fig. 1). 
+For  simplicity,  the  workflow  starts  with  collecting  sample  plots  and 
+image processing to generate a tabulated dataset, including on-field AGB 
+and  independent  features.  This  data  set  is  fed  into  hybrid  models,  in 
+
+which  Bayesian  optimizers  and  TDO  tune  the  hyperparameters  of 
+XGBoost and LightGBM using RMSE as the objective function. The best 
+model  (with  the  smallest  RMSE)  is  selected  to  estimate  AGB  for  the 
+entire study area. This model was also interpreted to understand better 
+what operates inside the ‘black box.’ More detailed descriptions of the 
+study area,  data specifications and preparation, and  algorithm justifi-
+cations are presented in the following sections. 
+
+2.1. Field data
+
+MSAVI =
+
+GREEN (cid:0) BLUE 
+2NIR + 1 (cid:0)
+
+√
+
+̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+(2NIR + 1)2 (cid:0) 8(NIR (cid:0) RED)
+
+predictive efficiency, handle large datasets, and reduce training time. It 
+is typically recommended for tabular datasets. LightGBM differs from 
+other tree-based methods by implementing leaf-wise splits that create 
+more  complex  trees,  which  are  more  efficient  in  reducing  loss  and 
+resulting  in  higher  accuracy.  The  split  is  based  on  a  novel  sampling 
+method named Gradient-Based One-Side Sampling (Ke et al., 2017), in 
+which data with small gradients are excluded, and the rest are used for
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In this case, the performance of the deep learning models, specifically XGBoost and LightGBM, is evaluated using three main metrics: Root Mean Square Error (RMSE), Mean Absolute Error (MAE), and R2. These metrics help assess the predictive accuracy of the models. RMSE measures the average magnitude of errors made by the model, while MAE calculates the average absolute difference between predictions and actual values. Lastly, R2 represents the proportion of variance explained by the model, indicating how well future samples are likely to fit the model.

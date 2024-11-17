@@ -1,0 +1,143 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To evaluate how well the models performed, we used three standard
+metrics: MSE, mean average error (MAE), and the coefficient of deter-
+mination (r2). For the grid search, we focused on minimizing the MSE to
+identify the optimal set of hyperparameters. Prior to conducting the grid
+search, we divided our data into a training set (80% of the data) and a
+test set (20% of the data). This split ensures that the models are trained
+on one portion of the data and tested on a separate, previously unseen
+portion, allowing us to assess their ability to generalize to new, unseen
+data accurately.
+
+2.3.3. SHAP values
+
+After training the MLP models, we computed SHAP values using the
+model-agnostic Kernel SHAP method to understand which features are
+most important in predicting the start and (height of the) peak of the
+greening season. We used the implementation in the Python SHAP
+package for this analysis Lundberg et al. (2017).
+
+Table 2
+Overview of the explored ranges of hyperparameters used in the Optuna grid
+search. The optimal values for the three different regression tasks are displayed
+in the right-most three columns.
+
+Description
+
+Range
+
+Number of neurons in first
+
+layer
+
+Number of neurons in
+
+second layer
+Strength of the L2
+
+regularization term
+the solver for weight
+
+optimization
+
+initial learning rate
+
+learning rate schedule for
+
+weight updates
+
+maximum number of
+
+iterations
+
+maximum number of
+iterations with no
+improvement
+
+int: 10, 20, …,
+100
+int: 0, 10, …,
+100
+float: 1e-4 —
+1e-1 logscale
+
+SOS
+
+100
+
+0
+
+POS
+
+PEAK
+
+70
+
+0
+
+30
+
+100
+
+0.0290
+
+0.0010
+
+0.0606
+
+adam, lbfgs
+
+adam
+
+adam
+
+adam
+
+IEEE 78, 1550–1560. https://doi.org/10.1109/5.58337.
+
+Seabold, S., Perktold, J., 2010. Statsmodels: econometric and statistical modeling with
+
+Xie, J., Hüsler, F., de Jong, R., Chimani, B., Asam, S., Sun, Y., Schaepman, M.E.,
+
+python. In: 9th Python in Science Conference.
+
+Semenchuk, P.R., Gillespie, M.A., Rumpf, S.B., Baggesen, N., Elberling, B., Cooper, E.J.,
+2016. High Arctic plant phenology is determined by snowmelt patterns but duration
+of phenological periods is fixed: an example of periodicity. Environ. Res. Lett. 11
+https://doi.org/10.1088/1748-9326/11/12/125006.
+
+Sigurdsson, B.D., 2001. Elevated [CO2] and nutrient status modified leaf phenology and
+growth rhythm of young Populus trichocarpa trees in a 3-year field study. Trees 15,
+403–413. https://doi.org/10.1007/s004680100121.
+
+cherry trees in Japan. He et al. (2022) construct a seagrass distribution
+model and explain the importance of environmental variables in the
+model and subsequent predictions. In Park et al. (2022), an XGBoost
+model is trained to predict chlorophyll concentration, and they use
+SHAP values to perform feature selection, as well as investigate feature
+importance. SHAP values have a number of advantages over other
+methods for understanding the output of a model. First, SHAP values are
+model-agnostic, which means that they can be used with any ML model
+(Lundberg et al., 2017). Second, SHAP values are able to account for
+interactions between features, which is something other methods are not
+able to do. Third, SHAP values have an intuitive interpretation, which
+means that they are easy to understand and explain to others. Finally,
+SHAP values have some desirable mathematical properties, such as local
+accuracy, missingness, and consistency (Aas et al., 2021).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The hyperparameters of the model were optimized using a grid search approach. Specifically, the authors used the Optuna library for this purpose. They explored various ranges of hyperparameters including the number of neurons in the first and second layers, strength of the L2 regularization term, solver for weight optimization, initial learning rate, learning rate schedule for weight updates, maximum number of iterations, and maximum number of iterations with no improvement. After performing the grid search, the optimal values for these hyperparameters were identified for each of the three regression tasks. These optimal values are listed in Table 2.

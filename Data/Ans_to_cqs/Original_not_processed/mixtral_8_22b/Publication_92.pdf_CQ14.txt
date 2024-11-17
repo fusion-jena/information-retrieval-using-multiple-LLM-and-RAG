@@ -1,0 +1,152 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1. Fish species in the learning database
+
+Species
+
+Acanthurus lineatus
+
+Acanthurus nigrofuscus
+
+Chromis ternatensis
+
+Chromis viridis/Chromis atripectoralis
+
+Pomacentrus sulfureus
+
+Pseudanthias squamipinnis
+
+Zebrasoma scopas
+
+Ctenochatus striatus
+
+Thumbnails Rotations and symmetries
+
+493
+
+1455
+
+951
+
+523
+
+766
+
+1180
+
+488
+
+1400
+
+2465
+
+3923
+
+4755
+
+2619
+
+3830
+
+5900
+
+2400
+
+4000
+
+To be able to do multi-resolution classiﬁcation, all the background thumbnails
+
+were taken with random dimensions, from 40 × 60 pixels to 400 × 500 pixels.
+
+Finally, in order to improve the localization accuracy, we decided to create
+another class called part of ﬁsh, to ensure that the network does not focus on
+a distinctive part of a ﬁsh as a stripe, a ﬁn, the head, but processes the ﬁsh
+as a whole. We also created a class ﬁsh which contains some unknown ﬁshes to
+make the method able to recognize any ﬁsh even though it is not in the learning
+database. However, this class must contain less samples in order to be sure that
+a ﬁsh will most likely be labeled by its speciﬁc class rather than the generic class
+ﬁsh. Finally, we added 3 classes to our initial thumbnail database as listed in
+Table 2.
+
+Table 2. Classes added to the species database
+
+Class Label
+
+Samples
+
+Random/speciﬁc background 116,820/91,247
+
+Part of Fish
+
+Fish
+
+55,848
+
+970
+
+Coral Reef Fish Detection and Recognition in Underwater Videos
+
+165
+
+3.2 Detection/Recognition Pipeline
+
+3.1 Data Preprocessing
+
+The choice of learning data is a crucial point. We worked with biology experts
+of the MARBEC laboratory to label many videos. We cropped some frames of
+the videos and created a training database composed of 13000 ﬁsh thumbnails.
+The thumbnail size varies from a minimum of 20 × 40 pixels to a maximum of
+150 × 200 pixels. Each thumbnail contains only one labeled-ﬁsh as shown on
+Fig. 2.
+
+We decided to keep only the species with more than 450 thumbnails. We also
+widen the database by applying rotations and symmetries in order to capture
+all the possible position of the ﬁshes. Table 1 lists the retained species.
+
+Due to the highly textured natural background, we also added a class for the
+background. This class is constituted with random thumbnails of the background
+which were randomly selected in frames and speciﬁc background thumbnails
+which were taken around the ﬁsh thumbnails.
+
+164
+
+S. Villon et al.
+
+Fig. 2. Some training thumbnails from the MARBEC database
+
+the weight of rank i of a neuron n, and x(n)
+
+i
+
+Coral Reef Fish Detection and Recognition in Underwater Videos
+
+163
+
+We can then deﬁne the output of a neuron n as σ(n) with f (n) the activation
+
+function:
+
+σ(n)(x(n)) = f (n)(α(n)(x(n)))
+
+(2)
+
+Each layer of a neural network except the ﬁrst one which receive the feature
+vector and the last one are called hidden layers. During the learning process, the
+network will have its parameters modiﬁed in order to optimize its classiﬁcation
+rate of learning.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, there is no explicit mention of how the hyperparameters of the model are optimized, such as through methods like grid search or random search. Therefore, I cannot provide a definitive answer based solely on the provided context.

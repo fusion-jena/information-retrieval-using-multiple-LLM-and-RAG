@@ -1,0 +1,55 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Currently, this approach is hampered by the lack of a dataset comprising plant photographs with matching 
+trait measurements that cover the global plant functional spectrum. In recent years, however, global data initia-
+tives and citizen science projects have emerged as a strongly growing data source, which builds upon the collec-
+tive effort of the scientific  community14,15. Consequently, we employ a weakly supervised learning approach that 
+combines the independent data sources of (1) the iNaturalist database providing a worldwide record of millions 
+of plant photographs including taxa and  geolocations16 and (2) the TRY database containing more than 11 mil-
+lion trait measurements across more than 270,000  taxa7.
+
+Vol.:(0123456789)www.nature.com/scientificreports/Discussion
+Our results suggest that certain plant functional traits can be retrieved from simple RGB photographs. The key 
+for this trait retrieval are deep learning-based Convolutional Neural Networks in concert with Big Data derived 
+from open and citizen science projects. Although these models are subject to some noise, there is a wealth of 
+applications for this approach, such as global trait maps, monitoring of trait shifts in time and the identification 
+of large-scale ecological gradients. This way, the problem of limited data that still impedes us to picture global 
+ gradients7 could be alleviated by harnessing the exponentially growing iNaturalist  database16. The performance 
+of the CNN models across traits varied strongly, but revealed a clear trend: As expected, the more a trait referred 
+to morphological features, the more accurate the predictions were. The models of the Baseline setup explained a
+
+Conclusion and outlook
+Following the urgently needed transition of ecology towards a data-sharing scientific  discipline15,44 and the call for 
+integration of powerful datasets in  ecology44, we built upon this revolution of Big Data provided by professional 
+and citizen science alike. Therefore, we exploited the potential of Convolutional Neural  Networks44 to produce 
+generic models generalising across all biomes and regions around the globe to extract a set of plant functional 
+traits from simple RGB photographs. Thus, the burden of limited geographical coverage of trait databases might 
+be lifted by the worldwide coverage of the iNaturalist plant photograph database. The traits referring to the models 
+with the highest predictive performance cover the primary axes of plant form and function 13, which are plant and 
+organ size (GH, LA) as well as the leaf economics spectrum (SLA). Despite of the disputable model performance
+
+Vol.:(0123456789)www.nature.com/scientificreports/Training  process  and  hyperparameters. 
+In  order  to  build  upon  a  pre-existing  knowledge  base,  we 
+employed  ’transfer  learning’  by  using  pre-trained  layer  weights  (the  storage  of  the  model’s  knowledge)  from 
+a classification task on a dataset on www. image- net. org38 for all CNN models used in this study. The regressor 
+following the basic CNN consisted of a global average pooling layer followed by two dense layers with 512 and 1 
+output units. The latter forces the CNN to output exactly one prediction (trait) value. In case of the mixed data 
+model (setups (3) and (4)), the CNN consisted of parallel branches to incorporate the different input data types. 
+The branch processing the bioclimatic data consisted of three dense layers with 64, 32 and 4 output units, and 
+the last layer of the CNN regressor contained 4 output units. After concatenating the two branches (image and
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Where is the data repository of the deep learning pipeline available (e.g., Zenodo, Figshare, Dryad, GBIF)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, based on the given information, it does not explicitly state where the data repository of the deep learning pipeline is available. However, it mentions the use of the iNaturalist database and the TRY database. The iNaturalist database provides a worldwide record of millions of plant photographs including taxa and geolocations, while the TRY database contains more than 11 million trait measurements across more than 270,000 taxa. It would be best to refer to the original research paper or contact the authors directly to find out about the availability of their deep learning pipeline's data repository.

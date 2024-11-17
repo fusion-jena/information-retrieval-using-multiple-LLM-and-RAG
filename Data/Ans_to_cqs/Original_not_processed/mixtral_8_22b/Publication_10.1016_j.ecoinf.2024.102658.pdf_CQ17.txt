@@ -1,0 +1,72 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Following this, forward feature selection (FFS) was performed. FFS is 
+a  common  stepwise  selection  procedure  (Hastie  et  al.,  2020),  which 
+begins with an empty model, and iteratively selects the next feature from 
+the initial set which most improves model performance. Candidate lo-
+gistic  regression  and  random  forest  models  were  evaluated  via  (1) 
+random cross-validation (CV) and (2) spatial CV (Roberts et al., 2017), 
+in which the full training dataset was partitioned into spatial blocks like 
+those shown in Fig. 2. 
+
+Because model performance estimated via spatial CV is dependent on 
+the spatial configuration of the CV folds, the procedure was repeated 
+over 100 random blocking configurations; those features selected most 
+
+Fig.  2. One  spatial-CV  fold  pattern  used  in  feature  selection.  This  particular 
+fold was also utilized when calculating numerical scores for the models.
+
+For  numerical  scores,  we  examined  both  training  scores  and  vali-
+dation scores to diagnose signs of overfitting. The training scores were 
+calculated from the models fit on all 7331 grid cells. Their outputs for 
+the area shown in Fig. 1a were compared to their true labels to compute 
+the values. The validation scores of the models were calculated through 
+a  10-fold  CV  using  one  fold  pattern  of  spatial-CV  feature  selection, 
+shown in Fig. 2. The scores are the average of the 10 validation folds.
+
+MLE and  Bayesian logistic  regression had  the  simplest and  stiffest 
+structure,  hence  they  did  not  show  signs  of  overfitting.  Rather,  the 
+calibration  plots  in  Figs.  3  and  B.11  suggested  that  the  models  fit  on 
+random-CV features underfit the true pattern, since the predictions un-
+dershoot the actual observed frequencies around the 50% bin and then 
+overshoot them around the 80% bin. 
+
+Feature  selection  had  an  effect  on  the  future  predictions  of  both 
+Bayesian and MLE logistic regression. Models fit on random-CV features 
+gave a very optimistic outlook, while the models fit on spatial-CV fea-
+tures had a more conservative view. Also, though not presented in the 
+main  part  of  this  article,  we  noticed  that  feature  scaling  affected 
+Bayesian logistic regression by changing the relative relationship of the 
+data against the priors. This is discussed more in Appendix A. MLE lo-
+gistic regression was not affected by feature scaling.
+
+The  final  settings  restricted  the  non-linearity  enough  to  make  the 
+models fit on random-CV features resemble the results from Bayesian 
+and  MLE  logistic  regression.  The  models  fit  on  spatial-CV  features, 
+however, still gave very unrealistic predictions for the future, in which 
+every area on Earth is a suitable habitat for Elephas maximus. It seemed 
+that restricting the priors and the basis dimension of the model has only 
+a limited effect that varied depending on the feature set used to fit the 
+models. 
+
+6.2.2. Random forest
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, there is no explicit mention of regularization methods used specifically in a deep learning pipeline such as dropout or L2 regularization. However, it does discuss some techniques used to avoid overfitting in the context of logistic regression and random forests.
+
+For instance, the text mentions that MLE and Bayesian logistic regression have simple structures, which helps prevent overfitting. Additionally, feature selection is employed to improve model performance, which can be seen as a form of regularization. In the case of random forests, the ensemble nature of the algorithm inherently reduces overfitting.
+
+While these methods help mitigate overfitting, they do not directly correspond to the specific regularization methods mentioned in the query, such as dropout or L2 regularization. Dropout is a technique where randomly selected neurons are ignored during training, which helps prevent complex co-adaptations on training data. On the other hand, L2 regularization adds a penalty term to the loss function based on the square of the magnitude of coefficients, encouraging smaller weights and simpler models. These techniques are commonly used in deep learning pipelines but are not explicitly mentioned in the provided context.

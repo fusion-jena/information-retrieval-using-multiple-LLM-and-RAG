@@ -1,0 +1,77 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+their  convolutional  kernels  and  pooling  layers.  Regarding  this  issue, 
+Zhang  et  al.  (2019)  incorporated  a  long  short-term  memory  (LSTM) 
+network to develop a 3DCNN-LSTM model as a classifier, making the 
+network more sensitive to the temporal changes in birdsong informa-
+tion. It is important to note that the use of RNNs such as the CRNN model 
+requires  more  computing  resources  for  training,  and  performance 
+improvement is not always guaranteed. Another common approach to 
+addressing  the  limitations  of  CNNs  is  to  introduce  attention  mecha-
+nisms.  For  example,  Soundception  (Sevilla  and  Glotin,  2017)  was 
+developed  by  introducing  time  and  time-frequency  attention  mecha-
+nisms to Inception V4; the resulting model achieved first place in the 
+BirdCLEF  2017  Competition.  Fu  et  al.  (2023)  proposed  an  improved 
+ACGAN model named DR-ACGAN based on the residual structure and an
+
+13/47/100  
+
+the  two  datasets  using  the  “stratified  sampling”  method.  We  selected 
+birds of different class sizes from BirdCLEF2018, abbreviated as “BC-S" 
+(BirdCLEF-Small)  and  “BC-L"  (BirdCLEF-Large).  From  the  Lishui- 
+Zhejiang Birdsdata, we chose 100 bird species, referred to as “LS”. We 
+then halved the number of training samples of each species for “LS” to 
+construct  a  supplementary  small-scale  training  set,  denoted  as  “LS*”. 
+The datasets were divided into three exclusive groups: 80% for training, 
+10% for validation, and 10% for testing to compare the experimental 
+results. Detailed statistical information is presented in Table 3. 
+
+4.2. Experimental results 
+
+This section presents the experimental results of our PPNN model,
+
+attention mechanism; this model improved the classification accuracy. 
+Tang  et  al.  (2023)  adapted  a  vision  transformer  with  hyper-head 
+attention  called  Transound  for  bird  sound  recognition.  These  studies 
+demonstrate  the  effectiveness  of  attention  mechanisms  in  feature 
+extraction.
+
+sdata.xlsx. 
+
+Unforeseen changes in real-world samples can make datasets com-
+plex. To enhance the datasets, we incorporated files from “BirdsOnly” 
+for all bird audio recordings and implemented two random mutations to 
+attain data diversity. This process comprised (a) a random spectrogram 
+mixup (Zhang et al., 2018) and (b) a random tanh distortion. Further-
+more, we employed separate random data augmentation techniques to 
+address the issue of a long-tailed distribution of the data for rare6  and 
+endangered7  bird  species.  This  included  (c)  adding  background  noise 
+and (d) random clipping and splicing.8 
+
+Random spectrogram mixup. A new spectrogram was created with 
+a probability of 0.5, following the formula:̃x = α × x1 + (1 (cid:0) α) × x2,̃y =
+α × y1 + (1 (cid:0) α) × y2,  where  x1  and  x2  are  two  randomly  selected 
+spectrograms; y1  and y2  are the corresponding one-hot labels, and α has 
+a beta distribution B(0, 1).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To address data bias during preprocessing of the deep learning pipeline, several techniques have been mentioned in the given context. One technique is stratified sampling, which involves selecting birds of different class sizes from the dataset. This method was applied to create smaller subsets of the BirdCLEF2018 dataset, namely BC-S (BirdCLEF-Small) and BC-L (BirdCLEF-Large), and a subset of the Lishui-Zhejiang Birdsdata, referred to as LS*. The datasets were then split into three exclusive groups: 80% for training, 10% for validation, and 10% for testing.
+
+Another technique used to mitigate data bias is incorporating diverse data sources. In this case, files from "BirdsOnly" were added to all bird audio recordings to enrich the datasets. Additionally, two random mutations were performed to achieve data diversity: a random spectrogram mixup and a random tanh distortion.
+
+Data augmentation techniques were also utilized to tackle the problem of a long-tailed distribution of data for rare and endangered bird species. Separate random data augmentation methods were employed, including adding background noise and performing random clipping and splicing.
+
+In summary, the techniques used to address data bias during preprocessing of the deep learning pipeline include stratified sampling, incorporating diverse data sources, and employing various data augmentation techniques like random spectrogram mixup, random tanh distortion, adding background noise, and random clipping and splicing.

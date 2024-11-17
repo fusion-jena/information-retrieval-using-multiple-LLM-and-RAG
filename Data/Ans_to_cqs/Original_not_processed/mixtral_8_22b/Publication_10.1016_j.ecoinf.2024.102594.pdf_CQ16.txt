@@ -1,0 +1,171 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+ReduceLROnPlateau was as follows: If the validation loss value did not 
+decrease  after  5  consecutive  epochs,  the  learning  rate  was  halved.  If 
+there was no decrease in the validation loss value after 10 consecutive 
+epochs, the training process was terminated. Both model training and 
+inference were executed on a GeForce RTX 3070 GPU.
+
+500–800 
+
+450–520 
+520–590 
+630–690 
+770–890 
+452–521 
+522–607 
+635–694 
+
+776–895 
+
+416–452 
+591–633 
+708–752 
+
+897–1047 
+
+450–900 
+450–520 
+520–590 
+630–690 
+770–890 
+
+0.21 
+
+September 
+28–30, 2021 
+
+8 
+
+2 
+
+2.1 
+
+5.8 
+
+10 
+
+2.5 
+
+16 
+
+September 11, 
+2021 
+
+September 21, 
+2021 
+
+September 21, 
+2021 
+
+October 7, 2021 
+
+September 11, 
+2021 
+
+Note:*indicates that this band was not utilized in the present study. 
+
+corresponding to the spatial resolutions (i.e., 2 m, 2.1 m, 2.5 m, 5.8 m, 8 
+m, 10 m, and 16 m) of satellite images were obtained in this study.
+
+During the DeepLabV3+ model training process, feeding large-size 
+images directly to the network may lead to memory overflow. There-
+fore, it is necessary to cut all remote sensing images and semantic labels 
+of land cover classes into a series of regular image blocks for input. To 
+maximize the sample size and maintain consistency with the cropping 
+approach in the model prediction stage, we set the cropping size to 32 ×
+32  pixels  with  a  redundancy  rate  of  0.5.  In  continuing,  70%  of  the 
+dataset  was  used  for  training  and  the  remaining  for  validation.  The 
+training set was enhanced by: (i) Flipping the images and labels along 
+the X or Y axis; (ii) Exchanging between multiple image channels while 
+the  labels remain unchanged; (iii)  Randomly rotating  the images and 
+◦
+labels by 90
+; and (iv) randomly adding noise to the 
+images  while  maintaining  the  labels  unchanged  (Ye  et  al.,  2022).
+
+GF1_8m 
+
+ZY1_10m 
+
+GF1_16m 
+
+P4M 
+
+P4M 
+
+2 
+
+2.1 
+
+P4M 
+
+2.5 
+
+P4M 
+
+5.8 
+
+P4M 
+P4M 
+P4M 
+GF1 
+PMS2 
+ZY3 
+NAD 
+ZY1 
+VNIC 
+ZY3 
+MUX 
+GF1 
+PMS2 
+ZY1E 
+VNIC 
+GF1 
+WFV3 
+
+8 
+10 
+16 
+
+2 
+
+2.1 
+
+2.5 
+
+5.8 
+
+8 
+
+10 
+
+16 
+
+High 
+
+Medium 
+
+Low 
+
+High 
+
+Medium 
+
+Low
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The training process is determined to be complete based on two criteria related to the validation loss value. First, if there is no decrease in the validation loss value after five consecutive epochs, the learning rate is halved. Second, if there is still no decrease in the validation loss value after ten consecutive epochs, the training process is terminated. This means that the model stops training once it has reached a point where it can no longer improve its performance on the validation data, even after adjusting the learning rate.

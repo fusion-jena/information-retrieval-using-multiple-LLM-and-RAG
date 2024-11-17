@@ -1,0 +1,60 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+training datasets.
+
+•  In the first phase, a classification model is built by training a CNN on a given database T0 (Fig. 2a)
+•  Then, the second phase consists of tuning a risk threshold τi specific to each class (i.e. each species in our 
+
+case), noted i, with i ∈ {1, ..., n} , using a second and independent database noted T1 (Fig. 2b).
+
+In terms of classification, it means we transform the 2 classification options (correct, wrong) in 3 options 
+
+(Fig. 3) by applying Eqs. (15, 16).
+
+Computing the confidence thresholds.  After the phase 1 (model training phase), for an image X of the 
+threshold tuning dataset processed by the classifier, we obtain an output {C(X), S(X)} , where C(X) is the class 
+(i.e. species, belonging to the trained set of species) with the highest classification score S(X). For this image, we 
+know the ground truth Y in {1, .., n} belonging to the same set of species classes.
+
+to calibrate Deep Learning models using a single parameter for all  classes35. This parameter is used, instead of 
+the traditional softmax function, to convert the vector output from the neural network into a real probability.
+
+Whatever the goal, our framework is highly flexible and can be adapted by tuning the species thresholds 
+regulating the trade-off between classification robustness and coverage in an attempt to monitor biodiversity 
+through big datasets where species are unidentified. To unclog the bottleneck of information extraction about 
+organism forms, behaviors and sounds from massive digital data, machine learning algorithms, and particularly 
+the last generation of deep learning algorithms, offer immense promises. Here we propose to help the users to 
+control their error rates in ecology. This is a valuable addition to the ecologist’s toolkit towards a routine and 
+robust analysis of big data and real-time biodiversity monitoring from remote sensors. With this control of error 
+rate in the hands of users, Deep Learning Algorithms can be used for real applications, with acceptable and 
+
+Scientific RepoRtS  |        (2020) 10:10972  | 
+
+https://doi.org/10.1038/s41598-020-67573-7
+
+11
+
+Building  the  convolutional  neural  network.  Convolutional  neural  networks  (CNNs)  belong  to  the 
+class  of  DLAs.  For  the  case  of  species  identification,  the  training  phase  is  supervised,  which  means  that  the 
+classes  to  identify  are  pre-defined  by  human  experts  while  the  parameters  of  the  classifier  are  automatically 
+optimized  in  order  to  accurately  classify  a  “training”   database24.  CNNs  are  composed  of  neurons,  which  are 
+organized in layers. Each neuron of a layer computes an operation on the input data and transfers the extracted 
+information to the neurons of the next layer. The specificity of CNNs is to build a descriptor for the input image 
+data and the classifier at the same time, ensuring they are both optimized for each  other42. The neurons extract-
+ing the characteristics from the input data in order to build the descriptors are called convolutional neurons, as
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit details on how the data was split for deep learning model training. However, based on common practices in machine learning, it can be inferred that the data was likely divided into two main sets: one for training the initial model (T0) and another for fine-tuning the risk threshold (T1). Additionally, there might have been a separate holdout set or cross-validation scheme employed during the training process to prevent overfitting and evaluate the performance of the model. Unfortunately, without more specific information, it cannot be determined exactly what percentage of the data was allocated to each subset or if any additional subsets were created.

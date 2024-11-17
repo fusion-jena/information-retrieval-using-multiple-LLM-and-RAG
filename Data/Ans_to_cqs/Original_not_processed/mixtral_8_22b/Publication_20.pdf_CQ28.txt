@@ -1,0 +1,128 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Krizhevsky, A., Sutskever, I., Hinton, G.E., 2012. Imagenet Classiﬁcation with Deep
+Convolutional Neural Networks. InAdvances in Neural Information Processing
+Systems. pp. 1097–1105.
+
+Krueck, N.C., Ahmadia, G.N., Possingham, H.P., Riginos, C., Treml, E.A., Mumby, P.J.,
+
+2017. Marine reserve targets to sustain and rebuild unregulated ﬁsheries. PLoS Biol.
+15 (1), e2000537.
+
+Kulbicki, M., Parravicini, V., Bellwood, D.R., Arias-Gonzàlez, E., Chabanet, P., Floeter,
+S.R., ... Mouillot, D., 2013. Global biogeography of reef ﬁshes: a hierarchical quan-
+titative delineation of regions. PLoS One 8 (12), e81847.
+
+Langlois, T.J., Harvey, E.S., Fitzpatrick, B., Meeuwig, J., Shedrawi, G., Watson, D., 2010.
+Cost-eﬃcient sampling of ﬁsh assemblages: comparison of baited video sta=tions
+
+244
+
+and diver video transects. Aquat. Biol. 9, 155–168.
+
+We used a GoogLeNet architecture as it was the winner of the 2015
+competition imageNet (Szegedy et al., 2015), an identiﬁcation chal-
+lenge on 1000 diﬀerent classes. This CNN is composed of 22 layers. It
+uses inception modules. Inception modules allow the network to use
+convolutions of diﬀerent sizes (1*1, 3*3 and 5*5 pixels) and to weight
+each of these convolutions. This network could thus account more or
+less strongly for the context of each pixel, which increases the range of
+possibilities to improve its performance during the training.
+
+Ecological Informatics 48 (2018) 238–244
+
+of 16 images to train our network. We ran this architecture on Caﬀe (Jia
+et al., 2014). To focus on the impact of the training data, we used the
+same CNN architecture for our training and test procedures.
+
+2.3. Building the training datasets
+
+Using the raw training dataset of 20 ﬁsh species (Table S1) we built
+4 diﬀerent datasets to assess the inﬂuence of the dataset building on
+classiﬁcation results (Table S2).
+
+The ﬁrst training dataset T1 contained raw ﬁsh thumbnails (T0) and
+
+their respective mirror images.
+
+More precisely, we doubled the number of thumbnails per ﬁsh in-
+dividual by ﬂipping each thumbnail with respect to the vertical axis.
+Such a procedure homogenizes the proportion of left-oriented and
+right-oriented individuals in the database and we hypothesize it could
+improve the average identiﬁcation rate since ﬁsh individuals are seen in
+all positions.
+
+The model was trained using thumbnails of whole ﬁsh, part of ﬁsh species and
+environment (T?). Raw outputs were post-processed applying two decision
+rules: (r1) keeping most likely ﬁsh class if “environment” was the most likely
+class, and (r2) considering “part of species X" equivalent to “species X".
+
+Species
+
+Number of thumbnails
+tested
+
+Deep-learning
+model
+
+Humans
+
+Abudefduf sparoides
+Abudefduf vaigiensis
+Chaetodon trifascialis
+Naso elegans
+Pomacentrus sulfureus
+Pygoplites diacanthus
+Thalassoma hardwicke
+Zanclus cornutus
+Zebrasoma scopas
+Average success rate
+
+88
+47
+149
+165
+443
+35
+73
+53
+144
+1197
+
+93.4
+97.3
+95.1
+98.4
+97.9
+90.4
+96
+97.1
+96.2
+95.7
+
+87.7
+84.7
+89.4
+94.8
+93.2
+77.4
+91
+97.8
+88.3
+89.3
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which platform was used to deploy the deep learning model (e.g., AWS, Azure, Google Cloud platform)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, there is no explicit mention of the specific platform used to deploy the deep learning model. However, it is mentioned that the authors used the Cafe framework developed by Berkeley AI Research and community contributors. Therefore, it can be inferred that they did not use any cloud platforms such as AWS, Azure, or Google Cloud Platform but rather deployed their model locally using the Cafe framework.

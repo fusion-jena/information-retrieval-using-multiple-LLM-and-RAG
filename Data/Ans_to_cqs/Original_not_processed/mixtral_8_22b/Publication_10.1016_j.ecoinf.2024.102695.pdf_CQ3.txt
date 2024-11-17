@@ -1,0 +1,114 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.3.1. Data description
+
+S = ⌊ 1
+Ξ(f)
+
+⌋
+
+(25) 
+
+During  training,  the  input  tensor  comprises  three  dimensions:  the 
+batch  size,  the  number  of  model  variables,  and  the  future  prediction 
+length. The dimension concerning the number of features is segmented 
+by dynamically changing the slice sizes and strides, and the segmented 
+tensors are folded, adding a slice dimension. Finally, by merging the first 
+
+In the second stage of the attention calculation, the covariates are 
+dynamically segmented, capturing their features at different time scales 
+through multiscale attention. Specifically, for the static variables S(t), 
+the multiscale attention FMSA
+S(t)
+)
+(cid:0)
+S(t) = Softmax
+FMSA
+
+is calculated as in Formula 30: 
+
+Wf ,S⋅IS(λk)
+
+(30) 
+
+Similarly, for dynamic variables Z(t), the calculation is as in Formula 
+
+31: 
+
+(cid:0)
+Z(t) = Softmax
+FMSA
+
+)
+
+Wf ,Z⋅IZ(λk)
+
+3.4.3. Attention fusion 
+
+(31)
+
+This research contributes significantly to the long-term prediction of 
+multivariate  marine  chemical  data,  confirming  the  necessity  and 
+importance  of  signal  decomposition,  reducing  feature  space  redun-
+dancy,  and  uncovering  potential  feature  correlations  in  this  field. 
+Complementarily, related machine learning and deep learning studies 
+have also made progress in predicting DO concentrations. For instance, 
+Hu  et  al.  (2024)  presented  a  hybrid  deep  learning  architecture  that 
+achieved an R2  of 0.865 in predicting river and stream water quality. 
+Feng  et  al.  (2024)  introduced  the  WTD-GWO-SVR  ensemble  method, 
+which combines wavelet threshold denoising, gray wolf optimization, 
+and support vector regression, and achieved an MAE of 0.038 and an R2 
+of  0.997.  Ikram  et  al.  (2023)  developed  an  innovative  approach  for 
+estimating the water temperature of the Bailong River in China, inte-
+
+2.2. Transformer 
+
+Since its introduction by Vaswani and others in 2017 Vaswani et al. 
+(2017), the Transformer model has led to a significant revolution in the 
+field of natural language processing (NLP). One of the key innovations of 
+the  Transformer  is  the  self-attention  mechanism,  which  allows  the 
+model  to  weigh  the  importance  of  different  parts  of  the  input  data 
+differently.  The  core  self-attention  mechanism  is  represented  by  For-
+mula 5: 
+
+Attention(Q, K, V) = softmax
+
+(
+
+QKT
+√
+̅̅̅̅̅
+dk
+
+)
+
+V
+
+(5) 
+
+Here,  Q,  K,  and  V  represent  the  query,  key,  and  value  matrices, 
+respectively.  The  query  matrix  represents  the  current  word  or  token 
+being processed, while the key and value matrices represent the entire 
+̅̅̅̅̅
+input sequence. The term 
+dk
+is a scaling factor used to normalize the 
+dot products, where dk  is the dimensionality of the keys. 
+
+√
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information on specific data annotation techniques used in the deep learning pipeline such as bounding box annotation or instance segmentation. Instead, it focuses on describing the process of calculating attention in a transformer model using formulas and equations. Therefore, based on the provided context, we cannot determine what data annotation techniques were used in the deep learning pipeline.

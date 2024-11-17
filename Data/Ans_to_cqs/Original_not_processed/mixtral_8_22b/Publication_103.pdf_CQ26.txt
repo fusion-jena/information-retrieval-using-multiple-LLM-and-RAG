@@ -1,0 +1,118 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Vanhoucke V, Rabinovich A. Going deeper with convolutions. In: 2015
+IEEE Conference on Computer Vision and Pattern Recognition (CVPR).
+Boston: IEEE Conference; 2015. p. 1–9. doi:10.1109/CVPR.2015.7298594.
+Ioffe S, Szegedy C. Batch normalization: Accelerating deep network
+training by reducing internal covariate shift. CoRR. 2015. abs/1502.03167.
+[Online]. Available http://arxiv.org/abs/1502.03167.
+
+35.
+
+37.
+
+36. He K, Zhang X, Ren S, Sun J. Delving deep into rectifiers: Surpassing
+human-level performance on imagenet classification. CoRR. 2015.
+abs/1502.01852. [Online]. Available http://arxiv.org/abs/1502.01852.
+Jia Y, Shelhamer E, Donahue J, Karayev S, Long J, Girshick R,
+Guadarrama S, Darrell T. Caffe: Convolutional architecture for fast feature
+embedding. In: Proceedings of the 22Nd ACM International Conference
+on Multimedia. New York: ACM; 2014. p. 675–8.
+doi:10.1145/2647868.2654889.
+
+38. Mata-Montero E, Carranza-Rojas J. Automated plant species
+
+119M
+
+170M
+
+1072K
+
+54M
+
+1388K
+
+71M
+
+1000K
+
+1M
+
+the network. Therefore, a common practice is to initialize
+the network by pre-training it on a big available dataset
+and then fine-tune it on the scarcer domain-specific data.
+Concretely, the methodology we used in our experiment
+for transferring knowledge from dataset A to dataset B is
+the following:
+
+1. The network is first trained from scratch on dataset
+A by using a multinomial logistic regression on top
+of the SOFTMAX layer and the linear classification
+layer.
+
+2. The linear classification layer used for dataset A is
+then replaced by a new one aimed at classifying the
+classes in B. It is initialized with random weights.
+
+3. The other layers are kept unchanged so as to
+
+initialize the learning of dataset B with the weights
+learned from A.
+
+4. The network is trained on the images in B.
+
+Experiments and results
+All experiments measured the top-1 and top-5 accu-
+racy of the trained deep learning model under different
+circumstances, i.e., herbarium specimens classification
+(“Herbarium specimen classification” section, Table 3),
+transfer learning across herbarium data from differ-
+ent regions (“Cross-Herbaria transfer learning” section,
+Table 4), and transfer learning from herbarium data to
+non-dried plant images (“Transfer learning from herbar-
+ium to non-dried plant images” section, Table 5).
+
+For each of these experiments, table columns are
+
+defined as follows:
+
+Avoiding bias
+To avoid biases in the experiments, we separated the
+datasets in a special way for training and testing. For
+herbarium datasets H255 and H1K, data was separated so
+that sheets of the same species that were collected by the
+same collector were not permitted to enter both the train-
+ing and testing sets. For the CR dataset, we separated the
+data so that images of different leaves from each specimen
+are present in either the training or the testing set, but not
+in both. For the PlantCLEF (PC) dataset, we did this too at
+the observation level. So, no same observation is present
+in both training and testing subsets. These measures lead
+to more realistic and unbiased training/testing scenarios
+although they also lead to lower accuracy rates.
+
+Image pre-processing
+All datasets were normalized to an uniform size of 256 by
+256 pixels without any other type of pre-processing. This
+is the current state-of-the-art resolution as deep learning
+models are intensive in computing.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about specific techniques such as stratified splitting, oversampling, undersampling, or diverse data collection being employed to address data bias during preprocessing of the deep learning pipeline. However, there is mention of avoiding biases in the experiments by separating the datasets in a particular manner for training and testing.
+
+In the case of herbarium datasets H255 and H1K, the separation was done such that sheets of the same species collected by the same collector were not allowed to be part of both the training and testing sets. Similarly, for the CR dataset, images of different leaves from each specimen were included only in either the training or the testing set, but not in both. The same approach was applied to the PlantCLEF (PC) dataset at the observation level, ensuring that no same observation was present in both training and testing subsets.
+
+These measures led to more realistic and unbiased training/testing scenarios, although they resulted in lower accuracy rates. While these methods can help reduce bias, they do not directly correspond to the mentioned techniques like stratified splitting, oversampling, undersampling, or diverse data collection.

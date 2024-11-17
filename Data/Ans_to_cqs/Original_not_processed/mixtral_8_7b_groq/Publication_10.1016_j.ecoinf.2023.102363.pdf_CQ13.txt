@@ -1,0 +1,6 @@
+Answer:::
+The deep learning model used in the study is based on the EfficientNet B0 network, which was pre-trained for generic image classification. The feature extraction layers of the EfficientNet network are kept frozen during training, and only the weights of the final dense classification layers are updated. The model is trained using the Adam optimizer, with a learning rate of 0.001, decay factor of 0.75, and a step size of an unspecified value.
+
+To fine-tune the base model with Gulf of Mexico data, the feature extractor remains frozen, and models are trained with the same parameters as the base model. However, a cyclical learning rate of 0.0004 is used, and training is set to run for 50 epochs with early stopping if the validation loss does not improve within 10 epochs. A dropout rate of 0.2 is employed during fine-tuning, and DropConnect is used, which randomly discards the input of the hidden layer.
+
+In summary, the hyperparameters used in the deep learning model include the Adam optimizer, a learning rate of 0.001 for the base model and 0.0004 for fine-tuning, a decay factor of 0.75, a step size of an unspecified value, and early stopping with a patience of 10 epochs. Additionally, DropConnect is used during fine-tuning with a dropout rate of 0.2.

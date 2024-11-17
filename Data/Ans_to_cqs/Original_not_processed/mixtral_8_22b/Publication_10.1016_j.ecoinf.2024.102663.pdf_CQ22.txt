@@ -1,0 +1,119 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.4. Performance evaluation parameters 
+
+Precision,  Recall,  and  mAP  (mean  average  precision)  are  the  per-
+
+formance metrics used to compare object detection performance. 
+
+Precision: Precision provides information about the projected seg-
+
+ment's accuracy. 
+
+Recall: Recall measures the ability of a model to identify all relevant 
+
+instances of a particular class. 
+
+mAP- Mean average precision: The measure of choice for object 
+detection algorithms is the mAP score. The region beneath the precision- 
+recall curve is AP (Average Precision). A series of precision-recall curves 
+is plotted with increasing difficulty levels in IoU and compute mAP. The 
+overlap ratio between the actual and predicted.
+
+The graphs show how different inputs affect the output metrics. All 
+parameters are kept the same except for the one that was studied. For 
+example,  Fig.  13  shows  how  the  output  values  of  precision,  recall, 
+mAP50  and  mAP50–95  are  affected  when  the  number  of  epochs  is 
+changed from 10 to 50. Increasing the number of epochs from 10 to 50 
+has a greater effect on the output metrics in that the performance in-
+creases as the number of epochs increases. For the input parameter cos_lr 
+(cosine  learning  rate  scheduler),  as  shown  in  Fig.  14,  using  a  cosine 
+curve for the learning rate has different effects on the output. For some 
+output  metrics,  not using the  cosine curve  is  better,  while for  others, 
+using the curve is better. For initial and final learning rates, shown in 
+Fig.  15  and  Fig.  16,  respectively,  the  outputs  differ,  but  it  can  be 
+observed that it is good to stop at the optimal level. When increasing the
+
+The metric means Average Precision (mAP) at a 50% IoU threshold, 
+also called mAP50, holds significant importance. The Intersection over 
+Union (IoU) metric quantifies the degree of overlap between the pre-
+dicted bounding box and the ground truth bounding box. The YOLOv8 
+model  demonstrates  a  noteworthy  mean  average  precision  (mAP50) 
+score of 0.995, which signifies a substantial level of accuracy in terms of 
+average precision when considering a 50% intersection over union (IoU) 
+threshold. The score achieved by the mYOLOv8 model, which is 0.994, 
+demonstrates  a  slightly  reduced  but  still  outstanding  level  of  perfor-
+mance. Finally, the mean average precision (mAP) metric is computed 
+by considering various intersections over union (IoU) thresholds ranging 
+from 50% to 95% and is denoted as mAP50–95. This statistic provides a 
+thorough  viewpoint  on  the  performance  of  a  model  across  different
+
+Performance Metrics (if 
+applicable) 
+
+Yolov4: 91.52% accuracy 
+
+Average Mean Geometric 
+Boundary: 0.52 IoU 
+
+J48: 58.2% accuracy, CNN: 
+67.08% accuracy 
+
+Deep Belief Network: 0.7 R2 
+
+Linear Regression: 0.76 R2 
+
+Regression: 2.82 Mean 
+Percentage Error 
+
+Partial Least Square: 7.10 g 
+RMSE, 
+5.36 g MAE, 8.46% MaxRE 
+
+94% accuracy in fish detection 
+using YOLO. 
+
+Average weight inaccuracy of 
+30.30 g, MAE: 42.54 g, R2: 
+0.70 
+
+mYOLOv8 99.98% 
+Recall rate: 0.997, mAP: 0.899 
+(IoU 50–95%). Depth (Extra 
+Trees Regressor): MAE: 0.63, 
+R2: 0.87. Length & Width 
+(Random Forest Regressor): 
+MAE: 0.01, R2: 0.99. Biomass 
+(Extra Trees Regressor): MAE: 
+0.004, R2: 0.99.  
+
+2.3. Background work
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The performance of deep learning models, particularly those used for object detection tasks such as YOLOv4 and mYOLOv8, is evaluated using several key metrics. These include precision, recall, and mean average precision (mAP).
+
+Precision provides insights into the accuracy of the detected segments or objects. It is calculated as the ratio of true positive predictions to the total number of positive predictions made by the model. High precision indicates fewer false positives, meaning the model is accurate in its detections.
+
+Recall, also known as sensitivity or true positive rate, measures the model's ability to correctly identify all instances of a specific class. It is determined by dividing the number of true positive predictions by the sum of true positives and false negatives. Higher recall suggests that the model is effective in detecting most, if not all, relevant instances.
+
+Mean average precision (mAP) is another crucial metric for evaluating object detection models. It represents the area under the precision-recall curve, providing a single value that summarizes the overall performance of the model. In the case of mYOLOv8, the reported mAP score is 0.899, indicating high performance across varying intersection over union (IoU) thresholds from 50% to 95%.
+
+Additional metrics mentioned in the given context include accuracy, mean absolute error (MAE), root mean square error (RMSE), maximum relative error (MaxRE), and coefficient of determination (R2). Accuracy is a general metric that calculates the proportion of correct predictions out of the total number of samples. However, it may not always provide a comprehensive understanding of the model's performance, especially in imbalanced datasets.
+
+MAE and RMSE are commonly used regression metrics that assess the difference between predicted and actual values. Lower values indicate better performance. R2, also known as the coefficient of determination, measures the proportion of variance explained by the independent variables in a linear regression model. Its value ranges from 0 to 1, where higher values suggest a stronger relationship between the dependent and independent variables.
+
+In summary, the performance of deep learning models like YOLOv4 and mYOLOv8 is typically evaluated using precision, recall, and mean average precision (mAP). Additional metrics such as accuracy, MAE, RMSE, MaxRE, and R2 might also be considered depending on the specific task and requirements.

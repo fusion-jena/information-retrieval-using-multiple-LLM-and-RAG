@@ -1,0 +1,11 @@
+After training the YOLOv5 model, there are several post-processing steps involved to evaluate the quality of the model and its performance. These steps include calculating metrics, generating saliency maps, and creating a confusion matrix.
+
+
+
+Firstly, the metrics of model quality are calculated by comparing the predictions with the ground truth, which is a set of boxes drawn and labeled by a human expert. The metrics are based on the class labels and their associated confidence scores. Three out of the four elements of a confusion matrix are calculated: false positives (FP), false negatives (FN), and true positives (TP). These counts are obtained by considering boxes labeled either by the model, the expert, or both of them. Two thresholds are defined: TIoU, the lowest IoU that is considered meaningful object detection, and Tcs, the lowest confidence score that is considered reliable. In this case, a TIoU of 0.5 is adopted, which is commonly used in the image processing world. Varying Tcs over the 0 to 1 range results in different TP, FP, and FN values, depending on how restrictive the prediction is.
+
+Secondly, saliency maps can be generated to visualize the regions of the input image that the model is focusing on to make its predictions. Saliency maps highlight the important features of the input image that contribute to the model's decision-making process. These maps can be useful for understanding the model's behavior and identifying any potential biases or weaknesses.
+
+Lastly, a confusion matrix can be created to provide a more detailed analysis of the model's performance. A confusion matrix is a table that summarizes the predictions made by the model and compares them to the ground truth labels. The matrix shows the number of true positives, true negatives, false positives, and false negatives. From the confusion matrix, additional metrics such as precision, recall, and F1 score can be calculated to provide a more comprehensive evaluation of the model's performance.
+
+In summary, after training the YOLOv5 model, post-processing steps such as calculating metrics, generating saliency maps, and creating a confusion matrix are involved to evaluate the quality of the model and its performance. These steps provide a more detailed analysis of the model's behavior and help identify any potential biases or weaknesses.

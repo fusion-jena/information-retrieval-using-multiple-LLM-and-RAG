@@ -1,0 +1,72 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The supervised learning workflow adheres to the steps outlined in 
+Sections 2.3.1–2.3.5. However, as detailed in Section 2.3.2, we deviated 
+by not generating 400 random points over the entire boundary. Instead, 
+we used the vegetation types described by Gertenbach (1983) to guide 
+the placement of our sampling plots, from which we then collected the 
+training and validation points (Fig. A.2). The creation of several small 
+sampling plots within each vegetation type, instead of using one large 
+area, also helped speed up the sampling process. Performing the data 
+collection  within  the  sampling  plots  ensured  that  we  had  training/ 
+validation  points  that  were  representative  of  the  diverse  vegetation 
+within each boundary. To determine the size of the sampling plots, we 
+first calculated 5% of the total area covered by the boundary, divided 
+that area by the number of vegetation types intersecting the boundary
+
+The results obtained in this study can be used as a baseline for future 
+LULC  analysis  performed  with  other  methodologies,  such  as  deep 
+learning  CNN  (Jagannathan  and  Divya,  2021).  Going  forward,  the 
+analysis  of  aerial  images  of  KNP  taken  about  every  two  years  deep 
+learning methods will be most effective and useful to map land cover or 
+more specifically woody cover. Integrating large-area historical datasets 
+in  land-use  and  land-cover  analysis  can  serve  as  a  resource  to  better 
+understanding  long-term  landscape  changes  and  support  ecological 
+monitoring programs. The results of studies such as this one can be used 
+to  better  protect  and  preserve  our  natural  heritage,  enable  effective 
+management  strategies,  and  contribute  to  the  conservation  of  global 
+biodiversity. 
+
+CRediT authorship contribution statement
+
+low, a completely random sampling protocol produced an unbalanced 
+training set and resulted in the misclassification of smaller woody plants 
+(i.e., shrubs). To address this issue, we created a separate geometry, ‘add 
+trees’ (LC property = 2), whereby well-defined examples of woody cover 
+elements  were  added  until  the  two  classes  had  the  same  number  of 
+training points. This new geometry was then merged with the randomly 
+allocated  woody points, ‘woody’  (LC  property = 2) + ‘add trees’  (LC 
+property = 2) = ‘merged woody’, as they are part of the same land cover 
+class. To assess model accuracy, we then randomly separated 80/20% of 
+the classified points to generate a training/validation dataset to be used 
+later in the accuracy assessments.
+
+Most  studies  dealing  with  data  sampling  recommend  the  use  of 
+random or stratified sampling approaches to generate training/valida-
+tion  points  (Hammond  and  Verbyla,  1996;  Millard  and  Richardson, 
+2015; Tassi et al., 2021). In this study, a set of 400 random points was 
+generated within the subplot, and subsequently the points were assigned 
+to one of the two LC classes. The number of random points was based on 
+trial-and-error classifications that were run in the same areas. Random 
+points that fell on a specific pixel were labeled by visual interpretation as 
+either ‘non-woody’ or ‘woody’. Important considerations while deciding 
+the  class  of  the  pixel  were (1) pattern  of  the  pixels within  which  the 
+random point fell, (2) shape of the object, and (3) grayness of the pixel. 
+However,  in  an  open  savanna  environment  like  KNP,  where  the 
+probability of a random point landing on a woody plant is exceptionally
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In order to address data bias during preprocessing of the deep learning pipeline, various techniques have been employed. One common approach is stratified splitting, which involves dividing the dataset into strata or groups based on certain criteria, such as class labels, before splitting it into training and testing sets. This ensures that both sets contain a balanced representation of all classes. Another technique is oversampling, which involves duplicating samples from minority classes to balance out the distribution of classes in the dataset. Conversely, undersampling involves removing samples from majority classes to achieve the same goal. Additionally, collecting diverse data can help mitigate biases introduced by limited or skewed data sources. In the given context, the authors addressed data bias by creating a separate geometry called 'add trees', where well-defined examples of woody cover elements were added until the two classes had the same number of training points. This new geometry was then merged with the randomly allocated woody points to create a more balanced training set. Furthermore, the authors used a combination of random and stratified sampling approaches to generate training/validation points, ensuring that their dataset contained a representative sample of both non-woody and woody classes.

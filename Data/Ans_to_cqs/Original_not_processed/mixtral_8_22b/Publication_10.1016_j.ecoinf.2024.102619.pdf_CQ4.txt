@@ -1,0 +1,185 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Vanhoucke, V., Rabinovich, A., 2015. Going deeper with convolutions. In: 2015 IEEE 
+Conference on Computer Vision and Pattern Recognition (CVPR), pp. 1–9. https:// 
+doi.org/10.1109/CVPR.2015.7298594. 
+
+Tan, M., Langenk¨amper, D., Nattkemper, T.W., 2022. The impact of data augmentations 
+on deep learning-based marine object classification in benthic image transects. 
+
+system. In: 2019 IEEE International Conference on Mechatronics and Automation 
+(ICMA), pp. 81–85. https://doi.org/10.1109/ICMA.2019.8816263. 
+
+Zhang, J., Yongpan, W., Xianchong, X., Yong, L., Lyu, L., Wu, Q., 2022. YoloXT: a object 
+
+detection algorithm for marine benthos. Eco. Inform. 72, 101923 https://doi.org/ 
+10.1016/j.ecoinf.2022.101923. URL. https://www.sciencedirect.com/science/artic 
+le/pii/S1574954122003739. 
+
+EcologicalInformatics81(2024)10261915
+
+Table 5 
+Classifier  training  performance:  with  tuned  hyperparameters,  mean  cross- 
+validation (CV) and final training accuracy.      
+
+illumination patterns. 
+
+3.2. Classification performance 
+
+Set 
+
+Images 
+
+Classifier 
+
+Hyperparameters 
+
+Mean CV 
+
+Train 
+
+Accuracy 
+
+1 
+
+6682 
+
+2 
+
+992 
+
+3 
+
+459 
+
+SVM:Lineard 
+SVM:Linear 
+SVM:RBFd 
+SVM:RBF 
+CNN 
+SVM:Lineard 
+SVM:Linear 
+SVM:RBFd 
+SVM:RBF 
+CNN 
+SVM:Lineard 
+SVM:Linear 
+SVM:RBFd 
+SVM:RBF 
+CNN 
+
+C = 23.0 
+
+(cid:0)
+
+– 
+
+(cid:0) 15.0 
+
+C = 23.0, γ = 2
+lr = 0.001 
+– 
+
+(cid:0) 15.0 
+
+C = 23.0 
+
+– 
+
+C = 23.75, γ = 2
+lr = 0.001 
+– 
+
+C = 23.0 
+
+– 
+
+C = 25.25, γ = 2
+lr = 0.001 
+
+(cid:0) 15.0 
+
+0.93 (± 0.003) 
+0.93 (± 0.003) 
+0.95 (± 0.003) 
+0.96 (± 0.003) 
+0.92 (± 0.023) 
+0.87 (± 0.010) 
+0.87 (± 0.010) 
+0.87 (± 0.018) 
+0.91 (± 0.016) 
+0.90 (± 0.015) 
+0.83 (± 0.021) 
+0.83 (± 0.021) 
+0.78 (± 0.016) 
+0.86 (± 0.020) 
+0.82 (± 0.020) 
+
+1.00 
+1.00 
+0.97 
+0.98 
+0.98 
+1.00 
+1.00 
+0.91 
+0.97 
+0.97 
+1.00 
+1.00 
+0.84 
+0.95 
+0.95
+
+2.2.2. Data preparation 
+
+Pre-trained CNNs are designed to expect images in a certain format 
+before feature extraction (or classification). For VGG16 (and other net-
+works trained on ImageNet (He et al., 2016; Howard et al., 2017; Rus-
+sakovsky  et  al.,  2015)),  RGB  images  must  be  224 × 224  pixels.  We 
+therefore resize images to 224 pixels along the x-axis, preserving their 
+aspect ratio. We then crop the center of images such that they are square. 
+Following standard practice, RGB values were also normalized (centered 
+and scaled) to the training dataset (ImageNet), see Table 3. The images 
+in  each  dataset  were  split  into  80%  training  (including  5-fold  cross- 
+validation) and 20% testing subsets. Splits were stratified to preserve 
+the class-ratio. 
+
+2.2.3. Model preparation
+
+2.2.5. Classification 
+
+Each  ML  approach  requires  hyperparameters  to  classify  imagery, 
+which when optimized during training can increase model performance, 
+see  Table  4  for  a  hyperparameter  glossary.  Given  the  computational 
+efficiency of the SVMs and the few hyperparameters required, each of 
+these can be optimized simply and relatively quickly (subject to dataset 
+size)  during  a  k-fold  (k = 5) cross-validated  fine  grid-search  on  the 
+training  data.  For  our  CNN  þ SVM  method,  we  followed  hyper-
+parameter  recommendations  by  (Hsu  et  al.,  2016),  authors  of  the 
+LIBSVM library (Chang and Lin, 2011). For our non-linear RBF SVM we 
+searched  hyperparameters  C = 23, 23.25, …, 27  and  γ = 2
+(cid:0) 13  & 
+(cid:0) 11. For the linear SVM, we used the same hyperparameter search for 
+2
+its sole parameter C. We also looked at the RBF and linear SVM with 
+
+(cid:0) 15, 2
+
+Fig. 3. A diagram of various support vector machines.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide specific information about the data augmentation techniques applied in the deep learning pipeline. However, it is common knowledge that some popular data augmentation techniques include flipping, rotation, scaling, cropping, and color space transformations. These techniques help improve the generalization ability of models by creating new variations of existing data. It would require additional sources or context to determine which specific techniques were used in this case.

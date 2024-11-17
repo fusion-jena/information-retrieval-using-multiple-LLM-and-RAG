@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+For  the  RI  models  the  same  initial  parameters  were  set  for  the 
+analysis of the CS and NW datasets, then a grid search was performed 
+on both datasets with a two-part split to give hyperparameters with the 
+highest level of accuracy. These were as following: learning rate 0.05 
+and maximum tree depth of 4 for both the CS and the NW models. The 
+early stopping technique was used to determine when to stop the model 
+training  to  avoid  overfitting.  Using  early  stopping  the  number  of 
+iterations required until convergence was 120 for CS and 106 for NW. 
+Grid search was not required for a three-part splits, and further tuning 
+of the parameters was done manually. 
+
+For the RY models, in contrast to the RI models, the best performing 
+models (based on MSE) were models with a slow learning rate of 0.005. 
+Additionally, the NW model had a very shallow tree (tree depth of 2). 
+The number of iterations was kept at 500.
+
+A potential drawback of the machine learning approach is that after 
+the model is built using the training dataset, the parameters are opti-
+mised  based  on  how  well  the  model  performs  on  the  test  dataset. 
+Therefore,  prediction  accuracy  for  previously  unseen  data  may  be 
+overestimated. To perform a more robust test of prediction accuracy a 
+
+=+=FxFxLyFx()()(,())mmminFimi111==LyFxLyFxFxargmin,()(,())()minimiimimi1111O. Lyashevska, et al.   
+
+Ecological Informatics 60 (2020) 101154
+
+Fig. 2. Explanatory variables time series for the CS (a) and the NW (b).  
+
+5
+
+O. Lyashevska, et al.   
+
+Ecological Informatics 60 (2020) 101154
+
+three way split was also performed. The data were split (using the RI 
+splitting approach) into train (50%), test (25%) and validation (25%) 
+sets.  The  model  was  built,  tested  and  optimised  using  the  train  and 
+validation  sets  and  the  models  performance  was  confirmed  using  the 
+test set.
+
+randomly  splitting  all  individual  observations.  This  data  splitting  ap-
+proach is generally considered optimum in machine learning as it does 
+not  introduce  any  systematic  differences  between  the  test  and  train 
+datasets. To perform the RY data splitting, individual observations were 
+grouped according to year of capture and years were randomly selected 
+for inclusion in the train and test datasets. Although this may produce 
+systematic  differences  between  the  test  and  train  datasets,  it  ensures 
+that  the  model  is  tested  using  previously  unseen  combinations  of  ex-
+planatory  variables  and  is  therefore  a  more  robust  test  of  model  per-
+formance in this context.
+
+2.4.2.  Hyperparameters 
+
+Hyperparameter tuning was done manually. As a starting point the 
+learning rate was set as low as possible and the number of iterations as 
+high as computationally feasible (Hastie et al., 2009). The learning rate, 
+which is also called a shrinkage parameter, determines the contribution 
+of each tree to the model. The maximum tree depth which reflects the 
+degree of interaction in the model is usually low. GBRT performs best 
+using fairly shallow trees, so-called tree stumps.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: The given context does not provide information about the specific datasets used in the deep learning pipeline. However, it mentions two datasets named 'CS' and 'NW'. It appears these datasets were used for analysis and modeling purposes, but their exact nature or source is not specified. Therefore, I cannot provide details about the type of datasets they are, such as whether they are similar to MNIST, CIFAR, or ImageNet.

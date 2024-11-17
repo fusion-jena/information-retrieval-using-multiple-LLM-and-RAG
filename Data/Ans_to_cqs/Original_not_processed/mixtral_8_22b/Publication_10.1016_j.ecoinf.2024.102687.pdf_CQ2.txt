@@ -1,0 +1,82 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Input  image  to  the  CNN  was  preprocessed  by  decomposing  the 
+spectrogram in a multi-channel image. This decomposition establishes 
+meaningful  latent  space  representations  related  to  the  type  of  sound 
+components  and  improves  the  distinction  between  certain  animal  vo-
+calizations (Clementino and Colonna, 2020). The original spectrogram 
+in decibels (dB) was decomposed in a 3-channel “sound image”, with the 
+preprocessing of harmonic, percussive and delta (HPD) features (Fig. 2). 
+Harmonic (H) and percussive (P) components were obtained using the 
+harmonic and percussive separation (HPS) method (Fitzgerald, 2010). 
+For  this  purpose,  an  original  spectrogram  s  in  dB  was  filtered  in  the 
+horizontal (time) and vertical (frequency) axis using median filtering. 
+This opens the possibility to isolate the H and P components of animal 
+vocalizations  and  improve  their  visual  representation.  Moreover,  the
+
+image recognition. ICML Deep Learn. Workshop 2. 
+
+Krause, B., 1987. The niche hypothesis: how animals taught us to dance and sing. Whole 
+
+Earth Rev. 57, 14–16. 
+
+Krizhevsky, A., Sutskever, I., Hinton, G.E., 2012. Imagenet classification with deep 
+convolutional neural networks. Adv. Neural Inf. Proces. Syst. 25, 1097–1105. 
+https://doi.org/10.1145/3065386. 
+
+Lakdari, M.W., Ahmad, A.H., Sethi, S., Bohn, G.A., Clink, D.J., 2024. Mel-frequency 
+
+cepstral coefficients outperform embeddings from pre-trained convolutional neural 
+networks under noisy conditions for discrimination tasks of individual gibbons. Ecol. 
+Inform. Vol. 80, 102457. ISSN 1574-9541. https://doi.org/10.1016/j.ecoinf.20 
+23.102457. 
+
+Lasseck, M., 2019. Bird species identification in soundscapes. CLEF (Work. Notes) 2380. 
+LeBien, J., Zhong, M., Campos-Cerqueira, M., Velev, J.P., Dodhia, R., Ferres, J.L., Aide, T. 
+M., 2020. A pipeline for identification of bird and frog species in tropical soundscape
+
+pretrained DenseNet might fit the Darksound dataset well, but there are 
+no  guarantees  that it  will  work  on  another  dataset in  the  exact  same 
+manner. All the CNN backbones used in this experiment were previously 
+trained on the ImageNet database, a large but very general dataset. It has 
+been recently shown that using features extracted from models trained 
+on smaller but more specific datasets, that bird sound datasets, leads to 
+higher quality classification (Ghani et al., 2023; McGinn et al., 2023). 
+Consequently, using features extracted from a model trained on spec-
+trograms of bird sounds (e.g.  BirdNET algorithm (Kahl et  al., 2021)), 
+could  improve  the  parameter  initialization  of  UML  algorithms  of  the 
+MEC method.
+
+The training data was acquired by sending query parameters through 
+the  application  programming  interface  (API)  of  Xeno-Cano  which 
+returned a JSON object containing recording metadata. The recordings 
+were downloaded according to four query parameters: (i) audio quality, 
+corresponding  to  the  highest  audio  quality  (i.e.  A  quality  level),  (ii) 
+duration,  corresponding  to  recordings  lasting  from  20  to  60  s,  (iii) 
+maximum number of recordings allowed per species, which was set to 
+100 to avoid large imbalanced between the classes and ensure accept-
+able  computing  power,  and  (iv)  geographic  coordinates  of  the  re-
+cordings  that  surrounded  the  Equator  line  in  America.  Geographical 
+coordinates were defined according to the latitude of the Tropics, with 
+◦
+26 ‘10.6”N and 
+the Tropic of Cancer in the Northern Hemisphere at 23
+26′ 10.6”S. 
+the Tropic of Capricorn in the Southern Hemisphere at 23
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The deep learning pipeline primarily uses images as its input format. Specifically, the input image is preprocessed by decomposing the spectrogram into a multi-channel image. This process involves converting the original spectrogram in decibels (dB) into a 3-channel "sound image" consisting of harmonic, percussive, and delta (HPD) features. These features are derived using the harmonic and percussive separation (HPS) method. The resulting multi-channel image serves as the input to the Convolutional Neural Network (CNN) for further processing and analysis.

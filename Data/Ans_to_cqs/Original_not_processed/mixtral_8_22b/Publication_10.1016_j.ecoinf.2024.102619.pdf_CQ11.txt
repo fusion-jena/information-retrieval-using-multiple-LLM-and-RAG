@@ -1,0 +1,97 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Pytorch (Paszke et al., 2019) ML framework for deep learning (CNNs). 
+These libraries also include tools for data pre-processing, model selec-
+tion and evaluation. To keep our model training and analysis pipelines 
+comparable, we use skorch, a scikit-learn compatible neural network li-
+brary that wraps PyTorch. This allows the same scikit-learn training and 
+evaluation procedure to be used for both models. Skorch is also helpful 
+for end-users in CNN training, as it has a clear and simple interface. It 
+only requires end-users to add the prepared datasets, model and specify 
+the associated hyperparameters (Table 4). Documentation for the entire 
+machine learning pipeline can be found at (PyTorch, 2023) for Pytorch 
+(Paszke  et  al.,  2019;  scikit-learn,  2023)  for  scikit-learn  and  (skorch, 
+2022)  for  skorch.  Commercial  restrictions  apply  to  the  availability  of 
+data  used  in  this  work.  However,  links  to  public  code  examples  of
+
+2.2.4. Feature extraction & visualisation 
+
+In  each  of  our  ML  pipelines,  every  image  that  passes  through  the 
+VGG16 feature extractor (Fig. 2) results in a matrix of 1 × 4096 features. 
+These  are  then  passed  as  inputs  to  the  classifier.  This  happens  auto-
+matically in the CNN approach, as the classification (FC) layers are still 
+present in the architecture. 
+
+These extracted ‘deep’ features are numerous and difficult to inter-
+pret. Therefore, before undertaking any classification of the extracted 
+
+EcologicalInformatics81(2024)1026195C.A. Game et al.                                                                                                                                                                                                                                
+
+Table 4 
+Model hyperparameter glossary for CNN & SVM training.  
+
+CNN: 
+Batch size 
+
+Epochs 
+Loss 
+
+function 
+
+Learning 
+rate 
+
+Optimizer 
+
+SVM: 
+C 
+
+γ
+
+From a coding perspective, training an SVM is extremely straight-
+forward, with training, optimisation and testing executed within only a 
+few simple lines of code. The relative complexity with the CNN þ SVM 
+approach,  and  by  extension  the  CNN  approach,  rather  lies  in  data 
+management and feature extraction. The complexity of these steps is not 
+so  much  related to the  actions required, but navigating  the extensive 
+literature and knowing “where to start”. As one of the contributions of 
+this paper we hope to better guide the user with clear and detailed de-
+scriptions  of  these  steps,  that  are  applicable  across  ML  frameworks 
+(Table 3). Aside from these preparations, training the CNN classifier is 
+further complicated since an optimal is not automatically found. Instead 
+performance  metrics  must  be  monitored  across  epochs  and  decisions 
+made on when to stop training - typically the point at which training and
+
+For the CNN, The large number of hyperparameters (Table 4) and 
+high  computational  demand,  mean  that  an  exhaustive  grid-search  is 
+inappropriate.  Instead  our  preliminary  work  showed  that  common 
+default parameters, were suitable for our data. These include a batch- 
+size of 32 images and a cross-entropy loss function. We also used the 
+Adam learning rate optimizer (Kingma and Ba, 2015), which automat-
+ically adjusted our initial learning rate of 1e-03 during training in a way 
+that  improved  performance.  Adam  is  computationally  efficient  and 
+straight-forward to use. In preliminary work, each model was set to train 
+for  100  epochs  maximum.  However  for  later  time-saving  and  better 
+automation, we enabled early stopping if the validation error (loss) did 
+not reduce for 10 epochs. This identified a suitable number of epochs for 
+each dataset: 14, 14 and 23 epochs for Datasets 1, 2 and 3, respectively.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the data repository link of the deep learning pipeline (e.g., Link to Zenodo, Figshare, Dryad, GBIF)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough information available to provide a direct link to the data repository for the deep learning pipeline mentioned in the given context. The text does mention that commercial restrictions apply to the availability of data used in this work, which suggests that the data might not be publicly accessible or shared due to certain limitations or agreements.
+
+However, the context does provide references to various resources such as PyTorch, scikit-learn, and skorch documentation, along with their respective years of publication. You may find more details about the machine learning pipeline and its implementation using those resources. Additionally, the context mentions that links to public code examples are available, although they aren't explicitly listed here.
+
+To summarize, I cannot directly provide the requested data repository link based on the given context. Nevertheless, you can explore the referenced resources and look for additional information regarding the deep learning pipeline and its implementation.

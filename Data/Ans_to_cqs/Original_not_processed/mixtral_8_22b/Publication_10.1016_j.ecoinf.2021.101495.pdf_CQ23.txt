@@ -1,0 +1,142 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+(b) Computing infrastructure used to train both neural networks 
+
+Infrastructure 
+Search strategy 
+Training duration 
+(best assignment) 
+
+Nvidia Tesla V100 (16GB) 
+Manual tuning  
+Segmentation 
+Classification 
+
+4 h 6 min 24 s 
+9 h 22 min 34 s
+
+Trained model 
+
+-  Manually: 275 
+
+segments  
+
+-  Automatically: 
+6921 segments  
+
+-  Data 
+
+augmentation: 
+x12 
+
+-  14,896 images  
+-  Two trained 
+
+models 
+
+22 of the 30 
+fishing sets 
+(unannotated) 
+
+Data of the 22 
+fishing sets   
+
+-  Annotations  
+-  Species 
+
+prediction  
+
+-  Size 
+
+distribution 
+Comparison  
+
+Ground truth 
+
+validation (sec. 
+2.5) 
+
+Data from 4 fishing 
+sets  
+
+-  Official sources  
+-  Estimations
+
+Fig. 3. Example of individual fishes once the segmentation is done. These fishes belong to a monospecific set of YFT.  
+
+Table 2 
+Computing  infrastructure,  search  space  and  best  assignments  of  hyper-
+parameters of the neural networks.  
+
+(a) Hyperparameters used for the training of each neural network. The base models 
+have been obtained from TensorFlow Object Detection API (segmentation) and the 
+base implementation of TensorFlow (classification) 
+
+Hyperparameter  Module 
+
+Search space 
+
+Best assignment 
+
+Epochs 
+
+Batch size 
+
+Learning rate 
+
+Activation 
+
+Train/test split 
+
+Segmentation 
+Classification 
+Segmentation 
+Classification 
+Segmentation 
+Classification 
+Segmentation 
+Classification 
+Segmentation 
+Classification 
+
+[1000(cid:0) 20,000] 
+[500–5000] 
+[2(cid:0) 32] 
+[2–128] 
+[0.0001–0.01] 
+[0.0001–0.01] 
+Softmax 
+Softmax 
+[0.9/0.1–0.8/0.2] 
+[0.9/0.1–0.8/0.2] 
+
+15,000 
+500 
+4 
+128 
+0.008 
+0.0001 
+Softmax 
+Softmax 
+0.9/0.1 
+0.8/0.2
+
+the classification model with a total of 86,208 segments. Fig. 7 shows 
+how the model is able to learn in fewer steps and with better accuracy if 
+data augmentation is used.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of their deep learning model, several measures were implemented during its development. Firstly, the authors utilized a diverse dataset consisting of 14,896 images containing various fish species. This diversity helped prevent overfitting and improved the model's ability to recognize different types of fish accurately. Secondly, data augmentation was employed by multiplying the original dataset by twelve, which further enhanced the model's robustness against variations in input data. Lastly, the authors performed a ground truth validation using data from four fishing sets, comparing it with official sources and estimations. However, there is no explicit mention of specific techniques such as cross-validation or stratified splitting being applied in this study.

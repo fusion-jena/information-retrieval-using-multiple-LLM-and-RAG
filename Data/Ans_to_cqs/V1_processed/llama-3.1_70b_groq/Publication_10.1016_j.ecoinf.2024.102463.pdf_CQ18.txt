@@ -1,0 +1,7 @@
+The strategy implemented to monitor the model performance during training is based on the Hyperband algorithm, which involves a combination of partial training, successive halving, and repeated evaluation. 
+
+During the training process, the model's performance is evaluated using two metrics: the Mean Absolute Error (MAE) and the Nash-Sutcliffe Efficiency (NSE) score. The MAE measures the average difference between predicted and actual values, while the NSE score measures the model's ability to predict the variability in the data.
+
+The Hyperband algorithm iteratively trains and evaluates the model on a subset of the data, eliminating underperforming configurations and promoting the best-performing ones to the next stage. This process is repeated until only one configuration remains, which is then considered the best configuration found.
+
+Additionally, the role of training base and test base is swapped to determine the most suitable database to be used as the training base. This approach allows for a comprehensive evaluation of the model's performance and helps to identify the optimal training base and its size.

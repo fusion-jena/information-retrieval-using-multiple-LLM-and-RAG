@@ -1,0 +1,11 @@
+The data used for training and selecting the deep learning model were split into five partitions: At, Av, Bt, Bv, and T. 
+
+The 'At' partition represents 25% of the data and was used to train a small subset of the candidate models for 4 epochs during the model selection procedure. 
+
+The 'Av' partition, which contains 50% of the data, was used to compare the accuracy of the candidate models and select the best-performing one. This model was then trained on the full training data, which is the combination of 'At' and 'Av' partitions (Bt = At + Av). 
+
+The 'Bv' partition, also 25% of the data, was used to determine the optimal number of epochs to train the selected candidate model. 
+
+Finally, the 'T' partition, which is not mentioned in the context of model training or selection, is used to assess the predictive performance of the fully trained (or 'final') model. 
+
+It is important to note that the data partitioning was performed using the R package 'dismo' and was done separately for each year (2013 to 2019) to ensure independence between the data used for model training and testing. This procedure aims to mimic an operational setting where data available for previous years is used to train a model that will be employed in real-time forecasting of changes in the number of eggs for the coming week.

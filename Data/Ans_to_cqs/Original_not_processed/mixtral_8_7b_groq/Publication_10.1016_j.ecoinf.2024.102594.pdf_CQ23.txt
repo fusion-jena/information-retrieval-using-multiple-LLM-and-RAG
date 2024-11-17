@@ -1,0 +1,13 @@
+Answer:::
+
+The DeepLabV3+ model's training process involved several measures to ensure its generalizability, although the text does not explicitly mention diverse dataset, cross-validation, or stratified splitting.
+
+Firstly, the model was trained on remote sensing images and semantic labels of land cover classes, which were cut into regular image blocks of 32 × 32 pixels with a redundancy rate of 0.5. This approach increased the sample size and maintained consistency with the cropping approach in the model prediction stage. The dataset was then split, with 70% used for training and the remaining for validation.
+
+Secondly, the training set was enhanced using various techniques to increase the model's ability to handle different types of data. These enhancements included flipping the images and labels along the X or Y axis, exchanging between multiple image channels while keeping the labels unchanged, randomly rotating the images and labels by 90 degrees, and randomly adding noise to the images while maintaining the labels unchanged.
+
+Thirdly, the ReduceLROnPlateau function was used in the training process. If the validation loss value did not decrease after five consecutive epochs, the learning rate was halved. If there was no decrease in the validation loss value after ten consecutive epochs, the training process was terminated. This function helped to prevent overfitting and improved the model's ability to generalize.
+
+Lastly, both model training and inference were executed on a GeForce RTX 3070 GPU, which provided consistent hardware for the training process and reduced variability in the results.
+
+Therefore, while the text does not explicitly mention diverse dataset, cross-validation, or stratified splitting, the use of data augmentation, ReduceLROnPlateau, and consistent hardware for training and inference helped to ensure the generalizability of the DeepLabV3+ model.

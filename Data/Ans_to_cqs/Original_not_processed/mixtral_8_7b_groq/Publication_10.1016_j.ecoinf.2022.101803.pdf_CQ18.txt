@@ -1,0 +1,9 @@
+Answer:
+
+The strategy implemented to monitor the model performance during training involves using a combination of k-fold cross-validation, out-of-sample R2 calculation, and median calculation. Specifically, the dataset is split into k folds, and for each combination of k-1 folds (tuning set) and 1-fold (validation dataset), the model is trained using a specified number of iterations. The model's performance is then evaluated by predicting the validation set and calculating the out-of-sample R2 score. This process is repeated for each number of iterations, and the median of the k-1 out-of-sample R2 scores is calculated. The number of iterations corresponding to the highest median value is selected as the best number of iterations for the model. This strategy allows for the monitoring of the model's performance during training and the selection of the best number of iterations for the final model.
+
+Additionally, the XGBoost model was used in combination with the original GFR and RBF-GFR models over several different numbers of iterations. Algorithm 1 was then used to determine the best number of iterations of XGBoost for use in all subsequent applications.
+
+It is also worth noting that the tree was grown using a specific optimization algorithm, and the best split variable was found for each iteration. The tree was then pruned using 10-fold cross-validation based on the training set. The habitat usage of the test set was predicted to measure the out-of-sample prediction scores.
+
+In summary, the strategy implemented to monitor the model performance during training involves using k-fold cross-validation, out-of-sample R2 calculation, and median calculation, as well as determining the best number of iterations using Algorithm 1 and cross-validation. This allows for the selection of the best number of iterations for the final model and the monitoring of the model's performance during training.

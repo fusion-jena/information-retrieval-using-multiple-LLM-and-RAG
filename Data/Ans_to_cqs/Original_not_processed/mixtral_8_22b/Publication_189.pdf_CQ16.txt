@@ -1,0 +1,106 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+0.0000e+00; 
+
+The  loss  values  for  training  and  validation  dataset  during 
+Mask  R-CNN  training  for  epoch  20  were  obtained  as-  loss: 
+0.8241;  rpn_class_loss:  0.3679; 
+  rpn_bbox_loss:  0.4562; 
+mrcnn_class_loss: 3.1710e-06;  mrcnn_bbox_loss: 0.0000e+00; 
+mrcnn_mask_loss: 
+0.6051; 
+  val_rpn_bbox_loss:  0.1993; 
+val_rpn_class_loss:  0.4057; 
+val_mrcnn_bbox_loss: 
+val_mrcnn_class_loss: 
+0.0000e+00; 
+0.0000e+00,  where 
+training  loss  is  the  sum  of  rpn_class_loss  =  RPN  anchor 
+classifier loss, rpn_bbox_loss = RPN bounding box loss graph, 
+mrcnn_class_loss = loss for the classifier head of Mask R-CNN, 
+mrcnn_bbox_loss  =  loss  for  Mask  R-CNN  bounding  box 
+refinement, mrcnn_mask_loss = mask binary cross-entropy loss  
+
+3.2186e-06; 
+val_mrcnn_mask_loss: 
+
+val_loss: 
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on September 08,2024 at 12:02:05 UTC from IEEE Xplore.  Restrictions apply. 
+
+37
+
+This  system  is  most  compatible  with  tensorflow  version 
+1.14.0 and keras version 2.2.4 along with python 3.6. This model 
+has been implemented on a machine with 1 GPU which uses 1 
+Image per GPU and batch size for mrcnn training is  taken as a 
+product of GPU and Images per GPU. The system used resnet 
+50 and resnet 101 as backbone structures and used anchor boxes 
+of ratio 32, 64, 128, 256, 512. The width and height of images 
+in  this  research  is  fixed,  therefore  [a,640,640,3]  becomes  the 
+image  shape  here  and  [a,640,640,1]  becomes  the  mask  shape 
+where  a  is  the  number  of  training  images  and  true  masked 
+images. For training on Mask R-CNN, 20 epochs with 500 steps 
+each  are  being  used  for  training  images  and  100  steps  for 
+validation images while evaluating the model. The learning rate, 
+ used for heads layer training  has been  taken as 0.001 while 
+during  all  layers  training    decayed  by  10.  For  weight
+
+The  most  time-consuming  step  after  data  gathering  is 
+annotation.  Annotation  of  images  means  manual  labelling  of 
+data by assigning some keywords/labels on the required areas in 
+the  image  to  assign  metadata.  For  annotating  the  dataset,  the 
+broders of objects were outlined to associate every single pixel 
+of objects in an entire image with a particular tag/label. There 
+are various tools available in the market to annotate the images, 
+but  this  research  used  Computer  Vision  Annotation  Tool 
+(CVAT) [21] which is developed by Intel for labelling of data. 
+The annotation data was then converted into COCO 1.0 dataset 
+which was formatted in JSON and it is a collection of object id, 
+image id, category id, segmentation, area, bbox, attributes, etc. 
+The illustration of the annotated data is shown in Fig. 2. Total 
+number of objects that are annotated for training and validation 
+datastet are 1884. Training image dataset contains totally 1031
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on September 08,2024 at 12:02:05 UTC from IEEE Xplore.  Restrictions apply. 
+
+35 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ICIIBMS 2021, Track 1: Image Processing, Computer Science and Information Engineering,Oita, Japan, Nov. 25-27, 2021  
+
+objects  for  Firing  Styrene  category.  Validation  image  dataset 
+contains totally 895 objects which consists of 459 objects of PET 
+Bottle,  193  objects  of  Plastics,  29  objects  of  Glassmetals,  48 
+objects for Others, 41 objects for Fishery buoy, 81 objects for 
+Driftwood and 44 objects for Firing Styrene category .
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, there isn't any explicit mention of specific criteria used to determine when training is complete. However, based on common practices in deep learning models like Mask R-CNN, we can infer that one possible criterion could be monitoring the validation loss over epochs. When the validation loss stops decreasing significantly or starts increasing, it might indicate that the model is starting to overfit the training data, suggesting that training should be stopped. Another commonly used criterion is setting a predefined maximum number of epochs, such as the mentioned 20 epochs in the context. In this case, even if the validation loss hasn't reached its minimum yet, training would still stop once the specified number of epochs is completed.

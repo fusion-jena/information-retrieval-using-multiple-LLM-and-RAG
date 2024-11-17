@@ -1,0 +1,141 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+conv1
+conv2
+conv3
+conv4
+conv5
+maxpool
+
+Conv
+
+11 × 11
+5 × 5
+3 × 3
+3 × 3
+3 × 3
+2 × 2
+
+Kernels
+
+Stride
+
+Pad
+
+96
+256
+384
+384
+256
+Na
+
+4
+1
+1
+1
+1
+2
+
+0
+2
+1
+1
+1
+0
+
+ResNet (Deep Residual Network, [43]) is a Deep Learning architecture with many
+layers that use skip connections, as illustrated in Figure 4. These skip connections allow
+the bypassing of layers and add their activations to those of the skipped layers further
+down the sequence. The dotted arrows in Figure 4 denote skip connections through a linear
+projection to adapt to the channel depth.
+
+By skipping layers and thus shortening the back-propagation path, the problem of the
+“vanishing gradient” can be mitigated. Figure 4 represents a 34-layer ResNet architecture.
+The ﬁrst layer uses 7 × 7 convolutions, the remaining ones 3 × 3.
+
+Remote Sens. 2021, 13, 2257
+
+9 of 22
+
+Figure 4.
+architecture. The number of kernels is indicated at the bottom of each convolution layer.
+
+40.32%
+35.97%
+46.56%
+50.21%
+38.75%
+50.40%
+48.38%
+
+For the LU detection task, all deep learning techniques except AlexNet outperformed
+XGBoost. Differences were signiﬁcant, with up to 15 percent points in OA. As in the
+previous section, the best performing “single-pixel” architecture is DenseNet and the best
+“semantic labeling” network is DeepLab. Interestingly, DenseNet reached the best PA,
+although DeepLab dominated the remaining metrics.
+
+For the remainder of this study, the best performing “single-pixel” and “semantic
+labeling” were selected. There was little difference between the architectures, so the
+architectures with the best F1-score for the LU classiﬁcation were chosen arbitrarily.
+
+4.3. Inﬂuence of Neo-Channels and Land Cover as Input on the Learning
+
+To run an XGBoost model, neo-channels and multiple texture ﬁlters were used. The
+ﬁlters were: dissimilarity, entropy, homogeneity and mean. Input of 64 × 64 windows
+were used for labeling the central pixel. The training data were the same as for the Deep
+Learning architectures.
+
+3.3. Deep Learning Architectures
+
+The internal parameters of the employed Convolutional Neural Network (CNN)
+architectures were not changed with regards to the originally proposed ones. A CNN [40]
+is a machine learning technique based on sequences of layers of three different types:
+convolutional, pooling or fully connected layers. Convolution and fully connected layers
+are usually followed by an element-wise, non-linear activation function.
+
+3.3.1. Central-Pixel Labeling
+
+AlexNet, an architecture introduced by Alex Krizhevsky [42], is one of the ﬁrst Deep
+Learning architectures to appear on the scene. Inspired by the LeNet architecture in-
+troduced by Yann LeCun [40], AlexNet is deeper with eight layers, the ﬁrst ﬁve being
+convolutional layers whose parameters are shown in Table 5, interleaved with max-pooling
+layers (Figure 3). The sequence ﬁnishes with two fully connected layers before the ﬁnal
+
+Remote Sens. 2021, 13, 2257
+
+8 of 22
+
+classiﬁcation with a softmax. A ReLu type activation function is used for each layer. Data
+augmentation and drop-out are used to limit overﬁtting.
+
+Figure 3. The AlexNet architecture. The number of kernels is indicated at the bottom of each convolution layer, the rest of
+the parameters are indicated in Table 5.
+
+Table 5. Conﬁguration of the different layers of Figure 3 representing the AlexNet architecture.
+
+Layer
+
+conv1
+conv2
+conv3
+conv4
+conv5
+maxpool
+
+Conv
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough information available to determine which specific frameworks were used to build the deep learning models mentioned in the given context. The text only provides details about the architectures such as AlexNet, DenseNet, and DeepLab but does not mention any particular framework like TensorFlow or PyTorch. Therefore, it is impossible to provide a definitive answer to this query based solely on the given context.

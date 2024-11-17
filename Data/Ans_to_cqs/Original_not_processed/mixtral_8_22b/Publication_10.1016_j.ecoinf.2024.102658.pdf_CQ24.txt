@@ -1,0 +1,134 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.2.1. Baseline model: random forest 
+
+Random forest (Breiman, 2001) utilizes an ensemble of classification 
+or regression trees; each tree is grown from a bootstrap sample of the 
+training dataset, and represents a series of sequential decisions, in which 
+each node of the tree is a binary split made on a predictive feature (e.g., 
+whether  the  mean  annual  temperature  is  above  25 
+C).  Further,  a 
+random subset of features is considered when finding the optimal split at 
+each node (we use a value of sqrt(n), n being the number of potential 
+predictors, for the size of this subset). When used for classification, the 
+outputs from the component trees are put through a majority vote to 
+create a single output. This is known to be a simple but powerful method 
+of retaining the complex non-linearity of decision trees while avoiding 
+overfitting. 
+
+◦
+
+Table 1 
+The list of features. We utilize two feature sets selected through different CV 
+processes  in  a  previous  study  (Mechenich  et  al.,  2024),  which  we  name  the 
+‘random-CV’ feature set and the ‘spatial-CV’ feature set, respectively. The two 
+feature sets share six common features.  
+
+Feature set 
+
+Feature 
+Name 
+
+Source 
+
+Definition 
+
+BIO03 
+
+WorldClim 
+
+random-CV 
+
+TN10P 
+
+ETCCDI 
+
+GSL 
+
+TNX 
+
+ETCCDI 
+
+ETCCDI 
+
+BIO08 
+
+WorldClim 
+
+TXX 
+
+ETCCDI 
+
+spatial-CV 
+
+BIO02 
+
+WorldClim 
+
+TN90P 
+
+ETCCDI 
+
+ID 
+BIO14 
+BIO18 
+CWD 
+
+ETCCDI 
+WorldClim 
+WorldClim 
+ETCCDI 
+
+RX1DAY 
+
+ETCCDI 
+
+WSDI 
+
+ETCCDI 
+
+common for 
+both sets
+
+The  final  settings  restricted  the  non-linearity  enough  to  make  the 
+models fit on random-CV features resemble the results from Bayesian 
+and  MLE  logistic  regression.  The  models  fit  on  spatial-CV  features, 
+however, still gave very unrealistic predictions for the future, in which 
+every area on Earth is a suitable habitat for Elephas maximus. It seemed 
+that restricting the priors and the basis dimension of the model has only 
+a limited effect that varied depending on the feature set used to fit the 
+models. 
+
+6.2.2. Random forest
+
+EcologicalInformatics82(2024)1026584R. Noda et al.                                                                                                                                                                                                                                    
+
+frequently in the best-performing feature set were retained for the final 
+model  (Mechenich  et  al.,  2024).  Random  and  spatial  CV  selected 
+different feature sets, and these are compared in our final modeling and 
+analysis,  under  the  names  ‘random-CV’  and  ‘spatial-CV’  features, 
+respectively.  Lists  of  features  and  short  descriptions  are  presented  in 
+Table 1. 
+
+5.2.2. Feature scaling 
+
+We tested both raw and scaled versions of features when modeling. 
+Thus, there were four feature sets to fit per model type (raw random-CV 
+features, scaled random-CV features, raw spatial-CV features, and scaled 
+spatial-CV features).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it does not provide information about handling randomness in the deep learning pipeline or setting a specific random seed value. However, some general strategies to manage randomness in machine learning pipelines include fixing the random seed value before training the model, using cross-validation techniques, and employing ensemble methods like random forests. In the case of random forests, multiple decision trees are created with different subsets of data and features, reducing overfitting and improving overall performance.

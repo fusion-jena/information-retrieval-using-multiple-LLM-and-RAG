@@ -1,0 +1,24 @@
+After the model training, there are several postprocessing steps involved, including the calculation of various metrics and the creation of a confusion matrix. However, based on the provided context, there is no explicit mention of saliency maps.
+
+Once the model is trained, the performance is assessed using the testing subset, which consists of spectrograms of two seconds. The model's multiclass predictions are evaluated using typical indicator series, such as true positives (TP), false positives (FP), true negatives (TN), and false negatives (FN). These elements are used to compute evaluation metrics, such as precision P and recall R. Precision P represents the success rate of all presence predictions, while recall R indicates the proportion of correctly detected presences.
+
+The context also provides information on the calculation of the F1-score, which is the harmonic mean of precision and recall, offering a better representation of the model's performance than either metric alone. The F1-score is given by the equation:
+
+F1 = 2 \* (P \* R) / (P + R)
+
+In addition to these metrics, a confusion matrix is created to provide a comprehensive summary of the model's performance. A confusion matrix is a table that compares the actual classes with the predicted classes, allowing for a visual understanding of the model's performance across different categories. The matrix consists of four components: true positives (TP), false positives (FP), true negatives (TN), and false negatives (FN).
+
+An example of a confusion matrix for a binary classification problem is shown below:
+
+|               | Predicted: Yes | Predicted: No |
+|---------------|---------------|--------------|
+| Actual: Yes   | TP            | FN           |
+| Actual: No    | FP            | TN           |
+
+In this case, the matrix can be used to calculate other performance metrics, such as accuracy, specificity, and negative predictive value.
+
+Accuracy: (TP + TN) / (TP + TN + FP + FN)
+Specificity: TN / (TN + FP)
+Negative Predictive Value: TN / (TN + FN)
+
+In summary, after training the model, the performance is evaluated using metrics such as precision, recall, and F1-score, and a confusion matrix is created to provide a comprehensive summary of the model's performance across different categories.

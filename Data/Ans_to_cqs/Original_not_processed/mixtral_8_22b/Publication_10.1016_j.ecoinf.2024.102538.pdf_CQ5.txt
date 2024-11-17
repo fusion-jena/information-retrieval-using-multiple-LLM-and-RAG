@@ -1,0 +1,117 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+their  convolutional  kernels  and  pooling  layers.  Regarding  this  issue, 
+Zhang  et  al.  (2019)  incorporated  a  long  short-term  memory  (LSTM) 
+network to develop a 3DCNN-LSTM model as a classifier, making the 
+network more sensitive to the temporal changes in birdsong informa-
+tion. It is important to note that the use of RNNs such as the CRNN model 
+requires  more  computing  resources  for  training,  and  performance 
+improvement is not always guaranteed. Another common approach to 
+addressing  the  limitations  of  CNNs  is  to  introduce  attention  mecha-
+nisms.  For  example,  Soundception  (Sevilla  and  Glotin,  2017)  was 
+developed  by  introducing  time  and  time-frequency  attention  mecha-
+nisms to Inception V4; the resulting model achieved first place in the 
+BirdCLEF  2017  Competition.  Fu  et  al.  (2023)  proposed  an  improved 
+ACGAN model named DR-ACGAN based on the residual structure and an
+
+3.4. Baseline model 
+
+To assess the impact of hierarchical information, we established a 
+baseline  model  employing  a  single  classifier.  Considering  the  limited 
+computing resources, we adapted the Xception network Chollet (2017) 
+with  a  positional  attention  mechanism  Fu  et  al.  (2019)  to  ensure  the 
+effectiveness  of  bird  recognition.  Due  to  the  superiority  of  the  deep 
+separable  convolutional  (DSC)  structure,  the  Xception  architecture 
+outperforms other CNN architectures of the same caliber such as Resnet 
+and DenseNet, delivering significant performance improvement. More-
+over,  the  Xception  network  exhibits  quicker  training  and  inference 
+speeds compared to vision transformers.
+
+from data, thereby reducing the need for manual feature selection; such 
+networks  have  demonstrated  considerable  potential.  The  mainstream 
+deep  learning  approach  for  sound  recognition  involves  mapping  the 
+sound amplitude onto a 2-D mel-scale spectrogram and using a modified 
+network  architecture  adapted  from  advanced  image  recognition  for 
+automatic  feature  learning.  The  effectiveness  of  convolutional  neural 
+networks  with  residual  connections  in  recognizing  bird  sounds  was 
+demonstrated  in  the  annual  LifeCLEF  Bird  Identification  Challenge 
+(BirdCLEF) competition (Kahl et al., 2021a, 2022, 2023).
+
+Table 3 
+Overview  of four subsets from the two benchmark datasets. The first column 
+provides  the  dataset  name  and  abbreviations;  the  second  column  states  the 
+publication  year;  the  third  column  shows  the  locations  where  the  recordings 
+were captured; the fourth column details the samples in the training, validation, 
+and test sets, and the fifth column indicates the number of categories at each 
+level (from coarse to fine).  
+
+Dataset name 
+
+Release 
+year 
+
+Country 
+with records 
+
+#Sounds 
+
+#Categories 
+
+BirdCLEF2018- 
+Small (BC-S) 
+BirdCLEF2018- 
+Large (BC-L) 
+Lishui-Zhejiang 
+Birdsdata (LS) 
+Lishui-Zhejiang 
+
+Birdsdata (LS*) 
+
+2018 
+
+2018 
+
+2024 
+
+Europe & 
+America 
+Europe & 
+America 
+China 
+
+2024 
+
+China 
+
+3118/308/ 
+308 
+10,216/ 
+1005/1005 
+20,512/ 
+2514/2513 
+10,279/ 
+2514/2513 
+
+14/42/122/ 
+150 
+22/57/309/ 
+500 
+13/47/100 
+
+13/47/100
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning pipelines mentioned in the given context utilize two main datasets: BirdCLEF2018-Small (BC-S), BirdCLEF2018-Large (BC-L), Lishui-Zhejiang Birdsdata (LS), and Lishui-Zhejiang Birdsdata (LS*). These datasets were released in different years, with BC-S and BC-L being published in 2018, while LS and LS* were published in 2024. The BC-S and BC-L datasets contain recordings from Europe and America, whereas the LS and LS* datasets consist of recordings from China. Each dataset has its own set of sounds and categories, which can be found in Table 3 of the provided context.

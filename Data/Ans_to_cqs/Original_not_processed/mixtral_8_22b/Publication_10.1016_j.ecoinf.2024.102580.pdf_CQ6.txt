@@ -1,0 +1,62 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+EcologicalInformatics81(2024)1025802R.K. James et al.                                                                                                                                                                                                                                
+
+Fig. 1. Workflow used to (a) select a deep learning model, (b) develop a ground-truth imagery dataset, (c) train the deep learning models, (d & e) evaluate model 
+performance and (f & g) obtain the data and analyse it to quantify the spatial patterns and resilience of the ecosystem. 
+
+2.3. Deep learning models 
+
+2.3.1. Semantic segmentation for vegetation mapping
+
+training, which helped to reduce human error. Similar to the seagrass 
+semantic  segmentation  model,  the  resolution  of  the  images  in  the 
+ground-truth dataset was reduced to 1000 × 1333, and the three colour 
+channels of the images were normalised by subtracting the means and 
+dividing  by  the  standard  deviations  per  channel.  The  colour  channel 
+means and standard deviations were based on the ImageNet dataset used 
+in the training of the (pre-trained) RestNet-50 (the used mean values 
+were [0.485, 0.456, 0.406], and the standard deviations were [0.229, 
+0.224, 0.225]). The DETR model’s object queries parameter was set to 
+100, allowing for the detection of up to 100 turtles in an image, which 
+was sufficient for all case-study images.
+
+By providing the tools to conduct these analyses, we aim to stimulate the uptake of deep learning for enhancing 
+the data obtained from aerial imagery to improve the monitoring and conservation of natural ecosystems.
+
+(cid:0) 6 and the transformer set to 10
+
+DETR  training  was  performed  on  a  Personal  Computer  running 
+Ubuntu 18.04–28-core Intel i9-7940× CPU, 125 GB RAM and 2 NVIDIA 
+GeForce  RTX  2080Ti  graphics  cards.  See  the  supplementary  text  for 
+comprehensive  information  regarding  the  U-Net  (S1)  and  DETR  (S2) 
+models,  including  model  architecture,  training  procedures,  impact  of 
+adding DBSCAN to DETR predictions and labelling methods. The scripts 
+and ground-truth data necessary to run both the semantic segmentation 
+and object detection deep learning models are openly available at htt 
+ps://git.wur.nl/deep-learning-tools-for-marine-ecosystem-monitoring 
+(accessed 8/2/2024). 
+
+2.3.3. Retraining experiment of seagrass semantic segmentation model
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model, several preprocessing steps are typically involved to prepare the input data. In this context, two main preprocessing steps are mentioned for the semantic segmentation model used for vegetation mapping: reducing the resolution of the images and normalizing the color channels.
+
+Firstly, the resolution of the images in the ground-truth dataset is reduced to 1000 x 1333 pixels. This step helps decrease computational requirements during training and can also help prevent overfitting by generalizing the features learned by the model.
+
+Secondly, the three color channels of the images are normalized by subtracting the means and dividing by the standard deviations per channel. Normalization scales the pixel values to a similar range, making it easier for the model to learn and converge faster. In this case, the color channel means and standard deviations are based on the ImageNet dataset used in the training of the pre-trained ResNet-50 model. The specific mean values used are [0.485, 0.456, 0.406] and the standard deviations are [0.229, 0.224, 0.225].
+
+These preprocessing steps ensure that the input data is properly formatted and scaled, enabling the deep learning model to effectively learn from the data and produce accurate results.

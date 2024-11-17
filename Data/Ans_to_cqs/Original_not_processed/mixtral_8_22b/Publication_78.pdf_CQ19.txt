@@ -1,0 +1,218 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Figure 3. The proposed framework steps visual representation.
+
+3.1. Explanation of Steps
+
+Initially, an image is taken with the help of an underwater drone. In the next step,
+the image is segmentized and divided into small patches. Features are extracted from
+each patch with the help of handcrafted descriptors and D-CNNs. A visual vocabulary
+
+Big Data Cogn. Comput. 2021, 5, 53
+
+5 of 15
+
+(VV) is created, as shown in Figure 4, this visual vocabulary is the features extracted
+from these features, and the training features are passed to classiﬁer i.e., SVM, which
+classiﬁes whether the VV-features are of bleached coral or healthy coral. We used different
+handcrafted features as well as different D-CNN’s but AlexNet shows the highest accuracy.
+We used different classiﬁers i.e., SVM, kNN, and decision tree, but SVM outperforms all
+other classiﬁers.
+
+Figure 4. Visual Vocabulary of features.
+
+3.2. Feature Extraction
+
+3.2.3. Custom D-CNN: CoralNet
+
+We create a custom D-CNN named as CoralNet for the extraction of the spatial features.
+CoralNet has thirteen layers in which three layers are convolutional layers (Conv2D), two
+max-pooling (MaxPooling2D) layers, two dense layers, one ﬂatten layer, three activation
+layers. The input layer size is kept at 227 × 227 × 3. Two activation layers have rectiﬁed
+linear unit (ReLU) as activation function while the last activation layer uses softmax as
+activation function. Features are extracted with Conv2D layers and the feature vector is
+extracted at the last layer. The training options used for training CoralNet are summarized
+in Table 1. The simpliﬁed architecture of the CoralNet is shown in Figure 6.
+
+Big Data Cogn. Comput. 2021, 5, 53
+
+6 of 15
+
+Figure 5. Feature Extraction with AlexNet.
+
+Table 1. Training Parameters of CoralNet.
+
+Parameter
+
+Optimizer
+Epochs
+Batch Size
+Loss Function
+
+Value
+
+Adam
+10
+64
+Cross Entropy
+
+4 of 15
+
+3. Proposed Framework
+
+The proposed BoF based framework is presented in Figure 2. Test images are captured
+with underwater drones [29] then passed through the ground station for obtaining the
+output. The model is trained with 15k images of bleached and unbleached corals of the
+Great Barrier Coral Reef of Australia. The SVM classiﬁer is employed to categorize the
+features extracted through D-CNN and handcrafted descriptors. The basic steps involved
+in the proposed methodology are visually represented in Figure 3. Initially, a patch is
+extracted from the coral reef image. In next step, the texture and color features are extracted
+with the help of handcrafted descriptors while the spatial features are extracted with the
+help of D-CNN models. These Bags of Features (BoF) are concatenated to form visual
+vocabulary (VV) vector which is provided as an input to the classiﬁer.
+
+Figure 2. The proposed framework for bleached corals detection.
+
+Figure 10. Comparison of accuracies of different classiﬁers for all datasets.
+
+Big Data Cogn. Comput. 2021, 5, 53
+
+11 of 15
+
+Table 2. Performance of hand-crafted descriptors and D-CNN models for ﬁrst dataset.
+
+Technique’s
+Name
+
+SVM
+Kernel
+
+LBP [10]
+HOG [11]
+LETRIST [12]
+GLCM [13]
+GLCM [13]
+CJLBP [14]
+LTrP [15]
+AlexNet [17]
+ResNet-50 [18]
+VGG-19 [19]
+GoogleNet [20]
+Inceptionv3 [21]
+CoralNet
+BoF
+
+Polynomial
+Linear
+Linear
+RBF
+Polynomial
+Linear
+Linear
+Linear
+Linear
+Linear
+Linear
+Linear
+–
+Linear
+
+Sensitivity
+
+Speciﬁcity Accuracy
+
+F1-Score
+
+Cohen’s
+Kappa (κ)
+
+70.1%
+66.3%
+56.2%
+66.2%
+73.1%
+71.2%
+48.4%
+94.1%
+92.2%
+92.1%
+85.1%
+77.1%
+92.1%
+99.1%
+
+75.9%
+69.3%
+59.7%
+75.1%
+80.4%
+77.3%
+50.2%
+96.3%
+96.4%
+92.1%
+93.1%
+92.3%
+97.3%
+99.0%
+
+71.8%
+67.1%
+56.6%
+69.3%
+76.7%
+72.7%
+49.1%
+95.2%
+94.5%
+92.2%
+88.2%
+83.3%
+95.0%
+99.08%
+
+0.729
+0.678
+0.579
+0.704
+0.766
+0.741
+0.493
+0.952
+0.942
+0.921
+0.889
+0.840
+0.950
+0.995
+
+0.731
+0.663
+0.594
+0.732
+0.751
+0.743
+0.524
+0.966
+0.952
+0.851
+0.873
+0.862
+0.962
+0.982
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, the given context does not provide information on the specific frameworks used to build the deep learning model. Therefore, I cannot determine if they used TensorFlow, PyTorch, or any other framework.

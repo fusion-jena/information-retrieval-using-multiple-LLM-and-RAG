@@ -1,0 +1,132 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+EcologicalInformatics77(2023)1022507Y. Fu et al.                                                                                                                                                                                                                                       
+
+3.4.2. Classification evaluation metrics 
+
+To  evaluate  the  accuracy  and  effectiveness  of  the  classification 
+model, we use several metrics including Accuracy, Precision, Recall, F1- 
+score,  Top-1  accuracy,  Top-5  accuracy,  Top-1  error,  and  Top-5  error. 
+The formulas for these metrics are shown in 14. 
+
+Accuracy =
+
+TP + TN
+TP + TN + FP + FN
+
+Precision =
+
+Recall =
+
+TP
+TP + FP
+TP
+TP + FN
+
+Table 5 
+Compare  the  IS  and  FID  values  of  the  sampled  generated  spectrogram  of 
+different ACGAN models.  
+
+Models 
+
+ACGAN 
+DR-ACGAN 
+
+Operating 
+
+– 
+( + )BN & ( (cid:0)
+)CBAM 
+( + )BN & ( + )CBAM 
+( + )SN & ( (cid:0)
+)CBAM 
+( + )SN & ( + )CBAM 
+
+IS 
+
+4.23 
+4.54 
+4.85 
+5.01 
+5.10 
+
+FID
+
+3.4. Evaluation metrics 
+
+3.4.1.
+
+Image quality evaluation metrics 
+
+To assess the quality of the generated images, we primarily utilized 
+the  Inception  Score  (IS)  (Barratt  and  Sharma,  2018)  and  Fr´echet 
+Inception Distance (FID) (Heusel et al., 2017a) as metrics. The higher IS 
+implies higher quality and better diversity of the generated images. The 
+formula for IS is depicted in formula 12. 
+
+The dynamic behavior of W(X) can be implemented by the dynamic 
+residual  PΦ(X)QT.  Λ(X) represents  the  dynamic  channel  attention 
+
+IS(G) = exp
+
+(
+Ex∼pg DKL(p(y|x) ‖ p(y) )
+
+)
+
+(12)  
+
+where  x  represents  the  input  image,  y  represents  the  corresponding 
+label, p(y|x) denotes the probability distribution of categories given the 
+input image x, and p(y) represents the distribution of category labels. 
+The Kullback-Leibler(KL) divergence measures the differences between 
+these two distributions.
+
+images are added to each class of the original dataset, the three models 
+achieve  the  highest  accuracies  of  95.28%,  95.85%,  and  97.28%, 
+respectively. These accuracy values surpassed the performance obtained 
+from  training  on  the  original  dataset  by  6.66%,  4.35%,  and  2.29%, 
+respectively. 
+
+The results of Experiment Group II are shown in Fig. 11. Revealing a 
+positive correlation between the proportion of generated images and the 
+Top-1 and Top-5 accuracy of the MobileNetV2, ResNet18, and VGG16 
+models. When the dataset contains 80% of generated images, the three 
+models  achieve  their  highest  accuracies  of  93.86%,  96.09%,  and 
+97.16%, respectively. These values are 5.24%, 4.59%, and 2.17% higher 
+than the accuracies obtained from training on the original dataset.
+
+iii.  Experimental group III: Take 40%, 60%, and 80% of the original 
+dataset as the new dataset, and then replace 80% of these three 
+datasets with the generated images. 
+
+Table 6 presents the detailed division of the datasets. The datasets 
+were  split  into  train  and  test  sets  in  an  8:2  ratio,  and  all  evaluation 
+metrics were computed on the test set. 
+
+To conduct the classification experiments on all datasets, we utilized 
+ResNet18, VGG16, and MobileNetV2 as the base classifier model. The 
+experiments  were  conducted  with  consistent  hyperparameters, 
+including a learning rate of 0.001, a batch size of 32, and 40 epochs. 
+
+The  classification  results  of  Experiment  Group  I  are  presented  in 
+Fig.  10.  The  bar  graphs  represent  the  Top-1  accuracy  of  the  Mobile-
+NetV2, ResNet18, and VGG16 models on the six datasets. The fold line 
+corresponds to their respective Top-5 accuracy. When 1000 generated
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The paper uses several metrics to evaluate the performance of the deep learning model, including Accuracy, Precision, Recall, F1-score, Top-1 accuracy, Top-5 accuracy, Top-1 error, and Top-5 error. The formulas for these metrics are not explicitly mentioned but they are commonly known in machine learning literature. For example, Accuracy is calculated as the sum of true positives (TP) and true negatives (TN) divided by the total number of samples. Precision is calculated as the ratio of true positive predictions to the total predicted positives. Recall is calculated as the ratio of true positive predictions to the actual positives. The F1 score is the harmonic mean of precision and recall. Top-k accuracy refers to whether the correct label is among the top k most probable classes according to the model.

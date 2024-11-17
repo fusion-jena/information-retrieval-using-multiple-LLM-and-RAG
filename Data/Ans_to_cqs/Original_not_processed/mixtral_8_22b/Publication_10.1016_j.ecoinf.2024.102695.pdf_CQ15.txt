@@ -1,0 +1,118 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+S = ⌊ 1
+Ξ(f)
+
+⌋
+
+(25) 
+
+During  training,  the  input  tensor  comprises  three  dimensions:  the 
+batch  size,  the  number  of  model  variables,  and  the  future  prediction 
+length. The dimension concerning the number of features is segmented 
+by dynamically changing the slice sizes and strides, and the segmented 
+tensors are folded, adding a slice dimension. Finally, by merging the first 
+
+In the second stage of the attention calculation, the covariates are 
+dynamically segmented, capturing their features at different time scales 
+through multiscale attention. Specifically, for the static variables S(t), 
+the multiscale attention FMSA
+S(t)
+)
+(cid:0)
+S(t) = Softmax
+FMSA
+
+is calculated as in Formula 30: 
+
+Wf ,S⋅IS(λk)
+
+(30) 
+
+Similarly, for dynamic variables Z(t), the calculation is as in Formula 
+
+31: 
+
+(cid:0)
+Z(t) = Softmax
+FMSA
+
+)
+
+Wf ,Z⋅IZ(λk)
+
+3.4.3. Attention fusion 
+
+(31)
+
+and  neural  networks,  extracting  explicit  formulas  for  calculating  DO
+
+This research contributes significantly to the long-term prediction of 
+multivariate  marine  chemical  data,  confirming  the  necessity  and 
+importance  of  signal  decomposition,  reducing  feature  space  redun-
+dancy,  and  uncovering  potential  feature  correlations  in  this  field. 
+Complementarily, related machine learning and deep learning studies 
+have also made progress in predicting DO concentrations. For instance, 
+Hu  et  al.  (2024)  presented  a  hybrid  deep  learning  architecture  that 
+achieved an R2  of 0.865 in predicting river and stream water quality. 
+Feng  et  al.  (2024)  introduced  the  WTD-GWO-SVR  ensemble  method, 
+which combines wavelet threshold denoising, gray wolf optimization, 
+and support vector regression, and achieved an MAE of 0.038 and an R2 
+of  0.997.  Ikram  et  al.  (2023)  developed  an  innovative  approach  for 
+estimating the water temperature of the Bailong River in China, inte-
+
+2.2. Transformer 
+
+Since its introduction by Vaswani and others in 2017 Vaswani et al. 
+(2017), the Transformer model has led to a significant revolution in the 
+field of natural language processing (NLP). One of the key innovations of 
+the  Transformer  is  the  self-attention  mechanism,  which  allows  the 
+model  to  weigh  the  importance  of  different  parts  of  the  input  data 
+differently.  The  core  self-attention  mechanism  is  represented  by  For-
+mula 5: 
+
+Attention(Q, K, V) = softmax
+
+(
+
+QKT
+√
+̅̅̅̅̅
+dk
+
+)
+
+V
+
+(5) 
+
+Here,  Q,  K,  and  V  represent  the  query,  key,  and  value  matrices, 
+respectively.  The  query  matrix  represents  the  current  word  or  token 
+being processed, while the key and value matrices represent the entire 
+̅̅̅̅̅
+input sequence. The term 
+dk
+is a scaling factor used to normalize the 
+dot products, where dk  is the dimensionality of the keys. 
+
+√
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information on specific optimization techniques such as Stochastic Gradient Descent (SGD) or Adaptive Moment Estimation (Adam) used within the deep learning pipeline. However, it discusses various aspects of a deep learning process involving transformer models, attention mechanisms, and multivariate marine chemical data predictions.
+
+Transformers use the self-attention mechanism, allowing them to weigh the importance of different parts of the input data differently. This mechanism is represented by Formula 5 in the context. Additionally, the text mentions using neural networks and extracting explicit formulas for calculating dissolved oxygen (DO) concentrations.
+
+While these details contribute to understanding the overall deep learning process, they do not directly address the optimization techniques employed during training. Therefore, based solely on the provided context, we cannot determine which optimization techniques like SGD or Adam are being utilized in the deep learning pipeline.

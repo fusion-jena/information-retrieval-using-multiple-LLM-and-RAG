@@ -1,0 +1,11 @@
+Answer:::
+
+The strategy implemented to monitor the model performance during training involves using the first five seconds of the validation recordings. This approach is based on the observation that the labeled species are usually present during the initial few seconds of the recordings from Xeno-Canto. This strategy was chosen because evaluating the models on the full length of the validation set would be computationally expensive and time-consuming.
+
+The preliminary experiments conducted confirmed that using the first five seconds of the validation recordings significantly reduces the computation time while producing valid results. This method of monitoring the model's performance during training is desirable as it reduces the randomness associated with evaluating the model on the entire validation set.
+
+The validation recordings were split into smaller segments due to limited machine memory, as shown in Table 1. Each species had a corresponding number of training, validation, and test files with their respective durations. The test results of the frontends are presented in Table 2, with various models and their accuracy, top-3 accuracy, F1-score, precision, and recall.
+
+The test results indicate that the largest performance gap between the learnable and traditional frontends stems from using PCEN instead of log compression. When combined with PCEN, the (mel-)spectrogram is on par with the learnable frontends. Proper normalization on top of the log compression produced similar results to the PCEN version of the models.
+
+In summary, the strategy implemented to monitor the model performance during training involves using the first five seconds of the validation recordings. This method was chosen due to its ability to significantly reduce computation time while producing valid results, making it a more efficient and practical approach compared to evaluating the model on the entire validation set.

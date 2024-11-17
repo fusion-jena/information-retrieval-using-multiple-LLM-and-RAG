@@ -1,0 +1,81 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+the training and validation sets. Then, the model is ﬁt by using
+(k − 1) folds and evaluated using the remaining k th fold. The
+process is repeated until every k-fold is used as the test set.
+However, this may produce varying results. Thus, to improve
+the model and analyze the inﬂuence of various components
+in the framework, we adopted multistage training with the
+training and validation datasets (Fig. 4) to better predict test
+dataset.
+
+The model is then iteratively trained and validated on these
+different sets. The training set is used to ﬁt the parameters of
+the classiﬁer, whereas the validation set provides an unbiased
+evaluation of the model ﬁt on the training set while tuning
+model hyperparameters, such as the network layer size, ﬁnd-
+ing the optimal number of hidden units, and regularizing the
+model. Models with few hyperparameters are easy to validate
+and tune, but if the model has many hyperparameters, a larger
+validation dataset is required. In some cases, the evaluation
+is biased when a validation dataset is not incorporated into
+the model conﬁguration because the model may perfectly ﬁt
+the training data with high accuracy but may fail to ﬁt the
+test or validation data. In such cases, k-fold cross-validation,
+which is a resampling technique, is used to avoid overﬁtting;
+the training set is generated with different combinations of k
+groups (say 5 or 10, depending on the size of the dataset) as
+
+The structure of this paper is organized as follows.
+Section II describes data acquisition and preprocessing of
+acquired dataset to overcome imbalanced and data overﬁt-
+ting. Section III focuses on the deep learning models and
+enhancement of ﬁne grained feature extraction accuracy by
+swapping the misclassiﬁed data between the training and
+validation datasets. Section IV illustrates the experimental
+setting and the hardware requirements. Section V endorses
+the proof of concept and validation of the purposed method-
+ology. Section VI emphasizes the signiﬁcances of endemic
+birds and its habitation. Finally, Section VII summarizes the
+impact of the purposed model and presents directions for
+future study.
+
+IV. EXPERIMENTAL SETTINGS
+To extract the relevant features of birds, we randomly split
+the endemic bird data into 3,132 images for training and
+760 images for testing. To allow the deep networks to con-
+verge and improve the ability of the model to generalize
+adeptly, we augmented the training dataset 10 times, resulting
+in a total of 31,320 images. Then, 25,056 (80%) images were
+used for training and 6,264 (20%) were used for validation.
+The Inception-ResNet-v2 model was trained using the mini-
+batch gradient descent algorithm with the batch size set to
+32 and the learning rate maintained at 0.0001. The Adam
+optimizer was used to ﬁne-tune the model with the following
+parameters:
+
+• Exponential decay rate of ﬁrst-moment estimation
+
+of 0.9.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, the data is split into three parts for deep learning model training: training, testing, and validation. The criterion used to split the data is not explicitly mentioned, but it can be inferred from the information provided.
+
+For the training set, 3,132 images of endemic birds are used. This set is further augmented 10 times to create a total of 31,320 images. Out of these, 25,056 (80%) images are used for training, and the rest 6,264 (20%) are used for validation. It seems that the authors have chosen an 80/20 split ratio for their training and validation sets.
+
+For the testing set, 760 images of endemic birds are used. These images are kept separate from the training and validation sets to evaluate the performance of the model after it has been trained.
+
+It should also be noted that the authors mention using k-fold cross-validation to avoid overfitting. However, they do not specify how many folds they use or whether they apply this technique to all three sets (train, test, and validation). Therefore, based on the available information, it cannot be determined whether k-fold cross-validation is used to split the data or only applied during the training phase.

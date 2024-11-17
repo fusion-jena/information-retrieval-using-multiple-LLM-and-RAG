@@ -1,0 +1,81 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The active learning experiments are carried out in the embedding
+space of the selected transfer learning model (BirdNet-1, see Section
+3.1). We explore a range of sampling strategies: uncertainty and di-
+versity based, myopic (greedy) and adaptive (batch mode), and com-
+binations thereof. Fig. 2 provides a schematic overview of the pure
+families of sampling strategies: Random sampling selects samples arbi-
+trarily, uncertainty sampling targets samples near the decision bound-
+ary, and diversity sampling focuses on samples that span the entire data
+space. In all cases, 5% of the samples are selected at random. Class labels
+are available for all samples used in this study, and an active learning
+scenario is emulated by hiding all labels from the classifier at first and
+incrementally revealing the ones for each batch of samples queried by
+the sampling methods. We use a batch size of 20 samples. The classifier
+heads are identical to those from the transfer learning training process.
+
+4 https://github.com/HKathman/pam_annotation_experiments
+5 https://github.com/kahst/BirdNET-Analyzer/tree/main/checkpoints/V2.4
+6 https://tfhub.dev/google/vggish/1
+7 https://tfhub.dev/google/yamnet/1
+8 tensorflow.keras.applications.vgg16.VGG16(weights=’imagenet’).
+9 tensorflow.keras.applications.resnet_v2.ResNet152V2
+
+(weights=’imagenet’).
+
+Fig. 4. UMAP plots for different embedding layers of different embedding
+models for AnuraSet. For UMAP generation, we randomly select 5000 samples
+and discard all samples that are aligned to more than one class. Colors and
+shapes indicate the 10 classes with the highest occurrence frequency. Layers are
+numbered according to their distance from the classification layer, e.g. ‘Bird-
+Net-1’ is the last layer before the classification layer of the BirdNet model.
+
+EcologicalInformatics82(2024)1027105H. Kath et al.
+
+evaluation was done on focal and citizen-science datasets. Swaminathan
+et al. (2024) extend the observation to attention-based architectures pre-
+trained on human speech. Lauha et al. (2022) show that transfer
+learning can be helpful also for small networks trained from scratch on
+small, targeted datasets gathered from online resources such as Mac-
+aulay Library2 (as opposed to foundation models trained on large
+datasets). While the works cited above evaluate transfer learning models
+based on classification performance, McGinn et al. (2023) take a
+different approach and investigate the topology of fine grained, sub-
+species sound events in the embedding space afforded by BirdNet;
+they find that different call types of a same species (e.g., drumming
+versus vocalization) form distinct clusters, and that the vicinity of each
+
+Combined sampling strategies address the limitations of pure
+strategies. Uncertainty sampling selects samples close to the decision
+boundaries, but may introduce redundancy. Diversity sampling covers
+the entire input space, but may miss critical regions. We therefore
+
+Fig. 2. Schematic representation of the random, uncertainty, and diversity
+sampling strategies. Random sampling selects arbitrary samples. Uncertainty
+sampling selects samples based on their proximity to the model's decision
+boundary, calculated using the existing class 1 and class 2 labels. Diversity
+sampling uses the internal data structure for sampling purposes, such as clus-
+tering the data and selecting samples from each cluster.
+
+Fig. 3. Uncertainty scores for binary inputs computed with the methods ‘ratio’
+(ΦRC bi), ‘least confidence’ (ΦLC bi) and ‘entropy’ (ΦEN bi), given a model pre-
+diction y.
+
+EcologicalInformatics82(2024)1027104computed on the held-out evaluation sets described in section 2.1.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of the deep learning model, several measures have been implemented. Firstly, the active learning experiments were conducted in the embedding space of the selected transfer learning model called BirdNet-1. This model has been chosen due to its proven effectiveness in handling various audio tasks, including bird sound recognition. Secondly, a wide range of sampling strategies were explored, which included uncertainty and diversity-based approaches, myopic (greedy) and adaptive (batch mode) techniques, along with combinations of these strategies. These diverse sampling methods helped capture a broad spectrum of data points, thereby enhancing the robustness and applicability of the model across different scenarios. Thirdly, the experiment involved both focal and citizen-science datasets, further contributing to the model's ability to handle varied sources of information. Lastly, the authors mentioned evaluating the transfer learning models based on classification performance, indicating the use of standard validation practices like cross-validation or stratified splitting, although specific details about these processes are not explicitly stated in the provided context.

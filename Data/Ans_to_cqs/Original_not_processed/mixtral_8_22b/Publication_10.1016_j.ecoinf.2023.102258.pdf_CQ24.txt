@@ -1,0 +1,212 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Then, for each sample xq  from the query set, a distance function is 
+used  to  calculate  the  Euclidean  distance  of  xq  from  each  prototype, 
+following which a softmax function over the distances produces a dis-
+tribution over the classes. This directly implies that training the neural 
+network to optimise these distances should move prototypes and their 
+corresponding  query  points  closer  together  in  the  embedding  space 
+created  by  fϕ,  and  further  away  from  non-matching  points.  In  other 
+words, the training procedure creates a general representation in which 
+similar  sounds  are  close  to  each  other.  Nearest-neighbour  algorithms 
+such as k-means can then be used to label future data points—even those 
+from novel categories, after a simple procedure of calculating the pro-
+totype of a novel category as the centroid of its k shots.
+
+Many machine learning systems have pragmatic design constraints 
+that  limit  the  range  of  durations  they  can  consider.  Our  template- 
+matching method uses ranges directly inherited from the 5 annotated 
+events, although there remain practical limits on very large templates, 
+such as computer memory. In deep learning, long audio files are usually 
+divided into shorter chunks (with fixed durations of e.g. 3 or 10 s), so 
+that a whole batch can fit inside the limited memory of GPUs. To detect 
+long  events,  detections  that  span  these  chunks  are  joined  together  in 
+post-processing. This as well as other considerations meant that post- 
+processing  of  outputs  was  an  important  aspect  of  all  strongly- 
+performing systems.
+
+Successful systems also commonly used explicit methods to control 
+the  duration  of  the  detected  events.  In  many  cases  this  consists  of 
+postprocessing  predictions  to  delete/merge  very  short  events,  or  esti-
+mating the typical duration from the examples. Du_NERCSLIP(23) and 
+Wolters et al. (2021) made use of neural network architectures specif-
+ically trained to infer and output region annotations. 
+
+Overall, the different approaches submitted illustrate the introduc-
+tion of ideas to address challenges related to this task: how to deal with 
+very different event lengths; how to construct a negative class when no 
+explicit  labels  are  given  for  this;  and  how  to  bridge  the  gap  between 
+classification and detection for few-shot sound event detection. These 
+challenges derive from the combination of few-shot learning with sound 
+event  detection,  and  hence  are  not  addressed  in  standard  few-shot 
+learning (Wang et al., 2020a).
+
+Baselines 
+
+Prototypical 
+
+Mel +PCEN 
+
+Systems submitted 
+to the public 
+challenge 
+
+Template matching 
+
+Yang et al. (2021) 
+
+Lin 
+
+Mel 
+
+Tang et al. (2021) 
+
+Lin + PCEN 
+
+Du_NERCSLIP 
+
+Mel +PCEN 
+
+Liu_Surrey 
+
+Mel +PCEN & 
+delta-MFCC 
+
+CNN 
+
+n/a 
+
+CNN 
+
+CNN 
+
+CNN 
+framewise 
+
+CNN 
+
+n/a 
+
+x-ent 
+
+Proto 
+
+x-ent 
+
+Proto 
+(modifed) 
+
+Wu_SHNU (+Wu 
+2023 ICASSP) DFSL 
+Moummad_IMT 
+
+Other 
+
+Wolters 2021 arxiv 
+Perceiver 
+
+You et al. (2023) 
+(ICASSP 2023) 
+
+Mel 
+
+Mel 
+
+Mel 
+
+Mel +PCEN 
+
+CNN (ResNet) 
+
+x-ent 
+
+DFSL attentive 
+
+No 
+
+Pseudo-pos 
+
+– 
+
+Proto 
+
+Dist:Proto 
+
+TI, Retrain 
+
+5 
+
+Between-the-5 +
+Pseudo-neg 
+(SpecSim) 
+Pseudo-neg 
+
+CNN (ResNet) 
+
+SCL 
+
+CNN + CRNN 
++Perceiver 
+
+Proto +RPN 
+(R-CRNN) 
+
+Posterior 
+
+Finetune 
+
+Between-the-5 
+
+Dist:Proto 
+
+No 
+
+n/a 
+
+5 
+
+5 
+
+AST 
+
+Proto 
+
+Proto 
+
+Dist:Proto 
+
+Finetune, TI 
+
+Between-the-5 
+
+5 + aug 
+
+New 
+templates 
+Retrain (new 
+pos + neg) 
+Proto 
+
+Finetune last 
+layer 
+
+DFSL 
+attentive 
+Finetune last 
+layer 
+Proto
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The provided context does not explicitly discuss strategies for handling randomness in the deep learning pipeline, such as managing the impact of random seed values. However, some common strategies include fixing the random seed value for reproducibility, using multiple runs with different seeds to average results, and employing techniques like ensemble learning or cross-validation to reduce variance caused by random initialization.

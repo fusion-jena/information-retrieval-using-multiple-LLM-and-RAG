@@ -1,0 +1,126 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+A link to a depository with architecture details is given at the end of
+references. We stopped the network training after 70 epochs (i.e. a
+complete scope of the dataset where each image is used only once), to
+−5, an exponential
+prevent overﬁtting. We used a learning rate of 10
+learning decay with a Gamma of 0.95, a dropout of 50% and an Adam
+Solver type as learning parameters. Those are classic hyper-parameters
+for a fast convergence of the network without over-ﬁtting (Srivastava
+et al., 2014). The weight initialization is also classic with a random
+Gaussian initialization. The training lasted 8 days on our conﬁguration;
+we trained and ran our code on a computer with 64GB of RAM, an i7
+3.50GHz CPU and a Titan X GPU card for 900,000 images.
+
+We used at least 2200 thumbnails per ﬁsh species class, and batches
+
+240
+
+S. Villon et al.
+
+Ecological Informatics 48 (2018) 238–244
+
+We used a GoogLeNet architecture as it was the winner of the 2015
+competition imageNet (Szegedy et al., 2015), an identiﬁcation chal-
+lenge on 1000 diﬀerent classes. This CNN is composed of 22 layers. It
+uses inception modules. Inception modules allow the network to use
+convolutions of diﬀerent sizes (1*1, 3*3 and 5*5 pixels) and to weight
+each of these convolutions. This network could thus account more or
+less strongly for the context of each pixel, which increases the range of
+possibilities to improve its performance during the training.
+
+Krizhevsky, A., Sutskever, I., Hinton, G.E., 2012. Imagenet Classiﬁcation with Deep
+Convolutional Neural Networks. InAdvances in Neural Information Processing
+Systems. pp. 1097–1105.
+
+Krueck, N.C., Ahmadia, G.N., Possingham, H.P., Riginos, C., Treml, E.A., Mumby, P.J.,
+
+2017. Marine reserve targets to sustain and rebuild unregulated ﬁsheries. PLoS Biol.
+15 (1), e2000537.
+
+Kulbicki, M., Parravicini, V., Bellwood, D.R., Arias-Gonzàlez, E., Chabanet, P., Floeter,
+S.R., ... Mouillot, D., 2013. Global biogeography of reef ﬁshes: a hierarchical quan-
+titative delineation of regions. PLoS One 8 (12), e81847.
+
+Langlois, T.J., Harvey, E.S., Fitzpatrick, B., Meeuwig, J., Shedrawi, G., Watson, D., 2010.
+Cost-eﬃcient sampling of ﬁsh assemblages: comparison of baited video sta=tions
+
+244
+
+and diver video transects. Aquat. Biol. 9, 155–168.
+
+The model was trained using thumbnails of whole ﬁsh, part of ﬁsh species and
+environment (T?). Raw outputs were post-processed applying two decision
+rules: (r1) keeping most likely ﬁsh class if “environment” was the most likely
+class, and (r2) considering “part of species X" equivalent to “species X".
+
+Species
+
+Number of thumbnails
+tested
+
+Deep-learning
+model
+
+Humans
+
+Abudefduf sparoides
+Abudefduf vaigiensis
+Chaetodon trifascialis
+Naso elegans
+Pomacentrus sulfureus
+Pygoplites diacanthus
+Thalassoma hardwicke
+Zanclus cornutus
+Zebrasoma scopas
+Average success rate
+
+88
+47
+149
+165
+443
+35
+73
+53
+144
+1197
+
+93.4
+97.3
+95.1
+98.4
+97.9
+90.4
+96
+97.1
+96.2
+95.7
+
+87.7
+84.7
+89.4
+94.8
+93.2
+77.4
+91
+97.8
+88.3
+89.3
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the provided context, there isn't explicit information about specific preprocessing steps such as normalization, scaling, or cleaning applied to the data before training the deep learning model. However, some general practices can be inferred from the context. For instance, the authors mention using thumbnails of whole fish, parts of fish species, and environment, suggesting that they might have resized or cropped the original images to create consistent input dimensions for the model. Additionally, since the model uses a GoogLeNet architecture designed for ImageNet competition, it is reasonable to assume that similar preprocessing techniques like mean subtraction and data augmentation methods (such as rotation, flipping, etc.) may have been employed. Nevertheless, without further clarification from the authors, we cannot provide a definitive list of preprocessing steps involved before training their deep learning model.

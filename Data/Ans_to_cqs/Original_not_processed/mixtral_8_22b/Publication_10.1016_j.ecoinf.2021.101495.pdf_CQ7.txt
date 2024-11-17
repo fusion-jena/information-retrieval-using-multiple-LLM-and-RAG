@@ -1,0 +1,102 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+(b) Computing infrastructure used to train both neural networks 
+
+Infrastructure 
+Search strategy 
+Training duration 
+(best assignment) 
+
+Nvidia Tesla V100 (16GB) 
+Manual tuning  
+Segmentation 
+Classification 
+
+4 h 6 min 24 s 
+9 h 22 min 34 s
+
+the classification model with a total of 86,208 segments. Fig. 7 shows 
+how the model is able to learn in fewer steps and with better accuracy if 
+data augmentation is used.
+
+split  in  four  major  modules  (Fig.  1,  Table  1):  A  first  module  where 
+appropriate images are selected, a second module about the segmenta-
+tion and species classification models training and statistical validation 
+using 5-fold cross-validation, a third module for the prediction of the 
+models, and a last module where results are contrasted with indepen-
+dent “ground truth” based on port sampling of landings.
+
+Fig. 3. Example of individual fishes once the segmentation is done. These fishes belong to a monospecific set of YFT.  
+
+Table 2 
+Computing  infrastructure,  search  space  and  best  assignments  of  hyper-
+parameters of the neural networks.  
+
+(a) Hyperparameters used for the training of each neural network. The base models 
+have been obtained from TensorFlow Object Detection API (segmentation) and the 
+base implementation of TensorFlow (classification) 
+
+Hyperparameter  Module 
+
+Search space 
+
+Best assignment 
+
+Epochs 
+
+Batch size 
+
+Learning rate 
+
+Activation 
+
+Train/test split 
+
+Segmentation 
+Classification 
+Segmentation 
+Classification 
+Segmentation 
+Classification 
+Segmentation 
+Classification 
+Segmentation 
+Classification 
+
+[1000(cid:0) 20,000] 
+[500–5000] 
+[2(cid:0) 32] 
+[2–128] 
+[0.0001–0.01] 
+[0.0001–0.01] 
+Softmax 
+Softmax 
+[0.9/0.1–0.8/0.2] 
+[0.9/0.1–0.8/0.2] 
+
+15,000 
+500 
+4 
+128 
+0.008 
+0.0001 
+Softmax 
+Softmax 
+0.9/0.1 
+0.8/0.2
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The information provided does not explicitly state the specific criteria used to split the data for deep learning model training. However, it mentions that the models were trained using 5-fold cross-validation, which suggests that the dataset was divided into five equal parts or 'folds'. Four of these folds were used for training purposes, while one fold was held back for testing or validation. This process was likely repeated five times, with each fold serving as the test or validation set once. Additionally, the table indicates that different train/test splits were considered during the hyperparameter search, but the exact values used for this split are not specified.

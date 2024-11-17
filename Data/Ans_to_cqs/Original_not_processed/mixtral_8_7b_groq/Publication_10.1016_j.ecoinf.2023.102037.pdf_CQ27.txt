@@ -1,0 +1,11 @@
+Answer:::
+
+The process followed to deploy the trained deep learning model involved model serialization and platform selection. The model was trained using a deep convolutional neural network, with specific parameters such as an aperture of F/10, ISO of 160, shutter speed of 1/15 s, and a focal length of 55 mm. The white balance was set to "Incandescent." The training procedure ran for 150 epochs on a system with an Intel(R) Xeon(R) CPU @ 2.40GHz, 32 GB Memory, and an NVIDIA(R) Quadro RTX 5000 (16GB Memory; CUDA Version: 11.4) GPU.
+
+During training, the model was fed with batches of 16 tiles at a time, using stochastic gradient descent (SGD) as the optimizer and a momentum of 0.9. Data augmentation techniques were applied to improve the model's robustness. The predicted bounding boxes with an intersection-over-union (IoU) of ≥ 0.6 were considered positive, while bounding boxes with IoU < 0.6 were considered negative.
+
+After training, the model was serialized, which involved saving the model's architecture, weights, and other relevant information in a file format that can be easily loaded and used for inference. The serialized model can be deployed on a platform that suits the specific use case. For instance, the model could be deployed on an edge device for real-time insect detection, or it could be deployed on a server for batch processing of large datasets.
+
+The paper by Wang et al. (2020b) on common pests image recognition based on deep convolutional neural network provides some insights into deploying the model in the field. The authors mention the need for deploying the model on a platform that can handle the computational requirements of the model while maintaining low power consumption. They also mention the need for maintaining multiple models at each branch to ensure high availability and reliability.
+
+Therefore, the process of deploying the trained deep learning model involves serializing the model and selecting a platform that can handle the computational requirements of the model while maintaining other relevant factors such as power consumption and reliability.

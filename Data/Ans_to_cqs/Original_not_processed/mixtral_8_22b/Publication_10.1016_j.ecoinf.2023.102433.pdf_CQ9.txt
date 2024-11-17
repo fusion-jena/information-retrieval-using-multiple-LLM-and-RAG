@@ -1,0 +1,66 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+EcologicalInformatics79(2024)1024336A. Montaghi et al.                                                                                                                                                                                                                              
+
+library allows the user to query the NASA service to discover all products 
+available  for  a  given  reference  date.  This  is  done  by  the  availa-
+ble_products_by_date() method, which returns the list of all products along 
+with their availability. This allows users to optimize the pipeline for data 
+download by limiting requests to available products.
+
+MongoDB (Reniers et al., 2019). This solution was implemented inside 
+the  DataHarvester  class.  In  the  domain  of  Remote  Sensing,  the  Data-
+harvester component is a set of synchronous or asynchronous processes 
+which is capable to detect new satellite images from the space agency 
+database.  Once  a  new  image  is  found,  the  component  downloads  the 
+data  using  the  internal  scripts  (Bellini  et  al.,  2021).  Different  imple-
+mentations  of  the  DataHarvester  class  can  target  other  databases, 
+ensuring flexibility of use of nasawebservice for different user needs. For 
+instance,  a  client  could  use  different  open-source  NoSQL  frameworks 
+such as HBase introduced by Google Bigtable, Elasticsearch developed 
+by Java on Apache Lucene, or eventually one of the many SQL database 
+solutions.  Whichever  storage  solution  chosen  by  the  user,  the  stored 
+MODIS data provides support, together with other data types, for agri-
+
+NASA’s  MODIS  mission  provides  twice-daily  global  coverage.  For 
+this  purpose,  the  NasaWebServiceAPIProvider  class  is  equipped  with 
+specific methods to create daily pipelines for data ingestion (Listing 5). 
+For instance, the last_product() method accepts as argument the product, 
+location, and band combination, and returns the last imagery uploaded 
+in the NASA server. The method is_present() allows the user specifying a 
+reference date (e.g., the date of today) and receiving a Boolean response 
+stating if a given product is present in the server archive. If the answer is 
+“True”  (i.e.,  the  given  product  is  in  the  archive),  a  subset()  method 
+request can be triggered to retrieve the data. Otherwise, the application 
+waits a  user-defined  time before  starting a  new  query. Moreover,  the
+
+2.  According to the cloud architecture, GEE is a SaaS (Software-as-a- 
+service). This translates into services (e.g., available datasets, allo-
+cated resources, implemented algorithms, export data formats, and 
+so on) entirely managed by Google and not (or hardly) modifiable by 
+the single user. For instance, in GEE deep learning analysis can be 
+performed  using  Tensorflow,  a  machine  learning  and  artificial  in-
+telligence  open-source  framework  developed  by  the  Google  Brain 
+team (Abadi et al., 2016). Although Tensorflow is one of the leading 
+machine  learning  frameworks,  this  excludes  the  possibility  of 
+employing different open-source machine learning systems such as 
+PyTorch primarily developed by Facebook AI Research lab (FAIR) 
+(Ketkar and Jojo, 2021), Microsoft Cognitive Toolkit (CNTK) (Seide 
+and Amit, 2016), Caffe of the University of California, Berkeley, US 
+(Jia et al., 2014) or novel algorithms for deep learning (Zhu et al.,
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Where is the data repository of the deep learning pipeline available (e.g., Zenodo, Figshare, Dryad, GBIF)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide information about where the data repository of the deep learning pipeline is available. It only mentions that the NasaWebServiceAPIProvider class has specific methods to create daily pipelines for data ingestion and that it uses TensorFlow for deep learning analysis. However, there is no mention of where the data repository is located or what platform is used to store the data. Therefore, I do not have enough information to determine where the data repository of the deep learning pipeline is available.

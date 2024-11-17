@@ -1,0 +1,65 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Since BERT can only accept a maximum of 512 tokens as input, we 
+used smaller subsections of the longer web articles as classifier input, an 
+approach previously applied to long document classification (Fiok et al., 
+2021; Sun et al., 2019). To identify the sections of text most likely to be 
+relevant to the classification decision, documents were split into chunks 
+of 300 tokens using the NLTK word-tokenizer. Chunks that contained 
+any  of  our  original  query  terms  (i.e.  any  bat-related  or  exploitation- 
+related  term)  were  retained.  If  more  than  one  chunk  contained  key-
+words,  the  first  such  chunk  of  the  document  was  retained  for  use  in 
+model training and evaluation. Before being fed into the BERT model, 
+texts are tokenized using the BERT tokenizer. Here, we set the maximum 
+number of tokens as 400 for social media posts, as most were very short, 
+and 512 for web articles, meaning some texts would have been further 
+truncated at this step.
+
+We  also  investigated  the  extent  to  which  using  active  learning  to 
+select training data could reduce the number of texts required to achieve 
+peak  performance  for  BERT  models.  Our  experiments  showed  that 
+classifiers  trained  using  data  selected  randomly  or  with  the  least 
+
+EcologicalInformatics75(2023)1020766S.B. Hunter et al.                                                                                                                                                                                                                               
+
+Fig. 4. The relationship between the number of texts in training data (increased at increments of 50) and the median F1 achieved by classifiers over five runs. The 
+model used, the classification task and the dataset from which training and testing data are derived are compared. N.B. this does not include stratified training data.
+
+For the Naive Bayes and neural network model, a vector represen-
+tation of the whole text was used in the classification decision. However, 
+for web articles, the BERT model used a truncated section of the whole 
+text  (see  Methods  2.3.2):  75%,  72%  and  80%  of  web  articles  were 
+truncated in the training sets for classification tasks 1, 2 and 3, respec-
+tively. Thus, for comparability, we also tested the performance of the 
+
+EcologicalInformatics75(2023)1020765S.B. Hunter et al.
+
+As well as the comparator models, we also tested the classification 
+performance of a fine-tuned transformer model. Transformer models are 
+a  class  of  large  language  model,  characterised  by  a  self-attention 
+mechanism, which can weight the influence of different parts of a text 
+sequence, to capture dependencies between words in the text (Vaswani 
+et al., 2017). We chose to use BERT (Bidirectional Encoder Represen-
+tations  from  Transformers),  as  it  is  one  of  the  most  well-known  and 
+widely-used  transformer  models.  BERT  uses  the  transformer  self- 
+attention  mechanism  to  generate  representations  of  words  in  a  text 
+sequence that consider both the right and left contexts around words. It 
+is trained using a large Wikipedia text corpus, via both masked-language 
+modelling, whereby model must predict missing tokens (words or parts 
+of  text,  such  as  punctuation)  in  text,  and  next-sentence  prediction,
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information on the specific hyperparameters used in the deep learning model, such as the learning rate or optimizer. Therefore, I cannot provide a helpful answer based on the available context.

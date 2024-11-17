@@ -1,0 +1,66 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+dataset)  with  46  softmax  units.  The  spectrograms  were  duplicated  to 
+meet  the  input  of  ResNet50  which  expects  3  channels.  Zhong  et  al. 
+(2020) compared VGG16 that was randomly initialised to a ResNet50 
+model that was  pre-trained  on ImageNet.  In both  cases, a  colour mel 
+spectrogram was input into the network. The spectrograms were resized 
+to match the network's input of 224 by 224. Their models were applied 
+to bird and amphibian vocalisations. ResNet50 pre-trained on ImageNet 
+was also used by LeBien et al. (2020) whereby the pre-trained feature 
+extractor was used and then two fully connected layers were added to 
+the CNN. Zhong et al. (2021) applied ResNet50 to a birdsong dataset 
+that contained three classes (two bird presence and one absence). The 
+CNN was  pre-trained on ImageNet and  the fully connected layer, fol-
+lowed by a dropout and an output layer was added to the CNN that was
+
+CNNs  are  commonly  executed  on  GPU  hardware  which  results  in 
+faster training time. However, we deliberately trained ResNet152V2 on 
+CPUs  in  an  attempt  to  verify  that  training  could  be  executed  on  less 
+expensive hardware. We trained the CNN on a virtual machine running 
+the  “E2asV4”  instance  on  Microsoft  Azure  with  16GB  RAM  and  a 
+2.35Ghz AMD EPYC™ 7452 2 vCPU which at the time of writing cost 
+0.218  USD  per  hour.  When  the  feature  extractor  was  frozen,  it  took 
+between 450 and 780 s to complete one epoch, and when the feature 
+extractor was fine-tuned it took between 2035 and 3100 s per epoch. 
+While these executions are time consuming, these findings reveal that it 
+is  possible  to  train  pre-trained  models  on  less  expensive  hardware 
+making them accessible to researchers and practitioners.
+
+practitioner can manually annotate a few examples and then start using 
+a  pre-trained  ResNet152V2  model  to  find  new  examples.  Once  addi-
+tional examples have been found via the pre-trained model, these new 
+examples can be incorporated into the training set. This iterative process 
+can be repeated until a large training set is obtained, after which, the 
+pre-trained CNN can be fine-tuned to create a more robust classifier. We 
+thus argue that practitioners can begin using CNNs relatively early on 
+within  a project to  speed up  the rate at  which calls  are found.  These 
+findings  oppose  existing  knowledge  that  deep  learning  requires  large 
+training  datasets.  One  possible  explanation  for  the  good  performance 
+achieved in this study is due to the high signal-to-noise ratio. It was also 
+hypothesised  that  good  performance  was  obtained  due  to  the  lack  of 
+variation within the calls (e.g. gibbons and whydah datasets), however
+
+nus,  the  critically  endangered  black-and-white  ruffed  lemur  Varecia 
+variegata, the vulnerable Thyolo alethe Chamaetylas choloensis, and the 
+Pin-tailed whydah Vidua macroura. Given the recent work in exploring 
+low  resource  devices  by  Disabato  et  al.  (2021),  this  study  will  also 
+demonstrate how transfer learning can be used to train CNNs with fewer 
+neural network parameters and thus enable researchers to train on less 
+expensive hardware.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Where is the code repository of the deep learning pipeline available (e.g., GitHub, GitLab, BitBucket)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information about the location or existence of a code repository for the described deep learning pipelines. Therefore, I cannot determine where the code repository of the deep learning pipeline is available.

@@ -1,0 +1,15 @@
+Answer:::
+
+Before training a deep learning model, such as the LSTM model used for air quality prediction in the context provided, several preprocessing steps are involved. These steps include normalization, scaling, and cleaning of the data.
+
+Firstly, the data is cleaned to remove any inconsistencies or errors that may exist in the dataset. This step is crucial as deep learning models are sensitive to the quality of the input data.
+
+Next, the data is normalized and scaled to ensure that all the features have similar ranges. In the case of the LSTM model, the data is pre-processed using a MinMaxScaler that transforms each feature by scaling it to a [0–1] range. This step is essential because deep learning models perform better when the input features have similar scales.
+
+Furthermore, a dropout layer is added to the LSTM model as a regularization method to avoid overfitting. The dropout layer randomly excludes some inputs from activation and weight updates while training the network. Inputs not set to zero are scaled up by 1/(1 - rate) such that the sum over all inputs remains the same.
+
+The temporal window dimension must be selected dynamically based on the performance obtained with different values on the available dataset. In the case of Modena, an Italian city spanning 183 km2, the implemented solution of LSTM is a trade-off between reaching good performances and minimizing the dimension of the training data. The LSTM model implemented has only one hidden layer of y neurons, where y is determined based on the number of training observations.
+
+Additionally, the number of previous observations is evaluated to determine the optimal temporal window. After evaluating 6, 12, 24, and 48 previous observations, the temporal window is fixed to 12 previous observations (i.e., 2 hours of observations) for the use case.
+
+Therefore, the preprocessing steps involved before training a deep learning model include data cleaning, scaling, and normalization, as well as the selection of the optimal temporal window and the determination of the number of neurons in the hidden layer based on the number of training observations.

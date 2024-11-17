@@ -1,0 +1,118 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+|  159
+
+because eventually both methods have sufficient constraints to learn 
+
+active  learning  pipeline  on  the  crops  produced  from  running  the 
+
+a good embedding.
+
+3.3.2 | Active learning strategies
+
+MegaDetector  model  over  the  NACTI  dataset.  We  employed  mar-
+
+gin-based active learning. After the first 30,000 active queries, the 
+
+classifier  achieves  93.2%  overall  accuracy  which  further  confirms 
+
+the usefulness of the suggested pipeline. More detailed results are 
+
+available in Table S3.
+
+Different strategies can be employed to select samples to be labelled 
+
+by the oracle. The most naive strategy is selecting queries at random. 
+
+Here  we  try  five  different  query  selection  strategies  and  compare 
+
+4 |  D I S CU S S I O N
+
+them against a control of selecting samples at random. In particular, 
+
+we try model uncertainty criteria (confidence, margin, entropy; Lewis 
+
+This  paper  demonstrates  the  potential  to  significantly  reduce
+
+Nielsen,  1989;  Robbins  &  Monro,  1951;  or  modern  enhancements 
+
+Norouzzadeh  et  al.  (2018)  that  harnessed  3.2  million  labelled 
+
+of it; Kingma & Ba, 2014; Tieleman & Hinton, 2012) calculates the 
+
+training  examples  to  produce  90.9%  accuracy  (using  ResNet-50 
+
+contribution  of  each  parameter  to  the  loss  value,  then  adjusts  the 
+
+architecture) at species classification, but with a 99.5% reduction 
+
+parameters so that the loss value is minimized. The SGD algorithm 
+
+in manually annotated training data. We also expect our method to 
+
+is an iterative algorithm, i.e. it is applied many times during training, 
+
+generalize better to new locations because we systematically filter 
+
+including multiple times for each image in the dataset. At every it-
+
+out the background pixels.
+
+eration of the SGD algorithm, the parameters take one step toward
+
+classification model.  We  start  the  active  learning  process  by  asking 
+
+1.  It  can  tell  us  if  an  image  is  empty  or  contains  animals;  any  image 
+
+the oracle to label 1,000 randomly selected images. We then train 
+
+with  no  detections  above  90%  confidence  is  marked  as  empty.
+
+our classification model using these 1,000 labelled images. At each 
+
+2.  It can count how many animals are in an image; we count animals 
+
+subsequent step, we select 100 unlabelled images that maximize our 
+
+by summing the number of detections above 90% confidence.
+
+image  selection  criteria  (we  will  discuss  different  image  selection 
+
+3.  By localizing the animals, it can be employed to crop the images 
+
+strategies  in  Section  3.3.2),  and  ask  the  oracle  to  label  those  100 
+
+to reduce the amount of background pixels; we crop detections 
+
+images;  the  classifier  model  is  re-trained  after  each  step.  Another
+
+Xu, Z., Yu, K., Tresp, V., Xu, X., & Wang, J. (2003). Representative sampling 
+for  text  classification  using  support  vector  machines.  In  European 
+conference on information retrieval (pp. 393–407). Springer.
+
+Wiley & Sons.
+
+Sutskever, I., Vinyals, O., & Le, Q. V. (2014). Sequence to sequence learn-
+ing with neural networks. In Advances in neural information processing 
+systems (pp. 3104–3112).
+
+Swanson, A., Kosmala, M., Lintott, C., Simpson, R., Smith, A., & Packer, 
+C.  (2015).  Snapshot  serengeti,  high-frequency  annotated  camera 
+trap images of 40 mammalian species in an african savanna. Scientific 
+Data, 2, 150026.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The paper does not explicitly state the specific criteria used to determine when training is complete. However, it mentions that after the first 30,000 active queries, the classifier achieves 93.2% overall accuracy. This suggests that the authors might have used a certain threshold of accuracy or performance metric to decide when to stop training. Additionally, the use of active learning strategies implies that the model continues to improve its performance as more labeled data becomes available. Therefore, it could be inferred that the training process may continue until a satisfactory level of performance is achieved or until there are no significant improvements in the model's performance.

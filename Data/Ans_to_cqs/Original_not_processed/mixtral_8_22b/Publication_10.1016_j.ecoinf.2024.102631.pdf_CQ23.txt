@@ -1,0 +1,197 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 4 
+Quantitative  comparison  on  UCCS  dataset  using  UIQM,  UCIQE,  and  NIQE 
+metrics.   
+
+UIQM↑ 
+
+UCIQE↑ 
+
+NIQE↓ 
+
+Raw_Images 
+Fusion 
+IBLA 
+U-Transformer 
+Funie-GAN 
+Water-Net 
+UWCNN 
+Ours 
+
+2.29 
+2.99 
+2.36 
+3.02 
+3.05 
+3.13 
+2.78 
+3.17 
+
+0.410 
+0.476 
+0.480 
+0.539 
+0.558 
+0.550 
+0.455 
+0.568 
+
+4.57 
+4.38 
+4.29 
+3.96 
+4.37 
+4.07 
+4.12 
+4.03  
+
+A quantitative analysis of this dataset is given in Table 5, confirming 
+our  model's  effectiveness.  Our  method  has  achieved  a  UIQM  score  of 
+3.26 and an NIQE score of 5.39, followed by the Funie-GAN in terms of 
+UIQM with a score of 3.21 and Fusion in terms of NIQE with a score of 
+5.40. While measuring the UCIQE score, IBLA achieved a score of 0.626, 
+although their resultant images are just color deviations from the orig-
+inal images. However, since UCIQE measures a linear combination of 
+chroma, saturation, and contrast, a higher value can be expected just by 
+having a change in colors (even if they are not desirable).
+
+24.36 
+0.885 
+
+15.25 
+0.656 
+
+25.59 
+0.893  
+
+EcologicalInformatics81(2024)1026319A.B. Bakht et al.                                                                                                                                                                                                                                
+
+Table 2 
+Quantitative  comparison  on  C-60  dataset  using  UIQM,  UCIQE,  and  NIQE 
+metrics.   
+
+UIQM↑ 
+
+UCIQE↑ 
+
+NIQE↓ 
+
+Raw_Images 
+Fusion 
+IBLA 
+U-Transformer 
+Funie-GAN 
+Water-Net 
+UWCNN 
+Ours 
+
+1.99 
+2.78 
+1.81 
+2.65 
+3.10 
+2.57 
+2.25 
+3.12 
+
+0.478 
+0.512 
+0.574 
+0.534 
+0.572 
+0.578 
+0.466 
+0.591 
+
+5.18 
+4.74 
+5.02 
+4.94 
+4.73 
+4.88 
+4.89 
+4.67  
+
+Table 3 
+Quantitative comparison on U45 dataset using UIQM, UCIQE, and NIQE metrics.   
+
+UIQM↑ 
+
+UCIQE↑ 
+
+Raw_Images 
+Fusion 
+IBLA 
+U-Transformer 
+Funie-GAN 
+Water-Net 
+UWCNN 
+Ours 
+
+2.44 
+3.14 
+1.60 
+3.10 
+3.21 
+3.18 
+2.82 
+3.23 
+
+0.481 
+0.532 
+0.579 
+0.553 
+0.602 
+0.587 
+0.471 
+0.612 
+
+NIQE↓
+
+score within the C-60 dataset, it falls short compared to the scores ob-
+tained in the other two datasets. This discrepancy can be attributed to 
+the challenging nature of the dataset, precisely due to the inclusion of 
+deep water scenes with low-light visibility. Also, our method exhibited 
+lower UIQM scores compared to Funie-GAN, specifically in scenes with 
+greenish  color  distortions.  Our  model  encounters  limitations  in  effec-
+tively enhancing images within these particular scenes, contributing to 
+the observed disparity in performance across datasets. Also, our image 
+enhancement  model  is  designed  to  generate  images  of  a  fixed  size 
+(256×256). While this resolution is suitable for certain applications, it 
+poses  a  potential  limitation  in  scenarios  requiring  larger  or  more 
+detailed images. On the other hand, increasing the output image size 
+would increase the model size would result in higher time and compu-
+tation complexities.
+
+set (UCCS) dataset (Liu et al., 2020). 
+
+Experiment Settings: To ensure fairness and comparability in our 
+evaluation,  we  conducted  comprehensive  experiments  comparing  our 
+model  with  state-of-the-art  (SOTA)  methods.  We  maintained  consis-
+tency by either utilizing source codes provided by authors or referring to 
+original paper descriptions (Ancuti et al., 2018; Islam et al., 2020a; Li 
+et al., 2019a; Li et al., 2020; Peng et al., 2023; Peng and Cosman, 2017). 
+All  methods  underwent  identical  testing  and  training  processes 
+throughout  the  experiments.  The  evaluation  environment  was  set  up 
+with an NVIDIA RTX 6000 48GB GPU, Intel Xeon(R) Gold 6230 CPU @ 
+2.10GHz × 80. Additionally, we trained our model for 300 epochs using 
+the Adam optimizer with a learning rate set to 0.0001. 
+
+4.1. Evaluation Metrics
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of the deep learning model, several measures were taken during its development and evaluation process. Firstly, the model was tested on three diverse datasets - C-60, U45, and UCCS - each containing different types of underwater images captured under various conditions. This allowed the model to learn from a wide range of data, improving its ability to handle real-world scenarios. Secondly, the experiment settings ensured consistency and fairness in evaluating the model against state-of-the-art methods. All methods underwent identical testing and training processes throughout the experiments. Furthermore, the evaluation environment was standardized using an NVIDIA RTX 6000 48GB GPU and Intel Xeon(R) Gold 6230 CPU @ 2.10GHz × 80. Lastly, the model was trained for 300 epochs using the Adam optimizer with a learning rate set to 0.0001, ensuring thorough optimization and convergence. These measures collectively contributed to the robustness and generalizability of the developed deep learning model.

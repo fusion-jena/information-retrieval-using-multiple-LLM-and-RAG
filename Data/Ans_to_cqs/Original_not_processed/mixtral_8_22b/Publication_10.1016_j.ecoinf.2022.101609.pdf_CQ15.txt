@@ -1,0 +1,80 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+(cid:0) 4,  and  steep  value  of  1.3e
+
+4). 
+
+(cid:0)
+
+4.3.3. Model evaluation 
+
+In this section, the results of the deep learning model developed are 
+presented. The model was trained to make day-ahead predictions of the 
+three pollutants, but first, an appropriate evaluation metric had to be 
+selected.  The  top  metrics  for  regression  problems  are  mean  squared 
+error/root  mean  squared  error  (MSE/RMSE),  mean  absolute  error 
+
+Fig. 12. A plot showing the model's training and validation losses against the 
+number of epochs. It is worth noting that there was a gradual decrease in both 
+losses  as  the  training  epochs  increased  which  indicates  that  the  model  was 
+learning. Further training beyond 20,000 epochs would have either resulted in 
+overfitting or no further drop in both losses.
+
+Suitable optimisers, loss functions and activation functions had to be 
+selected from an array of available options. Series of experimentation 
+were  carried  out  on  popular  optimisation  functions  such  as  SGD, 
+RMSProp,  LAMB,  LARS  and  Adam  and  regression  loss  functions  like 
+
+EcologicalInformatics69(2022)10160911T.D. Akinosho et al.                                                                                                                                                                                                                            
+
+Fig. 10. Auto-SQL generation to pre-process the dataset. An SQL command which generates 3-hour and 6-hour pollutant averages from the preceding readings 
+is depicted. 
+
+Fig.  11. The  model's  training  loss  against  the  learning  rate  to  determine  the 
+appropriate learning rate. The learning rate was fixed at the point where the 
+(cid:0)
+plot started dipping (i.e., 10
+
+4).
+
+BCELossflat, MSELossFlat and L1LossFlat before deciding the most suit-
+able.  Eventually,  Adam  optimiser  and  MSELossFlat  were  chosen  for 
+model training. Bayesian-optimization library was used to test and opti-
+mise  the  number  of  architecture  layers,  the  size  of  each  layer  and 
+dropout rates for the network. The final architecture used to train the 
+model  was  made  up  of  14  embedding  layers,  3  dropout  layers,  3 
+batchnorm1d  layers,  3  linear  layers  and  2  ReLU  activation  functions. 
+The embedding layer was adopted for improved performance as inspired 
+by the architecture proposed in Guo and Berkhahn (2016). Finally, the 
+learning rate finder (lr_find) function of TabularLearner class was used to 
+determine the best learning rate to be used for training. This resulted in a 
+(cid:0) 4.  Fig.  11  below 
+minimum  value  of  2.5e
+shows the plot of the learning rate against the loss. Experts recommend
+
+3. A proposed deep learning framework for highway AQ 
+monitoring and prediction 
+
+The proposed framework is a four-layered architecture composed of 
+the hardware layer, data storage layer, integration layer and analytics 
+layer as depicted in Fig. 2. This section introduces these layers and their 
+functionalities. 
+
+3.1. Hardware layer
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Answer: In the given context, several optimization techniques were explored for use in the deep learning pipeline. These include Stochastic Gradient Descent (SGD), Root Mean Square Propagation (RMSProp), Lamb Optimizer (LAMB), Large Batch Optimizer (LARS), and Adaptive Moment Estimation (Adam). After conducting experiments with these popular optimization functions, Adam optimizer was selected for model training. Additionally, Bayesian optimization was employed to fine-tune the number of architecture layers, the size of each layer, and dropout rates for the network.

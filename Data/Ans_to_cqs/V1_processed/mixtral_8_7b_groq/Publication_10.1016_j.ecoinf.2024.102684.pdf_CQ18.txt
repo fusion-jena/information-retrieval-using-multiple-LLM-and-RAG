@@ -1,0 +1,13 @@
+The strategy implemented to monitor the model performance during training involves dividing the dataset into three subsets: training (60%), validation (20%), and testing (20%). This approach helps in obtaining an unbiased estimation of error and assessing overfitting.
+
+During the training phase, the model is trained on the training dataset, and its performance is monitored on the validation dataset. The validation dataset serves as a proxy for the testing dataset and provides an estimate of how the model would perform on new, unseen data. By comparing the model's performance on the training and validation datasets, it is possible to identify if the model is overfitting or underfitting.
+
+Overfitting occurs when the model learns the training data too well, including its noise and outliers, and performs poorly on new data. To prevent overfitting, data augmentation was only applied to the training data, avoiding overlapping the same data in different partitions. This technique helps in increasing the size of the training dataset, providing the model with more variability, and reducing overfitting.
+
+Underfitting occurs when the model fails to learn the underlying patterns in the training data, resulting in poor performance on both the training and validation datasets. If the model is underfitting, it may be necessary to adjust the model's architecture, such as increasing the number of layers or neurons, or tuning the hyperparameters.
+
+To evaluate the models, the coefficients of determination (R2) and the root mean squared error (RMSE) metrics were used. R2 measures the percentage of variation in the response variable explained by the model, while RMSE measures the difference between the actual and predicted values. Values closer to 0 for RMSE indicate better model predictions.
+
+In addition to evaluating the model within the training domain (i.e. test dataset), the model's performance was also evaluated outside the training domain (i.e. transfer learning dataset). This setup allows for quantifying the performance difference between the two contexts and provides a deeper insight into the generalization capabilities of the model.
+
+In summary, the strategy implemented to monitor the model performance during training involves dividing the dataset into three subsets, training the model on the training dataset, monitoring its performance on the validation dataset, preventing overfitting through data augmentation, and evaluating the model within and outside the training domain.

@@ -1,0 +1,94 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+5.2. Deep GVI learning 
+
+In  GreenCam,  we  measure  photo  GVI  by  SegFormer  (Xie  et  al., 
+2021),  a  state-of-the-art  Transformer-based  model  for  semantic  seg-
+mentation. As shown in Fig. 12, SegFormer follows the encoder-decoder 
+structure, which combines a Transformer-based encoder (i.e., MiT) with 
+a  lightweight  decoder  (i.e.,  ALL-MLP)  that  is  composed  entirely  of 
+multilayer perceptron (MLP) blocks.
+
+The  MiT  encoder  of  SegFormer  is  designed  as  a  hierarchically 
+transformer structure, which can generates the high-resolution coarse 
+features  and  the  low-resolution  fine-grained  features.  The  MiT  trans-
+former  blocks  use  the  sequence  reduction  process  in  self-attention 
+layers,  which  can  reduce  the  computational  burden  by  a  constant 
+ratio.  In  addition,  each  transformer  block  directly  places  a  Mix-FNN 
+component  (zoomed in  at  the  right bottom  part of  Fig. 12),  along its 
+feed-forward path and right before its output. With the Mix-FNN policy, 
+SegFormer  does  not  need  to  train  positional  encoding  and  then,  can 
+work with better generalization ability. The ALL-MLP decoder of Seg-
+former consists entirely of MLP components, which are arranged in four 
+main steps. With introducing few additional parameters, the ALL-MLP 
+decoder  is  simple  but  effective,  because  its  input  (i.e.,  the  MiT  en-
+
+SegFormer offers a set of MiT encoders (marked by MiT-B0, up to 
+MiT-B5) with increasing model sizes. To strike a balance between per-
+formance  and  efficiency,  and  to  facilitate  model  deployment  on 
+resource-constrained  mobile  devices,  we  choose  the  MiT-B1  as  the 
+encoder of GVI learning. We train the model on a server with an NVIDIA 
+GeForce GTX 3090 GPU (24 GB memory). The weights pretrained on 
+ImageNet-1 K dataset are used to initialize the encoder and decoder. In 
+training, we use the AdamW optimizer with the momentum parameter 
+(cid:0) 8  to prevent division by zero. 
+(β1
+We employ a cosine annealing schedule and set the initial learning rate 
+to 0.0001. The model is trained on the UGE-D dataset for 100 epochs 
+with the batch size of eight. We supervise SegFormer's training with the 
+Cross-Entropy loss function, which is formulated as: 
+
+) set to (0.9, 0.999) and ε set to 10
+
+, β2
+
+L = (cid:0) 1
+N
+
+∑N
+
+∑C
+
+(
+
+yijlog
+
+pij
+
+)
+,
+
+i=1
+
+j=1
+
+(4)
+
+Fig. 6. Structure of the neural network of learning eye-phone distance, where 
+the  number  attached  to  each  layer  is  the  number  of  neurons  included  in 
+that layer. 
+
+structure of EPDNet, which works with the face box's width and height 
+as  input  and  the  eye-phone  distance  as  output.  The  ReLU  activation 
+function  and  sigmoid  are  used  to  cope  with  non-linearity.  The  five 
+neuron  layers  following  the  concatenation  are  all  fully  connected.  In 
+EPDNet training, we employ the Mean Squared Error (MSE) loss func-
+tion and the Adam optimizer with a learning rate of 0.0001. We use the 
+R2  metric to assess the model's fit to the observed data. After training, 
+this model fits well with the R2  of 0.95.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't explicit information about specific preprocessing steps such as normalization, scaling, or cleaning before training the deep learning models like SegFormer or EPDNet. However, it is common practice in machine learning and deep learning to perform these preprocessing tasks. For instance, image datasets often undergo resizing, normalization, augmentation, etc., while text data might be tokenized, padded, or vectorized using techniques like Word2Vec or TF-IDF. Similarly, numerical data could be scaled or normalized to ensure consistent ranges across different features. Therefore, although not explicitly mentioned in the context, it is highly likely that some form of preprocessing was performed before training the deep learning models.

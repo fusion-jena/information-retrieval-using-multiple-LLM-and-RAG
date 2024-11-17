@@ -1,0 +1,67 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The model is constructed using the EfficientNet B0 network (Tan and 
+Le, 2019) which had been trained for generic image classification. The 
+EfficientNet feature extraction layers are frozen (transfer learning) with 
+only the weights of the final dense classification layers updated during 
+training.  Training  was  conducted  within  the  Google  Collaboratory 
+‘Colab’  platform  (Bisong,  2019),  using  the  Tesla  K80  GPU,  accessed 
+through  cloud  computing.  An  Adam  optimizer  was  used  to  control 
+gradient descent during training (Kingma and Ba, 2014), with parame-
+ters set to: learning rate of 0.001, decay factor of 0.75 and a step size of 
+
+EcologicalInformatics78(2023)1023632E.L. White et al.
+
+(Fig.  1),  considering  its  performance  in  the  new  environment  with 
+limited re-training. Starting with a pre-trained model (EfficientNet B0, 
+Tan and Le, 2019), we freeze the networks original feature extractor. We 
+then train fully connected layers, which operate on the output of the 
+EfficientNet  B0  network,  to  classify  the  PAM  data  frames  into  the 
+specified sound source classes. Audio data is input to the network in a 
+novel  spectrogram representation (White  et  al.,  2022). Networks  pre- 
+trained on image data have been proven to perform well on classifica-
+tion  tasks  using  spectrograms  as  image  input,  transformed  from  raw 
+audio data (Allen et al., 2021; Shiu et al., 2020; Stowell, 2022). In this 
+work  we fine-tune the  parameters  of the fully connected layers  itera-
+tively  on  small  batches  of  training  data  acquired  from  a  new  region. 
+Through  an  experimental  approach  to  retraining  we  demonstrate  the
+
+2.2. Model fine-tuning 
+
+To  fine-tune  the  base  model  with  Gulf  of  Mexico  data  the  feature 
+extractor remains frozen. Models are trained with the same parameters 
+as the base model but we use a cyclical learning rate of 0.0004 and is set 
+to run for 50 epochs, with early stopping set to deploy if the validation 
+loss does not improve within 10 epochs. A dropout rate of 0.2 is used 
+during  fine-tuning,  and  DropConnect  is  employed.  Drop  out  layers 
+randomly  discard  the  output  of  the  hidden  nodes  during  training, 
+DropConnect randomly discards the input of the hidden layer (Sun et al., 
+2022). 
+
+2.2.1. Data acquisition
+
+EcologicalInformatics78(2023)10236310E.L. White et al.                                                                                                                                                                                                                                 
+
+model  training  set  (Klinck  et  al.,  2020).  We  found  that  through  fine- 
+tuning  with  500  frames  of  ambient  noise  we  can  achieve  similar  re-
+sults across all classes as when the model is trained on batches of each 
+class. Performance metrics indicate that by using ambient noise data to 
+fine-tune the base model we optimise the learned feature representation 
+to the local environment, improving performance across all classes after 
+only 50 frames per class (2.5 min of data).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Training of the deep learning model is conducted within the Google Collaboratory 'Colab' platform, utilizing the Tesla K80 GPU accessed through cloud computing. This indicates that the hardware resource used for training the deep learning model is a Tesla K80 GPU.

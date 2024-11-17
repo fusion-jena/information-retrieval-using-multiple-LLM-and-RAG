@@ -1,0 +1,90 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Thereafter, we use the following time indices, whose unit is month: 
+ma  is the leading time of prediction relative to the starting time of pre-
+diction m, and mb  is the duration of the past time series segment. Also, 
+the  time  interval  [m0, m1] means  that  time  runs  m0, m0+1, …, m1.  For 
+supervised  learning  in  this  model,  the  object variable  is  the  NINO3.4 
+index ym+ma  at time τ = tm+ma , whereas the explanatory variables xm  for 
+a time period include the signature for the segment of time series X in 
+. The approximation property described in the 
+that period 
+previous  section  allowed  us  to  express  the  object  variable  as  a  linear 
+combination of explanatory variables, as follow: 
+
+[
+tm(cid:0) mb+1, tm
+
+]
+
+ym+ma = ym + 〈wm, xm〉 + ϵ
+
+xm := Sn
+
+(
+X[tm(cid:0) mb +1,tm]
+
+)
+
+(5)  
+
+(6)
+
+Our  findings  also  revealed  a  significant  reduction  in  computation 
+time when ML models, along with preselection, were used. Unlike ex-
+pected, pre-selection lowered the accuracy of the results, which likely 
+indicates  a  loss  of  information  in  the  database  transformed  using  the 
+signature method. As we expected that the Lasso model, in the absence 
+of the signature method, would not provide convincing results; there-
+fore, we only retained this analysis to maintain consistency in compar-
+ison with the ML models. Though it is possible to extract PDPs from RF 
+runs  coupled  with  the  signature  method,  their  interpretation  is  not 
+possible because of this transformation. The amount of input data, or in 
+our case, the size of the time series used during the learning phase of an 
+ML  model,  can  have  a  non-negligible  influence  on  predictive  perfor-
+mance (Bustillo et al., 2022; Derot et al., 2020b). In other words, a long
+
+The above procedure was repeated after incrementing the time index 
+m by 1 (see Fig. 1). Figs. A-1 in the Appendix represents a schematic 
+view of the training and prediction flow. In this flow, the weight wm  was 
+obtained  using  the  training  dataset  Dm.  The  prediction  from  time  tm 
+using  the  signature  xm  yielded  the  value  ̂ym+ma ,  which  was  compared 
+with  the  validation  data  ym+ma .  Notably,  the  size  of  the  training  data 
+|Dm| = m (cid:0) ma (cid:0) mb + 1 depended on the starting time tm. The predic-
+tion error was obtained by calculating ̂ym+ma
+(cid:0) ym+ma  at different starting 
+times. By adopting this approach, which involves conducting training 
+and forecasts progressively by changing the starting time of the forecast 
+but not used the information that is not accessible at the start of pre-
+diction period, each forecast was assured to be a fair cross-validation. 
+We used a climate time series composed of d = 12 indices in Table 1
+
+2.4.3. Long-short-term-memory model
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, several postprocessing steps can be performed depending on the specific requirements of the task. Here are some common postprocessing steps:
+
+1. Model Evaluation: This step involves evaluating the performance of the trained model using various metrics such as accuracy, precision, recall, F1 score, ROC curve, etc. These metrics help in understanding how well the model has learned from the training data and its ability to generalize to unseen data.
+
+2. Hyperparameter Tuning: After initial evaluation, hyperparameters of the model may need to be fine-tuned to improve its performance further. This process involves selecting optimal values for parameters like learning rate, regularization strength, number of layers, etc.
+
+3. Feature Importance: Understanding which features contribute most significantly towards the predictions made by the model can be useful for feature selection and improving interpretability. Techniques like saliency maps, SHAP values, LIME, etc., can be employed for this purpose.
+
+4. Error Analysis: Analyzing incorrect predictions made by the model helps identify patterns or biases in the data that might lead to poor performance. This step often involves visualizing confusion matrices, ROC curves, calibration plots, etc.
+
+5. Ensemble Methods: Combining multiple models into an ensemble can sometimes result in better overall performance. Common techniques include bagging, boosting, stacking, etc.
+
+In the given context, no explicit mention of any specific postprocessing steps is present. However, based on the description of the model training process, one could infer that model evaluation using appropriate metrics would be necessary to assess its performance accurately. Additionally, since the model uses a combination of supervised learning and linear regression, analyzing feature importance and performing hyperparameter tuning might prove beneficial.

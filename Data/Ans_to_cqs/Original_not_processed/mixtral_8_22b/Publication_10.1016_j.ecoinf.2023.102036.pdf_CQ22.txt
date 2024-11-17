@@ -1,0 +1,91 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+standard  for  most  research  teams  which  are  becoming  familiar  with 
+deep learning approaches.
+
+number  of  classes  to  be identified)  and  the  second term  refers  to  the 
+small amount of K labelled images in each category. To overcome the 
+limitation  in  the  dataset  size,  we  exploit  existing  deep  learning  tech-
+niques in combination with statistical fundamentals.
+
+Table 1 
+Model training optimized parameters.  
+
+Parameter 
+
+Nomenclature 
+
+Search interval 
+
+Learning 
+rate 
+
+Momentum 
+SD threshold 
+Input size 
+
+μ 
+
+β 
+σ 
+s 
+
+[10
+
+(cid:0) 5, 10
+
+(cid:0) 2] 
+
+[0,1] 
+[0.05, 0.25] 
+{(75, 125, 3), (100, 150, 3), 
+(200, 250, 3)} 
+
+Optimized 
+value 
+
+0.096 
+
+0.845 
+0.05 
+(200, 250, 3)  
+
+Each optimization run consisted of 3000 train iterations with a batch 
+size of 25 individuals to pick a pair of similar and a pair of dissimilar 
+photos (i.e., a batch size of 100 images), and validating each 300 iter-
+ations. TensorBoard —a set of visualization tools included in the open- 
+source  library  for  machine  learning  TensorFlow—  was  used  to  study 
+the performance of the runs. The selected parameters correspond to the 
+run shown in Supplementary Fig. S3. 
+
+3. Results
+
+In this work, siamese neural networks were chosen among the metric 
+learning  methods  because  of  their  learning  paradigm  in  two  steps. 
+Metric learning is an approach based directly on a metric that compares 
+the relationship between images of the same or different classes. The 
+first step consists in training a neural network that can distinguish be-
+tween the equality/difference of classes of a pair of inputs. This so-called 
+verification model is trained to give the probability that a particular pair 
+belongs  to  the  same  class,  by  randomly  sampling  pairs  of  inputs 
+belonging  to  the  same  and  different  categories.  In  a  second  stage 
+—known as one-shot task—, we select the support set of categories in 
+which an individual could be assigned, and the model is used to evaluate 
+new test samples in a pairwise manner against one input per possible 
+class, choosing the one with the highest score. Fig. 4 depicts these two
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit information about the specific evaluation metrics used to assess the performance of the deep learning model. However, it mentions using TensorBoard, a tool from the TensorFlow library, to monitor the performance of the runs during training. Typically, when working with deep learning models, common evaluation metrics include accuracy, precision, recall, F1-score, ROC AUC, etc. These metrics help measure how well the model performs in predicting the correct labels for the data. Since the context does not specify any particular metric, it would be best to assume that standard evaluation metrics like accuracy, precision, recall, or others relevant to the problem domain might have been employed.

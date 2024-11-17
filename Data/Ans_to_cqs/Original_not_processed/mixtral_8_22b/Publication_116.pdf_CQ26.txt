@@ -1,0 +1,236 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+B. Deep Learning Experiment
+
+The second experiment is similar to the ﬁrst one but it uses
+deep learning CNNs to determine if the SSPB introduces a
+signiﬁcant bias. It corresponds to the second row in Figure I.
+There is no segmentation applied to the data, only a resize to
+224x224 pixels before running the network on the data.
+
+V. RESULTS
+
+A. Hand-crafted Feature Extraction Experiment
+
+Table III shows the results related to the hand-crafted feature
+extraction approach experiment. The accuracy obtained is
+always considerably better when the biased dataset is used,
+with a 26.4% difference when top-5 is used. This clearly shows
+that SSPB introduces a signiﬁcant bias.
+
+Table III: Unbiased and Biased Top-5 Accuracy with LBPU.
+
+k
+
+1
+2
+3
+4
+5
+
+Unbiased Accuracy
+
+Biased Accuracy
+
+0.0669
+0.0963
+0.1200
+0.1383
+0.1513
+
+0.2095
+0.2805
+0.3357
+0.3800
+0.4162
+
+1) Biased Dataset: This dataset was created by randomly
+taking 70% of the data in D for training and 30% for
+testing. These are really approximate percentages because such
+distribution has to be attempted for each species in dataset D.
+How close to a 70%-30% distribution is achieved depends
+on how many photos per species there are in dataset D. For
+example, if a given species X has 20 photos, 14 randomly
+chosen photos will go to the training dataset and 6 to the
+testing dataset. However, if the number of photos for species
+X is 2, one will go to the training dataset and the other one to
+the testing dataset, resulting in a 50%-50% distribution. This
+is the approach most of previous plant identiﬁcation studies
+have followed (particularly those based on leaf-scans).
+
+2) Unbiased Dataset: For each species X in dataset D, we
+tried to approximate a 70%-30% distribution as in the Biased
+Dataset case. However, in order to avoid the SSPB, we used
+the unique specimen identiﬁer to place images from the same
+specimen in eiher the training dataset or the testing dataset.
+This restriction alone could not be achievable if, for example,
+one species X has photos of several leaves but they are all
+from the same specimen. Our dataset D was created so that it
+precludes such scenario, as there are photos from at least two
+different specimens for each species X in dataset D. However,
+this restriction clearly makes it harder to approximate the ideal
+70%-30% distribution both, at the species level and globally.
+
+1www.museocostarica.go.cr
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on August 29,2024 at 05:45:22 UTC from IEEE Xplore.  Restrictions apply. 
+
+B. Computer Vision Approaches/Pipelines
+
+Type
+
+Patch size / Stride
+
+Output Size
+
+Depth
+
+Params
+
+7x7/2
+3x3/2
+
+3x3/1
+3x3/2
+
+3x3/2
+
+3x3/2
+
+7x7/1
+
+convolution
+max pool
+batch norm
+LRN
+convolution
+max pool
+batch norm
+LRN
+inception (3a)
+inception (3b)
+max pool
+batch norm
+inception (4a)
+inception (4b)
+inception (4c)
+inception (4d)
+inception (4e)
+max pool
+batch norm
+inception (5a)
+inception (5b)
+avg pool
+batch norm
+linear
+softmax
+
+112x112x64
+56x56x64
+56x56x64
+56x56x64
+56x56x192
+28x28x192
+28x28x192
+28x28x192
+28x28x256
+28x28x480
+14x14x480
+14x14x480
+14x14x512
+14x14x512
+14x14x512
+14x14x528
+14x14x832
+7x7x832
+7x7x832
+7x7x832
+7x7x1024
+1x1x1024
+1x1x1024
+1x1x10000
+1x1x10000
+
+1
+0
+0
+0
+2
+0
+0
+0
+2
+2
+0
+0
+2
+2
+2
+2
+2
+0
+0
+2
+2
+0
+0
+1
+0
+
+Ops
+
+34M
+
+2.7K
+
+112K
+
+360M
+
+159K
+380K
+
+128M
+304M
+
+364K
+437K
+463K
+580K
+840K
+
+73M
+88M
+100M
+119M
+170M
+
+1072K
+1388K
+
+54M
+71M
+
+1000K
+
+1M
+
+IV. EXPERIMENTS
+
+A. Hand-crafted Feature Extraction Experiment
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In this study, the authors address data bias during preprocessing of their deep learning pipeline using stratified splitting. They create two datasets - a biased dataset and an unbiased dataset. The biased dataset is created by taking 70% of the data for training and 30% for testing, approximating these percentages for each species in the dataset. However, this can result in a significant bias due to Species Sampling Proportional Bias (SSPB), where some species have more samples than others. To mitigate this, the authors create an unbiased dataset. In this case, they still attempt to achieve a 70%-30% distribution for each species, but they ensure that images from the same specimen are placed either in the training dataset or the testing dataset. This prevents any potential leakage between the training and testing sets, which could lead to overfitting and poor generalization performance. While the paper does not explicitly mention oversampling, undersampling, or diverse data collection, these techniques could also potentially help reduce data bias in deep learning pipelines. Oversampling involves duplicating examples from underrepresented classes, while undersampling removes examples from overrepresented classes. Diverse data collection aims to gather a wide range of examples representing different scenarios, conditions, and variations within each class.

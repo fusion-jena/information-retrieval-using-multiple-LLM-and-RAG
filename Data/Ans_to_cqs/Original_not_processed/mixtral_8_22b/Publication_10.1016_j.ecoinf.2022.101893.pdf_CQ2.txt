@@ -1,0 +1,101 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+sound (Bai et al., 2020). In the meantime, many scholars have adopted 
+deep learning methods to extract deep features. Deep learning feature 
+extraction is to obtain new deep features from the raw audio or extracted 
+handcrafted  features  through  the  deep  learning  architecture.  For 
+example,  Xie  and  Zhu  used  the  CNN  layers  for  learning  generalized 
+features and dimension reduction, while a conventional fully connected 
+layer was used to classify 14 species of birds collected from Xeno-Canto 
+website. The final best F1score is 95.95% (Xie and Zhu, 2019). Liu et al. 
+extracted  the  WT  spectrum  of  birdsong and  constructed a  multi-scale 
+CNN to achieve birdsong classification (Liu et al., 2022).
+
+In recent years, deep learning has an excellent performance and is 
+also widely used in computer vision, speech recognition and other fields. 
+Xie et al. used Chirplet transform, STFT and Mel cepstrum transform to 
+obtain the spectrogram, and combined with the bird species recognition 
+method of deep learning, classified and recognized 18 species of birds 
+(Xie et al., 2018). Since 2015, many research teams have exploited deep 
+learning to classify birdsong in the LifeCLEF bird recognition challenge. 
+For example, Piczak used deep learning to identify South American birds 
+in the BirdCLEF 2016 competition (Piczak, 2016). T´oth et al. used CNN 
+for feature learning in the same competition, and achieved good results 
+(T´oth  and  Czeba,  2016).  Based  on  Xception,  extracted  logmel  or  log-
+linear  spectra  as  features  in  BirdCLEF  2020,  Bai  et  al.  used  data 
+enhancement technology to improve the detection performance of bird
+
+Input: bird audio data 
+
+Output: classification result 
+Steps: 
+1 Using preprocessing technology to process bird audio to obtain processed data D; 
+2 Extracting the WT spectrum FWT, STFT spectrum FSTFT, HHT spectrum FHHT and 
+MFCC features FM from D; 
+3 Taking FWT, FSTFT, FHHT as input, using CNN pre-training model to generate deep 
+features Fdeep; 
+4 Using mRMR algorithm to extract effective features Fm_deep from Fdeep; 
+5 Taking Fm_deep and FM as input, using RF, SVM and MLP as classifiers to obtain the 
+classification probability of two groups of features; 
+6 Fusing the classification probability of two groups features to obtain fusion feature 
+FmRMR(cid:0) d,  h; 
+7 Using classifiers to gain classification result with FmRMR(cid:0) d, h.   
+
+[
+
+max
+fj ∈X(cid:0) Sm(cid:0) 1
+
+I(fi; c) (cid:0)
+
+]
+
+)
+
+1
+m (cid:0) 1
+
+∑
+
+(cid:0)
+
+I
+
+fj; fi
+
+fi ∈Sm(cid:0) 1
+
+5. Experiment and result analysis 
+
+(15) 
+
+5.1. Experimental design and environment
+
+shown in the Fig. 6. 
+
+The network is designed with four convolution kernel pooling layers 
+to extract deep features. After the convolution pooling, the data enters 
+the fully connected layer for connection. The network adds a dropout 
+layer  to  the  fully  connected  layer  to  reduce  network  parameters.  A 
+Dense_1 layer is added after flatten to reduce the dimension of the deep 
+features, and sets the parameter to 500, which is the parameter of the 
+deep feature dimension extracted from different views. 
+
+4.2. Feature selection
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The deep learning pipeline described in the given context uses bird audio data as its input format. This audio data is then processed and transformed into various forms such as the WT spectrum, STFT spectrum, HHT spectrum, and MFCC features. These transformed data formats serve as inputs for further processing and classification steps within the deep learning pipeline. Therefore, the primary data format utilized in this particular deep learning pipeline is audio data.

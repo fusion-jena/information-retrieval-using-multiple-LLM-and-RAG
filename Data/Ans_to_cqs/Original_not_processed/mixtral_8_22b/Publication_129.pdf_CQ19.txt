@@ -1,0 +1,121 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Education, 2015.
+
+[37] M. Grinberg, Flask Web Development: Developing Web
+
+Applications with Python, O’Reilly Media, 2018.
+
+[38] V. Siahaan, R.H. Sianipar, A PRACTICAL GUIDE TO Data-
+base Programming with PHP/MySQL, Independ. Publ. (2019).
+
+[39] A.F. Villa´ n, Mastering OpenCV 4 with Python: A practical
+guide covering topics from image processing, augmented reality
+to deep learning with OpenCV 4 and Python 3.7, Packt Publ.
+(2019).
+
+[40] C. Szegedy, V. Vanhoucke, S. Ioffe, J. Shlens, Z. Wojna,
+Rethinking the Inception Architecture for Computer Vision, in:
+IEEE Conference on Computer Vision and Pattern Recognition
+(CVPR), 2016, 2016, pp. 2818–2826.
+
+(TP)
+negatives False Positive
+(FP)
+
+False Negative
+(FN)
+True Negative
+(TN)
+
+All experiments of our developed mobile-based crop pest
+recognition system were done using the Tensorﬂow object
+detection API framework [36] on a GPU of NVIDIA
+GAMINGX GTX 1080 8 GB and DDR4-16 GB memory.
+Before starting the training-step of the deep learning module,
+the NVIDIA CUDA Deep Neural Network library (cuDNN)
+was installed to accelerate the GPU computations for deep
+
+4428
+
+M.E. Karar et al.
+
+Fig. 4 A sample of classiﬁcation results and accuracy of the developed mobile application for all tested crop pests.
+
+neural networks. A smartphone with iOS V13.5 was used to
+test the detection and classiﬁcation of crop pest images in
+the cloud.
+
+In this study, total number of images for ﬁve classes of
+insect pests (see Fig. 1) are 500 collected from the public
+IP102 dataset [17]. These images are split into 80–20% for
+
+(cid:1) Flask web [37] is applied for handling the HTTP POST
+requests sent by the developed mobile-based user interface.
+Then, the recognition result of crop pests is retrieved and
+displayed.
+
+(cid:1) MySQL database management system [38] has been used to
+save all information and ground-truth images of the insect
+pests, e.g. the pest name and the appropriate use of pesti-
+cides for crop protection.
+
+(cid:1) PythonAnywhere [39] is a platform solution consisting of a
+Python online integrated development environment (IDE)
+and web hosting environment to create and run Python
+code in the cloud.
+
+4.3. Developed pest recognition system
+
+A new mobile-based application has been developed for iden-
+tifying the crop insects in the cloud, as depicted in Fig. 3. The
+framework of our developed deep learning-based cloud com-
+puting system is composed of three main modules to accom-
+plish automatic detection and classiﬁcation of insect pests as
+follows.
+
+4.3.1. User interface module
+
+IoU ¼
+
+A \ B
+A [ B
+
+ð2Þ
+
+Next, the Region of Interest (RoI) pooling layer takes the
+region corresponding to a proposal from the backbone feature
+map and dividing it into sub-windows. The maximum pooling
+is performed over these sub-windows to give the output of RoI
+pooling layer, which has a size of (N, 7, 7, 512), and N is the
+number of generated region proposals by the RPN mechanism,
+as shown in Fig. 2. After passing through two fully connected
+layers (FCs), the features are fed into the classiﬁer and regres-
+sor branches as follow. The classiﬁcation layer calculates the
+probability of the region proposal contains an object such that
+the probability Pi of each element in the feature map i contains
+the target object using softmax function. The regions with the
+top score of 300 Pi in the total rankings present the detected
+target object. In addition, the regressor provides the IoU index
+
+A new mobile application of agricultural pests recognition
+
+4427
+
+Fig. 3
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning model in this study uses the TensorFlow Object Detection API framework. This framework is built on top of TensorFlow, an open-source software library for machine intelligence. It allows developers to build and train their own custom object detection models. The TensorFlow Object Detection API supports a variety of different models, including popular ones like Faster R-CNN, Single Shot Multibox Detector (SSD), and RetinaNet. In this case, the authors have chosen to use the TensorFlow Object Detection API to develop their mobile-based crop pest recognition system.

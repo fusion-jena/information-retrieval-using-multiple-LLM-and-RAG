@@ -1,0 +1,70 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Staiano, 2019). Training data augmentation, which extends the existing 
+training  data,  enhances  the  generalization  capabilities  (Lik´o  et  al., 
+2023). Post-classification, generally segmentation, and filtering gener-
+ally  provide  better  maps  with  a  lower  rate  of  salt-and-pepper  errors 
+(Ahmed et al., 2017). We can also deal with the characteristics of the 
+geometry of the training data, excluding outliers, refining the training 
+samples, or changing the proportion of the training and test data. These 
+strategies collectively improve classification accuracy, enabling better 
+modelling of the environment.
+
+We  classified  all  the  input  dataset combinations  (10  variable  sets; 
+Table  2)  with  each  classifier  (RF,  SVM,  MARS)  and  with  two  sets  of 
+classes (7C and 13C); thus, we had 60 models as a result of the classi-
+fications. Classifications and hyperparameter tuning were conducted in 
+R  4.2  (R  Core  Team,  2023)  with  the  caret  package  (Kuhnaut  et  al., 
+2022). 
+
+2.4. Accuracy assessment
+
+Thirty models of the 10 input datasets with three classifiers revealed 
+that the best five medians belonged to the SVM and RF, while the MARS 
+was only ranked 6th (7C) and 10th (13C) (Fig. 6). The best OAs were 
+96.1% (7C) and 85.4% (13C), and the model performance also depended 
+on the input datasets, while the best accuracy of 7C was obtained with 
+the RFE variable selection dataset. In the case of 13C, it required the use 
+of  all  variables;  nevertheless,  the  RFE  dataset  ensured  only  slightly 
+(1.1%)  worse  OA.  Regarding  the  minimum  OAs,  RF  (with  the  RFE 
+dataset)  provided  3.8%  better  results  than  the  SVM  (with  the  RFE 
+dataset; 80.7%) in the case of 7C, and we experienced the same in the 
+case of 13C, but the difference was only 1.9%. The texture index alone 
+was the worst input data, with median OAs of 38.8% and 30.9% (7C and 
+13C, respectively), followed by 74.0% and 66.6% for spectral indices,
+
+Altogether, we had 17 variables (spectral bands: green, red, red edge, 
+NIR; spectral indices – NDVI, vNDVI, NDRE, DSM, and nine variations of 
+the  texture  index, Run  Percentage, with three  kernel  and three  offset 
+options in all combinations). We applied different input datasets using 
+combinations of possible variables (Fig. 2 and Table 2). We also deter-
+mined the most important variables based on the largest OA with the 
+Recursive Feature Elimination (RFE) method. RFE is a variable selection 
+method that can be combined with machine learning algorithms and we 
+used the RF. RFE removes the variable with the lowest contribution from 
+the input set to achieve the highest overall accuracy stepwise: first, the 
+weakest variable is removed and continues until only one variable (with 
+the  highest  contribution)  remains.  We  applied  the  RFE  in  two  steps 
+(Chen et al., 2018; Rasel et al., 2021): (i) first we determined the best-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not explicitly mention specific techniques such as stratified splitting, oversampling, undersampling, or diverse data collection to address data bias during preprocessing of the deep learning pipeline. However, it discusses several strategies that can indirectly help mitigate data bias and improve classification accuracy.
+
+One strategy mentioned is training data augmentation, which involves extending the existing training data to enhance its generalization capabilities. This technique can potentially reduce bias by increasing the diversity of the training data. Another approach discussed is dealing with the geometry of the training data, including excluding outliers, refining training samples, or changing the proportion of training and test data. These methods can contribute to reducing bias by improving the quality and representativeness of the training data.
+
+Additionally, the text mentions applying Recursive Feature Elimination (RFE) to determine the most important variables based on the largest overall accuracy. RFE is a variable selection method that can be combined with machine learning algorithms. By removing variables with low contributions and focusing on those with high contributions, this technique may help minimize bias introduced by irrelevant features.
+
+In summary, although the text does not directly refer to techniques like stratified splitting, oversampling, undersampling, or diverse data collection, it describes various strategies that could aid in addressing data bias during preprocessing of the deep learning pipeline. These include training data augmentation, handling the geometry of the training data, and employing Recursive Feature Elimination for variable selection.

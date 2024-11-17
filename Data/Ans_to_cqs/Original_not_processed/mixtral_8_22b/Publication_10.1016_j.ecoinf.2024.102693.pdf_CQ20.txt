@@ -1,0 +1,136 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1 
+General transfer training hyper-parameters for each basic model.  
+
+Hyper-parameter / Model 
+
+ResNet-50 
+
+ViT-S/16 
+
+Volo-d1 
+
+ViP-Small/7 
+
+Learning rate 
+Minimum learning rate 
+Optimizer 
+Scheduler 
+Batch size 
+Weight decay 
+Input size 
+Epochs 
+
+1e-4 
+2e-3 
+1e-5 
+1e-5 
+Adamw(0.9, 0.999) 
+Cosine 
+128 
+5e-4 
+224 × 224 
+210  
+
+64 
+5e-4 
+
+8e-6 
+4e-6 
+
+64 
+1e-8 
+
+2e-3 
+1e-5 
+
+64 
+5e-2 
+
+EcologicalInformatics82(2024)1026936M. Chen et al.                                                                                                                                                                                                                                   
+
+Table 2 
+Classification performance (%) of basic models and proposed methods on the 
+IP102 dataset.  
+
+which they are applicable. 
+
+5.1. Ablation experiments 
+
+Model 
+
+Accuracy 
+
+Precision 
+
+Recall 
+
+F1-score 
+
+Resnet-50 
+ViT-S/16 
+Volo-d1 
+ViP-Small/7 
+VecEnsemble (Ours) 
+MatEnsemble (Ours)
+
+4.1. Experimental setup and training strategy 
+
+All experiments were conducted on a Linux machine equipped with 
+Ubuntu  20.04,  utilizing  an  Intel(R)  Xeon(R)  CPU  E5–2650  v4  @ 
+2.20GHz processor. All codes were implemented in Python 3.8, and all 
+models were constructed using PyTorch. Each basic model was compact 
+and  trained  on  a  single  TITAN  Xp  12G  GPU  for  evaluation.  Standard 
+evaluation metrics such as accuracy, macro-precision, macro-recall, and 
+macro-F1 score were employed to assess the performance of the models. 
+Following  the  guidelines  provided  by  Wu  et  al.  (2019),  we  parti-
+tioned  the  IP102  dataset  into  training,  validation,  and  test  sets  with 
+sample sizes of 45,095, 7508, and 22,619, respectively. It is important to 
+note that the parameters of the basic models were exclusively updated 
+using  the  training  set,  whereas  the  weights  of  the  ensemble  methods 
+were calculated on the validation set.
+
+Yuan et al. (2022) claimed that the superior performance of a ViT can 
+primarily be attributed to extensive pre-training data. If a ViT is trained 
+from  scratch  on  a  medium-sized  dataset,  its  performance  lags  behind 
+that of a CNN model with comparable parameter sizes. To address this 
+limitation, they proposed Volo with the novel Outlook Attention as the 
+token mixer module, which enabled fine-grained token representation 
+and the aggregation of global information. 
+
+2.3. MLP-like model
+
+The basic models were trained using a deep transfer-learning strat-
+egy based on fine-tuning. The model parameters were initialized using a 
+pre-trained model. The final classification layer was then replaced by a 
+fully connected layer, aligning its output dimension with the number of 
+classes  in  the  target  dataset.  Subsequently,  all  parameters  across  the 
+layers were fine-tuned on the target dataset. The basic models in all the 
+
+The  performances  of  the  four  basic  models  and  two  proposed 
+ensemble  methods  on  the  IP102  dataset  are  lised  in  Table  2.  The 
+parameter  sizes  of  the  four  basic  models  were  comparable,  with 
+approximately 24 M parameters for each model. However, there was a 
+significant variation in the performances of the basic models, as shown 
+in Table 2. ViP-Small/7 exhibited the lowest performance, whereas the 
+two  transformer-like  models  demonstrated  better  performance,  with 
+Volo-d1 achieving the highest performance.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+All experiments were conducted on a Linux machine equipped with Ubuntu 20.04, utilizing an Intel(R) Xeon(R) CPU E5–2650 v4 @ 2.20GHz processor. Each basic model was compact and trained on a single TITAN Xp 12G GPU for evaluation.
+
+Therefore, the hardware resource used for training the deep learning model is a single TITAN Xp 12G GPU.

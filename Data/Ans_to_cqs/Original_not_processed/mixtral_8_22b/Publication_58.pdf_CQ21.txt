@@ -1,0 +1,211 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.4. Sampling Method
+
+The SPOT6 satellite data for our ﬁve study areas were preprocessed to be fed into the
+different Deep Learning architectures and the XGBoost model. First, the data were split
+into three mutually exclusive parts: a learning set, a validation set and a test set totally
+independent of the two previous ones.
+
+Four of the ﬁve areas were used for learning and validation. The last, isolated scene
+was then used as the test set. It contained all the classes for the two nomenclatures, the ﬁve
+LC classes, and the 12 LU classes. In addition, this image contained all the environments
+representing the New Caledonian landscape: urban, mining, mountainous and forest
+environment with variations from the coastline to the inland mountain areas. It is on this
+entire scene that the ﬁnal confusion matrix and quality metrics were computed.
+
+22 of 22
+
+[CrossRef]
+
+54. Confalonieri, R.; Weyde, T.; Besold, T.R.; del Prado Martín, F.M. Using ontologies to enhance human understandability of global
+
+55.
+
+post-hoc explanations of black-box models. Artif. Intell. 2021, 296, 103471. [CrossRef]
+Su, T.C. A ﬁlter-based post-processing technique for improving homogeneity of pixel-wise classiﬁcation data. Eur. J. Remote Sens.
+2016, 49, 531–552. [CrossRef]
+
+12 of 22
+
+3.5. Mapping and Confusion Matrix
+
+After ﬁtting the parameters of the different Deep Learning architectures as well as
+XGBoost on the training set, they were run on the test set to obtain a complete mapping of
+LC and LU as described above. Confusion matrices were extracted from these results. Four
+quality metrics are used: Overall Accuracy (OA), Producer Accuracy (PA), User Accuracy
+(UA) and the F1-score. The OA takes the sum of the diagonal of the confusion matrix. The
+PA takes the number of well-ranked individuals divided by the sum of the column in the
+confusion matrix. The UA takes the number of well-ranked individuals divided by the sum
+of the line. Finally, the F1-score is calculated as the harmonic mean of precision and recall.
+This last metric allows calculating the accuracy of a model by giving an equal importance
+between the PA and the UA. Note that the shadow and cloud areas were not taken into
+account in the confusion matrix.
+
+4.4. Confusion Matrix of the Best Deep Learning Model for LULC Classiﬁcation
+
+The results of the best performing architecture for the LULC classiﬁcation task,
+DeepLab, is detailed with two confusion matrices. Table 10 shows The LC classiﬁca-
+tion task with the raw channels as input, and the LU classiﬁcation task with the LCE in
+addition to the raw channels, is in Table 11. The resulting maps of the LU labelling task are
+shown in Figure 9.
+
+Table 10. Land cover confusion matrix of DeepLab.
+
+Predicted
+
+Buildings
+
+Bare Soil
+
+Forest
+
+Low-Density Vegetation
+
+Water Surfaces
+
+Buildings
+Bare soil
+Forest
+Low-density vegetation
+Water surfaces
+
+0.43
+0.24
+0.18
+0.15
+0
+
+0
+0.84
+0.02
+0.14
+0
+
+0
+0.02
+0.78
+0.19
+0.01
+
+0
+0.04
+0.12
+0.84
+0
+
+Table 11. Land use confusion matrix of DeepLab + LCM.
+
+Predicted
+
+s
+a
+e
+r
+A
+
+l
+a
+i
+r
+t
+s
+u
+d
+n
+I
+
+0.32
+0.43
+
+0
+
+0.18
+0.01
+0.03
+
+0.02
+
+s
+a
+e
+r
+
+A
+n
+a
+b
+r
+
+U
+
+0.72
+0.03
+
+0
+
+0.05
+0.01
+0.06
+
+0.09
+
+0.04
+
+0.01
+
+0
+0
+0
+0
+
+0
+0
+0
+0
+
+d
+n
+a
+
+s
+e
+t
+i
+s
+k
+r
+o
+W
+
+s
+e
+n
+i
+M
+
+0
+0
+
+0.86
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: After fitting the parameters of the different deep learning architectures and XGBoost on the training set, several postprocessing steps are performed. These include running the trained models on the test set to obtain a complete mapping of land cover (LC) and land use (LU). From these results, confusion matrices are extracted, which provide insights into the performance of the models.
+
+To evaluate the performance of the models, four quality metrics are used: overall accuracy (OA), producer accuracy (PA), user accuracy (UA), and the F1-score. The OA measures the proportion of correctly classified pixels out of the total number of pixels. The PA measures the proportion of correctly classified pixels within each class, while the UA measures the proportion of true positives out of the total predicted positives for each class. The F1-score provides a single measure of accuracy that balances both precision and recall.
+
+In addition to these metrics, saliency maps can also be generated to visualize the regions of the input images that contribute most significantly to the classification decision. This can help identify any biases or errors in the model predictions.
+
+Overall, the postprocessing steps involve evaluating the performance of the trained models using various metrics and visualizations, such as confusion matrices and saliency maps, to gain insights into their strengths and weaknesses.

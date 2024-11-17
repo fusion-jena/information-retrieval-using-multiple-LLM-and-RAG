@@ -1,0 +1,11 @@
+The strategy implemented to monitor the model performance during training in the given context is through the use of a specially designed loss function, Focal-EIoU. This loss function is a modification of the traditional CIoU loss function and is designed to address class imbalances in datasets, which can significantly affect model performance.
+
+The EIoU loss function, which Focal-EIoU is based on, integrates IoU, distance, and aspect ratio losses. This directly narrows the width and height discrepancy between the anchors and ground truth, thereby enhancing positional accuracy. The IoU, or Intersection over Union, is a metric that characterizes the degree of overlap between the ground truth and the anticipated bounding box. 
+
+The Focal-EIoU loss function further refines this by adding a focus term, which reduces the weight of well-classified examples and increases the weight of misclassified examples. This helps the model to focus more on the examples it is getting wrong, thereby improving its performance over time.
+
+In addition to this, the model's performance is also monitored through the use of mAP (mean Average Precision) metrics, specifically mAP @ 0.5 and mAP @ 0.5:0.95. These metrics provide a measure of the model's accuracy in detecting objects at various intersection over union thresholds.
+
+The model's computational cost and parameters are also monitored, with computational complexity being quantified in FLOPs (Floating Point Operations Per Second) and the model's speed being measured in FPS (Frames Per Second). These metrics provide an overall assessment of the model's efficiency in real-time applications.
+
+Therefore, the strategy for monitoring model performance during training involves the use of a specially designed loss function (Focal-EIoU), mAP metrics, and monitoring of the model's computational cost and speed.

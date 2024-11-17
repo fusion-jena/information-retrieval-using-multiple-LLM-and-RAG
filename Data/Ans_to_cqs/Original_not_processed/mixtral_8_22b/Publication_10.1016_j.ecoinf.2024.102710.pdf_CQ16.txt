@@ -1,0 +1,54 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+of different active learning strategies. We investigate a range of sam-
+pling strategies: uncertainty and diversity based methods, myopic
+(greedy) and adaptive (batch mode) methods, and combinations thereof.
+Finally, we evaluate the resulting learning curves through the lens of
+
+ResNet-50 variant (no transfer learning), and the small size of their
+validation set (6.25 h, or 0.003% of the data) precludes comparing
+different active learning methods. Similarly, van Osta et al. (2023) use
+transfer learning (ResNet seemingly pre-trained on ImageNet) and an
+active learning strategy to train a classifier for a single cryptic bird
+species, but do not compare different active learning strategies.
+
+entropy loss or custom loss functions as in (Tian et al., 2022). While the
+observed low recall necessitates careful consideration, it's important to
+clarify that the scope of this study didn't encompass the optimisation for
+accuracy metrics, exemplified by F1 Score. Instead, our primary goal
+was to identify efficient strategies that synergise transfer learning and
+active learning. To potentially elevate accuracy, strategies such as
+applying Per-Channel Energy Normalization (PCEN) (Lostanlen et al.,
+2019), refining spectrogram feature engineering (Dufourq et al., 2022),
+or employing transfer learning with fine-tuning could be explored.
+
+The active learning experiments are carried out in the embedding
+space of the selected transfer learning model (BirdNet-1, see Section
+3.1). We explore a range of sampling strategies: uncertainty and di-
+versity based, myopic (greedy) and adaptive (batch mode), and com-
+binations thereof. Fig. 2 provides a schematic overview of the pure
+families of sampling strategies: Random sampling selects samples arbi-
+trarily, uncertainty sampling targets samples near the decision bound-
+ary, and diversity sampling focuses on samples that span the entire data
+space. In all cases, 5% of the samples are selected at random. Class labels
+are available for all samples used in this study, and an active learning
+scenario is emulated by hiding all labels from the classifier at first and
+incrementally revealing the ones for each batch of samples queried by
+the sampling methods. We use a batch size of 20 samples. The classifier
+heads are identical to those from the transfer learning training process.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, the specific criteria for determining when training is complete are not explicitly mentioned. However, some clues can be derived from the information provided. For instance, the text mentions that the active learning experiments are carried out in the embedding space of the selected transfer learning model, BirdNet-1. This suggests that the completion of training might be linked to the performance of this model. Furthermore, the context discusses various sampling strategies employed during the active learning phase, including uncertainty and diversity-based methods, myopic (greedy), and adaptive (batch mode) methods. These strategies could also influence the determination of when training is considered complete. Lastly, the context notes that class labels are available for all samples used in this study, and an active learning scenario is emulated by hiding all labels from the classifier initially and incrementally revealing them for each batch of samples queried by the sampling methods. This implies that the progression of label revelation and the corresponding improvement in classification performance could serve as indicators for concluding the training process. Nonetheless, without explicit mention of the criteria for determining when training is complete, one cannot definitively state what these criteria are.

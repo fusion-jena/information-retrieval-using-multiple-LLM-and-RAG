@@ -1,0 +1,9 @@
+Answer:::
+
+The strategy implemented to monitor the model performance during training involves a two-step process: training and prediction, followed by an accuracy assessment. In the training phase, the learning rate, batch size, number of interactions, and inputs for classification were defined based on tests using specific Landsat-8 spectral bands and vegetation indexes sensitive to fire events. The input data was split into two sets, with 70% used for training and 30% for testing. The training phase generates an accuracy score for each algorithm applied, but this score is biased as it uses the same sample sets to test the model. Therefore, an additional accuracy assessment was conducted using separate validation points.
+
+The user's accuracy and total accuracy were calculated for both the training and validation sets. The user's accuracy represents the percentage of correctly classified samples by the model, while the total accuracy indicates the overall performance of the model. These metrics were computed for both the burned and non-burned areas.
+
+Furthermore, a confusion matrix was created to compare the reference (sample points) with the estimated burned area using MODIS Burned Area MCD64A1. This matrix allowed for the calculation of the producer's accuracy, which measures the ability of the model to correctly identify burned areas.
+
+In summary, the strategy to monitor the model performance during training includes a two-step training and prediction process, with bias-corrected accuracy assessment using separate validation points. The performance is evaluated using user's accuracy, total accuracy, and producer's accuracy, along with a confusion matrix for visual comparison.

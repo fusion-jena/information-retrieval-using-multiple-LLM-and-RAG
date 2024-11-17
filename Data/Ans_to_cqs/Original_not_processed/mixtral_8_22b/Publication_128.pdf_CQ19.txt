@@ -1,0 +1,80 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+  A fully connected layer with softmax activation has 28 nodes, which is regarded as classifier 
+
+while training but removed when inference. 
+
+2.6. Computational resources and environment 
+In this study, the operation system is CentOS Linux release 7.7.1908 (Core) with 32 CPUs and each 
+CPU has 64 processors. The develop environment built-up is Python(version 3.6.2) packaged by Conda-
+forge which compiled with GCC (version4.8.2,20140120). Tool packages used in virtual environment 
+are the TensorFlow (version 1.12.0) and the Numpy (version 1.19.2).
+
+2.5. Model training 
+
+  To ensure the accuracy of the experimental results and obtain the best classification, the exact 
+parameters  and  functions  as  well  as  classifier  built-in  the  six  neural  network  models  are 
+designed as follows: 
+
+  The resolution of input data is 224×224 with Red Green Blue (RGB) format, and the inputs 
+
+are batch normalized before training; 
+
+  Batch size is applied which is set to 30 when training, but images are tested one by one; 
+  An  optimized  rectified  linear  activation,  Leaky  ReLU,  was  introduced  into  models  after 
+
+convolution or concatenate layer; 
+
+In MobileNet, width multiplier is 1.2, resolution multiplier is 1; 
+
+  Learning rate and dropout rate adopt same value 0.001, bias value is 0;  
+ 
+  For the neural networks with lower depth, the higher training epochs are, the higher probability 
+of over fitting is. Therefor models in which less than 100 layers adhibit raw data 60 epochs, 
+otherwise executed 80 epochs;
+
+AlexNet: In 2012, Krizhevsky et al.[28] constructed a model with more convolutional layers than 
+LeNet for better high-dimensional feature extraction, and then three fully connected layers are used after 
+flatten layer to pool channel information. This model employed rectified linear activation (ReLU) as 
+activation  function  to  speed  up  training  process,  which  partially  solved  the  vanishing  gradient  and 
+exploding problem. Features of each layer in AlexNet were depicted in Figure 2. Feature visualization 
+of  AlexNet  layer  by  layer.  The  annotations  above  are  defined  as  Name𝑑@k×k,  and  the  annotations 
+below  are  denominated  in  form  of  Operation𝑑@r×r.  Where d , k and r is  feature  depth,  convolution 
+kernel and image resolution, respectively..
+
+InceptionNet: In 2014, Szegedy et al.[29] proposed a new architecture with poly depth pathway, 
+which enhances computational resources usage efficiency. The InceptionNet includes four sub-paths for 
+convolution and each pathway has different convolutional kernel and operation layers: 1) convolution 
+path with kernel size 1×1; 2) max-pooling with step 3×3 followed by convolution with kernel 1×1; 3) 
+two convolutions with 1×1 and 3×3, respectively; 4) two convolutions with kernel size 1×1 and 5×5. 
+The network is constructed over 27 layers with ReLU, which speeds up training time significantly and 
+has better batch-normalization.  
+
+3
+
+ 
+ 
+ 
+ IWECAI 2021
+Journal of Physics: Conference Series
+
+1873 (2021) 012002
+
+IOP Publishing
+doi:10.1088/1742-6596/1873/1/012002
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it can be inferred that the deep learning model was built using the TensorFlow framework. Specifically, version 1.12.0 of TensorFlow was utilized in conjunction with Python version 3.6.2. Additionally, other tool packages such as NumPy were also used within the virtual environment. However, there is no mention of any other deep learning frameworks being used besides TensorFlow. Therefore, based solely on the provided context, it can be concluded that TensorFlow was the primary framework used to build the deep learning model.

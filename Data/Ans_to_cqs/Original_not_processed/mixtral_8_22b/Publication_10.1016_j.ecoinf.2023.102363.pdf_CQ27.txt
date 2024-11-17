@@ -1,0 +1,79 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.2. Model fine-tuning 
+
+To  fine-tune  the  base  model  with  Gulf  of  Mexico  data  the  feature 
+extractor remains frozen. Models are trained with the same parameters 
+as the base model but we use a cyclical learning rate of 0.0004 and is set 
+to run for 50 epochs, with early stopping set to deploy if the validation 
+loss does not improve within 10 epochs. A dropout rate of 0.2 is used 
+during  fine-tuning,  and  DropConnect  is  employed.  Drop  out  layers 
+randomly  discard  the  output  of  the  hidden  nodes  during  training, 
+DropConnect randomly discards the input of the hidden layer (Sun et al., 
+2022). 
+
+2.2.1. Data acquisition
+
+The model is constructed using the EfficientNet B0 network (Tan and 
+Le, 2019) which had been trained for generic image classification. The 
+EfficientNet feature extraction layers are frozen (transfer learning) with 
+only the weights of the final dense classification layers updated during 
+training.  Training  was  conducted  within  the  Google  Collaboratory 
+‘Colab’  platform  (Bisong,  2019),  using  the  Tesla  K80  GPU,  accessed 
+through  cloud  computing.  An  Adam  optimizer  was  used  to  control 
+gradient descent during training (Kingma and Ba, 2014), with parame-
+ters set to: learning rate of 0.001, decay factor of 0.75 and a step size of 
+
+EcologicalInformatics78(2023)1023632E.L. White et al.
+
+Models on Google Cloud Platform. Apress, Berkeley, CA.  
+
+Matwin, S., 2023. Adapting deep learning models to new acoustic environments-A 
+case study on the North Atlantic right whale upcall. Ecol. Informa. 77, 102169. 
+
+Pijanowski, B.C., Villanueva-Rivera, L.J., Dumyahn, S.L., Farina, A., Krause, B.L., 
+
+Napoletano, B.M., Gage, S.H., Pieretti, N., 2011. Soundscape ecology: the science of 
+sound in the landscape. BioScience 61 (3), 203–216. 
+
+Roch, M.A., Soldevilla, M.S., Hoenigman, R., Wiggins, S.M., Hildebrand, J.A., 2008. 
+
+Comparison of machine learning techniques for the classification of echolocation 
+clicks from three species of odontocetes. Can. Acoust. 36 (1), 41–47. 
+
+Roch, M.A., Klinck, H., Baumann-Pickering, S., Mellinger, D.K., Qui, S., Soldevilla, M.S., 
+Hildebrand, J.A., 2011. Classification of echolocation clicks from odontocetes in the 
+Southern California bight. J. Acoust. Soc. Am. 129 (1), 467–475.
+
+way  ML  allows  the  automation  of  tasks  previously  considered  as 
+requiring  manual  processing  (Stowell,  2022).  For  instance,  marine 
+mammal  calls  have  been  classified  with  a  wealth  of  ML  algorithms 
+including  support  vector  machines  (Jarvis  et  al.,  2008;  Roch  et  al., 
+2008), generalised linear models, hidden Markov models (Brown et al., 
+2010;  Pace  et  al.,  2012;  Roch  et  al.,  2011)  and  classification  and 
+regression tree analysis (Oswald et al., 2003). These advances have led 
+to a rise in the number of published trained CNN models available for 
+researchers  to  download  and  use  as  tools.  The  performance  of  these 
+CNNs has been found to rival human performance at signal recognition 
+(LeCun et al., 2015). CNNs can learn to discriminate spectro-temporal 
+information  directly  from  a  labelled  spectrogram,  used  as  an  image 
+input. The success of CNNs within the marine bioacoustic field has been
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The text provides information about the fine-tuning process of the base model with Gulf of Mexico data, including the use of transfer learning, freezing the feature extractor, and updating only the weights of the final dense classification layers during training. However, it does not explicitly mention the deployment process of the trained deep learning model. Therefore, I cannot provide a specific answer based solely on the given context.
+
+However, generally speaking, after training a deep learning model, one common approach to deploying it involves saving or serializing the model architecture and its learned weights into a file format such as.h5 or.pt. This serialized model can then be loaded onto various platforms, depending on the requirements of the application. Popular choices include cloud services like AWS, Azure, or Google Cloud Platform, where the model can be integrated into web applications or APIs for real-time predictions. Additionally, edge devices like mobile phones or embedded systems may also be suitable targets for model deployment, especially when low latency or offline capabilities are required.

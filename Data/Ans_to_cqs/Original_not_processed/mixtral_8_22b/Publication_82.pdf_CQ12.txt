@@ -1,0 +1,117 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To summarize, we have a total of 60 experimental
+
+conﬁgurations, which vary on the following parameters:
+
+1. Choice of deep learning architecture:
+
+AlexNet,
+GoogLeNet.
+
+2. Choice of training mechanism:
+
+Transfer Learning,
+Training from Scratch.
+
+3. Choice of dataset type:
+
+Color,
+Gray scale,
+Leaf Segmented.
+
+4. Choice of training-testing set distribution:
+
+Train: 80%, Test: 20%,
+Train: 60%, Test: 40%,
+Train: 50%, Test: 50%,
+Train: 40%, Test: 60%,
+Train: 20%, Test: 80%.
+
+this paper, we have used the notation of
+
+Throughout
+Architecture:TrainingMechanism:DatasetType:Train-Test-
+Set-Distribution to refer
+experiments. For
+to particular
+instance,
+to refer to the experiment using the GoogLeNet
+learning
+architecture, which was
+on the gray-scaled PlantVillage dataset on a train—test
+set distribution of
+the notation
+GoogLeNet:TransferLearning:GrayScale:60–40.
+
+trained using transfer
+
+60–40, we will use
+
+30/3 epochs),
+• Momentum: 0.9,
+• Weight decay: 0.0005,
+• Gamma: 0.1,
+• Batch size: 24 (in case of GoogLeNet), 100 (in case of AlexNet).
+
+All the above experiments were conducted using our own fork of
+Caﬀe (Jia et al., 2014), which is a fast, open source framework for
+deep learning. The basic results, such as the overall accuracy can
+also be replicated using a standard instance of caﬀe.
+
+RESULTS
+
+representations of
+
+of classes in our dataset), which feeds the softMax layer. The
+softMax layer ﬁnally exponentially normalizes the input that it
+gets from (fc8), thereby producing a distribution of values across
+the 38 classes that add up to 1. These values can be interpreted
+as the conﬁdences of the network that a given input image is
+represented by the corresponding classes. All of the ﬁrst 7 layers
+of AlexNet have a ReLu non-linearity activation unit associated
+with them, and the ﬁrst two fully connected layers (fc{6, 7})
+have a dropout layer associated with them, with a dropout
+ratio of 0.5.
+
+Science 307, 357–359. doi: 10.1126/science.1109057
+
+Sankaran, S., Mishra, A., Maja,
+
+(2011). Visible-
+infrared spectroscopy for detection of huanglongbing in citrus
+
+J. M., and Ehsani, R.
+
+near
+
+orchards. Comput. Electron. Agric. 77, 127–134. doi: 10.1016/j.compag.2011.
+03.004
+
+Schmidhuber, J. (2015). Deep learning in neural networks: an overview. Neural
+
+Netw. 61, 85–117. doi: 10.1016/j.neunet.2014.09.003
+
+Simonyan, K., and Zisserman, A. (2014). Very deep convolutional networks for
+
+large-scale image recognition. arXiv:1409.1556.
+
+Singh, A., Ganapathysubramanian, B., Singh, A. K., and Sarkar, S. (2015). Machine
+learning for highthroughput stress phenotyping in plants. Trends Plant Sci. 21,
+110–124 doi: 10.1016/j.tplants.2015.10.015
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The study uses two types of deep learning architectures: AlexNet and GoogLeNet. Both models are Convolutional Neural Networks (CNNs). AlexNet was introduced in 2012 and consists of five convolutional layers followed by three fully connected layers. It was one of the first successful applications of CNNs to large-scale image classification tasks. On the other hand, GoogLeNet, also known as Inception v1, was proposed in 2014 and features a more complex design with multiple parallel paths containing different combinations of convolutions, pooling operations, and fully connected layers. This allows the network to capture both local and global patterns within images effectively.

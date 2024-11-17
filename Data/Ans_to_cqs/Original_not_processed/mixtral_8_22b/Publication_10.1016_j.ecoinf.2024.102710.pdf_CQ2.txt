@@ -1,0 +1,86 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+labeled dataset for audio events. In: 2017 IEEE International Conference on
+Acoustics, Speech and Signal Processing (ICASSP), pp. 776–780.
+
+Ghani, B., Denton, T., Kahl, S., Klinck, H., 2023. Global birdsong embeddings enable
+superior transfer learning for bioacoustic classification. Sci. Rep. 13 (1), 22876.
+He, K., Zhang, X., Ren, S., Sun, J., 2016. Identity mappings in deep residual networks. In:
+
+Computer Vision – ECCV 2016, Lecture Notes in Computer Science, pp. 630–645.
+Hershey, S., Chaudhuri, S., Ellis, D., et al., 2017. CNN architectures for large-scale audio
+classification. In: 2017 IEEE International Conference on Acoustics, Speech and
+Signal Processing, (ICASSP), pp. 131–135.
+
+Howard, A., Zhu, M., Chen, B., et al., 2017. MobileNets: efficient convolutional neural
+
+networks for mobile vision applications. CoRR abs/1704.04861.
+
+2.2.3. Pre-processing
+
+For all experiments, we use three-second long audio segments
+referred to as ‘samples’. A sample is considered positive for a given event
+class whenever event occurrence overlaps with the sample, even if only
+partially and briefly. We resample the audio for the models trained in the
+audio domain to 48 kHz (BirdNET) or 16 kHz (YAMNet and VGGish).
+Since ResNet152-V2 and VGG16 take images as input, spectrograms
+were calculated for each sound sample using the native sampling rate of
+the audio signal, employing a window size of 512 samples and an
+overlap of 256 samples. Lastly, each spectrogram was resized to the
+
+3 https://www.youtube.com/watch?v=sCc3UtzZDEo
+
+EcologicalInformatics82(2024)1027103UnlabelledDatasetRandomsampleselectionAnnotationmanualUnlabelledDatasetTransferlearningdatarepresentationActivelearningsampleselectionAnnotationsemi-automaticTrainmodelH. Kath et al.
+
+dimensions required by each of the two convolutional models.
+
+2.2.4. Training
+
+Our analysis using BirdNet-1 embeddings demonstrates the superi-
+ority of active learning over random sampling for multi-label PAM
+datasets. Most previous active learning efforts in sound event detection
+for PAM (Allen et al., 2021; Qian et al., 2017) have not utilized features
+extracted with transfer learning. We build upon the research conducted
+by van Osta et al. (2023), which implemented active learning on PAM
+data embedded using a ResNet variant, seemingly pre-trained on
+ImageNet. First, we compare various embedding models and demon-
+strate that models trained on data more closely related to PAM than to
+ImageNet yield superior performance. Second, we provide the first
+structured analysis of several standard active learning strategies for
+annotating PAM datasets. Fig. 6 illustrates that the performance of the
+active learning model exceeds that of the random sampling model in the
+first iterations. While our qualitative evaluation of active learning
+
+4 https://github.com/HKathman/pam_annotation_experiments
+5 https://github.com/kahst/BirdNET-Analyzer/tree/main/checkpoints/V2.4
+6 https://tfhub.dev/google/vggish/1
+7 https://tfhub.dev/google/yamnet/1
+8 tensorflow.keras.applications.vgg16.VGG16(weights=’imagenet’).
+9 tensorflow.keras.applications.resnet_v2.ResNet152V2
+
+(weights=’imagenet’).
+
+Fig. 4. UMAP plots for different embedding layers of different embedding
+models for AnuraSet. For UMAP generation, we randomly select 5000 samples
+and discard all samples that are aligned to more than one class. Colors and
+shapes indicate the 10 classes with the highest occurrence frequency. Layers are
+numbered according to their distance from the classification layer, e.g. ‘Bird-
+Net-1’ is the last layer before the classification layer of the BirdNet model.
+
+EcologicalInformatics82(2024)1027105H. Kath et al.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning pipeline described in this study uses both audio and image data formats. The audio format is used for training models such as BirdNET, YAMNet, and VGGish, while the image format is employed for training models like ResNet152-V2 and VGG16. The audio data is processed into three-second long segments referred to as'samples,' which are then resampled to either 48 kHz or 16 kHz depending on the specific model requirements. Spectrograms are generated from these audio samples using a window size of 512 samples and an overlap of 256 samples. These spectrograms are subsequently resized to fit the dimensions required by the respective convolutional models.

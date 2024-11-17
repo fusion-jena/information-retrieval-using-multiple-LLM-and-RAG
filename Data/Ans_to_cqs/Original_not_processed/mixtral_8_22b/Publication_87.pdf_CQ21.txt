@@ -1,0 +1,162 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+}
+# delete pictures in valid/ directory for which we did not train the model
+to_be_deleted <- setdiff(levels(fct_drop(pix_valid$Keywords)), levels(fct_drop(pix_train$Keywords)))
+if (!is_empty(to_be_deleted)) {
+
+for (i in 1:length(to_be_deleted)){
+
+unlink(paste0('pix/valid/', to_be_deleted[i]))
+
+}
+
+}
+
+What is the sample size of these two datasets?
+
+bind_rows("training" = pix_train, "validation" = pix_valid, .id = "dataset") %>%
+
+group_by(dataset) %>%
+count(Keywords) %>%
+rename(category = Keywords) %>%
+kable() %>%
+kable_styling()
+
+15
+
+Table 5: Sample size (n) for the training and validation datasets.
+
+dataset
+training
+training
+training
+training
+training
+training
+training
+training
+training
+training
+training
+training
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+
+Then we get the model architecture. For the sake of illustration, we use a resnet18 here, but we used
+a resnet50 to get the full results presented in the main text.
+
+learn <- cnn_learner(dls = dls,
+
+arch = resnet18(),
+metrics = list(accuracy, error_rate))
+
+Now we are ready to train our model. Again, for the sake of illustration, we use only 2 epochs here,
+but used 20 epochs to get the full results presented in the main text. With all pictures and a resnet50,
+it took 75 minutes per epoch approximatively on a Mac with a 2.4Ghz processor and 64Go memory,
+and less than half an hour on a machine with GPU. On this reduced dataset, it took a bit more than
+a minute per epoch on the same Mac. Note that we save the model after each epoch for later use.
+
+one_cycle <- learn %>%
+
+fit_one_cycle(2, cbs = SaveModelCallback(every_epoch = TRUE,
+
+fname = 'model'))
+
+0.00%
+
+train_loss
+
+epoch
+------ -----------
+Epoch
+1/2
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+
+valid_loss
+-----------
+:
+[0/36
+:
+[1/36
+:
+[2/36
+:
+[3/36
+
+)
+
+)
+(7): Sequential(
+
+(0): BasicBlock(
+
+(conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+(bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(relu): ReLU(inplace=True)
+(conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+(bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(downsample): Sequential(
+
+(0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+(1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+
+)
+
+)
+(1): BasicBlock(
+
+(conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+(bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(relu): ReLU(inplace=True)
+
+22
+
+platform using a GPU machine (Titan Xp nvidia) with 16Go of RAM. We used 20 epochs which took
+approximately 10 hours. The computational burden prevented us from providing a full reproducible
+analysis, but we do so with a subsample of the dataset in the Appendix. All trained models are
+available from https://doi.org/10.5281/zenodo.5164796.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given code snippets and information do not provide explicit details about any specific postprocessing steps performed after the model training. However, based on common practices in deep learning projects, some possible postprocessing steps could include:
+
+1. Model evaluation: After training the model, evaluating its performance using metrics such as accuracy, precision, recall, F1 score, or area under the ROC curve can help assess how well the model performs on unseen data. This step might involve calculating these metrics on both the training and validation sets.
+
+2. Visualizing confusion matrices: A confusion matrix provides insights into the types of errors made by the model during classification tasks. It shows the number of correct and incorrect predictions broken down by class. By visualizing the confusion matrix, one can identify patterns in misclassifications and understand where the model struggles most.
+
+3. Generating saliency maps: Saliency maps highlight regions within input images that contribute significantly to the final prediction. These maps can be generated using techniques like GradCAM or Layerwise Relevance Propagation (LRP). They offer valuable insights into what features the model focuses on when making decisions.
+
+4. Fine-tuning hyperparameters: Based on the initial evaluation results, adjusting various hyperparameters (such as learning rate, batch size, weight decay, etc.) may improve the model's overall performance. This process often involves iterative experimentation and careful consideration of tradeoffs between different objectives.
+
+5. Ensemble methods: Combining multiple models through ensemble methods (like bagging, boosting, or stacking) can potentially enhance predictive power compared to individual models alone. This approach requires training several models independently before aggregating their outputs.

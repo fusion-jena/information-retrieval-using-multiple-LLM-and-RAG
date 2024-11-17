@@ -1,0 +1,71 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The most common type of deep learning network architecture being used for extracting
+image   features   is   the   Convolutional   Neural   Network   (CNN)   (LeCun   and   Bengio   1995).
+A convolutional neural network extracts the features of an image by passing through a
+series of convolutional, non-linear, pooling (image downsampling) layers and passes them
+to a fully connected layer to obtain the desired output. Each convolutional layer extracts the
+visual features of the image by applying convolution operations to the image with kernels,
+using a local receptive field, to produce feature maps and passing it as input to the next
+layer. The initial layers in the network compute primitive features on the image, such as
+corners   and   edges,   the   deeper   layers   use   these   features   to   compute   more   complex
+features consisting  of curves and  basic  shapes  and  the   deepest   layers  combine  these
+
+This   rising   number   of   digitised   herbarium   sheets   provides   an   opportunity   to   employ
+computer-based   image   processing   techniques,   such   as   deep   learning,   to   automatically
+identify species and higher taxa (Carranza-Rojas et al. 2017, Younis et al. 2018, Carranza-
+Rojas   et   al.   2018)   or   to   extract   other   useful   information   from   the   images,   such   as   the
+presence   of   pathogens   (as   done   for   live   plant   photos   by   Mohanty   et   al.   2016).   Deep
+learning is a subset of machine learning methods for learning data representation. Deep
+learning   techniques   require   huge   amounts   of   training   data   to   learn   the   features   and
+representation of those data for the specified task by fine tuning parameters of hundreds or
+thousands of neural networks, arranged in multiple layers. Learning the value of these
+parameters can take vast computer and time resources, especially on huge datasets.
+
+Due to the large image size and additional parameters of Faster R-CNN, a minibatch size
+of four images per GPU (TITAN Xp) was selected for training the model. The model was
+trained   twice,   once   with   a   training   subset   of   498   images   on   a   single   GPU   for   9000
+iterations and performance evaluated on the test subset of 155 images, also on a single
+GPU   and   then   trained   again   on   all   653   annotated   images   on   three   GPUs   for   18000
+iterations   for   predicting   plant   organs   on   another   un-annotated   independent   dataset   to
+evaluate   our   method.   This   dataset   consists   of   708   full   scale   herbarium   scans,   with   an
+average  size of  ca. 9600  by  6500  pixels,   from  the   Herbarium  Senckenbergianum  (FR)
+(Otte et al. 2011) with a different set of species (Fig. 2) and geographical origins, which is
+also available at GBIF (Senckenberg 2020). The Python code and the trained model have
+
+Figure 5. 
+
+An illustration of Feature Pyramid Network, where feature maps are indicated by blue outlines
+and thicker outlines denote semantically stronger features (Lin et al. 2017).
+
+ 
+ 
+ 
+8
+
+Younis S et al
+
+In order to reduce the training time and, more importantly, because of the small size of the
+training dataset, transfer learning (Yosinski et al. 2014) was implemented to initialise the
+model weights pre-trained on the ImageNet dataset (Deng et al. 2009). Since the initial
+layers of a CNN usually learn very generic features that can also be used in new contexts,
+pre-trained   weights   can   initialise   the   weights   for   these   layers.   For   the   deeper   layers,
+transfer learning is used to initialise the parameter weights pre-trained on the ImageNet
+dataset and then fine-tuned during training, using the annotated herbarium scan dataset
+until convergence.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The type of deep learning model used in the pipeline is a Convolutional Neural Network (CNN). This is mentioned in the first paragraph of the given context, where it states that CNNs are commonly used for extracting image features and describes how they work. Additionally, the mention of transfer learning using pre-trained weights from the ImageNet dataset further supports this, as ImageNet is often used for pre-training CNN models.

@@ -1,0 +1,145 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.3.3. Classification 
+
+Pretrained classification models such as VGG16 have demonstrated 
+to perform well on various plant species identification tasks (Pang and 
+Lim,  2019).  To  train  our  classification  model,  we  adapted  the  vgg16 
+network  pre-trained  on  ImageNet  dataset  (Simonyan  and  Zisserman, 
+2014). The fully connected layers of the networks were replaced with a 
+global max-pooling layer, a dropout layer with a dropout ratio of 0.5 as a 
+network regularizer and single hidden layer with a total of 256 units for 
+a larger image sized model(512 × 512) and 128 units for a smaller image 
+size model (256 × 256). Both networks were trained for 20 epochs with 
+a  batch  size  of 32  and  various data augmentation  techniques such as 
+height and width shift, flipping, zooming and brightness changes were 
+
+Table 2 
+Summary of the model parameters.   
+
+PConv networks 
+
+256 × 256/512 × 512 
+
+1 
+2e-4
+
+PConv networks 
+
+256 × 256/512 × 512 
+
+1 
+2e-4 
+
+Adam optimizer 
+per-pixel loss, perceptual 
+loss, style loss and total 
+variation loss 
+50 
+Pre-trained on ImageNet 
+
+Pix2Pix 
+networks 
+
+256 × 256/512 
+× 512 
+1 
+9e-5 
+
+Classification 
+networks 
+
+256 × 256/512 
+× 512 
+32 
+0.03 
+
+Adam optimizer 
+Adversarial loss 
+and L1 loss 
+
+Adam optimizer 
+Cross-entropy 
+loss 
+
+50 
+Trained from 
+Scratch 
+
+20 
+Pre-trained on 
+ImageNet  
+
+Input 
+
+dimension 
+
+Batch size 
+Learning 
+rate 
+Optimizer 
+Loss function 
+
+Epochs 
+Pre-trained 
+network 
+
+applied.  All  input  images  were  preprocessed  by  mean  centering  the 
+image with ImageNet values and then rescaled between 0 and 1. Since 
+our dataset was balanced, both networks were trained with a learning 
+rate of 0.03, cross-entropy loss as a loss function optimized by Adam 
+optimizer (Kingma and Ba, 2014). Table 2 summarizes the parameter 
+used for training each model. 
+
+3.4. Performance evaluation
+
+The original implementation of PConv network required a two-phase 
+training process (Liu et al., 2018). This is because the generated holes 
+presented  a  problem  for  batch  normalization  layer  when  computing 
+mean  and  variance  of  the  hole  pixels.  In  this  study,  all  models  were 
+trained in a single process while freezing the batch normalization layer 
+in the encoder part as the network used pre-trained weights with a small 
+batch size of 1. The models were optimized using Adam optimizer with a 
+learning rate of 0.0002 while using relu activation for encoder part and 
+leakyRelu  activation  for  the  decoder  part  of  the  network.  All  models 
+were  trained  for  50  epochs.  For  each  training  epoch,  a  model  was 
+evaluated using the validation set and was saved as the best model based 
+on a validation loss. 
+
+3.3.2. Pix2Pix network
+
+Training GANs is challenging as both generator and discriminator are 
+competing and hence expected to reach at equilibrium (Pan et al., 2019). 
+In this study, all Pix2Pix models were trained for 50 epochs. After every 
+500 iterations, the performance of the generator models were evaluated 
+using  both  Structural  Similarity  Index  Measure  (SSIM)  and  the  Peak 
+Signal-To-Noise Ratio (PSNR) metrics and the model was saved as the 
+best  model  if  it  has  improved  the  performance  on  the  validation  set 
+compared to previous iterations. 
+
+3.3.3. Classification
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the given context, there isn't any explicit mention of specific strategies employed to handle randomness in the deep learning pipeline, particularly regarding random seed values. However, some implicit strategies can be inferred from the information provided.
+
+Firstly, the use of pre-trained models like VGG16 and their adaptation for specific tasks suggests that the authors might have leveraged the stability and robustness of these pre-trained models to mitigate the effects of randomness. Pre-trained models often provide a more stable starting point compared to training a model from scratch, which could help reduce variability due to random initialization or other sources of randomness.
+
+Secondly, the application of various data augmentation techniques such as height and width shifts, flips, zooms, and brightness changes indicates that the authors aimed to introduce controlled variations into the dataset. These techniques can help improve the generalizability of the models and potentially counteract the impact of randomness during training.
+
+Lastly, the use of a relatively large batch size of 32 and a moderate number of epochs (20) for training the classification networks implies that the authors may have sought to strike a balance between computational efficiency and convergence. A larger batch size can lead to more stable updates during optimization, reducing the potential influence of random fluctuations. Similarly, limiting the number of epochs can prevent overfitting and excessive sensitivity to noise or randomness in the training data.
+
+However, without further details about the handling of random seeds or other aspects related to managing randomness, it is not possible to provide a definitive answer to the query.

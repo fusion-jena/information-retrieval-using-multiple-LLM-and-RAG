@@ -1,0 +1,356 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Then we get the model architecture. For the sake of illustration, we use a resnet18 here, but we used
+a resnet50 to get the full results presented in the main text.
+
+learn <- cnn_learner(dls = dls,
+
+arch = resnet18(),
+metrics = list(accuracy, error_rate))
+
+Now we are ready to train our model. Again, for the sake of illustration, we use only 2 epochs here,
+but used 20 epochs to get the full results presented in the main text. With all pictures and a resnet50,
+it took 75 minutes per epoch approximatively on a Mac with a 2.4Ghz processor and 64Go memory,
+and less than half an hour on a machine with GPU. On this reduced dataset, it took a bit more than
+a minute per epoch on the same Mac. Note that we save the model after each epoch for later use.
+
+one_cycle <- learn %>%
+
+fit_one_cycle(2, cbs = SaveModelCallback(every_epoch = TRUE,
+
+fname = 'model'))
+
+0.00%
+
+train_loss
+
+epoch
+------ -----------
+Epoch
+1/2
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+
+valid_loss
+-----------
+:
+[0/36
+:
+[1/36
+:
+[2/36
+:
+[3/36
+
+}
+# delete pictures in valid/ directory for which we did not train the model
+to_be_deleted <- setdiff(levels(fct_drop(pix_valid$Keywords)), levels(fct_drop(pix_train$Keywords)))
+if (!is_empty(to_be_deleted)) {
+
+for (i in 1:length(to_be_deleted)){
+
+unlink(paste0('pix/valid/', to_be_deleted[i]))
+
+}
+
+}
+
+What is the sample size of these two datasets?
+
+bind_rows("training" = pix_train, "validation" = pix_valid, .id = "dataset") %>%
+
+group_by(dataset) %>%
+count(Keywords) %>%
+rename(category = Keywords) %>%
+kable() %>%
+kable_styling()
+
+15
+
+Table 5: Sample size (n) for the training and validation datasets.
+
+dataset
+training
+training
+training
+training
+training
+training
+training
+training
+training
+training
+training
+training
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+
+platform using a GPU machine (Titan Xp nvidia) with 16Go of RAM. We used 20 epochs which took
+approximately 10 hours. The computational burden prevented us from providing a full reproducible
+analysis, but we do so with a subsample of the dataset in the Appendix. All trained models are
+available from https://doi.org/10.5281/zenodo.5164796.
+
+8.33%
+
+2.78%
+
+5.56%
+
+1/2
+
+1/2
+
+1/2
+
+accuracy
+---------
+|----------------------------------------
+
+error_rate
+-----------
+
+time
+-----
+
+|---------------------------------------
+
+|--------------------------------------
+
+|-------------------------------------
+
+17
+
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+Epoch
+Epoch
+Epoch
+Epoch
+Epoch
+Epoch
+Epoch
+Epoch
+Epoch
+Epoch
+Epoch
+Epoch
+
+11.11%
+
+13.89%
+
+16.67%
+
+19.44%
+
+22.22%
+
+25.00%
+
+27.78%
+
+30.56%
+
+33.33%
+
+36.11%
+
+38.89%
+
+41.67%
+
+44.44%
+
+47.22%
+
+50.00%
+
+52.78%
+
+1/2
+
+1/2
+
+1/2
+
+1/2
+
+1/2
+
+1/2
+
+1/2
+
+1/2
+
+1/2
+
+1/2
+
+1/2
+
+1/2
+
+1/2
+
+1/2
+
+1/2
+
+1/2
+
+1/2
+
+1/2
+1/2
+1/2
+1/2
+1/2
+1/2
+1/2
+1/2
+1/2
+1/2
+1/2
+1/2
+1/2
+
+55.56%
+
+:
+[4/36
+:
+[5/36
+:
+[6/36
+:
+[7/36
+:
+[8/36
+:
+[9/36
+:
+
+[10/36
+
+:
+
+[11/36
+
+:
+
+[12/36
+
+:
+
+[13/36
+
+:
+
+[14/36
+
+:
+
+[15/36
+
+:
+
+[16/36
+
+:
+
+[17/36
+
+:
+
+[18/36
+
+:
+
+[19/36
+
+:
+
+[20/36
+
+:
+:
+:
+:
+:
+:
+:
+:
+:
+:
+:
+:
+:
+
+|------------------------------------
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The strategy implemented to monitor the model performance during training involves using the fit\_one\_cycle function from the fastai library. This function trains the model for a specified number of epochs while applying a learning rate schedule that varies the learning rate over time. Additionally, the SaveModelCallback function is used to save the model after each epoch, allowing for easy access to intermediate models for further analysis or fine-tuning. The progress of the training process can be monitored by observing the loss values for both the training and validation sets, as well as the accuracy and error rate metrics. These values are displayed in real-time during training, enabling the user to track the model's performance and adjust hyperparameters if necessary.

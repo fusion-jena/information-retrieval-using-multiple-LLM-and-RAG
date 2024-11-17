@@ -1,0 +1,144 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+ΘB = P r(obj) x IoUt
+
+p⋁P r(obj) ∈ {0, 1}
+
+(5)  
+
+where  P r(obj) denotes  the  prediction  accuracy  of  the  bounding  box. 
+When  P r(obj) = 1,  the  target  class  falls  within  the  grid;  otherwise, 
+P r(obj) = 0.  The  degree  of  overlap  between  the  ground  truth  and 
+anticipated bounding box is characterized by a metric called the inter-
+section over union (IoU), which is expressed by Eq. (6). 
+
+more efficient and rapidly converging loss function (Zheng et al., 2020). 
+EIoU integrates IoU, distance, and aspect ratio losses, directly narrowing 
+the width and height discrepancy between the anchors and ground truth 
+(gt), thus enhancing positional accuracy. This is achieved using the di-
+mensions  of  the  smallest  enclosing  box  (hc 
+and  wc)  around  both 
+bounding boxes. Eqs. (7) and (8) detail the EIoU loss, maintaining the 
+advantageous attributes of CIoU loss. 
+
+LEIOU = LIOU + Ldis + Lasp
+
+LEIOU = 1 (cid:0)
+
+IOU(A, B) +
+
+p2(b, bgt)
+(hc)2 + (wc)2 +
+
+p2(w, wgt)
+wc
+
++
+
+To the best of our knowledge, this research is the first comprehensive 
+attempt  to  achieve  such  balance,  creating  a  model  optimized  for  low 
+power  use  and  suitable  for  resource-scarce  settings.  Moreover,  our 
+approach  aims  to  optimize  model  loading  time,  marking  a  notable 
+contribution to the field of wildlife recognition-based DL.
+
+Parameter amount = k2.Cin.Cout
+
+(14)  
+
+(15) 
+
+Understanding  the  computational  cost  and  parameters  of  a  single 
+layer allows for precise estimation and control of the total requirements 
+of our model. Computational complexity is quantified in FLOPs, calcu-
+lated considering the convolutional kernel size (k2), the number of input 
+Cin  and output Cout  channels, and the feature map’s height (hout) and 
+width  (wout).  FPS  measure  the  model’s  speed,  encompassing  pre-
+processing, inference, and non-maximum suppression speeds, providing 
+an overall assessment of the model’s efficiency in real-time applications. 
+
+4.4. Results
+
+Table 2 
+YOLOv5 performance comparison for different model sizes.  
+
+Model 
+
+GFLOPs 
+
+Parameters 
+(M) 
+
+mAP @ 
+0.5 
+
+mAP@ 
+0.5:0.95 
+
+YOLOv5s 
+YOLOv5m 
+YOLOv5l 
+YOLOv5x 
+
+16.3 
+50.3 
+144 
+217 
+
+7.067 
+21.057 
+46.627 
+87.232 
+
+0.958 
+0.957 
+0.96 
+0.969 
+
+0.817 
+0.833 
+0.837 
+0.842 
+
+FPS 
+
+31.949 
+30.488 
+25.84 
+23.923  
+
+• Optimizing the YOLOv5s backbone by substituting the Focus layer 
+with  a  novel  Stem  Block,  enhancing  sequential  connectivity  for 
+parallel iterations, and reducing computational demand.  
+
+• Replacing two C3 blocks with a Mobile Bottleneck Block (MBBlock), 
+
+to expedite processing.  
+
+• Integrating depth-wise separable convolutions (DWConv) into the C3 
+blocks for further optimization, and revamping the neck by replacing 
+the PANet structure with BiFPN, enhancing feature extraction and 
+recognition capabilities.  
+
+• Modifying  the  loss  function  from  traditional  CIoU  to  Focal-EIoU, 
+
+addressing class imbalances in datasets.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information on the specific strategy used to monitor the model performance during training. However, it can be inferred that the researchers might have been monitoring the model performance through metrics like mAP (mean Average Precision) at various Intersection over Union (IoU) thresholds, Giga Floating Point Operations Per Second (GFLOPs), Parameters (millions), and Frames Per Second (FPS). These are common indicators used to evaluate deep learning models, including object detection models like YOLOv5.
+
+In Table 2, we see the performance comparison of different versions of YOLOv5 based on these metrics. For instance, YOLOv5s has 16.3 GFLOPs, 7.067 million parameters, a mAP@0.5 of 0.958, a mAP@0.5:0.95 of 0.817, and an FPS of 31.949. Similarly, other versions of YOLOv5 - YOLOv5m, YOLOv5l, and YOLOv5x - also showcase their respective performances based on these metrics.
+
+Moreover, the researchers seem to focus on optimizing the model for low power usage and resource-constrained environments while aiming to improve its loading time. They mention modifying the loss function from traditional Complete IoU (CIoU) to Focal-Enhanced IoU (Focal-EIoU) to address class imbalances in datasets. Additionally, they discuss strategies like replacing certain layers or structures with more efficient alternatives, such as swapping out the Focus layer for a new Stem Block, exchanging two C3 blocks with a Mobile Bottleneck Block (MBBlock), incorporating depth-wise separable convolutions (DWConv) into the C3 blocks, and substituting the PANet structure with BiFPN in the neck. All these modifications suggest that the researchers were closely observing the model's performance during training and making adjustments accordingly.

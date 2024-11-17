@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+value. The algorithm makes full use of information from each sampling
+point computed to continuously learn about the shape of objective
+functions and find optimal combinations of hyper parameters. The
+Bayesian theorem can be expressed as follows:
+p(f |D) = p(D|f)p(f)
+
+Despite the growing popularity of ML models in eco-hydrological
+studies, building effective models is a complex and time-consuming
+process that involves tuning a large number of hyper parameters to
+obtain an optimal model architecture. Because of the non-linear inter-
+action between hyper parameters, manual tuning is ineffective for most
+issues. Bayesian optimization (BO) is a global optimization algorithm
+that optimizes the hyper parameters in ML models to achieve high
+simulation accuracy. The combination of BO and LSTM improves the
+performance of the model on unseen data, thereby increasing the
+generalization ability and robustness of the model. The BO algorithm is
+based on the Bayesian theorem to estimate the posterior distribution of
+target functions. It establishes a provisional surrogate function based on
+past evaluation of unknown target functions and continues to search for
+the next set of hyper parameters that minimize the surrogate function
+
+(9)
+
+p(D)
+
+Probabilistic proxy models are used to estimate the prediction error
+of the LSTM model with various hyper parameters. Through iterative
+computation of BO and a constant correction of the prior probabilities,
+the agent model will closely approximate location objective functions. In
+this study, Gaussian processes are selected as the probabilistic agent
+model, which is widely employed in non-linear regression, classifica-
+tion, and other fields (Seeger, 2004). The Gaussian distribution is
+expressed as:
+
+f(x) ∼ GP(μ(x) , k(x, x) )
+
+(10)
+
+where μ(x) = E(f(x)) is the mathematical expectation of f(x), usually the
+mean function is set to 0; f(x) is the mean absolute error; k(x, x) is the
+covariance function of x.
+
+2.3.5. Model evaluation
+
+To assess the model’s performance, the root mean square error
+(RMSE), mean absolute error (MAE), and coefficient of determination
+(R2) were used. The definitions of these evaluation metrics are provided
+below:
+[
+
+]
+2
+
+∑n
+
+Fig. 3. Structure of the long- and short-term memory model neural network.
+
+EcologicalInformatics82(2024)1027215X.-d. Wang et al.
+
+2.3.4. Bayesian optimization
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The hyperparameters of the model are optimized using Bayesian Optimization (BO). Unlike traditional methods such as grid search or random search, BO uses a more efficient approach by leveraging past evaluations of the target function to guide future searches. This method is particularly useful when dealing with a large number of hyperparameters due to its ability to handle non-linear interactions between them. By estimating the posterior distribution of the target function, BO constructs a provisional surrogate function. This function is then minimized to determine the next set of hyperparameters to evaluate. In this study, Gaussian processes are chosen as the probabilistic agent model for BO. These processes are commonly used in non-linear regression, classification, and other fields. They provide a way to estimate the prediction error of the Long Short-Term Memory (LSTM) model with different hyperparameters. Through iterative computation of BO and continuous updating of the prior probabilities, the agent model approximates the objective function.

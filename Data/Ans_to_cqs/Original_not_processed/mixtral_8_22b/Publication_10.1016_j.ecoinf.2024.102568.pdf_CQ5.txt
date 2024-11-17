@@ -1,0 +1,92 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The LSTM model is trained using the mean squared error (MSE) as 
+loss function and the ADAM optimization (Kingma and Ba (2015)). To 
+avoid overfitting, a dropout layer is added. The dropout layer, described 
+¨
+by 
+Ozgür  and  Nar  (2020),  is  a  regularization  method  that  randomly 
+excludes some inputs from activation and weight updates while training 
+a network. Inputs not set to zero are scaled up by 1/(1 (cid:0) rate) such that 
+the  sum  over  all  inputs  remains  the  same.  The  training  set  is  pre-
+processed using a MinMaxScaler that transforms each feature by scaling 
+it  to  a  [0–1]  range.  The  dimension  of  the  temporal  window  must  be 
+selected  dynamically  considering  the  performance  obtained  with 
+different values on the available dataset. 
+
+In  the  specific  case  of  Modena,  an  Italian  city  spanning  183  km2, 
+
+there are two legal AQ stations denoted by red dots in Fig. 6.
+
+its  past  values  have  decreasing 
+
+For  the  configuration  of  LSTM,  after  evaluating  6,  12,  24,  and  48 
+previous observations in Casarotti (2021), we decided to fix the tem-
+poral window to 12 previous observations (i.e., 2 h of observations) for 
+our use case. Given the selected dimension of the temporal window (x) 
+and the number of features (y), the dataset is reshaped such that each 
+observation consists of x rows and y columns. LSTM was also compared 
+with different RNN architectures such as Multilayer Perceptron (Marius 
+et al. (2009)) and Gate Recurrent Unit (Cho et al. (2014)). LSTM proved 
+to  have  better  results  than  Multilayer  Perceptron,  reducing  RMSE  by 
+5.70% for NO and by 15.23% for NO2, as shown in Casarotti (2021).
+
+Fig. 5. Structure of the LSTM cell.  
+
+Several  configurations  of  the  LSTM  architecture  were  tested  and 
+compared  in  Casarotti  (2021)  showing  that  a  three  hidden  layer 
+configuration of LSTM does not radically improve the performances, and 
+with a small training dataset might be affected by overfitting. 
+
+Since the co-location period needs to be as short as possible and deep 
+learning models usually need many input data, the implemented solu-
+tion  of  LSTM  is  a  trade-off  between  reaching  good  performances  and 
+minimizing the dimension of the training data. 
+
+For this reason, the LSTM model implemented has only one hidden 
+layer  of  y  neurons,  where  y  is  determined  based  on  the  number  of 
+training observations: 
+
+y =
+
+Ns
+α*(Ni + No)
+
+where Ns is the number of samples in the training set, Ni is the number of 
+input neurons, No  is the number of output neurons, and α is usually a 
+value between 5 and 10.
+
+Hafner, H., 2014. Air Sensor Guidebook. US Environmental Protection Agency. https: 
+//cfpub.epa.gov/si/si_public_record_report.cfm?Lab=NERL&dirEntryId=277996&s 
+impleSearch=1&searchAll=air+sensor+guidebook. Accessed: 2023-12-08.  
+
+Zaytar, M.A., Amrani, C.E., 2020. Machine learning methods for air quality monitoring. 
+In: NISS 2020: The 3rd International Conference on Networking, Information 
+Systems & Security, Marrakech, Morocco, March 31 - April 2, 2020, ACM. https:// 
+doi.org/10.1145/3386723.3387835, 16:1–16:5.  
+
+Zimmerman, N., Presto, A.A., Kumar, S.P.N., Gu, J., Hauryliuk, A., Robinson, E.S., 
+
+Robinson, A.L., Subramanian, R., 2018. A machine learning calibration model using 
+random forests to improve sensor performance for lower-cost air quality monitoring. 
+Atmosph. Meas. Tech. 11, 291–313. URL: https://amt.copernicus.org/articles/11/ 
+291/2018/ https://doi.org/10.5194/amt-11-291-2018. 
+
+Costa, C., Pitoura, E. (Eds.), Proceedings of the Workshops of the EDBT/ICDT 2021
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Unfortunately, the given context does not provide explicit information about the specific datasets used in the deep learning pipeline. However, it mentions that the training set is pre-processed using a MinMaxScaler that transforms each feature by scaling it to a [0–1] range. This suggests that the dataset could contain numerical data related to air quality measurements or similar. Additionally, the text refers to a study conducted in Casarotti (2021), which may include more details about the datasets used. Nevertheless, without further context or access to the mentioned sources, I cannot provide a definitive answer regarding the exact datasets employed in the deep learning pipeline.

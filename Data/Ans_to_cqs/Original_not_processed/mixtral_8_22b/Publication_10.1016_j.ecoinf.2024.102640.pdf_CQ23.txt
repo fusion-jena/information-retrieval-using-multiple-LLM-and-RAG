@@ -1,0 +1,79 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+5.2. Deep GVI learning 
+
+In  GreenCam,  we  measure  photo  GVI  by  SegFormer  (Xie  et  al., 
+2021),  a  state-of-the-art  Transformer-based  model  for  semantic  seg-
+mentation. As shown in Fig. 12, SegFormer follows the encoder-decoder 
+structure, which combines a Transformer-based encoder (i.e., MiT) with 
+a  lightweight  decoder  (i.e.,  ALL-MLP)  that  is  composed  entirely  of 
+multilayer perceptron (MLP) blocks.
+
+7.2. Diversity and balance of the dataset 
+
+The model in GreenCam is trained based on a customized dataset, 
+and the quality of the dataset will significantly affect the model's per-
+formance. When constructing our dataset, we expanded the geographic 
+scope  of  data  collection  to  include  a  wider  range  of  urban  settings, 
+including  different  types  of  green  spaces  (parks,  gardens,  campuses, 
+urban forests, etc.) and varying levels of urban green density. To address 
+underrepresented  classes  and  improve  the  balance  of  the  dataset,  we 
+have  implemented  data  augmentation  techniques,  including  random 
+rotations, scaling, and flipping of images, which help the model gener-
+alize better without compromising the diversity of the dataset.
+
+Caesar, H., Uijlings, J., Ferrari, V., 2018. Coco-stuff: Thing and stuff classes in context. In: 
+
+Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 
+pp. 1209–1218. 
+
+Cai, B.Y., Li, X., Seiferling, I., Ratti, C., 2018. Treepedia 2.0: applying deep learning for 
+large-scale quantification of urban tree cover. In: 2018 IEEE International Congress 
+on Big Data (BigData Congress). IEEE, pp. 49–56. 
+
+Ca˜nas, I., Ayuga, E., Ayuga, F., 2009. A contribution to the assessment of scenic quality of 
+landscapes based on preferences expressed by the public. Land Use Policy 26, 
+1173–1181. 
+
+Chen, Z., Xu, B., Gao, B., 2015. Assessing visual green effects of individual urban trees 
+
+using airborne lidar data. Sci. Total Environ. 536, 232–244. 
+
+Chen, L.-C., Zhu, Y., Papandreou, G., Schroff, F., Adam, H., 2018. Encoder-decoder with 
+
+atrous separable convolution for semantic image segmentation. In: Proceedings of 
+the European Conference on Computer Vision (ECCV).
+
+For further improvement, we are in the process of expanding UGE-D 
+to include photos from different cities and climates, which will enrich 
+the dataset with a broader range of urban environmental conditions. As 
+the GVI also varies with the seasons, capturing images across all seasons 
+is also a good choice to increase diversity. We also noticed the issue of 
+imbalanced labels in UGE-D, such as the relatively fewer labels for fa-
+cilities and flowers. To eliminate biases in the distribution of categories, 
+we will increase the number of annotations for these categories in our 
+future work. 
+
+7.3. Cost-benefit comparison with traditional methods
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of the deep learning model used in GreenCam, several measures have been taken. Firstly, the model was trained using a customized dataset that covers a wide range of urban settings. This includes various types of green spaces like parks, gardens, campuses, and urban forests, as well as areas with varying levels of urban green density. By incorporating this diverse set of environments into the training data, the model can learn to accurately predict GVI in a variety of scenarios.
+
+Secondly, data augmentation techniques were employed to enhance the robustness of the model. These techniques included random rotations, scaling, and flipping of images. The purpose of these transformations is to artificially expand the size of the dataset while maintaining its inherent diversity. Consequently, the model becomes more capable of handling variations in input data, thereby improving its ability to generalize.
+
+Lastly, efforts are being made to continuously improve the dataset by adding photos from different cities and climates. This expansion aims to capture a broader range of urban environmental conditions, thus increasing the overall diversity of the dataset. Additionally, since GVI changes with the seasons, collecting images throughout the year is another strategy to boost dataset diversity. Furthermore, addressing imbalances in category representation within the dataset is crucial to prevent any potential bias during prediction. Therefore, future plans involve increasing the number of annotations for underrepresented categories, such as facilities and flowers.
+
+These combined strategies contribute to enhancing the generalizability of the deep learning model, enabling it to perform effectively across a wide array of real-world situations.

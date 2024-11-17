@@ -1,0 +1,124 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+A R T I C L E  I N F O    
+
+A B S T R A C T    
+
+Keywords: 
+Pacific oysters 
+Invasive species 
+Convolutional neural networks 
+Deep learning 
+Drone 
+Remote sensing 
+Ecological management
+
+The  authors  recognize  several  other  limitations  that  could  be 
+addressed in follow up projects. First, only two types of neural network 
+architectures  were  used,  whereas  additional  benchmarking  could  be 
+performed  with  other  types  of  ResNets,  DenseNets  and  transformer 
+based models. Secondly, this study does not address the individual in-
+sights from the trained models, and the pros and cons of architectures 
+and hyperparameters in recognizing specific features of Pacific oysters 
+across  mudflats  and  rocky  shore  imagery.  Thirdly,  ablations  studies 
+should  be  performed,  showcasing  the  possibilities  for  reducing  the 
+complexities of neural network layers and speeding up the computation 
+times. And fourthly, if left unmanaged, Pacific oysters can create oyster 
+reefs and very dense clusters where younger oysters grow on top of the 
+older. In such cases, no gaps are found in the cluster and only the oysters
+
+This resulted in a dataset consisting of 3643 tiles for the Scoble site 
+(758 containing Pacific oysters, 2885 without Pacific oysters) and 7571 
+tiles  for  the  Collapit  site  (879  containing  Pacific  oysters  and  6692 
+without Pacific oysters). 
+
+2.3. Validation and training datasets 
+
+To create the training and validation datasets, the tiles containing 
+Pacific oysters were split into 70% training, and 30% validation. Data 
+augmentation  was  used  to  increase  the  size  of  the  training  dataset, 
+through random variations and manipulations to the data. Augmenta-
+tions  were  applied  in  a  random  order.  The  list  of  augmentations  is 
+described in Table 1. 
+
+The training data set had five augmented images created per original 
+tile  to  create  an  additional  5735  tiles  split  between  the  two  sites. 
+
+Table 1 
+Data Augmentations applied to training data.  
+
+Augmentation 
+
+Flip 
+Crop 
+Contrast Shift 
+Translation 
+Rotation 
+
+Minimum 
+
+Maximum 
+
+–
+
+Minimum 
+
+Maximum 
+
+– 
+
+0 
+(cid:0) 25% 
+(cid:0) 20% 
+◦
+(cid:0) 90
+
+– 
+
+10% 
++50% 
+20% 
+◦
++90
+
+2.4. Deep learning models 
+
+Two  widely  used  object  detection  models  were  selected  for  com-
+parison, YOLOv5 (Jocher et al., 2021) and Faster R-CNN (FR-CNN) (Ren 
+et al., 2015). YOLO is a lightweight approach where objects are identi-
+fied directly through as single pass, whereas the FR-CNN is a multi-stage 
+network approach based on identifying potential regions and then cat-
+egorising and discarding some inappropriate regions (Ren et al., 2015). 
+For the YOLOv5 model, we also tested three variants, YOLOv5 small, 
+YOLOv5  medium  and  TPH-YOLOv5  (Zhu  et  al.,  2021b),  which  is  a 
+modified variant of YOLO with a Transformer Prediction Head (TPH) 
+(Yang et al., 2019).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The study uses various data augmentation techniques to increase the size of its training dataset. These techniques involve applying random variations and manipulations to the existing data. Specifically, the following augmentations are described in Table 1:
+
+1. Flipping: This technique involves flipping the image horizontally or vertically. It helps the model generalize better by creating new perspectives of the same image.
+
+2. Cropping: This method involves removing parts of the image to focus more on the relevant details. It can help improve the performance of the model when dealing with different scales and sizes of the target objects.
+
+3. Contrast shift: By changing the contrast of the image, the model becomes more robust to varying lighting conditions and color differences.
+
+4. Translation: This technique shifts the position of the image within the frame, helping the model learn about spatial relationships and improving its ability to detect objects regardless of their location in the image.
+
+5. Rotation: By rotating the image, the model gains experience with different orientations of the target objects, making it more versatile and accurate.
+
+These augmentations are applied randomly to the training data, ensuring diversity and preventing overfitting. As mentioned in the text, there are five augmented images created per original tile, resulting in an additional 5735 tiles split between the two sites.

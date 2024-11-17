@@ -1,0 +1,81 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3. Results 
+
+3.1. Training database performance 
+
+The average unweighted and category-weighted training classifica-
+tion  accuracies  are  98.9%  and  97.4%,  respectively.  For  the  sake  of 
+brevity,  the  training  confusion  matrix  is  not  produced,  but  the  test 
+confusion matrix for all 19 sound classes is shown in Table 4. For the test 
+data, the average unweighted and weighted accuracies are 94.7% and 
+88.8%. The F1-scores for the training and testing datasets, respectively, 
+are.980 and.907 (Chinchor, 1992). 
+
+Slightly  lower  testing  accuracy  scores  are  seen  in  categories  like 
+background noise, which potentially contain a very faint sound occur-
+ring in one of the other categories that is not readily detected by the 
+human eye, or other such class ambiguities. Additionally, lower scores 
+are seen for smaller classes with a fewer number of training examples, 
+like the squirrel “kuk” and the white-breasted nuthatch call.
+
+(cid:0) 4 and a decay of 1×10
+
+The  optimizer  Adam  was  selected  with  an  initial  learning  rate  of 
+(cid:0) 7 and early stopping was used to prevent 
+1×10
+overfitting  (Kingma  and  Ba,  2014).  Typically,  the  model  trained  be-
+tween 10 and 15 epochs before training ceased, where each epoch took 
+roughly 1 min on an NVIDIA GeForce RTX 2080 Ti GPU. In addition to 
+the conventional accuracy metric, the area under the curve, as computed 
+by  a  Riemann  sum,  was  also  used  for  training.  From  the  assembled 
+database of annotated clips, in each of the five cross-validation folds, 
+10% of the data was reserved for comparing the training and validation 
+loss/accuracy  after  each  epoch,  and  a  further  10%  was  reserved  for 
+performance testing after all training had ceased. All results reported are 
+the average after five-fold cross-validation.
+
+Pre-training on the both ResNet50 (He et al., 2016) and Inception 
+(Szegedy et al., 2014) neural networks did not meaningfully improve 
+classification performance, therefore this simpler architecture, similar to 
+those implemented by (Ruff et al., 2020; Sprengel et al., 2016) was used 
+instead. 
+
+2.6. Generating prediction record
+
+EcologicalInformatics61(2021)1012425M.M. Morgan and J. Braasch                                                                                                                                                                                                                
+
+Fig. 5. The convolutional neural network architecture.  
+
+3.2. Validation database performance 
+
+After training the neural network, the generalizability and robust-
+ness of the model was further tested on the validation dataset. In the case 
+of  the  small  portion  of  multi-label  data,  if  either  or  both  of  the  two 
+labeled classes was output as a prediction, that prediction was consid-
+ered to be correct. 
+
+The network performance on all six validation days is summarized in 
+Table 5. The average classification accuracy is 84.9%, with the lowest 
+reported  accuracy  being  81.7%,  and  the  highest  being  88.6%.  Recall 
+scores are fairly comparable.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The performance of the deep learning model is evaluated using several metrics. These include the average unweighted and category-weighted training classification accuracies, which were found to be 98.9% and 97.4%, respectively. For the test data, the average unweighted and weighted accuracies are 94.7% and 88.8%. The F1-scores for the training and testing datasets are.980 and.907, respectively. Lower testing accuracy scores are observed in certain categories due to factors such as faint sounds occurring in other categories or class ambiguities. Smaller classes with fewer training examples may also have lower scores.
+
+Additionally, the area under the curve, calculated using a Riemann sum, is employed for training purposes. After each epoch, the training and validation loss/accuracy are compared using 10% of the data from each fold. Another 10% of the data is reserved for performance testing once training has concluded. All reported results are averages obtained through five-fold cross-validation.
+
+For validating the model, the network performance is assessed based on its ability to correctly predict multiple labeled classes. The average classification accuracy across all six validation days is 84.9%, with the lowest and highest reported accuracies being 81.7% and 88.6%, respectively. Recall scores are also considered when evaluating the model's performance.

@@ -1,0 +1,13 @@
+The deep learning model in question is specifically an LSTM (Long Short-Term Memory) model, which is used for time series forecasting, particularly in the context of predicting air quality concentrations in an Italian city called Modena.
+
+The LSTM model is trained using the mean squared error (MSE) as a loss function and the ADAM optimization method. A dropout layer is added to the model to avoid overfitting, which is a regularization method that randomly excludes some inputs from activation and weight updates while training a network.
+
+The LSTM model has one hidden layer of y neurons, where y is determined based on the number of training observations, input neurons, and output neurons, and a value of alpha between 5 and 10.
+
+The LSTM model is compared to a VR + SVR (Vector Regression and Support Vector Regression) model, and it is observed that while the VR + SVR model performs better in some cases, the increase in performance is usually less significant. However, the LSTM model significantly increases accuracy and reduces RMSE, MAE, and MRE in most cases where it shows better results.
+
+However, the LSTM model has some limitations. When the size of the training dataset is restricted, the performance of LSTM models may prove to be inadequate. Additionally, the LSTM model was not able to predict the values of concentration in the 13% of test observations due to the absence of a long enough sequence of previous observations without missing values in the input features.
+
+Therefore, the VR + SVR model is a good alternative to LSTM when there are frequent holes in the time series of measurements and when there are not enough past observations to successfully employ LSTM.
+
+In summary, the purpose of the deep learning model in question is time series forecasting of air quality concentrations using an LSTM model, which has been observed to significantly increase accuracy and reduce error metrics in most cases compared to a VR + SVR model. However, the LSTM model has limitations in terms of requiring a sufficient number of training observations and a long enough sequence of previous observations without missing values in the input features.

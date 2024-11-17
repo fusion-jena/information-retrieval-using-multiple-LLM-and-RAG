@@ -1,0 +1,97 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1 
+Model training optimized parameters.  
+
+Parameter 
+
+Nomenclature 
+
+Search interval 
+
+Learning 
+rate 
+
+Momentum 
+SD threshold 
+Input size 
+
+μ 
+
+β 
+σ 
+s 
+
+[10
+
+(cid:0) 5, 10
+
+(cid:0) 2] 
+
+[0,1] 
+[0.05, 0.25] 
+{(75, 125, 3), (100, 150, 3), 
+(200, 250, 3)} 
+
+Optimized 
+value 
+
+0.096 
+
+0.845 
+0.05 
+(200, 250, 3)  
+
+Each optimization run consisted of 3000 train iterations with a batch 
+size of 25 individuals to pick a pair of similar and a pair of dissimilar 
+photos (i.e., a batch size of 100 images), and validating each 300 iter-
+ations. TensorBoard —a set of visualization tools included in the open- 
+source  library  for  machine  learning  TensorFlow—  was  used  to  study 
+the performance of the runs. The selected parameters correspond to the 
+run shown in Supplementary Fig. S3. 
+
+3. Results
+
+Collectedly,  the  findings  of  the  proposed  model  suppose  a  strong 
+impact and have several implications on the real applications of wildlife 
+research,  concerning  that  it  means  a  feasible  application  for  most  of 
+research teams: we face the problem of dealing with a small amount of 
+photographs per individual to train the model, altogether with consid-
+ering a model invariant to different data collection techniques, and a 
+scenario  with  non-perfect  conditions  in  the  wild.  Furthermore,  our 
+model is very low time-consuming and can even be trained on CPU since 
+it has been oriented to train the fewest number of weights possible (al-
+ways taking into account the trade-off with the information provided to 
+the  model).  This  implied  that  our  architecture  was  already  trained 
+within  about  a  day,  allowing  us  to  run  many  iterations  of  Bayesian 
+optimization and hence explore multiple options for the tuning param-
+eters in promising regions.
+
+2012).  This  selection  was  made  because  it  does  not  require  to  study 
+every possible combination of the parameters in a grid search, it works 
+by incorporating the information that was learned in previous function 
+evaluations to choose an optimal set of coordinates of the search space 
+for the next evaluation. This is made by calculating the posterior pre-
+dictive distribution for the function's value at each point. Table 1 gathers 
+the search space and the selected parameters at the end of the optimi-
+zation process.
+
+straightforward methodology, and it is developed within a much more 
+limited scenario, which is the standard for most research teams which 
+are becoming familiar with deep learning approaches.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit details regarding any specific postprocessing steps involved after the model training. However, based on common practices in machine learning projects, some potential postprocessing steps could include generating saliency maps, calculating metrics such as accuracy or precision, creating confusion matrices, or performing other forms of analysis to evaluate the model's performance. It should be noted that these possibilities are speculative and not directly supported by the provided context.

@@ -1,0 +1,10 @@
+Answer:::
+The strategy implemented to monitor the model performance during training in the random forest (RF) model involves the use of two important parameters: the number of variables to try (M) and the number of trees to run (Nt) at each split. The optimal number of variables (M) was determined using the internal RF function TuneRF, which calculates the optimal number of variables starting from the default value and finds the value with the minimum out-of-bag (OOB) error rate below and above the threshold value. The function looks below and above this threshold for the value with the minimum OOB error rate.
+
+Additionally, the model's performance was further evaluated using a 10-fold cross-validation technique. This method involves dividing the dataset into ten subsets, where each subset is used as a validation set while the remaining nine subsets are used for training. The process is repeated ten times, and the results are averaged to provide a more robust estimate of the model's performance.
+
+The performance of the RF model was monitored by calculating the root mean square error (RMSE) and the coefficient of determination (R2) between the measured and fitting values. The RMSE measures the difference between the values predicted by the model and the actual values, while the R2 indicates the proportion of the variance in the dependent variable that is predictable from the independent variable.
+
+The results showed that the RF model had high prediction accuracy and good fitting effect, with an RMSE of 146.202 and 117.430 ion/cm3, and a linear correlation R2 of 0.275 and 0.980, respectively. The 10-fold cross-validation results further confirmed the model's stability, with an average R2 of 0.931 and an average RMSE of 141.124 ion/cm3.
+
+In summary, the strategy implemented to monitor the model performance during training in the RF model involved the use of the TuneRF function to determine the optimal number of variables, and the use of a 10-fold cross-validation technique to evaluate the model's performance. The results showed that the RF model had high prediction accuracy and good stability.

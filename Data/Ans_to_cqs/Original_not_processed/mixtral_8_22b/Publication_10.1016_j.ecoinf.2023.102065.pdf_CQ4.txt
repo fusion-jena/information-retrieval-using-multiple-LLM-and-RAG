@@ -1,0 +1,53 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+dataset  increased  by  50%  after  this  data  augmentation,  which  is 
+important for small training datasets such as ours.
+
+The  recordings  for  each  ROI  were  cut  using  start/stop  times  and 
+sequentially appended to create a single merged .wav file for each spe-
+cies and set (i.e., train, validation) combination. Each merged .wav file 
+was  then  sliced  into  2-s  increments  and  mel-spectrograms  computed. 
+Note that since there were some ROIs from the pattern matching that 
+were >2 s, some 2-s recording clips included parts from different ROIs. 
+Performing data augmentation on training datasets is a widely used 
+technique in deep learning, including sound classification applications, 
+to  regularize  models  and  provide  more  robust  features  (Salamon  and 
+Bello, 2017). We performed data augmentation by splitting the merged . 
+wav  training  file  for  each  species  in  half  and  then  adding  these  two 
+halves sample-wise. This augmented .wav file was similarly split into 2-s 
+increments as above and mel-spectrograms were computed. The training
+
+ence data available for training were limited, so we sought to explore 
+different network sizes in conjunction with pre-training with additional 
+acoustic reference data from outside of our audio domain, followed by 
+fine-tuning with ROI data from our study site.
+
+LeBien et al., 2020; Ruff et al., 2021; Stowell et al., 2019; Zhong et al., 
+2020). Tuning of the network hyperparameters and convolutional filters 
+provides automated feature learning, thereby removing an obstacle of 
+earlier  machine  learning  methods  (Gupta  et  al.,  2021).  Sound  data 
+include frequency, amplitude and temporal information, and there are 
+different  approaches  to  express  these  data  in  CNN  architectures.  One 
+approach is to represent sound data as amplitude-time waveforms, then 
+train  1-dimensional  neural  network  architectures,  such  as  Recurrent 
+Neural Networks (RNNs) to identify distinct patterns (Sang et al., 2018; 
+Weninger and Schuller, 2011; Zhang et al., 2021). Another approach is 
+to  train  CNNs  to  classify  2D  image  spectrograms  (Kahl  et  al.,  2021; 
+LeBien et al., 2020; Ruff et al., 2021; Stowell et al., 2019; Zhong et al., 
+2020).  A  popular  extension  is  to  use  mel-spectrograms  from  human
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: In the given dataset, the data augmentation technique applied in the deep learning pipeline involves splitting the merged.wav training file for each species in half and then adding these two halves sample-wise. This results in an augmented.wav file, which is further processed by slicing it into 2-second increments and computing mel-spectrograms. However, the specific techniques mentioned in the query like flipping, rotating, or scaling do not appear to be explicitly stated in the provided context.

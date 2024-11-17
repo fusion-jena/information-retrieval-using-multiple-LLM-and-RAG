@@ -1,0 +1,124 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Three models (Models 4, 5, and 6) were trained using our own data 
+(clusters of extracted numbers), as described above, as input for training, 
+whereas the other three models (Models 1, 2, and 3) were trained with 
+the modified National Institute of Standards and Technology (MNIST) 
+dataset of handwritten digits, which can be used to train classification 
+models (Deng, 2012).
+
+split  data  with  the  highest  mAP50  (0.987)  for  the  prediction  of  our 
+model.
+
+To determine the ideal training–test split for our model, we used k- 
+fold  cross-validation  (k  = 5,  epochs  = 500,  imagesize  = 640).  The 
+epochs provide the number of repetitions for training, and the image size 
+is  expressed in  pixels. k-fold  cross-validation  (Rodriguez et  al., 2010) 
+was used to determine the best training test set for the model. Hereby, 
+the data are split into k different training–test sets. The model was not 
+trained on the entire dataset but on each training split. The result was an 
+investigation of the best data split. Functions of the Python library scikit- 
+learn  (scikit-learn  developers,  2023)  were  used  to  split  the  data  and 
+investigate the results of each trained model. In addition, YOLO training 
+losses and mAP50 values of each model were investigated. The split with 
+the  highest  mAP50  value  indicates  the  highest  number  of  correctly 
+predicted labels for the model trained on a specific split. We used the
+
+TP 
+
+37.12 
+41.05 
+
+FN 
+
+20.15 
+31.71 
+
+0.0374 * 
+0.0455 * 
+
+2.3818 
+3.2014 
+
+TN 
+
+34.25 
+34.40 
+
+FP 
+
+44.48 
+47.28  
+
+Table 6 
+Summary of the models trained for number recognition. Models 4, 5, and 6 were trained on the numbers from our point cloud data, while the others (model 1, 2 and 3) 
+were trained on numbers from the MNIST dataset ((1) means that the original MNIST data was used, whereas (2) refers to MNIST data that was changed in size and 
+placement to resemble our data). Model 4 (bold) is the model that was most suitable to predict numbers in our data. The training time was taken on a Lenovo Legion 
+Y520 with Linux Mint 20.2 Cinnamon Edition operating system.  
+
+Nr 
+
+Base model 
+
+Training Data 
+
+Training Epochs 
+
+Train – Val Split 
+
+Precision 
+
+Recall 
+
+mAP50 
+
+Training Time 
+
+1 
+2 
+3 
+4 
+
+5 
+
+6 
+
+YOLOv8n 
+#4 
+#4 
+YOLOv8n 
+
+YOLOv8n 
+
+#1 
+
+MNIST(1) 
+MNIST(2) 
+MNIST(2) 
+Tree  
+Markings 
+Tree  
+Markings 
+Tree  
+Markings 
+
+10 
+10 
+3 
+500 – early stopping: 270
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not explicitly state what type of deep learning model is used in the pipeline. However, it mentions that the models are based on YOLO (You Only Look Once), which is a real-time object detection system. YOLO uses convolutional neural networks (CNNs) to detect objects within images or video streams. Therefore, it can be inferred that the pipeline uses CNNs as its deep learning model.

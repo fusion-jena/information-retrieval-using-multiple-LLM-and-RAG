@@ -1,0 +1,100 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+In our case, it is the proportion of expert-labeled “Glycaspis”
+(respectively “Psyllaephagus” or “Thaumastocoris”) objects that
+were also labeled “Glycaspis” (respectively “Psyllaephagus” or
+“Thaumastocoris”) by the deep learning model. Recall is deﬁned
+as the number of true positives divided by the sum of true
+positives and false negatives. Precision (Eq. 3) is the fraction
+of correctly classiﬁed objects among all classiﬁed objects. It is
+deﬁned as the number of true positives divided by the sum of true
+positives and false positives:
+
+Model Training
+Deep learning models
+iteratively: generating
+learn data
+predictions of the training set samples, evaluating them by
+
+3https://github.com/ultralytics/yolov5/tree/v4.0
+4https://cocodataset.org/#home
+
+the loss function, and modifying their parameters according
+to the loss function’s gradient. Thus,
+the loss declines in
+each training round (aka epoch), and the model’s annotation
+accuracy increases (Figure 2 and Supplementary Figure 1).
+As the number of parameters of a typical deep learning
+model
+is large, overﬁtting is a major concern. A common
+(partial) remedy is the use of validation data, which are set-
+aside while training, yet their annotations by the models are
+the training
+monitored. The validation data help to limit
+duration, thereby reducing the risk of overﬁtting. In this study
+we used 30 epochs per training task, based on our validation
+runs (Figure 2).
+The data of
+
+Deep Learning for Insect Ecoinformatics
+
+data points describe the performance attained by a model that
+accepts all identiﬁcations, as its Tcs is minimal (0). Such a plot
+can guide users in adjusting model parameters to their needs. If
+fewer detections are accepted (low recall), precision increases.
+
+Tables 3, 4 illustrate the types of recall (Table 3) and precision
+(Table 4) errors made by the model when the conﬁdence
+threshold was set to 0.7. The model rarely confused between our
+three focal species (gray areas in Tables 3, 4). It made some false
+positive predictions, particularly for the class “Psyllaephagus”
+(bold text in Table 4, not tagged by the expert but predicted
+by the model). Most of the missed predictions, however, were
+false negatives (bold text in Table 3, tagged by the expert but not
+identiﬁed by the model).
+
+We used the average precision, over all observed recall values,
+as a single model-performance metric, which takes into account
+the trade-oﬀ between precision and recall. Precision values, and
+hence also their average, range between 0 and 1. The average
+precision of an ideal predictive model equals 1, meaning it always
+detects every class correctly. As this value decreases, so does the
+performance of the model.
+
+Preliminary Application to Forest
+Ecology Research
+We used the samples of 2020 to test how well the machine-
+learning model captures insect abundance variability in “real-life”
+data. A total of 58 traps, set up in July 2020 in six research sites,
+served as the dataset (Table 1). The three focal insects were tagged
+on all images by an expert. Nineteen traps that did not contain
+any of these species of interest were excluded from further
+
+Frontiers in Ecology and Evolution | www.frontiersin.org
+
+6
+
+May 2021 | Volume 9 | Article 600931
+
+fevo-09-600931
+
+May 17, 2021
+
+Time: 21:42
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Answer: The performance of the deep learning model is evaluated using several metrics such as recall, precision, and average precision. Recall is defined as the proportion of expert-labeled objects that were also labeled by the deep learning model. It is calculated as the number of true positives divided by the sum of true positives and false negatives. Precision is the fraction of correctly classified objects among all classified objects. It is calculated as the number of true positives divided by the sum of true positives and false positives. Average precision is used as a single model-performance metric, taking into account the trade-off between precision and recall. It ranges between 0 and 1, with an ideal predictive model having an average precision of 1.

@@ -1,0 +1,73 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Using  a  pre-trained  CNN  feature  extractor  and  adding  a  softmax 
+output layer is less complex than having to optimise a CNN from scratch 
+and requires less network design decisions and also less time on hyper- 
+parameter tuning. We thus argue that this approach renders the use of 
+deep learning much more accessible to practitioners. Extensive hyper- 
+parameter tuning also requires expensive GPU hardware which might 
+not  be  accessible  to  practitioners.  Our  findings  revealed  that  results 
+could be obtained on limited hardware within 9 h (10 epochs of fine- 
+tuning  the  feature  extractor)  which  would  cost  2USD,  at  the  time  of 
+writing, if that was executed on a Microsoft Azure virtual machine – thus 
+rendering this approach affordable and accessible. 
+
+It is well accepted that no single machine learning algorithm – or in
+
+practitioner can manually annotate a few examples and then start using 
+a  pre-trained  ResNet152V2  model  to  find  new  examples.  Once  addi-
+tional examples have been found via the pre-trained model, these new 
+examples can be incorporated into the training set. This iterative process 
+can be repeated until a large training set is obtained, after which, the 
+pre-trained CNN can be fine-tuned to create a more robust classifier. We 
+thus argue that practitioners can begin using CNNs relatively early on 
+within  a project to  speed up  the rate at  which calls  are found.  These 
+findings  oppose  existing  knowledge  that  deep  learning  requires  large 
+training  datasets.  One  possible  explanation  for  the  good  performance 
+achieved in this study is due to the high signal-to-noise ratio. It was also 
+hypothesised  that  good  performance  was  obtained  due  to  the  lack  of 
+variation within the calls (e.g. gibbons and whydah datasets), however
+
+faced with the decision of deciding on suitable neural network archi-
+tectures, a non-trivial task. While architectures along with their software 
+implementation do exist (e.g. VGG16 (Simonyan and Zisserman, 2014)), 
+there are no clear guidelines as to which one is suitable for the creation 
+of a  PAM classifier. Thus, the  development of CNNs is  accessible pri-
+marily to individuals who have knowledge in deep learning. The second 
+issue is that of training CNNs on acoustic datasets which contain very 
+few  vocalisation  examples  of  the  various  species  which  can  result  in 
+overfitting (Hawkins, 2004); a term which means that the model is able 
+to perform well on the training data but poorly on new data that was not 
+used in training. In certain cases it might be difficult to obtain additional 
+audio data (e.g. due to inaccessible habitat or small population size due 
+to species being threatened). Thirdly, hyper-parameter tuning is a time
+
+There were not a large number of studies that compared various pre- 
+trained neural network architectures. Xie et al. (2018) compared various 
+implementations of VGG16 pre-trained on the ImageNet dataset. Their 
+results  show  that  VGG16  with  transfer  learning  (whereby  the  feature 
+extractor was frozen) did not outperform VGG16 with random initiali-
+sation.  To  overcome  this,  a  multi-channel  model  was  created  which 
+inputs  Short-time  Fourier  transform,  mel-spectrogram  and  chirplet 
+spectrograms  into  three  separate  pre-trained  VGG16  models  respec-
+tively. This approach led to the best results and had considerably less 
+neural  network  trainable  parameters  compared  to  the  single  VGG16 
+with  random  initialisation.  Henri  and  Mungloo-Dilmohamud  (2021) 
+collected and created a birdsong dataset from Xeno-Canto to create a 
+CNN  classifier.  The  authors  compared  MobileNetV2  (Sandler  et  al.,
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide specific information about the regularization methods used to prevent overfitting in the deep learning pipeline. However, it mentions that overfitting can occur when training CNNs on acoustic datasets containing very few vocalization examples of various species. Overfitting refers to a situation where the model performs well on the training data but poorly on new data that was not used in training. Regularization techniques such as dropout and L2 regularization can help prevent overfitting by introducing noise during training or penalizing large weights, respectively. Dropout randomly drops out neurons during training, while L2 regularization adds a penalty term to the loss function based on the sum of squared weights. Other regularization methods include early stopping, weight decay, and batch normalization. Early stopping involves monitoring the validation error during training and stopping when it starts to increase, indicating that the model is beginning to overfit. Weight decay is similar to L2 regularization but uses a different formulation. Batch normalization standardizes inputs to each layer, reducing internal covariate shift and improving generalization.

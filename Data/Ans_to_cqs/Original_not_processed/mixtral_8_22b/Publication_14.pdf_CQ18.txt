@@ -1,0 +1,120 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+download  for  Mac  and  Windows  with  the  pre- trained  humming-
+
+bird model. In addition, I provide reproducible scripts for local and 
+
+3 |  R E S U LT S
+
+Google  cloud  environments  to  allow  users  to  train  new  models, 
+
+which can then be used in the local software.
+
+2.2 | Test dataset
+
+Feature  extraction  of  the  fixed  inception  layers  completed  in  1 hr 
+
+and  26 min  on  15  CPUs.  Training  of  the  new  layers  completed  in 
+
+27 min on a single CPU. Model evaluation on the 70 test videos com-
+
+pleted in 4 hr and 38 min on 30 CPUs with an average frame rate of 
+
+My  collaborators  and  I  have  been  studying  hummingbird  ecol-
+
+17 frames/s. On average, a video contained  545.84 candidate  mo-
+
+ogy  using  time- lapse  cameras  in  the  Ecuadorian  Andes  since  2013 
+
+tion frames (2.5% of total frames) that were sent for classification by 
+
+(Weinstein & Graham, 2017). Cameras turn on at dawn, off at dusk,
+
+http://orcid.org/0000-0002-2176-7935 
+
+R E F E R E N C E S
+
+Abadi, M., Barham, P., Chen, J., Chen, Z., Davis, A., Dean, J., … Kudlur, M. 
+(2016). TensorFlow: A system for large- scale machine learning. OSDI, 
+16, 265–283.
+
+Anderson, T. M., White, S., Davis, B., Erhardt, R., Palmer, M., Swanson, A., 
+… Packer, C. (2016). The spatial distribution of African savannah her-
+bivores: Species associations and habitat occupancy in a landscape 
+context.  Philosophical  Transactions  of  the  Royal  Society  B:  Biological 
+Sciences, 371, 20150314. https://doi.org/10.1098/rstb.2015.0314
+Babaee,  M.,  Dinh,  D.  T.,  &  Rigoll,  G.  (2017).  A  deep  convolutional  neu-
+ral  network  for  background  subtraction.  Pattern  Recognition,  76, 
+635–649.
+
+|  1437
+
+F I G U R E   2  The front screen of the DeepMeerkat GUI. A user 
+can select a file or directory of videos to screen using a pre- trained 
+model. The path to the model is set under “Advanced settings”
+
+creasing false positives.
+
+majority of hummingbird visitation events (Weinstein, 2015). For the 
+
+For training the fine- tuned neural network, I collected images for 
+
+purposes  of  this  article,  I  assumed  that  all  events  are  captured  by 
+
+each class and trained with a batch size of 100 for 20,000 steps. To 
+
+motion  detection  and  were  passed  to  the  neural  network  for  clas-
+
+reduce training time, the feature vectors for the frozen layers were 
+
+sification.  While  quantitative  benchmarks  are  needed  to  validate 
+
+extracted in parallel using Google Cloud DataFlow. These features 
+
+model performance, they provide a coarse description of the errors 
+
+were then the basis for retraining the new fine- tuned layers. To fit
+
+the neural network. For each of frame, the neural network returned 
+
+and record a photo every second for up to 5 days. Cameras filming 
+
+a probability of background or foreground. Using a standard accept-
+
+individual flowers capture hummingbirds in less than 1% of images. 
+
+ance threshold of 0.5 to classify background, the model had a true 
+
+Hummingbird visits are rapid and rare, lasting 3 to 5 s, with only a 
+
+positive  rate  of  89.3%  and  a  true  negative  rate  of  91.9%  (Table 1). 
+
+handful of visits a day. To train the network, I collected 14,432 image 
+
+Using  a  more  conservative  0.1  acceptance  threshold,  the  model 
+
+crops  containing  hummingbirds  and  14,432  crops  containing  back-
+
+had a 95.7% true positive rate and a 76.1% true negative rate. The 
+
+ground vegetation and sky. To validate the accuracy of the model, 
+
+trade- off between recall and precision varied by acceptance value, 
+
+I selected 70 half- day videos that represented a range of challeng-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To monitor the model performance during training, the author extracted feature vectors for the frozen layers in parallel using Google Cloud DataFlow. This was done to reduce training time. These features were then used as the basis for retraining the new fine-tuned layers. Additionally, the author mentions collecting images for each class and training with a batch size of 100 for 20,000 steps. However, it should be noted that the text does not explicitly state any specific strategies for monitoring the model performance during training beyond these details.

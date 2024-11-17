@@ -1,0 +1,77 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+AlexNet: In 2012, Krizhevsky et al.[28] constructed a model with more convolutional layers than 
+LeNet for better high-dimensional feature extraction, and then three fully connected layers are used after 
+flatten layer to pool channel information. This model employed rectified linear activation (ReLU) as 
+activation  function  to  speed  up  training  process,  which  partially  solved  the  vanishing  gradient  and 
+exploding problem. Features of each layer in AlexNet were depicted in Figure 2. Feature visualization 
+of  AlexNet  layer  by  layer.  The  annotations  above  are  defined  as  Name𝑑@k×k,  and  the  annotations 
+below  are  denominated  in  form  of  Operation𝑑@r×r.  Where d , k and r is  feature  depth,  convolution 
+kernel and image resolution, respectively..
+
+2.5. Model training 
+
+  To ensure the accuracy of the experimental results and obtain the best classification, the exact 
+parameters  and  functions  as  well  as  classifier  built-in  the  six  neural  network  models  are 
+designed as follows: 
+
+  The resolution of input data is 224×224 with Red Green Blue (RGB) format, and the inputs 
+
+are batch normalized before training; 
+
+  Batch size is applied which is set to 30 when training, but images are tested one by one; 
+  An  optimized  rectified  linear  activation,  Leaky  ReLU,  was  introduced  into  models  after 
+
+convolution or concatenate layer; 
+
+In MobileNet, width multiplier is 1.2, resolution multiplier is 1; 
+
+  Learning rate and dropout rate adopt same value 0.001, bias value is 0;  
+ 
+  For the neural networks with lower depth, the higher training epochs are, the higher probability 
+of over fitting is. Therefor models in which less than 100 layers adhibit raw data 60 epochs, 
+otherwise executed 80 epochs;
+
+Figure 2. Feature visualization of AlexNet layer by layer. The annotations above are defined as 
+Name𝑑@k×k, and the annotations below are denominated in form of Operation𝑑@r×r. Where d , k 
+and r is feature depth, convolution kernel and image resolution, respectively. 
+
+ResNet: In 2016, He et al.[30] proposed a short connection from low layer to the second higher layer, 
+which  increases  network  layers  but  avoids  degradation  at  the  same  time.  The  residual  block  idea  of 
+ResNet significantly speeds up the learning process between input data and output data space, which 
+makes it easily extended to very deeper learning layers (could be thousands of layers).
+
+functions require three typical CNN computations are: 1) convolution obtains image features; 2) pooling 
+for redundancy reducing, and 3) non-linear activation function provides the capacity of network. For a 
+feature  map  with  width,  height  and  channels  of  w,  h  and  c,  respectively,  the  exportation  of  flatten 
+operation is a one-dimension array with size w×h×c.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide specific details about the data augmentation techniques applied in the deep learning pipeline. However, I can explain some common data augmentation techniques used in deep learning pipelines. Data augmentation is a strategy that enables practitioners to significantly increase the diversity of data available for training models without actually collecting new data. Commonly used data augmentation techniques include:
+
+1. Flipping: Images can be horizontally or vertically flipped to create new variations. This technique helps the model generalize better since objects in real life may appear in different orientations.
+
+2. Rotation: Images can be rotated by various angles to generate new samples. This helps the model learn to recognize objects regardless of their orientation.
+
+3. Scaling: Images can be scaled up or down to simulate objects appearing closer or farther away. This helps improve the robustness of the model against changes in object sizes.
+
+4. Translation: Images can be shifted along the x and y axes to mimic small movements of the camera or the object itself. This helps the model become invariant to minor shifts in position.
+
+5. Shearing: Images can be sheared to introduce perspective distortions, making the model more resilient to such transformations.
+
+6. Noise injection: Random noise can be added to the pixels of an image to help the model handle noisy input during inference.
+
+7. Color space transformation: Images can be converted to grayscale or have their color histograms altered to make the model more robust to changes in lighting conditions.

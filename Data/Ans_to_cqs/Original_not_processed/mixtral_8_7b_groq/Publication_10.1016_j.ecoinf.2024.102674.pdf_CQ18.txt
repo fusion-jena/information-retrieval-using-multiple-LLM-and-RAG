@@ -1,0 +1,13 @@
+Answer:
+
+The strategy implemented to monitor the model performance during training involves the use of several metrics, including the Kling-Gupta Efficiency (KGE) score, percent bias (pbias), Mean Absolute Error (MAE), and Root Mean Square Error (RMSE). These metrics are calculated for each algorithm and for each month, providing a seasonal pattern of model performance. 
+
+The KGE score is a comprehensive measure of model performance that considers correlation, bias, and variability. A KGE score of 1 indicates perfect model performance, while scores between 0 and 1 indicate progressively worse performance. For WorldClim, KGE scores were consistently high (>0.80), indicating good model performance. However, for CHELSA, KGE scores were consistently low (<0.50), indicating poor model performance. 
+
+The pbias measure reflects the accuracy of model prediction. A pbias value of 0 is the optimal value, indicating perfect prediction. For both WorldClim and CHELSA, the algorithms showed homogeneous behavior in terms of pbias, but while WorldClim had slightly positive percent biases during the hot season and negative for the remaining year, CHELSA showed significantly positive percent biases all year round. 
+
+The MAE and RMSE measures reflect the difference between the predicted and actual values. Lower values indicate better model performance. For WorldClim, both MAE and RMSE increased during the hot season, indicating decreased model performance. However, for CHELSA, this trend was not observed, suggesting consistent model performance throughout the year. 
+
+These metrics are calculated in a cross-validation setting, which provides a robust measure of model performance by evaluating the model on unseen data. This strategy allows for the monitoring of model performance during training and provides a basis for model selection and hyperparameter tuning. 
+
+In addition to these metrics, the relative importance of predictors is also assessed for GAMs and ANNs. For GAMs, this is done by considering the F statistics of the predictors, while for ANNs, the Olden method implemented in the NEURALNETTOOLS R package is used. This allows for the identification of the most relevant physiographic descriptors for each algorithm and each month, providing further insight into model performance.

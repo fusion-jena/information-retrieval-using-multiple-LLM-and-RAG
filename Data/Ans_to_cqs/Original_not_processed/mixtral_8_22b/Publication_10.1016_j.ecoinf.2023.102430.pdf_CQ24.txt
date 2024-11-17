@@ -1,0 +1,50 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.3. Algorithm training and testing 
+
+We trained all algorithms on a random subset of 5256 pictures (80% 
+
+of  the  6570-picture  dataset).  To  gauge  performance  consistency,  the 
+training-testing  process  was  repeated  10  times  for  each  algorithm;  in 
+each of these (pseudo-)replicate runs, all five algorithms used the same 
+training and testing picture subsets.
+
+AN  was  implemented  in  MATLAB  (www.mathworks.com).  For 
+training,  we  used  the  stochastic  gradient  descent  with  momentum 
+optimizer with default settings except for the initial learning rate (which 
+we set to 0.001) and the maximum number of epochs (which we set to 15 
+after  preliminary  tests).  The  ‘classical’  machine-learning  algorithms 
+(AB, GB, HB, and LD) were run in Python (www.python.org) using the 
+scikit-learn toolbox (Pedregosa et al., 2011). We left hyperparameters at 
+scikit-learn  default  values,  except  for  the  learning  rate  of  GB  and  HB 
+(which we set to 0.15) and the tolerance threshold value for LD (set to 1 
+× 10
+
+fication led to convergence issues, so the models were simplified (see 
+Specificity below). Because in each (pseudo-)replicate run all algorithms 
+ran on the same data (i.e., picture) subsets, we also included a ‘replicate’ 
+random effect in the models.
+
+known or modeled distributions of species is not without potential pit-
+falls.  Most  obviously,  species-occurrence  records  are  incomplete  and 
+may be biased because of, e.g., uneven sampling effort or false-positive 
+records (Ceccarelli et al., 2018, 2022; Johnston et al., 2023). Perhaps 
+less  obviously,  methodological  challenges  inherent  in  modeling  pres-
+ence  records  mean  that  model-predicted  distributional  summaries 
+should  be  approached  with  caution  (Araujo  et  al.,  2019;  Elith  et  al.,
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors address the issue of randomness in their deep learning pipeline by employing several strategies. Firstly, they use a random subset of 5256 pictures (80% of the total dataset) for training all algorithms. This introduces some level of randomness into the selection of images used for training. Secondly, they repeat the training-testing process 10 times for each algorithm to ensure performance consistency. By doing this, they can observe how well the algorithms perform across different sets of randomly selected images. Lastly, they include a'replicate' random effect in their models, which further accounts for any variability introduced by the randomness in the image selection process. These strategies help mitigate the impact of randomness in the deep learning pipeline and provide more robust results.

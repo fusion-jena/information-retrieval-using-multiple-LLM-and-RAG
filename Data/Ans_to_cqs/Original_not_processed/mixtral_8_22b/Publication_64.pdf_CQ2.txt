@@ -1,0 +1,117 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Finally for the ResNet50 evaluation we use random ten
+crop testing with smaller data augmentation parameters than
+those used during training.
+
+4.1 The datasets
+
+4.1.1 Google Search Image. For this dataset we select the
+3680 labels (around 60% of all labels) with more than 12
+images in our training dataset. For each one of these labels
+
+1Code is available at github.com/IgnacioHeredia/plant classification
+
+Table 1: Accuracy results of the two algorithms for
+all three test datasets.
+
+Datasets
+
+Google Image Search
+Portuguese Flora
+iNaturalist
+
+Accuracy %
+ResNet50 (paper) PlantNet (usual)
+Top1
+40
+29
+33
+
+Top5
+63
+47
+49
+
+Top1
+18
+15
+18
+
+Top5
+37
+29
+30
+
+we automatically retrieve the 10 ﬁrst images returned by the
+Google Image Search engine. As this is done in an automated
+fashion some minor mislabeled or corrupt examples might
+appear in the dataset. By choosing only the most popular
+labels and retrieving the top results, we expect to minimize
+the presence of mislabeled images.
+
+[3] Alex Krizhevsky, Ilya Sutskever, and Geo↵rey E Hinton. Ima-
+genet classiﬁcation with deep convolutional neural networks. In
+F. Pereira, C. J. C. Burges, L. Bottou, and K. Q. Weinberger,
+editors, Advances in Neural Information Processing Systems 25,
+pages 1097–1105. Curran Associates, Inc., 2012.
+
+[4] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Delv-
+ing deep into rectiﬁers: Surpassing human-level performance on
+imagenet classiﬁcation, 2015.
+
+[5] Sue Han Lee, Chee Seng Chan, Paul Wilkin, and Paolo Remagnino.
+Deep-plant: Plant identiﬁcation with convolutional neural net-
+works, 2015.
+
+[6] Mads Dyrmann, Henrik Karstoft, and Henrik Skov Midtiby. Plant
+species classiﬁcation using deep convolutional neural network.
+Biosystems Engineering, 151:72–80, 2016.
+
+[7] M-E. Nilsback and A. Zisserman. Automated ﬂower classiﬁcation
+over a large number of classes. In Proceedings of the Indian Con-
+ference on Computer Vision, Graphics and Image Processing,
+Dec 2008.
+
+4.1.2 Portuguese Flora. The Portuguese ﬂora dataset [16]
+consists in 23K images belonging to 2K species. To compose
+our test dataset we select the 15K images belonging to one
+of the 1300 species which are also present in our training
+dataset.
+
+2 THE DATASET
+As training dataset we use the great collection of images
+which are available in PlantNet under a Creative-Common
+Attribution-ShareAlike 2.0 license. It consists of around 250K
+images belonging to more than 6K plant species of Western
+Europe. These species are distributed in 1500 genera and
+200 families. Each image has been labeled by experts and
+comes with a tag which speciﬁes the focus of the image,
+like ’habit’, ’ﬂower’, ’leaf’, ’bark’, etc. Most images have
+resolutions ranging from 200K to 600K pixels and aspect
+ratios ranging from 0.5 to 2. The dataset is highly unbalanced
+because most labels contain very few images.
+
+We train on the whole dataset (without making validation
+or test splits) as we intend to build a classiﬁer trained on the
+same dataset as the PlantNet tool so that their performances
+can be fairly compared. At test time we will use three external
+datasets to conﬁdently measure the performance of our net.
+
+259CF’17, May 15-17, 2017, Siena, Italy
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The information provided does not explicitly state the specific data format used in the deep learning pipeline. However, it can be inferred that the primary data format used is images since the paper discusses the use of images for training and evaluating the ResNet50 model. Additionally, the datasets mentioned - Google Search Image, Portuguese Flora, and iNaturalist - are all related to plants and nature, suggesting that they primarily consist of images. Therefore, it can be concluded that the main data format used in the deep learning pipeline is images.

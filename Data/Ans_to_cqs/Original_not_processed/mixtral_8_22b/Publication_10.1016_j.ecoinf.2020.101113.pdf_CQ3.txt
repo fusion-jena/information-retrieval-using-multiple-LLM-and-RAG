@@ -1,0 +1,50 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.3.  Model training 
+
+2.3.1.  Training data preprocessing 
+
+The  CNN  model  used  in  this  study  requires  equally  sized  input 
+images. We chose a time-frequency input window size of 2 s as it is near 
+the mean and median template duration across target call types (Fig. 2). 
+Most  call  types  have  a  duration  below  1  s,  and  for  those  above  2  s,
+
+scores  for  the  results  shown  were  below  0.05  or  greater  than  0.95. 
+Therefore, most annotation errors were assumed to be accounted for. 
+These errors accounted for only 1.2% of annotations. The results pre-
+sented are based on the revalidated annotation.
+
+learning, wherein a model already optimized for a similar dataset is re- 
+trained with new data. We used a ResNet50 model, pre-trained on the 
+ImageNet dataset, which contains over one million photo images across
+
+Our implementation only included the feature extraction layers of 
+ResNet50,  excluding  the  remaining  layers  used  for  ImageNet  classifi-
+cation,  referred  to  as  the  network  “top”.  The  network  top  consists  of 
+fully  connected  (FC)  layers  for  learning  a  predictive  model  from  the 
+input  features.  An  FC  layer  consists  of  a  set  of  nodes,  each  of  which 
+takes  a  weighted  sum  of  the  input's  values  and  passes  it  through  a 
+transfer function. The weights of an FC layer are learnable. In our case, 
+we used two FC layers separated by a drop-out layer. The drop-out layer 
+
+6
+
+J. LeBien, et al.   
+
+Ecological Informatics 59 (2020) 101113
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, there isn't any explicit mention of specific data annotation techniques such as bounding box annotation or instance segmentation. However, we can infer that some form of annotation was performed since the authors state that they had to deal with annotation errors. They also mention using a revalidated annotation for their results. Therefore, while the exact technique remains unclear, it appears that the researchers did use some type of data annotation methodology in their deep learning pipeline.

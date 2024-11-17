@@ -1,0 +1,49 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3. Results 
+
+3.1. Model training efficiency 
+
+Model  training  on  our  hardware  (NVIDIA  GTX  1080  GPU)  took 
+~460  h.  The  optimization  was  stopped  once  the  validation  ENS 
+repeatedly  failed  to  improve  compared  to  the  score  evaluated  from 
+previous  epochs.  The  model  at  the  epoch  with  the  highest  attained 
+validation  score  was  selected.  We  noted  a  significant  acceleration  of 
+convergence  when  employing  the  baseline  framework,  as  shown  in
+
+4.3. The prediction task
+
+2.2. Data 
+
+The data used here was provided as part of the EarthNet2021 Chal-
+lenge and consists of 23,904 training datacubes located across Europe
+
+The training efficiency gain was most clearly expressed for the MAD 
+(Fig. 4a), indicating the benefit of providing the baseline for the model 
+to  predict  accurate  average  reflectances  across  scenes.  The  SGED-
+ConvLSTM tended to improve more rapidly on the validation score with 
+an  increasing  number  of  training  epochs  than  the  SGConvLSTM,  but 
+started at a lower initial score. Nonetheless, SGEDConvLSTM reached its 
+validation  score  plateau  considerably  sooner  (after  44  epochs)  than 
+SGConvLSTM.  SGConvLSTM  continued  to  improve  on  its  validation 
+score and reached its validation score plateau after 92 epochs at a higher 
+final ENS than SGEDConvLSTM. 
+
+3.2. EarthNetScore benchmarking
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Answer: The criterion used to determine when training is complete is based on the validation EarthNetScore (ENS). Training is stopped once the validation ENS repeatedly fails to improve compared to the score evaluated from previous epochs. The model at the epoch with the highest attained validation score is then selected. This indicates that the model has converged and further training would not significantly improve performance.

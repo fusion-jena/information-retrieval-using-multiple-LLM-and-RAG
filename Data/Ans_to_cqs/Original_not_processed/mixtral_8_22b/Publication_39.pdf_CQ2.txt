@@ -1,0 +1,81 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Feichtenhofer et al. (2019). This parameter combination achieved the 
+best  results  in  our  experiments.  The  Slow  and  Fast  pathways  are 
+implemented by a ResNet-101. 
+
+We  split  the  annotated  dataset  AnnotationsActions  (cf.  Section  2.2) 
+randomly (but fixed for all experiments and all networks) into a train set, 
+validation set and test set. The test set includes 20% of the video clips of 
+each class. Of the remaining clips, again 20% of the clips in each class 
+form the validation set. The remaining clips are the training set. 
+
+4.4.1. Data augmentation for action recognition
+
+Contents lists available at ScienceDirect 
+
+Ecological Informatics 
+
+journal homepage: www.elsevier.com/locate/ecolinf 
+
+Identification of animals and recognition of their actions in wildlife videos 
+using deep learning techniques 
+
+Frank Schindler *, Volker Steinhage 
+
+Department of Computer Science IV, University of Bonn, Endenicher Allee 19A, D-53115 Bonn, Germany  
+
+A B S T R A C T
+
+We  utilize  different  data  augmentation  techniques  during  the 
+training process to prevent overfitting and to generalize better. We use 
+the python library imgaug (Jung et al. (2020)) for the data augmentation 
+of  our  images  and  videos.  For  Mask  R-CNN  and  FGFA  the  same 
+augmentation  technique  with  identical  parameters  is  applied  to  each 
+frame of the video. We use the augmentation techniques horizontal flip, 
+
+add / subtract intensity, Guassian blur and additive Gaussian noise. All the 
+mentioned augmentation techniques are used simultaneously. A further 
+special augmentation function from imgaug we use, is Fog. This complex 
+technique simulates fog in the video. Since it is a very strong augmen-
+tation,  we  combine  it  only  with  the  random  horizontal  flip.  The  Fog 
+augmentation is performed with a probability of 10%. The other com-
+bined  augmentation  techniques  described  above  are  applied  with 
+probability of 90%.
+
+3.2. Action recognition networks 
+
+We compare three different ResNet-18 variations (3D ResNets (R3D), 
+ResNets with Mixed Convolutions (MC ResNet) and R(2 + 1)D ResNets) 
+(Tran et al., 2018) with the SlowFast architecture (Feichtenhofer et al., 
+2019). The action recognition networks output an action labels for video 
+clips. 
+
+3.2.1. 3D ResNet, MC ResNet and (2 + 1)D ResNet 
+
+All three ResNet variants use residual learning with spatiotemporal 
+convolutions. The input of the networks is in the form 3 × T × H × W. 
+Here T denotes the number of frames in this clip. A typical value for T is 
+8 or 16. Further, H and W are the height and width of the image. The 3 
+represents  the  three  color  channels  RGB.  The  output  of  the  i-th  con-
+volutional block of the residual network is zi. It is computed as 
+
+zi = zi(cid:0) 1 + F(zi(cid:0) 1, θi)
+
+(1)
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning pipeline primarily uses video format data. Specifically, the paper discusses using video clips for training, validating, and testing various models such as Mask R-CNN and FGFA. Additionally, the authors mention processing these video clips frame by frame, which implies they also work with individual image frames extracted from the videos. There is no explicit mention of using any other data formats like audio, CSV, etc.

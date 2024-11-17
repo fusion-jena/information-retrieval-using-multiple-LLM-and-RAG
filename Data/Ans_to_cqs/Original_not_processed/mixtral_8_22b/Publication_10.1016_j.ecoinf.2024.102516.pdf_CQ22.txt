@@ -1,0 +1,105 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+In this phase the network is trained with the mean scaled absolute 
+error as regression loss, using a batch size of 1, an input image resolution 
+(cid:0) 5. Moreover, we utilize 
+of 1536 × 768 pixels, and a learning rate of 10
+only horizontal flipping for data augmentation in this phase. 
+
+2.5. Baseline comparison 
+
+To also have a comparison of our method with a simpler approach, 
+we compare our results with the ones from a ResNet50 that was pre- 
+trained  on  the  ImageNet  classification  dataset  (Russakovsky  et  al., 
+2015) with added FPN, later also referred to at ImageNet baseline model. 
+As the ImageNet dataset is a normal classification dataset that does not 
+contain the plant species from our dataset, this network cannot be uti-
+lized  for  zero-shot  cover  prediction.  Hence,  we  only  evaluate  this 
+network after training it on our dedicated plant cover data.
+
+Furthermore,  as  shown  in  Table  1,  while  the  top-performing 
+ImageNet  pre-trained  model  outperforms  several  of  our  cover-trained 
+models, the best cover-trained model with natural GBIF images as pre- 
+training  still  performs  better  than  all  ImageNet  baseline  models.  We 
+can also see that the best-performing cover-trained model outperforms 
+the best-performing zero-shot model in all metrics. However, while the 
+former reduces the MSAE to about 50% compared to the best zero-shot 
+model, the values for IoU and DPC are only slightly worse for the zero- 
+shot  approach  in  comparison  to  its  fully-trained  counterpart.  This  in-
+dicates  that  the  zero-shot  model  cannot  precisely  predict  the  exact 
+reference cover estimates but can still predict the top layer of plants and 
+the relative species distribution reasonably well.
+
+Appendix A. Supplementary data 
+
+Supplementary data to this article can be found online at https://doi. 
+
+org/10.1016/j.ecoinf.2024.102516. 
+
+References 
+
+Altalak, M., Ammad uddin, M., Alajmi, A., Rizg, A., 2022. Smart agriculture applications 
+
+using deep learning technologies: A survey. Appl. Sci. 12 (12), 5919. 
+
+Bambil, D., Pistori, H., Bao, F., Weber, V., Alves, F.M., Gonçalves, E.G., de Alencar 
+Figueiredo, L.F., Abreu, U.G., Arruda, R., Bortolotto, I.M., 2020. Plant species 
+identification using color learning resources, shape, texture, through machine 
+learning and artificial neural networks. Environ. Syst. Decis. 40 (4), 480–484. 
+Bauer, T., Strauss, P., 2014. A rule-based image analysis approach for calculating 
+
+residues and vegetation cover under field conditions. Catena 113, 363–369. 
+
+Blaschke, T., 2010. Object based image analysis for remote sensing. ISPRS J. 
+
+Photogramm. Remote Sens. 65 (1), 2–16.
+
+We utilize these metrics to compare the different model setups and 
+
+EcologicalInformatics80(2024)1025168M. K¨orschens et al.                                                                                                                                                                                                                             
+
+Table 1 
+The investigation results on the two datasets. “FPN PX N” denotes the usage of a Feature Pyramid Network with layer X and N features. Abbreviations: MSAE - Mean 
+Scaled Absolute Error, IoU (Plants) - the intersection over union averaged over all plant species, DPC - DCA-Procrustes-Correlation. Top results are marked in bold font. 
+All results are averaged over three repetitions.  
+
+Network Configuration 
+
+Pre-Training Dataset 
+
+No Cover Training (Zero-Shot) 
+
+Cover Training   
+
+FPN P0 128 
+FPN P1 256 
+FPN P2 512 
+FPN P0 128 
+FPN P1 256 
+FPN P2 512 
+FPN P0 128 
+FPN P1 256 
+FPN P2 512 
+
+ImageNet 
+
+GBIF Natural 
+
+GBIF Preserved 
+
+MSAE
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The paper uses Mean Scaled Absolute Error (MSAE), Intersection over Union (IoU) averaged over all plant species, and DCA-Procrustes-Correlation (DPC) as evaluation metrics for their deep learning model. These metrics help assess the model's ability to accurately estimate plant cover and species distribution.

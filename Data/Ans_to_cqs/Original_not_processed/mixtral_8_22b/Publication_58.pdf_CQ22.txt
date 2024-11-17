@@ -1,0 +1,183 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+12 of 22
+
+3.5. Mapping and Confusion Matrix
+
+After ﬁtting the parameters of the different Deep Learning architectures as well as
+XGBoost on the training set, they were run on the test set to obtain a complete mapping of
+LC and LU as described above. Confusion matrices were extracted from these results. Four
+quality metrics are used: Overall Accuracy (OA), Producer Accuracy (PA), User Accuracy
+(UA) and the F1-score. The OA takes the sum of the diagonal of the confusion matrix. The
+PA takes the number of well-ranked individuals divided by the sum of the column in the
+confusion matrix. The UA takes the number of well-ranked individuals divided by the sum
+of the line. Finally, the F1-score is calculated as the harmonic mean of precision and recall.
+This last metric allows calculating the accuracy of a model by giving an equal importance
+between the PA and the UA. Note that the shadow and cloud areas were not taken into
+account in the confusion matrix.
+
+40.32%
+35.97%
+46.56%
+50.21%
+38.75%
+50.40%
+48.38%
+
+For the LU detection task, all deep learning techniques except AlexNet outperformed
+XGBoost. Differences were signiﬁcant, with up to 15 percent points in OA. As in the
+previous section, the best performing “single-pixel” architecture is DenseNet and the best
+“semantic labeling” network is DeepLab. Interestingly, DenseNet reached the best PA,
+although DeepLab dominated the remaining metrics.
+
+For the remainder of this study, the best performing “single-pixel” and “semantic
+labeling” were selected. There was little difference between the architectures, so the
+architectures with the best F1-score for the LU classiﬁcation were chosen arbitrarily.
+
+4.3. Inﬂuence of Neo-Channels and Land Cover as Input on the Learning
+
+81.91%
+92.78%
+99.33%
+99.35%
+96.08%
+96.03%
+96.90%
+
+UA
+
+82.73%
+93.96%
+99.31%
+99.09%
+91.33%
+93.91%
+94.54%
+
+F1-Score
+
+82.23%
+93.37%
+99.32%
+99.22%
+93.64%
+94.96%
+95.71%
+
+Remote Sens. 2021, 13, 2257
+
+19 of 22
+
+Table A2. Results of Deep Learning architecture and XGBoost for the LU detection task with RGBNIR
+as input on the training set.
+
+Architectures
+
+XGboost
+AlexNet
+ResNet
+DenseNet
+SegNet
+DeepLab
+FCN
+
+OA
+
+59.29%
+82.00%
+95.00%
+96.00%
+78.79%
+86.58%
+85.34%
+
+PA
+
+59.13%
+84.08%
+96.54%
+96.58%
+66.74%
+89.94%
+89.30%
+
+UA
+
+54.26%
+79.37%
+95.69%
+96.41%
+70.16%
+81.63%
+78.87%
+
+F1-Score
+
+56.59%
+81.66%
+96.12%
+96.49%
+68.41%
+85.59%
+83.76%
+
+References
+
+Veldkamp, A.; Lambin, E. Predicting land-use change. Agric. Ecosyst. Environ. 2001, 85, 1–6. [CrossRef]
+
+1.
+2. Wilson, J.S.; Clay, M.; Martin, E.; Stuckey, D.; Vedder-Risch, K. Evaluating environmental inﬂuences of zoning in urban ecosystems
+
+3.
+
+4.
+5.
+
+6.
+
+7.
+
+8.
+
+9.
+
+74.60%
+72.36%
+77.58%
+77.79%
+77.31%
+79.49%
+79.05%
+
+For the LC detection task all tested methods reached overall accuracies between
+73% (AlexNet/“central-pixel labeling”) and 81% (Deeplab/“semantic labeling”). The
+XGboost baseline performed on par with the best Deep Learning methods, except for lightly
+lower overall accuracy. Excluding the basic AlexNet architecture, most Deep Learning
+architectures obtained similar performances. Most models showed UA higher than PA, i.e.,
+recall (percentage of total relevant results correctly classiﬁed) was higher than precision
+(percentage of relevant results).
+
+4.2. Evaluation of Land Use Classiﬁcation
+
+Using the same input channels as in the previous section, the same models were
+trained for the more complex LU classiﬁcation task. Here the algorithms had to differentiate
+
+Remote Sens. 2021, 13, 2257
+
+13 of 22
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The performance of the deep learning models is evaluated using four quality metrics: Overall Accuracy (OA), Producer Accuracy (PA), User Accuracy (UA), and the F1-score. The OA takes the sum of the diagonal of the confusion matrix. The PA takes the number of well-ranked individuals divided by the sum of the column in the confusion matrix. The UA takes the number of well-ranked individuals divided by the sum of the line. Finally, the F1-score is calculated as the harmonic mean of precision and recall. This last metric allows calculating the accuracy of a model by giving an equal importance between the PA and the UA.

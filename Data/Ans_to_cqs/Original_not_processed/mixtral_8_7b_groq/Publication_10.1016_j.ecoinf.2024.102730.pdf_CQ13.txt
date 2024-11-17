@@ -1,0 +1,9 @@
+Answer:::
+
+The hyperparameters used in the deep learning model, specifically the Multilayer Perceptron (MLP), include the number of neurons in the first and second layers, the strength of the L2 regularization term, the solver for weight optimization, the initial learning rate, the learning rate schedule for weight updates, the maximum number of iterations, and the maximum number of iterations with no improvement. 
+
+The number of neurons in the first and second layers ranged from 10 to 100 in increments of 10. The L2 regularization term had a logscale value ranging from 1e-4 to 1e-1. The solver for weight optimization had two options: 'adam' or 'lbfgs'. The initial learning rate was set to 0.0290, 0.0010, or 0.0606. The learning rate schedule for weight updates used the 'adam' option. The maximum number of iterations was set to 100, and the maximum number of iterations with no improvement was set to 0.
+
+These hyperparameters were identified through a grid search using the Optuna framework, where the main focus was on minimizing the Mean Squared Error (MSE) to find the optimal set of hyperparameters. The data was divided into a training set (80% of the data) and a test set (20% of the data) prior to conducting the grid search. This ensured that the models were trained on one portion of the data and tested on a separate, previously unseen portion, allowing for an accurate assessment of their ability to generalize to new, unseen data.
+
+After training the MLP models, SHAP values were computed using the model-agnostic Kernel SHAP method to understand which features are most important in predicting the start and (height of the) peak of the greening season. The implementation in the Python SHAP package was used for this analysis.

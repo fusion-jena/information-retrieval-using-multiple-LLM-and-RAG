@@ -1,0 +1,11 @@
+In the context provided, the criteria used to split the data for a data-driven model, which can include deep learning models, involves dividing the development dataset into two categories: the training dataset and the tuning dataset. This is done as part of the hyperparameter tuning process. The development dataset consists of all data records except the evaluation data records.
+
+The training dataset is used to train the model, while the tuning dataset is used to fine-tune the hyperparameters of the model. The development dataset is evenly divided into k groups, with k being 5 in this study. During each iteration, one group is excluded from the training process and used as the tuning dataset, and the model's performance is evaluated using this dataset. The average performance of the k models developed represents the performance of the machine learning technique for the selected hyperparameters.
+
+The training dataset and tuning dataset are created through k-fold cross-validation, which is chosen as the preferred approach for hyperparameter tuning due to the size constraints of the dataset and the need to utilize all development data records in training to enhance the model's generalization ability.
+
+It is important to note that the suitability of data-driven model predictions depends largely on both the quality and quantity of the data used to develop the models. A small training dataset can lead to overfitting issues, as it may not satisfactorily represent all possible input data combinations and can force the model to learn from the noise rather than capture the data trends.
+
+In the context of modeling fire behavior, obtaining sufficient experimental or wildfire spread data can be challenging due to operational, safety, and legal constraints. Synthetic data generation provides a method to enhance real-world datasets.
+
+Moreover, model evaluation against an independent dataset can reveal the true model fit, which may be different from the fit obtained against the model development dataset. This is because ML models aim to maximize accuracy against the model development dataset, and overfitting can result in flawed behavior such as non-monotonic trends.

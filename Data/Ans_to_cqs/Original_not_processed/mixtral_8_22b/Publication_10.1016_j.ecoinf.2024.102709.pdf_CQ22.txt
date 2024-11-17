@@ -1,0 +1,84 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To determine the ideal training–test split for our model, we used k- 
+fold  cross-validation  (k  = 5,  epochs  = 500,  imagesize  = 640).  The 
+epochs provide the number of repetitions for training, and the image size 
+is  expressed in  pixels. k-fold  cross-validation  (Rodriguez et  al., 2010) 
+was used to determine the best training test set for the model. Hereby, 
+the data are split into k different training–test sets. The model was not 
+trained on the entire dataset but on each training split. The result was an 
+investigation of the best data split. Functions of the Python library scikit- 
+learn  (scikit-learn  developers,  2023)  were  used  to  split  the  data  and 
+investigate the results of each trained model. In addition, YOLO training 
+losses and mAP50 values of each model were investigated. The split with 
+the  highest  mAP50  value  indicates  the  highest  number  of  correctly 
+predicted labels for the model trained on a specific split. We used the
+
+0.2672 
+1.1551 
+0.7954 
+0.9286 
+1.3280 
+0.9879  
+
+helps  the  network  learn  the  probabilities  of  the  values  around  the 
+continuous locations of the target bounding boxes (X. Li et al., 2020b). 
+Thus, it focuses on the values near a label y, by explicitly increasing the 
+probabilities of yi and yi + 1. This metric is used for the bounding box 
+estimation. 
+
+Classification loss (cls loss) measures the error in the predicted class 
+probabilities  for  each  object  in  the  image  compared  with  the  ground 
+truth.  When it is lower, the model is more accurate in predicting the 
+class of the objects. This value was computed using a cross-entropy loss 
+function (Terven and Cordova-Esparza, 2023).
+
+scikit-learn developers, 2023. scikit-learn 1.3.2 [WWW Document], 3.1. Cross-validation: 
+evaluating estimator performance. URL https://scikit-learn.org/stable/modules/cro 
+ss_validation.html (accessed 10.24.23).  
+
+Serrano-Ramírez, E., Valdez-Lazalde, J.R., de los Santos-Posadas, H.M., Mora- 
+
+´
+Guti´errez, R.A., 
+Angeles-P´erez, G., 2021. A forest management optimization model 
+based on functional zoning: a comparative analysis of six heuristic techniques. Ecol 
+Inform 61, 101234. https://doi.org/10.1016/j.ecoinf.2021.101234. 
+
+Sheikh, Md.A.A., Kole, A., Maity, T., 2016. Traffic sign detection and classification using 
+colour feature and neural network. In: 2016 International Conference on Intelligent 
+Control Power and Instrumentation (ICICPI), pp. 307–311. https://doi.org/10.1109/ 
+ICICPI.2016.7859723. 
+
+Smith, A.R., 1978. Color gamut transform Paris. SIGGRAPH Comput. Graph. 12, 12–19. 
+
+https://doi.org/10.1145/965139.807361.
+
+Three models (Models 4, 5, and 6) were trained using our own data 
+(clusters of extracted numbers), as described above, as input for training, 
+whereas the other three models (Models 1, 2, and 3) were trained with 
+the modified National Institute of Standards and Technology (MNIST) 
+dataset of handwritten digits, which can be used to train classification 
+models (Deng, 2012).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The performance of the deep learning model is evaluated using two main metrics: YOLO training losses and mean Average Precision (mAP50) values.
+
+YOLO training losses measure the difference between the predicted and actual bounding boxes for each object in the image. Lower training losses indicate better performance of the model in accurately detecting the location of objects within the image.
+
+Meanwhile, mAP50 values represent the average precision calculated over all classes when the Intersection over Union (IoU) threshold is set to 50%. Higher mAP50 values indicate a higher number of correctly predicted labels for the model trained on a specific split.
+
+Additionally, classification loss (cls loss) is also used to measure the error in the predicted class probabilities for each object in the image compared with the ground truth. Lower cls loss values suggest that the model is more accurate in predicting the class of the objects. This value is computed using a cross-entropy loss function.

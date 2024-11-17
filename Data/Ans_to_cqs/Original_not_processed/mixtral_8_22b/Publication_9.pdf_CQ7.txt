@@ -1,0 +1,121 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+specific segmentation models. The full instructions and options are 
+
+cluded in model training are shown in Figure 1.
+
+provided on the GitHub repository.
+
+2.3 | Model training procedure
+
+2.5 | Sashimi online model repository
+
+We first used the VGG Image Annotator Version 1.0.6 (https://www.
+
+We constructed a website to serve as a repository for the fish seg-
+
+robots.ox.ac.uk/~vgg/softw are/via/via- 1.0.6.html;  Dutta  et  al., 
+2016) to manually annotate pixel coordinates to create precise po-
+
+mentation model (presented here) and future, community generated 
+
+organismal  segmentation  models  (https://sashi mi.shawn tyler schwa 
+
+lygonal mask contours directly around the fish body boundary (i.e. 
+
+rtz.com). We aim to inspire other biologists interested in automated 
+
+where the foreground pixels of the target fish body meet those of 
+
+segmentation to create pre- trained models for their organism(s) of 
+
+the background). We intentionally assigned all segmentation masks
+
+interest and share them to the Sashimi online database for the rest 
+
+for each image a class label name corresponding to the general bio-
+
+of  the  community  to  use  and  build  upon.  All  models  will  be  open- 
+
+logical name of the organism (e.g. ‘fish’). Given that our intention is 
+
+source and available to download, and users can submit requests to 
+
+to  build  broad,  organism- specific  models  one- by- one,  we  suggest 
+
+share new models, which will be evaluated before becoming publicly 
+
+building organism- specific training sets where all segmentation con-
+
+available.
+
+tours  across  images  are  labelled  the  same  name  (i.e.  ‘whale’).  We 
+
+then used these coordinates to train a model using transfer learning 
+
+(Razavian et al., 2014) with the COCO pre- trained weights (Lin et al., 
+
+2.6 | Evaluating fish segmentation model efficacy
+
+2014), a ResNet- 101 (a CNN with 101 layers; He et al., 2016) and a
+
+overarching  goal  of  training  a  neural  network  is  to  iteratively  min-
+
+tional  training.  The  utility  of  pre- trained  CNNs  out- of- the- box  is 
+
+imize the error between model output and expected output by op-
+
+constrained by how relevant the novel input data are to the data the 
+
+timally  adjusting  model  weights  and  reaching  model  convergence, 
+
+CNN  was  originally  trained  on.  For  instance,  ImageNet  comprises 
+
+such that the trained neural network generalizes well to novel input 
+
+more  than  14  million  high- resolution  images  across  nearly  22,000 
+
+data. Model weights are adjusted to minimize error on each subse-
+
+categories and is often used as a starting point for recognition tasks 
+
+quent run using an algorithm called stochastic gradient descent with 
+
+with deep learning (Deng et al., 2009; Krizhevsky et al., 2017). Using 
+
+backpropagation  (LeCun  et  al.,  1989;  Rumelhart  et  al.,  1995).  This
+
+He, K., Zhang, X., Ren, S., & Sun, J. (2015). Delving deep into rectifiers: 
+Surpassing human- level performance on ImageNet classification. In 
+2015 IEEE International Conference on Computer Vision (ICCV). IEEE.
+
+He,  K.,  Zhang,  X.,  Ren,  S.,  &  Sun,  J.  (2016).  Deep  residual  learning  for 
+image recognition. In Proceedings of the IEEE conference on computer 
+vision and pattern recognition (pp. 770– 778).
+
+Hubel,  D.  H.,  &  Wiesel,  T.  N.  (1962).  Receptive  fields,  binocular  inter-
+action  and  functional  architecture  in  the  cat's  visual  cortex.  The 
+Journal of Physiology, 160, 106– 154. https://doi.org/10.1113/jphys 
+iol.1962.sp006837
+
+Joly,  A.,  Bonnet,  P.,  Goëau,  H.,  Barbe,  J.,  Selmi,  S.,  Champ,  J.,  Dufour- 
+Kowalski,  S.,  Affouard,  A.,  Carré,  J.,  Molino,  J.- F.,  Boujemaa,  N., 
+&  Barthélémy,  D.  (2016).  A  look  inside  the  Pl@ntNet  experience. 
+Multimedia  Systems,  22,  751– 766.  https://doi.org/10.1007/s0053 
+0- 015- 0462- 9
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the criteria used to split the data for deep learning model training (e.g., train, test, validation). However, it mentions that they used transfer learning with COCO pre-trained weights and a ResNet-101 architecture. Typically, when using transfer learning, the dataset is divided into three parts: training set, validation set, and testing set. The training set is used to update the model parameters during backpropagation, while the validation set is used to tune hyperparameters and prevent overfitting. Finally, the testing set is used to evaluate the final model performance. It is common practice to divide the dataset randomly but proportionately into these three sets, usually with a ratio of approximately 70%, 15%, and 15%, respectively. However, without more specific details from the given context, this cannot be confirmed.

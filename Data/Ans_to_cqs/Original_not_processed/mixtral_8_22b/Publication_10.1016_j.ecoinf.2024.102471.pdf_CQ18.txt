@@ -1,0 +1,112 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Fig. 2. Wav2Vec pre-training phase.  
+
+quantized representation for the masked latent feature representation. 
+Diversity loss shown in (2) is also added to the objective function for 
+regularization during pre-training. 
+
+(
+
+Lm = (cid:0)
+
+log
+
+sim(ct ,qt )
+e
+k
+
+/
+
+∑
+
+q′∈Qt
+
+sim(ct ,q′)
+e
+k
+
+Ld =
+
+(cid:0)
+*
+
+1
+GV
+
+) )
+
+(cid:0)
+
+pg
+
+(cid:0) H
+
+(1)  
+
+(2) 
+
+In the supervised fine-tuning phase, the labelled dataset is used in 
+training the model to predict particular words or phonemes. Fig. 3 de-
+picts the process and components in the fine-tuning phase of wav2vec. 
+Phonemes are the smallest unit of sound, usually one or two letters, in 
+the language. During fine-tuning, the quantization module is removed. 
+Instead, a linear projection layer is added to the context network. Then 
+the model is fine-tuned on connectionist temporal classification (CTC) 
+loss for the Automatic Speech Recognition task. So, the wav2vec model 
+has a general understanding of phonemes present in human speech.
+
+The  self-supervised  training  phase  comprises  four  important  ele-
+ments: feature encoder, context network, quantization module, and pre- 
+training  objective.  Fig.  2  depicts  the  overall  pre-training  approach  of 
+wav2vec. Contrastive learning is the idea of recognizing whether two 
+different types of transformation of the input are the same or not. The 
+two transformations used in the Wav2vec model are the context repre-
+sentation from the context network and the final quantization vectors 
+
+EcologicalInformatics80(2024)1024713B. Swaminathan et al.                                                                                                                                                                                                                         
+
+Fig. 2. Wav2Vec pre-training phase.
+
+(2*precision*recall)
+precision + recall
+
+(7) 
+
+Category wise performance analysis: From Tables 2 and 3, the category 
+wise performance analysis of baseline through evaluation metrics with 
+respect to mel spectrogram and mel MFCC can be seen. Table 2 consist of 
+values observed for mel spectrogram input, among which the bird spe-
+cies house sparrow category achieved highest in hybrid baseline model 
+and wood pewee category achieved highest in attention-based hybrid 
+model.  The  higher  deviation  of  identifying  bird  species  leads  to  poor 
+performance  of  the  model.  The  performance  of  baseline  techniques 
+using MFCC features are better when compared with mel spectrogram 
+(shown in Table 3).
+
+The class-wise performance of the proposed model is tabulated for 
+different  dataset  split  ratio  in  Table  4.  The  classification  metrics  like 
+precision,  recall  and  F1-score  is  calculated  for  each  bird species  with 
+respect  to  three  different  training-testing  split  for  further  analysis. 
+Among the results, it is observed that for the ratio 90:10 split, the metrics 
+values are better when compared with other splits. From the Table 4, it is 
+clear that wooden peewee class achieves an F1-score of 0.95 which is 
+higher than other species. The proposed transfer learning using wav2vec 
+achieves  better  results  in  90:10  training-testing  ratio  with  very  little 
+deviation among the bird species compared to the baseline models.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't any explicit information about the specific strategy implemented to monitor the model performance during training. However, we can infer that the authors might have used common strategies such as tracking the validation accuracy, precision, recall, and F1-score throughout the training process. Additionally, they could have monitored the loss function values to ensure proper optimization. In this case, the authors mentioned using CTC loss for the Automatic Speech Recognition task during fine-tuning. Therefore, monitoring the CTC loss would likely be part of their strategy to evaluate the model performance during training.

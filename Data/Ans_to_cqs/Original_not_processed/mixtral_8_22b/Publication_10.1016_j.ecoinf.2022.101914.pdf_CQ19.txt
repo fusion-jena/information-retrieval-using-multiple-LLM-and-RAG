@@ -1,0 +1,50 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Fig. 2. Diagram showing the procedure used to build models. (a) Obtain presences (red circles) and generate background points (black triangles). (b) Separate data 
+into folds. (c) Set aside one fold to use as an external evaluation dataset and keep the remaining folds as training data. (d) Perform scale optimization for envi-
+ronmental covariates: calculate focal statistics for each covariate using a moving window of radius equal to each scale to be tested, then compare scales using t-tests. 
+(e) Subsample background points in the training data to create three datasets: one with the number of background points equal to the number of presences (1×), one 
+with a number of background points equal to 10 times the number of presences (10×), and 10,000 background points (10K). Keep the number of presences the same. 
+(f) Train component models separately using each background point subsample. (g) Evaluate component models using the evaluation dataset (using AUC and TSS).
+
+by  its  relatively  constant  performance  regardless  of  the  number  of 
+background  points  used  to  train  component  models.  As  with  many 
+ecological  problems, the  decisions made during  the modeling process 
+demand careful consideration in the full context of the question at hand, 
+since different questions often differ in their requirements from a model.
+
+number of presences, (c) 10,000 background points, and (d) optimized background points for each component 
+model. Among regression-based approaches, MARS performed best when built with 10,000 background points. 
+Among machine learning models, RF performed the best when built with equal presences and background points. 
+Among the four ensemble models, AUC indicated that the best performing model was the ensemble with each 
+component model including the optimized number of background points, while TSS increased as the number of 
+background  points  models  increased.  We  found  that  an  ensemble  of  models,  each  trained  with  an  optimal 
+number of background points, outperformed ensembles of models trained with the same number of background 
+points, although differences in performance were slight. When using a single modeling method, RF with equal 
+number of presences and background points can perform better than an ensemble model, but the performance
+
+2.8. Training individual models 
+
+To train the component models for the ultimate ensemble models, we 
+used  six  modeling  approaches,  categorized  into  regression-based  and 
+machine  learning models. Regression-based  models included General-
+ized Linear Models (GLMs), Generalized Additive Models (GAMs), and 
+Multivariate  Adaptive  Regression  Splines  (MARS).  Machine  learning 
+models included Random Forest (RF), Artificial Neural Networks (ANN), 
+and Maximum Entropy software (MaxEnt). We built all models using the 
+biomod2 package in R (Thuiller et al., 2021).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text does not provide information on which specific frameworks or libraries such as TensorFlow or PyTorch are used to build the deep learning model. However, it mentions that the biomod2 package in R is used to build all models, including those based on machine learning methods like Random Forest (RF), Artificial Neural Networks (ANN), and Maximum Entropy software (MaxEnt). Therefore, it appears that the models are developed within the R programming environment using the biomod2 package.

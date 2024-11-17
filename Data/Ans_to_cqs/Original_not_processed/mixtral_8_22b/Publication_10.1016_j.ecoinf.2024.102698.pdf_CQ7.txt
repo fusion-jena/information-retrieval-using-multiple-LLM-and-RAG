@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1 
+: Data utility metrics descriptions.  
+
+Metric 
+
+χ2test 
+
+Kolmogorov- 
+
+Smirnov test 
+
+Correlations scores 
+
+Mean data quality 
+
+score 
+
+Mean data 
+
+diagnostics 
+scores 
+
+Description
+
+5.4. Connectivity data 
+
+The  synthetic  connectivity  data  was  generated  using  a  Generative 
+Adversarial Network (GAN) model based on the y-data-synthetic Python 
+package (YData, 2023), as this model was able to replicate the sparse-
+ness  of  the  original  connectivity  matrices  best  and  performed  best  in 
+terms of the utility metrics. GAN models feature a generator component, 
+which learns the latent features of the data to generate a data sample, 
+and  a  discriminator,  which  is  a  classification  model  which  learns  to 
+classify real and synthetic data. Backpropagation from the discriminator 
+updates the model parameters in the generator with the magnitude of 
+the update depending on the success of the discriminator in classifying 
+
+Fig. 3. Spatial distributions of the original (middle), synthetic (left) and sampled synthetic (right) data sets. Colours and size of points indicate site area. Note, 
+sampled synthetic uses anonymized latitudes and longitudes.
+
+EcologicalInformatics82(2024)1026984Connectivity and coral coverZoningHeat stressWave stressDepthFilter sites hot, too subject towave damage and without enough space for coral.Weight layers according to importance for intervention of interest and decision scenario.Rank sites from most to least suitable for implementing the intervention using aggregate criteria values and their weightings.1234R. Crocker et al.                                                                                                                                                                                                                                 
+
+convolutional  neural  networks  (CNN),  auto  encoders  and  generative 
+adversarial  networks  (GAN),  and  are  better  at  learning  sophisticated 
+patterns in data but can be more computationally expensive and require 
+more data to train (Endres et al., 2022).
+
+A pertinent question which arises is “does the full set of synthetic 
+input data sets successfully represent the full set of original data sets?”. 
+This is a gnarly statistical problem which is usually approached in the 
+context of synthetic data for machine learning problems via a prediction 
+success rate (e.g. (Boyeau et al., 2024)). This this context, a model is 
+trained on the synthetic data and the success of the model in predicting 
+what it is designed to predict is evaluated. The same is repeated for the 
+real data and prediction success rates are compared. In the case of our 
+decision support tool, however, small differences in initial coral cover, 
+DHW  data  and  connectivity  can  have  a  significant  impact  on  the 
+ecological model’s output trajectory, so even for a set of data which may 
+be statistically similar to the original data set, the outcomes may be quite 
+different. We would, however, expect a similar spread and shape in the
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't explicit information about the specific criteria used to split the data for deep learning model training into train, test, and validation sets. However, common practices in machine learning include splitting the dataset randomly or stratified by classes if dealing with classification tasks. Typically, the dataset is divided into three parts: training set (used to fit the model), validation set (used to tune hyperparameters during model development), and testing set (used to evaluate the final performance of the trained model). The proportion of each set varies, but a common practice is to use around 70% for training, 15% for validation, and 15% for testing. It should also be noted that the context mentions the use of convolutional neural networks (CNN), autoencoders, and generative adversarial networks (GAN) for generating synthetic data, but does not provide details on how these methods were applied specifically for splitting the data.

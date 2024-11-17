@@ -1,0 +1,71 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Researchers have developed numerous WQP inversion algorithms for 
+different lakes over the years. These algorithms include Band Ratio (BR), 
+Three Bands (TB), NDCI, NDTI, Multiple Linear Regression (MLR), and 
+more.  In  this  study,  the  development  of  these  algorithms  is  also 
+considered. Moreover, deep learning algorithms were also considered, 
+however,  the  limited  number  of  samples  was  not  conducive  to  deep 
+learning, a point supported by the evidence in the research of Feng et al. 
+
+EcologicalInformatics81(2024)10259716J. Zhang et al.                                                                                                                                                                                                                                   
+
+Fig. 18. Timeline of water quality changes in Nansi Lake.
+
+In recent years, machine learning (ML) has been applied in various 
+fields  due  to  its  powerful  ability  to  handle  non-linear  relationships 
+(Mohammadi et al., 2023), according to previous surveys, an increasing 
+number of studies are attempting to use ML methods to estimate WQP. Li 
+et al. established a Support Vector Machine (SVM) model to estimate 
+Chla concentrations in 45 typical lakes in China based on measured data 
+from 2017 to 2019; the results indicated that this model is suitable for 
+lakes  with  medium  to  low  Chla  concentrations  (Li  et  al.,  2021). 
+Muhammad et al. developed a neural network model called the Ocean 
+Color  Network  (OGN)  to  estimate  Chla  concentrations  in  the  Barents 
+Sea,  in  comparison  to  Gaussian  Process  Regression,  this  network 
+demonstrated  a  5.2%  reduction  in  mean  absolute  error  (Asim  et  al., 
+2021). Ensemble learning (EL) is one of the key technologies in the field
+
+RF is the first algorithm selected as a representative of the bagging 
+algorithm family, Random Forest (RF) is the first algorithm we selected 
+(Breiman,  2001).  Taking regression  as  an example,  its  core idea  is  to 
+construct multiple weak learners in parallel and ultimately output the 
+result as the average of the weak learners to enhance model accuracy. In 
+addition,  we  chose  several  Boosting  algorithms.  The  GBDT,  improves 
+upon the initial boosting algorithm by introducing the concepts of fitting 
+residuals and sampling (Friendman, 2001). XGBoost, built upon GBDT, 
+it  incorporated  a  structural  risk  term  into  the  loss  function  L(y,y ˆ), 
+forming the objective functionO(y,y ˆ), XGBoost also introduced a novel 
+impurity measure metric, which considers complexity in splitting rules 
+(Chen and Guestrin, 2016). Additionally, it employs new tree-building 
+processes, such as estimation greedy algorithms, parallel learning, and
+
+4.3. Model performance 
+
+All algorithms were evaluated using the same dataset, and five EL 
+models were established for both the Chla concentration and turbidity: 
+RF,  GBDT,  LightGBM,  XGBoost,  and  CatBoost.  Before  tuning  each 
+model, we established a benchmark model with default parameters to 
+evaluate  whether  parameter  adjustments  had  a  beneficial  impact  on 
+model performance. Hyperparameter optimisation was performed using 
+
+both the random grid search and Bayesian optimisation methods, which 
+were  implemented  using  GridSearchCV  from  Scikit-learn  and  the 
+Hyperopt  library (version 0.2.7).  We selected the best  parameters  for 
+each model and compared the results.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide specific information about the regularization methods used to prevent overfitting in the deep learning pipeline. However, some common regularization techniques used in deep learning models include dropout, L1 regularization, and L2 regularization. Dropout randomly sets a fraction rate of input units to 0 during training time, helping to avoid overfitting. L1 regularization adds an absolute value of the magnitude of coefficients as penalty term to the loss function, while L2 regularization adds the squared magnitude of coefficient as penalty term to the loss function. Both L1 and L2 regularizations help to reduce overfitting by adding constraints to the weights of the model. Other regularization techniques include early stopping, weight decay, and batch normalization.

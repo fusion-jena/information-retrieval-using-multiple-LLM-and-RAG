@@ -1,0 +1,79 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+For  numerical  scores,  we  examined  both  training  scores  and  vali-
+dation scores to diagnose signs of overfitting. The training scores were 
+calculated from the models fit on all 7331 grid cells. Their outputs for 
+the area shown in Fig. 1a were compared to their true labels to compute 
+the values. The validation scores of the models were calculated through 
+a  10-fold  CV  using  one  fold  pattern  of  spatial-CV  feature  selection, 
+shown in Fig. 2. The scores are the average of the 10 validation folds.
+
+10.1038/482030a. 
+
+Bradley, A.P., 1997. The use of the area under the ROC curve in the evaluation of 
+
+machine learning algorithms. Pattern Recogn. 30 (7), 1145–1159. https://doi.org/ 
+10.1016/s0031-3203(96)00142-2. 
+
+Breiman, L., 2001. Random forests. Mach. Learn. 45 (1), 5–32. https://doi.org/10.1023/ 
+
+A:1010933404324. 
+
+Calandra, I., G¨ohlich, U.B., Merceron, G., 2008. How could sympatric megaherbivores 
+coexist? Example of niche partitioning within a proboscidean community from the 
+miocene of Europe. Naturwissenschaften 95 (9), 831–838. https://doi.org/10.1007/ 
+s00114-008-0391-y. 
+
+Catalina, A., Bürkner, P.-C., Vehtari, A., 2022. Projection predictive inference for
+
+5.3. Evaluation methods 
+
+All Bayesian predictions within this study are made with 500 pos-
+terior draws. The point estimates are the medians of the predictions, and 
+they are reported with their interquartile ranges (IQRs), or the width of 
+the 50% credible intervals. 
+
+The models along with their design choices are evaluated quantita-
+tively  with  numerical  scores  and  calibration  plots,  and  qualitatively 
+through  predictions  mapped  on  geographic  locations  in  QGIS  (QGIS 
+Development Team, 2024). For numerical scores, we present area under 
+the  curve  (AUC)  (Bradley,  1997)  and  maximum  attainable  true  skill 
+statistic (TSS) (Allouche et al., 2006).
+
+Note  that,  because  a  supervised  feature  selection  procedure  was 
+utilized, final model assessments not calculated via a nested approach 
+(for example, one in which the CV-based FFS process is replicated within 
+an  outer  CV  or  hold-out  procedure)  may  overestimate  model  perfor-
+mance (Cawley and Talbot, 2010; Smialowski et al., 2010). However, 
+nested CV experiments for E. maximus indicate that, given the size of the 
+training dataset and predictive strength of climatic features, this bias is 
+very  slight:  over  100  experimental  iterations,  AUC  values  were  over-
+estimated by a mean of less than 0.0002. Thus, to consistently estimate 
+and compare the performance modeling approaches, and to assess all 
+feature sets via spatial CV (which accounts for the spatial autocorrela-
+tion  present  in  environmental  datasets  (Roberts  et  al.,  2017)),  post- 
+selection,  spatial  CV-based  AUC  and  TSS  estimates  are  used  in  the 
+following discussion.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The performance of the machine learning models in this study is evaluated using two main metrics: Area Under the Curve (AUC) and Maximum Attainable True Skill Statistic (TSS). These metrics are used instead of traditional ones like accuracy, precision, or recall due to the specific nature of the problem being addressed.
+
+Area Under the Curve (AUC) is a metric derived from Receiver Operating Characteristic (ROC) curves, which plot the true positive rate against the false positive rate at various classification thresholds. AUC provides an aggregate measure of the model's ability to distinguish between classes across different threshold settings. It ranges from 0 to 1, where a value closer to 1 indicates better performance.
+
+Maximum Attainable True Skill Statistic (TSS) is another metric used to evaluate the performance of binary classifiers. It combines information about correctly predicted positives (true positives) and negatives (true negatives) into a single score. TSS ranges from -1 to 1, where a value close to 1 signifies excellent performance, while a value near zero suggests no discrimination capacity, and negative values imply worse than random guessing.
+
+These metrics are chosen because they provide robust measures of model performance, especially when dealing with imbalanced data or varying threshold levels. They also help avoid potential biases introduced during the supervised feature selection process employed in this study.

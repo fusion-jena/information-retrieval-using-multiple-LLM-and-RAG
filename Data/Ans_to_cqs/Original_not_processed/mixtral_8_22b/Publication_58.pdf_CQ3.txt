@@ -1,0 +1,99 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+All architectures were trained with stochastic gradient descent using a similar protocol,
+with a momentum of 0.9 and starting from an initial learning rate of 10−2. Every 20 epochs,
+the learning rate is divided by 10 until reaching 10−6.
+
+Neural networks do not perform well when trained with unbalanced data sets [41]. In
+the case of “central-pixel labeling” architectures it is possible to make balanced data sets
+with the initial pixels selection used for the learning. In the case of “semantic labeling” the
+composition of the images makes it more difﬁcult to precisely control the number of pixels
+per class. We tried several methods, but found negligible differences in performance. All
+reported experiments use the median frequency balancing method.
+
+3.3.1. Central-Pixel Labeling
+
+47. Ronneberger, O.; Fischer, P.; Brox, T. U-net: Convolutional networks for biomedical image segmentation. In Medical Image
+Computing and Computer-Assisted Intervention—MICCAI 2015; Navab, N., Hornegger, J., Wells, W.M., Frangi, A.F., Eds.; Springer
+International Publishing: Cham, Switzerland, 2015; pp. 234–241.
+
+48. Long, J.; Shelhamer, E.; Darrell, T. Fully convolutional networks for semantic segmentation. In 2015 IEEE Conference on Computer
+
+Vision and Pattern Recognition (CVPR); IEEE Computer Society: Los Alamitos, CA, USA, 2015; pp. 3431–3440.
+
+49. Chen, L.C.; Papandreou, G.; Kokkinos, I.; Murphy, K.; Yuille, A.L. DeepLab: Semantic Image Segmentation with Deep
+Convolutional Nets, Atrous Convolution, and Fully Connected CRFs. IEEE Trans. Pattern Anal. Mach. Intell. 2018, 40, 834–848.
+[CrossRef]
+
+50. He, K.; Zhang, X.; Ren, S.; Sun, J. Identity mappings in deep residual networks. In Computer Vision—ECCV 2016; Leibe, B., Matas,
+
+40.32%
+35.97%
+46.56%
+50.21%
+38.75%
+50.40%
+48.38%
+
+For the LU detection task, all deep learning techniques except AlexNet outperformed
+XGBoost. Differences were signiﬁcant, with up to 15 percent points in OA. As in the
+previous section, the best performing “single-pixel” architecture is DenseNet and the best
+“semantic labeling” network is DeepLab. Interestingly, DenseNet reached the best PA,
+although DeepLab dominated the remaining metrics.
+
+For the remainder of this study, the best performing “single-pixel” and “semantic
+labeling” were selected. There was little difference between the architectures, so the
+architectures with the best F1-score for the LU classiﬁcation were chosen arbitrarily.
+
+4.3. Inﬂuence of Neo-Channels and Land Cover as Input on the Learning
+
+3.3.1. Central-Pixel Labeling
+
+AlexNet, an architecture introduced by Alex Krizhevsky [42], is one of the ﬁrst Deep
+Learning architectures to appear on the scene. Inspired by the LeNet architecture in-
+troduced by Yann LeCun [40], AlexNet is deeper with eight layers, the ﬁrst ﬁve being
+convolutional layers whose parameters are shown in Table 5, interleaved with max-pooling
+layers (Figure 3). The sequence ﬁnishes with two fully connected layers before the ﬁnal
+
+Remote Sens. 2021, 13, 2257
+
+8 of 22
+
+classiﬁcation with a softmax. A ReLu type activation function is used for each layer. Data
+augmentation and drop-out are used to limit overﬁtting.
+
+Figure 3. The AlexNet architecture. The number of kernels is indicated at the bottom of each convolution layer, the rest of
+the parameters are indicated in Table 5.
+
+Table 5. Conﬁguration of the different layers of Figure 3 representing the AlexNet architecture.
+
+Layer
+
+conv1
+conv2
+conv3
+conv4
+conv5
+maxpool
+
+Conv
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the specific data annotation techniques used in the deep learning pipeline. However, based on the given context, we can infer that central-pixel labeling and semantic labeling are employed as part of the training process. These techniques could be considered as forms of pixel-level annotations or semantic segmentations.
+
+Central-pixel labeling involves assigning labels to individual pixels within an image, while semantic labeling refers to categorizing entire regions or objects within an image into predefined classes. Both these techniques help train neural networks for tasks such as object recognition, classification, and segmentation.
+
+In terms of creating balanced datasets, which is crucial for optimal model performance, the authors mention that they made balanced datasets with the initial pixels selection used for learning in the case of central-pixel labeling architectures. For semantic labeling, where controlling the exact number of pixels per class becomes challenging due to image composition, various methods were attempted, though no significant improvements were observed. Ultimately, the median frequency balancing method was adopted for all reported experiments.

@@ -1,0 +1,57 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Figure 3. Schematic of the CNN used in the study. Input image size was 32 by 32 pixels shown as the
+large grey square. Numbers represent the number of features output from a convolution or dense
+layer, except for the cropping layers where the crop dimension is shown.
+
+2.5. Classiﬁcation and Assessment
+
+In addition to the deep-learning classiﬁer, we also tested random forest that included
+spatial features for comparison. Random forest is an efﬁcient algorithm that can be easily
+applied in a distributed processing framework. Thus, if sufﬁcient accuracy could be
+achieved then it would be the preferred classiﬁer. For assessment, we evaluated the
+classiﬁcation results against the test sample and report error matrices, summary accuracy
+measures, and class accuracies. Summary measures included the overall accuracy, kappa,
+and average F1-score. For class accuracies we report the F1-score, which provides class-
+speciﬁc accuracy, accounting for both omission and commission error.
+
+2.5.1. Ensemble CNN
+
+There are numerous aspects to consider for enhancing the deep-learning classiﬁer,
+speciﬁcally regarding the input image size; network conﬁguration, depth, and width; and
+training strategy. In initial experimentation, several standard forms of deep-learning CNN
+architectures were tested based largely on ResNet [46] and Inception [63], but these did
+not perform well due to the range of image objects size/scales encountered. To account
+for objects represented as a single pixel up to larger assemblages extending beyond the
+32 by 32 pixel input image, the ensemble with varying input image sizes was selected.
+Segmentation-based approaches were also considered as an alternative, but sufﬁcient
+quality training data for segmentation was a limitation.
+
+3.3.3. Change Detection
+
+For training, the Adam optimizer was used with 500 epochs and categorical-cross
+entropy loss function. Batch size was set to 64. Data augmentation was applied to enhance
+sample variation and included rotation, reﬂectance bias of ±10%, and random noise of
+±10% reﬂectance for 15% of the input image. To determine training convergence, we
+monitored the validation data across training epochs and the network weights with the
+best performance were kept. Early stopping criteria was applied if no improvement was
+found in 50 epochs. For CNNs, weight initialization and random selection for batch
+training can lead to variability in the results. Thus, an ensemble of three models were
+generated and the average of the ﬁnal output layer taken. Max pooling was used for two
+models in the ensemble and average pooling for one. In initial tests using max or average
+pooling showed that both provided improvement in some cases and thus could enhance
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The performance of the deep learning model is evaluated using various metrics such as overall accuracy, Kappa, and average F1-score. Overall accuracy refers to the proportion of correct predictions out of all predictions made. Kappa is a measure of agreement between predicted and actual classes, taking into account chance agreements. Average F1-score is the harmonic mean of precision and recall, providing a more balanced evaluation metric compared to accuracy alone. Additionally, class-specific accuracy is reported using the F1-score, which accounts for both omission and commission errors.

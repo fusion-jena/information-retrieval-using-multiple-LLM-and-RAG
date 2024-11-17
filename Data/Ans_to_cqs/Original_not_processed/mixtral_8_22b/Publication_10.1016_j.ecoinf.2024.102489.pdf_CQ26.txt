@@ -1,0 +1,75 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.2. Data and preprocessing 
+
+2.2.1. High spatial resolution satellite image data
+
+For machine learning methods such as RF models, the quality of the 
+training samples can seriously affect their prediction results. Although 
+this study utilised the pixel quality control metrics of MODIS products to 
+eliminate  cloud-contaminated  and  poor-quality  pixels  and  to  remove 
+outliers  from  the  training  samples,  the  surface  of  the  study  area  was 
+highly heterogeneous compared to that of Zhai et al. (2020). To ensure 
+that a sufficient number of LAI training samples could be selected, the 
+main  algorithm  saturated  the  pixels  during  the  selection  of  the  LAI 
+training  samples,  but  this  increased  the  high-value  LAI  uncertainty 
+(Kang  et  al.,  2021).  Jamali  et  al.  (2023)  used  a  variety  of  machine 
+learning  algorithms  to  estimate  various  leaf  parameters  for  wheat 
+leaves, concluding that deep neural networks were the most capable of 
+improving the prediction accuracy of leaf parameters. Therefore, field
+
+2) Purity screening: to meet the requirement that adjacent pixels of 
+the same land cover type have similar surface reflectance or LAI, and 
+have  enough  MODIS  pixels,  purity  screening  is  performed  using  a 
+MODIS pixel where the same land-use type accounts for >90% of the 
+area and the coefficient of variation (CV) of reflectance is <0.3. The CV 
+is the ratio of the average reflectance of the near-infrared (NIR) band to 
+the standard deviation of all sub-pixels included in the MODIS pixel (Gao 
+et al., 2012). 
+
+3) Mixed pixel linear decomposition: according to the assumption of 
+linear modeling of hybrid pixel decomposition (Settle and Drake, 1993), 
+LAI and reflectance in MODIS hybrid pixels can be expressed as: 
+
+Mi =
+
+∑n
+
+(cid:0)
+
+j=1
+
+fj(i, j) × mj
+
+)
+
++ εi
+
+(1)
+
+measurement data can be added in future studies to reduce the uncer-
+tainty in the selected training samples and combined with other algo-
+rithms to optimise the model and improve suitability for the complex 
+terrain areas in high spatial resolution LAI estimation.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not explicitly mention any specific techniques like stratified splitting, oversampling, undersampling, or diverse data collection for addressing data bias during preprocessing of the deep learning pipeline. However, it discusses some relevant aspects related to improving the quality of training samples and reducing uncertainty in the selected training samples.
+
+In the context of high spatial resolution satellite image data, the authors utilize the pixel quality control metrics of MODIS products to eliminate cloud-contaminated and poor-quality pixels and remove outliers from the training samples. This step ensures that only good-quality pixels are considered for further analysis. Additionally, they perform purity screening by selecting MODIS pixels where the same land-use type accounts for more than 90% of the area and the coefficient of variation (CV) of reflectance is less than 0.3. This process helps maintain consistency among adjacent pixels of the same land cover type and reduces variability within each MODIS pixel.
+
+Furthermore, mixed pixel linear decomposition is applied based on the assumption of linear modeling of hybrid pixel decomposition. This technique allows for expressing LAI and reflectance in MODIS hybrid pixels as a combination of different components, which may help mitigate potential biases introduced by mixed pixels containing multiple land cover types.
+
+Although these steps do not directly correspond to the mentioned techniques for addressing data bias, they contribute to enhancing the overall quality and reliability of the input data for the deep learning pipeline. Incorporating additional measures such as stratified sampling, oversampling, undersampling, or collecting diverse datasets might further improve the robustness and generalizability of the developed models.

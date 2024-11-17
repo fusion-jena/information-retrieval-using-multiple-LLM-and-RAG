@@ -1,0 +1,8 @@
+Answer:::
+The data format used in the deep learning pipeline described in the given context is a spectrogram image. The pipeline involves extracting data segments from unfiltered waveform around detections and converting them into frequency-reassigned spectrogram images. These spectrogram images are then fed into the ResNet-50 Convolutional Neural Network (CNN) for feature extraction.
+
+The original ResNet-50 model was developed and pre-trained using millions of label images in over 1000 categories. However, it was not explicitly trained on spectrograms. Instead, many studies have shown that pre-trained CNNs can extract meaningful features distant from the original training dataset.
+
+In this pipeline, activations from the fully connected layer (fc1000) of the ResNet-50 CNN are used as a feature vector for each detected signal. These features are then used to classify the candidate detections using a Support Vector Machine (SVM) classifier.
+
+Therefore, the data format used in this deep learning pipeline is a spectrogram image, which is used as input to the pre-trained ResNet-50 CNN for feature extraction.

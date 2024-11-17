@@ -1,0 +1,70 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Using  a  pre-trained  CNN  feature  extractor  and  adding  a  softmax 
+output layer is less complex than having to optimise a CNN from scratch 
+and requires less network design decisions and also less time on hyper- 
+parameter tuning. We thus argue that this approach renders the use of 
+deep learning much more accessible to practitioners. Extensive hyper- 
+parameter tuning also requires expensive GPU hardware which might 
+not  be  accessible  to  practitioners.  Our  findings  revealed  that  results 
+could be obtained on limited hardware within 9 h (10 epochs of fine- 
+tuning  the  feature  extractor)  which  would  cost  2USD,  at  the  time  of 
+writing, if that was executed on a Microsoft Azure virtual machine – thus 
+rendering this approach affordable and accessible. 
+
+It is well accepted that no single machine learning algorithm – or in
+
+faced with the decision of deciding on suitable neural network archi-
+tectures, a non-trivial task. While architectures along with their software 
+implementation do exist (e.g. VGG16 (Simonyan and Zisserman, 2014)), 
+there are no clear guidelines as to which one is suitable for the creation 
+of a  PAM classifier. Thus, the  development of CNNs is  accessible pri-
+marily to individuals who have knowledge in deep learning. The second 
+issue is that of training CNNs on acoustic datasets which contain very 
+few  vocalisation  examples  of  the  various  species  which  can  result  in 
+overfitting (Hawkins, 2004); a term which means that the model is able 
+to perform well on the training data but poorly on new data that was not 
+used in training. In certain cases it might be difficult to obtain additional 
+audio data (e.g. due to inaccessible habitat or small population size due 
+to species being threatened). Thirdly, hyper-parameter tuning is a time
+
+The software code was written in Python 3 for audio pre-processing 
+and  the  general  methodology,  and  the  CNNs  were  implemented  in 
+Tensorflow 2 (Abadi et al., 2015). Each CNN was trained for 50 epochs 
+(number of iterations of the CNN learning algorithm) using the Adam 
+optimiser  (Kingma  and  Ba,  2014)  and  a  batch  size  of  32.  The  hyper- 
+parameters  were  obtained  by  conducting  a  random  search  using 
+similar values to that in the study of Dufourq et al. (2021). Spectrograms 
+were generated using the Librosa library (McFee et al., 2020). 
+
+4. Results
+
+Since CNNs require a fixed input size, we studied the vocalisations 
+within the presence class for each dataset to determine the character-
+istics of the calls which would allow us to create fixed input, which we 
+refer to as segments. For example, the Hainan gibbon calls vary from 2 to 
+9 s (Dufourq et al., 2021), and thus a suitable input size was 4 s to ensure 
+that the smallest call would fit within the segment. A longer input (>4 
+seconds) would result in CNNs with more network parameters, an un-
+desirable consequence as this would increase the chances to overfit. A 
+shorter input (<4 s) would not contain enough information, especially 
+in cases where the individual pulses that make up a call are long. A short 
+input could omit parts of the call. Preliminary experiments were con-
+ducted on the different datasets to minimise the input length as much as 
+possible,  thus  minimising  network  parameters.  The  characteristics  of
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, the optimization technique used in the deep learning pipeline is mentioned as the Adam optimizer. The Adam optimizer is a popular choice for training deep learning models due to its ability to adaptively adjust the learning rate based on the first and second moments of the gradients. It combines the advantages of both Adaptive Gradient Algorithm (AdaGrad) and Root Mean Square Propagation (RMSProp) algorithms. The Adam optimizer has been shown to converge faster and achieve better performance compared to other optimization methods such as Stochastic Gradient Descent (SGD) and RMSProp. However, it should be noted that the optimal optimization technique may depend on the specific problem and dataset being considered.

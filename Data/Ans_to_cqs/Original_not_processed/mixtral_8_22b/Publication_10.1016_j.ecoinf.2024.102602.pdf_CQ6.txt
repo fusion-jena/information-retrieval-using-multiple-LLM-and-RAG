@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.5.1. Model selection and parametrization 
+
+For  the  classification  task,  before  the  implementation  of  deep 
+learning models, all images were resized to the same resolution (227×
+197  pixels)  by  considering  the  mean  dimensions  of  the  set,  and  then 
+normalized to the [0,1] range (Na and Fox, 2020). Then, six open source 
+CNNs  were  selected:  VGG16  (Simonyan  and  Zisserman,  2015), 
+ResNet50,  ResNet101  (He  et  al.,  2016),  Inception-v3  (Szegedy  et  al., 
+2016), DenseNet201 (Huang et al., 2017) and EfficientNetB0 (Tan and 
+Le,  2019).  These  algorithms  were  selected  because  of  their  ease  for 
+transfer  learning and  high  performance  on  similar classification  tasks 
+(Arun  and  Viknesh,  2022;  Vallabhajosyula  et  al.,  2022).  For  model 
+optimization, we used the Adam optimizer algorithm (Kingma and Ba, 
+2015), a batch size of 10 and 100 epochs. The learning rates were chosen 
+(cid:0) 6 showing 
+from empirical trials over 100 epochs, with and 10
+
+A.1b),  with  high  performances  (e.g.,  f1-score  values  above  93.09%; 
+Table  4).  Unlike  the  training  task,  the  best  results  were  obtained  by 
+(cid:0) 4,  in  terms  of  accuracy 
+EfficientNetB0  with  a  learning  rate  of  10
+(97.50%),  sensitivity  (96.00%)  and  f1-score  (97.46%),  followed  by 
+(cid:0) 4),  which  also  showed 
+Inception-v3  with  the  same  learning  rate  (10
+high accuracy (96.88%), sensitivity (94.00%), specificity (99.75%) and 
+f1-score (96.78%). In the case of the EfficientNetB0 model, only 4% of 
+the  images  displaying  the  Cortaderia  selloana  were  confused  by  the 
+model as showing no C. selloana (false negatives; Fig. A.1c). Likewise, 
+from  the  images  showing  no  C.  selloana,  in  1%  of  the  cases  Effi-
+cientNetB0  incorrectly  predicted  the  class  “With  Cortaderia  selloana” 
+(false  positives;  Fig.  A.1d).  A  similar  pattern  was  verified  for  the 
+remaining CNNs (see confusion matrices in Tables A.6 and A.7).
+
+the  best  performances. We  also  implemented  an  early  stop  approach, 
+with a patience value of 16 to regularize the model and minimize the loss 
+function (binary cross entropy). The early stop approach is a common 
+technique in machine learning to halt the training process of a model 
+prematurely  if  performance  on  a  validation  dataset  fails  to  improve 
+beyond  a  predefined  threshold,  thereby  preventing  overfitting  and 
+conserving computational resources.
+
+2.5.3. Transfer learning 
+
+To  improve  the  performance of our  models,  we applied a  transfer 
+learning strategy, which consisted of initializing each CNN with weights 
+of open source CNNs pre-trained on databases with similar character-
+istics  to  our  dataset.  Specifically,  we  used  CNNs  pre-trained  with  the 
+ImageNet database (https://www.image-net.org/), for the classification 
+task. For the object detection task, we used CNNs pre-trained with the 
+Microsoft Common Objects in Context (MS COCO; https://cocodataset. 
+org/#home)  and  iNaturalist  (https://www.inaturalist.org/)  databases 
+(see Supplementary Material for details).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: Before implementing deep learning models for the classification task, several preprocessing steps were taken. First, all images were resized to the same resolution (227x197 pixels) by considering the mean dimensions of the set. This step ensures that all input data has consistent dimensions, which is crucial for most deep learning models. Next, the images were normalized to the [0,1] range. Normalization scales pixel intensity values to a small, specified range to improve the speed and stability of the network during training. It helps prevent any single feature from dominating the others if they are not scaled to comparable ranges, ensuring better convergence of the model. No explicit mention of additional preprocessing steps such as cleaning or augmentation was made in the given context.

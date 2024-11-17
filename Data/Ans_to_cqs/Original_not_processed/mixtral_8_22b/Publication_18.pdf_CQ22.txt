@@ -1,0 +1,67 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Metrics used in the performance assessment.  To evaluate the performance of both CNN-based mod-
+els, we used these metrics39: positive predictive value, sensitivity, and F1-measure (Table 3).
+
+True positives correspond to images that were correctly classified or counted as whales by the models, false 
+positives correspond to images that were classified or counted as whales by the models but actually corresponded 
+to another class, and false negatives correspond to undetected images with whales. In simple terms, high positive 
+predictive value means that the model returned substantially more actual whales than false ones, while high sensi-
+tivity means that the model returned most of the actual whales. F1-measure provides a balance between precision 
+and sensitivity. We used 5-fold Cross-Validation strategy to evaluate our two-step approach and the baseline on 
+the test dataset.
+
+Scientific RepoRtS  |         (2019) 9:14259  | https://doi.org/10.1038/s41598-019-50795-9
+
+9
+
+Table 3.  Accuracy indicator, equation, and interpretation of the performance assessment.
+
+Step-2: Whale counting phase.  We built the second CNN-based model that counts whales by refor-
+mulating the problem into an object detection task. We used the detection model Faster R-CNN based on 
+Inception-Resnet v2 CNN architecture42,81, pre-trained on the well known COCO (Common Objects in Context) 
+detection dataset, which contains more than 200,000 images organized into 80 object categories82. The two last 
+fully connected layers of the network were retrained on our dataset using a learning rate of 0.001 and a decay 
+factor of 16 every 30 epochs. As optimization algorithm, we used RMSProp with a momentum of 0.9 and epsilon 
+of 0.1.
+
+CVPR IEEE 2818–2826 (2016).
+
+ 42.  Szegedy, C., Ioffe, S., Vanhoucke, V. & Alemi, A. Inception-v4, Inception-ResNet and the Impact of Residual Connections on 
+
+Learning. ArXiv160207261 Cs (2016).
+
+ 43.  Redmon, J. & Farhadi, A. YOLO9000: Better, Faster, Stronger. In Proc. CVPR IEEE 7263–7271 (2017).
+ 44.  Lin, T.-Y. et al. Feature Pyramid Networks for Object Detection. in Proc. CVPR IEEE 2117–2125 (2017).
+ 45.  Zhang, S., Wen, L., Bian, X., Lei, Z. & Li, S. Z. Single-Shot Refinement Neural Network for Object Detection. in Proc. CVPR IEEE 
+
+4203–4212 (2018).
+
+ 46.  Fu, C.-Y., Liu, W., Ranga, A., Tyagi, A. & Berg, A. C. DSSD: Deconvolutional Single Shot Detector. ArXiv170106659 Cs (2017).
+ 47.  Lin, T.-Y., Goyal, P., Girshick, R., He, K. & Dollár, P. Focal Loss for Dense Object Detection. ArXiv170802002 Cs (2017).
+ 48.  Zhang, X. et al. Geospatial Object Detection on High Resolution Remote Sensing Imagery Based on Double Multi-Scale Feature
+
+CNNs constitute the state-of-the art in all the fundamental tasks in computer vision, e.g., in image classifica-
+tion and object detection in images. In image classification, the CNN model has to analyze the input image and 
+produce a label that describes its visual content, together with a probability that expresses the confidence of the 
+model. In object detection, the CNN detection model has not only to produce the correct label but also determine 
+by means of a bounding box the region in the input image where the target object is located. Examples of the most 
+accurate and robust models for image classification are Inception41 and Inception ResNet42. The most accurate 
+detection frameworks are end-to-end object detection models that combine a sophisticated detection technique 
+with one of the most powerful CNN classification models. At present, there exist several detection frameworks
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The performance of the deep learning models was evaluated using three main metrics: positive predictive value, sensitivity, and F1-measure. True positives correspond to images correctly identified as containing whales, false positives are images incorrectly labeled as having whales when they do not, and false negatives are images with whales that go undetected. A high positive predictive value indicates that the model accurately identifies actual whales over false ones, while high sensitivity signifies that the model detects most of the actual whales. The F1-measure offers a balanced compromise between precision and sensitivity. The evaluation process employed a 5-fold cross-validation strategy to assess the two-step approach and the baseline on the test dataset.

@@ -1,0 +1,152 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+with batch size 512 (65.54; see Table 2). These results provide a dif-
+ferent perspective than the conclusions drawn by previous studies
+(Masters and Luschi, 2018; Mishkin et al., 2016) where the use of small
+or even mini-batches enhanced performances. This could be explained
+by the high imbalance between classes and the fine-grained nature of
+the classification task. Larger batches may therefore be more re-
+presentative of the intra-class variability which in turn allows the net-
+work to focus on inter-class variance. It will be asserted that our best
+ResNet18 (ResNet18–224; 65.94 micro-F1, see Table 3) easily out-
+performed deeper network architectures, whether trained from scratch
+with a smaller batch size (ResNet50–128; micro-F1 63.89), or pre-
+trained with fine-tuned weights (ResNet152–224; 60.09 micro-F1) ac-
+cording to standard procedures (King et al., 2018). Our results support
+the findings of a recent study which advocated the use of carefully
+
+60.64
+63.82
+65.77
+66.30
+
+60.17
+63.57
+65.54
+65.94
+
+Table 3
+Performances of different ResNet architectures on validation and test sets. ResNetX-Y is written so that X indicates the network's depth and Y the input size. In bold
+the best value for each metric.
+
+Network -patch Size
+
+Batch size
+
+Validation set
+
+Test set
+
+Macro-F1
+
+Top-1 accuracy
+
+Micro-F1
+
+Macro-F1
+
+Top-1 accuracy
+
+Micro-F1
+
+ResNet152–224
+ResNet50–128
+ResNet18–128
+ResNet18–224
+Ensemble
+
+16
+128
+128
+200
+128
+
+37.45
+52.04
+51.40
+54.93
+60.56
+
+62.38
+64.07
+63.90
+66.70
+70.60
+
+60.46
+63.85
+63.88
+66.44
+70.35
+
+38.26
+52.27
+51.62
+53.93
+60.38
+
+61.71
+64.35
+63.60
+66.30
+70.54
+
+60.09
+63.89
+63.44
+65.94
+70.37
+
+from underwater video using neural networks. Opt. Express 13, 8766. https://doi.
+org/10.1364/OPEX.13.008766.
+
+Masters, D., Luschi, C., 2018. Revisiting Small Batch Training for Deep Neural Networks.
+McGill, B.J., Dornelas, M., Gotelli, N.J., Magurran, A.E., 2015. Fifteen forms of biodi-
+
+versity trend in the Anthropocene. Trends Ecol. Evol. 30, 104–113. https://doi.org/
+10.1016/j.tree.2014.11.006.
+
+Mehdipour Ghazi, M., Yanikoglu, B., Aptoula, E., 2016. Open-Set Plant Identification
+
+Using an Ensemble of Deep Convolutional Neural Networks. Working Notes of CLEF.
+Mishkin, D., Sergievskiy, N., Matas, J., 2016. Systematic evaluation of CNN advances on
+the ImageNet. Comput. Vis. Image Underst. 161, 11–19. https://doi.org/10.1016/j.
+cviu.2017.05.007.
+
+Niculescu-Mizil, A., Caruana, R., 2005. Predicting good probabilities with supervised
+
+7.3. Post-processing
+
+Selective classification requires well-calibrated networks because
+the reliability of the output is assessed in order to decide whether or not
+to reject the prediction. The SGR algorithm provides accurate thresh-
+olds which allow the user to filter predictions which fit with the re-
+quired level of error (Geifman and El-Yaniv, 2017). Top-5 accuracy was
+consistently above 80% on the rejected part on the test set, regardless of
+desired risk specified for input into the SGR algorithm. Said top-5 ac-
+curacy could then be used to create a tool to enable an expert to quickly
+annotate the rejected data. By establishing a trade-off between accuracy
+and time-effectiveness, this simple method could be useful for miti-
+gating the limited accuracy of human annotation (which in turn affects
+performance in the classification task), and is appropriate considering
+the fine-grained nature of the classification task.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does mention one specific post-processing step after model training, which involves selective classification using the SGR algorithm. This process helps to improve the overall performance of the model by allowing it to reject predictions when their reliability falls below a certain threshold. The SGR algorithm provides accurate thresholds based on the required level of error, ensuring that only reliable predictions are accepted.
+
+In addition to this, the text also mentions calculating metrics such as macro-F1, top-1 accuracy, and micro-F1 scores for evaluating the performance of various models. However, these calculations do not necessarily constitute post-processing steps but rather serve as methods for comparing and analyzing the performance of different models during the development phase.
+
+Other common post-processing techniques, such as saliency maps or confusion matrices, are not explicitly mentioned in the given context. Therefore, while we can confirm that selective classification using the SGR algorithm and metric calculation are employed as post-processing steps, there is no information available regarding other potential techniques like saliency maps or confusion matrices.

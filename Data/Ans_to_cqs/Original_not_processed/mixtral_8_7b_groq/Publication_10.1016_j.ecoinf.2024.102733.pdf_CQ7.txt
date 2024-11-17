@@ -1,0 +1,8 @@
+Answer:::
+In the provided context, the data is split for deep learning model training using a stratified train-test split. This method ensures that the class proportions are maintained in both the training and validation sets, with approximately 80% and 20% of the samples for each class respectively. 
+
+For fixed-length trajectories, each with a length of 13, there are 13,489 samples in the training set and 3448 samples in the validation set. This split was applied to the original trajectories of variable length to ensure that each trajectory belongs exclusively to either the train or validation splits, and not both.
+
+Additionally, when training the MLP, various parameter values and different regularization techniques were explored. These included the learning rate, batch size, weight decay, and dropout. The Focal Loss function was also investigated, which introduces additional parameters such as α and γ. The former serves as a balancing factor, and the latter regulates the impact of the scaling factor.
+
+When preparing the data for the diffusion model, a standard trajectory length of 13 was established after analyzing the histogram of the original trajectory lengths. Trajectories were then segmented into fixed lengths of 13, and segments shorter than 6 detections were discarded. For segments with 6 to 12 detections, their data points were replicated until they reached the required length of 13. Finally, each coordinate of the fish detection was scaled within the range of [1,1].

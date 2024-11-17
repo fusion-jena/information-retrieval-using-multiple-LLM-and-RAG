@@ -1,0 +1,84 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We applied the transfer learning and fine-tuning technique with the 
+deep learning model ResNet50 (He et al., 2016; Tan et al., 2018), which 
+was already pre-trained on ImageNet data (Deng et al., 2009). Transfer 
+learning is a technique that enabled us to overcome the issue of shortage 
+of  training  data  and  construct  a  model  efficiently  by  transferring 
+knowledge  from  a  similar  task  to,  in  this  case,  our  target  task.  The 
+implemented  architecture  received  RGB  images  of  224×224×3  as 
+inputs—in this case, color spectrograms of two-second durations—and 
+included  only  the  feature  extraction  layers  from  the  ResNet50,  dis-
+carding the superior classification layers (known as the top network). 
+The newly created model reconfigured the top network with two fully 
+connected  layers  (FC)  that  could  learn  new  features.  To  reduce  over-
+fitting and imitate the training of a set of different models, a dropout
+
+training and 20% for testing with the presence and absence samples. In 
+the training stage, 10% of the dataset was used as a validation subset. It 
+was likely that samples extracted from the same audio file were sepa-
+rated, both for training and for testing and validation. However, this bias 
+was  reduced,  in  the  semi-automatic  labeling  stage,  by  limiting  the 
+extraction of samples to a maximum of three per file. 
+
+The  iterative  learning  process  of  the  model  was  executed  by  pro-
+posing 50 training epochs. The early stopping method was used with a 
+patience equal to 5, to avoid overfitting. In this way, optimal training 
+was achieved at the end of the ninth epoch, reaching a maximum loss of 
+(cid:0) 3  for  the  training  and  validation  subsets 
+4.5×10
+respectively. 
+
+(cid:0) 4  and  1.1×10
+
+2.8. Evaluation
+
+The  implemented  CNN  corresponded  to  a  modified  version  of 
+ResNet50, one of the dominant architectures in bioacoustic tasks, and, 
+although other authors have applied previous ImageNet training to the 
+bioacoustic  domain  (LeBien  et  al.,  2020;  Zhong  et  al.,  2021),  other 
+datasets such as Audio Set (Gemmeke et al., 2017) or VGG-Sound (Chen 
+et al., 2020) can be just as good as ImageNet for pre-training, either on 
+ResNet or on other architectures, such as VGGish, Inception or Mobile-
+Net. Another viable option is to pretrain with synthetic clicks or chirps 
+(Glotin  et  al.,  2017;  Yang  et  al.,  2021).  Models  already  available  in 
+mobile  apps  that  perform  this  same  spectrogram-based  identification 
+task are advancing rapidly. To date (October 2022), the BirdNet appli-
+cation (Kahl et al., 2021) allows for the identification of more than 3000 
+bird species (Wood et al., 2022). In the short term, this particular model
+
+machine listening - validation on animal calls and speech. arXiv. Doi: 10.48550/ 
+arXiv.1611.08749, arXiv:1611.08749.  
+
+He, K., Zhang, X., Ren, S., Sun, J., 2016. Deep residual learning for image recognition. In: 
+
+2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 
+pp. 770–778. https://doi.org/10.1109/CVPR.2016.90. 
+
+Kahl, S., Wood, C.M., Eibl, M., Klinck, H., 2021. Birdnet: a deep learning solution for 
+avian diversity monitoring. Ecol. Inform. 61, 101236 https://doi.org/10.1016/j. 
+ecoinf.2021.101236. 
+
+Kingma, D.P., Ba, J., . Adam: A Method for Stochastic Optimization. arXiv:1412.6980. 
+
+https://doi.org/10.48550/arXiv.1412.6980. 
+
+Kowarski, K.A., Moors-Murphy, H., 2021. A review of big data analysis methods for 
+baleen whale passive acoustic monitoring. Marine Mammal Sci. 37, 652–673. 
+https://doi.org/10.1111/mms.12758.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, there is mention of using the dropout regularization method to prevent overfitting in the deep learning pipeline. Dropout is a commonly used regularization technique in neural networks where randomly selected neurons are ignored during training, which helps to prevent complex co-adaptations on training data. This technique is mentioned in the context as being used to reduce overfitting and imitate the training of a set of different models. Other common regularization techniques include L1 and L2 regularization, but these are not explicitly mentioned in the provided context.

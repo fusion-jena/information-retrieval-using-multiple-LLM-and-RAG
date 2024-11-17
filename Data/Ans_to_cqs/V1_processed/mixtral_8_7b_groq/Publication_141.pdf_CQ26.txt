@@ -1,0 +1,11 @@
+Based on the provided context, the following techniques were used to address data bias and improve model performance during the preprocessing of the deep learning pipeline:
+
+1. Transfer Learning: The authors used a pre-trained ResNet-50 network architecture, which was trained on the ImageNet dataset. This dataset contains millions of images, allowing the model to learn a wide range of features. Although the ImageNet dataset does not contain any similar objects (non-biting midges), the pre-trained model was able to extract relevant features for the current task. This technique is useful for addressing data bias as it allows the model to leverage pre-existing knowledge from a large and diverse dataset.
+
+2. Data Augmentation: The authors applied data augmentation by randomly deforming input images during each training cycle. This technique helps increase the size and diversity of the training dataset, reducing overfitting and improving the model's ability to generalize.
+
+3. Controlled Data Collection: The dataset was constructed under a lab-based protocol of image acquisition with a fully controlled position of the larvae (ventral point of view). This ensured that the collected images had a consistent level of feature variability, reducing bias and improving model performance.
+
+The context does not explicitly mention techniques such as stratified splitting, oversampling, or undersampling. However, the authors do mention that they used a two-stage training process, where only the top classifier (fully connected layer) is trained based on features extracted from processing images with a pre-trained convolutional part of the network. This technique can be seen as a form of oversampling, where the pre-trained convolutional part of the network is used to extract features from a larger and more diverse dataset, allowing the top classifier to learn from these features.
+
+In summary, the authors used transfer learning, data augmentation, and controlled data collection to address data bias and improve model performance during the preprocessing of the deep learning pipeline. While the context does not explicitly mention techniques such as stratified splitting, oversampling, or undersampling, the two-stage training process can be seen as a form of oversampling.

@@ -1,0 +1,62 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Remote Sens. 2021, 13, 3495
+
+8 of 29
+
+layer 5 and a batch normalization layer after hidden layer 2 increased the testing accuracy
+of the model. These additional layers—dropout and batch normalization—reduce the
+over-ﬁtting of the model on the training data and increase generalization on testing data.
+The hyperparameters in this network—the learning rate, number of epochs, and batch
+size—were further tuned such that the testing accuracy and the kappa were the best among
+all models. The optimized hyperparameter values for learning rate and batch size were
+0.007 and 48, respectively.
+
+Figure 4. Network architecture implemented for the Deep Neural Network (DNN) model along
+with the number of neurons that were optimized for each hidden layer. The output layer contains
+11 neurons, corresponding to the number of classes to be classiﬁed.
+
+2.7. Accuracy Assessment
+
+[42]. The RBF kernel requires tuning of two parameters—C and γ. Choice of the C parameter in-volves a trade-off between correct classification and maximization of the margin. Thus, a smaller C value will result in a wider margin and thus a lower accuracy. The γ value con-trols the radius of influence of the training samples. Thus, a greater value will result in a model that overfits on the training data and poor generalization on the testing data. The best values for C and γ were optimized using GridSearchCV (scikit-learn 0.24) and were found to be 1000 and 1, respectively. 2.5. Random Forest (RF) The RF algorithm constructs multiple decision trees (DTs), or classifiers, that each predict a class [43]. Each tree within the RF is created using different training data subsets, which are selected through repetition and replacement of the original training dataset. This repetition and replacement create a ‘bagged’ dataset for each of the decision trees within the random forest. The
+
+7 of 29
+
+The quantity of training data derived from ground data collection in 2018 was limited.
+A U-Net implemented with Keras produced a low training and testing accuracy with
+segmentation results on testing data differing between repetitions. Implementing a U-Net
+model within the arcgis.learn module of the ArcGIS API for Python [39] removed the
+requirement for a quantitatively massive dataset. Additionally, the U-Net implemented
+through argis.learn is pretrained on ImageNet to further improve classiﬁcation accuracies.
+This reduces the time and resources spent on ground truth data collection. Hyperparameter
+tuning was done to select the best U-Net model [31,34,40]. Based on hyperparameter
+optimization, it was found that the best model uses an input patch size of 64 × 64 pixels
+and a ResNet-50 backbone [31,34,40].
+
+2.4. Support Vector Machine (SVM)
+
+a batch normalization layer after hidden layer 2 increased the testing accuracy of the model. These additional layers—dropout and batch normalization—reduce the over-fitting of the model on the training data and increase generalization on testing data. The hyperparameters in this network—the learning rate, number of epochs, and batch size—were further tuned such that the testing accuracy and the kappa were the best among all models. The optimized hyperparameter values for learning rate and batch size were 0.007 and 48, respectively.  Figure 4. Network architecture implemented for the Deep Neural Network (DNN) model along with the number of neurons that were optimized for each hidden layer. The output layer contains 11 neurons, corresponding to the number of classes to be classified. 2.7. Accuracy Assessment To compare the accuracy of various models independent testing data, i.e., same for all models, is used for model evaluation. The confusion/error matrix and subsequent met-rics are
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training process, several postprocessing steps can be performed depending on the specific requirements of the project. Some common postprocessing steps include:
+
+1. Model Evaluation: Once the model has been trained, its performance needs to be evaluated using metrics like accuracy, precision, recall, F1 score, etc. A confusion matrix can also be generated to visualize the performance of the model. In the given context, the authors have mentioned that they used independent testing data for model evaluation and calculated metrics like testing accuracy and kappa coefficient. They also mention generating a confusion/error matrix for comparing the accuracy of various models.
+
+2. Visualizing Results: Another important step in postprocessing involves visualizing the results obtained from the model. For example, saliency maps can be generated to highlight the areas in the image that contributed most towards the final prediction made by the model. However, there is no explicit mention of any such visualizations being carried out in the given context.
+
+3. Fine-Tuning Parameters: Postprocessing may also involve fine-tuning certain parameters based on the initial results obtained from the model. For instance, if the model performs poorly on certain classes, one might consider adjusting the weights assigned to those classes during training. Similarly, if the model tends to overfit or underfit the data, adjustments can be made to regularization techniques like dropout or batch normalization. In the given context, the authors mention having added a dropout layer and a batch normalization layer after hidden layer 2 to reduce overfitting and improve generalization on testing data. They also state that they further tuned hyperparameters like learning rate, number of epochs, and batch size to achieve optimal performance.
+
+In summary, some common postprocessing steps after model training include evaluating the model's performance using metrics and confusion matrices, visualizing results using tools like saliency maps, and fine-tuning parameters based on initial results.

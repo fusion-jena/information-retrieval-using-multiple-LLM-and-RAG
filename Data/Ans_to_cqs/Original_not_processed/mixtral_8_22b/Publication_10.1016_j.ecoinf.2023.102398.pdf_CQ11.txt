@@ -1,0 +1,135 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The training is done from scratch using GPU (Tesla T4) and CUDA 
+Version-12.0 in Google Colab with the parameters (i) Input image size =
+416, (ii) Batch size  = 16,  (iii) Epochs = 100, 150, 200  and 250, (iv) 
+Weights  = Default  to yolov5.pt., (v) Data = custom data set  and (vi) 
+Cache = True. 
+
+EcologicalInformatics79(2024)10239811B. Bhagabati et al.                                                                                                                                                                                                                              
+
+Fig. 11. Training Plots for the proposed model.
+
+Fig. 2. YOLOv5 network architecture showing the three components of the model, namely Backbone, Neck and Head. Nos. of input layers, output layers, kernel size, 
+strides and blocks are also shown (Xu et al., 2021). 
+
+3.1. Dataset 
+
+A  publicly  available  dataset  in  Roboflow  (Roboflow  Dataset,  n.d) 
+named Animal2–v1 comprising 9952 images belonging to classes Bear 
+(1530  images),  Deer  (966  images),  Elephant  (1684  images),  Leopard 
+(1888 images), Monkey (1214 images), Tiger (1388 images) and Wild-
+boar (1282 images) is used. All the images are annotated in YOLOv5 
+PyTorch  format.  The  preprocessing  applied  for  the  dataset  is  auto- 
+orientation  of  pixel  data  with  EXIF-format  stripping,  and  the  images 
+are resized to 416 × 416 (stretch). Here, 70% of images are used for 
+training,  20%  images  for  validation,  and  10%  images  are  used  for 
+testing. No image augmentation techniques are applied.
+
+The work is based on the popular YOLOv5 architecture integrated 
+
+with a SENet attention mechanism (Zhu et al., 2021). 
+
+The  YOLO  (You  Only  Look  Once)  is  a  simple  and  extremely  fast 
+object detection algorithm that avoids a complex pipeline and considers 
+
+• Backbone: A CNN, which acts as the main body of the network, is 
+designed using the New CSP-Darknet53 (Cao et al., 2023) structure. 
+It extracts key features from the input image. 
+
+EcologicalInformatics79(2024)1023986B. Bhagabati et al.                                                                                                                                                                                                                              
+
+Fig. 3. YOLOv5 architecture with proposed attention layer. YOLOv5 blocks, SENet attention layer blocks and the embedded attention layers in the Backbone of the 
+YOLOv5 model are shown.
+
+Fig.  4. SENet  attention  mechanism.  Different  blocks  of  the  attention  mecha-
+nism with sizes are shown. 
+
+Table 2 
+Hyper  parameters and their values used in  training the  proposed model. The 
+hyper parameters are based on the optimized values for YOLOv5 COCO training 
+from scratch.  
+
+Parameter Name 
+
+lr0 
+Lrf 
+momentum 
+weight_decay 
+warmup_epochs 
+warmup_momentum 
+warmup_bias_lr 
+box 
+cls 
+cls_pw 
+obj 
+obj_pw 
+iou_t 
+anchor_t 
+
+Value 
+
+0.01 
+0.01 
+0.937 
+0.0005 
+3.0 
+0.8 
+0.1 
+0.05 
+0.5 
+1.0 
+1.0 
+1.0 
+0.2 
+4.0 
+
+Parameter Name 
+
+fl_gamma 
+hsv_h 
+hsv_s 
+hsv_v 
+degrees 
+translate 
+scale 
+shear 
+Perspective 
+flipud 
+fliplr 
+mosaic 
+mixup 
+copy_paste 
+
+Value 
+
+0.0 
+0.015 
+0.7 
+0.4 
+0.0 
+0.1 
+0.5 
+0.0 
+0.0 
+0.0 
+0.5 
+1.0 
+0.0 
+0.0
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the data repository link of the deep learning pipeline (e.g., Link to Zenodo, Figshare, Dryad, GBIF)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, there is no explicit mention of the data repository link for the deep learning pipeline. However, it is mentioned that the dataset used is publicly available in Roboflow named Animal2-v1. Therefore, one can assume that the data repository link might be related to this dataset. Unfortunately, without more specific details or direct links, I cannot provide the exact data repository link for the deep learning pipeline.

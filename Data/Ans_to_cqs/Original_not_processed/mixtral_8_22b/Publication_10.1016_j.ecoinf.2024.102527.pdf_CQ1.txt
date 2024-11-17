@@ -1,0 +1,79 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+respectively.  N  represented  the  number  of  images  in  the  test  set  or 
+validation set. 
+
+2.2.6. Model training and hyper-parameters 
+
+We  trained  models  on  the  training  sets  and  tracked  the  model 
+training process on the validation set. The training process was stopped 
+when  the  loss  value  of  the  model  on  the  validation  set  no  longer 
+decreased. We then tested the model performance on the test set. Our 
+computing platform was a Dell PowerEdge C4130 rack server with two 
+Tesla  K80  GPUs  and  256  GB  of  memory.  For  the  deep  learning  envi-
+ronment,  we  utilized  the  PyTorch  1.7.1  platform.  We  employed  the 
+Stochastic Gradient Descent (SGD) optimizer with a momentum value of 
+μ  = 0.9 to train the model. Other hyper-parameter settings for model 
+training were shown in Table S.4 of the Supporting Information. 
+
+3. Results 
+
+3.1. Experiment results of transfer strategy optimization
+
+2.2.3. Data splitting 
+
+Based on the conceptual model mentioned above, we split the data to 
+construct  the  source  and  target  domain  datasets  to  carry  out  transfer 
+learning experiments.  For the  ImageNet  dataset, we directly  used the 
+pre-trained model on ImageNet-1 k as the source model, so there was no 
+need to split the dataset. Both the SS and the LSM dataset are camera 
+trap  image  datasets.  Each  time  the  camera  is  triggered,  it  captures 
+multiple images in succession, called a capture event. A capture event 
+frequently  comprises  three  images.  Notably,  images  within  the  same 
+event are significantly similar to each other. Splitting the images in an 
+event into training and test sets may lead to poor generalization of the 
+DCNN  model. To  prevent  this, we kept  the integrity  of events  during 
+data splitting, putting all images of an event into the same dataset.
+
+empty  images  can  achieve  high  accuracy  (Norouzzadeh  et  al.,  2021, 
+2018; Yang et al., 2021a, 2021c; Yousif et al., 2019). However, labeling 
+large-scale samples for training deep learning models is time-consuming 
+and  laborious,  posing  a  particular  challenge  for  ecological  research 
+teams  (Nazir and Kaleem, 2024; Norouzzadeh et  al., 2021; Schneider 
+et al., 2020).
+
+2. Datasets and method 
+
+2.1. Datasets 
+
+This  study  used  three  significantly  different  datasets:  ImageNet, 
+Snapshot  Serengeti  (SS),  and  Lasha  Mountain  (LSM).  ImageNet  is  a 
+benchmark dataset in the field of computer vision. Each image in the 
+ImageNet dataset is manually annotated, and the image sizes vary, with 
+the largest size being 4288 × 2848 pixels and the smallest being 75 × 56 
+pixels. The ImageNet dataset we used is ImageNet-1 k, which contains 
+1000 classes and 1.2 million training samples. This study used the pre- 
+trained  model  on  the  ImageNet-1  k  dataset  as  one  of  the  source 
+models for transfer learning.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What methods are utilized for collecting raw data in the deep learning pipeline (e.g., surveys, sensors, public datasets)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the methods used for collecting raw data in the deep learning pipeline. However, it mentions using three datasets: ImageNet, Snapshot Serengeti (SS), and Lasha Mountain (LSM). It also discusses how the data from these datasets were split for use in transfer learning experiments.
+
+From the given context, we can infer that the ImageNet dataset is a benchmark dataset in the field of computer vision, containing manually annotated images of varying sizes. The study uses the pre-trained model on the ImageNet-1k dataset as one of the source models for transfer learning.
+
+Regarding the SS and LSM datasets, they are both described as camera trap image datasets. Camera traps are remotely activated cameras often used in wildlife monitoring and conservation studies. These devices automatically take pictures when motion is detected, allowing researchers to collect large amounts of data without constant human presence.
+
+In summary, while the text does not explicitly state the methods used for collecting raw data, it implies that the ImageNet dataset consists of manually annotated images, whereas the SS and LSM datasets contain images captured by camera traps.

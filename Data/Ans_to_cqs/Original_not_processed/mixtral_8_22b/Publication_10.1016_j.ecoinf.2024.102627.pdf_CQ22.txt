@@ -1,0 +1,100 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Final test set performances at epoch 69 are A30 = 0.87 and MSA30 =
+0.48. This means that i) the correct label is returned among the first 30 
+species  for  87%  of  the  test  observations  (representative  of  common 
+species),  and  ii)  when  each  species  in  the  test  set  is  given  the  same 
+weight, the correct label is within the first 30 classes returned almost 
+half the time. This second metric may seem low, but it actually measures 
+a particularly difficult task, given that the test set contains 4166 species
+
+(cid:0)
+
+̂ηs(x) = exp
+exp
+
+∑
+
+j
+
+)
+
+θ(x)
+f s
+(
+f j
+θ(x)
+
+)
+
+where θ is the set of parameters of the neural network to be optimised by 
+minimizing the loss function of Eq. (2). 
+
+Using this very common deep learning framework, it is possible to 
+show that the species assemblage predictor Sλ(x) of Eq. (1) is consistent 
+λ(x) when  the 
+(Lorieul,  2020),  i.e.  it  tends  towards  the  optimal  set  S*
+number  of  training  samples  increases.  In  other  words,  our  species 
+assemblage predictor is as simple as training a deep neural network with 
+a cross-entropy loss function on the presence-only samples and thresh-
+olding  the  output  softmax  probabilities  to  get  the  assemblage  of  pre-
+dicted species. 
+
+◦
+
+(xi) ≥ ̃ηk(xi)
+
+(7)  
+
+(cid:0)
+
+)
+
+xi, yi
+
+an  input/label  pair,  ̃η  the  permutation  of  ̂η  sorted  in 
+with 
+descending order and ̂ηk its component at rank k. The success rate can be 
+calculated  for  all  test  set  occurrences,  all  classes  combined  (micro- 
+average denoted Ak) or first for each class individually and then averaged 
+together (macro-average denoted MSAk). The former gives prominence 
+to common species by construction, while the latter depends heavily on 
+rare species performances. Macro-average metrics are suitable for highly 
+imbalanced datasets.
+
+2.2.1. Definition 
+
+The objective is to optimise a model returning likely species assem-
+blages worldwide while being learned on a set of presence-only obser-
+vations. To do so, we optimise a deep species distribution model (Botella 
+et  al.,  2018b)  and  further  calibrate  it  to  return  species  assemblages 
+including the initial species observed with very high confidence. This 
+method is derived from what is called set-valued prediction (or set-valued 
+classification) in the machine learning community (Chzhen et al., 2021; 
+Mortier et al., 2021). The model is trained on presence-only data, all 
+species combined (multi-species SDM), and is then used to predict a set 
+of  labels  by  thresholding  the  SDM  output  categorical  probabilities 
+associated to species.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Two main metrics are used to evaluate the performance of the deep learning model: micro-average (Ak) and macro-average (MSAk). These metrics measure how well the model performs in predicting the correct species assemblages based on presence-only observations.
+
+The micro-average metric (denoted Ak) calculates the success rate for all test set occurrences, combining all classes together. This metric gives more weight to common species since they have more representation in the dataset. For example, in the final test set performance at epoch 69, the correct label was returned among the first 30 species for 87% of the test observations using the micro-average metric.
+
+On the other hand, the macro-average metric (denoted MSAk) first calculates the success rate for each class individually and then averages them together. This metric is heavily dependent on rare species performances and is suitable for highly imbalanced datasets. Using the macro-average metric, the correct label was within the first 30 classes returned almost half the time in the final test set performance at epoch 69. However, this seemingly low value should be considered in light of the fact that the test set contained 4166 different species, making the task particularly challenging.
+
+In summary, the two main evaluation metrics used for the deep learning model are micro-average (Ak) and macro-average (MSAk), which provide insights into the model's ability to accurately predict species assemblages based on presence-only observations.

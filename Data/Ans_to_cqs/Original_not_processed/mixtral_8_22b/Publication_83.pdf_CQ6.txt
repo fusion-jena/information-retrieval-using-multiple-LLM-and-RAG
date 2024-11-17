@@ -1,0 +1,65 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The duration of audio ﬁles in CLO-43DS data is different,
+which cannot be directly used as the input to the CNN. The
+ﬁrst method for dealing with the multi-variate varying length
+audio data is that the signal is repeated from the beginning to
+force the ﬁxed duration of 2s, which has been used in [30].
+The second method is to directly resize the audio image to a
+ﬁxed size.
+
+D. DEEP LEARNING ARCHITECTURE
+The feature learning part of our proposed model follows a
+VGG style network [24], which has been previously used
+for classifying acoustic scenes [5]. The overall architec-
+ture is illustrated in Table 1. This network is trained using
+Adam optimizer with a learning rate of 10−4. The cate-
+gorical cross entropy is utilized as the loss function. The
+batch size is 64 samples and the network is trained with
+200 epochs.
+
+TABLE 3. Classification performance of different methods using single
+CNN-based model. Here, Mel-CNN, Harm-CNN, and Perc-CNN denote that
+the input to those CNNs are Mel-spectrogram, harmonic-component
+based spectrogram, and percussive-component based spectrogram.
+Subnet-CNN denotes that a SubSpectralNet architecture is used with the
+Mel-spectrogram as the input.
+
+trogram. In addition to different TFRs, a different deep learning architecture, SubSpectralNet, is employed
+to classify bird sounds. Experimental results on classifying 43 bird species show that fusing selected deep
+learning models can effectively increase the classiﬁcation performance. Our best fused model can achieve a
+balanced accuracy of 86.31% and a weighted F1-score of 93.31%.
+
+overall classiﬁcation performance can be improved after
+fusing those frameworks. Here, the difference among those
+CNN-based classiﬁcation frameworks is deﬁned mainly
+based on (1) the input to CNNs; (2) the architecture of
+CNNs. Previous studies have demonstrated that fusing dif-
+ferent CNNs can improve the classiﬁcation performance
+of acoustic events [21], [28], [35]. Yin et al. used three
+CNN-based models for acoustic classiﬁcation, where the
+input of those CNNs were one-dimensional raw waveform
+modeling, two-dimensional time-frequency image modeling,
+and three-dimensional spatial-temporal dynamics modeling,
+respectively [35]. Here, the ensemble focus of the model was
+the feature. Skashita et al. proposed to use Mel-spectrogram
+from binaural audio, mono audio, Harmonic-percussive
+source separation audio, adaptively divided the spectrogram
+using multiple ways, and learned nine neural networks. Then,
+those nine neural networks were ensembled for obtaining the
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model, several preprocessing steps may be involved depending on the type of data being used. For instance, when working with audio files like in the given context, there might be variations in their durations. To address this issue, two methods are mentioned: repeating the signal from the beginning to force a fixed duration or directly resizing the audio image to a fixed size. These techniques help standardize the input format required by the Convolutional Neural Network (CNN). However, it should be noted that these specific preprocessing steps are tailored towards handling variable-length audio data. Other types of data might require different preprocessing techniques such as normalization, scaling, or cleaning. Normalization involves adjusting values measured on different scales to a common scale, while scaling refers to rescaling features to a range typically between zero and one. Cleaning data entails removing noise, outliers, or irrelevant information from datasets. It's important to choose appropriate preprocessing steps based on the nature of the dataset and the requirements of the deep learning model.

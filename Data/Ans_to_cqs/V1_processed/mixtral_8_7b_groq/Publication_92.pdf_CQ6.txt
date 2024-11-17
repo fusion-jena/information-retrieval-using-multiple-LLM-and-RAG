@@ -1,0 +1,11 @@
+The text provided discusses some specific preprocessing steps taken in the context of training a deep learning model for coral reef fish detection and recognition in underwater videos. While it does not explicitly mention common preprocessing techniques such as normalization, scaling, or cleaning, it does describe other relevant preprocessing steps.
+
+Firstly, the choice of data is crucial. In this case, the data is composed of labeled frames from videos of marine environments, specifically selected to contain only one fish per frame. These frames are then cropped and resized to create a training database of fish thumbnails. The size of these thumbnails varies, with a minimum of 20 × 40 pixels and a maximum of 150 × 200 pixels.
+
+Secondly, the dataset is curated to include only species with more than 450 thumbnails. This is done to ensure that the model has a sufficient number of examples for each species. The dataset is then augmented by applying rotations and symmetries to the thumbnails, allowing the model to capture all possible positions of the fishes.
+
+Thirdly, a background class is added to the dataset. This class is created using random thumbnails of the natural background, selected from frames and specifically around the fish thumbnails. This background class helps the model to better distinguish fish from their surroundings.
+
+Lastly, additional classes are created during post-processing to improve the model's localization accuracy and ability to recognize any fish, even if it's not in the learning database. These classes include 'Part of Fish' and 'Fish', with the 'Fish' class containing fewer samples to prevent the model from labeling a fish as 'Fish' instead of its specific class.
+
+In summary, the preprocessing steps described in the text include data selection, cropping and resizing, dataset curation and augmentation, and the addition of a background class and additional classes during post-processing.

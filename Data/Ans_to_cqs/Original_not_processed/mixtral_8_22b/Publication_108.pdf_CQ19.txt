@@ -1,0 +1,118 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+encoding and decoding blocks and are summarized in Table 1. These experiments were monitored
+using TensorBoard and validated on the validation portion of the dataset.
+
+In general, the limitations of deep learning in comparison to other machine learning methods
+are the requirement of large and high-quality training data, as well as hardware limitations related to
+GPU computing power. The most notable advantage of deep learning is the grade of automatization
+and a high potential to generalize when using large amounts of representative training data, which
+might, however, not always be available; especially with respect to ground-truth labels that might be
+scarce or not exist at all.. Furthermore, the black-box nature makes these algorithms a good choice for
+classiﬁcation as suggested in this study, but a challenge for modeling physical properties, as is often
+the case in forestry. This case study relied on high-resolution orthophotos with 20-cm spatial resolution
+obtained from an aerial survey. The great advantage of these data is that many details can be detected.
+
+Table 1. Hyperparameter ﬁne-tuning results.
+
+Scenario Number of Blocks Number of Filters
+
+Learning Rate Mean IoU Accuracy
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+3
+4
+5
+6
+4
+4
+4
+4
+4
+4
+
+64 , 64, 64
+64, 64, 64, 64
+64, 64, 64, 64, 64
+64, 64, 64, 64, 64, 64
+16, 32, 64, 128
+32, 64, 128, 256
+64, 128, 256, 512
+16, 32, 64, 128
+16, 32, 64, 128
+16, 32, 64, 128
+
+0.001
+0.001
+0.001
+0.001
+0.001
+0.001
+0.001
+0.01
+0.0005
+0.00001
+
+0.30
+0.38
+0.36
+0.32
+0.42
+0.38
+0.31
+0.008
+0.42
+0.39
+
+82%
+89%
+86%
+86%
+94%
+88%
+84%
+71%
+94%
+90%
+
+Scenario 5 was selected as the optimal solution as it had the best values for IoU and accuracy
+while training on fewer epochs. The resulting architecture is shown in Figure 4 and described in
+the following.
+
+2.5.1. Encoding Path
+
+As stated in the Introduction, there exist many different CNNs for different applications, and it is
+important to ﬁnd the appropriate solution for a speciﬁc task. Retraining existing powerful architectures
+such as VGG19 [27], ResNet, or Inception Net to solve other problems by transfer learning is one
+approach that is often used. However, this was not an option in our four-band setting and very
+particular segmentation task with features that might differ signiﬁcantly from features learned by
+networks trained on common image datasets such as ImageNet. Thus, we opted to implement a U-Net
+architecture, which is a particular implementation of a CNN ﬁrst developed by Ronneberger [19] for
+biomedical image segmentation. One major advantage of CNNs is the ability to extract spatial features
+and to detect patterns independently of their position on the input image. The U-Net architecture is
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the specific deep learning framework used to build the model. However, it mentions that TensorBoard was used to monitor the experiments, suggesting that TensorFlow could have been utilized since TensorBoard is a tool integrated into TensorFlow for visualizing metrics during training. Nonetheless, without further clarification, it cannot be definitively confirmed if TensorFlow was indeed the chosen framework.

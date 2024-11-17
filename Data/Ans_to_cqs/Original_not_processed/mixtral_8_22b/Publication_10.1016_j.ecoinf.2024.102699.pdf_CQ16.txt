@@ -1,0 +1,63 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+training or validation progress could be observed. To fine-tune our ViT
+models, we deployed ImageNet-based weights for pretraining.
+
+In order to alleviate the effects of present class imbalances, the focal
+loss was introduced to the training process. To reduce the impact of
+computational costs within the context of the BirdCLEF challenge in
+terms of model runtime, our augmentation techniques were applied to
+the training samples with a probability factor 50%. Therefore, future
+investigations should also assess the differences in classification capa-
+bilities when different probabilities are compared with each other.
+When further assessing the resulting training and testing times in
+Table 3, it is evident that the improved performance of ViT-B/16 comes
+at a cost of increased training times by a factor of about 2.3 as well as
+increased testing times by a factor of about 3.9. The observed data
+augmentation trends – for increasing and decreasing classification ca-
+pabilities – are merely robust against the investigated models. There-
+fore, future investigations focusing on augmentation strategies should
+
+3. Test results, evaluation, and discussion
+
+The following sections provide an overview of our test results as well
+as our evaluation and discussion in the context of different augmenta-
+tion methods. Therefore, a differentiation is made between test runs
+without any data augmentation, single augmentation runs, and runs
+with combined augmentations. Finally, the best results and their com-
+binations are discussed.
+
+2.5. Training setup
+
+3.1. Baseline augmentation methods
+
+ViT models are often computationally costly compared to conven-
+tional SED models. However, our 5 s long log-mel spectrograms are more
+feasible to process. The influences of class imbalances were alleviated by
+utilizing the binary cross entropy based focal loss as well as the so-called
+scaled focal loss (Arunodhayan Sampathkumar, 2021). Our training
+setup includes the Adam optimizer (Kingma and Ba, 2015) with a
+concatenating cosine-annealing linear scheduler with an initial learning
+rate of 0.0001, decaying by a factor of 0.001⋅learning rate, and a batch
+size of 32. For validation, we used a 5-fold cross validation. Given the
+class imbalance, we additionally deployed a data set sampler by
+upsampling and duplicating randomly selected samples and augmenting
+them. Our models were trained for 50 epochs without mixing up aug-
+mentations as well as for 100 epochs with mixing up augmentations.
+Early stopping was introduced to prevent overfitting when no further
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: Based on the given context, early stopping is used to determine when training is complete. Early stopping is a form of regularization used to avoid overfitting when training a learner with an iterative method, such as gradient descent. This technique allows us to specify an arbitrary large number of training epochs and stop training once the model performance stops improving on a hold out validation dataset. In this case, the training setup includes the use of early stopping to prevent overfitting when no further improvement is seen in the validation loss.

@@ -1,0 +1,81 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+distinctive  annotation  profiles  influenced  by  the  complexity  of  vocalizations  and  the  annotators’  strategies, 
+ranging from conservative to permissive. To address the challenges of annotation discrepancies, Convolutional 
+Neural Networks (CNNs) are trained on annotations from both novices and the expert. The results show varia-
+tions in model performance. Our work highlights the importance of annotation guidelines encouraging a more 
+conservative  approach  to  improve  overall  annotation  quality.  In  an  effort  to  optimize  the  potential  of  multi- 
+annotation  and  mitigate  the  presence  of  noisy  labels,  two  annotation  aggregation  methods  (majority  voting 
+and  soft  labeling)  are  proposed  and  tested.  The  results  demonstrate  that  both  methods,  particularly  when  a 
+sufficient number of annotators are involved, significantly improve model performance and reduce variability:
+
+To  ensure  comparability  across  trained  models,  we  maintained 
+consistent hyperparameters across all training instances for each task (i. 
+e.,  SEIO  PBW  vocalization  and  Dcall).  Specifically,  for  SEIO  PBW 
+
+vocalization  training  and  blue  whale  Dcall  training,  we  set  the  batch 
+sizes to 5 and 4, and the learning rates to 1e-4 and 1e-3, respectively. 
+This decision was based on the fact that more samples were used for 
+SEIO PBW vocalization training. The models were trained for 40 and 25 
+epochs  respectively.  However  an  early  stopping  method  was  used  to 
+keep  the  model  weights  before  the  models  overfitted.  The  patience 
+parameter is set at 10 epochs for all training phases. 
+
+2.4. Evaluation metrics 
+
+Considering  the  absence  of  absolute  ground  truth  for  identifying 
+audio events within underwater acoustic recordings, the annotation sets 
+proposed by the annotators, expert or novice, are called pseudo ground 
+truth in the present study.
+
+During  the  campaign,  methods  are  proposed  to  assess  inter- 
+annotator  variability  and  aggregate  annotation  sets.  Those  methods 
+will help to define the minimal number of annotators needed [Dubus 
+et al., 2023; Walter et al., 2022]. Increasing the number of annotators 
+per sample could be helpful if the variability is too high. Finally, the two 
+grouping  methods:  majority  voting  (Section  2.2.3)  and  soft  labeling 
+(Section 2.3.2) can also be used to produce relevant annotation sets for 
+deep learning. 
+
+6. Conclusion 
+
+In this study, new approaches were explored to improve the accuracy 
+and  efficiency  of  cetacean  vocalization  detection  using  deep  learning 
+models. Leveraging multi-annotation campaigns involving both expert 
+and novice annotators aimed to address the challenges associated with 
+the scarcity of ground truth data in underwater PAM studies.
+
+However,  it  has  been  observed  that  annotation  sets  used  to  train 
+models qualified as “permissive annotators” get lower performance than 
+the ones qualified as “conservative annotators”  even with comparable 
+F1 score with the annotations from the experts. Gu et al. (2023) also 
+proposed that at the same ratio of noise on the training set, the model’s 
+performance can decrease differently regarding the type of noise. In this 
+study,  it  seems  that  simple  convolutional  neural  network  models 
+generalize better from the most obvious examples and the introduction 
+of false positives deteriorates the performance more than the omission of 
+a vocalization in the annotation set. For future annotation campaigns, 
+this  result  might  suggest  that  instructing  annotators  to  adopt  a  more 
+conservative approach could be beneficial.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about specific preprocessing steps such as normalization, scaling, or cleaning before training the deep learning model. However, there are some related aspects mentioned.
+
+Firstly, the text discusses addressing the challenge of annotation discrepancies between novices and experts. This suggests that the raw dataset may have gone through some form of initial processing or filtering to create these annotations.
+
+Secondly, the text mentions maintaining consistent hyperparameters across all training instances for each task. Hyperparameters are parameters whose values are set prior to the commencement of the learning process. Although this doesn't directly refer to preprocessing steps like normalization or scaling, it indicates that certain preparatory decisions were made to standardize the training conditions.
+
+Lastly, the text refers to the use of an early stopping method to prevent overfitting during model training. Overfitting occurs when a model learns the detail and noise in the training data to the extent that it negatively impacts its performance on new data. Thus, employing techniques to avoid overfitting can be considered part of the broader preparation process before training a deep learning model.

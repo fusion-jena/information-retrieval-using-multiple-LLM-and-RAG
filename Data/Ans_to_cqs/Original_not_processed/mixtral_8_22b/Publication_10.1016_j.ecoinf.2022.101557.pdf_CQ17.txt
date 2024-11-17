@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+overfitting. These samples are selected randomly from all areas that are 
+used in the training set, and are never used to fit the model. The model is 
+trained for 150 epochs and with a batch size of 128. Dropout (Srivastava 
+et al., 2014) with a rate of 0.3 is used during the training to make it more 
+stable. Furthermore, ADAM optimisation (Kingma and Ba, 2014) with a 
+learning  rate  of  0.0001  is  used  to  find  optimal  weights  in  the  neural 
+network in order to minimise the cross entropy loss between the net-
+work’s predictions and the pre-labelled data.
+
+2.4. Data pre-processing 
+
+2.2. Convolutional neural networks 
+
+The  idea  behind  convolutional  neural  networks  (CNNs)  was  first 
+
+As mentioned in the previous sections, the data is first split up into 
+several  larger  blocks,  depending  on  coordinates,  with  the  purpose  to 
+cross validate the model. These blocks are then split into many smaller 
+areas of 80 × 80 pixels, due to limitations in the available amount of 
+
+EcologicalInformatics68(2022)1015572N. Ståhl and L. Weimann
+
+2.5. Data post-processing 
+
+Some post-processing is required to transform the result of the CNN 
+into an easy accessible GIS-resource. This is primarily done to produce 
+and refine the material covering southern Sweden, as well as making it 
+easily  accessible  for  further  analyses.  This  process  consists  of  several 
+steps. In the first step, the pixel predictions from the CNN are rounded, 
+
+so all predictions with predicted value larger than 0.5 are considered as 
+wetlands  and  all  predictions  below  are  non-wetlands.  This  creates  a 
+raster over the whole map, where each pixel is either deemed to be part 
+of a wetland or not. The next step is to convert this raster representation 
+into a vector representation, to enable further analyses. This conversion 
+is  also  conducted  to  minimise  storage  space  and  making  it  easier  to 
+distribute.
+
+A 10-fold cross validation is performed in order for the result to be 
+generalizable for the remaining maps, to which the CNN is also applied. 
+To create the 10 different sets for the cross validation, we split the map 
+by placing a 3 × 3 grid over the map. The region that is studies is not 
+shaped  as  a  square,  and  the  central  cell  contains  more  area  than  the 
+other 8. This cell is, therefore, split into two cells making it 10 sets in 
+total. The division of the different sets are shown in Fig. 2. During the 
+training of the CNN 9 of these sets are used for the training and the final 
+one is used for evaluation. A challenge to the CNN is that the terrain 
+differs in the different areas, as well as the style of the maps, and thus 
+splitting the dataset in this way would give a good hint on the capability 
+of  the  CNN  to  generalise.  Among  the  samples  that  are  used  for  the 
+training  20%  is  used  as  a  validation  set  to  prevent  the  method  from
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text mentions that dropout is used as a regularization method to prevent overfitting in the deep learning pipeline. Dropout is a technique where randomly selected neurons are ignored during training, which helps to make the model more stable and prevents it from relying too heavily on any single feature. Additionally, the use of ADAM optimization with a learning rate of 0.0001 can also help to prevent overfitting by controlling the magnitude of weight updates during training. However, there is no mention of other regularization techniques such as L2 regularization being used in this particular case.

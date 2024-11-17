@@ -1,0 +1,211 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Remarks 
+
+Initial Learning Rate 
+
+Learn Rate Drop 
+Factor 
+Learn Rate Drop 
+Period 
+Learn Rate 
+Scheduling Method 
+
+The initial learning rate 
+used at the beginning 
+Factor by which the 
+learning rate is dropped 
+Number of epochs between 
+each learning rate drop 
+Method for scheduling the 
+learning rate 
+
+Shuffle 
+
+Optimizer 
+
+Activation function 
+
+Shuffle the training data 
+before each epoch 
+The optimization 
+algorithm used for training 
+To introduce non-linearity 
+into the output of neurons 
+
+1 
+
+2 
+
+3 
+
+4 
+
+5 
+
+6 
+
+7 
+
+8 
+
+Real numbers >0 
+
+Real numbers 
+
+0.0001, 0.001, 
+0.01, 0.1 
+0.1, 0.5, 0.9 
+
+Higher values can result in faster convergence, but too high can 
+lead to instability 
+Higher values lead to larger drops in the learning rate 
+
+Positive integers 
+
+5, 10, 20 
+
+Smaller values lead to more frequent drops in the learning rate 
+
+Fixed, Step, 
+Exponential, 
+Polynomial 
+Boolean (True, False) 
+
+fixed 
+
+True, False
+
+Output  
+• Best hyperparameter configuration, Sbest  
+1.  Initialize an empty set Smanual  to store hyperparameter configurations.  
+2.  For each hyperparameter configuration h in M:  
+(a)  Train a model with hyperparameters h on dataset D.  
+(b)  Evaluate the model's performance on dataset D to obtain a performance metric 
+
+Φ(M, D).  
+
+(c)  Add h to Smanual  if it yields the highest performance so far.  
+3.  Initialize an empty set Srandom  to store hyperparameter configurations.  
+4.  For each hyperparameter configuration h in Smanual:  
+(a)  Sample a random subset of hyperparameters from h to create a new configuration 
+
+hrandom.  
+
+(b)  Train a model with hyperparameters hrandom  on dataset D.  
+(c)  Evaluate the model's performance on dataset D to obtain a performance metric 
+
+Φ(Smanual, D).  
+
+(d)  Add hrandom  to Srandom  if it yields the highest performance so far.  
+5.  Initialize Sbest  as the best hyperparameter configuration from Srandom  based on
+
+3. Experimental analysis 
+
+Initially, the selected pre-trained models are used to generate a set of 
+classifiers,  which  are  then  retrained  to  extract  features  using  transfer 
+learning.  During  the  fine-tuning  process,  the  optimal  number  of  con-
+volutional base layers to be retrained is determined. HHOS is employed 
+to  identify  the  optimal  values  for  the  hyperparameters.  The  selected 
+models are trained using the training dataset and saved as checkpoints 
+for the specified hyperparameter values. The models with the optimal 
+hyperparameter values, resulting in the highest accuracy, are evaluated 
+using  the  validation  dataset.  The  implementation  of  the  performance 
+evaluation was carried out in MATLAB R2021a on a workstation having 
+an  Intel  Core  i7  processor,  64  GB  of  RAM,  and  a  64-bit  Windows  10
+
+64, 128, 256, 512 
+
+64, 128, 256, 512 
+
+EcologicalInformatics80(2024)1025107S.V.S. Kumar and H.K. Kondaveeti                                                                                                                                                                                                         
+
+Table 8 
+Performance comparison of the selected models evaluated using a 60:40 split of training and testing data.   
+
+Validation accuracy 
+
+Precision 
+
+Recall 
+
+F1-score 
+
+Model name 
+
+Feature extractor 
+
+Fine tuner 
+
+Feature extractor 
+
+Fine tuner 
+
+Feature extractor 
+
+Fine tuner 
+
+Feature extractor 
+
+Fine tuner 
+
+MobileNetV2 
+EfficientNetB0 
+GoogleNet 
+DenseNet201 
+InceptionV3 
+ResNet18 
+InceptionResNetV2 
+NASNetMobile 
+
+91.21% 
+94.47% 
+88.47% 
+92.41% 
+92.99% 
+87.81% 
+93.04% 
+92.83% 
+
+93.16% 
+96.56% 
+90.16% 
+94.21% 
+94.56% 
+89.33% 
+95.44% 
+94.68% 
+
+92.54% 
+94.99% 
+89.98% 
+93.22% 
+93.86% 
+89.38% 
+93.73% 
+93.41% 
+
+94.11% 
+95.31% 
+90.97% 
+95.02% 
+95.12% 
+91.25% 
+95.13% 
+95.44%
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Training completion criteria vary depending on the specific problem and requirements. However, some common criteria include reaching a certain number of epochs or iterations, achieving a desired level of performance on a validation set, observing no further improvement in validation loss or accuracy over several epochs (i.e., a validation loss plateau), or meeting a predefined threshold for early stopping. In this study, the authors use a 60:40 split of training and testing data and evaluate their models based on validation accuracy, precision, recall, and F1-score. They do not explicitly mention any specific criterion for determining when training is complete, but one could infer that they may have stopped training once there were no significant improvements in these metrics.

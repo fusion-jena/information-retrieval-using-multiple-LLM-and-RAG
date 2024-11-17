@@ -1,0 +1,48 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+There are numerous aspects to consider for enhancing the deep-learning classiﬁer,
+speciﬁcally regarding the input image size; network conﬁguration, depth, and width; and
+training strategy. In initial experimentation, several standard forms of deep-learning CNN
+architectures were tested based largely on ResNet [46] and Inception [63], but these did
+not perform well due to the range of image objects size/scales encountered. To account
+for objects represented as a single pixel up to larger assemblages extending beyond the
+32 by 32 pixel input image, the ensemble with varying input image sizes was selected.
+Segmentation-based approaches were also considered as an alternative, but sufﬁcient
+quality training data for segmentation was a limitation.
+
+3.3.3. Change Detection
+
+the ensemble results. All CNNs were trained using the TensorFlow backend on a Tesla
+M100 graphic processing unit.
+
+Figure 3. Schematic of the CNN used in the study. Input image size was 32 by 32 pixels shown as the
+large grey square. Numbers represent the number of features output from a convolution or dense
+layer, except for the cropping layers where the crop dimension is shown.
+
+For training, the Adam optimizer was used with 500 epochs and categorical-cross
+entropy loss function. Batch size was set to 64. Data augmentation was applied to enhance
+sample variation and included rotation, reﬂectance bias of ±10%, and random noise of
+±10% reﬂectance for 15% of the input image. To determine training convergence, we
+monitored the validation data across training epochs and the network weights with the
+best performance were kept. Early stopping criteria was applied if no improvement was
+found in 50 epochs. For CNNs, weight initialization and random selection for batch
+training can lead to variability in the results. Thus, an ensemble of three models were
+generated and the average of the ﬁnal output layer taken. Max pooling was used for two
+models in the ensemble and average pooling for one. In initial tests using max or average
+pooling showed that both provided improvement in some cases and thus could enhance
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the specific data annotation techniques used in the deep learning pipeline. However, it mentions that segmentation-based approaches were considered as an alternative method for handling various object sizes and scales. This suggests that instance segmentation might have been explored during the development process. Instance segmentation involves labeling each individual object within an image at the pixel level, which would help address the issue of objects being represented as a single pixel or large assemblages. The text also indicates that sufficient quality training data for segmentation was a limitation, implying that they may have faced challenges in obtaining accurate and reliable segmented datasets. Unfortunately, there is no mention of other data annotation techniques such as bounding box annotations or semantic segmentation.

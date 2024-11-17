@@ -1,0 +1,77 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Opposite to other families of ML models that have a narrow range of 
+hyperparameters  to  adjust,  ANN  are  defined  by  different  types  of 
+hyperparameters,  which  together  with  the  computational  cost  of 
+training deep ANN, restricts the options to optimize. On the one hand, 
+we have the hyperparameters that define the architecture of the ANN 
+(number of layers and number of neurons), while on the other hand we 
+have the hyperparameters that control de training process (mainly the 
+learning rate, the optimizer, the batch size and the number of epochs 
+that the training lasts). In order to avoid an exhaustive search that could 
+consume a lot of time, a small dimensional space was initially defined 
+and  explored  with  the  original variables.  The initial  hyperparameters 
+that composed this space are shown in Table 1. The number of epochs 
+was maintained in 500 as it proved to guarantee the stabilization of the
+
+The result of this process was added to the dataset as a new cate-
+gorical binary variable that stored the existence of stratification or not 
+(took the value of 0 when the reservoir was not stratified and 1 when it 
+was stratified). 
+
+2.5.3. Forecasting ML models 
+
+A classification model was designed in order to detect if there existed 
+
+Table 1 
+Initial hyperparameters space.  
+
+Initial hyperparameters space 
+
+Hyperparameters 
+
+Values 
+
+Layers 
+
+Number of neurons of the dense layer 
+Dropout rate of the dropout layer 
+Learning rate 
+Batch size 
+
+1 dense layer, 1 dense layer +1 dropout 
+layer 
+32, 64 
+0.2, 0.4 
+(cid:0) 3, 10
+10
+32, 64  
+
+(cid:0) 4
+
+known Rectified Linear Unit (ReLU) was used, except in the output layer 
+of the ANN for classification, which uses the sigmoid function with a 
+threshold of 0.5. This means that the outputs with a value lower than 0.5 
+belong to one of the classes of the binary classification, while the outputs 
+with a value equal or higher than 0.5 belong to the other class. In this 
+work, ANN were implemented using the keras library.
+
+loss curves during the training. As optimizer, the Adam algorithm was 
+used, which is a stochastic gradient descent method. Then, one of the 
+hyperparameters was modified iteratively following the direction that
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, based on the given information, I cannot determine what specific hardware resources were used for training the deep learning model. There is no mention of any particular type of hardware resource such as CPUs, GPUs, or TPUs being utilized for the training process. Therefore, without further details, I am unable to provide a definitive answer to this query.

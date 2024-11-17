@@ -1,0 +1,9 @@
+The strategy implemented to monitor the model performance during training involves a combination of 5-fold cross-validation, early stopping, and tracking of performance metrics. 
+
+In the 5-fold cross-validation approach, the dataset is divided into five subsets, with one subset used for evaluation and the remaining four subsets used for training and validation (90% and 10% respectively). This process is repeated five times, with a different subset used for evaluation each time. The mean and standard deviation of the performance metrics are calculated across the five folds. This method provides a robust and unbiased estimate of the model's performance and helps in effective hyper-parameter tuning for improved overall performance.
+
+Additionally, an early stop approach is implemented to regularize the model and minimize overfitting. This technique halts the training process prematurely if the performance on the validation dataset fails to improve beyond a predefined threshold. The patience value is set to 16, meaning that the training process will stop if the validation performance does not improve for 16 consecutive epochs. This approach prevents overfitting and conserves computational resources.
+
+The performance metrics tracked during training include accuracy (ACC), sensitivity (TPR), specificity (TNR), F1-score, mean average precision (mAP@0.50IOU), average inference time per image, and total loss (sum of the classification and localization losses). The best model results for performance, total loss, and speed are highlighted in Table 3.
+
+In summary, the strategy for monitoring model performance during training involves the use of 5-fold cross-validation, early stopping, and tracking of various performance metrics. This approach ensures that the model's performance is robust, unbiased, and well-tuned, while also preventing overfitting and conserving computational resources.

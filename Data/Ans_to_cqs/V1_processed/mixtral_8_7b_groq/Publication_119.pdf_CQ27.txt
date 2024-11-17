@@ -1,0 +1,15 @@
+The process followed to deploy the trained deep learning model is not explicitly stated in the provided context. However, based on the information given, we can infer some steps that might have been taken.
+
+Firstly, a U-Net model was implemented within the arcgis.learn module of the ArcGIS API for Python. This model had a ResNet-50 backbone that was pretrained on ImageNet. The use of a pretrained network can reduce the amount of training data needed, which is particularly useful when the quantity of training data derived from ground data collection is limited.
+
+The U-Net model's hyperparameters were then tuned to select the best model. Based on hyperparameter optimization, it was found that the best model uses an input patch size of 64 × 64 pixels and a ResNet-50 backbone.
+
+To further improve the model's accuracy, additional layers such as dropout and batch normalization were added. These layers reduce the over-fitting of the model on the training data and increase generalization on testing data. The hyperparameters in this network, including the learning rate, number of epochs, and batch size, were further tuned such that the testing accuracy and the kappa were the best among all models. The optimized hyperparameter values for learning rate and batch size were 0.007 and 48, respectively.
+
+Once the model's accuracy was optimized, it was trained using at least 1000 image samples to ensure that the deep neural network was adequately trained.
+
+As for model deployment, one possibility is that the trained model was serialized, i.e., converted into a format that can be stored and loaded again easily. Serialization allows the model to be deployed on different platforms or integrated into applications.
+
+The platform for deploying the model would depend on the intended use case. For instance, if the model is to be used for image analysis in a GIS environment, then deploying it within the ArcGIS API for Python would be appropriate. Alternatively, the model could be deployed on a cloud platform such as AWS or Google Cloud for use in a web or mobile application.
+
+Overall, while the context does not provide explicit details on model deployment, it is possible to infer that the trained deep learning model was serialized and deployed on a platform appropriate for its intended use case.

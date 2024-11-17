@@ -1,0 +1,9 @@
+Answer: The text provided gives information about some measures taken to ensure the generalizability of the deep learning model, although it does not explicitly mention cross-validation or stratified splitting.
+
+To ensure that the model can accurately classify polar bears in a variety of backgrounds, the authors trained it on a diverse set of background images. They randomly selected 6092 photos (approximately 10% of the full set), excluding the 20 photos known to contain bears, and cropped each photo to 224 × 224 pixels at a random location. This created a background training set that matches the input size of the CNN and includes a wide range of backgrounds.
+
+Additionally, the authors randomly selected and cropped another 1000 photos from the full set to serve as background validation images. These images were used to assess the network's classification accuracy throughout training. By using a separate validation set, the authors could monitor the performance of the model and make adjustments to prevent overfitting to the training data.
+
+The mini-batch size was also adjusted to find a balance between providing sufficient image data for the network to learn from and avoiding overfitting. A mini-batch size that is too small may not provide enough data for the network to learn from all classes within each iteration, while a mini-batch size that is too large may cause the network to overfit to the training images. The mini-batch size was limited by the amount of memory available to the GPU, factoring in the size of the images and the number of internal parameters in the network.
+
+Overall, the measures taken to ensure the generalizability of the deep learning model include training on a diverse set of background images, using a separate validation set to monitor performance, and adjusting the mini-batch size to prevent overfitting.

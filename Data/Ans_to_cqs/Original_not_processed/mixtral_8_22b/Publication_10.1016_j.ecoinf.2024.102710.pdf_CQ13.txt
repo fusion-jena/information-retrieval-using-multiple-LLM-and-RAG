@@ -1,0 +1,173 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4 https://github.com/HKathman/pam_annotation_experiments
+5 https://github.com/kahst/BirdNET-Analyzer/tree/main/checkpoints/V2.4
+6 https://tfhub.dev/google/vggish/1
+7 https://tfhub.dev/google/yamnet/1
+8 tensorflow.keras.applications.vgg16.VGG16(weights=’imagenet’).
+9 tensorflow.keras.applications.resnet_v2.ResNet152V2
+
+(weights=’imagenet’).
+
+Fig. 4. UMAP plots for different embedding layers of different embedding
+models for AnuraSet. For UMAP generation, we randomly select 5000 samples
+and discard all samples that are aligned to more than one class. Colors and
+shapes indicate the 10 classes with the highest occurrence frequency. Layers are
+numbered according to their distance from the classification layer, e.g. ‘Bird-
+Net-1’ is the last layer before the classification layer of the BirdNet model.
+
+EcologicalInformatics82(2024)1027105H. Kath et al.
+
+The active learning experiments are carried out in the embedding
+space of the selected transfer learning model (BirdNet-1, see Section
+3.1). We explore a range of sampling strategies: uncertainty and di-
+versity based, myopic (greedy) and adaptive (batch mode), and com-
+binations thereof. Fig. 2 provides a schematic overview of the pure
+families of sampling strategies: Random sampling selects samples arbi-
+trarily, uncertainty sampling targets samples near the decision bound-
+ary, and diversity sampling focuses on samples that span the entire data
+space. In all cases, 5% of the samples are selected at random. Class labels
+are available for all samples used in this study, and an active learning
+scenario is emulated by hiding all labels from the classifier at first and
+incrementally revealing the ones for each batch of samples queried by
+the sampling methods. We use a batch size of 20 samples. The classifier
+heads are identical to those from the transfer learning training process.
+
+both the target modality and the domain, yields the best performance as
+a feature embedding model. Using BirdNet-1 as the embedding model,
+active learning sample selection strategies significantly reduce the
+required for annotation to achieve model
+number of
+convergence.
+
+Table 2
+Size and performance of embedding layers from different transfer learning models. The layers are labelled in reverse order, with layer 1 being the last layer before the
+classification layer. We analysed the frequent, common and rare part as well as the whole dataset of AnuraSet, the Noronha set and the Watkins dataset. We provide
+micro (Mic) and macro (Mac) F1 scores calculated for the evaluation set. Each score represents the average result of 30 runs.
+
+Model
+
+BirdNet
+
+VGGish
+YAMNet
+VGG16
+
+Layer
+
+AnuraSet
+
+Frequent
+
+Common
+
+Rare
+
+All
+
+Noronha set
+
+Watkins
+
+Pre-Training
+
+#
+
+Size
+
+Mic F1
+
+Mac F1
+
+Mic F1
+
+Mac F1
+
+Mic F1
+
+Mac F1
+
+Mic F1
+
+Mac F1
+
+Mic F1
+
+Mac F1
+
+Mic F1
+
+Mac F1
+
+Bird
+vocalisations
+
+AudioSet
+AudioSet
+ImageNet
+
+1
+2
+3
+0
+1
+1
+2
+3
+1
+
+1024
+6144
+4608
+128
+1024
+4096
+4096
+25,088
+2048
+
+0.901
+0.870
+0.869
+0.612
+0.748
+0.690
+0.696
+0.856
+0.695
+
+0.888
+0.858
+0.855
+0.567
+0.702
+0.594
+0.608
+0.829
+0.619
+
+0.791
+0.764
+0.766
+0.271
+0.479
+0.394
+0.443
+0.707
+0.050
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, the given context does not contain information about the specific hyperparameters used in the deep learning model, such as the learning rate or optimizer. It primarily discusses various embedding models, sampling strategies, and the results obtained using these models and strategies. Therefore, I cannot provide the requested details regarding the hyperparameters used in the deep learning model.

@@ -1,0 +1,318 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+SVM (full dataset)
+
+RMSE
+
+MSE
+
+MAE
+
+R2
+
+Training
+Validation
+Testing
+Training
+Validation
+Testing
+Training
+Validation
+Testing
+Training
+Validation
+Testing
+
+2.02
+3.67
+4.57
+4.10
+13.52
+20.97
+1.61
+2.77
+3.38
+0.94
+0.80
+0.73
+
+34.26
+62.55
+79.83
+1173.96
+3912.16
+6372.99
+20.08
+31.99
+33.05
+0.05
+0.01
+0.01
+
+2.16
+3.45
+34.01
+4.67
+11.88
+1156.39
+1.57
+2.46
+8.59
+0.92
+0.82
+0.02
+
+1.76
+2.65
+22.56
+3.10
+7.00
+508.95
+1.38
+1.95
+4.51
+0.95
+0.89
+0.08
+
+2.21
+3.82
+5.09
+4.87
+14.63
+25.95
+1.64
+2.91
+4.02
+0.92
+0.77
+0.66
+
+1.79
+3.49
+4.69
+3.19
+12.21
+21.98
+1.31
+2.57
+3.66
+0.95
+0.81
+0.71
+
+EcologicalInformatics82(2024)1026557A.F. del Castillo et al.
+
+Fig. 6. Data fitting of SR-WQI prediction from a) ANFIS model developed using the complete dataset and b) BTS-ANFIS against SR-WQI real value.
+
+Table 5
+RMSE of BTS-ANFIS model tested against individual data from each monitoring
+site.
+
+Included in the BTS
+
+Monitoring
+Station
+
+AA01
+
+RZ01
+
+RS03
+
+RS04
+
+RS07
+
+RS09
+
+Testing RMSE
+
+3.05
+
+2.82
+
+2.82
+
+2.28
+
+3.26
+
+2.86
+
+Not included in the BTS
+
+Table 3
+Criteria for the selection of data included in Best Training Subset - BTS.
+
+Cluster
+
+Monitoring Stations
+
+Tendency
+
+Variation from tendency
+
+Autocorrelation
+
+BTS
+
+A
+
+B
+
+C
+
+D
+
+E
+
+F
+
+RS09
+
+RS10
+
+RS07
+RS08
+RS06
+RS02
+RS03
+
+RS04
+
+RS05
+AA01
+AA02
+RS01
+RZ01
+
+1
+
+2
+
+2
+2
+1
+1
+1
+
+1
+
+1
+3
+3
+1
+1
+
+higher range→48 ≤ WQIt ≤ 54
+Only two phases
+49 ≤ WQIt ≤ 53 for t = {2009, 2010, 2011, 2012}
+57 ≤ WQIt ≤ 60 for t = {2014, ⋯, 2020}
+NA
+NA
+NA
+WQI2014 > 48
+WQI2014 < 43 and WQI2017 > 48
+
+{
+
+}
+
+2010, 2011, 2017,
+2018, 2019, 2020
+
+WQIt < 43 for t =
+
+NA
+NA
+WQI2016 > WQI2015
+NA
+WQI2018 < 43
+
+lower
+
+–
+
+lower
+–
+–
+–
+–
+
+lower
+
+–
+
+lower
+–
+–
+
+lower
+
+Included
+
+Not included
+
+Included
+Not included
+Not included
+Not included
+Included
+
+Included
+
+Not included
+Included
+Not included
+Not included
+Included
+
+infrastructure such as WWTP. However, as in the case of monitoring
+stations RS07, RS08, and RS10, the system tends to recover stability
+after the initial change.
+
+3.3. Machine learning models
+
+the Best Training Subset (BTS), covering years from 2009 to 2015 (n =
+409). The full dataset (13 MS) included water quality data for the same
+period (n = 894). For the validation step, the complete set of sites
+covered data from 2016 to 2020 (n = 657), while the period from 2021
+to 2022 and all site data were used for the testing step (n = 372). The
+evaluation measurements (RMSE, MSE, MAE and R2) for ANFIS, ANN
+and SVM models are shown in Table 4, including calculations for each
+step (training, validation, and testing). The evaluation measurements
+were compared between models trained with BTS and the full dataset.
+For ANFIS models, all evaluation measurements were significantly
+higher when full dataset was used for training compared to BTS. In
+contrast, ANN and SVM models trained with the full dataset and BTS
+resulted in a slight improvement when the full dataset was used. ANN
+
+study and larger datasets do not necessarily produce more precise
+models as the use of too much data can lead to model overtraining and
+precision loss (Sj¨oberg and Ljung, 1995). Additionally, water quality
+datasets are composed of a large number of parameters that often
+represent redundant information (Haghiabi et al., 2018; Muharemi
+et al., 2019). Despite these known issues, detailed analysis of historical
+variation in a dataset is rarely employed for selecting training data
+subsets prior to developing predictive models. It is anticipated that their
+implementation may improve the training step and, therefore, lead to
+improved predictive outputs. For these reasons, analyzing historical
+trends in water quality is necessary to find the most variable and
+representative scenarios useful for machine learning model training.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The table titled "Table 3 Criteria for the selection of data included in Best Training Subset - BTS" provides the criteria used to select the best subset of data for training machine learning models. These criteria include cluster, monitoring stations, tendency, variation from tendency, and autocorrelation. However, this does not directly address the query regarding determining when training is complete. Based on the given context, it appears that the authors did not explicitly state the specific criteria used to determine when training is complete. Nevertheless, common practices in machine learning suggest that one possible criterion could be observing a plateau or convergence in the validation loss during the training process. This indicates that the model has learned sufficiently from the training data and further training might result in overfitting. Another commonly used criterion is setting a predefined maximum number of epochs or iterations for training. Once this limit is reached, the training process stops regardless of whether the validation loss has converged or not.

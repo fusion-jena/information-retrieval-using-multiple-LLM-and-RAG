@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+such as Reduc-
+the model, various callbacks
+eLROnPlateau, ModelCheckpoint, and EarlyStopping are included.
+These callbacks dynamically modify the learning rate while preserving
+the optimal model
+iteration according to the validation accuracy.
+Throughout the training phase, spanning 35 epochs with a batch size of
+16, that is meticulously recorded using metrics such as accuracy, pre-
+cision, recall, F1-score, AUC, model size, and analysis time providing a
+
+For our experimental setup of training the BEiT model, we employed
+an NVIDIA RTX 3060 Ti GPU coupled with an AMD Ryzen 9 5900X CPU
+and 32 GB of RAM to ensure robust processing capabilities necessary for
+handling large datasets and complex model architectures. Our model is
+developed using TensorFlow within a Jupyter Notebook environment,
+facilitating an interactive setup that supports real-time adjustments and
+visual feedback. Each image is standardized to 224 × 224 pixels for
+training and subjected to various data augmentation techniques like
+random rotations and color adjustments to enhance model robustness.
+The training parameters mainly consist of using the Adam optimizer
+(cid:0) 5 and adopting categorical cross-entropy
+with a learning rate of 1 × 10
+as the loss function, specifically designed for optimizing multi-class
+classification tasks. To improve the effectiveness of training and the
+performance of
+such as Reduc-
+the model, various callbacks
+
+Training time is another critical factor for practical IoT device
+deployment. The BEiT model achieves competitive efficiency with a
+training time of 1 min and 10 s for the PlantVillage Dataset. Although
+Farian et al.’s model has a slightly shorter training time of 1 min and 6 s,
+it does not match the BEiT model’s overall performance, making the
+BEiT model a more balanced option for both speed and accuracy.On the
+whole, the proposed BEiT model’s more effective accuracy, precision,
+recall, F1-score, and AUC, coupled with efficient training time, highlight
+its potential for real-world applications in smart agriculture, particularly
+in handling the complexities of plant disease classification.
+
+8. Challenges and limitations
+
+In the BEiT model architecture, our initial steps involve loading the
+BEiT model and strategically freezing a substantial portion of its layers
+approximately 7 of the total layers. By doing so, the model freezes the
+weights in these layers, focusing the training process on fine-tuning the
+remaining layers. The model is then derived by isolating the output of a
+specific layer (‘out_ln’) from the BEiT architecture. To enhance training
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't explicit information about the deployment process of the trained deep learning model in the given context. However, based on common practices in machine learning projects, after training the model, it would typically be saved or serialized into a format suitable for use in other environments. This could include saving the model weights, architecture, and any additional metadata required to recreate the model. Common formats used for this purpose might include HDF5, pickle files, or specific framework-dependent formats like TensorFlow SavedModel or PyTorch checkpoints.
+
+Once the model is saved, it can be deployed onto a platform appropriate for the intended application. For instance, if the goal is to create a web service around the model, platforms like Flask or Django could be used to build a REST API. Alternatively, if the aim is to integrate the model into an existing system, the model could be loaded directly into that system. In some cases, specialized hardware may also be used for deployment, such as edge devices or dedicated AI accelerators.
+
+However, without further details regarding the specific project requirements and constraints, it's impossible to provide a definitive answer about which approach would be most suitable for deploying the trained deep learning model described in the context.

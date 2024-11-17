@@ -1,0 +1,126 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The model was trained using thumbnails of whole ﬁsh, part of ﬁsh species and
+environment (T?). Raw outputs were post-processed applying two decision
+rules: (r1) keeping most likely ﬁsh class if “environment” was the most likely
+class, and (r2) considering “part of species X" equivalent to “species X".
+
+Species
+
+Number of thumbnails
+tested
+
+Deep-learning
+model
+
+Humans
+
+Abudefduf sparoides
+Abudefduf vaigiensis
+Chaetodon trifascialis
+Naso elegans
+Pomacentrus sulfureus
+Pygoplites diacanthus
+Thalassoma hardwicke
+Zanclus cornutus
+Zebrasoma scopas
+Average success rate
+
+88
+47
+149
+165
+443
+35
+73
+53
+144
+1197
+
+93.4
+97.3
+95.1
+98.4
+97.9
+90.4
+96
+97.1
+96.2
+95.7
+
+87.7
+84.7
+89.4
+94.8
+93.2
+77.4
+91
+97.8
+88.3
+89.3
+
+2.4. Testing the performance of models
+
+We ﬁrst compared the performance of the 4 models trained using
+each of the 4 training datasets. In addition, we tested the performance
+of models after correcting their raw outputs using two a posteriori de-
+cision rules. First, since the networks trained with T2, T3 or T4 are
+likely to recognize environment samples with a high conﬁdence score
+(over 99%) they could thus classify some ﬁsh as an environment class
+(i.e. false positive). We therefore deﬁned a decision rule (r1): when the
+ﬁrst proposition of the network was ‘environment’ with a conﬁdence
+lower than 99% we provide, as ﬁnal output, the ﬁsh class with the
+highest probability.
+
+Similarly, as “part of species” classes present in T4 were just a
+methodological choice to improve model performance (and hence were
+absent from the test database), we deﬁned a second decision rule (r2):
+when the result given by the network is “part of species X", we provide,
+as ﬁnal output, “species X".
+
+The fourth training dataset T4 contained thumbnails from T3 minus
+the “part of ﬁsh”, which is replaced by 20 classes “part of species”
+obtained by splitting thumbnails from each species. The diﬀerence
+between T3 and T4 was that T3 contained only one global class “part of
+ﬁsh” whereas T4 contained as many “part of species” classes as there
+were “ﬁsh” species.
+
+Adding decision rule r2 (i.e. identiﬁcation of a part of a species
+considered as a correct answer) increased this success rate to 94.1%
+(Table 2). Hence, post-processing raw outputs of the model trained with
+the most complete dataset provided the best identiﬁcation rate. Among
+the 18 species, success rate ranged from 85.2 to 100%, with only 3
+species being correctly identiﬁed in < 90% of cases and 9 species being
+correctly identiﬁed in > 95% of cases, including 3 with a correct
+identiﬁcation rate > 99%.
+
+Confusions between 2 ﬁsh species were lower than 4% (Table 3).
+Confusion between a ﬁsh and the environment was common when no
+post-processing was applied with for instance up to 20.9% of Poma-
+centrus sulfureus individuals misidentiﬁed as environment (Tables S4,
+S5). However, applying decision rule r1 decreased this error rate
+to < 4% (Table 3).
+
+3.2. Performance of CNN models vs. humans
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of the deep learning model, several measures were taken. One such measure was the use of diverse datasets for training the model. Four different training datasets (T1, T2, T3, and T4) were used, each containing different types of images. For example, T1 included only whole fish images, while T2 included both whole fish and environmental images. T3 added parts of fish images to the mix, and T4 further refined it by adding multiple "part of species" classes instead of a single "part of fish" class. This diversity in the training data helped the model learn better and improved its ability to identify various fish species accurately.
+
+Moreover, the model was also subjected to post-processing techniques to enhance its accuracy. Two decision rules (r1 and r2) were applied to the raw outputs of the model. Rule r1 involved retaining the most probable fish class if the "environment" was identified as the most likely class. On the other hand, rule r2 considered "part of species X" as equivalent to "species X." These rules helped reduce errors and increase the overall identification rate of the model.
+
+Furthermore, the model's performance was evaluated against human experts to assess its reliability. The results showed that the model performed exceptionally well, with an average success rate of 95.7% across all nine species. Only three species had a success rate below 90%, while nine species had a success rate above 95%. Confusions between fish species were minimal, and confusions between fish and the environment were significantly reduced through the application of decision rule r1.
+
+In conclusion, the combination of diverse datasets, post-processing techniques, and evaluation against human experts ensured the generalizability of the deep learning model, making it highly reliable for identifying various fish species.

@@ -1,0 +1,91 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+5.1.4. Total model parameters 
+
+Total  parameters  in  a  neural  network encompass  the  aggregate of 
+trainable weights and biases, serving as a direct measure of the model’s 
+architectural complexity. This parameter count is pivotal in defining the 
+model’s capacity for feature extraction and pattern recognition. High- 
+parameter  models  are  adept  at  discerning  intricate  data  patterns  but 
+are  susceptible  to  overfitting,  particularly  in  scenarios  with  limited 
+training samples. Furthermore, such models escalate computational and 
+memory  requirements,  potentially  impeding  deployment  in  resource- 
+constrained environments. 
+
+5.1.5. Total layers in the model
+
+classification tasks. The evaluation of model performance was based on 
+the  accuracy  metric.  Each  model  underwent  training  for  10  epochs, 
+utilizing  a  batch  size  of  32.  The  class  mode  was  set  to  ‘categorical,’ 
+indicating  that  the  labels  were  encoded  using  one-hot  encoding  for 
+multi-class  classification  tasks.  These  generalized  parameter  settings 
+were consistently applied across all models, ensuring comparability and 
+standardization throughout the study experiments.
+
+f (x; M) = Mconv(x)
+
+(6)  
+
+where Mconv  denotes the convolutional layers of the pre-trained model. 
+In the fine-tuning stage, the pre-trained model’s weights are further 
+optimized on the target dataset to adapt the model to the specific clas-
+sification task. This involves training the additional layers added on top 
+of the pre-trained model while keeping the pre-trained weights fixed or 
+partially  updating  them.  The  fine-tuning  process  adjusts  the  model’s 
+parameters to better fit the target dataset, capturing task-specific pat-
+terns.  It  involves  minimizing  a  loss  function,  typically  a  categorical 
+cross-entropy loss, using gradient-based optimization algorithms such as 
+stochastic gradient descent (SGD) or Adam. The loss function measures 
+the discrepancy between the predicted class probabilities and the true 
+labels in the target dataset.
+
+A =
+
+TP + TN
+TP + TN + FP + FN
+
+(9) 
+
+Here,  TP  represents  the  number  of  true  positive  predictions,  TN 
+corresponds to the number of true negative predictions, FP signifies the 
+number  of  false  positive  predictions,  and  FN  indicates  the  number  of 
+false negative predictions. 
+
+5.1.3. Model training time 
+
+Model training time quantifies the time required for a neural network 
+to converge to a predefined accuracy or loss threshold. This metric is 
+inherently linked to the model’s architectural complexity, the volume 
+and  dimensionality  of  the  training  dataset,  and  the  computational 
+throughput  of  the  training  environment  (e.g.,  GPU  acceleration).  In 
+practical scenarios, optimizing training time is useful for resource allo-
+cation and rapid model iteration. 
+
+5.1.4. Total model parameters
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: After the completion of model training, several postprocessing steps can be performed depending on the nature of the problem and the desired insights. Here are some common postprocessing techniques:
+
+1. Saliency Maps: Saliency maps help visualize which parts of the input image contribute most significantly towards the final prediction made by the model. They highlight areas where the model focuses its attention during decision making.
+
+2. Metrics Calculation: Evaluating the performance of the trained model is crucial. Common metrics include Accuracy, Precision, Recall, F1 Score, Area Under Curve (AUC), etc. These metrics provide insight into how well the model has learned from the given data.
+
+3. Confusion Matrix: A confusion matrix is used to evaluate the performance of a classification model. It provides detailed information about actual vs predicted classes. From this matrix, we can calculate various metrics like precision, recall, F1 score, etc.
+
+4. Hyperparameter Tuning: Post-training, hyperparameters may need tuning to improve model performance. Techniques like Grid Search, Random Search, Bayesian Optimization, etc., can be employed for this purpose.
+
+5. Ensemble Methods: Combining multiple models to create an ensemble can often lead to improved results. Techniques like bagging, boosting, stacking, etc., can be utilized for creating ensembles.
+
+6. Model Interpretability: Explaining why a model makes certain decisions is important for understanding its behavior. Techniques like LIME, SHAP, Anchors, etc., can be used to interpret black box models.

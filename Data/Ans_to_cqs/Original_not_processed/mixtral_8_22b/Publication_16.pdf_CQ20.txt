@@ -1,0 +1,112 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+III. 
+
+MATERIALS AND METHODS 
+
+In  this  section  the  dataset  used  in  the  study  is  presented 
+along with the modelling approach taken and the evaluation 
+metrics used to evaluate the trained model. The section also 
+discusses data pre-processing using the Librosa library. Keras 
+and TensorFlow 2.2 are utilised as the backend and an Nvidia 
+2070 super GPU with 8GB of memory is utilised to accelerate 
+model training. In addition, the proposed inferencing pipeline 
+is discussed along with the associated technologies. 
+A.  Data Collection and Description
+
+true  positive  rate  while 
+
+the 
+
+The  trained  model  is  hosted  using  TensorFlow  2.2  and 
+served  through  a  public  facing  website  developed  by  the 
+authors 2 .  CUDA  11  and  cuDNN  7.6.5  enables  the  GPU 
+accelerated learning aspect of the pipeline. A Samsung S10 is 
+used  to  record  garden  birds  and  automatically  upload  the 
+acquired audio to the platform using the Simple Mail Transfer 
+Protocol (SMTP) for classification. Figure 6 shows the end-
+to-end inferencing pipeline starting with the sensor and ending 
+with the public facing conservationAI site as shown in Figure 
+7.  Due  to  the  use  of  standard  protocols,  the  system  can 
+interface  with  a  variety  of  sensors  for  real-time  inference. 
+Where in field communication is unavailable, audio files can 
+be batch uploaded through the website for offline inferencing. 
+
+Figure 6. End-to-end Inferencing Pipeline 
+
+Figure 7. ConservationAI Platform 
+
+Inferencing
+
+Figure 7. ConservationAI Platform 
+
+Inferencing 
+
+is  undertaken  on  a  custom-built  server 
+containing an Intel Xeon E5-1630v3 CPU, 64GB of RAM and 
+a  NVidia  Quadro  RTX  8000  GPU.  Figure  8  shows  the 
+individual stages of the inferencing data pre-processing stages. 
+
+Figure 5. Summary of the Compiled Model 
+
+The MLP was trained over 100 epochs as the results show 
+this was a sufficient number for the model to converge without 
+
+2 www.conservationai.co.uk 
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on November 16,2023 at 09:46:32 UTC from IEEE Xplore.  Restrictions apply. 
+
+ 
+                                                 
+ 
+ 
+ 
+Get Audio From SMTP 
+Directory
+
+Segment Acquired Audio 
+File into a Fixed Length 
+
+Extract MFCC Features
+
+Run Classification
+
+Return Predicted Vector
+
+Figure 8. Date Pre-processing Stages
+
+Figure 8. Date Pre-processing Stages 
+
+The  acquired  audio  files  are  transmitted  over  4G  using 
+SMTP. The audio file is segmented into 15 second windows. 
+Each of the sample windows are passed to the feature extractor 
+function where MFCC is used to return the extracted features 
+for the classifier. The predicted vector is processed and logged 
+to the site for review. 
+
+IV. 
+
+EVALUATION AND DISCUSSION 
+
+In this section the classification results are presented using 
+the  evaluation  metrics  outlined  previously.  The  deployment 
+and inferencing of the trained model in test environment are 
+also presented to ascertain the effectiveness of the end-to-end 
+pipeline. 
+A.  Species Classification Performance
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: An Nvidia 2070 Super GPU with 8GB of memory is utilized to accelerate model training. Additionally, CUDA 11 and cuDNN 7.6.5 enable the GPU accelerated learning aspect of the pipeline. For inferencing, a custom-built server containing an Intel Xeon E5-1630v3 CPU, 64GB of RAM, and a NVidia Quadro RTX 8000 GPU is used.

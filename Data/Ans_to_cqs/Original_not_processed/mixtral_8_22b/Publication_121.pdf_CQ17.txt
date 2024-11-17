@@ -1,0 +1,88 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on August 29,2024 at 05:51:17 UTC from IEEE Xplore.  Restrictions apply. 
+
+Fig. 4. The Architecture of Mobile App.
+
+[7] N. Srivastava, G. Hinton, A. Krizhevsky, I. Sutskever, and R. Salakhut-
+dinov, “Dropout: a simple way to prevent neural networks from over-
+ﬁtting,” The journal of machine learning research, vol. 15, no. 1, pp.
+1929–1958, 2014.
+
+[8] D. M. Hawkins, “The problem of overﬁtting,” Journal of chemical
+information and computer sciences, vol. 44, no. 1, pp. 1–12, 2004.
+[9] D. Han, Q. Liu, and W. Fan, “A new image classiﬁcation method using
+cnn transfer learning and web data augmentation,” Expert Systems with
+Applications, vol. 95, pp. 43–56, 2018.
+
+[10] A. Kaya, A. S. Keceli, C. Catal, H. Y. Yalic, H. Temucin, and B. Tekin-
+erdogan, “Analysis of transfer learning for deep neural network based
+plant classiﬁcation models,” Computers and electronics in agriculture,
+vol. 158, pp. 20–29, 2019.
+
+CNN comes with the disadvantages of a huge number
+of labelled training samples requirement for weighting pa-
+rameters and powerful GPUs for a faster learning process.
+With limited training samples, learning too many parameters
+directly will result in overﬁtting even after using over-ﬁtting
+prevention techniques such as Dropout [7]. Overﬁtting of a
+machine learning model includes more terms and uses more
+complicated approaches than necessary [8]. To make deep
+CNN ﬁt for small datasets while keeping high accuracy is
+a challenge. To overcome this challenge, transfer learning [9]
+offers the solution, which implies reusing previously attained
+knowledge in similar tasks. Some studies analyzed the use
+of transfer learning for many deep learning algorithms. These
+evaluations [10] concluded that transfer learning improves the
+accuracy of deep learning models, which apply deep features
+and ﬁne-tuning.
+
+A. Transfer Learning from Pre-trained Models
+
+When data used to train deep learning networks is not
+enough, and it is expensive to create labelled data, transfer
+learning, a promising paradigm,
+is applied to acquire the
+knowledge learned in previous settings. The most common
+strategies of transfer learning are feature extraction and ﬁne-
+tuning. For feature extraction, input data is provided to the
+pre-trained model, and activation values of many layers are
+stored to use as features. For ﬁne-tuning, the initial layers
+of the model are ﬁxed, and the ﬁnal layers of the model
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on August 29,2024 at 05:51:17 UTC from IEEE Xplore.  Restrictions apply. 
+
+Fig. 1. Transfer Learning of MobileNet-based Model for Leaf Classiﬁcation.
+
+models, pre-trained on 1.4M images from 1000 classes. First,
+the intermediate layer of all the models was selected to use
+for feature extraction. For this purpose, the output of the last
+layer (bottleneck layer) is commonly used prior to the ﬂatten
+operation. The reason is that all the fully connected layers
+are specialized to the task network was trained on; thus, the
+features learned by these layers will not be useful for the new
+task. The bottleneck features are more generic. Therefore, the
+base models were frozen, loaded with weights trained on the
+ImageNet dataset and used as a feature extractor. We added
+a dropout layer with a dropout rate of 0.2 to reduce the
+overﬁtting of the model. Finally, the top classiﬁer softmax
+layer was added for predicting the class for an input image.
+The model with the base model of MobileNetV2 was compiled
+and optimized with Adam optimizer. The other with the base
+model of MobileNetV3 were optimized with Gradient descent
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, one regularization method used to prevent overfitting in the deep learning pipeline is mentioned - Dropout. Dropout is a technique where randomly selected neurons are ignored during training, which helps to avoid overfitting by providing a way of approximately combining exponentially many different neural network architectures efficiently [7]. This method has been shown to improve the performance of various types of neural networks on a wide range of tasks. However, it should be noted that there are also other regularization methods available, such as L2 regularization, which adds a penalty term to the loss function proportional to the square of the magnitude of the weights, encouraging smaller weights and reducing overfitting. Other methods include early stopping, data augmentation, and batch normalization. Each method has its own advantages and can be chosen depending on the specific requirements and constraints of the problem at hand.

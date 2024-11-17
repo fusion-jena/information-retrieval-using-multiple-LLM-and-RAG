@@ -1,0 +1,131 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+As deep learning framework we use the Lasagne [11] module
+built on top of Theano [12, 13]. We initialize the weights of
+the model with the pretrained weights on the ImageNet
+dataset provided in the Lasagne Model Zoo. We train the
+model for 100 epochs on a GTX 1080 for 6 days using Adam
+[14] as learning rule. During training we apply standard data
+augmentation (as sheer, translation, mirror, etc) so that the
+network never sees the same image. We do not apply rotation
+or upside down mirroring to the images tagged as ’habit’, as it
+does not make much sense to have a tree or a landscape upside
+down. After applying the transformations we downscale the
+image to the ResNet standard 224
+
+224 input size. 1
+
+⇥
+
+Finally for the ResNet50 evaluation we use random ten
+crop testing with smaller data augmentation parameters than
+those used during training.
+
+4.1 The datasets
+
+4.1.1 Google Search Image. For this dataset we select the
+3680 labels (around 60% of all labels) with more than 12
+images in our training dataset. For each one of these labels
+
+1Code is available at github.com/IgnacioHeredia/plant classification
+
+Table 1: Accuracy results of the two algorithms for
+all three test datasets.
+
+Datasets
+
+Google Image Search
+Portuguese Flora
+iNaturalist
+
+Accuracy %
+ResNet50 (paper) PlantNet (usual)
+Top1
+40
+29
+33
+
+Top5
+63
+47
+49
+
+Top1
+18
+15
+18
+
+Top5
+37
+29
+30
+
+we automatically retrieve the 10 ﬁrst images returned by the
+Google Image Search engine. As this is done in an automated
+fashion some minor mislabeled or corrupt examples might
+appear in the dataset. By choosing only the most popular
+labels and retrieving the top results, we expect to minimize
+the presence of mislabeled images.
+
+259CF’17, May 15-17, 2017, Siena, Italy
+
+Ignacio Heredia
+
+3 THE MODEL
+As plant classiﬁcation is not very di↵erent from general object
+classiﬁcation, we expect that top performing architectures
+in the ImageNet Large Scale Visual Recognition Challenge
+(ILSVRC) would perform well in this task. Therefore we
+use as convolutional neural network architecture the ResNet
+model [10] who won the ILSVRC’15. This architecture con-
+sists of a stack of similar (so-called residual) blocks, each
+block being in turn a stack of convolutional layers. The inno-
+vation is that the output of a block is also connected with its
+own input through an identity mapping path. This alleviates
+the vanishing gradient problem, improving the gradient back-
+ward ﬂow in the network and allowing to train much deeper
+networks. We choose our model to have 50 convolutional
+layers (aka. ResNet50).
+
+2 THE DATASET
+As training dataset we use the great collection of images
+which are available in PlantNet under a Creative-Common
+Attribution-ShareAlike 2.0 license. It consists of around 250K
+images belonging to more than 6K plant species of Western
+Europe. These species are distributed in 1500 genera and
+200 families. Each image has been labeled by experts and
+comes with a tag which speciﬁes the focus of the image,
+like ’habit’, ’ﬂower’, ’leaf’, ’bark’, etc. Most images have
+resolutions ranging from 200K to 600K pixels and aspect
+ratios ranging from 0.5 to 2. The dataset is highly unbalanced
+because most labels contain very few images.
+
+We train on the whole dataset (without making validation
+or test splits) as we intend to build a classiﬁer trained on the
+same dataset as the PlantNet tool so that their performances
+can be fairly compared. At test time we will use three external
+datasets to conﬁdently measure the performance of our net.
+
+259CF’17, May 15-17, 2017, Siena, Italy
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The paper uses three different datasets for training and evaluating their deep learning models. They use the PlantNet dataset for training, which contains around 250k images belonging to over 6k plant species of Western Europe. Each image in this dataset has been labeled by experts and comes with a tag specifying the focus of the image, such as 'habit', 'flower', 'leaf', 'bark', etc.
+
+For evaluation purposes, they use three external datasets: Google Image Search, Portuguese Flora, and iNaturalist. The Google Image Search dataset consists of 3680 labels with more than 12 images in the training dataset. They automatically retrieve the first 10 images returned by the Google Image Search engine for each label. However, since this process is automated, there may be some minor mislabeled or corrupted examples present in the dataset. To minimize this issue, they only choose the most popular labels and retrieve the top results.
+
+The Portuguese Flora dataset is another external dataset used for evaluation. Unfortunately, no further details about this dataset were provided in the given context. Lastly, the iNaturalist dataset is also used for evaluation. Again, no specific information was provided regarding this dataset.
+
+In summary, the paper uses the PlantNet dataset for training and three external datasets - Google Image Search, Portuguese Flora, and iNaturalist - for evaluation purposes.

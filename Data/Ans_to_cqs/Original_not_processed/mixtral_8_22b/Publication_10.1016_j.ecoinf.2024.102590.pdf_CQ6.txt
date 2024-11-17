@@ -1,0 +1,87 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The supervised learning workflow adheres to the steps outlined in 
+Sections 2.3.1–2.3.5. However, as detailed in Section 2.3.2, we deviated 
+by not generating 400 random points over the entire boundary. Instead, 
+we used the vegetation types described by Gertenbach (1983) to guide 
+the placement of our sampling plots, from which we then collected the 
+training and validation points (Fig. A.2). The creation of several small 
+sampling plots within each vegetation type, instead of using one large 
+area, also helped speed up the sampling process. Performing the data 
+collection  within  the  sampling  plots  ensured  that  we  had  training/ 
+validation  points  that  were  representative  of  the  diverse  vegetation 
+within each boundary. To determine the size of the sampling plots, we 
+first calculated 5% of the total area covered by the boundary, divided 
+that area by the number of vegetation types intersecting the boundary
+
+The results obtained in this study can be used as a baseline for future 
+LULC  analysis  performed  with  other  methodologies,  such  as  deep 
+learning  CNN  (Jagannathan  and  Divya,  2021).  Going  forward,  the 
+analysis  of  aerial  images  of  KNP  taken  about  every  two  years  deep 
+learning methods will be most effective and useful to map land cover or 
+more specifically woody cover. Integrating large-area historical datasets 
+in  land-use  and  land-cover  analysis  can  serve  as  a  resource  to  better 
+understanding  long-term  landscape  changes  and  support  ecological 
+monitoring programs. The results of studies such as this one can be used 
+to  better  protect  and  preserve  our  natural  heritage,  enable  effective 
+management  strategies,  and  contribute  to  the  conservation  of  global 
+biodiversity. 
+
+CRediT authorship contribution statement
+
+2.3.1. Data upload and script preparation 
+
+To perform a land cover (LC) classification, GEE requires two initial 
+inputs:  an  aerial  image  and  the  boundary  of  the  area  of  interest.  We 
+uploaded the subplot boundary and the aerial images of each subplot as 
+GEE  assets.  Once  the  assets  were  imported  into  our  JavaScript-based 
+program,  the  training/validation  datasets  could  be  created.  Since  we 
+were interested in extracting the woody cover, we divided our training 
+point features into two cover classes: ‘non-woody’ (LC property = 1) and 
+‘woody’  (LC  property  = 2).  Woody  cover  was  considered  to  be  all 
+vegetation  with  woody  stems  (i.e.,  excluding  grasses  and  forbs), 
+including  trees  that  were  shrubby  (i.e.,  multi-stemmed)  and  short  in
+
+Ren, X., Malik, J., 2003. Learning a classification model for segmentation. In: 
+
+Proceedings Ninth IEEE International Conference on Computer Vision. Presented at 
+the ICCV 2003: 9th International Conference on Computer Vision, vol. 1. IEEE, Nice, 
+France, pp. 10–17. https://doi.org/10.1109/ICCV.2003.1238308. 
+
+Rodriguez-Galiano, V.F., Ghimire, B., Rogan, J., Chica-Olmo, M., Rigol-Sanchez, J.P., 
+
+2012. An assessment of the effectiveness of a random forest classifier for land-cover 
+classification. ISPRS J. Photogramm. Remote Sens. 67, 93–104. https://doi.org/ 
+10.1016/j.isprsjprs.2011.11.002. 
+
+Scholes, R.J., Walker, B.H., 1993. An African Savanna: Synthesis of the Nylsvley Study, 
+Cambridge Studies in Applied Ecology and Resource Management. Cambridge 
+University Press, Cambridge. https://doi.org/10.1017/CBO9780511565472.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model, various preprocessing steps may be required depending on the specific dataset and problem being addressed. Some common preprocessing techniques include:
+
+1. Normalization: This involves rescaling the input features so they fall within a certain range, typically between 0 and 1 or -1 and 1. Normalizing the inputs helps ensure that no single feature dominates the others during training, leading to more stable gradients and faster convergence.
+
+2. Scaling: Similar to normalization, scaling adjusts the values of input features to bring them to a similar scale. Common scaling techniques include standardization (subtracting the mean and dividing by the standard deviation) and min-max scaling (rescaling the values to lie between 0 and 1).
+
+3. Cleaning: This step involves removing any irrelevant, redundant, or erroneous information from the dataset. Examples of cleaning operations include handling missing values, removing outliers, and eliminating duplicate entries.
+
+4. Feature engineering: This refers to creating new features based on existing ones to improve the performance of the model. Techniques like polynomial expansion, binarization, and encoding categorical variables can help create meaningful representations of the data.
+
+5. Augmentation: For image data, augmentation techniques like rotation, flipping, cropping, and zooming can increase the diversity of the training set and reduce overfitting.
+
+In summary, preprocessing steps such as normalization, scaling, cleaning, feature engineering, and augmentation play crucial roles in preparing the data for training a deep learning model. These techniques help improve the quality of the input data, making it easier for the model to learn patterns and generalize well to unseen examples.

@@ -1,0 +1,14 @@
+According to the provided context, the preprocessing steps involved before training a deep learning model (specifically, YOLOv5s) include:
+
+1. **Audio standardization**: The recordings are standardized to have a consistent format, as they are from community-contributed collections and may have been recorded with various equipment, settings, and weather conditions. This involves using a sampling rate of 32 kHz with a 100 Hz high-pass filter.
+2. **Segmentation**: The labeled sounds in a recording are clipped into fixed-sized input images for model training.
+3. **Data augmentation**: The data is augmented to increase the variability of the audio data in the training dataset. This includes scaling, color space adjustments, and Mosaic augmentation.
+4. **Spectrogram conversion**: The audio data is converted into spectrograms, which are then used as input images for the model.
+
+Additionally, during model training, the following preprocessing steps are applied:
+
+1. **Scaling**: The input images are randomly resized and cropped.
+2. **Color jittering**: The hue, saturation, and exposure of the input images are randomly changed.
+3. **Merging**: Four original spectrograms are randomly selected, resized, cropped, and merged into one big input image for model training.
+
+These preprocessing steps aim to minimize the dilution effect, reduce the required amount of training data, and improve the model's performance on real-world data.

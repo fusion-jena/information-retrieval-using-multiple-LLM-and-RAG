@@ -1,0 +1,9 @@
+The hyperparameters used in the deep learning models vary depending on the type of network being used. Here are some examples:
+
+For PConv networks, the input dimension is either 256x256 or 512x512, the batch size is 1, the learning rate is 2e-4, and the optimizer used is Adam. The loss functions include per-pixel loss, perceptual loss, style loss, and total variation loss. These networks are pre-trained on ImageNet and trained for 50 epochs.
+
+For Pix2Pix networks, the input dimension can be either 256x256 or 512x512, the batch size is 1, the learning rate is 9e-5, and the optimizer used is also Adam. The loss functions include adversarial loss and L1 loss.
+
+For classification networks, the input dimension can be either 256x256 or 512x512, the batch size is 32, the learning rate is 0.03, and the optimizer used is again Adam. The loss function used here is cross-entropy loss. These networks are trained from scratch for 20 epochs if they use a smaller image size (256x256), but if they use a larger image size (512x512), they are pre-trained on ImageNet.
+
+All input images were preprocessed by mean centering the image with ImageNet values and then rescaled between 0 and 1. The models were optimized using Adam optimizer with a learning rate of 0.0002 while using ReLU activation for the encoder part and LeakyReLU activation for the decoder part of the network. All models were trained for 50 epochs.

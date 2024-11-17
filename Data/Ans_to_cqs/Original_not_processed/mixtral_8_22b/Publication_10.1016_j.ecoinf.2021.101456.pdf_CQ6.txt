@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Given unlabelled input data consisting of N samples with F features, 
+x ∈ ℝN×F,  the  probabilistic  encoder  of  a  VAE  maps  the  input  to  the 
+posterior density p(z|x) over the latent variable, z ∈ ℝN×L. In practice, 
+L << N and the encoder neural network approximates the true posterior 
+density, p(z|x), with a multivariate Gaussian, qθ(z|x) ∼ 𝒩 (μθ, σ2
+θ ). The 
+decoder of a VAE reconstructs the input data from the latent variable 
+and is given by the density function pφ(x|z). The encoder and decoder 
+neural networks are parameterised by θ  and φ, respectively. The opti-
+mization objective of a VAE consists of two competing terms and it can 
+be shown to be (Kingma and Welling, 2014)  
+
+ℒVAE = (cid:0) Eqθ [logpφ(x|z)] + KL[qθ(z|x)||p(z)]
+ℒVAE≜ℒrec + ℒreg
+
+(1) 
+
+(2)
+
+All models were implemented in PyTorch (Paszke et al., 2019) and 
+trained for 5000 epochs using the Adam optimizer (Kingma et al., 2015) 
+(cid:0) 3. The models were trained on Nvidia GTX 
+with a learning rate of 10
+1050 graphics processing unit with 4 GB memory with a batch size of 
+256. A decision to adapt β was taken every fifth epoch to avoid random 
+fluctuations. The scaling of the clustering loss, γ, in the semi-supervised 
+mode was cycled between 0.01 and 0.2 every 100 epochs. 
+
+4.4. Results 
+
+The clustering performance on the labelled test set for the unsuper-
+vised and semi-supervised instances of the dynamic β-VAE is presented 
+in Table 2. 
+
+The dynamic β-VAE performs better than the baselines in the ARI- 
+and AMI-scores which quantifies the intra-class cohesion and inter-class 
+separability. While HCA have been successfully used to identify groups
+
+dataset  recorded  at  a  different  location  and  was  gradually  expanded 
+until  reconstructions  were  sufficiently  good.  In  order  to  visualize  the 
+latent  representation,  the  size  of  the  bottleneck  of  the  model  (latent 
+dimension) was limited to two. Details of the network architecture are 
+reported in Table 1.
+
+Fig. 1, and since a higher β term favours a well generalised latent space 
+over good reconstructions, a reduction in clustering performance could 
+be expected. Additionally, the non-adaptive VAE was more cumbersome 
+to train as the model collapsed frequently during training. 
+
+5.4. Selection of number of clusters
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model such as a Variational Autoencoder (VAE), several preprocessing steps may be necessary depending on the nature of the dataset. These steps often include normalization, scaling, and cleaning. Normalization involves transforming the data so that it has a mean of zero and a standard deviation of one. This step is crucial because many machine learning algorithms perform better when numerical input variables are scaled to a standard range. Scaling ensures that all features contribute proportionately to the final output. Cleaning refers to handling missing or inconsistent values within the dataset. It might involve removing outliers, filling missing values, or correcting errors. However, based on the provided context, there isn't explicit information about specific preprocessing steps applied to this particular dataset before training the VAE. Therefore, while these are common practices, we cannot definitively state what preprocessing steps were undertaken here without further details.

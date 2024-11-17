@@ -1,0 +1,11 @@
+Answer:::
+
+In the study, the model performance during training was monitored using a training-and-test approach with stratification splitting. For each setting, 100 different splits to the training-and-test set were performed. Hyperparameter tuning on the training set was conducted for each set, followed by model training using an optimal setting of the hyperparameter.
+
+The study used four regression models, namely AdaBoost, random decision forest (RF), multilayer neural network (NET), and Bayesian ridge regression (Bayes), to model forest aboveground biomass (AGB) using Airborne Laser Scanning (ALS) data.
+
+To assign a score to each model, the study used individual evaluation functions for test model samples, including accuracy with assigned tolerance (ACT1 and ACT2), root mean squared error (RMSE), coefficient of determination (R2), cross-validation R2 (CV_R2), and average angle deviation from the line 1:1 for test samples (AD_test).
+
+The score per attribute was calculated based on the partial score for AD_test, AD_all, R2_all, RMSE, and CV_R2. The scoring system was designed to reward models with higher R2 and CV_R2 values, lower RMSE and AD values, and a smaller difference between R2_test and R2_all.
+
+Therefore, the strategy implemented to monitor the model performance during training involved using a training-and-test approach with stratification splitting, hyperparameter tuning, and individual evaluation functions for test model samples. The score per attribute was calculated based on the evaluation functions, and the scoring system was designed to reward models with higher R2 and CV_R2 values, lower RMSE and AD values, and a smaller difference between R2_test and R2_all.

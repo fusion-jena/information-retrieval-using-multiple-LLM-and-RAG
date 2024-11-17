@@ -1,0 +1,233 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Model 
+
+F-score 
+
+Std Err Precision 
+
+CI_Precision Lower Limit 
+
+CI_Precision Upper Limit 
+
+Std Err Recall 
+
+CI_Recall Lower Limit 
+
+CI_Recall Upper Limit  
+
+FRCNN 
+TPH-YOLOv5 
+YOLOv5s 
+YOLOv5m 
+
+FRCNN 
+TPH-YOLOv5 
+YOLOv5s 
+YOLOv5m 
+
+FRCNN 
+TPH-YOLOv5 
+YOLOv5s 
+YOLOv5m 
+
+0.821 
+0.734 
+0.852 
+0.808 
+
+0.814 
+0.768 
+0.838 
+0.783 
+
+0.830 
+0.696 
+0.871 
+0.835 
+
+0.009 
+0.010 
+0.008 
+0.009 
+
+0.012 
+0.012 
+0.011 
+0.013 
+
+0.014 
+0.016 
+0.011 
+0.013 
+
+0.735 
+0.769 
+0.867 
+0.808 
+
+0.724 
+0.855 
+0.857 
+0.776 
+
+0.733 
+0.667 
+0.866 
+0.823 
+
+Both Sites 
+
+0.771 
+0.809 
+0.897 
+0.844 
+
+Collapit Mudflat (Site A) 
+
+0.772 
+0.901 
+0.899 
+0.826 
+
+Scoble Point Rocky Shore (Site B) 
+
+0.787 
+0.731 
+0.910 
+0.873 
+
+0.007 
+0.011 
+0.009 
+0.010 
+
+0.010 
+0.015 
+0.012 
+0.013 
+
+0.010 
+0.016 
+0.012 
+0.013 
+
+0.888 
+0.666 
+0.807 
+0.772 
+
+0.874 
+0.653 
+0.777 
+0.739 
+
+0.894 
+0.662 
+0.830 
+0.797 
+
+0.916 
+0.708 
+0.841 
+0.810  
+
+0.912 
+0.711 
+0.825 
+0.791  
+
+0.932 
+0.726 
+0.878 
+0.849
+
+When taking the trained model for further inference, we selected the 
+best model, based on the validation loss curve metrics, which means that 
+the model selected was the one trained until epoch 6 (from the 50 epochs 
+trained). The full loss curve is included for completeness. 
+
+Using  the  two  independent  validation  dataset  for  each  study  site, 
+result metrics were calculated using Padilla et al. (2021) for each DL 
+model.  A  positive  detection  is  identified  where  the  Intersection  over 
+Union is greater than 0.5. As such, when detecting of a Pacific oyster, a 
+detection overlaps with a true Pacific oyster by more than 50% of the 
+bounding boxes. Consequently, we are able to classify each detection as 
+one of the three categories: 
+
+True Positive (TP): A successfully detected Pacific oyster. 
+
+Fig. 5. Plot of the Validation Loss curve for the YOLOv5s model.
+
+Recall = TP
+
+TP + FN
+
+=
+
+TP
+Ground Truth 
+
+The  uncertainties  of  precision  and  recall  for  each  model  are  also 
+estimated by calculating the Confidence Interval (CI) for each metric as: 
+
+CI = (Metric) ± z × SEmetric  
+
+where z is the z-score that corresponds to z ≈ 1.96 for a 95% confidence 
+assuming a normal distribution and the Standard Error (SE) defined as: 
+
+SEPrecision =
+
+√
+
+̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+Precision × (1 (cid:0) Precision)
+Number Detected
+
+and 
+
+SERecall =
+
+√
+
+̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+Recall × (1 (cid:0) Recall)
+Ground Truth
+
+Furthermore, in order to establish the balance between the precision 
+and recall of each model, the F-score is also calculated as the harmonic 
+mean of precision and recall uncertainty of the model: 
+F-score = 2 × Precision × Recall
+Precision + Recall  
+
+3. Results
+
+Similarly,  the  F-scores  and  Confident  Intervals  (CI)  are  shown  on 
+Table 3 to give an estimation of the uncertainties of each model and the 
+balance between precision and recall. In all cases, YOLOv5s presents a 
+higher F-score of approximately 85% which indicates a better trade-off 
+between precision and recall than the other models. The 95% confident 
+interval for precision is 86.7% - 89.7% meaning that the true precision of 
+the YOLO5s model across both sites is 88.2% with a margin of error of 
+1.5%. In other words, we are 95% confident that 88.2% ± 1.5% of the 
+detection raised by YOLO5s are indeed Pacific oyster. Similarly, the 95% 
+confidence  interval  for  YOLO5s  recall  is  80.7%  -  84.1%  which  is 
+equivalent to say that it might miss to identify between 15.9% - 19.3% of 
+the Pacific oysters. FRCNN presents the second best F-score but it pre-
+sents  however  the  largest  differences  between  precision  and  recall
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: Training completion is determined based on the validation loss curve metrics. In this case, the model selected was the one trained until epoch 6 out of the 50 epochs trained. This suggests that the criterion used to determine when training is complete could be reaching a certain number of epochs or observing a plateau or decrease in the validation loss curve. However, the exact criterion is not explicitly stated in the provided context.

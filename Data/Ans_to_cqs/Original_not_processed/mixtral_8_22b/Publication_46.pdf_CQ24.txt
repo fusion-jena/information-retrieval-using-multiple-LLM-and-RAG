@@ -1,0 +1,88 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Remote Sens. 2021, 13, 3284
+
+13 of 17
+
+kappa, with values 0.652 and 0.94, respectively, also gave support to the applicability of
+CNN in comparison to conventional SDM’s such as BIOCLIM. These values showcase the
+superiority of deep learning models for species probability distribution using the given set
+of ecological and bioclimatic parameters.
+
+Figure 7. Probability distribution of Rhododendron arboreum using (a) BIOCLIM and (b) CNN Models.
+
+Table 2. Statistical performance analysis of BIOCLIM and CNN.
+
+AUC
+
+Kappa
+
+TSS
+
+4. Discussion
+
+BIOCLIM
+
+0.68
+
+0.76
+
+0.44
+
+CNN
+
+0.917
+
+0.94
+
+0.652
+
+Convolution is used for feature extraction, in which a kernel is applied to an input
+tensor. A feature map is thus obtained through the product of kernel elements and tensor
+input. The procedure is then repeated on multiple kernels to obtain random feature maps
+that represent different feature extractors. The hyperparameters involved in convolution
+operations are the size and number of kernels. The size could be anything from 3 × 3 to
+5 × 5 to 7 × 7, and the kernel could be chosen randomly.
+
+modelling approaches and the increased number of datasets has made this model one of
+the most globally accepted SDMs. There is a growing concern for the establishment of the
+nonlinear relationship between the bioclimatic parameters through innovative approaches
+such as deep learning-based models. It has been observed that the BIOCLIM model is
+overestimates the species distribution and the higher probability of species occurrence at
+the higher altitude. Moreover, it has been observed that the distribution pattern of the
+predicted Rhododendron arboreum distribution using CNN architecture is quite different at
+some places than from conventional BIOCLIM models. The current work proposed deep
+learning-based CNN architecture for probability distribution modelling and proved to
+perform better than the traditional BIOCLIM model. There was an underestimation of
+species distribution observed in CNN than BIOCLIM. The distribution probability in CNN
+
+A pooling layer offers downsampling functionality that decreases the dimensionality
+of the feature maps to achieve translation invariance to the alterations and the biases
+incorporated and thus helps in reducing the number of learnable parameters. There are
+two types of pooling operations, namely Max Pooling and Global Average Pooling [64].
+The ﬁrst one extracts speckles from the input feature maps and offers maximum values
+in each of the speckles and leaves the remaining values unattended. The second one
+downsamples a feature map with a size equaling product of height and width into an array
+of a one cross one by averaging the elements of each feature map by retaining the depth of
+the feature map. The advantage of Global Average Pooling lies in reducing the number of
+learnable parameters along with offering the CNN with variable sized input.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't any information available in the provided context regarding handling randomness in the deep learning pipeline or setting specific random seed values. However, I can provide some general insights about managing randomness in deep learning pipelines.
+
+Randomness plays a significant role in various stages of deep learning, including weight initialization, data shuffling, dropout regularization, etc. To ensure reproducibility and consistency across experiments, researchers often use fixed random seeds. By setting a specific seed value, we can reproduce the same sequence of pseudo-random numbers, making our results consistent and comparable.
+
+In Python, for example, we can use the numpy library to set a global random seed like so: `numpy.random.seed(seed_value)`. Similarly, other libraries like TensorFlow and PyTorch have their own methods to set random seeds. In TensorFlow, you can use `tf.random.set_seed(seed_value)`, while in PyTorch, you can use `torch.manual_seed(seed_value)` and `torch.backends.cudnn.deterministic = True` to enable determinism in cuDNN operations.

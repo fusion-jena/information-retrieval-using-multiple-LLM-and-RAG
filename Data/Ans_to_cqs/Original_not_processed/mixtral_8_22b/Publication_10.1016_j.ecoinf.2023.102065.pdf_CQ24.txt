@@ -1,0 +1,66 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Pouyanfar, S., Sadiq, S., Yan, Y., Tian, H., Tao, Y., Reyes, M.P., Shyu, M.L., Chen, S.C., 
+Iyengar, S.S., 2018 Sep 18. A survey on deep learning: algorithms, techniques, and 
+applications. ACM Comput. Surv. (CSUR). 51 (5), 1–36. https://doi.org/10.1145/ 
+3234150. 
+
+Priyadarshani, N., Marsland, S., Castro, I., 2018 May. Automated birdsong recognition in 
+
+complex acoustic environments: a review. J. Avian Biol. 49 (5), jav–01447. 
+Pyle, P., DeSante, D.F., 2003. Four-letter and six-letter alpha codes for birds recorded 
+from the American Ornithologist’s union check-list area. North American Bird 
+Bander. 28 (2), 64–79. 
+
+Quinn, C.A., Burns, P., Gill, G., Baligar, S., Snyder, R.L., Salas, L., Goetz, S.J., Clark, M.L., 
+2022 May 1. Soundscape classification with convolutional neural networks reveals 
+temporal and geographic patterns in ecoacoustic data. Ecol. Indic. 138, 108831. 
+
+Roca, I.T., Desrochers, L., Giacomazzo, M., Bertolo, A., Bolduc, P., Deschesnes, R.,
+
+2.5. CNN fine-tuning data from ROIs 
+
+We randomly sampled 50 ROIs per species with “presence” to form a 
+held-out test set for accuracy assessment (Section 2.8.1). The remaining 
+ROIs with species presence were used to fine-tune the CNN models. We 
+randomly sampled 100 of these ROIs per species to form a validation set 
+and the remaining formed a training set, which had on average 887 per 
+species (min = 349, max = 3094). ROIs that were >2 s in duration were 
+used in their entirety. For those that were <2 s in duration, we expanded 
+the start/stop (i.e., padded) equally on each side of the ROI to total 2 s. 
+Different vocalizations for a given species were combined into a single 
+class per species. If any ROIs were overlapping in time from different 
+pattern-matching runs for a given species, we placed those ROIs in the 
+training set to avoid temporal autocorrelation in our validation and test 
+data.
+
+obstacles, and our final predictions allowed us to demonstrate how deep learning applied to acoustic data from 
+low-cost ARUs paired with citizen science can provide valuable bird diversity data for monitoring and conser-
+vation efforts.
+
+out set of sample data from the same dataset as the training/validation 
+data (i.e., ROIs) greatly overestimates performance of CNN models. 
+
+3.3. Comparison with BirdNET
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The provided context does not explicitly mention strategies to handle randomness in the deep learning pipeline, such as managing random seed values. However, it does discuss some aspects related to the development and evaluation of Convolutional Neural Network (CNN) models for automated birdsong recognition.
+
+In terms of handling randomness during model training, one common strategy is using fixed random seeds when initializing weights or shuffling datasets. This ensures reproducibility by making sure that the results obtained from multiple runs of the same experiment remain consistent. Although this specific aspect isn't mentioned in the context, it could be assumed that similar practices might have been followed while developing the CNN models.
+
+Additionally, the context mentions the use of held-out test sets, validation sets, and training sets derived from Random Occurrence Intervals (ROIs) for assessing and improving the performance of the CNN models. By employing separate datasets for training, validating, and testing the models, the impact of randomness due to variations in input data can be minimized. Moreover, the process of padding shorter ROIs to ensure uniformity in length also contributes towards reducing potential biases introduced by variable durations of audio clips.
+
+Lastly, the context highlights the importance of avoiding temporal autocorrelation in validation and test data by placing overlapping ROIs in the training set. This approach helps maintain independence between samples used for evaluating the model's performance and those used for training, thereby mitigating the influence of random factors affecting the distribution of occurrences within the dataset.

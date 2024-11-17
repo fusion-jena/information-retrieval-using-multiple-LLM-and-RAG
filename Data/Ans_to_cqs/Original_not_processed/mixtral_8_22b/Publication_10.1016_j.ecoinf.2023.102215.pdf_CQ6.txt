@@ -1,0 +1,122 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+72 
+72 
+128 
+64 
+
+DN-3 
+72 
+72 
+256 
+64 
+
+36 
+36 
+256 
+128 
+
+DN-4 
+36 
+36 
+512 
+128 
+
+18 
+18 
+512 
+256 
+
+DN-5  
+18  
+18  
+1024  
+256   
+
+9 
+9 
+512 
+256         
+
+networks often fail in extracting global information from shallow layers 
+because of the small receptive fields (Liu et al., 2019b; Liu et al., 2021). 
+For  creating  feature  maps  with  much  global  information,  multiple 
+dilated convolutions are used for shallow layers (Zhao et al., 2020)— 
+which, however, entail more computation resources. U2-Net defines a 
+two-level  nested  model  (i.e.,  a  stack  of  nested  encoder-decoder)  to 
+capture the contextual information in different scales at a moderate level 
+of computation cost.
+
+of dilated convolution with various dilated rates to enlarge the receptive 
+field, which not only extracts richer global information but also saves 
+significant time and memory resources.
+
+(cid:0) 8, (3) initial learning rate lr=1.0 × 10
+
+TrunkNet is trained with PyTorch 1.13.0.1  All training and test im-
+ages are uniformly resized to 288 × 288. TrunkNet is trained with the 
+Adam  optimizer  with  default  hyper-parameters:  (1)  betas=(0.9, 
+(cid:0) 3, and 
+0.999), (2) eps=1.0 × 10
+(4) weight_decay = 0. The evaluation experiments of TrunkNet are all 
+conducted on a computer that has a 14-core Intel(R) Xeon(R) Gold 6330 
+CPU (80 GB RAM) and an NVIDIA RTX 3090 GPU (24 GB memory). The 
+model is trained from scratch with a batch size of 12. After 65 K itera-
+tions,  the  training  loss  converges,  and  the  training  process  takes 
+approximately 11.5 h. 
+
+3.2. Performance evaluation metrics 
+
+To evaluate the performance of salient tree trunk detection on ST-D, 
+
+we follow seven metrics given below. 
+
+Mean Absolute Error (M) assesses the pixel-level similarity between 
+the  final  saliency  map  Spre  and  the  ground-truth  mask  G.  It  can  be 
+formulated as 
+
+M =
+
+2.3. Model training 
+
+Our study can be categorized as a binary classification. We supervise 
+TrunkNet’s training with the Binary Cross-Entropy (BCE) loss function, 
+which  is  a  commonly  employed  loss  function  in  supervised  deep 
+learning (Zhao et al., 2019b). The BCE loss function measures the dif-
+ference between the predicted probability and the actual value. Mini-
+mizing this difference indicates a better training effect. Specifically, the 
+BCE loss function in use is expressed with 
+
+L BCE = (cid:0)
+
+∑H
+
+∑W
+
+x=1
+
+y=1
+
+G(x, y)logSpre(x, y) + (1 (cid:0) G(x, y))log(1 (cid:0) Spre(x, y)),
+
+(3)  
+
+where (x,y) is the pixel coordinate, H and W are the height and width of 
+the image, respectively, G is the ground-truth, and Spre  is the final pre-
+dicted saliency map.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit details about the specific preprocessing steps taken before training the deep learning model, such as normalization, scaling, or cleaning. However, it mentions that all training and test images are uniformly resized to 288 x 288 pixels. This step could be considered part of the preprocessing stage, ensuring consistent input dimensions for the model during both training and testing phases. Other common preprocessing techniques might have been applied, but they are not explicitly mentioned in the provided context.

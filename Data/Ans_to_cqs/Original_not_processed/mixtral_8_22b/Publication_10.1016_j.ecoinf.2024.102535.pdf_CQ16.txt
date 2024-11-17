@@ -1,0 +1,232 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The batch size was 32, and the early stopping procedure was used to 
+avoid over-fitting. The patience parameter, which controls the number 
+of epochs without improvements in the validation loss, was set to 10. 
+Each network, with a particular architecture and considering a specific 
+substratum characterization, was trained and executed three times, each 
+time with a different (random) initialization of the trainable parameters 
+and with a different data fold. As already mentioned, the results shown 
+in  the  next  section  are  averages  of  those  three  executions.  Data 
+augmentation was applied to all extracted patches: a 90∘  rotation and 
+vertical and horizontal flips. 
+
+4.4. Performance metrics
+
+During  training,  the  cost  function  was  minimized  using  the  Adam 
+optimizer  (Kingma,  2017),  with  an  initial  learning  rate  μ0  and  mo-
+mentum  β1  equal  to  0.0001  and  0.9,  respectively.  Aiming  at  better 
+convergence  during  training,  we  adopted  a  learning  rate  decay  pro-
+cedure proposed in Ganin et al. (2017) by implementing the following 
+equation: 
+μ0
+(1 + αp)β
+
+μe =
+
+(8)  
+
+where p = e
+et al. (2017), α and β were set to 10 and 0.75, respectively. 
+
+#Epochs, and e is the current training epoch. Following Ganin
+
+Sites 
+
+S/W fragments 
+
+Testing on: 
+
+Lithology 
+
+Morphology 
+
+VGG 
+
+ResNet18 V1 
+
+ResNet50 V1 
+
+ResNet18 V2 
+
+ResNet50 V2 
+
+Xception 
+
+Training on: 
+
+MS 
+
+61.6 
+49.8 
+56.6 
+70.2 
+49.0 
+63.9 
+64.2 
+41.0 
+53.3 
+67.5 
+39.5 
+54.3 
+67.8 
+49.0 
+64.9 
+66.9 
+55.0 
+63.8 
+
+WC 
+
+52.5 
+59.6 
+67.2 
+65.7 
+64.2 
+72.1 
+66.4 
+45.1 
+65.6 
+40.0 
+49.6 
+54.6 
+40.1 
+46.0 
+57.2 
+62.7 
+53.3 
+74.0 
+
+ET 
+
+57.1 
+57.9 
+64.9 
+62.2 
+55.2 
+67.5 
+59.3 
+45.3 
+69.3 
+55.1 
+52.0 
+61.9 
+51.8 
+52.1 
+67.7 
+53.5 
+54.3 
+70.1 
+
+MS 
+
+68.0 
+57.0 
+53.8 
+73.2 
+49.3 
+50.7 
+70.7 
+43.4 
+50.1 
+66.8 
+54.0 
+49.4 
+75.3 
+48.1 
+54.1 
+66.1 
+52.6 
+56.9 
+
+WC 
+
+50.9 
+72.4 
+51.1 
+50.6 
+64.4 
+51.5 
+51.6 
+56.9 
+57.2 
+50.7 
+75.2 
+49.5 
+55.3 
+71.7 
+53.4 
+62.7 
+64.4 
+59.8 
+
+ET 
+
+56.2 
+48.0 
+72.0 
+51.4 
+41.8 
+71.6 
+51.1 
+30.9 
+70.5 
+45.4 
+42.1 
+72.4 
+55.7 
+46.4 
+70.5 
+48.4 
+42.9 
+76.5 
+
+MS 
+
+67.4 
+65.2 
+67.1 
+68.3 
+67.0 
+66.1 
+68.6 
+67.2 
+64.9 
+68.5 
+63.9 
+65.8 
+69.4 
+65.8 
+65.6 
+68.8 
+66.0 
+66.3
+
+In  the  figure,  each  column  contains  results  for  each  substratum 
+characterization criteria, i.e., the amount of S/W fragments, Fig. 7(a)(d) 
+(g)(j)(m)(p); lithology, Fig. 7(b)(e)(h)(k)(n)(q); and morphology, Fig. 7 
+(c)(f)(i)(l)(o)(r).  Each  row  represents  a  different  site  combination  for 
+training  and  testing  the  CDC,  which  permits  the  assessment  of  the 
+generalization  capacity  of  the  ensemble  in  cross-site  evaluations.  The 
+dark blue curves represent the accuracy and uncertainty of the ensemble 
+when it was trained and tested using images from the same site. The light 
+blue  curves  represent  cross-site  combinations  in  which  the  CDC  was 
+trained with data from one site and evaluated with data from a different 
+site.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Answer: Training is considered complete when there are no improvements in the validation loss for a certain number of epochs, a process known as early stopping. This is done to prevent overfitting. In this case, the patience parameter, which controls the number of epochs without improvements in the validation loss, was set to 10.

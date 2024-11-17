@@ -1,0 +1,95 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+training and 20% for testing with the presence and absence samples. In 
+the training stage, 10% of the dataset was used as a validation subset. It 
+was likely that samples extracted from the same audio file were sepa-
+rated, both for training and for testing and validation. However, this bias 
+was  reduced,  in  the  semi-automatic  labeling  stage,  by  limiting  the 
+extraction of samples to a maximum of three per file. 
+
+The  iterative  learning  process  of  the  model  was  executed  by  pro-
+posing 50 training epochs. The early stopping method was used with a 
+patience equal to 5, to avoid overfitting. In this way, optimal training 
+was achieved at the end of the ninth epoch, reaching a maximum loss of 
+(cid:0) 3  for  the  training  and  validation  subsets 
+4.5×10
+respectively. 
+
+(cid:0) 4  and  1.1×10
+
+2.8. Evaluation
+
+The workflow is summarized in Fig. 3 in order to facilitate under-
+standing of the inputs and outputs of the techniques used throughout the 
+process. 
+
+3. Results 
+
+The UMAP technique (Fig. 4) elegantly and effectively revealed the 
+variety  and  clustering  of  the  representative  samples  given  in  both 
+feature spaces (STFT and FCT). This allowed us to predict an encour-
+aging forecast of separability in a supervised learning process. Consid-
+ering the high dimensionality of the hyper-vectors extracted with FCT 
+(22,000 components versus 11,136 with STFT) and the longer process-
+ing time (160 ms per sample versus 3 ms with STFT), the creation of 
+spectrograms for the training stage was calculated with STFT only, as 
+described in Subsection 2.4.1.
+
+(cid:0) 4  and  1.1×10
+
+2.8. Evaluation 
+
+Once the model was trained, we assessed the model’s performance 
+using the split sample subset (spectrograms of two seconds) for testing. 
+Thus, we did not use those samples in the training stage. The multiclass 
+predictions of the model were assessed with the typical indicator series: 
+true  positives  (TP),  false  positives  (FP),  true  negatives  (TN)  and  false 
+negatives (FN). Because the model gave probability values in the [0, 1] 
+range, the prediction depended on a decision threshold θ to define it as 
+positive  (presence)  or  negative  (absence).  With  these  θ-dependent 
+elemental indicators, two useful relationships were obtained, and these 
+helped assess different facets of the model performance. One of them 
+was the precision P: 
+
+P(θ) =
+
+TP
+TP + FP
+
+(1) 
+
+Eq. 1 represents the success number of all presence predictions. On 
+the other hand, the recall R expresses the proportion of well-detected 
+presence—that is: 
+
+R(θ) =
+
+The  implemented  CNN  corresponded  to  a  modified  version  of 
+ResNet50, one of the dominant architectures in bioacoustic tasks, and, 
+although other authors have applied previous ImageNet training to the 
+bioacoustic  domain  (LeBien  et  al.,  2020;  Zhong  et  al.,  2021),  other 
+datasets such as Audio Set (Gemmeke et al., 2017) or VGG-Sound (Chen 
+et al., 2020) can be just as good as ImageNet for pre-training, either on 
+ResNet or on other architectures, such as VGGish, Inception or Mobile-
+Net. Another viable option is to pretrain with synthetic clicks or chirps 
+(Glotin  et  al.,  2017;  Yang  et  al.,  2021).  Models  already  available  in 
+mobile  apps  that  perform  this  same  spectrogram-based  identification 
+task are advancing rapidly. To date (October 2022), the BirdNet appli-
+cation (Kahl et al., 2021) allows for the identification of more than 3000 
+bird species (Wood et al., 2022). In the short term, this particular model
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: The data was split into 80% for training and 20% for testing with the presence and absence samples. In the training stage, 10% of the dataset was used as a validation subset. It was likely that samples extracted from the same audio file were separated, both for training and for testing and validation. However, this bias was reduced in the semi-automatic labeling stage by limiting the extraction of samples to a maximum of three per file.

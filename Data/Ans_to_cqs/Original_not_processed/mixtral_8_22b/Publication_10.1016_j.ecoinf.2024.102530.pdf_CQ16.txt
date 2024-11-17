@@ -1,0 +1,81 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.4. Apis-FIS model validation 
+
+output  TopoSuit  (suitability  of  topography),  we  used  a  triangular 
+membership function with a fuzzy linguistic set of “low suitable” (LS), 
+“moderate suitable” (MS), and “suitable” (S). The knowledge informa-
+tion  we  used  for  fuzzification  and  rule  inference  appears  in  Supple-
+mentary Materials Table S2.2. Fig. 9 shows how we defined our fuzzy set 
+and  membership  function  for  one  of  the  inputs  variables  Aspect.  The 
+associated rules of Topo-FIS appear below (with S: steep, G: gentle, VG: 
+very gentle): 
+
+IF (slp is S) OR (Elev is H) THEN (TopoSuit is LS). 
+IF (slp is G) AND (Asp is N_1) OR IF (slp is G) AND (Asp is W) OR (slp 
+
+is G) AND (Asp is N_2) OR (Elev is L) THEN (WthSuit is MS). 
+
+IF (slp is G) AND (Asp is E) OR (slp is G) AND (Asp is S) OR (Elev is 
+
+M) OR (slp is VG) THEN (TopoSuit is S).
+
+is H) THEN (WthSuit is L). 
+
+IF (RH is M) OR (RF is L) OR (SR is H) THEN (WthSuit is M). 
+IF (T is M) OR (RH is H) OR (RF is M) OR (SR is M) OR (WS is L) 
+
+THEN (WthSuit is H). 
+
+The graph rule viewer of the proposed Wth-FIS is given in Fig. 8. 
+For output of LCW-FIS (LCWSuit, i.e., land-cover and weather suit-
+ability), we used triangular and trapezoidal membership with five fuzzy 
+sets: “very low” (VL), “low suitable” (L), “moderate” (M), “suitable” (S) 
+and “highly suitable” (HS) for the linguistic variables. Fig. 8 shows the 
+rule viewer for LCW-FIS, these rules are:
+
+Therefore, we tried to find differences or similarities to explain the 
+potential difference between our Apis-FIS prediction and the field esti-
+mation from the validation. We performed a analysis and using an up-to- 
+date map of the research area, mainly BDPPAD. We initially attempted 
+to analyze two sites: site 1 (Apis-FIS prediction low compared to field 
+estimation  very  high)  and  site  10  (Apis-FIS  prediction  very  high 
+compared to field estimation moderate). For site 1, we saw that the gap 
+between  our  prediction  and  the  validation  phase  related  to  the  land-
+scape  level.  To  feed  the  InVEST  model,  we  carried  out  a  qualitative 
+assessment of the capacity of each land use class to supply nectar and 
+pollen. We took into account the crops from our study area using the 
+2022  BDPAD.  Note  that  this  database  is  updated  and  made  available 
+after each agricultural season.
+
+Based on this evaluation, we performed a cross-comparison based on 
+our ApisFis model and validation data. Fig. 17 presents the result of the 
+matching comparison for the 12 sites. For each, the field estimations are 
+close to the outcome of our model. For sites 2 & 4 & 6 & 8 and 12 the 
+outcome  of  the  field  campaign  is,  respectively,  low,  moderate,  and 
+suitable. Our model yields very similar results to the field estimations for 
+these sites. However, for some sites, the field estimations were higher 
+than our model prediction (Sites 1 &  3 and 7) and for other sites, the 
+field estimations were lower than the Apis-FIS model outcomes (Sites 5 
+& 9 & 10 & 11).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+In the provided context, there isn't explicit information about the specific criteria used to determine when training is complete. However, it does mention the use of a validation process involving a comparison between the Apis-FIS model predictions and field estimations. This suggests that the performance of the model during validation could be used as a criterion to decide if training is complete.
+
+Typically, in machine learning models like Fuzzy Inference Systems (FIS), common criteria to determine when training is complete include observing a plateau in the validation loss, achieving a predefined accuracy threshold, or reaching a maximum number of iterations/epochs. These criteria help ensure that the model has learned sufficiently from the training data without overfitting.
+
+Since the context doesn't provide details regarding the exact stopping criteria used for the Apis-FIS model, I cannot give a definitive answer. Nonetheless, based on general practices in machine learning, potential criteria might involve monitoring the validation error or ensuring that the model performs well against ground truth data collected through field estimations.

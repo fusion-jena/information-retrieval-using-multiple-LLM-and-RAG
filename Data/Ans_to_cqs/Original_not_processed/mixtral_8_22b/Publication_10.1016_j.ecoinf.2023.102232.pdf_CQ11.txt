@@ -1,0 +1,98 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.4. Computing tools 
+
+All the calculations were carried out using the DAFNE HPC scientific 
+computing centre of the Universit`a degli Studi della Tuscia. The system 
+provides  for  two  Hewlett  Packard  Enterprise  (HPE)  ProLiant  DL560 
+Gen10 nodes, each one equipped with: four processors Intel Xeon Gold 
+5118 2.30GHz, 12 cores, 24 threads; and 512 GB of RAM. The two nodes 
+worked in a parallel configuration managed by the Python 3.6.8 package 
+Ray,  version  1.9.2.  All  the  scripts  and  dataset  to  fully  reproduce  the 
+results of this work are publicly available at https://github.com/lucar 
+os1190/LS-MCMC-hybridGenAlgo. 
+
+2.5. Preliminary analysis with perturbed numerical solutions and given 
+parameters
+
+A single iteration of the MCMC algorithm provides for the following 
+steps.  It  is  selected  a  random  row  of  the  genetic  algorithm  output 
+database between [1, nMCMC], and the best parameter values are subse-
+quently absorbed. As already described in Section 2.3.1, even in this case 
+the  absorbed  parameter  values  are  supposed  to  be  the  mean  of  a 
+Gaussian  distribution,  μ,  while  in  this  case  the  associated  variance  is 
+defined as a fixed value σ2 = (0.2 μ)2. A random value is generated from 
+the Gaussian distribution associated with each parameter by using the 
+random.normal() function, then, the ODE system is subsequently solved. 
+At the same time, the step provides for absorbing the array of experi-
+mental data, allowing the comparison between the ODE model output 
+and the experimental data, based on the log-probability value.
+
+C) for egg production. 
+
+◦
+
+Table 1 summarises the overall model parameters considered for the 
+
+Drosophila suzukii case of study. 
+
+To complete the model description, let us consider that in a culti-
+vated  field  there  is  a  high  probability  for  males  and  females  to  mate 
+(Rossini et al., 2022b, 2021a), that is a transition rate from non-mated to 
+mated  females  of  G1→2(t)  = 1  (cid:0) M[T(t)].  Putting  together  all  the  as-
+sumptions made, and considering a sex ratio SR  = 0.5 (1:1, males: fe-
+males)  (Emiljanowicz  et  al.,  2014)  we  obtain  the  final  version  of  the 
+physiologically  based  model  to  test  the  algorithm  introduced  in  the 
+following sections: 
+
+d
+dt
+
+d
+dt
+
+xe(t) = β(t)xAmf (t) (cid:0) GeL(t)xe(t) (cid:0) M(t)xe(t)
+
+xL1(t) = GeL(t)xe(t) (cid:0) GeL(t)xL1(t) (cid:0) M(t)xL1(t)
+
+d
+dt
+
+d
+dt
+
+d
+dt
+
+d
+dt
+
+d
+dt
+
+d
+dt
+
+xL2(t) = GeL(t)xL1(t) (cid:0) GeL(t)xL2(t) (cid:0) M(t)xL2(t)
+
+xL3(t) = GeL(t)xL2(t) (cid:0) GeL(t)xL3(t) (cid:0) M(t)xL3(t)
+
+The greater effort that may be done in further studies is the set-up of 
+
+EcologicalInformatics77(2023)1022329L. Rossini et al.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the data repository link of the deep learning pipeline (e.g., Link to Zenodo, Figshare, Dryad, GBIF)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, I cannot provide the exact data repository link for the deep learning pipeline since it was not mentioned or specified in the provided context. However, according to the information given, the scripts and datasets used to reproduce the results of this work can be found at <https://github.com/lucaros1190/LS-MCMC-hybridGenAlgo>. This GitHub repository contains the necessary resources related to the Markov Chain Monte Carlo (MCMC) algorithm and hybrid Genetic Algorithm used in the research. Please note that this does not necessarily contain the deep learning pipeline, but rather the materials relevant to the computational methods employed in the study.

@@ -1,0 +1,103 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Srivastava, N., Hinton, G., Krizhevsky, A., Sutskever, I., & Salakhutdinov, 
+R. (2014). Dropout: A simple way to prevent neural networks from 
+overfitting.  Journal  of  Machine  Learning  Research,  15,  1929–1958. 
+https://doi.org/10.1214/12-AOS1000
+
+Swanson, A., Kosmala, M., Lintott, C., Simpson, R., Smith, A., & Packer, C. 
+(2015).  Snapshot  Serengeti,  high- frequency  annotated  camera  trap 
+images  of  40  mammalian  species  in  an  African  savanna.  Scientific 
+Data, 2, 150026. https://doi.org/10.1038/sdata.2015.26
+
+Swinnen,  K.  R.  R.,  Reijniers,  J.,  Breno,  M.,  &  Leirs,  H.  (2014).  A  novel 
+method  to  reduce  time  investment  when  processing  videos  from 
+camera trap studies. PLoS ONE, 9, e98881. https://doi.org/10.1371/
+journal.pone.0098881
+
+classes. Dropout is a form of regularisation that randomly removes 
+
+a  proportion  of  nodes  to  reduce  overfitting  (Srivastava,  Hinton, 
+
+Krizhevsky, Sutskever, & Salakhutdinov, 2014). The fully connected 
+
+layer reduces the vector of image features to the desired dimension-
+
+ality of length two (foreground and background). The softmax layer 
+
+normalises  this  vector  into  probabilities  that  sum  to  one  across  all 
+
+classes.  DeepMeerkat  is  designed  to  be  conservative,  with  a  high 
+
+threshold for retaining frames (acceptance value = 0.1). This means 
+
+that the model must be more than 90% confident that a frame does 
+
+not contain a foreground object to assign a background label. This 
+
+prioritises minimising false negatives at the potential expense of in-
+
+Methods in Ecology and Evolu(cid:13)on
+
+    |  1437
+
+http://orcid.org/0000-0002-2176-7935 
+
+R E F E R E N C E S
+
+Abadi, M., Barham, P., Chen, J., Chen, Z., Davis, A., Dean, J., … Kudlur, M. 
+(2016). TensorFlow: A system for large- scale machine learning. OSDI, 
+16, 265–283.
+
+Anderson, T. M., White, S., Davis, B., Erhardt, R., Palmer, M., Swanson, A., 
+… Packer, C. (2016). The spatial distribution of African savannah her-
+bivores: Species associations and habitat occupancy in a landscape 
+context.  Philosophical  Transactions  of  the  Royal  Society  B:  Biological 
+Sciences, 371, 20150314. https://doi.org/10.1098/rstb.2015.0314
+Babaee,  M.,  Dinh,  D.  T.,  &  Rigoll,  G.  (2017).  A  deep  convolutional  neu-
+ral  network  for  background  subtraction.  Pattern  Recognition,  76, 
+635–649.
+
+|  1437
+
+F I G U R E   2  The front screen of the DeepMeerkat GUI. A user 
+can select a file or directory of videos to screen using a pre- trained 
+model. The path to the model is set under “Advanced settings”
+
+creasing false positives.
+
+majority of hummingbird visitation events (Weinstein, 2015). For the 
+
+For training the fine- tuned neural network, I collected images for 
+
+purposes  of  this  article,  I  assumed  that  all  events  are  captured  by 
+
+each class and trained with a batch size of 100 for 20,000 steps. To 
+
+motion  detection  and  were  passed  to  the  neural  network  for  clas-
+
+reduce training time, the feature vectors for the frozen layers were 
+
+sification.  While  quantitative  benchmarks  are  needed  to  validate 
+
+extracted in parallel using Google Cloud DataFlow. These features 
+
+model performance, they provide a coarse description of the errors 
+
+were then the basis for retraining the new fine- tuned layers. To fit
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: One of the regularization methods used to prevent overfitting in the deep learning pipeline mentioned in the given context is dropout. Dropout is a technique where randomly selected neurons are ignored during training, which helps to make the model more robust and prevents it from relying too heavily on any single input feature. In the paper by Srivastava et al. (2014), dropout is described as a method that randomly removes a proportion of nodes to reduce overfitting. Other common regularization techniques include L2 regularization, also known as weight decay, which adds a penalty term to the loss function based on the magnitude of the weights, encouraging smaller weights and reducing overfitting. However, the use of L2 regularization is not explicitly mentioned in the provided context.

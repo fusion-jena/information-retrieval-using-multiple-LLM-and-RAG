@@ -1,0 +1,120 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+10.4.1 Quantitative Results Analysis
+
+Table 10.3 provides the results obtained for all the evaluated models according to
+the three evaluation metrics. The four main conclusions that we can derive from that
+results are that (1) performances of LGL and mono-response DNN are lower than
+the one of MAXENT for all metrics, (2) multi-response DNN outperforms SNN in
+every version and for all metrics, (3) multi-response DNN outperforms MAXENT
+in test Rmse in every version, (4) CNN outperforms all the other models, in every
+versions (CNN50, 200, 1000), and for all metrics.
+
+192
+
+C. Botella et al.
+
+10.3.5 Evaluation Metrics
+
+Predictions are made for every species of E50 and several model performance
+metrics are calculated for each species and for two disjoints and randomly sampled
+subsets of sites: A train set (4781 sites) which is used for ﬁtting all models and a
+test set (400 sites) which aims at testing models generalization capacities. Then,
+train and test metrics are averaged over the 50 species. The performance metrics are
+described in the following.
+
+10.3.5.1 Mean Loss
+
+Mean loss, just named loss in the following, is an important metric to consider
+because it is relevant regarding our ecological model and it is the objective function
+that is minimized during model training. The Mean loss of model m on species i
+and on sites 1, . . . , K is:
+
+Loss(m, i,
+
+1, . . . , K
+
+{
+
+)
+}
+
+=
+
+1
+K
+
+K
+
+k
+
+1
+
+=
+
+λm,θi (xk)
+
+−
+
+yi
+k log(λm,θi (xk))
+
+SNN, DNN and CNN models are ﬁtted with the package mxnet: All model
+0.03, 0.03), then we
+parameters were initialized with a uniform distribution U (
+applied a stochastic gradient descent algorithm with a momentum of 0.9, a
+batch-size of 50 (batch samples are randomly chosen at each iteration), and an initial
+8. The choice of initial learning rate was critical for a good
+learning rate of 10−
+optimization behavior. A too big learning rate can lead to training loss divergence,
+
+−
+
+190
+
+C. Botella et al.
+
+whereas when it is too small, learning can be very slow. We stopped when the
+average slope of the training mean loss had an absolute difference to 0 on the last 100
+3. The learning took approximately 5 min for SNN, 10 min for
+epochs inferior to 10−
+DNN, and 5 h for CNN (independently of the version).
+
+10.3.5 Evaluation Metrics
+
+The superiority of the CNN whatever the metric is a new and important result
+for species distribution modeling community. Something also important to notice,
+as for DNN, is the improvement of its performance for te.Loss and te.Rmse when
+the number of species in output increases. Those results suggest that the multi-
+response regularization is efﬁcient when the model is complex (DNN) or the input
+dimensionality is important (CNN) but has no interest for simple models and small
+dimension input (SNN). There should be an optimal compromise to ﬁnd between
+model complexity, in term of number of hidden layers and neurons, and the number
+of species set as responses.
+
+For the best model CNN1000, it is interesting to see if the performance obtained
+on E50 could be generalized at a larger taxonomic scale. Therefore, we computed
+the results of the CNN1000 on the 1000 plant species used in output. Metrics
+values are :
+
+1.275463 (minimum =
+
+• Test Loss =
+• Test Rmse = 2.579596
+• Test A10%DQ = 0.58
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Three evaluation metrics are used to assess the performance of the deep learning models: Mean Loss, Test Loss, and Test RMSE. These metrics are calculated for each species and for two subsets of sites - a train set and a test set. The train set is used for fitting all models while the test set is used to test the models' generalization capabilities. The average values of these metrics over the 50 species are considered. Additionally, another metric called Test A10%DQ is mentioned, although not explicitly defined within the given context.

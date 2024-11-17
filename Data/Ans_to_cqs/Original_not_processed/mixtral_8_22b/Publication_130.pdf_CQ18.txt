@@ -1,0 +1,133 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+|  1075
+
+F I G U R E   1  Example of the set-up of 
+the automated collection of training data 
+in the wild and in captivity. (a) Pi camera 
+(circled in red) positioned to record the 
+back of the birds. (b) Example of a picture 
+in the sociable weaver training data. 
+(c) Example of a picture in the great tit 
+training data. (d) Example of a picture in 
+the zebra finch training data
+
+which  had  a  Pi  camera  (we  used  Pi  camera  V1  5mp  and  V2  8mp). 
+
+applying an image classification algorithm in other contexts. For the 
+
+When the RFID data logger detected a bird, it sent the individual's 
+
+sociable weaver population, we collected images for 15 days during 
+
+PIT-tag  code  to  the  Raspberry  Pi,  which  was  programmed  to  then 
+
+November and December 2018. For the great tit population, we col-
+
+take a picture. Because birds often spend some time on the feeder, 
+
+lected images over 7 days during the last 2 weeks of August 2019.
+
+be frozen in order to mitigate overfitting, this is especially important 
+
+is  oversampling,  which  consists  of  creating  copies  of  the  training 
+
+when the training datasets are small. However, as freezing the layers 
+
+data from the less sampled classes.
+
+prevent them from update their weights during the training process 
+
+We applied limited oversampling to our training dataset only. For 
+
+(and therefore could prevent the model from learning key features 
+
+nine sociable weavers and six great tits for which we did not have 
+
+for performing the classification task) and considering the size of our 
+
+1,000 images, we first selected 100 images for the validation dataset 
+
+training datasets, we decided to train the models without freezing 
+
+and then duplicated (through oversampling) the remaining pictures 
+
+any  of  the  layers  of  the  network.  The  fully  connected  part  of  the 
+
+until 900 images were available for the training dataset (Buda, Maki,
+
+3.1.1 | Sociable weavers
+
+3.1.3 | Zebra finches
+
+The  model  reached  87.0%  accuracy  after  training  for  11  epochs  
+
+(c. 150 min), and obtained similar accuracies for males and females 
+
+(85% for males, 88.9% for females). When using the trained model to 
+
+predict the identity of the birds when they were in small groups the 
+
+The model was able to achieve an accuracy of 92.4% (Table 1) after 
+
+model correctly predicted the identity of a bird present in that group 
+
+training for 21 epochs (c. 360 min of training). When the model was 
+
+in 93.6% of the time.
+
+used to predict the identity in four other contexts, it appears that the 
+
+accuracy of top perspective's context was lower (67.5% for the plate 
+
+top Table 1). After adding blur and noise to the training images, the 
+
+3.2 | New birds
+
+model  achieved  a  validation  accuracy  of  90.3%,  while  successfully 
+
+increasing the accuracy from the top perspective to 91.6% (Table 1).
+
+classes (in our case, different individuals). The validation dataset is 
+
+(Dutta & Zisserman, 2019). Since manually labelling the regions of 
+
+an independent set of samples that is used to compute the accuracy 
+
+interest is time-consuming, we started by training the model for 10 
+
+and loss (estimation of the error during training) of the model. This 
+
+epochs (i.e. passing the entire dataset through the neural network 
+
+validation dataset is used to assess the learning progress of the neu-
+
+10  times)  with  200  manually  labelled  pictures.  If  the  model  was 
+
+ral network. As the network never trains on or sees the validation 
+
+found to perform badly, additional pictures were manually labelled 
+
+data, this validation dataset can indicate if the model is overfitting 
+
+and added to the training dataset. This process was repeated until 
+
+the training data and not learning features that are key for recogniz-
+
+a  satisfactory  performance  was  achieved.  For  the  great  tits,  we
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: The strategy implemented to monitor the model performance during training involves the use of a validation dataset. This dataset is an independent set of samples that is used to compute the accuracy and loss (estimation of the error during training) of the model. The validation dataset is used to assess the learning progress of the neural network. It indicates whether the model is overfitting the training data and not learning features that are key for recognition tasks. In this study, the authors initially trained the model for 10 epochs (passing the entire dataset through the neural network 10 times) with 200 manually labeled pictures. If the model performed poorly, additional pictures were manually labeled and added to the training dataset. This process was repeated until a satisfactory performance was achieved.

@@ -1,0 +1,35 @@
+In the provided context, the data splitting criteria for deep learning model training involve creating two datasets: a training set and a validation set. The training set is used to train the model, and the validation set is used to validate the model's performance.
+
+The training set is created by filtering the data based on keywords, and then storing the corresponding images in a directory named 'train'. This is done using the following code:
+```r
+# training dataset
+pix_train <- labels %>%
+  group_by(Keywords) %>%
+  filter(between(row_number(), floor(n()*20/100) + 1, n()))
+
+# create dir train/ and copy pix there, organised by categories
+dir.create('pix/train') # create training directory
+for (i in levels(fct_drop(pix_train$Keywords))) dir.create(paste0('pix/train/',i)) # create dir for labels
+for (i in 1:nrow(pix_train)){
+  file.copy(as.character(pix_train$SourceFile[i]),
+           paste0('pix/train/', as.character(pix_train$Keywords[i]))) # copy pix in corresp dir
+}
+```
+The validation set is created by filtering the data based on keywords, and then storing the corresponding images in a directory named 'valid'. This is done using the following code:
+```r
+# validation dataset
+pix_valid <- labels %>%
+  group_by(Keywords) %>%
+  filter(between(row_number(), floor(n()*80/100) + 1, n()))
+
+# create dir valid/ and copy pix there, organised by categories.
+dir.create('pix/valid') # create validation dir
+for (i in levels(fct_drop(pix_train$Keywords))) dir.create(paste0('pix/valid/',i)) # create dir for labels
+for (i in 1:nrow(pix_valid)){
+  file.copy(as.character(pix_valid$SourceFile[i]),
+           paste0('pix/valid/', as.character(pix_valid$Keywords[i]))) # copy pix in corresp dir
+}
+```
+The data splitting criteria used here involve filtering the data based on row numbers, where the training set includes the first 20% of the rows, and the validation set includes the remaining 80% of the rows. This is done using the `filter` function in combination with the `between` function, which filters the data based on whether the row number falls within a specified range.
+
+In summary, the data is split for deep learning model training by creating a training set and a validation set, where the training set includes the first 20% of the rows and the validation set includes the remaining 80% of the rows. The corresponding images are then stored in directories named 'train' and 'valid', respectively, and organized by categories based on keywords.

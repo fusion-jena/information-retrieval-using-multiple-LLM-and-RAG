@@ -1,0 +1,174 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 3. CNN Architecture.
+
+No.
+
+Layers
+
+Output Shape
+
+Parameters
+
+Dropout Rate
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+
+Input
+Convolutional
+Activation (ReLu)
+MaxPooling
+Convolutional
+Activation (ReLu)
+MaxPooling
+Convolutional
+Activation (ReLu)
+MaxPooling
+Dropout
+Flatten
+Fully Connected
+Activation (ReLu)
+Fully Connected
+Activation (softmax)
+
+128 × 128 × 3
+128 × 128 × 32
+—
+64 × 64 × 32
+64 × 64 × 32
+—
+32 × 32 × 32
+32 × 32 × 64
+—
+16 × 16 × 64
+16 × 16 × 64
+16,384
+64
+—
+4
+—
+
+—
+896
+—
+—
+9248
+—
+—
+18,496
+—
+—
+—
+—
+1,048,640
+—
+—
+260
+
+—
+—
+—
+—
+—
+—
+—
+—
+—
+—
+0.4
+—
+—
+—
+—
+—
+
+4.2.1. Data Augmentation
+
+except for the ﬁrst and last modules. The FC layer is replaced with a global average
+POOL layer and the default input size is 299 × 299 × 3 [25].
+DenseNet121: Huang et al. (2017) proposed the architecture of the DenseNet121 model,
+another CNN-based architecture trained on the ImageNet dataset. DenseNet121 is
+composed of 5 dense blocks. The ﬁrst block consists of a convolution layer with
+a 7 × 7 ﬁlter and stride of 2 and a MaxPooling layer with a 3 × 3 max ﬁlter and
+stride of 2. The remaining blocks consist of BatchNormalization, the ReLU activation
+function, and two CONV layers with 1 × 1 and 3 × 3 ﬁlters. A transition layer follows
+each block except for the last, which instead is followed by a classiﬁcation layer. In
+DenseNet121, all previous feature-maps are used as input in each layer. The default
+input size is 224 × 224 × 3 [26].
+
+9730
+8440
+9124
+10,480
+
+The considered dataset is further divided into three datasets, resulting in 22,666 images
+for training the model (training set), 7554 images for validating the trained model (valida-
+tion set), and 7554 images for assessing the model performance (testing set).
+
+To obtain this dataset, a semantic segmentation is conducted using our previous
+works [51–53]. The four classes—namely, urban, bare soil, vegetation and road—are
+extracted from the satellite images, meaning that the resulting images each contain both
+the real value of pixels of the extracted class and zero for the values of the other classes.
+Then, each image containing a given class is divided into non-overlapping blocks of
+256 × 256 pixels and saved into folders, each with the name of the corresponding class. A
+sample of this dataset is depicted in Figure 4, wherein the white represents a given land
+cover class and the black represents the values of other classes.
+
+5.2. Experimental Set-Up
+
+Here the CNN was trained on encrypted data and passed through a stack of three
+convolution layers with 32 ﬁlters for the ﬁrst and the second convolution and then 64 layers
+for the third convolution. The max-pooling layers that subsample the image by ﬁlters
+of 2 × 2 were placed after each convolution layer with 32, 32 and 64 ﬁlters, sequentially.
+The last two fully connected layers were loaded with 64 and 4 nodes sequentially, and the
+ReLu activation functions were utilized throughout the network, except for the last layer.
+For regularization, the dropout layer was utilized after the last pooling layer to prevent
+overﬁtting. A ﬂattening layer was placed after the dropout layer and before the ﬁrst fully
+connected layers in order to adjust the whole pooled feature map into one column. A
+
+Remote Sens. 2021, 13, 2221
+
+12 of 26
+
+Softmax activation function was placed in the last fully connected layer (output layer) to
+provide a class prediction.
+
+Table 3. CNN Architecture.
+
+No.
+
+Layers
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The paper does not explicitly mention the use of standard datasets such as MNIST, CIFAR, or ImageNet. Instead, it uses a custom dataset derived from satellite imagery. This dataset is created by performing semantic segmentation on the satellite images to extract four classes: urban, bare soil, vegetation, and road. Each image containing a specific class is then divided into non-overlapping blocks of 256 x 256 pixels and saved into separate folders named according to their respective classes.
+
+The dataset is further divided into three sets: a training set consisting of 22,666 images, a validation set comprising 7,554 images, and a testing set also containing 7,554 images. However, the source of these satellite images is not mentioned in the provided context.

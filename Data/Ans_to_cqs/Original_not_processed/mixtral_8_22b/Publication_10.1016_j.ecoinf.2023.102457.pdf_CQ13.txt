@@ -1,0 +1,51 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The second approach we used to extract embeddings was from the 
+pre-trained  BirdNET  model.  The  original  version  of  the  model  was
+
+We expected higher performance of the embeddings, but a possible 
+limitation to our study may be the use of pre-trained CNNs. This may 
+have limited the potential performance of using embedding from neural 
+networks.  Interestingly,  higher  classification  accuracy was  seen  when 
+using  BirdNET,  a  CNN  trained  on  audio  data  of  bird  vocalizations  in 
+comparison  with  VGGish  and  Wav2Vec  2.0,  two  models  trained 
+respectively on a vast Youtube audio dataset and a human speech audio 
+dataset. This suggests that training a model with data input of gibbon 
+vocalizations might result in an even better performance of neural net-
+works for individual gibbon discrimination. However, such data training 
+requires a large dataset and is very computationally costly, hence why 
+we chose to test pre-trained CNNs.
+
+of length 2048. Model and code was run in Python version 3.10 based on 
+the code and methods presented in: https://github.com/kahst/BirdNET 
+-Analyzer.
+
+capable of identifying 984 North American and European bird species by 
+sound (Kahl et al., 2021). BirdNET was trained using a dataset derived 
+from  three  primary  sources:  eBird,  Xeno-canto,  and  the  Macaulay  Li-
+brary  of  Natural  Sounds.  We  used  BirdNET  version  2.4  which  was 
+trained on over 6000 bird and non-bird species (https://github.com/kah 
+st/BirdNET-Analyzer). The task-specific model architecture of BirdNET 
+was derived from the family of residual networks (ResNets) (Kiyokawa 
+et al., 2019), that consists of 157 layers with >27 million parameters, 
+and was trained using extensive data pre-processing, augmentation, and 
+mixup. BirdNET creates a mel-scale spectrogram between 150 Hz and 
+15 kHz and returns 1024 embeddings per 3-s of audio sample. As with 
+the VGGish model, we took the mean and standard deviation for em-
+beddings over the entire duration of the call, resulting in a feature vector
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, the given context does not provide specific information about the hyperparameters used in the BirdNET deep learning model, such as the learning rate or the type of optimizer employed. It only mentions that the model was trained using extensive data pre-processing, augmentation, and mixup techniques. Additionally, it specifies that the model architecture is derived from the ResNet family and has 157 layers with more than 27 million parameters. To find out the exact hyperparameters used during the training process, one would need access to the source code or additional documentation related to the development of the BirdNET model.

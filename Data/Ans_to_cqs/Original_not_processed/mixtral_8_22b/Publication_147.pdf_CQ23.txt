@@ -1,0 +1,93 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 3. Model validation statistics (overall accuracy, Kappa statistic, and mean F1-score) of the CNN
+and XGB models for the two independent validation data sets.
+
+Validation Data
+
+Model
+
+Overall Accuracy (%)
+
+Kappa Statistic
+
+Mean F1-Score
+
+ABMI plots
+ABMI plots
+
+CCMEO
+CCMEO
+
+CNN
+XGB
+
+CNN
+XGB
+
+81.3
+75.6
+
+80.3
+72.1
+
+0.57
+0.49
+
+0.52
+0.41
+
+0.56
+0.52
+
+0.59
+0.52
+
+The per-class F1-scores for the ABMI and CCMEO data are seen in Figure 3 (blue showing the
+F1-score for the CNN model and orange the F1-score for the XGB model). The open water class shows
+
+Remote Sens. 2020, 12, 2
+
+10 of 20
+
+region. The insets zoom in on important wetland landscapes in the Boreal region. Top-left: Zama Lake wetland area; bottom-right: Utikuma Lake; top-right: The Peace Athabasca Delta; and bottom-right: the McClelland Lake fen/wetland complex. 4. Discussion 381 This study produced two large-scale wetland inventory products using a fusion of open-access 382 satellite data, and machine learning methods. The two machine learning approaches that were 383 compared—convolutional neural networks and XGBoost—demonstrate a decent ability to predict 384 wetland classes and upland habitat across a large region. Some wetland classes, such as bog and 385 swamp, proved to be much harder to map. This is made clear in the relative F1-scores of the wetland 386 classes (Figure 3). In the comparisons to the photo-interpretation validation data sets (Table 3), it is 387 clear that the CNN model outperforms the XGB model in terms of overall accuracy, Kappa statistic, 388 and per-class F1-score. As expected,
+
+5. Conclusions
+
+The goal of this study was to compare shallow learning (XGB) and deep learning (CNN) methods
+for the production of a large-scale spatial wetland classiﬁcation. We encourage readers to view both
+products via this link: https://abmigc.users.earthengine.app/view/cnn-xgb, and one of the products
+can be downloaded via this link: https://bit.ly/2X3Ao6N. A comparison of the two products to
+photo-interpreted validation data showed that CNN products outperform the shallow learning (XGB)
+product in terms of accuracy by about 5–8%. The CNN product achieved an average overall accuracy
+of 80.8% with a mean F1-score of 0.58. When compared to a small data set (n = 22) of ﬁeld data, the
+results were inconclusive and both data sets showed little ability to distinguish between fen and bogs.
+This ﬁnding could just be due to the small, spatially constrained data or it could highlight the mismatch
+between on the ground conditions and large-scale landcover classiﬁcations.
+
+The shallow learning classiﬁcation model was done with the XGBoost algorithm [75]. XGBoost
+was used since it has been shown to be one of the better performing shallow learning models in
+machine learning competitions [1], although it has limited use in remote sensing literature. It has been
+the most popular shallow learning algorithm in Kaggle competitions since 2014 [1]. Early work on this
+project showed XGB models slightly out performing random forest and boosted regression tree models.
+We used the xgboost package [75] in R Statistical software [76]. The inputs into the XGBoost model
+were: Anthocyanin Reﬂectance Index (ARI), delta Normalized Diﬀerence Vegetation Index fall–spring
+(dNDVI), POLr, Red Edge Inﬂection Point (REIP), Topographic Position Index (TPI), Topographic
+Wetness Index (TWI), Multi Resolution Index of Valley Bottom Flatness (VBF), VH, dVH (Table 1).
+These inputs were the indices shown to be important for wetland class mapping, while also having low
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of the deep learning model, several measures were taken. Firstly, the study utilized a diverse dataset consisting of two independent validation datasets - ABMI plots and CCMEO. These datasets likely contained various types of wetlands and uplands, which helped improve the robustness of the model. Secondly, the study employed two different machine learning approaches - convolutional neural networks (CNN) and XGBoost (XGB) - to predict wetland classes and upland habitats across a large region. Comparing these two approaches allowed for a more comprehensive evaluation of their performance and generalizability. Lastly, the study performed model validation using multiple statistical metrics, including overall accuracy, Kappa statistic, and mean F1-score. By evaluating the model based on these metrics, the researchers could assess its performance and reliability across different scenarios. However, the specific details regarding cross-validation or stratified splitting techniques used in this study are not explicitly mentioned in the given context.

@@ -1,0 +1,168 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 3 
+Mean performance metrics for each experimental batch size, with standard error, for the entire test set.  
+
+Batch size 
+
+Sound source 
+
+Precision 
+
+Recall 
+
+F1 Score 
+
+Mean AUC (Roc curve) 
+
+Base Model (BM) 
+
+50 Frames 
+
+100 Frames 
+
+200 Frames 
+
+300 Frames 
+
+500 Frames 
+
+Ambient Only 
+
+Ambient 
+Clicks 
+Delphinid 
+Vessel 
+Ambient 
+Clicks 
+Delphinid 
+Vessel 
+Ambient 
+Clicks 
+Delphinid 
+Vessel 
+Ambient 
+Clicks 
+Delphinid 
+Vessel 
+Ambient 
+Clicks 
+Delphinid 
+Vessel 
+Ambient 
+Clicks 
+Delphinid 
+Vessel 
+Ambient 
+Clicks 
+Delphinid 
+Vessel 
+
+0.49 
+0.65 
+0.55 
+0.73 
+0.89 
+0.58 
+0.59 
+0.78 
+0.88 
+0.48 
+0.35 
+0.85 
+0.89 
+0.54 
+0.23 
+0.83 
+0.89 
+0.53 
+0.34 
+0.86 
+0.91 
+0.66 
+0.77 
+0.79 
+0.90 
+0.50 
+0.60 
+0.90 
+
+– 
+– 
+– 
+– 
+±0.00 
+±0.01 
+±0.02 
+±0.05 
+±0.01 
+±0.04 
+±0.06 
+±0.02 
+±0.00 
+±0.02 
+±0.07 
+±0.03 
+±0.00 
+±0.04 
+±0.10 
+±0.00 
+±0.01 
+±0.05 
+±0.03 
+±0.03 
+– 
+– 
+– 
+–
+
+2.2. Model fine-tuning 
+
+To  fine-tune  the  base  model  with  Gulf  of  Mexico  data  the  feature 
+extractor remains frozen. Models are trained with the same parameters 
+as the base model but we use a cyclical learning rate of 0.0004 and is set 
+to run for 50 epochs, with early stopping set to deploy if the validation 
+loss does not improve within 10 epochs. A dropout rate of 0.2 is used 
+during  fine-tuning,  and  DropConnect  is  employed.  Drop  out  layers 
+randomly  discard  the  output  of  the  hidden  nodes  during  training, 
+DropConnect randomly discards the input of the hidden layer (Sun et al., 
+2022). 
+
+2.2.1. Data acquisition
+
+acoustic environments. Lauha et al. (2022) describe how large global 
+models can benefit from fine-tuning (re-training) on local data, collected 
+in the same acoustic environment the model is to be used in. Fine-tuning 
+allows the model to generalise to the specific habitat it is to be used in. 
+Learning the feature representation of the local soundscape can increase 
+the confidence we have in model output.
+
+monic buzzing tonal call (see Supplementary fig. 1). This buzzing call 
+occurs at high frequencies, occupying a similar spatial region within the 
+spectrogram as the biological click class. Model predictions across the 
+test set are mixed with respect to this signal type. After 500 frames of 
+fine-tuning the model still found difficulty detecting high SNR signals, 
+illustrated by the results of Day D (Supplementary fig. 1). The random 
+pooling used to curate each training set allows for the possibility that 
+scarce or novel signals are not included, resulting in a large degree of 
+error between model runs with small batch sizes. CNNs are robust to 
+signal fluctuations but for unique and complex signal types found within 
+the new environment it is critical that efforts are taken to label a pool of 
+frames representative of the specific signal under various local condi-
+tions,  for  optimum  model  performance.  Knowledge  of  the  long-term
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the optimization method used for selecting the hyperparameters of the model. However, based on the given details, we can infer that some form of parameter tuning was performed. For instance, the model uses a cyclical learning rate of 0.0004 and is set to train for 50 epochs, with early stopping deployed if the validation loss doesn't improve within 10 epochs. Additionally, a dropout rate of 0.2 is applied during fine-tuning, along with DropConnect. These choices suggest that some level of experimentation or optimization took place when determining these values. Nevertheless, without further information, it cannot be definitively stated whether methods such as grid search or random search were utilized for hyperparameter optimization.

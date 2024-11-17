@@ -1,0 +1,100 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We collected the FishInTurbidWater dataset and quickly and weakly 
+labeled  it  to  contribute  to  the  first  weakly-supervised  fish  dataset  in 
+turbid  waters.  We,  then  used  this  dataset  to  develop  two  novel  deep 
+learning networks, one using semi-supervised contrastive learning for 
+significantly  accelerated  model  deployment  time,  and  one  weakly- 
+supervised  model  to  shorten  deployment  time,  while  providing  high 
+accuracy. 
+
+For  semi-supervised  contrastive  learning,  we  first  trained  a  self- 
+supervised  contrastive  learning  model  and  then  fine-tuned  it  on  our
+
+weakly  labeled  dataset.  This  semi-,  weakly-supervised  approach  re-
+quires only a small portion of our weakly labeled dataset, which makes 
+the  development  cycle  from  data  labeling  to  final  model  inferencing 
+very fast (i.e., 4 h) while producing a relatively high accuracy of 89%. 
+For  the  ensembling  approach,  we  first  trained  two  state-of-the-art 
+DNNs on ImageNet. We then performed transfer learning of these two 
+DNNs  on  our  weakly  labeled  dataset.  This  generated  two  weakly- 
+supervised  DNNs,  which  we  ensembled using  the  XGBoost  technique. 
+This novel ensemble technique significantly improves the overall accu-
+racy compared to the two weakly-supervised individual DNNs.
+
+2.3. Weakly-supervised DNN ensemble 
+
+A second approach to counteract the problem of limited labeled data 
+availability is to combine weak supervision (Laradji et al., 2021) and 
+transfer learning. Transfer learning is a technique that provides an op-
+portunity to ensure that we make the best use of available labeled data. 
+For instance, in this work, we have used the open-source fully-labeled 
+ImageNet dataset to pre-train two well-known DNNs, i.e., EfficientNet 
+(Tan and Le, 2019) and ViT (Dosovitskiy et al., 2020), with a great ca-
+pacity  for  image  classification,  while  requiring  fewer  computational 
+resources compared to other DNNs. ImageNet is a huge visual dataset 
+with fourteen million images, designed for object recognition tasks (Lab, 
+2023). This free dataset has been hand-annotated with bounding boxes 
+to indicate what objects are present and where in the images.
+
+Labeling Time 
+Training Time 
+Turnaround 
+
+Time 
+Accuracy 
+
+Very Short 
+1.0 h 
+
+4 h 
+
+89.4% 
+
+Short 
+6.9 h 
+
+22 h 
+
+94.0% 
+
+Very Long 
+~3.5 h 
+
+94 h 
+
+98%  
+
+4. Discussions 
+
+The  development  of  deep  learning  methodologies  continues  to 
+advance at an astonishing rate and be applied to various applications 
+ranging from biomedical (Azghadi et al., 2020), hydrological processes 
+in river channels (Talukdar et al., 2023) and agricultural (Olsen et al., 
+2019) systems, to marine (Laradji et al., 2021; Saleh et al., 2022b), and 
+environmental (Jahanbakht et al., 2022a) sciences. The application of 
+deep learning technologies has been also used in profiling the ecosystem 
+services of estuarine habitats by community members (Yee et al., 2023). 
+In this paper, we extend the application of deep learning methodologies 
+to advance state-of-the-art underwater fish video processing techniques 
+applied to turbid waters.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Two main datasets were utilized in the deep learning pipeline described in the given text. These include the custom-collected FishInTurbidWater dataset and the widely recognized ImageNet dataset.
+
+The FishInTurbidWater dataset was specifically gathered and weakly labeled to create the first weakly-supervised fish dataset in turbid water environments. This dataset served as the foundation for developing two innovative deep learning networks aimed at reducing model deployment times while maintaining high accuracy levels.
+
+On the other hand, the ImageNet dataset played a crucial role in the transfer learning process. It consists of approximately fourteen million images, meticulously hand-annotated with bounding boxes to identify the presence and location of specific objects within each image. In this study, ImageNet was employed to pre-train two popular deep neural networks (DNNs): EfficientNet and Vision Transformer (ViT). Both models are renowned for their exceptional capacity in image classification tasks, all while demanding fewer computational resources compared to alternative DNNs.

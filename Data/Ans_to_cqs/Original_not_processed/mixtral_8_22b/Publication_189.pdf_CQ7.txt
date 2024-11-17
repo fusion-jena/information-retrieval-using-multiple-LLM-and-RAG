@@ -1,0 +1,94 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+0.0000e+00; 
+
+The  loss  values  for  training  and  validation  dataset  during 
+Mask  R-CNN  training  for  epoch  20  were  obtained  as-  loss: 
+0.8241;  rpn_class_loss:  0.3679; 
+  rpn_bbox_loss:  0.4562; 
+mrcnn_class_loss: 3.1710e-06;  mrcnn_bbox_loss: 0.0000e+00; 
+mrcnn_mask_loss: 
+0.6051; 
+  val_rpn_bbox_loss:  0.1993; 
+val_rpn_class_loss:  0.4057; 
+val_mrcnn_bbox_loss: 
+val_mrcnn_class_loss: 
+0.0000e+00; 
+0.0000e+00,  where 
+training  loss  is  the  sum  of  rpn_class_loss  =  RPN  anchor 
+classifier loss, rpn_bbox_loss = RPN bounding box loss graph, 
+mrcnn_class_loss = loss for the classifier head of Mask R-CNN, 
+mrcnn_bbox_loss  =  loss  for  Mask  R-CNN  bounding  box 
+refinement, mrcnn_mask_loss = mask binary cross-entropy loss  
+
+3.2186e-06; 
+val_mrcnn_mask_loss: 
+
+val_loss: 
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on September 08,2024 at 12:02:05 UTC from IEEE Xplore.  Restrictions apply. 
+
+37
+
+This  system  is  most  compatible  with  tensorflow  version 
+1.14.0 and keras version 2.2.4 along with python 3.6. This model 
+has been implemented on a machine with 1 GPU which uses 1 
+Image per GPU and batch size for mrcnn training is  taken as a 
+product of GPU and Images per GPU. The system used resnet 
+50 and resnet 101 as backbone structures and used anchor boxes 
+of ratio 32, 64, 128, 256, 512. The width and height of images 
+in  this  research  is  fixed,  therefore  [a,640,640,3]  becomes  the 
+image  shape  here  and  [a,640,640,1]  becomes  the  mask  shape 
+where  a  is  the  number  of  training  images  and  true  masked 
+images. For training on Mask R-CNN, 20 epochs with 500 steps 
+each  are  being  used  for  training  images  and  100  steps  for 
+validation images while evaluating the model. The learning rate, 
+ used for heads layer training  has been  taken as 0.001 while 
+during  all  layers  training    decayed  by  10.  For  weight
+
+both  separately  and  give  instance  segmentation  as  output.  So, 
+Mask R-CNN is a combination of Faster R-CNN and FCN [19] 
+models with some advancements where a parallel layer of FCN 
+is added for the mask implementation in the Faster R-CNN head  
+along with some extra convolutional layers on each Region of 
+Interest [20] (RoI). 
+
+A.  Data Collection and Annotation 
+
+The data usually is obtained by using different means like 
+scraping  from  the  web,  downloading  from  other  sources  or 
+buying datasets from re-sellers etc. In the proposed system, the 
+dataset will be created from scratch and annotated for custom 
+training.  To  collect  the  data  images,  a  KaKaXi  fixed  camera 
+shown in Fig. 3 has been used which takes images every hour 
+within a fixed period of time each day. These images then get 
+saved in  a database.
+
+[26]  Chang, Chih-Chung and Chih-Jen Lin. “LIBSVM: A library for support 
+vector machines.” ACM Trans. Intell. Syst. Technol. 2 (2011): 27:1-27:27. 
+[27]  Poojary, Ramaprasad & Raina, Roma & Mondal, Amit Kumar. (2020). 
+Effect  of  data-augmentation  on  fine-tuned  CNN  model  performance. 
+IAES  International  Journal  of  Artificial  Intelligence  (IJ-AI).  10. 
+10.11591/ijai.v10.i1.pp84-92. 
+
+[28]  IKKAKU Project-https://ikkaku.lne.st/en/vision/ 
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on September 08,2024 at 12:02:05 UTC from IEEE Xplore.  Restrictions apply. 
+
+38
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, there isn't any explicit mention of how the data was split into training, testing, and validation sets for the deep learning model. However, it can be inferred that the data was divided into these subsets based on common practices in machine learning and deep learning. Typically, the dataset is randomly partitioned into three parts: training set, validation set, and test set. The training set is used to fit the parameters of the model, the validation set is used to tune hyperparameters and prevent overfitting, and the test set is used to evaluate the final performance of the model. The exact proportions of the splits may vary depending on the specific application and the amount of available data. Common ratios include 70% training, 15% validation, and 15% testing, or 80% training, 10% validation, and 10% testing. In the case of the Mask R-CNN training mentioned in the context, it appears that separate datasets were used for training and validation, but no information about a test set is provided.

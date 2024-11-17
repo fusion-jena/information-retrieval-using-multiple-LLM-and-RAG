@@ -1,0 +1,81 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+D. Model Training
+
+Feature Extraction: The hardware to train the model included
+a Lenovo laptop equipped with an 8265U CPU at 1.80 GHz
+of Intel Core i5, 8 GB of RAM running on a Windows 10 64-
+bit system. The software tools included Annaconda3 Jupyter
+Notebook with Python 3.8, where the Tensorﬂow, OpenCV-
+python3 [37] and Keras [38] libraries were used. The dataset
+was divided in a ratio of 75:25 into a training set of 5789
+images and a test set of 1930 images. To obtain the pre-
+trained weight parameters, we built the base models from the
+MobileNetV2, MobileNetV3-Large and MobileNetV3-Small
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on August 29,2024 at 05:51:17 UTC from IEEE Xplore.  Restrictions apply.
+
+models, pre-trained on 1.4M images from 1000 classes. First,
+the intermediate layer of all the models was selected to use
+for feature extraction. For this purpose, the output of the last
+layer (bottleneck layer) is commonly used prior to the ﬂatten
+operation. The reason is that all the fully connected layers
+are specialized to the task network was trained on; thus, the
+features learned by these layers will not be useful for the new
+task. The bottleneck features are more generic. Therefore, the
+base models were frozen, loaded with weights trained on the
+ImageNet dataset and used as a feature extractor. We added
+a dropout layer with a dropout rate of 0.2 to reduce the
+overﬁtting of the model. Finally, the top classiﬁer softmax
+layer was added for predicting the class for an input image.
+The model with the base model of MobileNetV2 was compiled
+and optimized with Adam optimizer. The other with the base
+model of MobileNetV3 were optimized with Gradient descent
+
+CNN comes with the disadvantages of a huge number
+of labelled training samples requirement for weighting pa-
+rameters and powerful GPUs for a faster learning process.
+With limited training samples, learning too many parameters
+directly will result in overﬁtting even after using over-ﬁtting
+prevention techniques such as Dropout [7]. Overﬁtting of a
+machine learning model includes more terms and uses more
+complicated approaches than necessary [8]. To make deep
+CNN ﬁt for small datasets while keeping high accuracy is
+a challenge. To overcome this challenge, transfer learning [9]
+offers the solution, which implies reusing previously attained
+knowledge in similar tasks. Some studies analyzed the use
+of transfer learning for many deep learning algorithms. These
+evaluations [10] concluded that transfer learning improves the
+accuracy of deep learning models, which apply deep features
+and ﬁne-tuning.
+
+gained momentum to determine tree species. Compared to
+DNA technologies, computer vision methods are non-intrusive,
+which mainly use machine learning algorithms. Many machine
+learning methods for tree species classiﬁcation, such as deep
+learning models, e.g. Convolutional Neural Networks (CNN),
+have been applied to different datasets. The primary advantage
+of CNN for image classiﬁcation is that the entire system is
+trained completely automatically from raw pixels of images to
+eventual categories. These images are acquired using remote
+sensing or handheld devices and processed by powerful Cloud-
+based machine learning algorithms. We aim at tree species
+identiﬁcation using a CNN-based lightweight model, which
+could embed within a handheld device resolving computation,
+battery and network constraints.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it can be inferred that the data format used in the deep learning pipeline is images. This is evident from several references made throughout the text. For instance, the dataset is mentioned to consist of 5789 images for training and 1930 images for testing. Furthermore, the context discusses the use of pre-trained models like MobileNetV2, MobileNetV3-Large, and MobileNetV3-Small, which are known to work primarily with image data. Additionally, the mention of using OpenCV-python3 library further supports this inference, as OpenCV is typically used for working with images and videos. However, there is no explicit mention of any other data formats like audio, video, or CSV being used in the deep learning pipeline.

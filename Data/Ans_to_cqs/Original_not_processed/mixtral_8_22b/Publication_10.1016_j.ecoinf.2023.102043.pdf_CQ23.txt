@@ -1,0 +1,135 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Farm 
+
+A 
+B 
+C 
+D 
+Total 
+
+# Annotated Events 
+
+# Audio Files 
+
+Duration (h) 
+
+1046 
+791 
+961 
+2171 
+4969 
+
+3,468,415 
+2,939,211 
+1,662,819 
+1,920,752 
+9,991,197 
+
+~ 10,527.82 
+~ 12,519.97 
+~ 5036.06 
+~ 6172.18 
+~ 34,256.03  
+
+Therefore, the recording campaign was planned to last an entire year so 
+as  to  capture  the  variations  that  goat  vocalizations  demonstrate 
+throughout  the  year.  Overall,  we  have  collected  approximately  10  M 
+sound  events  lasting  more  than  34,000  h.  Fig.  7  illustrates  the  data 
+distribution per farm in terms of number of audio files, annotations and 
+durations.
+
+model for extracting the embeddings. 
+
+These are pulled from YAMNet and then fed as input to a sequential 
+and  a  reduce  mean  layer  mapping  to  the  classes  mentioned  above 
+(Ntalampiras et al., 2021). At this point, the final layers of the network 
+map the YAMNet embeddings to the available labels as shown in Fig. 5. 
+
+3.3. Results on goat vocalization detection 
+
+The  dataset  presented  in  Section  3.2  was  divided  into  70%  for 
+training, 10% for validation, and 20% for testing purposes. The division 
+was  kept  the  same  when  experimenting  with  RF  and  YAMNet-based 
+
+3  The 
+
+librosa  python  package  available  at  https://librosa. 
+
+org/doc/latest/index.html was employed at this stage 
+
+Fig. 3. A close-up picture of a Sensortile.
+
+EcologicalInformatics75(2023)1020437AnnotationsFarm A: 21%Farm B: 16%Farm C: 19%Farm D: 44%FilesFarm A: 35%Farm B: 29%Farm C: 17%Farm D: 19%DurationsFarm A: 31%Farm B: 37%Farm C: 15%Farm D: 18%S. Ntalampiras et al.                                                                                                                                                                                                                           
+
+table); it is reconstructed based on the start times and durations of both 
+entities. A particular scenario is that of event instances whose duration is 
+very short (impulsive events, duration d ≈ 0s) or impossible to detect 
+(unknown events, duration d = (cid:0) 1). In these cases, the event is auto-
+matically associated with all the audio files that cover its start time.
+
+2  https://www.st. 
+
+com/en/evaluation-tools/steval-stlkt01v1.html 
+
+audio samples in the queue has been completed. 
+
+The threshold τ is constantly updated to be adapted to the environ-
+ment’s loudness. In particular, the threshold is set to an initial value τ0, 
+then the threshold τn at time n is so computed: 
+
+(
+
+τn =
+
+τn(cid:0) 1 + λ+(e (cid:0) τn(cid:0) 1),
+τn(cid:0) 1 + λ(cid:0) (e (cid:0) τn(cid:0) 1),
+
+if e > τn(cid:0) 1
+otherwise
+
+,
+
+⎛
+
+⎝
+
+τmin,
+τmax,
+τn,
+
+τn←
+
+if τn < τmin
+if τn > τmax
+otherwise
+
+,
+
+(1a)  
+
+(1b)  
+
+(cid:0) 6  and λ(cid:0) = 1 × 10
+
+where λ+ = 8 × 10
+(cid:0) 5  control the influence of the 
+envelope e on the threshold increase and decrease, respectively. Then, in 
+Eq. (1b) the threshold is limited by upper and lower bounds τmin  and 
+τmax, respectively.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of the deep learning model, several measures were taken. Firstly, the dataset used for training, validating, and testing the model was diverse, consisting of recordings from four different farms (A, B, C, and D). This diversity helped to prevent overfitting and improve the model's ability to perform well on unseen data. Secondly, the dataset was split into three parts: 70% for training, 10% for validation, and 20% for testing. This approach allowed for proper evaluation of the model's performance during training and prevented any potential bias towards specific subsets of the data. Lastly, the use of stratified splitting ensured that each subset maintained the original class distribution, further improving the model's robustness and generalizability.

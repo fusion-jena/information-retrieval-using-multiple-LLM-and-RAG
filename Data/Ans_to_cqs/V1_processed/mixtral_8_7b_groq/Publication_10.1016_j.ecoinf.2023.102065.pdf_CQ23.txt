@@ -1,0 +1,11 @@
+The generalizability of the deep learning model was addressed through several measures. First, the model was trained on a limited dataset, but the network sizes were explored in conjunction with pre-training using additional acoustic reference data from outside of the audio domain. This allowed the model to learn a wider range of features before fine-tuning with ROI data from the study site.
+
+Second, to fine-tune the CNN models, the researchers randomly sampled ROIs per species with "presence" to form a held-out test set for accuracy assessment. The remaining ROIs with species presence were used to fine-tune the CNN models. To create a validation set, they randomly sampled 100 of these ROIs per species, and the remaining formed a training set. This approach ensures that the model is trained and validated on a diverse set of data points, reducing overfitting and improving generalizability.
+
+Third, the researchers expanded the start/stop of ROIs that were less than 2 seconds in duration to total 2 seconds, and combined different vocalizations for a given species into a single class per species. This approach helped the model to learn the variability in vocalizations within a species, further improving generalizability.
+
+Fourth, the researchers placed any ROIs that were overlapping in time from different pattern-matching runs for a given species in the training set to avoid temporal autocorrelation in the validation and test data. This step helps to ensure that the model's predictions are not influenced by the temporal proximity of the training data.
+
+Finally, the researchers noted that using a separate set of sample data from the same dataset as the training/validation data (i.e., ROIs) greatly overestimates the performance of CNN models. This suggests that the researchers were aware of the potential for overfitting and took steps to avoid it.
+
+In summary, the researchers took several measures to ensure the generalizability of the deep learning model, including exploring network sizes, pre-training with additional data, random sampling of ROIs for training, validation, and testing, accounting for temporal autocorrelation, and combining different vocalizations for a given species.

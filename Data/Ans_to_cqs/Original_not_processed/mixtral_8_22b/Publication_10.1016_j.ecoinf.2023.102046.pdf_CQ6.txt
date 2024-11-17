@@ -1,0 +1,77 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+ResNet-50 is a convolutional neural network model that uses skip 
+connections,  which  made  it  possible  to  get  good  performance  with 
+deeper models than was previously possible (He et al., 2015). Training 
+deep neural networks can result in exploding gradients, and skip con-
+nections  were  introduced  to  ameliorate  that  problem.  ResNet-50  was 
+chosen  for  comparison  as  it  is  a  proven  CV  classification  model.  It  is 
+commonly used and provides a well-performing baseline. 
+
+Inception-V3  is  a  convolutional  neural  network  used  for  image 
+classification, that has an auxiliary classifier that acts as a regularizer 
+(Szegedy et al., 2015b). The Inception-V3 architecture is built on pre-
+vious Inception models, with the aim of making the V3 computationally
+
+The Inception-V3 model accepts images resized to (299, 299) pixels 
+but ViT and ResNet resize to (224, 224) pixels. Dataset imbalance was 
+dealt with by including class weights in the cross-entropy loss function. 
+For the training we used AdamW optimizer for Hugging Face models, 
+which is the default optimizer in the transformers library by Hugging-
+Face. For Inception-V3, we used Adam since that was the optimizer used 
+in  previous  work  (and  AdamW  is  not  available  in  Keras).  We  used  a 
+(cid:0) 4  for 
+batch  size  of  16  examples  and  the  learning  rate  was  set  to  10
+(cid:0) 5  for  Vanilla  Inception-V3  and  ViT.  For  Deep  Otolith 
+ResNet  but  10
+(cid:0) 4 as suggested by Politikos 
+Inception we used a learning rate of 4 × 10
+et  al.  (2021).  For  every  fine-tuning  experiment,  the  model  with  the 
+
+smallest validation loss was used for evaluation on the test set. 
+
+2.3. Performance
+
+For fine-tuning, we used the HuggingFace implementations of ViT 
+(“google/vit-hugepatch14–224-in21k”) and ResNet (“microsoft/resnet- 
+50”)  but  the  Keras  implementation  of  Inception-V3.  All  fine-tuning 
+models  had  been  pre-trained  on  the  ImageNet  (Deng  et  al.,  2009) 
+dataset. 
+
+We replaced the classifier head on all models so that it received the 
+output of the models along with the additional parameters, quarters and 
+length. We also tried adding additional dropout and dense layers at the 
+end of the Inception model as for the DeepOtolith model Politikos et al. 
+(2021). To differentiate we use Deep Otolith Inception-V3 for the model 
+
+EcologicalInformatics76(2023)1020463A.R. Sigurðard´ottir et al.
+
+For  few-shot  learning,  CLIP  (Contrastive  Language  Image  Pre- 
+training)  is  a  combination  of  two  transformer  models  that  was 
+recently introduced. It consists of a text encoder and an image encoder, 
+and is trained using contrastive learning to allow the image encoder to 
+learn  visual  concepts  through  natural  language  supervision  (Radford 
+et al., 2021). The image encoder maps an image to a vector that can be 
+considered a robust semantic feature representation of the image, which 
+can transfer to diverse tasks and often perform competitively with fully 
+supervised baselines in a zero-shot fashion, without the need for fine- 
+tuning.  CLIP  was  trained  on  400  million  images  from  the  web  along 
+with their captions. While these models have shown impressive perfor-
+mance, they are not perfect and have, for example, shown limited zero- 
+shot  performance  in  detecting  tumors  on  x-ray  images.  We  aim  to
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model such as ResNet-50 or Inception-V3, several preprocessing steps may be required depending on the specific dataset and task. These steps can include data cleaning, where any irrelevant or incorrect data points are removed or corrected. Normalization and scaling are common techniques used to ensure that input features have similar scales, preventing certain features from dominating others during training. This can involve standardizing inputs to have a mean of 0 and a standard deviation of 1, or scaling them between a fixed range like [0, 1] or [-1, 1]. Data augmentation is another important technique used to increase the diversity of the training data and improve generalization. This can involve applying random transformations to the input images, such as rotations, translations, flips, or color changes. Additionally, dealing with dataset imbalances might require assigning class weights to the cross-entropy loss function, ensuring that minority classes receive more attention during training.

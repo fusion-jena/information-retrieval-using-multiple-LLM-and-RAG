@@ -1,0 +1,72 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Since CNNs require a fixed input size, we studied the vocalisations 
+within the presence class for each dataset to determine the character-
+istics of the calls which would allow us to create fixed input, which we 
+refer to as segments. For example, the Hainan gibbon calls vary from 2 to 
+9 s (Dufourq et al., 2021), and thus a suitable input size was 4 s to ensure 
+that the smallest call would fit within the segment. A longer input (>4 
+seconds) would result in CNNs with more network parameters, an un-
+desirable consequence as this would increase the chances to overfit. A 
+shorter input (<4 s) would not contain enough information, especially 
+in cases where the individual pulses that make up a call are long. A short 
+input could omit parts of the call. Preliminary experiments were con-
+ducted on the different datasets to minimise the input length as much as 
+possible,  thus  minimising  network  parameters.  The  characteristics  of
+
+practitioner can manually annotate a few examples and then start using 
+a  pre-trained  ResNet152V2  model  to  find  new  examples.  Once  addi-
+tional examples have been found via the pre-trained model, these new 
+examples can be incorporated into the training set. This iterative process 
+can be repeated until a large training set is obtained, after which, the 
+pre-trained CNN can be fine-tuned to create a more robust classifier. We 
+thus argue that practitioners can begin using CNNs relatively early on 
+within  a project to  speed up  the rate at  which calls  are found.  These 
+findings  oppose  existing  knowledge  that  deep  learning  requires  large 
+training  datasets.  One  possible  explanation  for  the  good  performance 
+achieved in this study is due to the high signal-to-noise ratio. It was also 
+hypothesised  that  good  performance  was  obtained  due  to  the  lack  of 
+variation within the calls (e.g. gibbons and whydah datasets), however
+
+audio segments (denoted in seconds) was different for each dataset. This 
+was done using a sliding window approach. Each annotation contains a 
+start and end time (denoted in seconds). For each annotation, we start by 
+placing  the  window  at  the  start  time  and  extract  a  segment  of  audio 
+containing the amplitude values between the start time and start time + l. 
+Then, the window is moved by one second in time and another segment 
+is extracted (start time + 1, start time + l + 1). This is repeated a number 
+of times until the end of the sliding window exceeds the end time for that 
+annotation. This process is repeated for each annotation, and as a result, 
+a dataset is created containing various audio segments for the presence 
+and absence class.
+
+4. Results 
+
+Under many conditions, CNNs pre-trained on the ImageNet dataset 
+were  able  to  produce  classifiers  which  were  able  to  identify  calls  in 
+bioacoustic  datasets  with  a  high  degree  of  accuracy  (Table  3).  Our 
+comparison over the 12 pre-trained CNNs revealed that ResNet101V2 
+and ResNet152V2 produced the best results (Table 4). We compared the 
+CNNs when the feature extractor was frozen and when it was fine-tuned 
+and the difference in performance varied across the CNNs. Our findings 
+reveal that when only 25 samples are used freezing the feature extractor 
+results in CNNs that were as good as CNNs where the feature extractor 
+was fine-tuned (Fig. 6). However, when more data was used, fine-tuning 
+the feature extractor was the most optimal approach. Finally, we show 
+that  the  performance  of  the  CNNs  can  be  improved  when  taking  the
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit details about specific data annotation techniques such as bounding box annotation or instance segmentation. However, it mentions that manual annotations were performed on bioacoustic datasets, specifically focusing on animal vocalizations. In this case, the annotations contained a start and end time (denoted in seconds) for each vocalization. To generate fixed inputs for Convolutional Neural Networks (CNNs), a sliding window approach was employed. This involved placing a window at the start time of an annotation and extracting a segment of audio containing the amplitude values between the start time and start time plus a certain duration. Then, the window was moved by one second in time, and another segment was extracted. This process was repeated multiple times until the end of the sliding window exceeded the end time for that particular annotation. By repeating this procedure for each annotation, a dataset was created containing various audio segments for both the presence and absence classes.

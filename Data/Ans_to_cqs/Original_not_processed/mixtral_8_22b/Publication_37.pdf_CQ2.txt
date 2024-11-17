@@ -1,0 +1,74 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+In [17]  we also showed that the performance of the CNN model 
+can  be  improved  by  increasing  the  size  of the  training  set  using 
+data  augmentation,  that  is,  the  application  of audio  deformations 
+that  modify  the  audio  signal  while  maintaining  the  semantic  valid 
+ity  of the  recording's  label.  Following  this,  we  apply  the  follow 
+ing augmentations:  adding background  noise (from 4 different  field 
+
+recordings  captured  at  night  containing geophony),  dynamic  range 
+compression (using 4 parameterizations: music, film,  speech, radio), 
+pitch shifting (by 4 conservative values of -0.5, -0.25, 0.25, 0.5 semi 
+tones,  and 41ess conservative  values  of -2, -1,  1, 2 semitones),  and 
+time stretching (by  4 ratios:  0.81 , 0.93,  1.07,  1.23).  The augmenta 
+tions are applied using the MUDA library  [30],  to  which  the  reader 
+is referred for further details about the implementation of each audio 
+deformation.
+
+Index  Terms- Convolutional  neural  networks,  bioacoustics, 
+
+flight calls, deep learning, data augmentation. 
+
+1.  INTRODUCTION
+
+[17]  J.  Salamon  and  J.  P.  Bello,  "Deep  convolutional  neural  net 
+works  and  data augmentation  for environmental sound  c1assi 
+fication ,"  IEEE Signal Processing Leiters, In Press. 
+
+[18]  A. Coates and A.  Y. Ng, "Learning feature representations with 
+K-means,"  in  Neural Networks:  Tricks  ofthe Trade,  pp.  561 -
+580. Springer, 2012. 
+
+[19]  S.  Lloyd, 
+
+"Least  squares  quanti zation  in  PCM," 
+
+IEEE 
+Trans.  on  Infonnation  Theory,  vol.  28,  no.  2,  pp.  129- 137, 
+1982. 
+
+[20]  I.S.  Dhillon  and  D.M.  Modha,  "Concept decompositions  for 
+large  sparse  text  data  using  clustering,"  Machine  Learning, 
+vol.  42, no.  1, pp.  143- 175,2001. 
+
+[21]  S.  Dieleman and B. Schrauwen, "Multiscale approaches to mu 
+sie audio feature learning," in 14th Int.  Soc.for Music Info.  Re 
+trieval Conj., Curitiba, Brazil, Nov.  2013.
+
+During training the model optimi zes cross-entropy loss via mini-
+batch  stochastic  gradient descent  [26].  We  use  a constant learning 
+rate  of 0.01  and  apply  dropout [27]  to  the  input of the  last two lay 
+ers  with  probability 0.5.  L2-regularization  is  applied to  the  weights 
+of the last two layers  with  a penalty  factor  of 0.001.  The  model  is 
+trained for  100 epochs and is  checkpointed after each epoch.  A val 
+idation  set  is  used to  identify  the  parameter setting  (epoch)  achiev 
+ing the  highest classification accuracy.  The CNN is  implemented  in 
+Python using Lasagne [28] , and data stream  multiplexing (for train 
+ing)  is implemented using Pescador [29].
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning pipeline described in the given context uses audio data format. This can be inferred from several parts of the context. Firstly, the paper mentioned in reference [17] discusses "Deep convolutional neural networks and data augmentation for environmental sound classification." Secondly, the context mentions applying various audio deformations such as adding background noise, dynamic range compression, pitch shifting, and time stretching. Lastly, it refers to the MUDA library, which is specifically designed for audio data augmentation. Therefore, based on these points, it can be concluded that the deep learning pipeline discussed here primarily deals with audio data.

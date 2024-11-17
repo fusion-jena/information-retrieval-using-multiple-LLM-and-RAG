@@ -1,0 +1,24 @@
+Answer:::
+
+Deep learning pipelines often incorporate randomness in several stages, primarily during:
+
+* **Data Shuffling:** Training data is randomly shuffled before each epoch to prevent the model from learning patterns specific to a particular data order. This promotes generalization and reduces overfitting.
+
+* **Weight Initialization:** Initial values for model weights are often drawn randomly from distributions like Gaussian or uniform. This prevents all neurons from starting with the same values, allowing for diverse learning paths.
+
+* **Dropout:** A regularization technique where a random subset of neurons is "dropped out" (set to zero) during each training step. This prevents over-reliance on any single neuron and encourages the network to learn more robust features.
+
+* **Batch Normalization:**  Randomly sampled mini-batches of data are used for training. This introduces variability in the data presented to the model at each step, further promoting generalization.
+
+**Handling Randomness:**
+
+To ensure reproducibility and mitigate the impact of randomness, several strategies are employed:
+
+* **Setting Random Seeds:**  A fixed random seed value is used to initialize random number generators. This ensures that the same random sequence is generated every time the code is run, leading to consistent results.
+
+* **Data Splitting:**  Data is split into training, validation, and test sets using a deterministic method (e.g., stratified sampling) to ensure consistent data distribution across experiments.
+
+* **Hyperparameter Tuning:**  Randomness is often introduced during hyperparameter search, but the search process itself is typically deterministic. Techniques like grid search or random search are used to explore a range of hyperparameter values.
+
+
+

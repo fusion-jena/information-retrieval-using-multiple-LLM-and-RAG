@@ -1,0 +1,156 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+et al., 2016), and LightGBM 3.2.1 (Ke et al., 2017) libraries. In building a 
+machine  learning  model,  the  structure  and  hyperparameters  of  the 
+model must be determined, such as the number of decision trees and the 
+depth of trees for RF models and the number of intermediate layers and 
+nodes for ANN models. We optimized the structure and hyperparameters 
+of the RF and ANN models using Optuna 2.10.0 (Akiba et al., 2019) with 
+the  parameters  and  ranges  shown  in  Table  1  as  candidates.  For  the 
+LightGBM models, we used Optuna's LightGBM Tuner (optuna.integra-
+tion.lightgbm)  for hyperparameter  fitting.  The  performance of  the  al-
+gorithms was evaluated by comparing the loss function (mean squared 
+error (MSE)) of the optimized models. In addition, the mean absolute 
+error (MAE) and the coefficient of determination (R2) were calculated 
+for reference.
+
+bagging_freq 
+min_child_samples 
+
+int, 1 to 20 
+int, 0 to 5  
+int, 10, 20, … 
+100  
+int, 10, 20, … 
+100  
+ReLu or 
+linear  
+Adam or 
+RMSprop 
+
+Maximum depth of the tree 
+Number of middle layers 
+Number of nodes in the 
+input layer 
+Number of nodes in the 
+middle layers 
+Activation function in the 
+input and middle layers 
+Optimizer 
+
+Maximum tree leaves for 
+base learners   
+L1 regularization   
+L2 regularization   
+A subset of features on each 
+iteration (tree)   
+Randomly select a part of 
+data without resampling   
+Frequency for bagging   
+Minimal number of data in 
+one leaf   
+
+AA SHAPj =
+
+1
+ni
+
+∑
+⃒
+⃒SHAPi,j
+
+⃒
+⃒
+
+i
+
+(1)  
+
+where AA_SHAPj  is the average of the absolute SHAP values for input 
+variable j (i.e., the daily average temperature on day j), ni is the number 
+of response values (4844 for the first flowering date models and 4814 for 
+the full blossom date models), and SHAPi,j is the SHAP value for the jth 
+input parameter of the ith response value.
+
+First, the SHAP values were calculated for each of the 365 explana-
+tory variables for a given response value. A positive SHAP value for a 
+given  input  value  indicates  that  the  variable  increased  the  response 
+value.  In  contrast,  a  negative  SHAP  value  indicates  that  the  variable 
+decreased  the  output  value.  The  absolute  SHAP  value  shows  the 
+magnitude of the effect. Next, we calculated the average of the absolute 
+SHAP value (AA_SHAP) for each input value using eq. 1 to evaluate the 
+magnitude of the effect of an explanatory variable: 
+
+Table 1 
+Parameters of the machine learning algorithms optimized using Optuna.  
+
+Algorithm 
+
+Parameter name 
+
+Description 
+
+Candidates 
+
+n_estimators 
+
+Number of trees 
+
+int, 1 to 100  
+
+Random 
+forest 
+
+ANN 
+
+max_depth 
+n_layers 
+units (initial layer) 
+
+units (middle 
+layers) 
+activation 
+
+optimizer 
+
+GBDT 
+
+num_leaves 
+
+lambda_l1 
+lambda_l2 
+feature_fraction 
+
+bagging_fraction 
+
+bagging_freq 
+min_child_samples
+
+Next, the first flowering and full blossom dates for each station and 
+year were calculated using the optimized models. Finally, the root mean 
+square error (RMSE) was calculated for all observation sites to evaluate 
+the overall performance of the optimized models, and the RMSE for each 
+observation  site  was  calculated  to  evaluate  the  performance  of  the 
+models for each site. 
+
+2.4. Understanding the machine learning models using SHAP values
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The hyperparameters of the Random Forest (RF) and Artificial Neural Network (ANN) models are optimized using Optuna 2.10.0, which is a library designed for automated hyperparameter optimization. This process involves selecting the best combination of hyperparameters from a set of possible choices to improve the performance of the machine learning algorithm. The specific parameters and their respective ranges considered during this optimization process are listed in Table 1 within the provided context.
+
+For the LightGBM models, the authors utilized Optuna's LightGBM Tuner, which is specifically tailored for tuning the hyperparameters of LightGBM models. This approach ensures that the optimal settings are chosen for these particular types of models.
+
+In summary, the hyperparameters of the RF and ANN models are optimized using Optuna, while those of the LightGBM models are fine-tuned through Optuna's LightGBM Tuner. Both methods aim to find the most suitable hyperparameters for improving the performance of the corresponding machine learning algorithms.

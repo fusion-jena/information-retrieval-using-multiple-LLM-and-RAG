@@ -1,0 +1,66 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+mapping probability samples that are exclusively used for map evalua-
+tion are often not available and therefore alternative methods have been 
+proposed.  In  machine  learning,  if  data  are  abundant,  a  common 
+approach is to randomly divide the full dataset used for modelling into 
+three parts: a training set, a validation set, and a test set (Hastie et al., 
+2009,  Chapter  7).  The  training  set  is  used  for  fitting  the  models,  the 
+validation set is used to estimate prediction error for model selection and 
+hyperparameter tuning, while the test set is used for assessing the ac-
+curacy of the final model. This paper addresses this latter testing phase, 
+with the specific aim to assess the accuracy of a thematic map produced 
+by a calibrated statistical prediction method. Data availability is often 
+limited  so that setting  aside a  test set  cannot always be afforded and 
+therefore resampling methods are used (Hastie et al., 2009; Steele et al.,
+
+2003). To this end, the widely used k-fold cross-validation method splits 
+the  full  dataset  into  k  approximately  equally-sized  disjoint  subsets  or 
+folds, where repeatedly (i.e. k times) the model is calibrated on k-1 folds, 
+whilst the remaining fold is used for assessing prediction accuracy. The 
+overall  cross-validation  accuracy  is  estimated  by  aggregating  the 
+(squared)  residuals  over  the  k  folds.  In  conventional  k-fold  cross- 
+validation, the folds are chosen randomly.
+
+prediction and training points.
+
+2. Methods 
+
+2.1. Cross-validation methods 
+
+2.1.1. Conventional (method 1) 
+
+Five cross-validation methods were compared using different sam-
+ples,  the  details  of  which  are  provided  in  Section  2.2.  In  our  imple-
+mentation  of  conventional  10-fold  cross-validation  (k  = 10),  the  full 
+sample  dataset  was  randomly  split  100  times  into  ten  equally  sized 
+disjoint folds, each time providing a different folding of the full sample. 
+Each time, nine of the folds were used for calibrating the model, and the 
+remaining fold for testing. The map accuracy metrics (see Section 2.3) 
+were  computed  from  the  n  pairs  of  reference  observations  and  map 
+predictions  (n  being  the  sample  size)  distributed  over  the  ten  folds 
+(Hastie et al., 2009). The metrics were averaged over the 100 foldings.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In machine learning, when data is abundant, it is common practice to randomly divide the entire dataset used for modeling into three distinct sets: a training set, a validation set, and a test set. Each set serves its own unique purpose during the process of building and evaluating a predictive model.
+
+The training set is utilized to fit the models, meaning that the algorithm learns patterns within the data based on the input features and corresponding output labels. It essentially teaches the model how to make predictions.
+
+The validation set is employed to estimate prediction errors for model selection and hyperparameter tuning. Hyperparameters are parameters whose values are set before the commencement of the learning process. By comparing the performance of various models with different hyperparameters on the validation set, one can select the best combination of hyperparameters that results in optimal performance.
+
+Lastly, the test set is reserved for assessing the accuracy of the final model. After selecting the most suitable model and optimizing its hyperparameters using the training and validation sets respectively, the test set provides an unbiased evaluation of the model’s ability to generalize to new, unseen data.
+
+However, there may be instances where data availability is limited, making it challenging to allocate a separate test set. In such cases, resampling methods like k-fold cross-validation are employed. K-fold cross-validation involves splitting the full dataset into 'k' approximately equal-sized disjoint subsets or folds. The model is then trained on 'k-1' folds, while the remaining fold is used for assessing prediction accuracy. This process is repeated 'k' times, each time with a different fold serving as the test set. The overall cross-validation accuracy is estimated by aggregating the squared residuals over the 'k' folds.

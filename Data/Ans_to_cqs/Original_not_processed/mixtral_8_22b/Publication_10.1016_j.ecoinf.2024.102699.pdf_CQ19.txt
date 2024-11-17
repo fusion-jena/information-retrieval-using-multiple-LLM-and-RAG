@@ -1,0 +1,293 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+For the ViT models, we adapted the approach of pretraining deep
+bidirectional transformers for language understanding (BERT) by Devlin
+et al. (2018) for birdsong classification. Table 3 provides an overview of
+the investigated ViT models with their respective parameterizations.
+ViT-S/16, for example, denotes a ViT variant of reduced complexity with
+an input patch size of 16 × 16. The sequence length of the transformer
+models is inversely proportional to the square of the provided patch size.
+In the following, ViT-B/16 is further investigated as it strikes a balance
+between general model complexity and classification performance.
+
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+
+✓
+
+✓
+✓
+
+✓
+
+15
+15
+13
+13
+13
+13
+13
+26
+15
+15
+40
+29
+16
+13
+13
+15
+15
+16
+10
+
+24
+24
+30
+30
+30
+30
+30
+45
+26
+26
+60
+45
+40
+30
+30
+30
+30
+35
+20
+
+✓
+✓
+✓
+
+✓
+
+✓
+✓
+
+✓
+
+✓
+
+ID
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+
+Table 3
+Summarized DNN layer configuration for the backbone models DenseNet-161 and ResNet-50 as well as ViT-S/16, ViT-B/16, and ViT-L/16. S, B, and L denote the ViT
+models’ small, base, and large variants.
+
+Model
+
+DenseNet-161
+
+ResNet-50
+
+ViT-S/16
+
+ViT-B/16
+
+ViT-L/16
+
+Layers
+
+161
+
+50
+
+8
+
+12
+
+24
+
+Hidden size
+
+MLP size
+
+Params [m.]
+
+Training time [min. / epoch]
+
+Testing time [sec. / sample]
+
+48
+
+64
+
+786
+
+786
+
+1024
+
+397
+
+397
+
+2 358
+
+3 072
+
+4 096
+
+28.5
+
+25.6
+
+48.6
+
+86.8
+
+304.6
+
+15
+
+15
+
+20
+
+35
+
+45
+
+7
+
+7
+
+22
+
+27
+
+36
+
+ʹ(t) = tanh(γ⋅x(t) ),
+x
+
+(13)
+
+samples.
+
+ʹ(t) is the distorted audio signal,
+where x(t) is the original audio signal, x
+and γ is the pre-gain applied to the signal before distortion, which
+controls its intensity.
+
+2.4. Model architecture
+
+The proposed model architectures are based on DenseNet-161
+(Huang et al., 2017) and ResNet-50 (He et al., 2016a, 2016b) as well
+as different vision transformers (ViT) (Dosovitskiy et al., 2021; Steiner
+et al., 2022) for sound event detection.
+
+The design of our SED models is inspired by the 2019 DCASE
+workshop and large-scale PANNs for audio pattern recognition (Kong
+et al., 2019). DenseNets are utilized to improve the information flow
+
+7 AudioSet project page, https://research.google.com/audioset/
+
+html
+
+8 librosa project page, https://librosa.org/doc/latest/index.
+
+EcologicalInformatics82(2024)1026996A.S. Kumar et al.
+
+Fig. 3. Comparison of different augmentation methods and their combinations in Table 4 using DenseNet-161 and ViT-B/16. Additionally, plot marks for the
+conducted experiments and their results are provided.
+
+Table 2
+Overview of our augmentation strategies, their IDs, and related information. For DenseNet-161 and ViT-B/16, their training times are provided in minutes per epoch
+for the different augmentation methods. For IDs 5 and 6, we added noise of the bird audio detection data set from the DCASE challenge (Berger et al., 2018; Himawan
+et al., 2018; Liaqat et al., 2018), which is abbreviated as BAD.
+
+Data augmentation
+
+Time domain
+
+Frequency domain
+
+Spectrogram
+
+Training time [min. / epoch]
+
+DenseNet-161
+
+ViT-B/16
+
+Gaussian noise
+Pink noise (background)
+Primary background noise soundscapes
+Secondary background noise soundscapes
+Primary background noise (BAD)
+Secondary background noise (BAD)
+Background noise (e.g., wind, thunder, or aircrafts)
+Mixed up random bird species
+Horizontal roll
+Vertical roll
+Pitch shift
+Time mask
+Frequency mask
+Gain
+Loudness normalization
+Horizontal flip
+Vertical flip
+Time stretch
+tanh-based distortion
+
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+
+✓
+
+✓
+✓
+
+✓
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough context provided to determine which specific framework was used to build the deep learning models mentioned in this text. However, popular frameworks such as TensorFlow and PyTorch are commonly used for building deep learning models like those described here. Without additional context, I cannot provide a definitive answer.

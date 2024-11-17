@@ -1,0 +1,192 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The dataset was divided into training (60%), validation (20%), and 
+testing (20%) subsets for model evaluation and hyperparameter search 
+(Fig. 3 (b)). This approach was chosen to obtain an unbiased estimation 
+of  error.  Data  augmentation  was  only  applied  to  the  training  data  to 
+avoid overlapping the same data in different partitions. To evaluate the 
+models we used the coefficients of determination (R2  - calculated as the 
+squared  Pearson's  correlation  coefficient),  which  measures  the  per-
+centage of variation in the response variable explained by the model. 
+Additionally,  we  used  the  root  mean  squared  error  (RMSE)  metric, 
+where  RMSE =
+,  with  Yi = the  actual  values  pine 
+̂
+Y i = the predicted pine cove values. In our work, RMSE 
+cover values and 
+values ranged from 0.0 to 1.0, with values closer to 0 indicating better 
+model  predictions.  The  overfitting  was  assessed  by  comparing  model
+
+Table 1 
+Metrics for the best mono- and multi-site models based on validation data (modelv). We show the results of training, validation, test data, and the architecture of the 
+best-performing model according to RMSE and R2  metrics.   
+
+RMSE 
+
+R2 
+
+RMSE 
+
+R2 
+
+RMSE 
+
+R2 
+
+RMSE 
+
+R2 
+
+RMSE 
+
+R2 
+
+Site 1 
+
+Site 2 
+
+Train 
+Validation 
+Test 
+Architecture 
+
+0.024 
+0.074 
+0.064 
+InceptionV3 2 Layer (16, 64) 
+
+0.981 
+0.843 
+0.871 
+
+0.036 
+0.076 
+0.066 
+InceptionV3 1 Layer (8) 
+
+0.970 
+0.886 
+0.916 
+
+Train 
+Validation 
+Test 
+Architecture 
+
+Experiment 1 
+
+Experiment 2 
+
+0.041 
+0.080 
+0.089 
+
+0.970 
+0.890 
+0.858 
+
+0.028 
+0.073 
+0.082 
+
+0.988 
+0.922 
+0.872 
+
+Xception 1 Layer (32) 
+
+Xception 1 Layer (32) 
+
+Mono-site  
+
+Site 3 
+
+0.040 
+0.080 
+0.070 
+
+0.980 
+0.910 
+0.930 
+
+Xception 1 Layer (16) 
+
+Multi-site  
+
+Experiment 3 
+
+0.038 
+0.073 
+0.081 
+Xception 3 Layer (16,64,16) 
+
+0.979 
+0.916 
+0.879 
+
+Site 4 
+
+Site 5 
+
+0.030 
+0.070 
+0.060 
+InceptionV3 3 Layer (8, 8, 32) 
+
+0.980 
+0.930 
+0.950
+
+associated  with  efforts  to  enhance  the  model's  generalization  to  new 
+sites. However, the strategy of separating data into training, validation, 
+and testing aims to reduce over-training issues and evaluate the model's 
+generalization in a specific domain when cross-validation is not feasible 
+(Karystinos and Pados, 2000; Liu et al., 2008). Therefore, experimenting 
+with different sites or spatially distinct areas in training, validation, and 
+testing  does  not  guarantee  generalization  to  new  sites,  which  may 
+exhibit unique spatial variability and represent a different domain. It is 
+also important to mention that when the training data is scarce and not 
+representative, the transfer learning of the models is impossible in areas 
+with  conditions  very  different  from  the  training  data  (Meyer  and 
+Pebesma,  2021).  However,  as  far  as  possible,  it  is  recommended  to 
+evaluate  the  similarity  between  training  data  (source  domain)  and
+
+We applied the  standard machine learning hyperparameter  search 
+over  two  sites  because  of  computational  cost.  In  our  research,  we 
+considered the activation function, the optimizer, and the learning rate. 
+In addition, we performed an exhaustive search for the fully connected 
+architecture for all mono-site and multi-site models. In all these cases, 
+we compare the training, validation, and testing performance to avoid 
+overfitting.  We  could  have  achieved  the  same  results  using  hyper-
+parameter search software such as Optuna and Sklearn. However, even 
+though they could save coding time, we prefer to control every aspect of 
+the process to avoid problems. The hyperparameter search involved a 
+small grid search selecting the following hyperparameters and values:  
+
+1.  Hidden activation function: ReLU, sigmoid, or elu,  
+2.  Optimizer: RMSprop or adam  
+3.  Learning rate: 0.1, 0.001, 0.0001, and 0.00001.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, there isn't a direct statement about the exact criteria used to determine when training is complete. However, some clues can be derived from the text.
+
+Firstly, the dataset was split into three parts: training (60%), validation (20%), and testing (20%). This division suggests that the validation set might play a role in determining when training should stop.
+
+Secondly, the paper mentions that the models were evaluated using the coefficients of determination (R2) and the root mean squared error (RMSE) metrics. These metrics were also used to compare the performance of the models on the training, validation, and testing datasets. This implies that the point where the model performs well consistently across all three sets, without significant improvement upon further training, could indicate completion of training.
+
+Lastly, the authors conducted a hyperparameter search involving the hidden activation function, optimizer, and learning rate. They compared the training, validation, and testing performance to avoid overfitting. This indicates that monitoring the performance on the validation set during training could help prevent overfitting and signal when training should cease.
+
+Therefore, while not explicitly stated, one could infer that the criteria used to determine when training is complete might involve observing the model's performance on the validation set, specifically looking for a plateau in validation loss or no significant improvement in validation accuracy. Additionally, achieving consistent performance across the training, validation, and testing sets could also serve as an indicator.

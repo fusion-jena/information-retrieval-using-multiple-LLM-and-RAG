@@ -1,0 +1,115 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.4. Wav2Vec model description 
+
+After pre-processing, the whole dataset is splitted into training and 
+testing  of  various  ratio  including  70:30,  80:20  and  90:10  for  strong 
+performance  analysis.  As  a  part  of  training  proposed  model,  the  raw 
+audio signals of various bird species are given as input to extract 768- 
+dimensional  vector  as  features.  In  wav2vec,  after  the  transformer 
+block, there are three dense layers with ReLU activation function con-
+tains 1024, 512, and 256 hidden neurons, respectively. Followed by, one 
+classification layer with sigmoid activation function is kept to decide on 
+
+bird categories as output. For this technique, Adam is used as optimizer 
+with initial learning rate of order 10e-5 is appropriate for small weight 
+updates throughout the network while fine-tuning. Based on the manual 
+fine-tuning process, other hyper parameters such as epochs of 30 with 
+batch size 1 is chosen as optimal value. 
+
+4.5. Multi labelling framework
+
+Fig. 2. Wav2Vec pre-training phase.  
+
+quantized representation for the masked latent feature representation. 
+Diversity loss shown in (2) is also added to the objective function for 
+regularization during pre-training. 
+
+(
+
+Lm = (cid:0)
+
+log
+
+sim(ct ,qt )
+e
+k
+
+/
+
+∑
+
+q′∈Qt
+
+sim(ct ,q′)
+e
+k
+
+Ld =
+
+(cid:0)
+*
+
+1
+GV
+
+) )
+
+(cid:0)
+
+pg
+
+(cid:0) H
+
+(1)  
+
+(2) 
+
+In the supervised fine-tuning phase, the labelled dataset is used in 
+training the model to predict particular words or phonemes. Fig. 3 de-
+picts the process and components in the fine-tuning phase of wav2vec. 
+Phonemes are the smallest unit of sound, usually one or two letters, in 
+the language. During fine-tuning, the quantization module is removed. 
+Instead, a linear projection layer is added to the context network. Then 
+the model is fine-tuned on connectionist temporal classification (CTC) 
+loss for the Automatic Speech Recognition task. So, the wav2vec model 
+has a general understanding of phonemes present in human speech.
+
+The  self-supervised  training  phase  comprises  four  important  ele-
+ments: feature encoder, context network, quantization module, and pre- 
+training  objective.  Fig.  2  depicts  the  overall  pre-training  approach  of 
+wav2vec. Contrastive learning is the idea of recognizing whether two 
+different types of transformation of the input are the same or not. The 
+two transformations used in the Wav2vec model are the context repre-
+sentation from the context network and the final quantization vectors 
+
+EcologicalInformatics80(2024)1024713B. Swaminathan et al.                                                                                                                                                                                                                         
+
+Fig. 2. Wav2Vec pre-training phase.
+
+The class-wise performance of the proposed model is tabulated for 
+different  dataset  split  ratio  in  Table  4.  The  classification  metrics  like 
+precision,  recall  and  F1-score  is  calculated  for  each  bird species  with 
+respect  to  three  different  training-testing  split  for  further  analysis. 
+Among the results, it is observed that for the ratio 90:10 split, the metrics 
+values are better when compared with other splits. From the Table 4, it is 
+clear that wooden peewee class achieves an F1-score of 0.95 which is 
+higher than other species. The proposed transfer learning using wav2vec 
+achieves  better  results  in  90:10  training-testing  ratio  with  very  little 
+deviation among the bird species compared to the baseline models.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: According to the provided context, the whole dataset was split into training and testing sets of various ratios, including 70:30, 80:20, and 90:10, for strong performance analysis. This means that the dataset was divided into training and testing subsets based on these ratios. For example, if the 70:30 ratio was used, then 70% of the dataset would be allocated for training the model, while the remaining 30% would be used for testing its performance. Similarly, for the 80:20 ratio, 80% of the dataset would be used for training, and 20% for testing. Finally, for the 90:10 ratio, 90% of the dataset would be used for training, and only 10% for testing. These ratios were likely chosen to evaluate how well the model could learn from varying amounts of training data and to assess its ability to generalize to new, unseen data.

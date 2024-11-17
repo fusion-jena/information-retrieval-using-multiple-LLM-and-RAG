@@ -1,0 +1,13 @@
+Based on the provided context, there is no explicit mention of strategies employed to handle randomness in the deep learning pipeline, such as setting a random seed value. However, there are details about the use of Stochastic Gradient Descent (SGD) as an optimization technique, which inherently involves a certain level of randomness.
+
+ In SGD, the weights are updated after each training example (or a mini-batch of training examples) using the following update rule:
+
+ weight = weight - learning\_rate \* gradient
+
+ The randomness in SGD comes from the fact that the weights are updated after seeing each training example, and the order of these examples can be randomized. This can help the optimization process escape local minima and improve the final model's generalization ability.
+
+ Additionally, the context mentions the use of a warmup strategy for the learning rate in some of the training scenarios. Warmup is a technique to gradually increase the learning rate from an initial small value to the base learning rate over a certain number of iterations or epochs. This can help stabilize the training process, especially when using large learning rates.
+
+ In the SlowFast architecture training, the learning rate is decreased using a cosine strategy, which can be seen as a way to control the learning rate's decay and introduce some regularization to the training process.
+
+ While these techniques do not directly address the issue of handling randomness through seed values, they do provide strategies to manage the randomness inherent in the optimization and training processes.

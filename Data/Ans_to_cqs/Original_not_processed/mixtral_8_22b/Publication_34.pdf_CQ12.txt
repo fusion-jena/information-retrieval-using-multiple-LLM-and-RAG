@@ -1,0 +1,117 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+SNN, DNN and CNN models are ﬁtted with the package mxnet: All model
+0.03, 0.03), then we
+parameters were initialized with a uniform distribution U (
+applied a stochastic gradient descent algorithm with a momentum of 0.9, a
+batch-size of 50 (batch samples are randomly chosen at each iteration), and an initial
+8. The choice of initial learning rate was critical for a good
+learning rate of 10−
+optimization behavior. A too big learning rate can lead to training loss divergence,
+
+−
+
+190
+
+C. Botella et al.
+
+whereas when it is too small, learning can be very slow. We stopped when the
+average slope of the training mean loss had an absolute difference to 0 on the last 100
+3. The learning took approximately 5 min for SNN, 10 min for
+epochs inferior to 10−
+DNN, and 5 h for CNN (independently of the version).
+
+10.3.5 Evaluation Metrics
+
+• CNN is composed of two hidden convolutional layers and one last layer fully
+connected with 200 neurons, exactly similar to previous ones. The ﬁrst layer is
+composed of 64 convolution ﬁlters of kernel size (3, 3) and 1 line of 0 padding.
+The resulting feature maps are batch-normalized (same normalization for every
+pixels of a feature map) and transformed with a Relu. Then, an average pooling
+with a (8, 8) kernel and (8, 8) stride is applied. The second layer is composed of
+128 convolution ﬁlters of kernel size (5, 5) and 2 lines of padding, plus Batch-
+Normalization and ReLU. After, that a second average pooling with a (8, 8)
+kernel and (8, 8) kernel and (8, 8) stride reduces size of the 128 feature maps
+to one pixel. Those are collected in a vector by a ﬂattening operation preceding
+the fully connected layer. This architecture is not very deep. However, considered
+the restricted number of samples, a deep CNN would be very prone to over ﬁtting.
+
+10.2.4 SDM Based on a Convolutional NN Model
+
+A convolutional NN (CNN) can be seen as a extension of NN that are particularly
+suited to deal with certain kind of input data with very large dimensions. They
+are of particular interest in modeling species distribution, because they are able to
+capture the effect of spatial environmental patterns. Again, we will ﬁrstly describe
+the general form of CNN before going to our modeling choices.
+
+2http://neuralnetworksanddeeplearning.com/chap6.html
+
+180
+
+C. Botella et al.
+
+10.2.4.1 General Introduction of CNN Models
+
+∗
+
+∈
+
+R
+
+×
+
+×
+
+256
+
+10.2.3.2 Models Architecture in This Study
+
+For a given species i, When we know the model parameter θ, we can predict the
+parameter of the Poisson distribution of the random response variable yi
+N, i.e.
+the count of species i, conditionally on its corresponding input x, with the formula :
+
+∈
+
+λm,θ (x)
+
+=
+
+exp(γ T
+
+i aNh,.
+
+m (x, θ ))
+
+(10.6)
+
+10 A Deep Learning Approach to Species Distribution Modelling
+
+179
+
+Fig. 10.1 A schematic representation of fully-connected NN architecture. Except writings, image
+comes from Michael R
+
+Nielsen2.
+
+∈
+
+R
+
+:=
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In this study, three types of neural network models are fitted using the package mxnet: Simple Neural Network (SNN), Deep Neural Network (DNN), and Convolutional Neural Network (CNN). These models are used for species distribution modelling. Specifically, the CNN model is described as being composed of two hidden convolutional layers and one last layer fully connected with 200 neurons. It has 64 convolution filters of kernel size (3, 3) and 1 line of 0 padding in the first layer, followed by batch normalization, transformation with a Rectified Linear Unit (ReLU), and average pooling. The second layer has 128 convolution filters of kernel size (5, 5) and 2 lines of padding, also followed by batch normalization, ReLU, and average pooling. Finally, the output is flattened and fed into a fully connected layer. Therefore, the type of deep learning model used in this pipeline is a Convolutional Neural Network (CNN).

@@ -1,0 +1,101 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Model training was carried out on a NVIDIA Quadro M4000 GPU with 8 GB of memory,
+with a training time of 4.9 min per epoch. With the adaptive learning rate algorithms usually yielding
+higher model accuracies than static ones [16], the Adam learning rate optimizer was chosen over the
+static stochastic gradient descent (SGD). Both the basic SGD and its further adaptive developments are
+popular in neural network applications [17], but given the ﬁndings of [18,19], which proved Adam’s
+usefulness on relatively small datasets (less than 1000 images), the Adam optimizer is chosen for
+the model of this study. Hyperparameter setting was completed based on studies who successfully
+implemented Yolo in remote sensing cases. The author of the Yolo-based “Yolt” model [14] suggests
+implementing the same hyperparameters as the Yolo model. The default parameters of YoloV3 are
+0.001, 0.9 and 0.0005 for the learning rate momentum and weight decay, respectively, and we decided
+
+for deep learning. arXiv 2019, arXiv:1910.05446.
+
+17. Ruder, S. An overview of gradient descent optimization algorithms. arXiv 2016, arXiv:1609.04747.
+18. Taqi, A.M.; Awad, A.; Al-Azzo, F.; Milanova, M. The impact of multi-optimizers and data augmentation on
+TensorFlow convolutional neural network performance. In Proceedings of the 2018 IEEE Conference on
+Multimedia Information Processing and Retrieval (MIPR), Miami, FL, USA, 10–12 April 2018; pp. 140–145.
+19. Olson, M.; Wyner, A.; Berk, R. Modern neural networks generalize on small data sets. In Proceedings of
+the Advances in Neural Information, Neural Information Processing Systems 31 (NeurIPS 2018), Montreal,
+BC, Canada, 3–8 December 2018; pp. 3619–3628.
+
+20. Ammar, A.; Koubaa, A.; Ahmed, M.; Saad, A. Aerial images processing for car detection using convolutional
+
+neural networks: Comparison between faster r-cnn and yolov3. arXiv 2019, arXiv:1910.07234.
+
+to keep these values. There is some variance in proposed learning rate settings, but studies applying
+Yolo to aerial imagery have succeeded with a learning rate of 0.001 [12] and have proven that this value
+produces higher precision [20]. The model was trained for a total of 350 epochs, resulting in a total
+training time of 27 h. Due to limitations in computer memory, the batch size was set at 4.
+
+3. Results
+
+3.1. Training Evaluation
+
+The model was trained for 350 epochs and evaluated using the scores precision, recall, F1, GIoU,
+and mAP, as seen in Table 2. The scores are calculated from model validation data, consisting of
+321 image tiles. The F1 score and mAP score are seen to follow each other closely, given indications on
+the training at diﬀerent stages, the model quickly reached F1 and mAP scores of ~0.4, whereafter they
+continue to increase but at a slower rate. At the end of the training, the model achieved the accuracy
+scores of F1 = 0.530 and mAP = 0.557. The GIoU is steadily decreasing, indicating that the model is
+becoming better at correctly locating targets.
+
+Table 2. Training metrics at diﬀerent iteration stages.
+
+Epoch
+
+Precision Recall
+
+F1 Score
+
+GIoU
+
+100
+200
+300
+350
+
+0.656
+0.583
+0.493
+0.476
+
+0.321
+0.549
+0.610
+0.600
+
+0.430
+0.541
+0.534
+0.530
+
+2.14
+1.58
+1.29
+1.16
+
+mAP
+
+0.407
+0.542
+0.548
+0.557
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning model used in this study employed the Adam learning rate optimizer due to its effectiveness on smaller datasets. The specific hyperparameters used were a learning rate of 0.001, a momentum of 0.9, and a weight decay of 0.0005. These values were kept consistent with the default parameters of the YOLOv3 model. The model was trained for a total of 350 epochs, with a batch size of 4.

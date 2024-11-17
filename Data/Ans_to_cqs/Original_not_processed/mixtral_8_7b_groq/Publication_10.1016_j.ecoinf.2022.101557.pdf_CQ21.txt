@@ -1,0 +1,11 @@
+Answer:::
+
+The post-processing steps described in the context do not include saliency maps or metrics calculation. However, they do include generating a confusion matrix to evaluate the performance of the model.
+
+After the model training, the first post-processing step is to round the pixel predictions from the CNN. Predictions with a value larger than 0.5 are considered wetlands, and those below are non-wetlands. This creates a raster over the whole map, where each pixel is either deemed to be part of a wetland or not.
+
+The second step is to convert this raster representation into a vector representation, which enables further analyses and minimizes storage space. This conversion is also conducted to make it easier to distribute.
+
+The third step involves generating a confusion matrix to evaluate the performance of the model. The confusion matrix compares the annotations produced by a human with those produced by the CNN. The areas where the human and the CNN annotations are the same are displayed in green. The areas where the CNN annotates the land as wetland but the human did not (false positives) are displayed in pink. Finally, the areas that the humans annotated as wetland but the CNN did not recognize as such (false negatives) are displayed in orange.
+
+Therefore, the post-processing steps involved after the model training are rounding the pixel predictions, converting the raster representation into a vector representation, and generating a confusion matrix.

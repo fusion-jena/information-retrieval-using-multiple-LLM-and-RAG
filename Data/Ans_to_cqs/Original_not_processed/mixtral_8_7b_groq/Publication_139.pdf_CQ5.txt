@@ -1,0 +1,11 @@
+Answer:::
+
+In the deep learning pipeline for classifying soundscape recordings into bird species, the datasets used are not specifically named as MNIST, CIFAR, or ImageNet. However, a crucial role is played by a large image database called ImageNet. This dataset is used for pre-training the Convolutional Neural Network (CNN) architectures, such as Inception, MobileNet, and Resnet50, before they are fine-tuned for the specific task of bird species classification in soundscape recordings.
+
+ImageNet contains over one million samples distributed across 1000 classes. Pre-training on such a diverse and extensive dataset enables the CNN models to learn powerful feature extractors that can be later utilized for the target task.
+
+In cases where the main task is to target foreground species or when dealing with more acoustically sparse soundscapes, CNN architectures with fewer (<10) convolutional layers have proven to be sufficient. This is because the raw audio data is represented in the form of spectrograms, which are essentially three-dimensional images with temporal information on the horizontal axis, frequency increasing along the vertical axis, and sound power level represented by color.
+
+The use of pre-trained models like ResNet50 and Inception for this specific task did not yield significant improvements in classification performance. Therefore, a simpler architecture, similar to those implemented by Ruff et al., 2020; Sprengel et al., 2016, was employed instead.
+
+In summary, the deep learning pipeline for classifying bird species in soundscape recordings uses the ImageNet dataset for pre-training CNN architectures. These models are then fine-tuned for the specific task, making use of the power of transfer learning.

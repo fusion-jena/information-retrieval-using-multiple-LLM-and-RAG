@@ -1,0 +1,67 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+this regard, preparing training and validation data are very important steps and should be carried
+out very carefully, taking into account the time elapsed since the disturbance event took place and
+discrepancies in phenology, which could depend on local landscape conditions.
+
+High-intensity ﬂuctuations of the loss function shown in Figure 2, which corresponds to the best
+set of parameter values, are caused by the speciﬁcity of the algorithm used at the training stage. We
+did not have a prebuilt set of images to use for the training. We instead generated batches of training
+images randomly, on the ﬂy, from source images presented in Table 1 (we randomly cropped source
+images to 256 × 256 resolution and applied augmentation), and we never showed exactly the same
+
+Remote Sens. 2020, 12, 1145
+
+8 of 17
+
+Remote Sens. 2020, 12, 1145
+
+6 of 17
+
+Training data were generated as batches of size (m, 256, 256, 3), where m is the batch size (m =
+20 in our experiments). The batches consisted of sub-images of size 256 × 256 that were randomly
+cropped out from the original satellite images presented in Table 1. We had a stream (internally, a
+Python generator) of almost never repeated sub-images; these sub-images were combined into batches
+and used for the neural network training. Satellite images for sites #1, #3, #5, #7–10 were used for
+training and #2, #4, #6 for validation. Corresponding batches of mask data had shape (20, 256, 256, 1).
+The network training assessment was performed on sub-images generated from image #2 (Table 1).
+Images #4 and #6 were used for visualization and demonstration of the algorithm eﬃcacy.
+
+58. Yu, L.C.; Sung, W.K. Understanding geometry of encoder-decoder CNNs. arXiv 2019, arXiv:1901.07647v2.
+Ioﬀe, S.; Szegedy, C. Batch normalization: Accelerating deep network training by reducing internal covariate
+59.
+shift. arXiv 2015, arXiv:1502.03167v3.
+Srivastava, N.; Hinton, G.; Krizhevsky, A.; Sutskever, I.; Salakhutdinov, R. Dropout: A simple way to prevent
+neural networks from overﬁtting. J. Mach. Learn. Res. 2014, 15, 1929–1958.
+
+60.
+
+61. Evaluation of the CNN Design Choices Performance on ImageNet-2012. Available online: https://github.
+
+com/ducha-aiki/caﬀenet-benchmark (accessed on 24 March 2020).
+
+62. Abadi, M.; Agarwal, A.; Barham, P.; Brevdo, E.; Chen, Z.; Citro, C.; Corrado, G.S.; Davis, A.; Dean, J.;
+Devin, M.; et al. TensorFlow: Large-scale machine learning on heterogeneous systems. arXiv 2016,
+arXiv:1603.04467v2.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't explicit information about specific postprocessing steps such as saliency maps, metrics calculation, or confusion matrices. However, it does mention some aspects related to the evaluation and application of the trained model.
+
+After training the convolutional neural network (CNN) with the generated batches of training and validation data, the authors assessed its performance using sub-images generated from image #2 (from Table 1). Additionally, they utilized images #4 and #6 for visualizing and demonstrating the effectiveness of their algorithm. This suggests that the postprocessing steps might involve generating predictions on unseen data and visually inspecting those results to evaluate the model's performance.
+
+Furthermore, the context mentions references to various techniques and resources relevant to deep learning, including understanding the geometry of encoder-decoder CNNs [58], batch normalization [59], dropout regularization [60], and large-scale machine learning frameworks like TensorFlow [62]. These references indicate potential postprocessing methods or tools that could be employed depending on the desired analysis or presentation of the model's output.
+
+In summary, while the exact postprocessing steps aren't explicitly stated in the provided context, one can infer that evaluating the model's performance on new data and potentially employing additional techniques or tools mentioned in the referenced works may constitute part of the postprocessing process.

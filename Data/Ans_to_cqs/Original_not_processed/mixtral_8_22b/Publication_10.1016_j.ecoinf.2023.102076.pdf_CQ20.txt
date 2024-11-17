@@ -1,0 +1,60 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We  also  investigated  the  extent  to  which  using  active  learning  to 
+select training data could reduce the number of texts required to achieve 
+peak  performance  for  BERT  models.  Our  experiments  showed  that 
+classifiers  trained  using  data  selected  randomly  or  with  the  least 
+
+EcologicalInformatics75(2023)1020766S.B. Hunter et al.                                                                                                                                                                                                                               
+
+Fig. 4. The relationship between the number of texts in training data (increased at increments of 50) and the median F1 achieved by classifiers over five runs. The 
+model used, the classification task and the dataset from which training and testing data are derived are compared. N.B. this does not include stratified training data.
+
+Since BERT can only accept a maximum of 512 tokens as input, we 
+used smaller subsections of the longer web articles as classifier input, an 
+approach previously applied to long document classification (Fiok et al., 
+2021; Sun et al., 2019). To identify the sections of text most likely to be 
+relevant to the classification decision, documents were split into chunks 
+of 300 tokens using the NLTK word-tokenizer. Chunks that contained 
+any  of  our  original  query  terms  (i.e.  any  bat-related  or  exploitation- 
+related  term)  were  retained.  If  more  than  one  chunk  contained  key-
+words,  the  first  such  chunk  of  the  document  was  retained  for  use  in 
+model training and evaluation. Before being fed into the BERT model, 
+texts are tokenized using the BERT tokenizer. Here, we set the maximum 
+number of tokens as 400 for social media posts, as most were very short, 
+and 512 for web articles, meaning some texts would have been further 
+truncated at this step.
+
+Examination of our initial dataset indicated that results relating to 
+COVID-19 were over-represented compared to other topics. To investi-
+gate how the over-representation of particular topics in the training data 
+influence classifier performance, we trained classification tasks 2 and 3 
+using both a randomly selected sample and a balanced stratified sample. 
+For the balanced stratified sample, data were grouped according to their 
+initial  exploitation-related  query  term (stemmed). This  resulted  in  19 
+groups,  from  each  of  which  110  texts  for  labelling  were  randomly 
+selected,  such  that  each  query  group  was  equally  represented  in  the 
+data.  Since  some query  terms  were more likely  to  be  associated  with 
+COVID-19  related  texts,  such  as  ‘market’  or  ‘trade’,  this  approach 
+effectively  under-sampled  these  texts,  allowing  the  classifier  to  be 
+trained with the full breadth of topics within the dataset.
+
+computational resources required to train them, the practical benefits of 
+using  transformer  models  for  text  classification  may  be  limited  when 
+applied to simpler classification tasks.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information on the specific hardware resources used for training the deep learning model, such as GPUs or TPUs. Therefore, I cannot provide a helpful answer based on the available context.

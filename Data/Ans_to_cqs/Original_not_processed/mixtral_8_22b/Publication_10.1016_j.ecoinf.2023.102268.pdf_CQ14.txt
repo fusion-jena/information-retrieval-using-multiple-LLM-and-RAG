@@ -1,0 +1,63 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+similarities. It is widely used to visualize high-dimensional data (van der 
+Maaten  and Hinton, 2008). Here the  method has been applied to the 
+fc1000 activation vectors returned by ResNet-50. 
+
+4.2. Classifier model 
+
+The labeled dataset was split 70/30 into training and testing data-
+sets.  For  model  selection  and  parameter  optimization  50%  of  the 
+training data were held-out for validation (see Supporting Information). 
+The final classification model, a SVM with a cubic polynomial kernel, 
+was trained using the ResNet-50 fc1000 activations of the full training 
+dataset. A 10-fold cross-validation was then used to define the score-to- 
+posterior-probability transformation function (Platt, 2000), which pro-
+vides a basis for estimating the posterior probability for new observa-
+tions. Fig. 9 shows a confusion matrix for the test data not seen during 
+training.
+
+Fig. 4. Illustration  showing the  five lowest  and five 
+highest frequency kernels used to identify candidate 
+boatwhistle  calls.  Each  mimics  the  lowest  two  har-
+monics  of  an  idealized  boatwhistle.  By  default,  the 
+lowest  frequency  kernel  considered  has  a  starting 
+fundamental  frequency  of  102.5  Hz,  with  a  down-
+ward sweep of 3 Hz over the kernel duration of 240 
+msec.  Subsequent  kernels  increase  the  fundamental 
+frequency in  steps of 2.94  Hz (i.e., the resolution of 
+the data spectrogram) with the same down-sweep and 
+duration. By default, 81 kernels are considered, with 
+the  highest  frequency  kernel  having  a  starting 
+fundamental  frequency  of  336.9  Hz.  The  kernel 
+height (frequency range) is fixed for each template.
+
+3.2. Cataloging overview 
+
+The  description  below  assumes  that  the  acoustic  waveforms  have 
+been  sampled  (or  re-sampled)  at  a  rate  of  24  kHz,  demeaned,  and 
+pressure  corrected.  The  approach  utilizes  a  multi-stage  workflow. 
+Candidate signals are identified by matching a suite of harmonic kernels 
+using spectrogram cross-correlation (modified after Ricci et al., 2017a). 
+Machine learning is then used to mitigate the false alarm rate associated 
+with  the  detection  stage  (e.g.,  Balantic  and  Donovan,  2020;  Bohnen-
+stiehl, 2023a). Frequency-reassigned spectrogram images are generated
+
+when weights are used, the range of the kernels receiving full weight 
+should be set larger than the confidence interval of the prediction.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+According to the given information, it appears that the hyperparameters of the model were optimized using a hold-out validation strategy. Specifically, 50% of the training data was held out for validation purposes. However, the exact methodology used for hyperparameter tuning, such as grid search or random search, is not explicitly mentioned in the provided text. Therefore, based on the available information, we cannot definitively state how the hyperparameters of the model were optimized beyond knowing that a hold-out validation strategy was employed.

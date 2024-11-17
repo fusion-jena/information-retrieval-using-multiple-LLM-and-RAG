@@ -1,0 +1,91 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Evaluation on Simulated Data Sets
+DEPP training and parameter sensitivity.—We start by
+evaluating DEPP on simulated data sets, testing the
+ability to train the CNN model in reasonable times. As
+the training epochs advance, the loss function (1) drops
+rapidly and stabilizes after around 500 epochs in a typical
+case (Fig. S1 of the Supplementary material available on
+Dryad). Here, training, which is a one-time process for
+each reference tree, ﬁnished in around 20 min for the 200-
+taxon data set and 260 minutes for 10,000-taxon data set,
+on a machine with one 2080Ti NVIDIA GPU and 8 CPU
+cores. Placement of 1000 queries took 4 seconds for the
+200-taxon and 30 s for the 10,000-taxon data sets using a
+single CPU core. On the small 200-taxon data set, EPA-ng
+has an advantage in terms of running time. However, in
+the larger HGT data set (10,000-taxon), DEPP placements
+are faster than the alternatives with half the running time
+of EPA-ng. In terms of the memory usage, APPLES+JC
+
+reducing the embedding size to 32 reduce the accuracy
+signiﬁcantly (Table S2 of the Supplementary material
+available on Dryad). In our ﬁnal model, we use ﬁve
+residual blocks for backbone tree with 200 taxon and
+one residual block for the rest of data set to trade-
+off performance and training time. Note that while
+the preliminary results motivated the choice of default
+settings used in the rest of analyses, we did not select
+the optimal settings for this data set and have not tested
+various settings on other data sets (thus, hyperpara-
+meters are not overﬁt to the data). The use of the gap
+reconstruction model dramatically improves accuracy
+when the query has 40% or more gaps, and the use of
+the weighted approach results in further reductions in
+error (Fig. S17 of the Supplementary material available
+on Dryad).
+
+In the most interesting case, when the query sequences
+are novel (i.e., are not in the training set), both DEPP
+and EPA-ng greatly outperform APPLES+JC (Fig. 4a).
+On average, the placement error of DEPP (2.17 edges)
+and EPA-ng (2.15 edges) is much lower than APPLES+JC
+(3.34 edges). Moreover, EPA-ng and DEPP have low error
+about the same number of times (respectively, 89% and
+88% of DEPP and EPA-ng placements have four edges or
+less error). However, DEPP is less often far away from
+the optimal placement. For example, on average, the
+maximum error of DEPP for each gene is seven edges
+lower than EPA-ng; or, the placement error of EPA-ng is
+larger than 15 edges in 3.1% of cases compared to 2.4%
+for DEPP. Thus, just like the simulated data set, DEPP
+has fewer cases of high error.
+
+Embedding size. The Layer and Rhodes (2017) (LR)
+formulation requires n
+1 dimensions, which introduces
+some challenges. According to the theory, the number of
+dimensions needs to increase by one after inserting the
+query. Our supervised learning formulation does not
+allow that (the embedding size is ﬁxed after training).
+Thus, there is no guarantee that the embeddings remain
+correct after addition, even if they are before addition.
+However, we note that, in LR embeddings, adding a
+leaf would require simply dividing one of the n
+1
+dimensions into two dimensions, leaving the rest of the
+embeddings intact. Thus, one can hope that having one
+less dimension has a minimal practical impact. More
+broadly, for large n, training models with n-dimensional
+embedding is impractical. Thus, we often set k < n
+1,
+and the gap can be more than an order of magnitude for
+some of our tests described below. In practice, we use a
+rule of thumb to select the default k (which the user can
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given text does not provide information about specific techniques used to address data bias during preprocessing of the deep learning pipeline such as stratified splitting, oversampling, undersampling, or diverse data collection. Instead, it focuses on evaluating DEPP, a convolutional neural network (CNN) model, on simulated datasets and discussing its performance, training time, and memory usage. It also mentions the use of five residual blocks for the backbone tree with 200 taxons and one residual block for the remaining dataset to balance performance and training time. Additionally, the text discusses the impact of reducing the embedding size on accuracy and the benefits of using a gap reconstruction model and a weighted approach to improve accuracy.

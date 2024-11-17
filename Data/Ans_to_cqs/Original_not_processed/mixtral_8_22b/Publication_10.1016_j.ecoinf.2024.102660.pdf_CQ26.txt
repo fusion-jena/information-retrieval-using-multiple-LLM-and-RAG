@@ -1,0 +1,65 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+network by enhancing the UNet convolutional neural network. The Convolutional Block Attention Module was 
+integrated into the encoding-decoding skip connections of the network, we also refined the convolutional blocks 
+to better capture the distinctive semantic features associated with water sun glint. To mitigate overfitting, the 
+residual structures were incorporated and the number of convolutional kernels within each block was reduced. 
+The Res_AUNet network was trained and evaluated using the WSGD dataset, achieving metrics with an Accuracy 
+of 98.02%, an F1-score of 83.67%, and an IOU of 74.73%. These results underscore the precision of our proposed 
+method for water sun glint detection in UAV water images, offering valuable insights for effectively eliminating 
+water sun glint and determining the optimal timing for UAV water image acquisition.
+
+sun glint, this study reduces the number of 3 × 3 convolutional kernels 
+in the convolutional block from 64 to 32, a measure taken to mitigate 
+overfitting.  Additionally,  a  residual  structure  is  incorporated  into  the 
+ResConv block based on the ResNet network (He et al., 2016). This in-
+volves a series of operations: 3 × 3 convolution, batch normalization 
+(BN),  rectified  linear  unit  (RELU)  activation  function,  followed  by 
+another  3  × 3  convolution,  BN,  and  element-wise  addition  with  the 
+output  of  the  initial  3  × 3  convolution.  Subsequently,  the  resulting 
+feature map undergoes a secondary RELU activation function to obtain 
+the convolutional feature results. Fig. 3(c) shows the Upsample block, 
+responsible for restoring the feature map’s size to twice its original di-
+mensions, comprising consecutive upsample, 3 × 3 convolution, BN, and 
+RELU activation function operations.
+
+EcologicalInformatics81(2024)1026602J. Chen et al.                                                                                                                                                                                                                                     
+
+Fig. 1. Study area.  
+
+Fig. 2. Flow chart of data acquisition and processing.  
+
+files to a size of 256 × 256 pixels. This cropping process resulted in a 
+total of 1764 image pairs. Among them, 1232 image pairs were used for 
+training  the  deep  neural  network,  176  image  pairs  for  validating  the 
+model  accuracy  during  the  training  phase,  and  356  image  pairs  for 
+testing the performance of the trained network post-training. 
+
+2.4. Network structure
+
+The feature extraction stage of the Res_AUNet network, as depicted 
+in the left portion of Fig. 3(a), comprises five levels. Each level primarily 
+incorporates  two  consecutive  convolutional  feature  extraction  opera-
+tions. With the exception of level 5, each level employs max-pooling for 
+downsample,  reducing  the  size  of  the  image  feature  map  to  half  its 
+
+EcologicalInformatics81(2024)1026603J. Chen et al.                                                                                                                                                                                                                                     
+
+Fig. 3. The structure of proposed network. 
+Note: (a) represents the structure of Res_AUNet; (b) represents the structure of ResConv block; (c) represents the structure of Upsample block.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't any explicit mention of specific techniques used to address data bias during preprocessing of the deep learning pipeline such as stratified splitting, oversampling, undersampling, or diverse data collection. However, it can be inferred that some form of data balancing might have been employed due to the distribution of the dataset into training, validation, and testing sets. Specifically, out of the total 1764 image pairs obtained after preprocessing, 1232 image pairs were used for training the deep neural network, 176 image pairs for validating the model accuracy during the training phase, and 356 image pairs for testing the performance of the trained network post-training. This suggests that the authors may have considered addressing potential class imbalance issues while partitioning their dataset. Nevertheless, without further information regarding the exact nature of the dataset and the problem being addressed, it cannot be definitively stated which specific technique was utilized to handle data bias.

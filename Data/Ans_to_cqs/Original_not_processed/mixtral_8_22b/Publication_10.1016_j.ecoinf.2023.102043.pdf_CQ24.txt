@@ -1,0 +1,90 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To  collect  background  noise  samples,  the  SensorTile  generates  10 
+RAND events per day lasting 5 s each. If the envelope e exceeds τ  ⋅  δ 
+while a RAND event is in progress, the RAND event is discarded and a 
+REC event is triggered. While a REC event is in progress, no RAND event 
+is generated and if there’s a scheduled RAND event it will be postponed 
+at the end of the REC event. 
+
+3.2. Detection of goat vocalizations
+
+Farm 
+
+A 
+B 
+C 
+D 
+Total 
+
+# Annotated Events 
+
+# Audio Files 
+
+Duration (h) 
+
+1046 
+791 
+961 
+2171 
+4969 
+
+3,468,415 
+2,939,211 
+1,662,819 
+1,920,752 
+9,991,197 
+
+~ 10,527.82 
+~ 12,519.97 
+~ 5036.06 
+~ 6172.18 
+~ 34,256.03  
+
+Therefore, the recording campaign was planned to last an entire year so 
+as  to  capture  the  variations  that  goat  vocalizations  demonstrate 
+throughout  the  year.  Overall,  we  have  collected  approximately  10  M 
+sound  events  lasting  more  than  34,000  h.  Fig.  7  illustrates  the  data 
+distribution per farm in terms of number of audio files, annotations and 
+durations.
+
+with a relevant audio file, the domain expert can first address such cases. 
+The  annotations  are  saved  into  an  SQL  database.  The  database 
+management system in use is PostgreSQL version 9.2.24. The main en-
+tities contained in the database are event types, event instances, and audio 
+files. Event types and event instances are in a one-to-many relationship; 
+examples of event types include “goat birth”, “goat death”, “food dis-
+tribution”, etc. The occurrence of a given event type can be periodical 
+(with  a  daily  or  yearly  frequency),  sporadic,  or  unpredictable.  Event 
+instances are, for example, the birth or death of a goat or the distribution 
+of fresh grass occurring in a given farm, at a given date and time.
+
+of  a  given  event  type.  Recurrent  instances  and/or  human-driven  in-
+stances (food distribution, milking, livestock handling, etc.) are made 
+automatically  available  in  the  digital  version  of  farm  records;  never-
+theless, unpredictable instances must be manually added a-posteriori.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the provided context, there isn't any explicit information about specific strategies employed to handle randomness in the deep learning pipeline, such as managing random seed values. However, some implicit strategies can be inferred from the described processes.
+
+In the context of collecting background noise samples using the SensorTile, randomness is introduced by generating 10 RAND events per day, each lasting 5 seconds. These events serve as opportunities to record ambient sounds. To avoid interference with significant sound events, the RAND events are discarded when the envelope 'e' exceeds a certain threshold while a RAND event is in progress. This approach ensures that only non-significant background noise is recorded during these randomly generated intervals.
+
+Regarding the detection of goat vocalizations, the recording campaign lasted an entire year to capture seasonal variations in goat vocalization patterns. Over this period, approximately 10 million sound events were collected, totaling over 34,000 hours of recordings. Although not explicitly mentioned, it can be assumed that the dataset was divided into training, validation, and testing sets for developing and evaluating machine learning models. Random sampling techniques could have been used to create these subsets, ensuring that they represent the overall dataset's characteristics.
+
+Lastly, the context mentions the use of an SQL database to store annotations related to various event types, including periodic, sporadic, and unpredictable events. For recurring and human-driven events, automated entries are created in the digital version of farm records. In contrast, unpredictable instances need to be manually added after the fact. While this process does not directly relate to handling randomness in the deep learning pipeline, it highlights the importance of accurately labeling and organizing datasets to ensure reliable model performance.
+
+In conclusion, based on the provided context, the strategies employed to handle randomness in the deep learning pipeline primarily involve controlling the collection of background noise samples and creating representative subsets of the large dataset gathered throughout the year.

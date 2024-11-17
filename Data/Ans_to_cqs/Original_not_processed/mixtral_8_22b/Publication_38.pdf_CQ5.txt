@@ -1,0 +1,75 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+14 / 19
+
+Deep learning tools for bat acoustic signal detection
+
+S1 Fig. CNNFAST network architecture description. The CNNFAST network consists of two
+convolution layers (Conv1 and Conv2), with 16 filters each (shown in yellow, with the filter
+size shown inset). Both convolution layers are followed by a max pooling layer (Max Pool1 and
+Max Pool2), and the network ends with a fully connected layer with 64 units (Fully Connect).
+CNNFAST computes feature maps (shown as white boxes) across the entire input spectrogram,
+resulting in less computation and a much faster run time. The fully connected layer is also eval-
+uated as a convolution. The output of the detector is a probability vector (shown in green)
+whose length is one quarter times the width of the input spectrogram. The numbers below
+each layer indicate the height, weight, and depth of the corresponding layer.
+(TIF)
+
+binary classification problem. Our CNNFULL consisted of three convolution and max pooling
+layers, followed by one fully connected layer (see Supplementary Information Methods for fur-
+ther details). We halved the size of the input spectrogram to reduce the input dimensionality
+to the CNN which resulted in an input array of size of 130 frequency bins by 20 time steps, cor-
+responding to a fixed length, detection window size of 23ms. We applied the CNN in a sliding
+window fashion, to predict the presence of a search-phase bat call at every instance of time in
+the spectrogram (Fig 1D). As passive acoustic monitoring can generate large quantities of data,
+we required a detection algorithm that would run faster than real time. While CNNs produce
+state of the art results for many tasks, naïve application of them for detection problems at test
+time can be extremely computationally inefficient [33]. So, to increase the speed of our system
+
+CNNFULL, CNNFAST, Random Forest, and the Segmentation algorithms took 53, 9.5, 11,
+and 17 seconds respectively, to run the full detection pipeline on the 3.2 minutes of full spec-
+trum iBats Romania and Bulgaria test dataset. Compared to CNNFULL there was therefore a
+significant decrease in the time required to perform detection using CNNFAST, which was also
+the fastest of our methods overall. Notably, close to 50% of the CNN runtime was spent gener-
+ating the spectrograms for detection, making this the most computationally expensive stage in
+the pipeline.
+
+Ecological monitoring application results
+
+and semantic segmentation. Proceedings of the IEEE conference on computer vision and pattern rec-
+ognition; 2014.
+
+34. Piczak KJ, Environmental sound classification with convolutional neural networks. 2015 IEEE 25th
+
+International Workshop on Machine Learning for Signal Processing (MLSP); 2015: IEEE.
+
+35. Salamon J, Bello JP. Deep convolutional neural networks and data augmentation for environmental
+
+sound classification. arXiv preprint arXiv:160804363. 2016.
+
+36. Hershey S, Chaudhuri S, Ellis DP, Gemmeke JF, Jansen A, Moore RC, et al. CNN Architectures for
+
+Large-Scale Audio Classification. arXiv preprint arXiv:160909430. 2016.
+
+37. Hinton G, Deng L, Yu D, Dahl GE, Mohamed A-r, Jaitly N, et al. Deep neural networks for acoustic
+
+modeling in speech recognition: The shared views of four research groups. IEEE Signal Processing
+Magazine. 2012; 29(6):82–97.
+
+38. Hannun A, Case C, Casper J, Catanzaro B, Diamos G, Elsen E, et al. Deep speech: Scaling up end-to-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about specific datasets such as MNIST, CIFAR, or ImageNet being used in the deep learning pipeline. However, it mentions that the authors tested their method on a dataset from iBats Romania and Bulgaria. This dataset appears to contain audio recordings of bat calls, which were then converted into spectrograms for analysis using various machine learning techniques, including CNNFULL and CNNFAST.

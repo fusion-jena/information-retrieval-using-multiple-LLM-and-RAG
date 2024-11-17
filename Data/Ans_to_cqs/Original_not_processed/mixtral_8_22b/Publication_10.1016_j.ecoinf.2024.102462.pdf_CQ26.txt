@@ -1,0 +1,80 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+In  order  to  mitigate  this  issue,  in  Section  4.2.2  we  used  “data 
+
+augmentation”, to modify the class balance by increasing the number of 
+examples for the underrepresented classes. The overall accuracy for all 
+the networks increased in this experiment, with ConvNeXt obtaining the 
+highest  accuracy  of  79.58%  (2%  increase).  Although  TPR  values 
+(Table 4) for the larger classes were reduced, the metrics for the smaller 
+classes  significantly  improved  leading  to  a  better  overall  accuracy. 
+However, each DL network improved its results in a different way with 
+more  data.  Nonetheless,  the  overall  improvement  suggests  that  even 
+higher  degrees  of  accuracy  may  be  attainable  if  more  unique  data 
+samples were acquired for training.
+
+3.3.2. Data augmentation 
+
+Data augmentation is a technique for expanding a data set without 
+acquiring additional data. By applying transformations to the existing 
+data, new images are generated that are slightly different while main-
+taining the same class. This technique is used to allow for the training of 
+larger networks and to balance the data. When the training set is un-
+balanced (classes with a significantly larger number of examples), the 
+trained models will become biased towards larger classes. Augmentation 
+can be used to increase the data for the classes with less representation, 
+which  allows  all  classes  to  be  learned  in  a  uniform  manner.  Care  is 
+needed in these situations as any change in the composition of data risks 
+the training sets not being representative of real-life situations.
+
+the  experts.  Then  the  network  is  fed  this  annotated  data  and  the  pa-
+rameters of the model are adjusted following an optimization process. 
+Once this training process is finished, the model is ready to process new 
+unseen  data.  DL  networks  are,  thus,  able  to  capture  statistics  and  re-
+lationships directly from the data following human expertise. If the data 
+used  for  training  the  model  is  representative  of  the  problem  and  the 
+annotations are carefully generated, the resulting network can perform 
+at a similar level with any input data set. This capacity to translate the 
+training to other independent datasets is called the generalization power 
+of the network. In practice, differences in performance between the re-
+sults with the training data (or data that is similar to it, i.e., from the 
+same  site  and  acquired  at  the  same  time)  and  those  of  independent 
+datasets (often in research papers referred to as the testing data set) can
+
+In order to solve this problem, we used a DL approach. DL networks 
+can be seen as non-linear functions with a large number of parameters. 
+The parameters of each DL are adjusted using annotated data (usually 
+referred  to  as  a  “supervised  approach”).  Once  this  process  (called 
+training the network) is finished, the evaluation of the network on the real 
+problem  is  performed  by  feeding  it  an  independent  data  set  not  seen 
+during training (the testing data set). DL techniques are currently a hot 
+topic in machine learning with applications in a variety of fields, and are 
+considered the current state of the art for CV applications. In fact, in 
+some disciplines, this technology is considered to have exceeded human 
+capabilities (Buetti-Dinh et al., 2019; He et al., 2015).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To address data bias during preprocessing of the deep learning pipeline, several techniques can be employed. These include stratified splitting, oversampling, undersampling, and diverse data collection.
+
+Stratified splitting involves dividing the dataset into subsets or strata based on specific criteria such as class labels. This ensures that each subset maintains the original class distribution, preventing any skew in the data. It helps in creating balanced training and validation sets, which can improve the model's ability to learn patterns across various classes.
+
+Oversampling is another method used to tackle data imbalance issues. It involves duplicating samples from minority classes to match the size of majority classes. Synthetic Minority Over-sampling Technique (SMOTE) is one popular oversampling algorithm that generates synthetic samples instead of simply copying existing ones. This prevents overfitting due to repeated instances.
+
+Undersampling, conversely, reduces the number of samples in majority classes to equalize them with minority classes. Random Under Sampler (RUS) is a common undersampling technique where random samples from the majority class are removed until they reach parity with the minority class. However, this might lead to loss of valuable information.
+
+Lastly, collecting diverse data is crucial for reducing bias in deep learning pipelines. A wide range of sources should be utilized to gather varied representations of the target population. This includes considering factors like age, gender, ethnicity, etc., depending upon the application domain. Enriching the dataset with diverse samples improves the robustness and fairness of the trained models.
+
+In the given context, data augmentation was used to modify class balance by increasing the number of examples for underrepresented classes. This technique expands the dataset without acquiring additional data, allowing for the training of larger networks and balancing the data. Transformations applied to existing data generate new images that maintain the same class but differ slightly. This enables all classes to be learned uniformly, addressing potential biases caused by unbalanced training sets.

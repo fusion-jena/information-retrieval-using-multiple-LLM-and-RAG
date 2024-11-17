@@ -1,0 +1,185 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 4 
+Average performance (Avg) and standard deviation (SD) for five trained models. Average precision, recall and F1-score for trained ResNet50 and EfficientNetB3 
+(EffNetB3) models modified for multitask learning (MTL) with transfer learning using pre-trained weights from ImageNet. The models are trained and validated on the 
+TLm  dataset. The models ResNet50, EfficientNetB3 are trained without MTL.  
+
+Model 
+
+Level 
+
+ResNet50MTL 
+EffNetB3MTL 
+
+ResNet50MTL 
+EffNetB3MTL 
+
+ResNet50MTL 
+EffNetB3MTL 
+
+ResNet50 
+EffNetB3 
+
+L1 Order 
+L1 Order 
+
+L2 Family 
+L2 Family 
+
+L3 Species 
+L3 Species 
+
+Species 
+Species 
+
+Avg 
+
+0.990 
+0.986 
+
+0.987 
+0.984 
+
+0.955 
+0.948 
+
+0.955 
+0.953 
+
+Precision 
+
+SD (10
+
+(cid:0) 3) 
+
+(1.0) 
+(4.4) 
+
+(0.8) 
+(3.1) 
+
+(4.3) 
+(5.2) 
+
+(3.3) 
+(2.5) 
+
+Avg 
+
+0.991 
+0.993 
+
+0.986 
+0.988 
+
+0.961 
+0.966 
+
+0.957 
+0.966 
+
+Recall 
+
+SD (10
+
+(cid:0) 3) 
+
+(1.1) 
+(0.5) 
+
+(0.9) 
+(0.7) 
+
+(9.8) 
+(5.1) 
+
+(7.3) 
+(2.5) 
+
+Avg 
+
+0.991 
+0.989 
+
+0.987 
+0.986 
+
+0.957 
+0.956 
+
+0.955 
+0.959
+
+Appendix C. The training of the models 
+
+The best model with transfer learning was chosen based on the minimum total loss after nine epochs, as seen in Fig. C.5. Note that we observe 
+overfitting after nine epochs, where the validation loss starts to increase, although the bias is still very low. The increase is indicated by a higher 
+difference between training and validation loss and bias is the loss evaluated on the training dataset. 
+
+Note that the largest variation is 0.6%, which is very similar to the variation of 0.8% when training with different values of α in Fig. B.4. This 
+
+indicates a minimal impact on the change of accuracy for different choices of α. 
+
+References 
+
+An, G., Akiba, M., Omodaka, K., Nakazawa, T., Yokota, H., 2021. Hierarchical deep 
+
+learning models using transfer learning for disease detection and classification based 
+on small number of medical images. Scient. Rep. 11 (1) https://doi.org/10.1038/ 
+s41598-021-83503-7.
+
+Multitask learning (MTL) is the process of training a model to learn 
+several related tasks. It is important in the context of hierarchical clas-
+sification, but has to our knowledge never been used to solve classifi-
+cation  challenges 
+the 
+for  biological  organisms. 
+generalization  by  inductive  information  transfer  and  by  using  the 
+domain information contained in the training data of related tasks. It 
+does this by learning tasks in parallel while using a shared representa-
+tion: what is learned for each task can help the other tasks (Maurer et al., 
+2016). Hard parameter sharing is the most commonly used approach. In 
+it, the hidden CNN layers are shared between all tasks while keeping 
+several task-specific outputs (Zhang et al., 2022). Caruana (1997) pre-
+sent examples of the use of MTL. One example was to predict steering 
+directions for road-following vehicles. Based on road images, the model 
+would predict, for example, the number of road lanes, the position on
+
+Rl = (Wl2*σrelu(Wl1*R0 + bl1)) + bl2)
+
+(2) 
+
+Here  Wl1  and  Wl2  represent  the  weights,  and  bl1, bl2  represent  the 
+biases for the independent FC layer representation. We apply dropout 
+regularization  in  the  forward  pass  during  training  so  that  random 
+
+EcologicalInformatics77(2023)1022784K. Bjerge et al.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, several postprocessing steps can be performed depending on the specific requirements of the project or study. Some common postprocessing steps include:
+
+1. Model Evaluation: After training, it is essential to evaluate the performance of the model using various metrics such as precision, recall, F1-score, etc. These metrics provide insights into how well the model performs on unseen data.
+
+2. Confusion Matrix: A confusion matrix is a table that summarizes the predictions made by the model compared to the actual labels. It provides a visual representation of the model's performance and helps identify any biases or errors in the prediction.
+
+3. Saliency Maps: Saliency maps highlight the regions of an image that contribute significantly to the final output of the model. They help understand the decision-making process of the model and improve its interpretability.
+
+4. Hyperparameter Tuning: Postprocessing may also involve tuning hyperparameters such as learning rate, batch size, regularization parameters, etc., to optimize the model's performance further.
+
+5. Ensemble Methods: Combining multiple models to create an ensemble can improve the overall performance of the system. Techniques such as bagging, boosting, stacking, etc., can be employed to build ensembles.
+
+Based on the given context, it appears that the authors have calculated average precision, recall, and F1-scores for their trained models. However, there is no explicit mention of other postprocessing steps such as saliency maps, confusion matrices, or hyperparameter tuning. Therefore, it cannot be determined if these methods were applied in this particular case.

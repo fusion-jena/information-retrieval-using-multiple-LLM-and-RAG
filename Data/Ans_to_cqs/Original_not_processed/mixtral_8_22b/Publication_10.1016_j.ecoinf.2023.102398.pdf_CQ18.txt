@@ -1,0 +1,127 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+5. Results and discussion 
+
+In this section, the results derived from the training of the proposed 
+model  and  the  results  obtained  by  deploying  the  trained  model  are 
+discussed. 
+
+5.1. Experimental result
+
+In  order  to  determine  more  accurate  training  results  and  also  to 
+explore the effect of epoch upon training result, apart from 150 epochs, 
+the model with attention layer is trained with epoch values 100, 200, 
+and  250  under  a  uniform  training  environment  and  with  the  same 
+dataset.  The  training  summary  for  each  of  these  epochs  is  shown  in 
+Tables 5, 6 and 7 for epochs 100, 200, and 250, respectively. The trends 
+of mAP values with increasing epochs are shown in Figs. 14 and Fig. 15. 
+The size of the dataset used for custom training is sufficiently large. 
+Further, the DL model used in this work is tuned with optimized hyper 
+parameters  for  which  overfitting  and  under  fitting  situations  are  pre-
+vented from occurring. As mentioned above, the effort to over-train the 
+model has been avoided and graded MSE convergence (Figs. 7 to 11) has 
+been  adopted  to  fine-tune  the  model.  Results  obtained  for  different
+
+The confusion matrix (Fig. 6), F1 curve (Fig. 7), P curve (Fig. 8), PR 
+curve (Fig. 9), R curve (Fig. 10) and final training plots (Fig. 11) are 
+shown for the training of the model with attention layer with epoch-150. 
+Some training batch outputs are shown in Fig. 12, and some validation 
+outputs are shown in Fig. 13. 
+
+EcologicalInformatics79(2024)10239812B. Bhagabati et al.                                                                                                                                                                                                                              
+
+Fig. 12. Training Output (Batch-1) showing the labels of the detected object.  
+
+Fig. 13. Validation Output (with images from the dataset). The bounding box and class name are generated and shown for the validated object by the model.
+
+Fig.  4. SENet  attention  mechanism.  Different  blocks  of  the  attention  mecha-
+nism with sizes are shown. 
+
+Table 2 
+Hyper  parameters and their values used in  training the  proposed model. The 
+hyper parameters are based on the optimized values for YOLOv5 COCO training 
+from scratch.  
+
+Parameter Name 
+
+lr0 
+Lrf 
+momentum 
+weight_decay 
+warmup_epochs 
+warmup_momentum 
+warmup_bias_lr 
+box 
+cls 
+cls_pw 
+obj 
+obj_pw 
+iou_t 
+anchor_t 
+
+Value 
+
+0.01 
+0.01 
+0.937 
+0.0005 
+3.0 
+0.8 
+0.1 
+0.05 
+0.5 
+1.0 
+1.0 
+1.0 
+0.2 
+4.0 
+
+Parameter Name 
+
+fl_gamma 
+hsv_h 
+hsv_s 
+hsv_v 
+degrees 
+translate 
+scale 
+shear 
+Perspective 
+flipud 
+fliplr 
+mosaic 
+mixup 
+copy_paste 
+
+Value 
+
+0.0 
+0.015 
+0.7 
+0.4 
+0.0 
+0.1 
+0.5 
+0.0 
+0.0 
+0.0 
+0.5 
+1.0 
+0.0 
+0.0
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To monitor the model performance during training, the authors have employed several strategies. They have trained the model with varying epoch values such as 100, 150, 200, and 250 to explore the impact of epoch on training results. This approach helps them identify the optimal number of epochs required for achieving the best possible accuracy without overfitting or underfitting the model. Additionally, they have utilized various evaluation metrics like mean Average Precision (mAP), Confusion Matrix, F1 score, precision, recall, and ROC curves to assess the model's performance. Furthermore, they have visualized the training progress using figures depicting the loss function, learning rate schedules, and other relevant information. Lastly, they have ensured that the dataset used for training is sufficiently large and diverse to prevent any potential biases or limitations in the model's ability to generalize well to unseen data.

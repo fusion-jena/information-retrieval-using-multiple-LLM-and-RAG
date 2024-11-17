@@ -1,0 +1,73 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table  2  lists  nine  grid  search  ML  models  with  fivefold  cross- 
+validation for four WQPs and hyperparameters. Model evaluation and 
+hyperparameter selection use cross-validation resampling. The dataset is 
+split  into  five  equal-sized  folds  using  fivefold  cross-validation.  Five 
+times, one of each fold, the training and assessment process is validated. 
+A  more  complete  model  performance  analysis  is  possible.  Averaging 
+coefficient of determination (R2) or RMSE across five iterations with five 
+folds  improves  model  performance  and  hyperparameter  tuning  effi-
+ciency estimation. The Python library’s randint command picks integers 
+within a range for hyperparameters like n_estimators and max_depth. We 
+use  the  uniform  command  for  discrete  or  continuous  values  inside  a 
+range,  like  the  min_samples_split  hyperparameter.  These  commands 
+examined  multiple  hyperparameter  value  ranges  to  establish  model
+
+Hyperparameter  tuning  plays  a  crucial role  in  optimizing  the  per-
+formance of a model by improving its ability to predict observed and 
+predicted ranges. The tuning process maximizes the models training and 
+testing  performance.  It  will  control  overfitting  or  underfitting  issues 
+(Elshawi et al., 2019). Though the process is complex and takes a long 
+time,  many  optimizing  methods,  such  as  Manual  Tuning,  Bayesian 
+Optimization,  and  random  grid  search  methods,  simplify  the  process 
+(Yang  and  Shami,  2020).  Nevertheless,  choosing  which  optimizing 
+method is best for specific data is challenging. Hyperparameter tuning of 
+the decision tree model are usually configured with maximum depth and 
+minimum number of samples required to split a node. For the RF model, 
+extensive  experimentation  was  conducted  using  varying  numbers  of 
+trees  for  the  optimal  fit.  The  gradient  boosting  model  is  tuned  with
+
+. The most accurate prediction models were found using this strategy. 
+R2  values,  which  indicate  how  well  models  captured  data  variation, 
+were used to evaluate models. The RMSE values were also considered to 
+assess  residual  dispersion  and  model  prediction  performance.  Results 
+demonstrate  that  the  dataset  was  identified  using  extremely  accurate 
+models using the Lazy Predict method, R2 score-based model selection. 
+After identifying suitable ML models from lazy predict results, each ML 
+model was hyper-tuned to build robust models for SWQPs, maintaining 
+consistent input  and output parameters  and the train-test percentage. 
+The revised algorithms identified data patterns and improved prediction 
+
+Fig. 3. Comparison of coefficient of variation of water quality parameters and precipitation vS  Land use factors.
+
+The best models vary by parameter, showing how autoML findings 
+affected prediction accuracy. The later selection procedure selected the 
+best five to six models for each WQP. Using many ML models for each 
+WQP prediction can be challenging and time-consuming, as shown by 
+the  many  hyperparameter  tweaking  techniques  in  earlier  sections. 
+Moreover, a few boosting models performed better for a few WQPs, and 
+a few bagging models performed better for remaining WQPs. To over-
+come  this,  a  meta  model  has  been  developed  that  combines  the  pre-
+dictions  from  the  best-performing  models  across  all  parameters.  This 
+approach allows for a more efficient and streamlined process, reducing 
+the  complexity  and  time  required  for  water  quality  prediction.  Two 
+criteria determined the meta model’s three base models: 1) The top five 
+or six models for each parameter from Lazy Predict were selected based
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The strategy implemented to monitor the model performance during training involves the use of fivefold cross-validation. This means that the dataset is divided into five equal-sized folds. Each fold is then used once as a validation set while the other four folds serve as the training set. This process is repeated five times, ensuring that every data point gets to be in the validation set exactly once. By averaging the coefficient of determination (R2) or root mean square error (RMSE) across these five iterations, a more comprehensive model performance analysis becomes possible. Additionally, hyperparameter tuning is employed to improve the model's predictive capabilities further. This involves selecting the optimal values for various hyperparameters, such as 'n_estimators','max_depth', and'min_samples_split'. The Python library's 'randint' and 'uniform' commands are utilized to pick integer and continuous/discrete values within a specified range for these hyperparameters.

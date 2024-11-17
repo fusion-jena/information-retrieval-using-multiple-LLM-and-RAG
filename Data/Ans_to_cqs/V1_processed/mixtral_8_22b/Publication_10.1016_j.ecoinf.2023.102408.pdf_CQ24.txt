@@ -1,0 +1,11 @@
+The given context does not provide direct information on strategies employed to handle randomness in the deep learning pipeline, including the use of random seed values. However, I can still provide some general insights into this topic based on common practices in the field.
+
+Randomness in deep learning pipelines often arises due to various sources like weight initialization, batch selection during training, dropout regularization, etc. To ensure reproducibility and consistency across experiments, researchers employ different strategies to control randomness. Here are some commonly used techniques:
+
+1. Fixed Seeds: One popular approach is setting fixed seeds for all random processes involved in the pipeline. By using a specific seed value, one can reproduce the same sequence of pseudo-random numbers, ensuring consistent results across multiple runs. Libraries like NumPy, PyTorch, TensorFlow, and others allow users to set global or local seeds for controlling randomness.
+
+2. Deterministic Algorithms: Some algorithms have deterministic versions that eliminate the need for explicit random seed management. For example, instead of using stochastic gradient descent with random mini-batch sampling, one could opt for full-batch gradient descent, which is entirely deterministic.
+
+3. Checkpoints & Restoring: Another strategy involves saving checkpoints of models at various stages of training and restoring them later for further analysis or fine-tuning. This way, even if the initial training process had some inherent randomness, subsequent evaluations will be consistent since they start from a known state.
+
+4. Reproducible Experiments: Researchers should strive to create reproducible experiments by documenting every aspect of their pipeline, including software versions, hardware configurations, dataset splits, preprocessing steps, and hyperparameters. Tools like MLflow, TensorBoard, and Weights & Biases help track experiment metadata and facilitate reproducibility.

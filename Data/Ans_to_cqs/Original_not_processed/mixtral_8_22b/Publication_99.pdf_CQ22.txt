@@ -1,0 +1,127 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+PConv networks 
+
+256 × 256/512 × 512 
+
+1 
+2e-4 
+
+Adam optimizer 
+per-pixel loss, perceptual 
+loss, style loss and total 
+variation loss 
+50 
+Pre-trained on ImageNet 
+
+Pix2Pix 
+networks 
+
+256 × 256/512 
+× 512 
+1 
+9e-5 
+
+Classification 
+networks 
+
+256 × 256/512 
+× 512 
+32 
+0.03 
+
+Adam optimizer 
+Adversarial loss 
+and L1 loss 
+
+Adam optimizer 
+Cross-entropy 
+loss 
+
+50 
+Trained from 
+Scratch 
+
+20 
+Pre-trained on 
+ImageNet  
+
+Input 
+
+dimension 
+
+Batch size 
+Learning 
+rate 
+Optimizer 
+Loss function 
+
+Epochs 
+Pre-trained 
+network 
+
+applied.  All  input  images  were  preprocessed  by  mean  centering  the 
+image with ImageNet values and then rescaled between 0 and 1. Since 
+our dataset was balanced, both networks were trained with a learning 
+rate of 0.03, cross-entropy loss as a loss function optimized by Adam 
+optimizer (Kingma and Ba, 2014). Table 2 summarizes the parameter 
+used for training each model. 
+
+3.4. Performance evaluation
+
+3.4. Performance evaluation 
+
+Quantitative  evaluation  of  generative  models  is  still  a  challenging 
+task due to the existence of many possible solutions (Black et al., 2020). 
+Similar to recent studies, all reconstruction models were evaluated using 
+Peak  Signal-To-Noise  Ratio  (PSNR)  and  Structural  Similarity  Index 
+Measure (SSIM). 
+
+3.4.1. Structural similarity index measure (SSIM)
+
+The original implementation of PConv network required a two-phase 
+training process (Liu et al., 2018). This is because the generated holes 
+presented  a  problem  for  batch  normalization  layer  when  computing 
+mean  and  variance  of  the  hole  pixels.  In  this  study,  all  models  were 
+trained in a single process while freezing the batch normalization layer 
+in the encoder part as the network used pre-trained weights with a small 
+batch size of 1. The models were optimized using Adam optimizer with a 
+learning rate of 0.0002 while using relu activation for encoder part and 
+leakyRelu  activation  for  the  decoder  part  of  the  network.  All  models 
+were  trained  for  50  epochs.  For  each  training  epoch,  a  model  was 
+evaluated using the validation set and was saved as the best model based 
+on a validation loss. 
+
+3.3.2. Pix2Pix network
+
+Training GANs is challenging as both generator and discriminator are 
+competing and hence expected to reach at equilibrium (Pan et al., 2019). 
+In this study, all Pix2Pix models were trained for 50 epochs. After every 
+500 iterations, the performance of the generator models were evaluated 
+using  both  Structural  Similarity  Index  Measure  (SSIM)  and  the  Peak 
+Signal-To-Noise Ratio (PSNR) metrics and the model was saved as the 
+best  model  if  it  has  improved  the  performance  on  the  validation  set 
+compared to previous iterations. 
+
+3.3.3. Classification
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The performance of the deep learning models in this study is primarily evaluated using two quantitative measures: Peak Signal-to-Noise Ratio (PSNR) and Structural Similarity Index Measure (SSIM). These metrics are commonly used for evaluating generative models, which can be challenging due to the existence of multiple possible solutions.
+
+For instance, the PConv networks are evaluated using these metrics after being trained for 50 epochs. Each training epoch involves saving the model as the best one based on its performance on the validation set, measured by validation loss. Similarly, the Pix2Pix networks are also assessed using PSNR and SSIM metrics after being trained for 50 epochs. However, their performance is checked every 500 iterations, and the model is saved as the best one if it improves upon the previous iterations' performance on the validation set.
+
+On the other hand, classification networks use different metrics for performance evaluation. Given that our dataset is balanced, both networks are trained with a learning rate of 0.03 and cross-entropy loss as the loss function, optimized by the Adam optimizer. Although not explicitly mentioned, common metrics for evaluating classification tasks include accuracy, precision, recall, and F1 score.

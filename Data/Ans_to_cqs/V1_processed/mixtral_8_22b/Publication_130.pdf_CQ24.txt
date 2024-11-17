@@ -1,0 +1,9 @@
+The text does not provide explicit information about handling randomness in the deep learning pipeline, such as managing random seed values. However, it mentions several strategies related to image selection and model training that could indirectly mitigate the effects of randomness.
+
+For instance, the process involves selecting 1,600 images per zebra finch, ensuring a large enough sample size to reduce potential biases caused by randomness. Additionally, the use of oversampling for a bird with fewer images (1,197 instead of 1,600) helps maintain balance within the dataset.
+
+When training the model, if there is no decrease in loss for more than 10 consecutive epochs, they stop training and retrain the model with the lowest loss using a smaller learning rate. This approach might help avoid getting stuck in local minima during optimization, which could occur due to random initialization or other sources of randomness.
+
+Furthermore, the validation dataset is created by selecting 160 pictures from each trial while avoiding near-identical pictures, contributing to a diverse and representative validation set. Lastly, the test dataset includes 250 random images from birds not in the training dataset and limits the number of pictures from the same individual to ensure a wide variety of examples.
+
+These strategies collectively aim to create robust datasets and reliable models, potentially reducing the impact of random factors in the deep learning pipeline.

@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.2. Model fine-tuning 
+
+To  fine-tune  the  base  model  with  Gulf  of  Mexico  data  the  feature 
+extractor remains frozen. Models are trained with the same parameters 
+as the base model but we use a cyclical learning rate of 0.0004 and is set 
+to run for 50 epochs, with early stopping set to deploy if the validation 
+loss does not improve within 10 epochs. A dropout rate of 0.2 is used 
+during  fine-tuning,  and  DropConnect  is  employed.  Drop  out  layers 
+randomly  discard  the  output  of  the  hidden  nodes  during  training, 
+DropConnect randomly discards the input of the hidden layer (Sun et al., 
+2022). 
+
+2.2.1. Data acquisition
+
+2.1.1. Experimental design 
+
+To evaluate the effect of local training data on model performance 
+we  fine-tune  a  base  model  with  randomly  pooled  training  sets  of 
+increasing size (sets of 50, 100, 200, 300 and 500- frames) from the Gulf 
+of Mexico acoustic data collected December 3rd 2019 (Fig. 3). An extra 
+training set is considered consisting of 500 frames of randomly sampled 
+ambient noise from December 3rd 2019. 
+
+The models are validated during training by combining the original 
+base model validation set (Table 1) with 100 frames per class from the 
+labelled December 3rd 2019 training set, randomly pooled per experi-
+ment. In this way the model’s performance is assessed across both en-
+vironments simultaneously(Fig. 4). 
+
+2.2. Model fine-tuning
+
+EcologicalInformatics78(2023)1023635E.L. White et al.                                                                                                                                                                                                                                 
+
+Fig. 4. Workflow of model development and experimental retraining. The original base model is trained on multiple global datasets. The base model is used as the 
+framework for experimentation on the Gulf of Mexico dataset. PAM files from December 3rd 2019 are used as a training set. Each experimental run is tested on four 
+days of data: November 23rd, December 18th, December 30th 2019, and January 4th 2020. 
+
+characteristics, (ii) analysing performance metrics across the whole test 
+set and (iii) inspecting per day variation within the test set. 
+
+3.1. Variation in soundscape characteristics
+
+considered.  Further  we  consider  the  one-vs-all  Receiver  Operating 
+Characteristic  (ROC)  curves  to  summarise  performance  (Hildebrand 
+et al., 2022). ROC curves are especially useful for domains with skewed 
+class distribution, as found in our test sets (Table 2). The area-under- 
+curve (AUC) is used as a summary statistic for these curves, per class 
+(Stowell, 2022). Models are randomly initialised and re-trained 5 times 
+per batch size. The standard error reported is the variance of the mean 
+performance metrics for models within each batch size.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+During the training process, the models are validated using a combination of the original base model validation set and 100 frames per class from the labeled December 3rd, 2019 training set. These frames are randomly pooled per experiment. This approach allows for simultaneous assessment of the model's performance across both environments. Additionally, early stopping is deployed if the validation loss does not improve within 10 epochs.

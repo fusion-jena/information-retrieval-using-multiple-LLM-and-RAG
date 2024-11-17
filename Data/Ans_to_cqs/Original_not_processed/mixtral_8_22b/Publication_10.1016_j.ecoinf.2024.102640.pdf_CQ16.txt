@@ -1,0 +1,155 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Fig. 6. Structure of the neural network of learning eye-phone distance, where 
+the  number  attached  to  each  layer  is  the  number  of  neurons  included  in 
+that layer. 
+
+structure of EPDNet, which works with the face box's width and height 
+as  input  and  the  eye-phone  distance  as  output.  The  ReLU  activation 
+function  and  sigmoid  are  used  to  cope  with  non-linearity.  The  five 
+neuron  layers  following  the  concatenation  are  all  fully  connected.  In 
+EPDNet training, we employ the Mean Squared Error (MSE) loss func-
+tion and the Adam optimizer with a learning rate of 0.0001. We use the 
+R2  metric to assess the model's fit to the observed data. After training, 
+this model fits well with the R2  of 0.95.
+
+training  datasets  in  use.  Until  now,  there  is  still  lack  of  high-quality 
+dataset for GVI extraction.
+
+To make an effective prompt for eye-level shot, we have to determine 
+that the face is complete in the footage captured by the front camera. 
+When the user raises the phone and aligns the front camera with his face, 
+GreenCam will  determine  if  the  face  in  the  footage  is  complete  and 
+meets the requirements. Specifically, as shown in the Fig. 4(a-b), only 
+lower or upper parts of the face are captured, indicating that the cam-
+era's  position  is  too  low  or  too  high.  Fig.  4(c-d)  show  suitable  facial 
+footages, so that the face can be reliably recognized by GreenCam to 
+better determine if the phone is at eye level.
+
+Parameter (m) 
+
+Flops (g) 
+
+FCN 
+HRNet 
+PSPNet 
+DeeplabV3+
+SegFormer 
+
+ResNet50 
+HRNet-W18 
+MobileNetV2 
+MobileNetV2 
+MiT-B1 
+
+59.12 
+60.74 
+54.94 
+58.89 
+63.73 
+
+78.88 
+80.58 
+75.97 
+78.72 
+84.25 
+
+0.719 
+0.727 
+0.664 
+0.695 
+0.745 
+
+0.732 
+0.739 
+0.679 
+0.712 
+0.756 
+
+0.716 
+0.727 
+0.689 
+0.718 
+0.761 
+
+6.67 
+2.63 
+0.56 
+1.39 
+1.51 
+
+32.951 
+9.639 
+2.377 
+5.815 
+13.665 
+
+277.225 
+32.598 
+5.971 
+52.753 
+26.475  
+
+Table 2 
+IOU and PA of classes.  
+
+Classes 
+
+IOU 
+
+PA 
+
+classes 
+
+Tree 
+Lawn 
+Shrub 
+Flower 
+Flat 
+
+85.19 
+72.95 
+60.34 
+78.13 
+79.04 
+
+92.27 
+82.19 
+74.2 
+85.58 
+90.88     
+
+sky 
+facility 
+architecture 
+water body 
+
+IOU 
+
+88.84 
+32.05 
+61.81 
+82.63 
+
+PA 
+
+95.2 
+42.78 
+78.09 
+90.5
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information on the specific criteria used to determine when training is complete. However, it mentions that after training, the model fits well with an R2 score of 0.95. This suggests that the performance of the model during training might be evaluated using metrics such as R2 scores, and training could be considered complete once the desired level of performance is achieved. Additionally, the text mentions the use of the Mean Squared Error (MSE) loss function and the Adam optimizer with a learning rate of 0.0001 during training. These details suggest that the training process likely involves monitoring the MSE loss and adjusting the model parameters using the Adam optimizer until satisfactory results are obtained. It is common practice in machine learning to monitor the validation loss during training and consider training complete when the validation loss reaches a plateau or starts increasing, indicating overfitting. However, this specific criterion is not explicitly mentioned in the given text.

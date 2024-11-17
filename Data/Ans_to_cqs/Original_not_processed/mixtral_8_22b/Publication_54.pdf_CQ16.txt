@@ -1,0 +1,63 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+the training and validation sets. Then, the model is ﬁt by using
+(k − 1) folds and evaluated using the remaining k th fold. The
+process is repeated until every k-fold is used as the test set.
+However, this may produce varying results. Thus, to improve
+the model and analyze the inﬂuence of various components
+in the framework, we adopted multistage training with the
+training and validation datasets (Fig. 4) to better predict test
+dataset.
+
+The model is then iteratively trained and validated on these
+different sets. The training set is used to ﬁt the parameters of
+the classiﬁer, whereas the validation set provides an unbiased
+evaluation of the model ﬁt on the training set while tuning
+model hyperparameters, such as the network layer size, ﬁnd-
+ing the optimal number of hidden units, and regularizing the
+model. Models with few hyperparameters are easy to validate
+and tune, but if the model has many hyperparameters, a larger
+validation dataset is required. In some cases, the evaluation
+is biased when a validation dataset is not incorporated into
+the model conﬁguration because the model may perfectly ﬁt
+the training data with high accuracy but may fail to ﬁt the
+test or validation data. In such cases, k-fold cross-validation,
+which is a resampling technique, is used to avoid overﬁtting;
+the training set is generated with different combinations of k
+groups (say 5 or 10, depending on the size of the dataset) as
+
+3. Furthermore, to enhance the performance and decrease
+overﬁtting in the selected model, we proposed a mech-
+anism to swap the training and validation misclassiﬁed
+datasets. Then, we retrained the model until it yielded
+the highest accuracy possible on the validation and test
+datasets. Additionally, ﬁve-fold cross-validation was
+employed to verify the predictive performance of the
+model.
+
+Thus, through the monitoring and identiﬁcation of endemic
+birds in their habitats and estimating the size of their popula-
+tions, the proposed system can help conserve biodiversity.
+
+tions even when only a few labeled datasets are available
+for training. For instance, in the 2017 CWBF checklist of
+the birds of Taiwan, 27 endemic bird species were identi-
+ﬁed, whereas in the 2020 CWBF checklist, 29 endemic bird
+species were identiﬁed. In such a scenario, the knowledge
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Answer: Based on the given context, the criteria used to determine when training is complete include achieving the highest accuracy possible on both the validation and test datasets. This is done by employing five-fold cross-validation to verify the predictive performance of the model. Additionally, a mechanism is proposed to swap the training and validation misclassified datasets, which helps enhance the performance and decrease overfitting in the selected model. However, the specific details about how the swapping process works or what constitutes the 'highest accuracy possible' are not explicitly mentioned in the provided context. It should also be noted that models with fewer hyperparameters are easier to validate and tune, but if the model has many hyperparameters, a larger validation dataset is required.

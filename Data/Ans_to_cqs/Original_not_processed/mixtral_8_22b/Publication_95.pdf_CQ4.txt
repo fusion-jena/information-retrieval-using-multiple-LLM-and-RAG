@@ -1,0 +1,53 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The following three-step data augmentation procedure was applied to the images dur-
+ing training before being processed by the network: (1) randomly ﬂip image horizontally,
+(2) scale the contrast of each image channel by a random factor between 0.8 and 1.2, and (3)
+randomly crop the image to a square with side lengths equal to the image height.
+
+the collected data. Finally, the deep learning algorithms are evaluated and the challenges
+of monitoring IAPS are discussed.
+
+When training a deep convolutional neural network, it is important to split the data
+into a training set, a validation set, and a test set. The training set is used for optimizing the
+parameters of the network, while the validation set is used for monitoring the performance
+of the network during training and for comparing the performance of different networks
+with, for example, different hyperparameters or network structures. The test set acts as a
+ﬁnal evaluation of a network. To ensure a proper evaluation on both the validation set and
+the test set, samples in each set must be independent and have similar class distributions.
+The full data set can be split in various ways. The naïve approach is to randomly
+sample images from the full data set. However, due to the images being captured in
+close proximity and potentially having overlapping ﬁelds of views, information may leak
+between the data sets when using the naïve approach. Another approach would be to
+
+All networks were trained on the training set for 100 epochs, using the Adam opti-
+mizer [27] with a learning rate of 0.001 and cross-entropy loss. The image batch size varied
+from 1 to 32 images, depending on the input image resolution with larger batch sizes
+for smaller image sizes. After each epoch, the network was evaluated on the validation
+set. The epoch model with the highest accuracy on the validation set during training was
+saved for further analysis. Before training the networks, the training set was balanced by
+upsampling the images from the underrepresented classes through repetition to match the
+number of images of the most represented class, “No species”.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+In this study, the following three-step data augmentation procedure was applied to the images during training before being processed by the network:
+
+1. Randomly flip image horizontally: This technique involves flipping the image along its horizontal axis. It helps the model generalize better by creating new variations of the existing images.
+
+2. Scale the contrast of each image channel by a random factor between 0.8 and 1.2: This step adjusts the contrast of the image channels within a certain range. By doing so, the model becomes more robust to changes in lighting conditions and color intensity.
+
+3. Randomly crop the image to a square with side lengths equal to the image height: This technique crops the original image into a square shape, which maintains the aspect ratio. Cropping the image randomly allows the model to focus on different parts of the image, improving its ability to recognize features regardless of their position.

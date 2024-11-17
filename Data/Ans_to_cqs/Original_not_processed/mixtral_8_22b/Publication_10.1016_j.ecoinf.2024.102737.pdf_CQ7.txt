@@ -1,0 +1,157 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 2
+Experiments training/test sets sizes for the upper-, left- and right-poses models.
+
+Exper. No.
+
+Method
+
+Upper
+
+Left
+
+Right
+
+E1
+
+E2
+
+4-CoL, NoAug,
+FEE, none
+4-Col, Aug,
+NoFEE, none
+
+Train: 24
+Test: 66
+Train: 72
+Test: 68
+
+Train: 40
+Test: 59
+Train: 120
+Test: 62
+
+Train: 40
+Test: 68
+Train: 120
+Test: 67
+
+Table 3
+Precision results of each experiment for the upper-, left- and right-pose models.
+
+Exper. No.
+
+Measure
+
+E1:
+
+E2:
+
+P1
+P3
+P5
+P6
+P1
+P3
+P5
+P6
+
+Upper
+
+0.682
+0.788
+0.838
+0.849
+0.441
+0.5
+0.559
+0.603
+
+Left
+
+0.356
+0.61
+0.712
+0.78
+0.323
+0.484
+0.581
+0.629
+
+Right
+
+0.544
+0.662
+0.735
+0.78
+0.418
+0.522
+0.612
+0.687
+
+Fig. 10. (a) Upper-pose images, (b) Left-pose images, (c) Right-pose images.
+
+EcologicalInformatics82(2024)10273712A. Levy et al.
+
+Still there are issues that should be considered before a specific
+detailed framework can be designed. In order to decide on a feature
+extraction and recognition detailed steps framework,12 initial experi-
+ments were performed on the individuals labeled database. Since we
+study a task that has not been studied before, we explore different as-
+pects and several directions to tackle them, which naturally, most of
+them are abandoned after evaluating the results. Nevertheless, these
+initial experiments are important as a base case to study the conditions
+that improve the performance, which is the focus of this paper. Based on
+the literature survey our initial experiments referred to the following
+issues to be decided for the chosen framework: architecture, data
+augmentation usage, feature extraction enhancement and handling
+different poses. The evaluation of the initial experiments results then
+guided our design of the follow-up experiments. The initial experiments,
+
+The training set included 21 different individuals (classes) each
+having 4 different 320 × 320 pixels images. The test size included 99
+other labeled images of the individuals that appeared in the training set.
+Images of both training and test sizes varied in their poses and other
+image characteristics, such as contrast, brightness, etc. The initial ex-
+periments referred to the following issues to be decided for the chosen
+framework:
+
+1. Architecture: We examined two Siamese architectures versions
+based on the work of (Koch et al., 2015), since Siamese networks that
+learn a similarity function are a better choice for learning with a
+small example set.13 The two architectures have either 2 or 4
+convolution layers with Relu activations and Contrastive Loss (CoL)
+as a loss function. The implementations are taken from the open
+sources of Choi, (2020); Siyah, (2020).
+
+2. on the other hand, a practically reasonable pipeline for recognition
+can be achieved despite the problem specification challenges, using a
+careful examination of different factors, such as pose handling, while
+bearing some surprises to the Computer Vision community, e.g., the
+advantage of a feature-extraction enhancement (avoiding data
+augmentation) over using augmentation techniques.
+
+Preprocessing the input instead of relying on data augmentation is a
+preferred way with significantly better results, seemingly by-passing the
+difficulty of the Siamese network to learn similarity in the presence of so
+few examples. It could be, however, that there is still a better way to by-
+pass this difficulty but also exploit the power of augmentations.
+
+CRediT authorship contribution statement
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it appears that the dataset was divided into training and testing sets for the purpose of developing deep learning models. However, the exact criteria used to split the data are not explicitly mentioned. From Table 2, we can see that the training set sizes vary across different experiments, ranging from 24 to 120 samples. Similarly, the test set sizes range from 66 to 68 samples. This suggests that the splitting may have been done randomly or based on certain proportions rather than any specific criteria related to the data itself. Additionally, no mention of a separate validation set is made in the provided context. Therefore, without further information, it cannot be definitively stated what criteria were used to split the data for deep learning model training.

@@ -1,0 +1,375 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The pooling operator is connected after this layer for extracting the main features of a certain area, 
+reducing the number of parameters, and preventing the model from over fitting. The maximum pooling 
+with a 2 × 2 window and 2 strides is used in this layer. The pooling result is the data with the size of 56 
+× 56 × 64.  
+
+After pooling, the LRN (Local Response Normalization) is used to normalize the local response. 
+The LRN enhances the larger response value and reduce the smaller response value. Thus, the LRN 
+also can improve the generalization of the model. The output result of the LRN is the data with the size 
+of 56 × 56 × 64.
+
+Accuracy
+
+
+
+TP TN
+
+TP TN FP FN
+
+
+
+
+
+
+
+
+100%
+
+Precision
+
+
+
+TP
+TP TN
+
+
+
+
+100%
+
+Recall
+
+
+
+TP TN
+
+TP FN
+
+
+
+
+100%
+
+F
+1
+
+
+
+2 Precision Recall
+
+Precision Recall
+
+
+
+
+
+
+
+100%
+
+(1) 
+
+(2) 
+
+(3) 
+
+(4) 
+
+AUC is Area under the Curve of ROC (Receiver Operating Characteristics). The min-batch size 
+is  the  number  of  samples  in  one  batch.  The  time  is  the  identifying  time  of  samples.  The  number  of 
+layers is the number of convolutional and full connected layers, which can denote the complexity of the 
+model. For obtaining valid results, the k-fold cross-validation (CV) is used to evaluate the algorithms 
+and k is 10 in our experiments. 
+
+Mathematical Biosciences and Engineering 
+
+Volume 18, Issue 2, 1121–1135. 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1129 
+
+3.3.  Comparative algorithms 
+
+To  efficiently  validate  the  proposed  method,  we  make  comparisons  with  LeNet,  AlexNet, 
+
+GoogLeNet, VGG-19 and ResNet, all of which are deep CNNs [20].
+
+B 
+
+1521 
+6705 
+1564 
+6748 
+1185 
+6885 
+1160 
+6661 
+1786 
+6452 
+1004 
+6885 
+2109 
+6314 
+1805 
+6471 
+478 
+6979 
+1634 
+6294 
+
+1131 
+
+Accuracy (%) 
+
+93.00 
+
+93.00 
+
+94.48 
+
+94.41 
+
+90.12 
+
+95.42 
+
+89.60 
+
+91.22 
+
+97.57 
+
+91.18 
+
+93.00 
+
+Figure 7 shows the relation between Min-batch size and Accuracy, Epoches. As we see in Figure 
+7(a), when the Min-batch size is 128, the accuracy is the highest. This indicates the Min-batch size is 
+relation to the accuracy of algorithm. In Figure 7(b), the larger is the Min-batch size, the larger is the 
+number of epochs. When the Min-batch size is more than 256, the number of epochs is sharp large. The 
+larger is the number of the epochs, the more is the consumed time when the algorithm converges. We 
+also  can  see,  when  the  Min-batch  size  is  128,  the  accuracy  of  algorithm  is  high,  and  the  number  of 
+epochs is relatedly small.
+
+93.00 
+
+92.24 
+
+92.50 
+
+93.00 
+
+94.00 
+
+81.44 
+
+81.00 
+
+85.00 
+
+91.50 
+
+93.00 
+
+92.00 
+
+92.50 
+
+94.20 
+
+128 
+
+128 
+
+128 
+
+128 
+
+28 
+
+80 
+
+20 
+
+20 
+
+20 
+
+7.439 
+
+6.451 
+
+6.511 
+
+6.953 
+
+16.342 
+
+13.192 
+
+13.012 
+
+20.160 
+
+31.879 
+
+12 
+
+7 
+
+7 
+
+8 
+
+19 
+
+22 
+
+18 
+
+50 
+
+152 
+
+Figure 6. The results of algorithms. 
+
+(a) 
+
+(b) 
+
+Figure 7 The relation between Min-batch size and Accuracy, Epoches. 
+
+Mathematical Biosciences and Engineering 
+
+Volume 18, Issue 2, 1121–1135. 
+
+ 
+ 
+Table 2. The results of our algorithms. 
+
+Fold 
+
+Class 
+
+Number 
+
+1 
+
+2 
+
+3 
+
+4 
+
+5 
+
+6 
+
+7 
+
+8 
+
+9 
+
+10 
+
+Average 
+
+A 
+B 
+A 
+B 
+A 
+B 
+A 
+B 
+A 
+B 
+A 
+B 
+A 
+B 
+A 
+B 
+A 
+B 
+A 
+B 
+
+21600 
+7200 
+21600 
+7200 
+21600 
+7200 
+21600 
+7200 
+21600 
+7200 
+21600 
+7200 
+21600 
+7200 
+21600 
+7200 
+21600 
+7200 
+21600 
+7200 
+
+A 
+
+20079 
+495 
+20036 
+452 
+20415 
+405 
+20440 
+539 
+19814 
+748 
+20596 
+315 
+19491 
+886 
+19795 
+729 
+21122 
+221 
+19966 
+906 
+
+B
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, it appears that the strategy implemented to monitor the model performance during training involves using various metrics such as accuracy, precision, recall, and F1 score. Additionally, the use of k-fold cross-validation (CV) with k set to 10 is mentioned as a means of evaluating the algorithms and obtaining valid results. Furthermore, there is also mention of tracking the relationship between mini-batch size and both accuracy and the number of epochs required for convergence. However, without further context or specific details regarding the implementation of these strategies, it cannot be definitively stated what exact methods were employed to monitor the model performance during training.

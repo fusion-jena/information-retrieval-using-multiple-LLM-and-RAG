@@ -1,0 +1,59 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.5.2. Model training and validation 
+
+For  the  classification  task,  the  performance  of  the  models  was 
+
+evaluated  using  5-fold  cross  validation  over  the  dataset  described  in 
+Sections 2.3 and 2.4, as this approach provides a robust and unbiased 
+estimate of a model’s performance while also guiding effective hyper-
+parameter  tuning  for  improved  overall  performance  (James  et  al., 
+2023). The dataset was divided into 5 subsets, and, at each iteration of 
+the 5-fold cross validation, one was used to evaluate the models using 
+the  performance  metrics  that  will  be  presented  in  Section  2.5.4.  The 
+remaining  4  subsets  were  used  for  training  (90%  of  the  images)  and 
+validation (10% of the images).
+
+sary step for model performance improvement and tuning (e.g., Cluster- 
+Based Over Sampling).
+
+the  best  performances. We  also  implemented  an  early  stop  approach, 
+with a patience value of 16 to regularize the model and minimize the loss 
+function (binary cross entropy). The early stop approach is a common 
+technique in machine learning to halt the training process of a model 
+prematurely  if  performance  on  a  validation  dataset  fails  to  improve 
+beyond  a  predefined  threshold,  thereby  preventing  overfitting  and 
+conserving computational resources.
+
+2.5.1. Model selection and parametrization 
+
+For  the  classification  task,  before  the  implementation  of  deep 
+learning models, all images were resized to the same resolution (227×
+197  pixels)  by  considering  the  mean  dimensions  of  the  set,  and  then 
+normalized to the [0,1] range (Na and Fox, 2020). Then, six open source 
+CNNs  were  selected:  VGG16  (Simonyan  and  Zisserman,  2015), 
+ResNet50,  ResNet101  (He  et  al.,  2016),  Inception-v3  (Szegedy  et  al., 
+2016), DenseNet201 (Huang et al., 2017) and EfficientNetB0 (Tan and 
+Le,  2019).  These  algorithms  were  selected  because  of  their  ease  for 
+transfer  learning and  high  performance  on  similar classification  tasks 
+(Arun  and  Viknesh,  2022;  Vallabhajosyula  et  al.,  2022).  For  model 
+optimization, we used the Adam optimizer algorithm (Kingma and Ba, 
+2015), a batch size of 10 and 100 epochs. The learning rates were chosen 
+(cid:0) 6 showing 
+from empirical trials over 100 epochs, with and 10
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about how the hyperparameters of the model were optimized. However, it mentions that the Adam optimizer algorithm was used for model optimization, which suggests that some form of gradient descent was employed. Additionally, it states that the learning rates were chosen from empirical trials over 100 epochs, indicating that a trial-and-error or iterative approach may have been used to find optimal values for these parameters. Unfortunately, without more specific details, it cannot be definitively stated whether techniques such as grid search or random search were utilized for hyperparameter optimization.

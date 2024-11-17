@@ -1,0 +1,116 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.1.3. Efficiency 
+
+Operating  bandwidth  is  an  efficiency  consideration.  The  relative 
+computation time for spectral subtraction and WPD for each bandwidth 
+is displayed in Fig. 3. For reference, the computation time of CMGAN is 
+displayed but is constant as model inputs must be downsampled. 
+
+Fig. 2. Noise reduction comparison of WPD. Fig. 2a original signal, Fig. 2b and 
+spectral subtraction Fig. 2c for high frequency features. 
+
+Fig.  3. Average  computation  time  of  each  noise  reduction  method  at  band-
+widths ranging from 16 to 250 kHz, CMGAN has a constant computation time 
+due to constrained input sample rate. 
+
+5. Discussion 
+
+5.1. Noise reduction
+
+3.1. Evaluation metrics 
+
+SnNR = 10log10((̃S + N)/N )
+
+(2) 
+
+The  signal-to-noise-ratio  is  calculated  for  the  original  signal  and 
+denoised signal using a manually selected noise region (N) and a region 
+containing the feature (S). These ratios are compared to find the relative 
+difference. 
+(cid:0)
+
+)/
+
+)
+
+(cid:0)
+
+SR = log10
+
+var
+
+Noriginal
+
+var(Ndenoised)
+
+(3) 
+
+The success ratio (SR) Eq. (3) is also used which measures the change 
+in variance of the original and denoised signal, reasoning that successful 
+denoising will result in a decrease in variance. Again, this is modified to 
+reduce signal-noise overlap. Another common metric used is Peak Signal 
+to Noise Ratio Eq. (4) which is the ratio between the maximum signal 
+power MAXsig  and the noise floor described by the Mean Squared Error 
+(MSE) between the original and denoised signal. 
+/ ̅̅̅̅̅̅̅̅̅̅
+√
+MSE
+
+PSNR = 20log10
+
+MAXsig
+
+(
+
+)
+
+(4) 
+
+As SnNR generates a ratio between the noise-only region N and the
+
+outlined in Section 3.1. 
+
+We compare the audio enhancement model Conformer-Based Metric 
+Generative Adversarial Network (CMGAN) developed by Abdulatif et al. 
+(Cao et al., 2022) to traditional methods. CMGAN is a Conformer-based 
+audio enhancement model that has achieved SOTA performance. This 
+model  operates  in  the  time-frequency  domain.  A  pre-trained  CMGAN 
+model  is  fine-tuned  using  a  maximum  of  1000  five-second  noisy  and 
+clean samples. We use the default training parameters of 120 epochs, 
+learning rate of 5e-4 and learning rate decay after the first 30 epochs. We 
+test the data requirements of this model in the Section 4.1.1 ablation 
+study. All data is down sampled to 16 kHz in alignment with the model’s 
+input  requirements.  Default  values  were  used  for  all  training 
+parameters.
+
+be  established  (Xie  et  al.,  2021).  Deep  noise  reduction  methods 
+(Defossez et al., 2020) often use a U-net architecture which consists of an 
+encoder and decoder section. The encoder produces a compressed latent 
+space representation. The decoder then uses this latent space to recon-
+struct the denoised waveform. Recently, transformer attention mecha-
+nisms have also been applied with great success (Cao et al., 2022; Luo 
+and  Mesgarani,  2019;  Luo  and  Mesgarani,  2023;  Zhang  et  al.,  2022; 
+Zhao et al., 2022). As most deep-noise reduction methods focus on NLP 
+applications, models are optimized for bandwidths ranging from 16 to 
+22  kHz.  Bioacoustics  applications  commonly  exceed  this  bandwidth. 
+Additionally, the sparsity of vocalisations in this application and many 
+other  bioacoustics  applications  makes  the  development  of  large-scale 
+datasets  infeasible  (Stowell,  2021).  These  factors  limit  the  success  of
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Three main evaluation metrics are used to assess the performance of the deep learning model in this study. The first one is the Signal-to-Noise Ratio (SNR), calculated using Equation (2) in the paper. It involves comparing the SNR of the original signal and the denoised signal using a manually selected noise region (N) and a region containing the feature (S). The second metric is the Success Ratio (SR), outlined in Equation (3). SR measures the change in variance of the original and denoised signals, assuming that effective denoising should lead to a decrease in variance. Lastly, the Peak Signal-to-Noise Ratio (PSNR) is employed, defined by Equation (4). PSNR is the ratio between the maximum signal power (MAXsig) and the noise floor represented by the Mean Squared Error (MSE) between the original and denoised signals.

@@ -1,0 +1,85 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Contents lists available at ScienceDirect 
+
+Ecological Informatics 
+
+journal homepage: www.elsevier.com/locate/ecolinf 
+
+Deer survey from drone thermal imagery using enhanced faster R-CNN 
+based on ResNets and FPN 
+
+Haitao Lyu a, Fang Qiu a,*, Li An b, Douglas Stow c, Rebecca Lewison d, Eve Bohnett d, e 
+a Geospatial Information Science, The University of Texas at Dallas, Richardson, TX, USA 
+b International Center for Climate and Global Change Research, Complex Human-Environment Systems Laboratory, College of Forestry, Wildlife, and Environment, 
+Auburn University, Auburn, AL, USA 
+c Department of Geography, San Diego State University, San Diego, CA, USA 
+d Department of Biology, San Diego State University, San Diego, CA, USA 
+e Department of Landscape Architecture, College of Design Construction and Planning, University of Florida, Gainesville, FL, USA   
+
+A R T I C L E  I N F O    
+
+A B S T R A C T
+
+As shown on the top of Fig. 8, a feature map extractor based on FPN 
+and  ResNet152  extracted  five  feature  maps  from  the  original  UAV 
+thermal image, and they each has different resolutions, including 256 ×
+320, 128 × 160, 64 × 80, 32 × 40, and 16 × 20. The region proposal 
+network  can  utilize  the  five  feature  maps  to  generate  four  RoIs  with 
+different sizes, which are respectively colored by purple, red, green and 
+yellow from left to right in the middle-right of Fig. 8. The size of the 
+purple RoI is the largest, and the model assigns a feature map with the 
+resolution of 32 × 40 to it. On the contrary, the red RoI is the smallest, 
+and the model selects the feature map with highest spatial resolution for 
+it.  Similarly,  the  green  and  yellow  RoIs  are  assigned  corresponding 
+feature maps according to their respective sizes. The selection of large 
+feature maps means the number of parameters is increasing and needs
+
+the  structure  of  FPN  based  on  ResNet152 
+(ResNet152FPN)  is  shown  in  Fig.  5.  The  bottom-up  pathway  involes 
+generateing output feature maps from various stages of the network (Lin 
+et al., 2016), which are denoted as {C1, C2, C3, C4, C5}. To merge fea-
+tures extracted from different stages along top-down pathway, the Ci(i =
+1, 2, 3, 4) map undergoes an upsampling process, increasing its resolu-
+tion by a factor of 2. The upsampled output is then combined with the 
+corresponding  bottom-up  feature  map  Cj(j = 2, 3, 4, 5) using  element- 
+wise  addition.  This  merging  operation  allows  for  the  integration  of 
+high-resolution details from the upsampled map with the existing fea-
+tures. In order to mitigate the potential aliasing artifacts resulting from 
+the  merging  operation,  a  3 × 3  convolutional  operation  is  applied  to 
+each merged map to generate the final feature map. For example, C5  is
+
+ResNet50FPN was used to remotely detect sick chicken from a poultry 
+farm  and  obtained  a  detection  accuracy  of  93.7%  (Zhang  and  Chen, 
+2020).  A  Faster  R-CNN  integrating  ResNet50FPN  was  constructed  to 
+detect big animals from Google Open Images and COCO datasets, such as 
+Bear, Fox, Dog, Horse, Goat, Sheep, Cow, Zebra, Elephant, and Giraffe. 
+They  got  a  mean  average  precision  of  0.81(Yudin  et  al.,  2019).  In 
+(Delplanque et al., 2022), FPN based on ResNet101 was used to generate 
+feature maps for object detection models to to detect six types of African 
+mammals of Topi, Buffalo, Kob, Warthog, Waterbuck, and Elephant, and 
+got a mean average precision of 0.82.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the code repository link of the deep learning pipeline (e.g., Link to GitHub, GitLab, BitBucket)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The article does not provide information about the specific code repository link of the deep learning pipeline used in this study. Therefore, I cannot provide the exact link to the source code or any related repositories. However, if you are interested in exploring similar implementations or other projects involving Faster R-CNN, ResNet, and Feature Pyramid Networks (FPNs), there are several open-source resources available online.
+
+For instance, here are some relevant links to GitHub repositories containing implementations of these methods:
+
+1. [Faster R-CNN](https://github.com/facebookresearch/maskrcnn-benchmark): This repository contains an implementation of Faster R-CNN and Mask R-CNN built upon Detectron2. It also includes pretrained weights for popular backbone architectures like ResNet and ResNeXt.
+
+2. [Feature Pyramid Networks (FPNs)](https://github.com/tensorflow/models/tree/master/official/vision/image_classification#fpn): TensorFlow provides an official implementation of FPNs within their image classification module. You can find more information and examples in their documentation.
+
+3. [ResNet](https://github.com/pytorch/vision/blob/main/torchvision/models/resnet.py): PyTorch offers an implementation of ResNet in their torchvision package. They have multiple versions of ResNet available, ranging from ResNet18 to ResNet152.

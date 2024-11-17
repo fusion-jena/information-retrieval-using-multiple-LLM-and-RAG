@@ -1,0 +1,174 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.6. Inﬂuence of the Number of Training Samples
+
+To evaluate the inﬂuence of the number of training samples, four scenarios were considered.
+Speciﬁcally collecting samples from the training set of a one, two, three and four tiles, denoted as Ni,
+where i corresponds to the number of tiles used in each scenario. For EF and SN methods, the validation
+set (val) was used to stop training once the loss increased in 10 consecutive epochs (early stopping).
+As mentioned before, for CSVM and SVM the samples in this set were added to the training set (tr).
+The number of training samples in each scenario for the Amazon and Cerrado databases is presented
+in Tables 6 and 7, respectively.
+
+Table 6. Training tiles used for the Amazon database.
+
+Training Set
+
+Tiles
+
+Available Def.
+Samples
+
+Available No-def.
+Samples
+
+Balanced Samples
+(per Class)
+
+Total Samples
+(tr + val)
+
+1 Tile
+2 Tiles
+3 Tiles
+4 Tiles
+
+13
+1, 13
+1, 7, 13
+1, 7, 9, 13
+
+239
+709
+1807
+2706
+
+20,306
+40,515
+59,102
+78,431
+
+717
+2127
+5421
+8118
+
+1 Tile2 Tiles3 Tiles4 TilesTiles for trainingF1-Score(%)46.148.352.252.445.156.061.663.249.257.262.263.039.745.050.550.743.345.450.052.343.543.847.250.0SVMEFSNCSVM-L1CSVM-L2CSVM-L31 Tile2 Tiles3 Tiles4 TilesTiles for trainingOverallAccuracy(%)95.295.596.296.294.196.897.397.895.797.097.798.093.694.895.995.994.594.995.896.294.594.595.395.8SVMEFSNCSVM-L1CSVM-L2CSVM-L3Remote Sens. 2020, 12, 910
+
+16 of 28
+
+ﬂagged as potentially deforested and, second, the proportion of total deforestation concentrated in the
+areas indicated by the classiﬁer. The ﬁrst metric is the Alarm Area deﬁned in Equation (6), whereas the
+second metric is the Recall deﬁned in Equation (4).
+
+Figure 11. Predicted maps for tile 2 computed by SVM, EF, SN, and CSVM using one, two, three,
+and four tiles for training.
+
+For training the EF and SN models, we selected the following setup empirically: batch size equal
+to 32 with 100 number of epochs, early stopping after 10 epochs with no improvement (over the
+validation set) and a dropout rate of 0.2 in the ﬁnal FC layer. Additionally, Adam optimizer was
+selected empirically with weight decay equal to 0.9 and learning rate equal to 10−3. As loss function,
+we used the binary cross-entropy.
+
+20,306
+40,515
+59,102
+78,431
+
+717
+2127
+5421
+8118
+
+1434 + 5778
+4254 + 5778
+10,842 + 5778
+16,236 + 5778
+
+Table 7. Training tiles used for the Cerrado database.
+
+Training Set
+
+Tiles
+
+Available Def.
+Samples
+
+Available No-def.
+Samples
+
+Balanced Samples
+(per Class)
+
+Total Samples
+(tr + val)
+
+1 Tile
+2 Tiles
+3 Tiles
+4 Tiles
+
+5
+5, 13
+1, 5, 13
+1, 5, 12, 13
+
+671
+1240
+2287
+4182
+
+17,370
+33,760
+50,273
+65,717
+
+2013
+3720
+6861
+12,546
+
+4026 + 3,978
+7440 + 3,978
+13,722 + 3,978
+25,092 + 3978
+
+2.7. Accuracy Assessment
+
+The performance of the evaluated methods was expressed in terms of Overall Accuracy (OA),
+
+F1-Score, and Alarm Area (AA).
+
+•
+
+•
+
+•
+
+Overall Accuracy (OA): is a global metric that indicates the percentage of samples correctly
+classiﬁed in relation to the total samples. It is deﬁned by:
+
+OA =
+
+tp + tn
+P + N
+
+× 100
+
+(2)
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: The criteria used to determine when training is complete vary depending on the method being used. For the EF and SN methods, training is stopped once the loss increases in 10 consecutive epochs over the validation set, which is known as early stopping. This helps prevent overfitting and improves generalization. On the other hand, for CSVM and SVM methods, the samples in the validation set are added to the training set, so there might not be a specific criterion for determining when training should be stopped. However, it can still be monitored based on metrics like overall accuracy or F1-score to ensure optimal results.

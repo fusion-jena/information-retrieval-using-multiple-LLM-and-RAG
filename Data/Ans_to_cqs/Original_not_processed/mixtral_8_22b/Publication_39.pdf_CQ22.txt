@@ -1,0 +1,154 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+AP0.50 + AP0.55 + … + AP0.95
+10
+
+(6) 
+
+We  also  consider  AP0.50  and  AP0.75,  which  are  part  of  the  above 
+calculation as an evaluation metric. AP0.50  is the AP for IoU threshold 
+0.50,  also  known  as  Pascal  VOC  metric  and  AP0.75  is  the  AP  for  IoU 
+threshold 0.75, also called strict metric in the sense of COCO. 
+
+4.1.2. Average recall 
+
+The average recall (AR) is averaged over different IoU thresholds. 
+For  COCO  datasets  we  consider  the  10  IoU  thresholds  0.50,  0.55,  … 
+0.95.  They  are  identical  to  (6).  Therefore,  the  AR  for  class  i  at  IoU 
+threshold th is computed as 
+r0.50 + r0.55 + … + r0.95
+10
+
+ARi,th =
+
+(7) 
+
+The AR is also averaged over all K classes. This average can also be 
+called the mean average recall (mAR), but in COCO the mAR is denoted 
+as AR. The ARth at IoU threshold th is calculated as 
+
+ARth =
+
+∑K
+
+i=1ARi,th
+K
+
+(8) 
+
+We  consider  two  different  ARs,  ARmax=1  and  ARmax=10.  They  are
+
+4.4. Action recognition 
+
+The three ResNet variants are trained for 40 epochs starting with an 
+initial learning rate of 0.001. The learning rate is decreased every 10 
+epochs by multiplying it with a γ = 0.1. For optimization we utilize the 
+Stochastic  Gradient  Descent  (SGD)  with  a  momentum  of  0.9  and  a 
+
+EcologicalInformatics61(2021)1012158F. Schindler and V. Steinhage
+
+1
+101
+
+∑
+
+pinterp(r)
+
+r∈{0.0:0.01:1.0}
+
+(4) 
+
+The AP is averaged over all classes, which is often also called mean 
+average  precision  (mAP).  In  the  COCO  evaluation  metrics  the  mean 
+average  precision  is  denoted  by  AP,  too.  We  follow  the  naming 
+convention from COCO datasets. For K classes with the corresponding 
+APi,  th the mean APth at IoU threshold th is calculated as 
+
+APth =
+
+∑K
+
+i=1APi,th
+K
+
+(5) 
+
+The AP of the COCO evaluation metric (except AP0.50 and AP0.75) is 
+computed as the averaged AP for different IoU thresholds. The averaging 
+considers the IoU thresholds 0.50,0.55, … 0.95. So, the AP is the average 
+over all classes and IoU thresholds. The AP is calculated as 
+
+AP = AP0.50:0.05:0.95 =
+
+AP0.50 + AP0.55 + … + AP0.95
+10
+
+(6)
+
+Mask R-CNN and FGFA assigns to each bounding box or segmenta-
+tion mask prediction a confidence score that indicates how reliable this 
+prediction  is.  An  important  role  for  the  metric  calculation  plays  the 
+Intersection over Union (IoU). IoU is defined by 
+
+(cid:0)
+
+IoU
+
+)
+
+=
+
+Bp, Bgt
+
+(cid:0)
+(cid:0)
+
+area
+area
+
+)
+)
+
+Bp ∩ Bgt
+Bp ∪ Bgt
+
+(2)  
+
+where Bp and Bgt denote the area of the predicted bounding box and the 
+area of the ground truth bounding box. For segmentation masks we use 
+an analogous definition. 
+
+Fig. 5. A stem and a convolutional residual block of a ResNet are shown. The 
+convolution layer can be implemented with a 2D, 3D or (2 + 1)D convolution. 
+
+leads to lower training and testing errors compared to 3D convolutions. 
+
+The three different ResNet variations are shown in Fig. 6. 
+
+3.2.2. SlowFast architecture
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The paper uses several metrics to evaluate the performance of the deep learning models. These include Average Precision (AP), Mean Average Precision (mAP), Intersection over Union (IoU), Average Recall (AR), and Action Recognition Accuracy.
+
+Average Precision (AP) measures the area under the precision-recall curve and is commonly used in object detection tasks. It is calculated using Equations (4) and (5) in the paper. The paper considers AP for various IoU thresholds ranging from 0.50 to 0.95, including AP0.50 and AP0.75, which are specific cases of the general formula.
+
+Mean Average Precision (mAP) is another common metric used in object detection tasks. It is simply the average of the AP values across multiple classes. The paper calculates mAP using Equation (5).
+
+Intersection over Union (IoU) is a measure of overlap between two bounding boxes or segmentation masks. It is defined in Equation (2) and is used to determine whether a detected object matches a ground truth object.
+
+Average Recall (AR) is a measure of the ability of the model to detect objects of interest. It is calculated using Equations (7) and (8) in the paper. The paper considers two versions of AR: ARmax=1 and ARmax=10.
+
+Action Recognition Accuracy is used to evaluate the performance of the action recognition task. The paper trains three ResNet variants for 40 epochs using Stochastic Gradient Descent (SGD) with a momentum of 0.9 and a learning rate schedule. The final accuracy is reported after training.

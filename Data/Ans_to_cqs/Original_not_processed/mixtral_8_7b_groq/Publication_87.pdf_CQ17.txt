@@ -1,0 +1,15 @@
+Answer:::
+In the deep learning pipeline, regularization methods are used to prevent overfitting by adding a penalty to the loss function, which encourages the model to be more generalizable and less likely to memorize the training data. Two common regularization methods are dropout and L2 regularization.
+
+Dropout is a technique where randomly selected neurons are ignored during training, which helps to prevent over-reliance on any single neuron and encourages the model to learn more robust features. This is implemented by setting a dropout rate, which determines the proportion of neurons to be dropped out. In the provided context, the use of dropout is not explicitly mentioned; however, it is a widely used regularization method in deep learning.
+
+L2 regularization, also known as weight decay, adds a penalty term to the loss function that is proportional to the square of the model's weights. This encourages the model to have smaller weights, which can help to reduce overfitting. In the provided context, L2 regularization is used in the one_cycle function during model training:
+
+one\_cycle <- learn %>% fit\_one\_cycle(2, lr\_min = 1e-5, lr\_max = 1e-3, div\_factor = 25.0,
+mom\_min = 0.85, mom\_max = 0.95, cyclical\_momentum = FALSE, T\_mult = 1,
+penalty\_mult = 1, lr\_scaling = NULL, cbs = SaveModelCallback(every\_epoch = TRUE,
+fname = 'model'))
+
+Here, penalty\_mult is set to 1, which means that L2 regularization is applied with the default penalty term.
+
+In summary, the provided context discusses the use of L2 regularization in the deep learning pipeline to prevent overfitting. While dropout is not explicitly mentioned, it is a commonly used regularization method that could also be applied.

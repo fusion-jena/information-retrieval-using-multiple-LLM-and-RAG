@@ -1,0 +1,131 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+training  (i.e.,  bagging),  then  to  obtain  unbiased  estimates  of  model 
+performance  without  omitting  portions  of  the  feature  space  during 
+validation. An important note is that the latter procedure also enables 
+leveraging of spatial autocorrelation information for model prediction. 
+Bagging normally proceeds by drawing many bootstrap samples of 
+the data and training models on each, which are aggregated to form an 
+ensemble predictor (Breiman, 1996). Individual data points each have 
+probability P(si) = 1
+n  of being selected during a single draw of a single 
+bootstrap sample, where si  is one of n data points distributed over the 
+study  area.  Non-independent  data  observations  can  be  considered  as 
+partial replication of some information in the modelling dataset. In an 
+extreme example, consider two data points at the same location with 
+exactly the same environmental measurements. We could conceptualize
+
+Table 3 
+Median bias of validation statistics for each response variable across all simulations (see Figs. 10-12). The lowest absolute value for each statistic is bolded.  
+
+Validation approach 
+
+Backscatter bias 
+
+SMF bias 
+
+Current velocity bias  
+
+Out-of-bag 
+Spatial leave-one-out CV 
+KDE weighting 
+Conditional Gaussian (hom.) 
+Conditional Gaussian (het.) 
+Spatial covariance weighting 
+
+VE (cid:0) ̂ve 
+
+(cid:0) 0.1077 
+0.3424 
+(cid:0) 0.0155 
+(cid:0) 0.0973 
+0.0408 
+¡0.0012 
+
+RMSE (cid:0) ̂rmse (dB) 
+
+0.4409 
+(cid:0) 0.6340 
+0.0870 
+0.4138 
+(cid:0) 0.0440 
+0.0301 
+
+VE (cid:0) ̂ve 
+
+(cid:0) 0.0916 
+0.6054 
+(cid:0) 0.0321 
+(cid:0) 0.0348 
+0.0336 
+¡0.0049 
+
+RMSE (cid:0) ̂rmse (%) 
+
+2.8812 
+(cid:0) 8.6744 
+0.4187 
+0.5718 
+(cid:0) 1.0545 
+¡0.1436 
+
+VE (cid:0) ̂ve 
+
+(cid:0) 0.0832 
+0.4422 
+(cid:0) 0.0221 
+(cid:0) 0.0864 
+0.0119 
+¡0.0091 
+
+RMSE (cid:0) ̂rmse (m/s) 
+
+0.0166 
+(cid:0) 0.0213 
+(cid:0) 0.0012 
+0.0142 
+0.0054 
+0.0006
+
+To assess the capacity for unbiased validation using the covariance- 
+weighted  bagging  approach,  results  were  benchmarked  against  five 
+other methods. 
+
+2.5.1. Out-of-bag validation 
+
+The accuracy of the model was evaluated at the simulated locations 
+using  an  out-of-bag  validation.  Out-of-bag  predictions  for  each  simu-
+lated data point are obtained during the bagging process by predicting 
+the values at the data points that were not selected for each bootstrap 
+sample,  and averaging the  results of  these predicted values across  all 
+
+EcologicalInformatics77(2023)1021817B. Misiuk and C.J. Brown
+
+sample point is withheld as test data in turn and all data points within a 
+specified spatial radius are omitted from model training (Valavi et al., 
+2019);  and  “leave-cluster-out”,  or  “leave-one-disc-out”  validation, 
+where  circular  test  areas  are  used  to  select  groups  of  test  data,  with 
+either all other data or only data beyond a given distance radius used to 
+train the model (Brenning, 2012). Variants of spatial leave-one-out so-
+lutions  have  also  been  proposed  for  improving  variable  selection  (Le 
+Rest  et  al.,  2014)  and  fitting  of  the  response  function  (i.e.,  “spatially 
+resampled  leave-one-out”;  Holland  et  al.,  2004;  Misiuk  et  al.,  2019). 
+Other  solutions  to  improving  model  fit  include  forward  feature  or 
+recursive selection with spatial blocking (Meyer et al., 2019; Yu et al., 
+2021).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the provided context, there isn't specific information about the criteria used to determine when training is complete. However, generally speaking, common criteria used to determine when training is complete include reaching a certain number of epochs, achieving a desired level of performance on a validation set, or observing a plateau in the validation loss. These criteria help ensure that the model has learned enough from the training data but hasn't started to overfit.

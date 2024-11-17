@@ -1,0 +1,91 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The relational schema of CASE’s database is shown in Fig. A.18. CASE is based on a concept of Task, i.e., a questionnaire that must be fulfilled by a 
+User (i.e., an on-field operator). Each task is composed by a set of Questions, categorized in different types (e.g., multiple answers, date picker) each 
+composed by a set of predefined Answers (one of which could be an open answer, defined by the user when selecting the Given answer). The 
+dynamic aspect of CASE’s questionnaires lies in the association of each possible answer with a different one to be shown next. Thus, users fulfilling the 
+same task may follow different paths of questions depending on the given answers. This enables a customized and efficient user experience, as detailed 
+questions on a given topic may be asked only if such a topic has been mentioned by the user. Instances of tasks (i.e., Task on geo-object) are
+
+3.2.4. Analytical fruition 
+
+The provisioning of analytical capabilities often builds on multidi-
+mensional representations of the data, which offer efficient support to 
+query  answering  (Golfarelli  and  Rizzi,  2009).  To  this  end,  a  multidi-
+mensional spatial cube called Captures is created in the Access tier. 
+The schema of the cube is shown in Fig. 6 using the conceptual DFM 
+notation (Golfarelli and Rizzi, 2009). Full details about the interpreta-
+tion of the conceptual model are disclosed in Appendix A.3.
+
+Fig. 5. Overview of the data platform.  
+
+EcologicalInformatics82(2024)1027137(a)(b)(c)C. Forresi et al.                                                                                                                                                                                                                                  
+
+Table 1 
+Summary of data sources.  
+
+Source 
+
+Monitoring network 
+Satellite images 
+Weather 
+Environment 
+
+Provider 
+
+CASE 
+ESA 
+ARPAE 
+CER 
+
+Frequency 
+
+Weekly 
+2–3 days 
+Daily 
+Yearly 
+
+Granularity 
+
+Monitoring task 
+100 km2 granule 
+25 km2 cell 
+Environmental element 
+
+Yearly size 
+
+5.2 MB 
+370 GB 
+6.5 GB 
+4.3 GB  
+
+The validated data is then loaded to the Access tier through an in-
+cremental  ETL (extract, transform, and load) procedure acquiring the 
+validated data from the Harbor tier. 
+
+3.2.4. Analytical fruition
+
+A.3. The Access tier 
+
+The Access tier provides a higher-level view of data that is ready to be consumed for analytical purposes. It mainly relies on a spatial cube to enable 
+SOLAP activities. Multidimensional data are organized in cubes describing domain events called facts, which are characterized by numerical indicators 
+called measures (e.g., the number of H. halys captures) and dimensions to be used for analyses (e.g., time, traps). Each dimension is described by a 
+hierarchy of concepts that describes the dimension of analysis at different granularity levels (e.g., a trap is placed in a province, which in turn belongs to 
+a macro-area). Data can be analyzed using SOLAP operators such as spatial slice and spatial drill, which allow for aggregating measure values along 
+hierarchies with SQL operators. The Access tier is implemented on a different spatially-enabled instance of PostgreSQL.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there is no information available regarding the hyperparameters used in any deep learning models within the provided context. Therefore, I cannot provide an accurate or helpful response to this query.

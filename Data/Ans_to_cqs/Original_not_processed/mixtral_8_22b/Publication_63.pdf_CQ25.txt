@@ -1,0 +1,53 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+(3)  As a contextual constraint, bioclimatic data (see above) was fed into the CNN with the same model and 
+data configuration including Plasticity in a mixed data approach (‘Worldclim’ in Fig. 2, setup 3 in Fig. 1). 
+4) We tested an Ensemble approach, in which two more state-of-the-art model architectures, namely 
+ Xception51 and MobileNetV2, the latter with halved number of trainable  parameters52, were trained on the 
+configuration of setup 3, and their predictions were subsequently averaged (’Ensemble’ in Fig. 2, setup 4 in 
+Fig. 1). These models differed strongly in their number of trainable weights, resulting in a different depth. 
+The final model performance was assessed using a 3-fold cross-validation, with three different training, 
+validation and test splits. To enable a comparison of model performance across traits, the resulting mean 
+absolute error (MAE) was normalised by division over the range of the target values of the respective test
+
+extracted a random sample of 10% of the dataset of each trait before model training. This ‘test dataset’ was not 
+involved in the training process and exclusively served for the independent evaluation of the trained models. 
+The remaining data was split into ’training dataset’ and ’validation dataset’ by a ratio of 4:1 (Table 1). The train-
+ing dataset was employed to train the weights of the CNN model, whereas the validation dataset indicated the 
+training progress after each full training cycle (’epoch’).
+
+Conclusion and outlook
+Following the urgently needed transition of ecology towards a data-sharing scientific  discipline15,44 and the call for 
+integration of powerful datasets in  ecology44, we built upon this revolution of Big Data provided by professional 
+and citizen science alike. Therefore, we exploited the potential of Convolutional Neural  Networks44 to produce 
+generic models generalising across all biomes and regions around the globe to extract a set of plant functional 
+traits from simple RGB photographs. Thus, the burden of limited geographical coverage of trait databases might 
+be lifted by the worldwide coverage of the iNaturalist plant photograph database. The traits referring to the models 
+with the highest predictive performance cover the primary axes of plant form and function 13, which are plant and 
+organ size (GH, LA) as well as the leaf economics spectrum (SLA). Despite of the disputable model performance
+
+Vol.:(0123456789)www.nature.com/scientificreports/Training  process  and  hyperparameters. 
+In  order  to  build  upon  a  pre-existing  knowledge  base,  we 
+employed  ’transfer  learning’  by  using  pre-trained  layer  weights  (the  storage  of  the  model’s  knowledge)  from 
+a classification task on a dataset on www. image- net. org38 for all CNN models used in this study. The regressor 
+following the basic CNN consisted of a global average pooling layer followed by two dense layers with 512 and 1 
+output units. The latter forces the CNN to output exactly one prediction (trait) value. In case of the mixed data 
+model (setups (3) and (4)), the CNN consisted of parallel branches to incorporate the different input data types. 
+The branch processing the bioclimatic data consisted of three dense layers with 64, 32 and 4 output units, and 
+the last layer of the CNN regressor contained 4 output units. After concatenating the two branches (image and
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the purpose of the deep learning model (e.g., classification, segmentation, detection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The purpose of the deep learning model in this study is primarily for regression tasks rather than classification, segmentation, or detection. The authors employ 'transfer learning' by utilizing pre-trained layer weights from a classification task on ImageNet. However, the main objective of these models is to predict specific plant functional traits based on RGB images and bioclimatic data. The regressor following the basic CNN consists of a global average pooling layer followed by two dense layers with 512 and 1 output units. The latter forces the CNN to output exactly one prediction (trait) value. In cases where multiple input data types are involved, such as setups (3) and (4), the CNN consists of parallel branches to incorporate the different input data types. The branch processing the bioclimatic data consists of three dense layers with 64, 32, and 4 output units, while the last layer of the CNN regressor contains 4 output units.

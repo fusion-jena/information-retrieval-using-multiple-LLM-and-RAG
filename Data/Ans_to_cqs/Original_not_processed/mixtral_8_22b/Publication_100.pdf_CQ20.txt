@@ -1,0 +1,43 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.5. Implementation details
+
+We have implemented our models in PyTorch (Paszke et al., 2017).
+We trained 𝑀 = 5 models with batch size 𝐵 = 64 and a base learning
+rate 𝛼 = 10−4. The learning rate is automatically reduced by a factor
+of 0.1 when the validation loss has not improved for 15 consecutive
+epochs. We apply weight decay to control the strength of the unit
+Gaussian prior, with an empirically chosen magnitude of 10−3 that
+is inversely proportional to the hyperparameter 𝜆 from Eq. (1). We
+chose 𝛽1 = 0.9, 𝛽2 = 0.999 and 𝜖 = 10−8 as hyper-parameters for the
+Adam optimizer. Each neural network was trained on a single Nvidia
+RTX2080Ti GPU for ∼14 days.
+
+5. Experimental results and discussion
+
+particular when trained on large data sets.
+
+Fig. 1. High-level overview of our method. Top panel: During training, the parameters of a neural network model are optimized to reduce the deviation between predicted and
+ALS-derived forest structure variables. Bottom panel: During inference, an ensemble of multiple neural networks predicts a distribution over forest structure variables, given only
+optical and SAR satellite images with 10 m GSD as input. Satellite icons from FU Berlin (2019).
+
+revisit time of ALS campaigns and is a bottleneck for country-scale
+applications.
+
+training and testing the model is provided, too.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning model is trained using a single Nvidia RTX2080Ti GPU. This information can be found in section 4.5 of the paper, where it states, "Each neural network was trained on a single Nvidia RTX2080Ti GPU for ∼14 days."

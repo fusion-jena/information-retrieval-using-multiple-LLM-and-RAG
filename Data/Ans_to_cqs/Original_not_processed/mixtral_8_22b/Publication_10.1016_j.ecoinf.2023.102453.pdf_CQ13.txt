@@ -1,0 +1,80 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.5. Hyperparameter optimization 
+
+The model training process determines the values for the trainable 
+parameters  of  a  model,  e.g.,  Table  4 shows  the  size  of  the  model pa-
+rameters. In addition, a DNN model also has other parameters that need 
+to be selected, e.g., batch size, that determines the model performance. 
+The  model  parameters  define  the  model  and  are  termed  as  hyper-
+parameters. Each hyperparameter has a range of values, from which an 
+optimum  selection  can  improve  the  model  performance.  The  model 
+hyperparameters could be in hundreds, presenting a very large search 
+space, but these differ in their relative importance. The common ones for 
+a DNN are learning rate, batch size, and dropout.
+
+Hyperparameter  optimization  was  illustrated  with  only  a  single 
+dataset  and  one  hyperparameter.  Such  limited  explorations  could  be 
+useful unless the aim is to optimize a single model by considering all the 
+important model hyperparameters (Kuncheva et al., 2023). The hyper-
+parameter  tuning  was  shown  to  improve  the  model  performance 
+(Fig. 13) for the selected models. Only a single hyperparameter, that is, 
+the learning rate was optimized with hyperband and Bayesian Optimi-
+zation techniques. In actual practice, more hyperparameters would need 
+to  be  considered  to  design  an  optimized  model.  Another  factor  to 
+consider  is  that  different  models  have  different  number  and  types  of 
+hyperparameters,  and  trying  to  fully  optimize  each  will  require 
+considerable compute resources and time as the hyperparameter search 
+space would be large.
+
+4.4. Hyperparameter optimization 
+
+The hyperparameter optimization results for the learning rate for the 
+EfficientNetV2B0  and  MobileNetV2  model  were  obtained  using  the 
+Hyperband and Bayesian Optimization for the Extinction dataset. The 
+optimum values determined using the Keras Tuner for the learning rate 
+were 0.00001 for both the models. The F1-Scores were then obtained for 
+the  optimal  learning  rate  (0.00001),  a  higher  value  (0.0001),  and  a 
+lower value (0.000001) and are shown in Fig. 13. It can be seen that the 
+
+optimal learning rate found through the hyperparameter optimization 
+provides better model classification performance for the selected models 
+and the dataset. 
+
+4.5. Visualising predictions
+
+To illustrate the effect of a correct hyperparameter choice, we chose 
+to optimize the learning rate for the MobileNetV2 and EfficientNetV2B0 
+using  Hyperband  and  Bayesian  Optimization.  This  is  an  important 
+hyperparameter  associated  with  the  DNN,  and  a  low  value  of  the 
+learning  rate  means  that  although  the  model  would  try  to  converge 
+quickly, it may settle for an erroneous value, and similarly a higher than 
+required value would not only take a long time, but would also not result 
+in an optimal value. 
+
+3.6. Image visualization
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+In the given context, two main hyperparameters are mentioned for the deep learning models - learning rate and batch size. Additionally, dropout is also briefly mentioned as another hyperparameter.
+
+The learning rate is a crucial hyperparameter that controls how much the weights of the network should change during training. A lower learning rate might cause slower convergence or getting stuck in local minima, while a higher learning rate might lead to unstable training or missing global minima.
+
+Batch size refers to the number of samples processed before updating the internal model parameters. Larger batch sizes provide smoother gradient estimates but require more memory, whereas smaller batch sizes offer noisier gradients but use less memory and can generalize better.
+
+Dropout is a regularization technique used to prevent overfitting in neural networks. By randomly setting some neurons to zero during training, dropout helps reduce co-dependency between neurons and encourages them to learn independently useful features.
+
+These hyperparameters play significant roles in determining the overall performance of the deep learning models. However, keep in mind that there are many other hyperparameters like optimizers, activation functions, number of layers, etc., that can impact the model's performance.

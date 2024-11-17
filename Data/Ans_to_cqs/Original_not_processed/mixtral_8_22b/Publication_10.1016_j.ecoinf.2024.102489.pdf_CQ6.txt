@@ -1,0 +1,52 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.2. Data and preprocessing 
+
+2.2.1. High spatial resolution satellite image data
+
+For machine learning methods such as RF models, the quality of the 
+training samples can seriously affect their prediction results. Although 
+this study utilised the pixel quality control metrics of MODIS products to 
+eliminate  cloud-contaminated  and  poor-quality  pixels  and  to  remove 
+outliers  from  the  training  samples,  the  surface  of  the  study  area  was 
+highly heterogeneous compared to that of Zhai et al. (2020). To ensure 
+that a sufficient number of LAI training samples could be selected, the 
+main  algorithm  saturated  the  pixels  during  the  selection  of  the  LAI 
+training  samples,  but  this  increased  the  high-value  LAI  uncertainty 
+(Kang  et  al.,  2021).  Jamali  et  al.  (2023)  used  a  variety  of  machine 
+learning  algorithms  to  estimate  various  leaf  parameters  for  wheat 
+leaves, concluding that deep neural networks were the most capable of 
+improving the prediction accuracy of leaf parameters. Therefore, field
+
+vegetation growth cycle included in the training samples.
+
+While building the RF model, the training samples were randomly 
+divided  according  to  proportions  of  80%  and  20%  and  used  for  the 
+training and test datasets, respectively. The parameters of the RF model, 
+number of trees (n_estimators), minimum number of leaves (minleaf), and 
+number of randomly selected node-split feature variables (max_features) 
+significantly affected  the  accuracy and  complexity  of  the model.  This 
+study used a grid search method (GridSearchCV) based on the out-of-bag 
+(OOB)  error  and  five-fold  cross-validation  to  search  for  the  optimal 
+parameters  of  the  model  (Chang  et  al.,  2023).  The  n_estimators  were 
+spaced at 50 intervals, ranging from 100 to 1000. The minleaf is 2, 5, 10, 
+20, and 50. The max_features were spaced at intervals of 1, ranging from 
+1 to k where k is the number of characteristic variables. 
+
+2.3.4. SCS + C terrain correction model
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit information about specific preprocessing steps involved before training a deep learning model. However, it mentions some general practices related to preparing data for machine learning models like Random Forest (RF) models. These include eliminating cloud-contaminated and poor-quality pixels using pixel quality control metrics of MODIS products, removing outliers from training samples, and selecting a sufficient number of LAI training samples. Additionally, while building the RF model, the training samples were divided into two parts - one for training and another for testing purposes. GridSearchCV was employed to find the optimal parameters of the model. While these steps might also apply to deep learning models, they do not cover all possible preprocessing techniques typically applied before training a deep learning model. Common preprocessing steps for deep learning models may include normalizing or standardizing input features, handling missing values, encoding categorical variables, and splitting the dataset into training, validation, and testing sets.

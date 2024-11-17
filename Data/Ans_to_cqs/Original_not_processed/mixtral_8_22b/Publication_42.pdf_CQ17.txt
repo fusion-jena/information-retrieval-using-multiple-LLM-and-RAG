@@ -1,0 +1,67 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Sensors 2021, 21, 343
+
+11 of 18
+
+7,047,754 learnable parameters gave a F1-score of 84.93% which is even lower. CNN
+architectures with many parameters (more than 20,000,000) such as ResNetV50 [38] and
+InceptionNetV3 [39] gave a high training accuracy, but a lower validation F1-score of 69.1%
+and 81.7%, respectively. This result indicates overﬁtting and that more training data are
+needed when such large deep learning networks are used. A very high F1-score of 96.6%
+was ﬁnally achieved by transfer learning on ResNetV50 using pretrained weights and only
+training the output layers. This indicates that the state-of-the-art was able to outperform
+our proposed model, but requires pretrained weights with many more parameters.
+
+2.2.4. Summary Statistics
+
+36. Tan, M.; Le, Q.V. EfﬁcientNet: Rethinking Model Scaling for Convolutional Neural Networks. arXiv 2019, arXiv:1905.11946,
+37. Huang, G.; Liu, Z.; Weinberger, K.Q. Densely Connected Convolutional Networks. arXiv 2016, arXiv:1608.06993,
+38. Wu, S.; Zhong, S.; Liu, Y. ResNet. Multimed. Tools Appl. 2017. [CrossRef]
+39.
+
+Szegedy, C.; Vanhoucke, V.; Ioffe, S.; Shlens, J.; Wojna, Z. Rethinking the Inception Architecture for Computer Vision.
+In
+Proceedings of the 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), Las Vegas, NV, USA, 26 June–1
+July 2016; pp. 2818–2826.
+
+40. R Core Team. R: A Language and Environment for Statistical Computing; R Core Team: Geneva, Switzerland, 2020. Available online:
+
+http://softlibre.unizar.es/manuales/aplicaciones/r/fullrefman.pdf (accessed on 9 November 2020).
+
+Finally, the customized CNN architectures were compared with selected state-of-
+the-art CNN optimized architectures. EfﬁcientNetB0 [36] is scaled to work with a small
+image input size of 224 × 224 pixel and has 4,030,358 learnable parameters. Using the
+moths dataset with the same data augmentation, the EfﬁcientNetB0 achieved a F1-score
+of 88.62%, which is lower than our top ﬁve best architectures. DenceNet121 [37] with
+
+Sensors 2021, 21, 343
+
+11 of 18
+
+One of the potential sources of error in the algorithm was the choice of dataset used
+for training and validation of the CNN model. Collecting a sufﬁciently large dataset with
+enough data points for efﬁcient classiﬁcation of the rarer species was a signiﬁcant challenge.
+However, it is likely that increasing the number of images available for training the CNN
+model could improve performance even further. The current classiﬁcation algorithm relies
+heavily on padding the bounding box found during blob segmentation. The performance
+of the system changes signiﬁcantly with variation in padding before CNN prediction. The
+CNN algorithm was trained on a dataset using manual annotations of the moths. These do
+not surround the moths as closely as the bounding boxes placed by the blob segmentation
+(see Figures 4 and 6). Thus, there is a difference in the sizes.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the specific regularization methods used to prevent overfitting in the deep learning pipeline. However, it mentions that CNN architectures with many parameters (more than 20,000,000) such as ResNetV50 and InceptionNetV3 resulted in overfitting, indicating that these models may have benefited from additional regularization techniques. Common regularization methods include dropout, L1 or L2 regularization, early stopping, and data augmentation. Dropout randomly sets a fraction rate of input units to 0 at each update during training time, helping to prevent overfitting. L1 or L2 regularization adds a penalty term to the loss function, encouraging smaller weight values and reducing complexity. Early stopping ends the training process before convergence if the validation error starts to increase, preventing overfitting due to excessive training. Data augmentation generates new training samples by applying random transformations to existing ones, effectively expanding the dataset and improving generalization. Without explicit mention of the employed regularization methods, one can assume that some combination of these techniques might have been applied to mitigate overfitting in the described deep learning pipelines.

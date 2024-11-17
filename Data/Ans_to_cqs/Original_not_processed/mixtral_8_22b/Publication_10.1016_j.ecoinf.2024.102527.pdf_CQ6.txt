@@ -1,0 +1,160 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+respectively.  N  represented  the  number  of  images  in  the  test  set  or 
+validation set. 
+
+2.2.6. Model training and hyper-parameters 
+
+We  trained  models  on  the  training  sets  and  tracked  the  model 
+training process on the validation set. The training process was stopped 
+when  the  loss  value  of  the  model  on  the  validation  set  no  longer 
+decreased. We then tested the model performance on the test set. Our 
+computing platform was a Dell PowerEdge C4130 rack server with two 
+Tesla  K80  GPUs  and  256  GB  of  memory.  For  the  deep  learning  envi-
+ronment,  we  utilized  the  PyTorch  1.7.1  platform.  We  employed  the 
+Stochastic Gradient Descent (SGD) optimizer with a momentum value of 
+μ  = 0.9 to train the model. Other hyper-parameter settings for model 
+training were shown in Table S.4 of the Supporting Information. 
+
+3. Results 
+
+3.1. Experiment results of transfer strategy optimization
+
+Fig. 1. Conceptual model of transfer learning. Si (i = 0,1, …,n) represented the five convolutional stages and the final fully connected stage (including softmax) of the 
+ResNext-101 model. 
+
+Table 2 
+Source domain data splitting on SS dataset.   
+
+Usage 
+
+Number of 
+images 
+
+Class 
+number 
+
+Description 
+
+S_2_10 
+
+Training 
+
+100,000 
+
+S_2_50 
+
+Training 
+
+500,000 
+
+S_2_100 
+
+Training 
+
+1,000,000 
+
+S_2_V 
+
+Validation 
+
+8095 
+
+S_2_T 
+
+Test 
+
+8118 
+
+S_10_10 
+S_10_50 
+S_10_100 
+S_10_V 
+S_10_T 
+
+Training 
+Training 
+Training 
+Validation 
+Test 
+
+100,000 
+500,000 
+1,000,000 
+61,693 
+60,342 
+
+2 
+
+2 
+
+2 
+
+2 
+
+2 
+
+10 
+10 
+10 
+10 
+10 
+
+Empty image vs. 
+Animal image 
+Empty image vs. 
+Animal image 
+Empty image vs. 
+Animal image 
+Empty image vs. 
+Animal image 
+Empty image vs. 
+Animal image 
+10 species 
+10 species 
+10 species 
+10 species 
+10 species  
+
+2.2.4. Experiment design  
+
+(1)  Transfer learning strategy optimization
+
+We  used  the  ResNext-101  model  to  systematically  study  transfer 
+learning techniques. This model combines the advantages of the ResNet 
+and InceptionV3 models, which are widely used for the empty image 
+recognition task. Our proposed optimal update layer schemes based on 
+the ResNext-101 model can be applied to any member of the ResNext 
+family  (i.e.,  ResNext-X,  where  X  = 18,  34,  50,  101,  152,  etc.).  We 
+speculate that these schemes are also suitable for models of the ResNet 
+family (i.e., ResNet-X, where X = 18, 34, 50, 101, 152, etc.), but further 
+validation is still needed in practical projects.
+
+When it comes to selecting update layers, we recommend selectively 
+updating the last few layers of the DCNN model to enhance its perfor-
+mance in empty image recognition. This approach can lead to a signif-
+icant  improvement  in  the  model’s  performance,  as  opposed  to  solely 
+updating  the  fully  connected  layer.  Specifically,  when  using  a  model 
+from  the  ResNext  or  ResNet  family  pre-trained  on  ImageNet  as  the 
+source model, we recommend using TLS_4 as the transfer strategy. In 
+contexts where pronounced discrepancies exist between the target and 
+source  domain  datasets,  it  could  prove  advantageous  to  augment  the 
+number of convolutional layers subject to update. For example, in the 
+case  of  ResNext  series  models,  using  TLS_3  can  further  enhance  the 
+performance of the transfer model.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The paper does not provide explicit information about specific preprocessing steps such as normalization, scaling, or cleaning before training the deep learning model. However, it mentions that the authors used the ResNext-101 model, which is a type of Deep Convolutional Neural Network (DCNN). Typically, preprocessing steps for DCNNs include resizing input images, converting them into grayscale or RGB format, normalizing pixel values, and applying data augmentation techniques like rotation, flipping, zooming, or cropping. These preprocessing steps help improve the model's performance by reducing overfitting and enhancing generalizability.

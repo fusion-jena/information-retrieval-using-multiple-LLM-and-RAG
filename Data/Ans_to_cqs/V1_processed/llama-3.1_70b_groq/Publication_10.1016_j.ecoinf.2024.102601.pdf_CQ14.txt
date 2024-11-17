@@ -1,0 +1,7 @@
+The hyperparameters of the model are optimized using a two-stage approach, combining the strengths of RandomizedSearchCV and GridSearchCV from the scikit-learn library. 
+
+First, RandomizedSearchCV is employed to conduct a probabilistic search over the predefined hyperparameter space. This method evaluates a user-specified subset of hyperparameter combinations, offering a computational advantage when navigating vast hyperparameter spaces. It generates a sample of parameter settings based on specified distributions, allowing the incorporation of prior knowledge.
+
+Following the initial broad exploration by RandomizedSearchCV, GridSearchCV is utilized to conduct an exhaustive search in the vicinity of the best hyperparameters discovered. GridSearchCV evaluates every possible combination within a predefined grid of hyperparameter values, guaranteeing that the optimal parameter combination is identified and ensuring search precision. This deterministic approach is particularly advantageous when the hyperparameter space is relatively more constrained and well-defined, and exhaustive exploration is computationally feasible.
+
+By combining these two methods, the approach aims to achieve an optimal balance between computational efficiency and search precision, ultimately leading to the identification of the most suitable hyperparameters for the model.

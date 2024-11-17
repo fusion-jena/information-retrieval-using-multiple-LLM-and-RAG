@@ -1,0 +1,7 @@
+Answer: The deep learning model used for plant classification employs the Lasagne framework, which is built on Theano. The model's weights are initialized with pretrained weights from the ImageNet dataset in the Lasagne Model Zoo. The model is trained for 100 epochs using a GTX 1080 for 6 days. The learning rule used is Adam. The specific learning rate is not mentioned in the provided context.
+
+During training, standard data augmentation techniques such as shearing, translation, and mirroring are applied. However, rotation and upside-down mirroring are not applied to images tagged as 'habit'. After applying the transformations, the image is downscaled to the ResNet standard size of 224 x 224.
+
+For ResNet50 evaluation, random ten crop testing is used with smaller data augmentation parameters than those used during training.
+
+The datasets used include Google Search Image, Portuguese Flora, and iNaturalist. For the Google Search Image dataset, the 10 first images returned by the Google Image Search engine are retrieved for each of the 3680 labels with more than 12 images in the training dataset. This is done in an automated fashion, and some minor mislabeled or corrupt examples might appear in the dataset. By choosing only the most popular labels and retrieving the top results, the presence of mislabeled images is expected to be minimized.

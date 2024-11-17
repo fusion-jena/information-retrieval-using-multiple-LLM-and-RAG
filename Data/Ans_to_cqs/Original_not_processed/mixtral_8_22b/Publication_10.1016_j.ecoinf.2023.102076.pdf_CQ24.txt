@@ -1,0 +1,86 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+fying the exploitation or sale of a particular taxa, for which there may 
+not be existing proxy datasets. Alternatively, researchers can annotate a 
+randomly  selected  sample  of  collected  data,  according  to  their  own 
+relevancy  criteria.  However,  this  approach  is  less  suitable  for  cases 
+where relevant examples make up a small proportion of the collected 
+data,  as  imbalanced  training  data  can  lead  to  poor  classification  per-
+formance (Schr¨oder et al., 2021).
+
+Since BERT can only accept a maximum of 512 tokens as input, we 
+used smaller subsections of the longer web articles as classifier input, an 
+approach previously applied to long document classification (Fiok et al., 
+2021; Sun et al., 2019). To identify the sections of text most likely to be 
+relevant to the classification decision, documents were split into chunks 
+of 300 tokens using the NLTK word-tokenizer. Chunks that contained 
+any  of  our  original  query  terms  (i.e.  any  bat-related  or  exploitation- 
+related  term)  were  retained.  If  more  than  one  chunk  contained  key-
+words,  the  first  such  chunk  of  the  document  was  retained  for  use  in 
+model training and evaluation. Before being fed into the BERT model, 
+texts are tokenized using the BERT tokenizer. Here, we set the maximum 
+number of tokens as 400 for social media posts, as most were very short, 
+and 512 for web articles, meaning some texts would have been further 
+truncated at this step.
+
+Fig. 5. The relationship between the number of texts in training data, when data was selected randomly or using active learning. Classifiers were initialised with a 
+random sample of 50 texts, after which point, different selection strategies (Bert K-means, Least Confidence or random selection) were used to select the next 50 texts 
+to include in the training set. The classification tasks and the dataset from which training and testing data are derived, are also compared. 
+
+Table 2 
+The performance of classification task 2 (BERT) when trained and tested with either stratified or non-stratified social media dataset.  
+
+Classification Task 
+
+Dataset 
+
+Training data 
+
+Testing data 
+
+2 
+2 
+2 
+2 
+2 
+2 
+2 
+2 
+3 
+3 
+3 
+3 
+3 
+3 
+3 
+3
+
+Examination of our initial dataset indicated that results relating to 
+COVID-19 were over-represented compared to other topics. To investi-
+gate how the over-representation of particular topics in the training data 
+influence classifier performance, we trained classification tasks 2 and 3 
+using both a randomly selected sample and a balanced stratified sample. 
+For the balanced stratified sample, data were grouped according to their 
+initial  exploitation-related  query  term (stemmed). This  resulted  in  19 
+groups,  from  each  of  which  110  texts  for  labelling  were  randomly 
+selected,  such  that  each  query  group  was  equally  represented  in  the 
+data.  Since  some query  terms  were more likely  to  be  associated  with 
+COVID-19  related  texts,  such  as  ‘market’  or  ‘trade’,  this  approach 
+effectively  under-sampled  these  texts,  allowing  the  classifier  to  be 
+trained with the full breadth of topics within the dataset.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it appears that the focus is primarily on addressing issues related to imbalance in training data rather than handling randomness in the deep learning pipeline. However, one strategy mentioned that could potentially address randomness is the use of a balanced stratified sample. In this case, data were grouped according to their initial exploitation-related query term and then 110 texts were randomly selected from each group. This ensured that each query group was equally represented in the data, effectively under-sampling certain texts and allowing the classifier to be trained with the full breadth of topics within the dataset. While this does not directly address randomness in the deep learning pipeline, it does introduce a form of control by ensuring that the training data is representative and balanced. Other common strategies to handle randomness in deep learning pipelines include fixing the random seed value, using ensemble methods, and employing techniques like cross-validation. However, these strategies are not explicitly discussed in the provided context.

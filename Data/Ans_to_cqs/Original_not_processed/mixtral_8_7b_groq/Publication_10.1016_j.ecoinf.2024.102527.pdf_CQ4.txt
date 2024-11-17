@@ -1,0 +1,11 @@
+Answer:
+
+ The provided context does not explicitly mention the data augmentation techniques applied in the deep learning pipeline. However, it discusses other aspects of the pipeline such as data splitting, model training, and transfer learning strategies.
+
+ In the context, the data is split into source and target domain datasets for transfer learning experiments. For the ImageNet dataset, a pre-trained model is used, so there is no need to split the dataset. The SS and LSM datasets are camera trap image datasets, where each capture event frequently comprises three images. To prevent poor generalization of the DCNN model, images of the same event are kept intact during data splitting, putting all images of an event into the same dataset.
+
+ The models are trained on the training sets, and the training process is tracked on the validation set. The training process is stopped when the loss value of the model on the validation set no longer decreases. The model performance is then tested on the test set. The computing platform is a Dell PowerEdge C4130 rack server with two Tesla K80 GPUs and 256 GB of memory. The PyTorch 1.7.1 platform is used for the deep learning environment. The Stochastic Gradient Descent (SGD) optimizer with a momentum value of μ = 0.9 is employed to train the model.
+
+ In terms of transfer learning strategies, the context recommends selectively updating the last few layers of the DCNN model to enhance its performance in empty image recognition. Specifically, when using a model from the ResNext or ResNet family pre-trained on ImageNet as the source model, TLS_4 is recommended as the transfer strategy. In contexts where pronounced discrepancies exist between the target and source domain datasets, augmenting the number of convolutional layers subject to update can further enhance the performance of the transfer model.
+
+ Therefore, while the provided context does not explicitly mention data augmentation techniques such as flipping, rotating, or scaling, it discusses other important aspects of the deep learning pipeline, such as data splitting, model training, and transfer learning strategies.

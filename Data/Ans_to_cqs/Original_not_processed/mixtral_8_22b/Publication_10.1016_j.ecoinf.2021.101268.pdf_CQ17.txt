@@ -1,0 +1,150 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Model 
+
+AlexNet 
+VGG-19 
+ResNet-101 
+DenseNet-201 
+
+Accuracy 
+
+Raw 
+
+Train 
+
+98.75% 
+96.77% 
+82.25% 
+93.71% 
+
+Validation 
+
+97.16% 
+98.30% 
+89.04% 
+91.30% 
+
+Test 
+
+96.16% 
+95.15% 
+83.30% 
+86.48% 
+
+Pre-processed  
+
+Train 
+
+98.21% 
+96.94% 
+77.25% 
+91.61% 
+
+Validation 
+
+97.92% 
+97.92% 
+79.02% 
+87.33% 
+
+Test 
+
+95.98% 
+96.52% 
+75.44% 
+86.29%  
+
+Table 5 
+Accuracy of the models swapping the testing sets (source → target).  
+
+Model 
+
+Accuracy 
+
+Raw → Pre-processed 
+
+Pre-processed → Raw 
+
+AlexNet 
+VGG-19 
+ResNet-101 
+DenseNet-201 
+
+82.35% 
+82.70% 
+69.22% 
+65.26% 
+
+54.76% 
+78.87% 
+29.56% 
+33.97%  
+
+Fig. 5. Confusion matrices for the VGG-19 architecture.  
+
+et al., 2017) and SmoothGrad (Smilkov et al., 2017) methods over each 
+model. These methods plot a point cloud, where the density denotes the 
+input space relevance. Thus, a higher density in a region suggests that 
+the network ponderates it the most when classifying.
+
+Like any other complex model, DL requires a large amount of data to 
+fit appropriately, which is hard in our context. To overcome this limi-
+tation, we employ different architectures pre-trained with the ImageNet 
+dataset. Pre-trained models capture low-level features (e.g., edges, cor-
+ners, color spots, etc.) from one domain and transfer them to another 
+with  similar  characteristics.  The  transfer  process  is  called  fine-tuning 
+due  to  the  model  only  learns  specific  higher-level  features  (e.g.,  ar-
+rangements, venations, etc.). We compare four pre-trained models: (1) 
+AlexNet (Krizhevsky et al., 2012, 2) VGG-19 (Simonyan and Zisserman, 
+2014, 3) ResNet-101 (He et al., 2016, 4) DenseNet-201 (Huang et al., 
+2017).  The  fully  connected  block  is  adjusted  to  feed  off  the  feature 
+vector and output the ten species of leaves. Table 3 describe architecture 
+characteristics 
+
+Ih
+R[i, j] = 3.2405⋅Ih
+Ih
+G[i, j] = (cid:0) 0.9693⋅Is
+Ih
+B[i, j] = 0.0556⋅Is
+
+(13)  
+
+4.2. Architecture configurations 
+
+Convolutional neural networks (CNN) outstand over DL techniques 
+by disentangling high-level representations across multiple processing 
+layers. CNN’s process data on two levels: a convolutional block for the 
+automatic  feature  extraction,  and  fully  connected  layers  to  establish 
+feature-output  correlation.  The  convolutional  block  comprises  con-
+volutional,  ReLU,  and  max-pooling  layers.  Each  set  of  convolutional 
+layers diversify features by applying a set of parallel filters that process 
+local sections of the input space. The feature vector integrates low-level 
+local features from the first layers and higher-level representations from 
+the latest ones.
+
+Ideally, a robust model must classify accurately, regardless of back-
+ground or input noises. We analyze the model’s behavior by swapping 
+testing  sets  between  pre-processed  and  raw  images  (Table  5).  The 
+experimental results on model robustness show that the models suffer an 
+accuracy drop. This drop varies depending on the training data: >13% 
+for raw images, and > 17% for pre-trained ones. Furthermore, ResNet- 
+101  and  DenseNet-201  decrease  up  to  52%.  These  figures  draw  that 
+AlexNet and VGG-19 are ideal for our context.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide information about the regularization methods used to prevent overfitting in the deep learning pipeline. However, common regularization methods include dropout, L1 regularization, and L2 regularization. Dropout randomly drops out neurons during training to prevent overfitting, while L1 and L2 regularization add penalties to the loss function to reduce the complexity of the model.

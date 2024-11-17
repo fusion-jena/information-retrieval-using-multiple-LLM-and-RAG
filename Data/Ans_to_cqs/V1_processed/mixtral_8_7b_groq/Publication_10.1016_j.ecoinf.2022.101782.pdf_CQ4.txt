@@ -1,0 +1,9 @@
+In the deep learning pipeline, data augmentation techniques were applied to increase the diversity of the training set and improve the model's ability to generalize. The following data augmentation methods were used:
+
+1. Horizontal Flip: This technique involves flipping the input images horizontally, which helps the model learn features that are invariant to horizontal reflections. This is particularly useful for object detection tasks where the orientation of the object in the image may vary.
+
+2. Counter Clock Wise Shear: A shear transformation was applied to the images with a small angle of 0.2 degrees counter clockwise. This transformation helps the model learn features that are invariant to small rotations and distortions, making it more robust to such variations in the input data.
+
+3. Random Zoom: A random zoom operation was performed on the images, with a zoom factor ranging between 0 and 0.2. This augmentation technique helps the model learn features that are scale-invariant, allowing it to handle objects of different sizes more effectively.
+
+These data augmentation techniques were applied to the original images, resulting in 224 × 244 pixel RGB input tensors. The images were normalized to ImageNet mean values, and the pixel values were rescaled in the range of [0, 1]. The augmented dataset was then used to train a deep learning model with an ADAM optimizer, a learning rate of 10, and a batch size of 64. The model was trained for 448 epochs, taking roughly 4 days to complete. The best model was selected based on minimal validation loss, which occurred at epoch 448. This model achieved a training loss of 0.256, a training accuracy of 0.899, a validation loss of 0.298, and a validation accuracy of 0.891.

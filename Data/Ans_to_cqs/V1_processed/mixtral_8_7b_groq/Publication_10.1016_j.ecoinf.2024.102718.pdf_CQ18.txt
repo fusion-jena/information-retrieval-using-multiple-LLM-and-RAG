@@ -1,0 +1,9 @@
+During the training phase of the model, various strategies were implemented to monitor and ensure its performance. Firstly, metrics such as accuracy, precision, recall, F1-score, and AUC (Area Under the Curve) were recorded throughout the training process. This provided a comprehensive understanding of how well the model was learning and identifying the correct classes.
+
+Additionally, the model's size and analysis time were also monitored. The model size gives an idea about the complexity of the trained model, usually measured in terms of parameters or memory footprint. Monitoring the analysis time helps understand the efficiency of the model during inference, representing the number of arithmetic operations performed by the model during inference or training.
+
+Furthermore, to dynamically modify the learning rate while preserving the optimal model iteration according to the validation accuracy, several callbacks were included during the training phase. These callbacks included ReduceLROnPlateau, ModelCheckpoint, and EarlyStopping. ReduceLROnPlateau decreases the learning rate when a metric has stopped improving, ModelCheckpoint saves the best model based on a metric value, and EarlyStopping stops the training when a metric has stopped improving, preventing overfitting and reducing training time.
+
+In the research reproducibility section, the definitions of Dtrain and Dtest represent data generators for training and testing datasets, where parameters such as rescaling and augmentation were controlled. Class weights were computed to address class imbalance, which is essential for a fair evaluation of the model's performance.
+
+In summary, the strategy implemented to monitor the model performance during training involved tracking various metrics, dynamically adjusting the learning rate using callbacks, managing class imbalance, and ensuring reproducibility through controlled data generation and defined evaluation metrics.

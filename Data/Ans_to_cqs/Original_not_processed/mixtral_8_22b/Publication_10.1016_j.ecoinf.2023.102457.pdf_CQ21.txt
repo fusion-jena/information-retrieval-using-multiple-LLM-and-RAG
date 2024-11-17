@@ -1,0 +1,55 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The second approach we used to extract embeddings was from the 
+pre-trained  BirdNET  model.  The  original  version  of  the  model  was
+
+of length 2048. Model and code was run in Python version 3.10 based on 
+the code and methods presented in: https://github.com/kahst/BirdNET 
+-Analyzer.
+
+capable of identifying 984 North American and European bird species by 
+sound (Kahl et al., 2021). BirdNET was trained using a dataset derived 
+from  three  primary  sources:  eBird,  Xeno-canto,  and  the  Macaulay  Li-
+brary  of  Natural  Sounds.  We  used  BirdNET  version  2.4  which  was 
+trained on over 6000 bird and non-bird species (https://github.com/kah 
+st/BirdNET-Analyzer). The task-specific model architecture of BirdNET 
+was derived from the family of residual networks (ResNets) (Kiyokawa 
+et al., 2019), that consists of 157 layers with >27 million parameters, 
+and was trained using extensive data pre-processing, augmentation, and 
+mixup. BirdNET creates a mel-scale spectrogram between 150 Hz and 
+15 kHz and returns 1024 embeddings per 3-s of audio sample. As with 
+the VGGish model, we took the mean and standard deviation for em-
+beddings over the entire duration of the call, resulting in a feature vector
+
+Fig. 4. Mean and 95% confidence intervals of classification accuracy over 20 random iterations for each of the five feature types as a function of distance. Feature 
+embeddings  from  the  BirdNET  algorithm  performed  comparably  to  MFCCs  for  calls  recorded  at  closer  distances,  whereas  embeddings  from  the  VGGish  model, 
+Wav2Vec2 model, and the acoustic indices performed worse. The lack of visible confidence intervals for some points indicates a very narrow confidence interval. 
+
+Fig. 5. Mean and 95% confidence intervals of Normalized Mutual Information (NMI) for the five feature types as a function of distance for affinity propagation 
+clustering (A) and HDBSCAN (B). The lack of visible confidence intervals for some points indicates a very narrow confidence interval. 
+
+Successful clustering was obtained through the use of MFCCs as a feature 
+extraction technique, and HDBSCAN for unsupervised classification at 
+distances ≤150 m (Fig. 6).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After training the BirdNET model, several postprocessing steps were taken to analyze its performance and extract meaningful features. These include creating a mel-scale spectrogram between 150 Hz and 15 kHz, returning 1024 embeddings per 3-second audio sample, calculating the mean and standard deviation for embeddings over the entire duration of the call, and generating a feature vector.
+
+To evaluate the model's performance, various metrics were calculated, such as classification accuracy and normalized mutual information (NMI). Classification accuracy was measured by comparing predicted labels to actual labels, while NMI assessed the quality of clustering results. Both metrics were computed over multiple random iterations and visualized with their respective confidence intervals.
+
+Additionally, successful clustering was achieved using Mel Frequency Cepstral Coefficients (MFCCs) as a feature extraction technique and Hierarchical Density-Based Spatial Clustering of Applications with Noise (HDBSCAN) for unsupervised classification. This combination proved effective for classifying bird sounds within a certain distance range.
+
+In summary, the postprocessing steps involved after training the BirdNET model included creating a mel-scale spectrogram, computing embeddings, calculating mean and standard deviation for feature vectors, evaluating performance using metrics like classification accuracy and NMI, and applying techniques like MFCCs and HDBSCAN for clustering and classification tasks.

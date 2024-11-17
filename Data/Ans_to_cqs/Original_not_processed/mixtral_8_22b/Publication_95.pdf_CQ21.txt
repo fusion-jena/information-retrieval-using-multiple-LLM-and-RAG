@@ -1,0 +1,184 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Figure 8. Recall of the ResNet50V2 models on the validation set as a function of the annotation size relative to image size.
+The validation images were binned according to the relative size of their respective annotations with respect to the image
+size (“annotation size”). Each line shows the recall (left axis) of a ResNet50V2 model with a given input image size across
+the binned annotation sizes. The recall lines were “smoothed”, using kernel density estimation. The number of images in
+each bin is shown as vertical bars (right axis).
+
+Table 2. Overview of training, validation, and test set. C, I, and P are the number of clusters, images,
+and polygons of each species in the respective data sets. A cluster consists of multiple images
+acquired from the same location — potentially across multiple dates. An image contains zero, one, or
+multiple annotations.
+
+Species
+
+Cytisus scoparius
+Lupinus polyphyllus
+Pastinaca sativa
+Reynoutria
+Rosa rugosa
+Solidago
+No species
+
+Total
+
+Training
+I
+
+780
+426
+665
+511
+1189
+2239
+4493
+
+P
+
+1109
+851
+1005
+578
+1639
+2792
+-
+
+10,303 7974
+
+C
+
+11
+20
+47
+6
+35
+38
+145
+
+151
+
+C
+
+6
+4
+18
+5
+10
+8
+49
+
+51
+
+Validation
+I
+
+199
+65
+152
+77
+226
+462
+979
+
+P
+
+279
+103
+252
+93
+327
+791
+-
+
+2160
+
+1845
+
+Test
+I
+
+161
+66
+124
+124
+225
+451
+995
+
+P
+
+226
+127
+196
+128
+287
+744
+-
+
+2140
+
+1708
+
+C
+
+9
+6
+12
+5
+15
+18
+49
+
+54
+
+(a)
+
+(b)
+
+(d)
+
+(e)
+
+(c)
+
+(f)
+
+5.1.1. Network Training Procedure
+
+In both network structures, the ﬁnal classiﬁcation layer was adapted to match the
+seven classes (six IAPS and “no species” (Table 2)). The input image size affects the
+processing time of each image, but can also impact the classiﬁcation accuracy. Therefore,
+the network models were trained on ﬁve different image sizes: 96 × 128 px, 192 × 256 px,
+384 × 512 px, 768 × 1024 px, and 1536 × 2048 px (see Supplementary Materials for a visual
+comparison of the image sizes). For each image size, a network was trained using either
+random weights or weights pre-trained on ImageNet and with global max pooling or
+global average pooling before the ﬁnal classiﬁcation layers.
+
+of 832 × 832 pixels for the six classes of plant species. The average training loss was
+used to determine when to stop the training. Redmon and Farhadi recommends at least
+2000 iterations for each number of classes, but 22 000 iterations were chosen, as the training
+loss was stabilized after this number of iterations. The trained YOLOv3 model was tested
+using the images from the test data set scaled to a pixel size of 608 × 608.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training process, several postprocessing steps may be involved depending on the specific requirements of the project. However, based on the provided context, there isn't explicit information about the exact postprocessing steps used in this case. Nevertheless, some common postprocessing steps include generating saliency maps, calculating metrics such as precision, recall, F1 score, and creating confusion matrices to evaluate the performance of the model.
+
+Saliency maps help identify which parts of the input image contribute most significantly to the final prediction made by the model. This can provide insights into how the model makes its decisions and whether it focuses on relevant features.
+
+Calculating various evaluation metrics like precision, recall, and F1 score helps quantify the performance of the model. Precision measures the proportion of true positive predictions out of all positive predictions, while recall measures the proportion of true positives out of actual positives. The F1 score provides a single metric combining both precision and recall.
+
+A confusion matrix is another useful tool for evaluating classification models. It summarizes the predicted and actual labels in a tabular format, allowing easy identification of false positives, false negatives, true positives, and true negatives. This can further aid in understanding the strengths and weaknesses of the model.

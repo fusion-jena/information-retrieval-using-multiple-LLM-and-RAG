@@ -1,0 +1,155 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3 |  R E S U LT S
+
+retaining  speed.  Before  processing  the  crops  from  a  target  dataset, 
+
+we learn an embedding model (a deep neural network) on a large data-
+
+As  explained  above,  our  suggested  pipeline  consists  of  three 
+
+set, and use this model to embed the crops from our target dataset 
+
+steps: (a) running a pre-trained detector model on images, (b) em-
+
+into  a  256-dimensional  feature  space.  We  chose  256  features  after 
+
+bedding the obtained crops into a lower-dimensional space and (c) 
+
+preliminary experimentation showed it performed better than 64 and 
+
+running an active learning procedure. In this section, we report the 
+
+128. Choosing more than 256 features slows down the active learning 
+
+results of our pipeline and analyse the contribution of these steps 
+
+procedure. The embedding model turns each image into a 256-dimen-
+
+to  the  overall  results.  For  these  results,  the  eMammal  Machine
+
+ticular dataset or task, but they are general to different datasets 
+
+pseudocode.
+
+and  tasks.  Subsequent  layers  detect  more  complex  patterns  and 
+
+those that are more specific to the dataset the network is trained 
+
+on. Eventually, there is a transition from general features to data-
+
+set-specific features, and from simple to complex patterns within 
+
+the  layers  of  the  network  (Yosinski  et  al.,  2014).  With  transfer 
+
+learning, the general features that deep neural networks learn on 
+
+a  large  dataset  are  reused  to  learn  a  smaller  dataset  better  and 
+
+more efficiently.
+
+Transfer  learning  is  highly  beneficial  when  we  have  a  limited 
+
+number of labelled samples to learn a new task (e.g. species classifi-
+
+cation in camera trap images when the new project has few labelled 
+
+images), but we have a large amount of labelled data for learning a 
+
+different, relevant task (e.g. general-purpose image classification). In
+
+Algorithm 1. Active learning procedure
+
+1:
+
+2:
+
+3:
+
+4:
+
+5:
+
+6:
+
+7:
+
+8:
+
+Start from a small, randomly selected labelled subset of data
+
+while Stopping criteria not met do
+
+Train the underlying model with the available labelled samples
+
+Compute a selection criterion for all the samples in the 
+
+unlabelled pool
+
+Select n samples that maximize the criterion
+
+Pass the selected samples to the oracle for labelling
+
+Gather the labelled samples and add them to the labelled 
+
+set
+
+end while
+
+this case, a network can first be trained on the large dataset and then 
+
+Deep learning usually requires a large-scale dataset and a con-
+
+fine-tuned on the target dataset (Norouzzadeh et al., 2018; Yosinski 
+
+siderable amount of computational resources to achieve high accu-
+
+et al., 2014).
+
+1.5 | Active learning
+
+racy.  Existing  active  learning  frameworks  cannot  scale  to  datasets 
+
+with millions of high-dimensional samples, such as large camera trap
+
+monitor and manage ecosystems.
+
+model actively trained on 30,000 queries based on the margin selec-
+
+This work suggests the following three conclusions:
+
+tion criterion. Table S4 contains the results.
+
+3.4 | Validation against the NACTI dataset
+
+1.  Object detection models facilitate the handling of multiple species 
+
+in  images  and  can  effectively  eliminate  background  pixels  from 
+
+subsequent  classification  tasks.  Thus,  detectors  can  generalize 
+
+better  than  the  image  classification  models  to  other  datasets.
+
+To  further  show  the  capabilities  of  our  suggested  pipeline,  we 
+
+2.  The embeddings produced by a triplet loss outperform those from 
+
+also  validate  our  method  against  the  NACTI  dataset.  We  run  our 
+
+a cross-entropy loss, at least in case of having limited data.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not explicitly mention the names of the datasets used in the deep learning pipeline. However, it mentions using a large dataset for training the embedding model and a smaller target dataset for fine-tuning. It also refers to the eMammal Machine pseudocode and validating the method against the NACTI dataset. Therefore, it can be inferred that the authors used a large unnamed dataset for initial training and two smaller named datasets (eMammal and NACTI) for fine-tuning and validation purposes.

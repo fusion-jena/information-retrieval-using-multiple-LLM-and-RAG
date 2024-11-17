@@ -1,0 +1,64 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+training  datasets  in  use.  Until  now,  there  is  still  lack  of  high-quality 
+dataset for GVI extraction.
+
+Caesar, H., Uijlings, J., Ferrari, V., 2018. Coco-stuff: Thing and stuff classes in context. In: 
+
+Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 
+pp. 1209–1218. 
+
+Cai, B.Y., Li, X., Seiferling, I., Ratti, C., 2018. Treepedia 2.0: applying deep learning for 
+large-scale quantification of urban tree cover. In: 2018 IEEE International Congress 
+on Big Data (BigData Congress). IEEE, pp. 49–56. 
+
+Ca˜nas, I., Ayuga, E., Ayuga, F., 2009. A contribution to the assessment of scenic quality of 
+landscapes based on preferences expressed by the public. Land Use Policy 26, 
+1173–1181. 
+
+Chen, Z., Xu, B., Gao, B., 2015. Assessing visual green effects of individual urban trees 
+
+using airborne lidar data. Sci. Total Environ. 536, 232–244. 
+
+Chen, L.-C., Zhu, Y., Papandreou, G., Schroff, F., Adam, H., 2018. Encoder-decoder with 
+
+atrous separable convolution for semantic image segmentation. In: Proceedings of 
+the European Conference on Computer Vision (ECCV).
+
+5.2. Deep GVI learning 
+
+In  GreenCam,  we  measure  photo  GVI  by  SegFormer  (Xie  et  al., 
+2021),  a  state-of-the-art  Transformer-based  model  for  semantic  seg-
+mentation. As shown in Fig. 12, SegFormer follows the encoder-decoder 
+structure, which combines a Transformer-based encoder (i.e., MiT) with 
+a  lightweight  decoder  (i.e.,  ALL-MLP)  that  is  composed  entirely  of 
+multilayer perceptron (MLP) blocks.
+
+Fig. 6. Structure of the neural network of learning eye-phone distance, where 
+the  number  attached  to  each  layer  is  the  number  of  neurons  included  in 
+that layer. 
+
+structure of EPDNet, which works with the face box's width and height 
+as  input  and  the  eye-phone  distance  as  output.  The  ReLU  activation 
+function  and  sigmoid  are  used  to  cope  with  non-linearity.  The  five 
+neuron  layers  following  the  concatenation  are  all  fully  connected.  In 
+EPDNet training, we employ the Mean Squared Error (MSE) loss func-
+tion and the Adam optimizer with a learning rate of 0.0001. We use the 
+R2  metric to assess the model's fit to the observed data. After training, 
+this model fits well with the R2  of 0.95.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit information about the criteria used to split the dataset for deep learning model training into train, test, or validation sets. However, it can be assumed that common practices were followed, such as randomly splitting the dataset into these subsets. Typically, the dataset is divided into three parts: training set (used to train the model), validation set (used during the training process to fine-tune hyperparameters and prevent overfitting), and testing set (used after the model has been trained to evaluate its performance). The exact proportions may vary depending on the specific application and available resources but often follow ratios like 70/15/15 or 80/10/10 for training, validation, and testing respectively.

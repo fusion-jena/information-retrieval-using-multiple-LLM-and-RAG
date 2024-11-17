@@ -1,0 +1,9 @@
+The strategy implemented to monitor the model performance during training in the Wav2Vec model is not explicitly mentioned in the provided context. However, it can be inferred that the model's performance is evaluated using category-wise performance analysis and classification metrics like precision, recall, and F1-score.
+
+In the self-supervised training phase, the model undergoes pre-training with a quantization module, which converts the continuous feature representations into discrete representations. The pre-training objective includes a diversity loss that encourages the model to make diverse predictions for the masked latent feature representations. This regularization technique helps in improving the model's generalization performance.
+
+In the supervised fine-tuning phase, the model is trained on a labeled dataset to predict particular words or phonemes. During this phase, the quantization module is removed, and a linear projection layer is added to the context network. The model is then fine-tuned on connectionist temporal classification (CTC) loss for the Automatic Speech Recognition task.
+
+The category-wise performance analysis is conducted by evaluating the model's performance on bird species classification using mel spectrogram and mel MFCC inputs. The results are presented in Tables 2 and 3, which show the performance of the baseline models using these inputs. The proposed transfer learning using wav2vec achieves better results in the 90:10 training-testing ratio with very little deviation among the bird species compared to the baseline models.
+
+Therefore, while the specific strategy implemented to monitor the model performance during training is not mentioned, the category-wise performance analysis and classification metrics are used to evaluate the model's performance. Additionally, the pre-training and fine-tuning techniques used in the Wav2Vec model help in improving the model's generalization performance.

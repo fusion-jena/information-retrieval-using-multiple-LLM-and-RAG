@@ -1,0 +1,124 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+30/3 epochs),
+• Momentum: 0.9,
+• Weight decay: 0.0005,
+• Gamma: 0.1,
+• Batch size: 24 (in case of GoogLeNet), 100 (in case of AlexNet).
+
+All the above experiments were conducted using our own fork of
+Caﬀe (Jia et al., 2014), which is a fast, open source framework for
+deep learning. The basic results, such as the overall accuracy can
+also be replicated using a standard instance of caﬀe.
+
+RESULTS
+
+representations of
+
+Measurement of Performance
+To get a sense of how our approaches will perform on new unseen
+data, and also to keep a track of if any of our approaches are
+overﬁtting, we run all our experiments across a whole range
+of train-test set splits, namely 80–20 (80% of the whole dataset
+used for training, and 20% for testing), 60–40 (60% of the whole
+dataset used for training, and 40% for testing), 50–50 (50% of
+
+the whole dataset used for training, and 50% for testing), 40–60
+(40% of the whole dataset used for training, and 60% for testing)
+and ﬁnally 20–80 (20% of the whole dataset used for training,
+and 80% for testing). It must be noted that in many cases, the
+PlantVillage dataset has multiple images of the same leaf (taken
+from diﬀerent orientations), and we have the mappings of such
+cases for 41,112 images out of the 54,306 images; and during all
+
+Frontiers in Plant Science | www.frontiersin.org
+
+3
+
+September 2016 | Volume 7 | Article 1419
+
+Mohanty et al.
+
+To summarize, we have a total of 60 experimental
+
+conﬁgurations, which vary on the following parameters:
+
+1. Choice of deep learning architecture:
+
+AlexNet,
+GoogLeNet.
+
+2. Choice of training mechanism:
+
+Transfer Learning,
+Training from Scratch.
+
+3. Choice of dataset type:
+
+Color,
+Gray scale,
+Leaf Segmented.
+
+4. Choice of training-testing set distribution:
+
+Train: 80%, Test: 20%,
+Train: 60%, Test: 40%,
+Train: 50%, Test: 50%,
+Train: 40%, Test: 60%,
+Train: 20%, Test: 80%.
+
+this paper, we have used the notation of
+
+Throughout
+Architecture:TrainingMechanism:DatasetType:Train-Test-
+Set-Distribution to refer
+experiments. For
+to particular
+instance,
+to refer to the experiment using the GoogLeNet
+learning
+architecture, which was
+on the gray-scaled PlantVillage dataset on a train—test
+set distribution of
+the notation
+GoogLeNet:TransferLearning:GrayScale:60–40.
+
+trained using transfer
+
+60–40, we will use
+
+trained using transfer
+
+60–40, we will use
+
+Each of these 60 experiments runs for a total of 30 epochs,
+where one epoch is deﬁned as the number of training iterations
+in which the particular neural network has completed a full pass
+of the whole training set. The choice of 30 epochs was made based
+on the empirical observation that in all of these experiments, the
+learning always converged well within 30 epochs (as is evident
+from the aggregated plots (Figure 3) across all the experiments).
+To enable a fair comparison between the results of all the
+experimental conﬁgurations, we also tried to standardize the
+hyper-parameters across all the experiments, and we used the
+following hyper-parameters in all of the experiments:
+• Solver type: Stochastic Gradient Descent,
+• Base learning rate: 0.005,
+
+• Learning rate policy: Step (decreases by a factor of 10 every
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors do not explicitly mention the specific evaluation metrics they used to measure the performance of their deep learning models. However, they do discuss running experiments with different train-test split ratios to assess how well their models generalize to unseen data and prevent overfitting. This suggests that they likely used common classification metrics like accuracy, precision, or recall to compare the performance of their various experimental configurations. Additionally, since they mention tracking whether any of their approaches are overfitting, it implies that they might have been monitoring metrics related to overfitting, such as validation loss or F1 score. Nevertheless, without explicit confirmation from the authors regarding the exact evaluation metrics employed, this remains speculative.

@@ -1,0 +1,58 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Data  augmentation  is  another  powerful  method  to  overcome  the 
+problem of limited data and improve model performance (Shorten and 
+Khoshgoftaar, 2019). Data augmentation can increase the variability of 
+audio  data  in  a  training  dataset  by  transforming  the  data,  such  as 
+changing  the  frequency,  pitch,  and  volume  of  audio  signals,  shifting, 
+rotating  and  zooming  in  the  time  and/or  frequency  domains  of  spec-
+trograms, and adding additional noise (Dai et al., 2021; Ferreira et al., 
+2020; Kahl et al., 2021; Lasseck, 2019; Nanni et al., 2020b; Ruff et al., 
+2021). Since the augmented dataset can better represent the real-world 
+data  than  the  original  dataset,  this  approach  can  improve  the  model 
+performance trained with a small dataset (Nanni et al., 2020b; Xie et al., 
+2019). However, previous studies show that this approach works well 
+only  on  relatively  clean  recordings,  not  soundscape  recordings  (Kahl
+
+Data augmentation is a powerful tool for enriching a limited amount 
+of training datasets. Some audio-specific augmentation techniques, such 
+as noise mixing and random signal amplitude used in the SILIC, are also 
+used and performed well in previous studies (Lasseck, 2019; Nanni et al., 
+2020b; Kahl et al., 2021). Techniques such as sound mixing with other 
+target  signals  and/or  reverberations  also  have  the  potential  for 
+improving  the  model  performance  (Ko  et  al.,  2017;  Lasseck,  2019; 
+Richards and Wiley, 1980) and warrant further evaluations.
+
+class. In addition, we employed the Mosaic augmentation, an augmen-
+tation technique first developed in the YOLOv3 and used in the YOLOv4 
+and YOLOv5 because of its high efficiency in enriching a small training 
+dataset (Thuan, 2021). When applying the Mosaic augmentation, four 
+original spectrograms are randomly selected and merged into one big 
+input image for model training (see Section 3.4.1). Therefore, a sound 
+object in each spectrogram is placed in a new position in the merged 
+image  and  its  vertical  position  loses  the  frequency  information.  Con-
+cerning the YOLOv5 being optimized for RGB color images, we devel-
+oped  the  rainbow  mapping  technique  to  encode  the  frequency 
+information of audio signals in a spectrogram. A spectrogram is divided 
+into five bands along the frequency axis and a unique gradient colormap 
+is  used for  each band  to distinguish  the difference  in energy and  fre-
+quency (Appendix S1: Fig. S4b). By using rainbow mapping, each pixel
+
+whole image. Thus, it may minimize the dilution effect and reduce the 
+required amount of training data.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text provides several examples of data augmentation techniques applied in the deep learning pipeline for audio data. These include changing the frequency, pitch, and volume of audio signals, shifting, rotating, and zooming in the time and/or frequency domains of spectrograms, and adding additional noise. The Mosaic augmentation technique was also mentioned, which involves merging four original spectrograms into one big input image for model training. This results in sound objects from each spectrogram being placed in a new position in the merged image, losing their vertical position and frequency information. To address this issue, the rainbow mapping technique was developed to encode the frequency information of audio signals in a spectrogram. This involved dividing the spectrogram into five bands along the frequency axis and using a unique gradient colormap for each band to distinguish differences in energy and frequency. Other audio-specific augmentation techniques mentioned include noise mixing and random signal amplitude used in the SILIC, as well as sound mixing with other target signals and/or reverberations.

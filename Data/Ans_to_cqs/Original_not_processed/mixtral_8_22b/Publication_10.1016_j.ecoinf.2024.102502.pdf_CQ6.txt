@@ -1,0 +1,53 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.1. Data filtering
+
+2.3. Data scaling 
+
+The final step refers to data scaling, and intrinsically to gap filling 
+and data matching levels required by the user. Different scaling domains 
+have been suggested by Fritsch et al. (2020). As the interest relies on 
+aggregating  data  across  scales  prior  to  modelling,  our  approach  con-
+forms  to  a  “pre-modelling  scaling”  protocol  (Fritsch  et  al.,  2020). 
+Sequential  processes  were  implemented  within  GEE  for  scaling  up 
+environmental  time  series  from  one  spatial  and/or  temporal  scale  to 
+another during data extraction.
+
+match environmental information with ground observations (e.g. wild-
+life  movements),  other  ecological  processes  may  require  coarser  tem-
+poral scales, hence more diluted temporal aggregation (e.g. ecosystem 
+resilience). As for spatial scaling, a formula defines how data is tempo-
+rally aggregated, namely by a mean, median, or standard deviation.
+
+The last step (data scaling) concerns  spatial and temporal scaling. 
+Spatial scaling regards the scaling process applied to each metric of the 
+time  series,  and  is  exemplified  below  by  a  parametrizable  function, 
+namely addTexture_3 × 3_Mean, which includes neighbourhood opera-
+tions  by  applying  spatial  moving  windows  (Fig.  1),  here  with  a  size 
+(bandwidth) of 3 pixels, and the aggregation formula given by the mean 
+(but see also addTexture_3 × 3_stdDev and NDVI_GLCM16bit functions in 
+GEE_xtract codes). 
+
+EcologicalInformatics80(2024)1025025F. Valerio et al.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model, several preprocessing steps can be taken to ensure optimal performance. These include data cleaning, normalization, and scaling.
+
+Data cleaning involves removing any irrelevant or incorrect data points from the dataset. This could involve handling missing values, outliers, or duplicates. Normalization is used to rescale the input features so they have similar magnitudes, typically between 0 and 1. This helps prevent certain features from dominating others due to their larger numerical ranges. Scaling is another technique used to transform the feature values into a specific range, such as [-1, 1] or [0, 1]. It ensures that all features contribute equally to the learning process.
+
+In this particular case, the authors discuss data scaling as part of the preprocessing steps. They mention different scaling domains proposed by Fritsch et al. (2020) and follow a "pre-modelling scaling" protocol. The goal is to aggregate data across scales before modeling. Spatial and temporal scaling are considered, where spatial scaling applies to each metric of the time series using a parametrizable function like addTexture_3 × 3_Mean. Temporal scaling uses formulas such as mean, median, or standard deviation to temporally aggregate data.
+
+These preprocessing techniques help improve the accuracy and efficiency of the deep learning models by ensuring that the input data is clean, normalized, and scaled appropriately.

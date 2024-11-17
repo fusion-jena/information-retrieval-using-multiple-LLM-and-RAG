@@ -1,0 +1,75 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+ResNet-50 is a convolutional neural network model that uses skip 
+connections,  which  made  it  possible  to  get  good  performance  with 
+deeper models than was previously possible (He et al., 2015). Training 
+deep neural networks can result in exploding gradients, and skip con-
+nections  were  introduced  to  ameliorate  that  problem.  ResNet-50  was 
+chosen  for  comparison  as  it  is  a  proven  CV  classification  model.  It  is 
+commonly used and provides a well-performing baseline. 
+
+Inception-V3  is  a  convolutional  neural  network  used  for  image 
+classification, that has an auxiliary classifier that acts as a regularizer 
+(Szegedy et al., 2015b). The Inception-V3 architecture is built on pre-
+vious Inception models, with the aim of making the V3 computationally
+
+The Inception-V3 model accepts images resized to (299, 299) pixels 
+but ViT and ResNet resize to (224, 224) pixels. Dataset imbalance was 
+dealt with by including class weights in the cross-entropy loss function. 
+For the training we used AdamW optimizer for Hugging Face models, 
+which is the default optimizer in the transformers library by Hugging-
+Face. For Inception-V3, we used Adam since that was the optimizer used 
+in  previous  work  (and  AdamW  is  not  available  in  Keras).  We  used  a 
+(cid:0) 4  for 
+batch  size  of  16  examples  and  the  learning  rate  was  set  to  10
+(cid:0) 5  for  Vanilla  Inception-V3  and  ViT.  For  Deep  Otolith 
+ResNet  but  10
+(cid:0) 4 as suggested by Politikos 
+Inception we used a learning rate of 4 × 10
+et  al.  (2021).  For  every  fine-tuning  experiment,  the  model  with  the 
+
+smallest validation loss was used for evaluation on the test set. 
+
+2.3. Performance
+
+Comparing the results of our study with previous research on otolith 
+age  determination  can  be  difficult  due  to  differences  in  species,  age 
+composition,  dataset  size,  and  annotation  methods.  These  differences 
+can largely explain why the accuracy of deep learning-based approaches 
+to  otolith  age  determination  varies  between  studies.  Previous  studies 
+often used different fish species, which can affect the difficulty of esti-
+mating the age of the fish based on their otoliths. In addition, the age 
+composition of the datasets used in different studies can vary, which can 
+affect the overall accuracy of the age estimates (it is usually easier to
+
+Previous work has shown that deep-learning-based approaches are 
+effective  for  automated  otolith  age  determination.  Many  of  these  ap-
+proaches involve fine-tuning the Inception-V3 model, a convolutional 
+neural network developed by Google (Szegedy et al., 2015a). Finetuning 
+such a model requires a large dataset of annotated examples, which must 
+be  labeled  manually  (for  a  background  text  on  deep-learning,  see 
+
+* Corresponding author at: University of Iceland, Faculty of Computer Science, Iceland. 
+
+E-mail address: ars59@hi.is (A.R. Sigurðard´ottir).  
+
+https://doi.org/10.1016/j.ecoinf.2023.102046 
+Received 13 December 2022; Received in revised form 28 February 2023; Accepted 1 March 2023
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The provided context does not explicitly mention any specific strategies employed to handle randomness in the deep learning pipeline, such as managing random seed values. However, some general practices can be inferred from the information given.
+
+Firstly, the use of a consistent batch size of 16 examples across experiments suggests that maintaining consistency in data processing steps could help manage randomness. Secondly, using the model with the smallest validation loss for evaluation on the test set implies that selecting the best performing model during training might mitigate the effects of randomness. Lastly, employing techniques like cross-validation or repeating experiments multiple times with different seeds could also aid in handling randomness, although this is not mentioned in the provided context.

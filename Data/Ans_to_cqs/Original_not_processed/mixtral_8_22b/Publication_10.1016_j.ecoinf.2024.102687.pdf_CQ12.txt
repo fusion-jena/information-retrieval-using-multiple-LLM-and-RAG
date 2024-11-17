@@ -1,0 +1,66 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+11 / 30 
+14 / 30 
+12 / 30 
+15 / 30  
+
+EcologicalInformatics82(2024)1026879J. Poutaraud et al.                                                                                                                                                                                                                              
+
+Fig. 8. Estimation of the energy consumption related to the training of the models. This corresponds to the sum of CPU energy, GPU energy and RAMenergy in 
+kilowatt-hour (kWh). Fine-tuning of four CNN backbones (i.e. ResNet18, VGG16, DenseNet121 and AlexNet) were accomplished on 5 way-1 shot (Left) and 5 way-5 
+shot (Right) tasks using Matching Networks (MN), Prototypical Networks (PN) and Relation Networks (RN).
+
+3.3. Comparative analysis of CNN backbones 
+
+Comparative  analysis  of  CNN  backbones  was  accomplished  to 
+determine  the  optimal  CNN  architecture  to  use.  Original  feature 
+extraction part of the meta-learning algorithms was replaced with four 
+CNN  pretrained  on  the  ImageNet  dataset,  that  is  ResNet18,  VGG16, 
+DenseNet121 and AlexNet. Recent work has shown that the addition of 
+pretrained networks can improve the classification (Yang et al., 2020). 
+The selection of pretrained CNNs was based on the ranking of standard 
+off-the-shelf CNN architectures used in the context of eco-acoustics with 
+DL  (Stowell,  2022)  to  highlight  their  energy  consumption.  Other  ar-
+chitectures  such  as  DNN  models  optimized  for  embedding  systems 
+requiring  low  power  consumption  (Velasco-Montero  et  al.,  2018)  or 
+traditional  audio  feature  extraction  (Lakdari  et  al.,  2024)  could  be 
+investigated further in the future.
+
+pretrained DenseNet might fit the Darksound dataset well, but there are 
+no  guarantees  that it  will  work  on  another  dataset in  the  exact  same 
+manner. All the CNN backbones used in this experiment were previously 
+trained on the ImageNet database, a large but very general dataset. It has 
+been recently shown that using features extracted from models trained 
+on smaller but more specific datasets, that bird sound datasets, leads to 
+higher quality classification (Ghani et al., 2023; McGinn et al., 2023). 
+Consequently, using features extracted from a model trained on spec-
+trograms of bird sounds (e.g.  BirdNET algorithm (Kahl et  al., 2021)), 
+could  improve  the  parameter  initialization  of  UML  algorithms  of  the 
+MEC method.
+
+In general, extracting latent space representations from UML algo-
+rithms links a high DBCV score with a high ARI and AMI score. This leads 
+to coherent clusters that can be easily identified by an expert, potentially 
+accelerating  the  process  of  an  ecoacoustic  research  program.  In  the 
+current  experiment,  fine-tuning  of  the  model  using  a  pretrained  Den-
+seNet network returned the highest DBCV score in all cases except for 
+the  5  way-5  shot  tasks  combined  with  the  Relation  Networks  (RN). 
+Nevertheless, it is not necessarily advisable to favor one pretrained CNN 
+backbone  over  another  as  there  are  no  “universally  optimal  methods 
+that  will  just  produce  natural  clusters”  (Hennig,  2015).  Here,  a
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The pipeline uses Convolutional Neural Networks (CNN) as its deep learning model. Specifically, four different CNN backbones - ResNet18, VGG16, DenseNet121, and AlexNet - are employed for feature extraction. These CNNs have been pretrained on the ImageNet dataset. However, it should be noted that other types of neural networks, like Deep Neural Networks (DNN) optimized for low power consumption or traditional audio feature extraction methods, could also be explored in the future.

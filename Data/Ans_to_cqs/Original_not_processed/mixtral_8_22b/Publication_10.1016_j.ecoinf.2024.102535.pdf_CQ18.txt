@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Appendix A. Network architectures 
+
+The network architectures of the models evaluated in the experiments are described in detail in Fig. 9. The light green areas in that figure represent 
+feature extractor modules based on the different architectures, i.e., VGG, ResNet, and Xception. The orange area represents the architecture of the 
+classifier module, to which the outputs of each feature extractor are submitted.
+
+The  experimental  results  suggest  that  there  might  be  room  to 
+improve the generalization capacity of the deep learning classifiers. That 
+could  be  achieved  by  better  exploiting  the  training  data,  e.g.,  with 
+additional data augmentation techniques, using recent advances in un-
+supervised learning techniques, such as self-supervised methods, or by 
+just simplifying the classifiers in terms of the number of parameters, thus 
+reducing the risk of overfitting. 
+
+Another direction for continuing this research is to exploit the clas-
+sification uncertainty further in an active learning context. The uncer-
+tainty measure could be used in interactively training the deep learning 
+models,  selecting  high-uncertainty  samples  in  the  datasets,  and 
+increasing their importance in the computation of the loss function. 
+
+CRediT authorship contribution statement
+
+The batch size was 32, and the early stopping procedure was used to 
+avoid over-fitting. The patience parameter, which controls the number 
+of epochs without improvements in the validation loss, was set to 10. 
+Each network, with a particular architecture and considering a specific 
+substratum characterization, was trained and executed three times, each 
+time with a different (random) initialization of the trainable parameters 
+and with a different data fold. As already mentioned, the results shown 
+in  the  next  section  are  averages  of  those  three  executions.  Data 
+augmentation was applied to all extracted patches: a 90∘  rotation and 
+vertical and horizontal flips. 
+
+4.4. Performance metrics
+
+During  training,  the  cost  function  was  minimized  using  the  Adam 
+optimizer  (Kingma,  2017),  with  an  initial  learning  rate  μ0  and  mo-
+mentum  β1  equal  to  0.0001  and  0.9,  respectively.  Aiming  at  better 
+convergence  during  training,  we  adopted  a  learning  rate  decay  pro-
+cedure proposed in Ganin et al. (2017) by implementing the following 
+equation: 
+μ0
+(1 + αp)β
+
+μe =
+
+(8)  
+
+where p = e
+et al. (2017), α and β were set to 10 and 0.75, respectively. 
+
+#Epochs, and e is the current training epoch. Following Ganin
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: During training, the model performance was monitored by minimizing the cost function using the Adam optimizer. The initial learning rate was set to 0.0001, and momentum was set to 0.9. To improve convergence during training, a learning rate decay procedure was implemented. This procedure followed the equation μ0 / (1 + αp)^β, where μ0 is the initial learning rate, p is the current training epoch divided by the total number of epochs, and α and β were set to 10 and 0.75, respectively. Additionally, early stopping was employed to prevent overfitting, with a patience parameter of 10 controlling the number of epochs without improvement in the validation loss.

@@ -1,0 +1,11 @@
+Based on the provided context, there is no explicit mention of strategies employed to handle randomness in the deep learning pipeline, such as the use of a random seed value. However, there are some details about the training process and parameter settings that can help in inferring potential strategies to manage randomness.
+
+Firstly, a batch size of 30 is used during training, which implies that the models are trained with a subset of the data at a time, and the specific samples in each batch are randomly selected. This introduces some randomness in the training process, allowing the model to generalize better.
+
+Secondly, the learning rate is set to a constant value of 0.001. While this is not directly related to randomness, using a fixed learning rate can help reduce the variability in the training process, making it easier to reproduce and compare results.
+
+Thirdly, the number of training epochs depends on the depth of the neural network. For models with less than 100 layers, the training is executed for 60 epochs, while models with 100 layers or more undergo 80 epochs of training. This approach might help in controlling the randomness introduced by the training process, as models with fewer layers are more prone to overfitting and may require fewer epochs to converge.
+
+Lastly, the use of a specific optimized rectified linear activation function, Leaky ReLU, could potentially help in managing randomness. Leaky ReLU introduces a small, non-zero gradient for negative input values, which may help in preventing the "dying ReLU" problem, where neurons become stuck and output zero, leading to unstable training.
+
+In summary, while the context does not explicitly mention strategies to handle randomness in the deep learning pipeline, there are indications of techniques that may help in controlling and reducing randomness. These include using a constant learning rate, varying the number of training epochs based on network depth, and employing a specific activation function (Leaky ReLU) to improve training stability.

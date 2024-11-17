@@ -1,0 +1,89 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.5. Implementation details
+
+We have implemented our models in PyTorch (Paszke et al., 2017).
+We trained 𝑀 = 5 models with batch size 𝐵 = 64 and a base learning
+rate 𝛼 = 10−4. The learning rate is automatically reduced by a factor
+of 0.1 when the validation loss has not improved for 15 consecutive
+epochs. We apply weight decay to control the strength of the unit
+Gaussian prior, with an empirically chosen magnitude of 10−3 that
+is inversely proportional to the hyperparameter 𝜆 from Eq. (1). We
+chose 𝛽1 = 0.9, 𝛽2 = 0.999 and 𝜖 = 10−8 as hyper-parameters for the
+Adam optimizer. Each neural network was trained on a single Nvidia
+RTX2080Ti GPU for ∼14 days.
+
+5. Experimental results and discussion
+
+4.3. Loss function
+
+The loss function, which is optimized during training, measures
+the quality of a set of network parameters 𝜽 w.r.t. the training data
+ = {(𝒙𝑖, 𝒚𝑖)}𝑁
+𝑖=1, under some regularizing prior assumptions. We use a
+standard loss function (; 𝜽) whose minimization corresponds to max-
+imizing the posterior probability of the parameters given the training
+data. As it is commonly done in machine learning (see e.g. Goodfellow
+et al., 2016), we assume a zero-mean isotropic Gaussian prior over
+the network parameters (corresponding to 
+2 regularization) and a
+Gaussian likelihood function with mean ̂𝝁𝑖 ∶= ̂𝝁(𝒙𝑖; 𝜽) ∈ R5 and
+diagonal covariance matrix with logarithmic elements ̂𝒔𝑖 ∶= ̂𝒔(𝒙𝑖; 𝜽) ∈
+R5:
+
+(; 𝜽) = 𝜆 ‖𝜽‖
+
+2
+2 +
+
+∑
+
+[ ̂𝑠𝑖𝑗 + exp(− ̂𝑠𝑖𝑗 )( ̂𝜇𝑖𝑗 − 𝑦𝑖𝑗 )2]
+
+𝑖,𝑗
+
+(1)
+
+As commonly done in deep learning, we iteratively learn the model
+parameters with stochastic gradient descend, starting from a random
+initialization. In each iteration, we randomly sample a batch of 𝐵 = 64
+reference data patches of size 15 × 15 pixels, where a patch is only
+considered for training if the center pixel is forested. We consider a
+pixel forested if and only if it contains vegetation points (points with
+𝐷𝑧 > 1.3 m, see Section 3.1) and also is considered forested based on
+NIBIO’s Norway-wide timber volume map (Astrup et al., 2019). We use
+the latter as an additional precautionary measure to avoid unnecessary
+noise from non-forested areas, as we are interested in learning forest
+characteristics only. For every reference data patch, we randomly pick
+an optical image from the correct year and two SAR images (one as-
+cending and one descending orbit) with acquisition dates near the one
+of the optical image. Using SAR with both ascending and descending
+
+to get blurred (as information over an increasingly larger receptive
+field is mixed through repeated convolutions). We visualize our model
+architecture in Fig. 5 and in the following, the data flow in the model
+is described in more detail.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the provided context, there isn't explicit mention of specific preprocessing steps such as normalization, scaling, or cleaning applied to the dataset before training the deep learning model. However, there are several important aspects mentioned regarding the data preparation process.
+
+Firstly, the authors used a standard loss function that assumes a zero-mean isotropic Gaussian prior over the network parameters, corresponding to L2 regularization. This implies that the input features might be normalized or scaled to ensure they follow a similar distribution.
+
+Secondly, the authors sampled batches of 64 reference data patches of size 15x15 pixels for training. These patches were selected based on certain criteria, including containing vegetation points with Dz > 1.3m and being classified as forested according to Norway-wide timber volume maps. This suggests that the raw data may have been processed to extract relevant features like vegetation height and forest classification.
+
+Lastly, for each reference data patch, the authors picked an optical image from the correct year and two SAR images (ascending and descending orbits) with acquisition dates close to the optical image date. While this doesn't directly indicate any preprocessing steps, it does show that multiple types of remote sensing data were combined and synchronized for training purposes.
+
+In conclusion, while no specific preprocessing steps are explicitly stated in the provided context, it can be inferred that the data was likely prepared by extracting relevant features, possibly applying normalization or scaling, and synchronizing different types of remote sensing data.

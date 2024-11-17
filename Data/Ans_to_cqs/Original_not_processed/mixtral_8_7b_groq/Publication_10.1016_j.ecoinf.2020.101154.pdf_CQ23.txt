@@ -1,0 +1,12 @@
+Answer:::
+The generalizability of the deep learning model was ensured through a combination of techniques, including the use of a validation set for hyperparameter tuning, early stopping to prevent overfitting, and a specific data splitting approach for the RY dataset.
+
+For the three-part split, the VI score on the validation set was used instead of the test set to search for improved model parameters. Once confidence was gained that the validation score could not be further improved, the best model was evaluated on the final test set. If the test score was lower than the validation score, the test score was taken as the most realistic evaluation of the model's true generalization performance.
+
+Early stopping was employed to determine when to halt model training and prevent overfitting. During this process, the number of iterations required until convergence was identified for both the CS and NW models.
+
+In contrast to the approach used for the CS and NW datasets, a specific data splitting method was applied to the RY dataset. Individual observations were grouped according to the year of capture, and years were randomly selected for inclusion in the train and test datasets. This ensured that the model was tested using previously unseen combinations of explanatory variables, thereby increasing the robustness of the model performance test.
+
+For the RI models, the same initial parameters were set for both the CS and NW datasets, followed by a grid search on both datasets with a two-part split to obtain hyperparameters with the highest accuracy level. The learning rate and maximum tree depth were set to 0.05 and 4, respectively, for both the CS and NW models. However, for the RY models, the best performing models were those with a slow learning rate of 0.005, and the NW model had a very shallow tree with a tree depth of 2. The number of iterations was kept at 500.
+
+In summary, the generalizability of the deep learning model was ensured through the use of a validation set for hyperparameter tuning, early stopping to prevent overfitting, and a specific data splitting approach for the RY dataset.

@@ -1,0 +1,13 @@
+During the training phase of the machine learning algorithms, a strategy was implemented to monitor the model performance and make adjustments as necessary. This approach involved the use of K-fold cross-validation, with K set to four, to ensure that the model was trained on a diverse and comprehensive dataset.
+
+In this strategy, the initial dataset was divided into four mutually exclusive folds through stratified sampling. Each fold was then used as the validation set, while the remaining three folds were used as the training set for model training. This process was repeated four times, with each fold serving as the validation set once.
+
+To address any imbalances in the training set, random under-sampling (RUS) was applied. This technique involves randomly selecting a subset of the majority class to balance the class distribution. The validation set, however, remained unchanged to ensure that the model's predictions were evaluated on the original, unaltered data.
+
+The model was trained using the balanced three-fold training dataset for a specified number of epochs. After training, the model was tested on the validation fold to generate predictions for that specific fold. The model's performance was then evaluated using various metrics, including R-squared (R2), Root Mean Square Error (RMSE), Mean Absolute Error (MAE), and Mean Bias Error (MBE).
+
+This strategy allowed for the monitoring of the model's performance during training, as the model's predictions were continuously evaluated on new, unseen data. By using K-fold cross-validation, the model was trained on a comprehensive dataset that integrated both on-site and remote sensing (RS) datasets, enhancing the robustness of the model training process.
+
+Furthermore, this approach enabled the comparison of the model's performance across different machine learning algorithms, as shown in the table. The table presents the R2, RMSE, MAE, and MBE values for each algorithm during both the training and validation phases. This information can be used to identify the most effective algorithm for the given task and to make informed decisions about model selection and optimization.
+
+In summary, the strategy implemented to monitor the model performance during training involved the use of K-fold cross-validation with four folds, random under-sampling to address imbalances, and the evaluation of the model's performance using various metrics. This approach allowed for the continuous monitoring of the model's performance during training and enabled the identification of the most effective machine learning algorithm for the task at hand.

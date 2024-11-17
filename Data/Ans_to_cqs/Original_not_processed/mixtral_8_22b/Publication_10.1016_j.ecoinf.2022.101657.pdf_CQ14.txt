@@ -1,0 +1,125 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+van Rijsbergen, C.J., 1979. Information Retrieval, 2nd ed. Butterworth-Heinemann, USA.  
+Wang, C.Y., Bochkovskiy, A., Liao, H.Y.M., 2021. Scaled-YOLOv4: Scaling cross stage 
+partial network. In: Conference on Computer Vision and Pattern Recognition 
+(CVPR), pp. 13029–13038. 
+
+Wei, W., Luo, G., Ran, J., Li, J., 2020. Zilong: a tool to identify empty images in camera- 
+trap data. Ecol. Inform. 55, 101021 https://doi.org/10.1016/j.ecoinf.2019.101021. 
+Weingarth, K., Zimmermann, F., Knauer, F., Heurich, M., 2013. Evaluation of six digital 
+
+camera models for the use in capture-recapture sampling of Eurasian Lynx. 
+Wald¨okologie Online 13, 87–92. 
+
+Xi, T., Wang, J., Qiao, H., Lin, C., Ji, L., 2021. Image filtering and labelling assistant 
+
+(ifla): expediting the analysis of data obtained from camera traps. Ecol. Inform. 64, 
+101355 https://doi.org/10.1016/j.ecoinf.2021.101355.
+
+7.1.3. Bespoke neural networks for species sets 
+
+While we selected a suitable neural network for species identifica-
+tion, we spent little research so far to train this network to sets of user- 
+selected  or  prevalent  species  in  the  region  where  the  camera  trap  is 
+deployed.  Training  for  a  bespoke  set  of  species  is  both  possible  and 
+desirable. Further research is needed to identify and automate a process 
+that,  given  a  set  of  species  of  interest,  outputs  a  robust  and  reliable 
+neural network model with suitable weights. 
+
+7.1.4. Low power neural networks in hardware
+
+11  Power values given for RPi 4B 
+
+EcologicalInformatics69(2022)1016578M. Riechmann et al.                                                                                                                                                                                                                            
+
+Table 2 
+Results of different trap configurations on the validation subset of the corpus; note that (B) is a baseline for comparison against Machine-Learning only.  
+
+DynAIkonTrap Configuration 
+
+Motion filter 
+
+Motion queue 
+
+Animal filter 
+
+(A) Motion only 
+(B) Animal only (YOLOv4) 
+(C) Motion queue + animal 
+(D) Motion + animal 
+(E) Motion + motion queue + animal 
+
+✓ 
+✘ 
+✘ 
+✓ 
+✓ 
+
+✘ 
+✘ 
+✘ 
+✘ 
+✓ 
+
+✘ 
+✓ 
+✓ 
+✓ 
+✓ 
+
+E0.5 
+
+0.485 
+0.611 
+0.731 
+0.400 
+0.481 
+
+Eα 
+
+0.488 
+0.640 
+0.731 
+0.459 
+0.515 
+
+Model runs (% saving) 
+
+– 
+99,727 (±0%) 
+46,184 ((cid:0) 53.7%) 
+43,116 ((cid:0) 56.8%) 
+15,824 (¡84.1%)
+
+(cid:0)
+
+As a major application of this system is low-power devices, it is useful 
+to determine which pipeline configuration is the most power-efficient. 
+The  power  consumption  can  be  split  into  the  following  components: 
+system  idle  (2.20  W)  –  when  our  software  is  not  running;  motion 
+filtering (additional 1.55 W) – the pipeline idle state; and animal filter 
+(additional  2.50  W)  –  due  to  the  animal  detection  model  running,11 
+which adds up to 6.25 W. The only component of power consumption we 
+have  control  over  with  the  different  pipeline  configurations  is  the 
+number of animal filter runs. To indicate how this maps to a real-world 
+deployment we have determined an average power consumption for the 
+dataset. To do this, the animal detector power consumption is multiplied 
+by  the  proportion  of  dataset  frames  that  are  run  through  the  animal 
+detection  model.  Note  that  the  peak  power  consumption  will  be  the
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, based on the provided context, there is no information about how the hyperparameters of the model were optimized. Therefore, I cannot provide an accurate answer to this query.

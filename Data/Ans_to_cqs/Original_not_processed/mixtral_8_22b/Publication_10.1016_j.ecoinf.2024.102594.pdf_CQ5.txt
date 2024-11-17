@@ -1,0 +1,100 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+During the DeepLabV3+ model training process, feeding large-size 
+images directly to the network may lead to memory overflow. There-
+fore, it is necessary to cut all remote sensing images and semantic labels 
+of land cover classes into a series of regular image blocks for input. To 
+maximize the sample size and maintain consistency with the cropping 
+approach in the model prediction stage, we set the cropping size to 32 ×
+32  pixels  with  a  redundancy  rate  of  0.5.  In  continuing,  70%  of  the 
+dataset  was  used  for  training  and  the  remaining  for  validation.  The 
+training set was enhanced by: (i) Flipping the images and labels along 
+the X or Y axis; (ii) Exchanging between multiple image channels while 
+the  labels remain unchanged; (iii)  Randomly rotating  the images and 
+◦
+labels by 90
+; and (iv) randomly adding noise to the 
+images  while  maintaining  the  labels  unchanged  (Ye  et  al.,  2022).
+
+3.1. DeepLabV3+ algorithm 
+
+DeepLabV3+ is a CNN algorithm for semantic segmentation, which 
+is the latest version of the DeepLab algorithms family (Scepanovic et al., 
+2021).  In  the  encoding  stage,  DeepLabV3+ introduces  dilated  convo-
+lutions,  which expands  the  receptive field  without losing information 
+(Fig.  3).  The  Atrous  spatial  pyramid  pooling  module  with  dilated 
+convolution  has  been  mainly  designed  to  appropriately  incorporate 
+multi-scale information. During decoding, it is capable of enhancing the 
+accuracy  of  segmentation  boundaries  by  further  integrating  low-level 
+features with high-level features (Liu et al., 2021a).
+
+match in land cover remains unclear. This issue becomes highlighted in 
+the case of the study area with a high distribution of plough and water, 
+where frequent fluctuations in crops and water levels have caused sig-
+nificant changes among the images taken in various periods. Finally, this 
+study  was somehow limited  to the evaluation  of the DeepLabV3+ al-
+gorithm in terms of selecting deep learning models. In the near future, it 
+is also recommended to strengthen the horizontal comparative study of 
+various  deep  learning  models  for  remote  sensing  image  classification 
+and to search for more suitable classification methodologies for this task. 
+
+6. Conclusions 
+
+of 
+
+performance 
+
+the  MRS_DeepLabV3+ model.
+
+SP = 50 
+
+SP = 30 
+
+SP = 15 
+
+UAV_2m 
+GF1_2m 
+
+0.881 
+0.904 
+
+0.792 
+0.876 
+
+0.853 
+0.933 
+
+0.915 
+0.917 
+
+0.894 
+0.905  
+
+EcologicalInformatics81(2024)1025946Z. Chen et al.                                                                                                                                                                                                                                    
+
+Fig. 4. Segmentation results associated with various SPs and classification results of MRS_DeepLabV3+ model (localized zoom-in image).  
+
+Fig. 5. The optimal SP and segmentation time in various datasets.  
+
+EcologicalInformatics81(2024)1025947Z. Chen et al.                                                                                                                                                                                                                                    
+
+Table 5 
+Reduction rates of the OA and kappa in the UAV image models.  
+
+Model
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit details about specific datasets such as MNIST, CIFAR, or ImageNet being used in the deep learning pipeline. However, it mentions using remote sensing images and semantic labels of land cover classes, which were then divided into smaller image blocks of 32 x 32 pixels for input during the training process. It can be inferred that these remote sensing images and corresponding semantic labels serve as the dataset for the deep learning pipeline.

@@ -1,0 +1,249 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+feature  images  while  retaining  crucial  features.  The  Dropout  layer  is  integrated  to  mitigate 
+
+overfitting. Additionally, the Global Average Pooling layer summarizes features, generating input 
+
+for the fully connected layer. This layer also facilitates the visualization of regions relied upon by 
+
+the network for predictions. The subsequent three fully connected layers generate the predicted 
+
+class for the original image 
+
+Table 1: Main parameters of the classification network 
+
+[
+
+Input size 
+
+Output size 
+
+Journal Pre-proof
+
+[
+
+[
+
+[
+
+Parameters 
+
+  conv, strides 1] 
+
+  conv, strides 1] 
+
+  max pool 
+
+  conv, strides 1] 
+
+  conv, strides 1] 
+
+Probability 0.5 
+
+  max pool 
+
+[
+
+  conv, strides 1] 
+
+Layers 
+
+Convolution 
+
+Convolution 
+
+Pooling 
+
+Convolution 
+
+Convolution 
+
+Dropout 
+
+Pooling 
+
+Convolution 
+
+Global Average Pooling 
+
+Dense 
+
+Dense 
+
+Classification layer (Dense) 
+
+128 
+
+128 
+
+128 
+
+128 
+
+128 
+
+128 
+
+1 
+
+- 
+
+- 
+
+- 
+
+-
+
+CNN architecture but  with  different  filter sizes.  The obtained  results depend on the number of 
+
+hidden layers, filter size, and the number of filters in convolution layers. The higher the number of 
+
+hidden layers, filter size, and filters, the higher the accuracy of classification. In [29], the authors 
+
+proposed  four  different  models  for  bee  image  classification,  serving  different  tasks  in  beehive 
+
+monitoring. All these models were based on different Deep Neural Networks (DNNs) that have 
+
+been  pre-trained  on  the  ImageNet  dataset  [30]  including  AlexNet,  DenseNet-201,  GoogLeNet, 
+
+ResNet-101, ResNet-18, VGG-16, VGG-19. In the first model, the authors used a transfer learning 
+
+method based on these pre-trained DNNs. Meanwhile, in the second, third, and fourth models, the 
+
+authors used the SVM classifier with deep features, shallow features, and deep+shallow features
+
+image for each model in our experiments are computed and shown in Table 6. 
+
+Table 6: Comparison of the number of parameters, GFLOPs, and inference time of models in our 
+
+experiments. 
+
+Method 
+
+Evaluation metrics 
+
+ 
+ 
+Journal Pre-proof
+
+Parameters (M)  GFLOPs  Time (ms) 
+
+Baseline methods 
+
+Yolov5 [39] 
+
+86.18 
+
+203.8 
+
+Faster RCNN [40] 
+
+41.20 
+
+446.7 
+
+52.9 
+
+60.0 
+
+Other state-of-the-art methods 
+
+EfficientDet [43] 
+
+6.55 
+
+2.8 
+
+322.0 
+
+698.0 
+
+79.4 
+
+22.0 
+
+52.3 
+
+110.0 
+
+Yolov5 + classification 
+
+RetinaNet [41] 
+
+DETR [44] 
+
+Yolov5 + focal loss 
+
+Faster RCNN 
+
++ Overlap Sampler 
+
+47.8 
+
+97.1 
+
+86.35 
+
+41.30 
+
+204.2 
+
+86.18 
+
+37.96 
+
+203.8 
+
+Our proposed methods 
+
+Journal Pre-proof
+
+1097.9 
+
+41.30 
+
+5.4. Application to the problem of counting pollen-bearing bees 
+
+Counting the number of pollen-bearing bees entering the hive enables beekeepers to monitor the 
+
+hive’s food status and promptly replenish it if necessary. Recognizing this benefit, we integrated
+
+Journal Pre-proof
+
+iterations.  Each  iteration  involves  training  the  model  on  a  batch  of  images.  The  fundamental 
+
+parameters for Faster RCNN training mirror those of YOLOv5. 
+
+For evaluating the performance of the object detection models, we used a server equipped 
+
+with  an  Intel(R)  Xeon(R)  CPU  E5-2620  v2  @  2.10GHz  (16GB  DDR3-1066  memory)  and  an 
+
+NVIDIA GeForce GTX 1080 Ti GPU (11GB GDDR5X memory). The Intersection over Union 
+
+(IoU) threshold was set to 0.5, and the confidence threshold was also set to 0.5. 
+
+5.2. Ablation study 
+
+As detailed in the Related Work section, the PollenDataset was initially introduced in [18]. The 
+
+images comprising this dataset were captured at the entrance of a bee colony in June 2017 at the 
+
+Bee facility of the Gurabo Agricultural Experimental Station of the University of Puerto Rico. This 
+
+dataset encompasses 714 honey bee bounding boxes, consisting of 369 bee images with pollen
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text mentions several types of deep learning models, such as Convolutional Neural Networks (CNN), DenseNet-201, GoogLeNet, ResNet-101, ResNet-18, VGG-16, and VGG-19. However, the main focus seems to be on CNN architectures. Specifically, the table shows various layers of a CNN architecture, including convolution, pooling, dropout, global average pooling, and dense layers. Therefore, it can be concluded that the pipeline primarily uses a CNN model for its operations.

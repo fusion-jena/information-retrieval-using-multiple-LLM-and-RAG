@@ -1,0 +1,126 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+In  addition  to  calculating  MAE  values,  we  also  compared  the 
+inference-time to determine the most computationally efficient model. 
+We set the batch to 400 to achieve 100% GPU utilization of each model 
+and to measure the maximum queries per second (QPS) achieved under 
+real-world conditions (Ding et al., 2021). All models were tested under 
+the same experiment setting and the same GPU to make comparisons 
+between them fair. To do so, we first expand the dataset by a factor of 
+five (from 8002 to 40,010 images). Then, we fed batches of 50 images 
+into the model to warm up the hardware, before recording the inference- 
+time of batches of 100 to quantify QPS. 
+
+pi,j =
+
+(cid:0)
+exp
+
+)
+
+zi,j
+(cid:0)
+
+exp
+
+zi,m
+
+∑M
+
+m=1
+
+)
+
+(1)  
+
+3. Results
+
+2.3. Evaluation metrics 
+
+Accuracy  (i.e.,  the  true  positive  rate  of  classifying  pandas’  ages 
+correctly)  is  not  an  effective  measurement  for  age  estimation  tasks. 
+Thus, in  our study, we used the Mean Absolute  Error (MAE) and  Cu-
+mulative Score (CS) (Guo et al., 2009) as metrics to measure the per-
+(cid:0) yi∣, where N is 
+formance of networks. The MAE is defined as 1
+N
+the  number  of  images,  yi  is  the  true  age  of  panda  xi,  and  ̂yi  was  the 
+× 100%, where NI is the number of 
+predicted age. The CS is defined as NI
+N
+the  images  when  ∣̂yi
+(cid:0) yi∣ < I,  and  I  is  a  threshold  distance  in  years, 
+which we set to 3 in this paper. The results are reported in the form of 
+mean value ± standard deviation. 
+
+i=1∣̂yi
+
+∑
+N
+
+2.4. Ordinal regression
+
+exp
+
+zi,m
+
+∑M
+
+m=1
+
+)
+
+(1)  
+
+3. Results 
+
+when i-th sample (the ground truth label is c) fed into the model, zi  is 
+logits of the output, zi, j is a value of zi, j ∈ {1, 2, …, M} indicates the class 
+labels (age). pi, j is the probability of i-th sample which belongs to class j. 
+Based on Eq. (1), we can compute the CE loss (Lce) as follow: 
+
+Seven  models  from  four  types  of  CNN  obtained  different  perfor-
+mances in our experiments (Table 2). The OR method achieved better 
+performance than the MC method based on different models. The results 
+suggested that ordinal age information can help models learn intraclass 
+and interclass relationships. Our results showed that RepVGG achieved a 
+
+EcologicalInformatics72(2022)1018924H.-X. Zang et al.
+
+2.2.2. ResNet 
+
+However,  with  the  network  depth  increasing,  the  degradation 
+problem has been exposed. The degradation indicates that the gradient 
+vanishing will limit the performance of the network. Inspired by VGG 
+nets, ResNet (He et al., 2016) was proposed to address this problem by 
+adding identity mapping (two-branch architecture). ResNets have lower 
+complexity and higher performance. In this work, we used ResNet-18 
+and ResNet-50 as backbone networks for our experiments. 
+
+2.2.3. RepVGG 
+
+Multi-branch architectures have better performance during training, 
+but inference speed is limited. Thus, RepVGG was developed to use a re- 
+parameterization technique to decouple the training-time multi-branch 
+and inference-time plain architecture to increase inference speed while 
+maintaining performance (Ding et al., 2021). RepVGG models are over 
+80% faster than ResNets with better performance. And RepVGG-A0 and 
+RepVGG-A1 were applied in our experiments. 
+
+2.2.4. MobileNet-V3
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The study uses Mean Absolute Error (MAE) and Cumulative Score (CS) as evaluation metrics to measure the performance of the deep learning models. Accuracy is not considered an effective metric for age estimation tasks. The MAE is calculated as the average absolute difference between the predicted age and the actual age of the pandas across all images. The CS measures the proportion of images where the absolute difference between the predicted age and the actual age is within a certain threshold distance (set to 3 years in this case). These metrics provide a more meaningful assessment of the model's ability to accurately estimate the age of giant pandas.

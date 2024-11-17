@@ -1,0 +1,79 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+can  be  highly  variable,  they  cannot  be  readily  compressed  into  the 
+feature sets suitable for these traditional machine learning paradigms 
+(Kong  et  al.,  2017).  Consequently,  it  is  advantageous  to  carry  out 
+analysis  on  spectrograms,  pictorial  representations  of  the  raw  audio 
+data.  Spectrograms  convey  the  temporal  dimension  on  the  horizontal 
+axis,  while  frequency  increases  along  the  vertical  axis.  The  third 
+dimension of a spectrogram, sound power level, is typically represented 
+with  color.  To  classify  audio  data  in  this  form,  networks  specifically 
+designed  for  image  classification,  convolutional  neural  networks 
+(CNNs), are often employed (Florentin et al., 2020; Kahl et al., 2019; 
+Ruff et al., 2020). CNNs, like other deep learning models, involve end-to- 
+end  learning,  where  feature  sets  are  not  hand-selected,  but  instead 
+learned during training.
+
+2.4.1. Training database assembly 
+
+To assemble a training database, three randomly selected days from 
+each month of the calendar year (see Table 1) were selected for anno-
+tation. Select spectrogram images were manually labeled via visual in-
+spection by two trained graduate students into a set of sound categories 
+that evolved as the year progressed. On average, around 60 images could 
+be  annotated  per  minute,  which  corresponds  to  8  min  of  audio  data. 
+Therefore,  annotating  every  single  spectrogram  from  a  single  day 
+(10,800 images) would take 3 h. Assembling the training database took 
+less time in practice because only 10–15% of the spectrograms from each 
+of the selected days were actually annotated (many spectrograms which 
+contained only background noise were simply not needed). 
+
+In total, this database consists of over 40 k images of bio-, anthro- 
+and  geophonies.  The  full  contents  of  the  database  are  presented  in 
+Table 2.
+
+monitoring is proposed and demonstrated, capable of providing valu-
+able  and  nuanced  information  about  the  acoustic  environment  with 
+readily  available  equipment  and  techniques.  Convolutional  neural 
+network training provides accurate sound classification for a wide range 
+of call types and durations – after a minimal amount of manual anno-
+tation relative to the size of the dataset. 
+
+In  particular,  after  manual  analysis  of  only  1–3%  of  the  dataset, 
+around 150 h, deep learning techniques facilitate the accurate classifi-
+cation of over 8700 h, one year of audio data. Without model training, 
+only those 150 h of manually annotated data could be viably analyzed. 
+Hence,  manual  annotation  is  justified  in  this  application  because  the 
+effort scales; the approach becomes increasingly time efficient with an 
+increasing number of years of data collection at a particular site or in a 
+particular region.
+
+Transfer learning, where a model pre-trained on one dataset is re- 
+trained  to  classify  a  similar  datset,  is  one  convenient  approach  to 
+effectively  utilize  the  power  of  CNNs.  Well-known  pre-trained  archi-
+tectures such as Inception, MobileNet, and Resnet50 have recently been 
+used with great success for the classification of birds in soundscape re-
+cordings (Florentin et al., 2020; He et al., 2016; Howard et al., 2017; 
+Incze et al., 2018; LeBien et al., 2020; Sevilla and Glotin, 2017; Szegedy 
+et  al.,  2014).  Such  networks  are  typically  pre-trained  on  large  image 
+databases such as ImageNet, which contains over one million samples 
+distributed across 1000 classes (Deng et al., 2009). However, in cases 
+where  targeting  foreground  species  is  the  main  task,  or  with  more 
+acoustically sparse soundscapes, CNN architectures with far fewer (<10) 
+convolutional layers have proven more than sufficient, and indeed, may
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning pipeline described in the given context uses spectrograms, which are pictorial representations of raw audio data. These spectrograms are essentially images that convey temporal dimensions horizontally and frequency vertically, with the third dimension, sound power level, being represented through color. Therefore, the primary data format used in this deep learning pipeline is image data. This allows for the use of convolutional neural networks (CNNs), which are designed for image classification tasks, to accurately classify various sounds present in the audio recordings.

@@ -1,0 +1,60 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+used to control the training process through an early stopping criterion.
+The reference metric is the Mean Squared Error (MSE). In order to have a
+reliable estimate of the MSE on the test set, we performed a 10-fold Cross
+Validation. In addition, given that our models are probabilistic in nature,
+each evaluation predicts the output per test point through 1000 runs.
+Considering the problem addressed and computational resources, this
+approach ensures an accurate reconstruction of the predicted output
+distribution since it guarantees a robust estimation process with a 95%
+confidence interval and a precision level of 5% (Ghosh et al., 2006). The
+result of the prediction of a single test point is shown in Fig. 5; as stated
+in the previous section, the uncertainty range of the MCD approach is
+wider than that of the VBI approach. Fig. 6 shows the performance of the
+two different architectures during the prediction phase on the whole test
+
+siderations made earlier, a Bayesian Deep Learning model, if properly
+configured and trained, can return satisfactory results even with limited
+datasets, which is the scenario studied in the present work.
+
+Fig. 4. Neural networks architecture consists of: an input layer with two nodes, one for DOY and the other for GDD; two hidden layers with 32 nodes each, Dense
+layers with Monte Carlo Dropout in the MCD approach, DenseVariational layers in the VBI approach; an output layer which is the combination of a Dense layer with
+two nodes and a DistributionLambda layer that maps the values of these two nodes into the parameters of a Gaussian distribution, used to predict the BBCH value.
+
+Fig. 5. Prediction, over 1000 runs, of the BBCH_res value of a single test point. The actual value is BBCH_res = 4. In blue we have the result of the VBI approach, in
+red that of the MCD approach. (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+
+Fig. 6. Performance of the two different architectures during the prediction phase on test set. Temperature threshold, Tbase, is set to 0
+interval is shown using the percentiles.
+
+◦
+
+An overview of the created neural networks architecture is shown in
+
+Fig. 4.
+
+In the MCD network we have two fully-connected hidden layers with
+32 nodes each, ‘ReLU’ (Rectified Linear Unit) as activation function,
+dropout rate equal to 0.1 (determined with a 10-fold Cross Validation
+using both the training and validation subsets) and parameters initial-
+ized using the GlorotNormal initializer of Keras.2 The optimizer is Adam
+and the starting learning rate is set to 0.001. These implementation
+details are summarized in Algorithm 1.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the provided context, the criteria used to split the data for deep learning model training include a 10-fold cross-validation method. This method was employed to ensure a reliable estimate of the Mean Squared Error (MSE) on the test set. Additionally, the models being probabilistic in nature, each evaluation predicted the output per test point through 1000 runs. This approach aimed to provide an accurate reconstruction of the predicted output distribution by guaranteeing a robust estimation process with a 95% confidence interval and a precision level of 5%. Furthermore, the dropout rate for the MCD network was determined using a 10-fold cross-validation method utilizing both the training and validation subsets. However, the exact proportions or specific methods used to divide the dataset into training, testing, and validation sets were not explicitly mentioned in the provided context.

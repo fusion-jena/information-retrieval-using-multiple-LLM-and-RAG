@@ -1,0 +1,81 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+similarities. It is widely used to visualize high-dimensional data (van der 
+Maaten  and Hinton, 2008). Here the  method has been applied to the 
+fc1000 activation vectors returned by ResNet-50. 
+
+4.2. Classifier model 
+
+The labeled dataset was split 70/30 into training and testing data-
+sets.  For  model  selection  and  parameter  optimization  50%  of  the 
+training data were held-out for validation (see Supporting Information). 
+The final classification model, a SVM with a cubic polynomial kernel, 
+was trained using the ResNet-50 fc1000 activations of the full training 
+dataset. A 10-fold cross-validation was then used to define the score-to- 
+posterior-probability transformation function (Platt, 2000), which pro-
+vides a basis for estimating the posterior probability for new observa-
+tions. Fig. 9 shows a confusion matrix for the test data not seen during 
+training.
+
+The  accuracy,  which  assesses  the  model's  ability  to  detect  both 
+classes, is 98.0%. The precision, which measures the model's ability to 
+classify boatwhistle calls, is 98.4%. These metrics are assessed as follows 
+(Irizarry, 2020; Shah, 2023). 
+
+accuracy = [TP + TN]/N
+
+precision = TP/[TP + FP]
+
+(1)  
+
+(2)  
+
+where  TP  and  FP  refer  to  the  number  of  true  and  false  positive  de-
+tections, respectively. TN refers to the number of true negatives, and N is 
+the total number of signals (Fig. 9). 
+
+4.3. Application and utility
+
+These  spectrogram images  are  input  into  the  ResNet-50  deep  (50- 
+layer) convolutional neural network (CNN), which was developed and 
+pre-trained using millions of label images in over 1000 categories (He 
+et  al.,  2015).  Although  ResNet-50  was  not  explicitly  trained  on  spec-
+trograms, many studies have shown that CNNs pre-trained for one task 
+can  extract  meaningful  features  distant  from  the  original  training 
+dataset  (e.g.,  Almabdy  and  Elrefaei,  2019;  Bousetouane  and  Morris, 
+2015; Copiaco et al., 2019; Razavian et al., 2014). A suite of features is
+
+Bohnenstiehl, D.R., Lyon, R.P., Caretti, O.N., Ricci, S.W., Eggleston, D.B., 2018. 
+
+Investigating the utility of ecoacoustic metrics in marine soundscapes. J. Ecoacoust. 
+2, 12. 
+
+Bousetouane, F., Morris, B., 2015. Off-the-shelf CNN features for fine-grained 
+classification of vessels in a maritime environment. In: 11th International 
+Symposium, ISVC 2015. Las Vegas, NV, December 14–16, 2015, pp. 379–388. 
+Boyle, R., Mensinger, A.F., Yoshida, K., Usui, S., Intravaia, A., Tricas, T., Highstein, S.M., 
+
+2001. Neural readaptation to Earth’s gravity following return from space. 
+J. Neurophysiol. 86, 2118–2122. 
+
+Campos-Cerqueira, M., Aide, T.M., 2017. Changes in the acoustic structure and 
+
+composition along a tropical elevational gradient. J. Ecoacoust. 1. #PNCO7I.  
+Caretti, O.N., Bohnenstiehl, D.R., Eggleston, D.B., 2021. Spatiotemporal variability in
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Two main metrics are used to evaluate the performance of the deep learning model: accuracy and precision. Accuracy is calculated as the sum of true positives (TP) and true negatives (TN) divided by the total number of signals (N). This metric evaluates the model's ability to correctly classify both classes. Precision is computed as the ratio of true positives (TP) to the sum of true positives (TP) and false positives (FP). This metric measures the model's ability to accurately identify boatwhistle calls.

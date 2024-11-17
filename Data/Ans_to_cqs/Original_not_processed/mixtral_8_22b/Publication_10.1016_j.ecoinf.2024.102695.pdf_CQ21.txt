@@ -1,0 +1,102 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+S = ⌊ 1
+Ξ(f)
+
+⌋
+
+(25) 
+
+During  training,  the  input  tensor  comprises  three  dimensions:  the 
+batch  size,  the  number  of  model  variables,  and  the  future  prediction 
+length. The dimension concerning the number of features is segmented 
+by dynamically changing the slice sizes and strides, and the segmented 
+tensors are folded, adding a slice dimension. Finally, by merging the first 
+
+In the second stage of the attention calculation, the covariates are 
+dynamically segmented, capturing their features at different time scales 
+through multiscale attention. Specifically, for the static variables S(t), 
+the multiscale attention FMSA
+S(t)
+)
+(cid:0)
+S(t) = Softmax
+FMSA
+
+is calculated as in Formula 30: 
+
+Wf ,S⋅IS(λk)
+
+(30) 
+
+Similarly, for dynamic variables Z(t), the calculation is as in Formula 
+
+31: 
+
+(cid:0)
+Z(t) = Softmax
+FMSA
+
+)
+
+Wf ,Z⋅IZ(λk)
+
+3.4.3. Attention fusion 
+
+(31)
+
+◦
+
+rate of 0.05 is implemented. Throughout the training process, a learning 
+rate of 0.0001 is used, with 300 training epochs and 24 data instances 
+processed  per  batch.  To  prevent  data  snooping  bias,  the  dataset  is 
+divided chronologically: 70% for the training set, 10% for the validation 
+set, and 20% for the test set. This allocation strategy better simulates 
+real-world scenarios, ensuring that the data in the validation and test 
+sets differ from the training set data, thereby enhancing the generaliz-
+ability of the model. All the tests are run on a Windows 11 operating 
+system  using  Python  3.8,  with  specific  hardware,  including  a  laptop 
+possessing a 12th-Gen Intel Core i7-12700H GPU at 2.30 GHz and an 
+NVIDIA GeForce RTX 3060 GPU. Due to the early stopping strategy, the 
+training process converges before the last epoch, preventing overfitting 
+issues. 
+
+4.1. Model forecasting performance metrics 
+
+4.3. Case 1: DO prediction in the Shandong peninsula
+
+decomposition strategy (Stage 1) is the foundation, as detailed in Section 
+3.2; subsequently, the dynamic variable selection mechanism (Stage 2) 
+further  learns  key  predictive  factors,  as  detailed  in  Section  3.3;  and 
+finally,  the  two-stage  attention  mechanism  (Stage  3)  optimizes  the 
+predictive capabilities of the model, as described in detail in Section 3.4.
+
+4.2. Experimental setup 
+
+During the training phase, to accommodate multivariate input and 
+univariate output, the input and output dimensions of the encoder and 
+decoder  are set  to the  number of variables  in the  dataset. The model 
+dimensionality  is  set  to  128  to  achieve  a  balance  between  model 
+complexity  and  computational  efficiency.  Additionally,  the  model  in-
+tegrates 8 attention heads to enhance its ability to process parallel in-
+formation flows. The model architecture includes two layers of encoders 
+and one layer of decoders, which help to comprehensively capture fea-
+tures from time series data. To reduce the risk of overfitting, a dropout 
+
+4.3.2. Results for the Shandong peninsula
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit information about any postprocessing steps involved after the model training such as saliency maps, metrics calculation, or confusion matrices. However, it can be inferred that some form of evaluation was performed based on the mention of a validation set and a test set. In addition, the context mentions that the training process converged before the last epoch due to an early stopping strategy, indicating that some sort of metric monitoring was taking place during training. It also states that all tests were run on a specific system configuration, suggesting that there might have been some benchmarking or testing procedures carried out after the model training. Nevertheless, without more concrete details regarding these aspects, it cannot be definitively stated what specific postprocessing steps were involved after the model training.

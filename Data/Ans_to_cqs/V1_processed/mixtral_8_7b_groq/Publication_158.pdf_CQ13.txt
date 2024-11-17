@@ -1,0 +1,13 @@
+The hyperparameters used in the deep learning model are as follows:
+
+1. The model uses an ensemble of three CNNs. Max pooling is used for two models in the ensemble and average pooling for one.
+2. The Adam optimizer was used with 500 epochs and categorical-cross-entropy loss function.
+3. Batch size was set to 64.
+4. Data augmentation was applied, which included rotation, reflectance bias of ±10%, and random noise of ±10% reflectance for 15% of the input image.
+5. Early stopping criteria was applied if no improvement was found in 50 epochs.
+6. To determine training convergence, the validation data was monitored across training epochs and the network weights with the best performance were kept.
+7. Weight initialization and random selection for batch training can lead to variability in the results. Thus, an ensemble of three models were generated and the average of the final output layer taken.
+
+Additionally, the input features for the model included the mean and standard deviation for image window sizes of 5 × 5, 15 × 15, and 32 × 32 in addition to the central pixel values for each input feature. A random search was used to identify an optimal parameter set for the model, where 100 sets were sampled and compared using three-fold cross validation. The search parameter ranges included the number of trees (200 to 800, by 100), minimum samples split (2--4), minimum samples per leaf (2--4), maximum depth (full), bootstrap (true), and maximum features for split (square root of the number of features). These results were then refined using a grid-search with the parameter ranges set to ±50 for the number of estimators and ±1 for the other parameters.
+
+However, the learning rate was not explicitly mentioned in the provided context.

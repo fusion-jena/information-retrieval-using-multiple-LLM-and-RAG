@@ -1,0 +1,134 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+network deepens (Ioffe and Szegedy, 2015; Prince, 2023). To mitigate 
+internal covariate shift and stabilise training residual networks require 
+some form  of layer  normalisation  such  as batch  normalisation.  While 
+increasing  the  number  of  model  parameters,  batch  normalisation  en-
+ables the use of higher learning rates, significantly speeding up training 
+and  reducing  power  usage  (Ioffe  and  Szegedy,  2015).  Wide  ResNets 
+increase network width and reduce depth (Zagoruyko and Komodakis, 
+2017) allowing faster training due to shallower architectures. Our ar-
+chitecture  draws on  the  layout  of  BirdNet’s  encoder,  preserving  their 
+pre-processing block and dropping the classification layers, setting up a 
+wide  residual  network  with  a  width  scaling  factor  K = 4  and  depth 
+scaling factor N = 3 (Kahl et al., 2021). Hidden layer activations use a 
+rectified linear unit (ReLU) activation function. Additional regularisa-
+
+2.4. Model architecture 
+
+The  encoder  and  decoder  are  deep  CNNs  setup  as  wide  residual 
+networks (Fig. 1) (Zagoruyko and Komodakis, 2017). Residual networks 
+(ResNets) describe a class of functions that allow for deeper architec-
+tures and increased model complexity by learning a perturbation of the 
+input  signal  at  each  layer  rather  than  a  transformation  as  in  conven-
+tional  neural  architectures  (He  et  al.,  2015a).  The  perturbation  is 
+implemented  using  skip  connections  in  residual  blocks  allowing  the 
+input signal to persist through the network (He et al., 2015a). Each skip 
+connection  increases  the  variance  between  the  input  and  output  at  a 
+given  layer,  causing  an  exponential  growth  in  memory  usage  as  the 
+
+Table 1 
+Architectural layout of the soundscape VAE.
+
+Group 
+
+Encoder    
+Pre-processing 
+
+ResStack 1 
+
+ResStack 2 
+
+ResStack 3 
+
+ResStack 3 
+
+Temporal Framing 
+Bottleneck     
+
+Reparameterisation 
+
+Decoder    
+Temporal Framing 
+ResStack 3 
+
+ResStack 3 
+
+ResStack 2 
+
+ResStack 1 
+
+Post-processing 
+
+Operation 
+
+Input Shape 
+
+Output Shape 
+
+5 × 5 Conv + BatchNorm + ReLU 
+Max & Avg pooling +1 × 1 Conv 
+Downsampling block 
+2 × Residual Block 
+Downsampling block 
+2 × Residual Block 
+Downsampling block 
+2 × Residual Block 
+Downsampling block 
+2 × Residual Block 
+Reshape 
+
+Flatten 
+Linear 
+Sample 
+Linear 
+Unflatten 
+
+Reshape 
+Upsampling block 
+2 × Residual Block 
+Upsampling block 
+2 × Residual Block 
+Upsampling block 
+2 × Residual Block 
+Upsampling block 
+2 × Residual Block 
+1 × 1 Conv + BatchNorm + ReLU 
+2 × 2 ConvTranspose + BatchNorm + ReLU 
+5 × 5 Conv
+
+The  encoder  uses  a  pre-processing  block  containing  a  convolution 
+with a wide receptive field (5 × 5 kernel) and signal coarsening along 
+the time axis (2 × 1 kernel) (Kahl et al., 2021). Coarsening follows the 
+changes suggested in (He et al., 2018) and replicates later versions of 
+BirdNet’s  down-sampling  strategy  by  recombining  the  concatenated 
+output  of  2 × 2  maximum and  2  × 2 average  pooling using  a  1 × 1 
+convolution.  After  convolution,  feature  representations  are  chunked 
+along the time axis into T = 19 independent frames each corresponding 
+to 3.072 s. Each frame is flattened and passed through a final linear layer 
+to  output  T  d-dimensional  mean  μ  and  log  variance  logσ2  vectors  as 
+parameters  for  the  Gaussian  variational  posterior.  A  latent  vector  for 
+each frame in the time-series is sampled from the posterior using the 
+reparameterisation trick. We set d = 128 for comparability with ecoa-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, there isn't any explicit mention of specific regularization techniques like dropout or L2 regularization being employed to prevent overfitting in the deep learning pipeline. However, it does discuss some strategies that can help improve generalization and prevent overfitting indirectly.
+
+One such method mentioned is the use of batch normalization in the wide residual networks. Batch normalization helps in addressing internal covariate shift, which can lead to more stable training and improved convergence. It also allows for the use of higher learning rates, potentially leading to better optimization and reduced risk of overfitting.
+
+Additionally, the context mentions the use of rectified linear units (ReLUs) as hidden layer activations. ReLUs have been shown to provide certain regularizing effects compared to other activation functions, helping to avoid saturation and improving gradient flow during backpropagation. This can contribute to better optimization and reduced likelihood of overfitting.
+
+While these aspects do not directly correspond to traditional regularization techniques like dropout or L2 regularization, they still play important roles in preventing overfitting and promoting good generalization performance in the described deep learning pipeline.

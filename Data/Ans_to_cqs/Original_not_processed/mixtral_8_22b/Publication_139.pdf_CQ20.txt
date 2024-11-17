@@ -1,0 +1,77 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.4.1. Training database assembly 
+
+To assemble a training database, three randomly selected days from 
+each month of the calendar year (see Table 1) were selected for anno-
+tation. Select spectrogram images were manually labeled via visual in-
+spection by two trained graduate students into a set of sound categories 
+that evolved as the year progressed. On average, around 60 images could 
+be  annotated  per  minute,  which  corresponds  to  8  min  of  audio  data. 
+Therefore,  annotating  every  single  spectrogram  from  a  single  day 
+(10,800 images) would take 3 h. Assembling the training database took 
+less time in practice because only 10–15% of the spectrograms from each 
+of the selected days were actually annotated (many spectrograms which 
+contained only background noise were simply not needed). 
+
+In total, this database consists of over 40 k images of bio-, anthro- 
+and  geophonies.  The  full  contents  of  the  database  are  presented  in 
+Table 2.
+
+However, deep learning approaches are not without limitations, such 
+as a lack of generalizablity to different recording sites with a different set 
+of  target  species.  However,  even  with  state-of-the-art  approaches, 
+location-specific  training  data  is  still  often  necessary  to  yield  crucial 
+performance improvements (Kahl et al., 2019; Lasseck, 2019). For this 
+reason, the neural network architecture implemented in this work was 
+designed  to  be  retrained  in  under  20  min,  making  inevitable  dataset 
+modifications for new recording sites practical.
+
+(cid:0) 4 and a decay of 1×10
+
+The  optimizer  Adam  was  selected  with  an  initial  learning  rate  of 
+(cid:0) 7 and early stopping was used to prevent 
+1×10
+overfitting  (Kingma  and  Ba,  2014).  Typically,  the  model  trained  be-
+tween 10 and 15 epochs before training ceased, where each epoch took 
+roughly 1 min on an NVIDIA GeForce RTX 2080 Ti GPU. In addition to 
+the conventional accuracy metric, the area under the curve, as computed 
+by  a  Riemann  sum,  was  also  used  for  training.  From  the  assembled 
+database of annotated clips, in each of the five cross-validation folds, 
+10% of the data was reserved for comparing the training and validation 
+loss/accuracy  after  each  epoch,  and  a  further  10%  was  reserved  for 
+performance testing after all training had ceased. All results reported are 
+the average after five-fold cross-validation.
+
+EcologicalInformatics61(2021)1012425M.M. Morgan and J. Braasch                                                                                                                                                                                                                
+
+Fig. 5. The convolutional neural network architecture.  
+
+3.2. Validation database performance 
+
+After training the neural network, the generalizability and robust-
+ness of the model was further tested on the validation dataset. In the case 
+of  the  small  portion  of  multi-label  data,  if  either  or  both  of  the  two 
+labeled classes was output as a prediction, that prediction was consid-
+ered to be correct. 
+
+The network performance on all six validation days is summarized in 
+Table 5. The average classification accuracy is 84.9%, with the lowest 
+reported  accuracy  being  81.7%,  and  the  highest  being  88.6%.  Recall 
+scores are fairly comparable.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: According to the given information, the deep learning model was trained using an NVIDIA GeForce RTX 2080 Ti GPU. Each epoch during the training process took roughly one minute on this specific GPU.

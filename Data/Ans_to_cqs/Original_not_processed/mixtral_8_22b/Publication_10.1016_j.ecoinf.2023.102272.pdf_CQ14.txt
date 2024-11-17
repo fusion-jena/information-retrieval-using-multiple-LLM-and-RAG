@@ -1,0 +1,223 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.5. Model selection procedure 
+
+The model selection procedure was performed as follows (Capinha 
+et  al.,  2021;  Van  Kuppevelt  et  al.,  2020):  we  randomly  generated  5 
+models for each of the four available deep-ANN architecture types (20 
+models in total) and trained each one with a small subset of the training 
+data  (data  partition  At)  for  4  epochs  (an  “epoch”  corresponds  to  the 
+complete training dataset being passed forward and backward across the 
+network  one  time;  Capinha  et  al.,  2021).  The  accuracy  of  candidate 
+models,  as  provided  by  mcfly  (i.e.,  the  “proportion  of  cases  correctly 
+classified”), was then compared using a left-out validation data set (data 
+partition Av) and the model with the highest performance was selected 
+for training on the full training data (data partition Bt; Bt = At + Av) for 
+up to 30 epochs.
+
+Table 3 
+Parameters tested and values for each classical machine learning model used and each test year. xgbTree = extreme gradient boosting tree, RF = random forest, NNET =
+neural network, DNN = deep neural network.  
+
+Model 
+
+xgbTree 
+
+RF 
+NNET 
+
+DNN 
+
+Parameter 
+
+2013 
+
+2014 
+
+2015 
+
+2016 
+
+2017 
+
+2018 
+
+2019 
+
+Nrounds 
+max_depth 
+Eta 
+Gamma 
+colsample_bytree 
+min_child_weight 
+Subsample 
+Mtry 
+Size 
+Decay 
+layer1 
+layer2 
+layer3 
+hidden_dropout 
+visible_dropout 
+
+150 
+3 
+0.4 
+0 
+0.8 
+1 
+1 
+2 
+5 
+0.1 
+1 
+0 
+0 
+0 
+0 
+
+150 
+3 
+0.4 
+0 
+0.6 
+1 
+1 
+2 
+5 
+0.1 
+1 
+0 
+0 
+0 
+0 
+
+150 
+3 
+0.4 
+0 
+0.6 
+1 
+1 
+2 
+5 
+0.1 
+1 
+0 
+0 
+0 
+0 
+
+150 
+3 
+0.4 
+0 
+0.6 
+1 
+1 
+2 
+5 
+0.1 
+1 
+0 
+0 
+0 
+0 
+
+150 
+3 
+0.4 
+0 
+0.8 
+1 
+1 
+2 
+3 
+0.1 
+1 
+0 
+0 
+0 
+0 
+
+150 
+3 
+0.4 
+0 
+0.6 
+1 
+1 
+2 
+5 
+0.1 
+1 
+0 
+0 
+0 
+0 
+
+150  
+3  
+0.3  
+0  
+0.6  
+1  
+1 
+2 
+5  
+0.1 
+1  
+0  
+0  
+0  
+0
+
+The data used for model training and selection were randomly par-
+titioned into: data for training candidate models (25% of the data; At); 
+
+data for validating candidate models (50%; Av); data for training the 
+selected  candidate  model  (75%;  Bt  = At  + Av);  validation  data  to 
+determine the optimal number of epochs to train the selected candidate 
+model (25%; Bv). Data partition was performed in R with package dismo 
+(Hijmans et al., 2017; R Core Team, 2022). 
+
+2.5. Model selection procedure
+
+2.4. Data partition 
+
+The ‘autoML’  workflow in  mcfly requires using multiple partitions 
+from the full data set of response and predictor variables. Here we fol-
+lowed the partition scheme of Capinha et al. (2021), consisting of four 
+partitions  that  are  used  at  the  various  stages  of  model  selection  and 
+training, and a fifth partition that is used to assess the predictive per-
+formance of the fully trained (‘final’) model. To ensure independence 
+between the data used for model training and the data used for model 
+testing, we used the data of each year (i.e., 2013 to 2019) separately for 
+model testing (partition ‘T'), and the data for the remaining years for 
+model training. The aim of this procedure is to mimic an operational 
+setting where data available for previous years is used to train a model 
+that  will  be  employed  in  the  real-time  forecasting  of  changes  in  the 
+number of eggs for the coming week.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the given information, it appears that the optimization of hyperparameters for the models is not explicitly mentioned to use methods such as grid search or random search. However, there are indications of how the models were selected and trained.
+
+In the model selection procedure, five models were generated for each of the four available deep-ANN architecture types, resulting in a total of 20 models. Each model was trained with a small subset of the training data for four epochs. The accuracy of these candidate models was evaluated using a left-out validation dataset, and the model with the highest performance was chosen for further training on the complete training data for up to 30 epochs.
+
+Additionally, Table 3 provides specific parameter values for each classical machine learning model used in different test years. These parameters include 'nrounds','max\_depth', 'eta', 'gamma', 'colsample\_bytree','min\_child\_weight','subsample','mtry','size', 'decay', 'layer1', 'layer2', 'layer3', 'hidden\_dropout', and 'visible\_dropout'. Although the table does not show any systematic variation in these parameters, suggesting that no explicit hyperparameter tuning method like grid search or random search was applied, it still indicates that some form of manual adjustment might have been done based on initial results.
+
+Therefore, while the exact methodology for hyperparameter optimization is not specified, it can be inferred from the given context that the authors may have manually adjusted the hyperparameters based on preliminary results rather than employing a formal optimization technique like grid search or random search.

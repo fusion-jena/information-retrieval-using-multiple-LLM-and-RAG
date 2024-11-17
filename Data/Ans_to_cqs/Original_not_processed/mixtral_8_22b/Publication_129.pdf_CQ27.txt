@@ -1,0 +1,129 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Alexandria Engineering Journal (2021) 60, 4423–4432
+
+H O S T E D   BY
+
+Alexandria University
+
+Alexandria Engineering Journal
+
+www.elsevier.com/locate/aej
+www.sciencedirect.com
+
+A new mobile application of agricultural pests
+recognition using deep learning in cloud computing
+system
+
+Mohamed Esmail Karar a,b,*, Fahad Alsunaydi a, Sultan Albusaymi a, Sultan Alotaibi a
+
+a College of Computing and Information Technology Shaqra University, Shaqra, Saudi Arabia
+b Department of Industrial Electronics and Control Engineering, Faculty of Electronic Engineering, Menouﬁa University,
+Minuf, Egypt
+
+Received 23 September 2020; revised 6 January 2021; accepted 9 March 2021
+Available online 31 March 2021
+
+KEYWORDS
+
+Smart agriculture;
+Crop pest;
+Cloud computing;
+Deep learning;
+Faster R-CNN
+
+performance utilization of
+the RPN module with the
+bounding box regression, as depicted in Fig. 2. Moreover,
+the computational time of this deep learning approach is not
+a problem in this study, because the detection and classiﬁca-
+tion procedures of agricultural insect pests can be executed
+in a few seconds in the cloud computing system, saving all
+required hardware resources.
+
+IoU ¼
+
+A \ B
+A [ B
+
+ð2Þ
+
+Next, the Region of Interest (RoI) pooling layer takes the
+region corresponding to a proposal from the backbone feature
+map and dividing it into sub-windows. The maximum pooling
+is performed over these sub-windows to give the output of RoI
+pooling layer, which has a size of (N, 7, 7, 512), and N is the
+number of generated region proposals by the RPN mechanism,
+as shown in Fig. 2. After passing through two fully connected
+layers (FCs), the features are fed into the classiﬁer and regres-
+sor branches as follow. The classiﬁcation layer calculates the
+probability of the region proposal contains an object such that
+the probability Pi of each element in the feature map i contains
+the target object using softmax function. The regions with the
+top score of 300 Pi in the total rankings present the detected
+target object. In addition, the regressor provides the IoU index
+
+A new mobile application of agricultural pests recognition
+
+4427
+
+Fig. 3
+
+[34]. Second,
+
+from the input image (see Fig. 2). It can be a pre-trained
+CNN architecture such as Inception [32], Residual Neural Net-
+work (Resnet) [33], and Dense Convolutional Network (Den-
+senet)
+the RPN module proposes object
+locations of the feature maps. Third, a regressor and classiﬁer
+are trained using the loss function L in (1) for the CNN detec-
+tion network to adjust these proposed locations and to predict
+single or multi-object classes with the corresponding bounding
+box area in the resulted image, as shown in Fig. 2.
+
+Lð pif g;
+
+tif gÞ ¼
+
+1
+Ncls
+
+X
+
+i
+
+Lclsðpi
+
+i Þ þ k 1
+; p(cid:3)
+Nreg
+
+X
+
+i
+
+i Lregðti; t(cid:3)
+p(cid:3)
+
+i Þ: ð1Þ
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The paper does not provide explicit information on how the trained deep learning model was deployed. However, based on the given context, we can infer that the deployment might have involved some form of model serialization and platform selection.
+
+Model Serialization: This involves converting the trained model into a format that can be easily stored, transferred, and loaded onto different platforms. Given that the authors mention using a cloud computing system, it's likely they serialized their model before uploading it to the cloud.
+
+Platform Selection: The choice of platform would depend on various factors like cost, scalability, ease of use, etc. Since the authors used a cloud computing system, they probably chose a platform that supports cloud deployment, such as Amazon Web Services (AWS), Google Cloud Platform (GCP), or Microsoft Azure. These platforms offer services specifically designed for deploying machine learning models, including those built using deep learning frameworks.

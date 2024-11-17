@@ -1,0 +1,103 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Dataset 
+
+Quantity of images 
+
+Number of 
+categories 
+
+MS COCO [51] 
+Places2 [52] 
+Sport-1M [53] 
+Visual Genome QA [54] 
+ILSVRC 2010 [55] 
+PlantClef2015 dataset [6]  113,205 
+
+328k (2.5 million labeled instances) 
+8.3 million 
+1 million 
+1.7 million questions/answer pairs 
+1.4 million 
+
+91 
+365 
+487 
+–
+10 0 0 
+10 0 0 
+
+pre-train each network using its corresponding leaf data. During 
+the validation phase, we combine both softmax outputs and com- 
+pute the ﬁnal class scores using fusion methods: average (ave) or 
+max voting (mav).
+
+deeper, its optimization capability can be further improved. How- 
+ever, deep CNN networks require very large amounts of training 
+data. Table 6 shows examples of existing well-known datasets and 
+their size as quantity of images. The biggest plant database that 
+we  have  found  is  the  PlantClef2015  dataset  [6]  which  has  only 
+around 113,205 number of images. This is still far from matching 
+the scale and variety of existing general major datasets for images 
+[51,52,55] , videos [53] or languages [54] . In addition, we can see 
+that the PlantClef2015 dataset [6] has one of the largest number 
+of object categories but the least number of images. For example, 
+compared to the ILSVRC 2010 dataset [55] , it has less than 10% of 
+their total images but the same number of categories. Hence, to
+
+In Section 4 , using the V1 strategy on Malayakew dataset, we 
+analysed the global response of ﬁlters in each convolution layer. 
+In this section, in order to gain insights into CNN, we further ex- 
+plore the local responses of individual ﬁlters in each convolution 
+layer. We randomly subsample some of the feature maps/channels 
+in each layer and reconstruct them back to image pixels to reveal 
+the structures within each patch that stimulated a particular fea- 
+ture map using the DN approach [36] . We also run through all the 
+training samples, and subsequently discover which portions of the 
+training images caused the ﬁring of neurons. By doing this, we can 
+improve our understanding of the transformation of the features 
+learned in each layer and realise the characteristic of each layer in 
+the CNN. Fig. 4 shows the feature visualisation of layer 1. We can 
+see that some of the ﬁlters learned are similar to a set of Gabor-
+
+170 , conv 4 
+
+373 , conv 4 
+
+In Fig. 8 , we visualise the response of the selected ﬁlter units 
+( conv 4 
+365 ) in layer 4. In layer 4, 
+148  and conv 4 
+we  observe  mid-level  semantic  partial  abstraction  of  leaf  struc- 
+tures, where the features extracted have almost similar complexity 
+levels to layer 3. For example: venation-like features are observed 
+in the channel conv 4 
+373 ( Fig. 5 (i)) based on the deconvolution re- 
+sult of the validation set; the neurons are not only activated on 
+the divergent structures (secondary veins) but on the central veins 
+(primary veins) as well. For the channel conv 4 
+170 , the selected ﬁl- 
+ters are activated by the curvature of the lobed leaves, as shown 
+in the deconvolution of the top two image patches ( Fig. 5 (j)). This 
+can be interpreted as extraction of conjunctions of curvature fea- 
+tures  in  certain  orientations.  On  the  other  hand,  for  the  chan- 
+
+8 
+
+S.H. Lee et al. / Pattern Recognition 71 (2017) 1–13
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors do not explicitly mention any specific techniques such as cross-validation, stratified splitting, or diverse datasets used to ensure the generalizability of their deep learning models. However, they discuss pre-training each network using its corresponding leaf data during the validation phase and combining both softmax outputs to compute final class scores using fusion methods like average or max voting. They also highlight the importance of having large amounts of training data for deep CNN networks, pointing out that the biggest plant database they found, the PlantClef2015 dataset, had only around 113,205 images, which is significantly smaller compared to existing general major datasets for images, videos, or languages. Additionally, they note that the PlantClef2015 dataset has one of the largest numbers of object categories but the smallest number of images, making it challenging to match the scale and variety of existing datasets. These observations suggest that the authors might have considered the diversity and size of the dataset when developing their deep learning models, although no explicit details about these considerations are mentioned in the given context.

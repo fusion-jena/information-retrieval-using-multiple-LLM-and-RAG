@@ -1,0 +1,112 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1 
+Model training optimized parameters.  
+
+Parameter 
+
+Nomenclature 
+
+Search interval 
+
+Learning 
+rate 
+
+Momentum 
+SD threshold 
+Input size 
+
+μ 
+
+β 
+σ 
+s 
+
+[10
+
+(cid:0) 5, 10
+
+(cid:0) 2] 
+
+[0,1] 
+[0.05, 0.25] 
+{(75, 125, 3), (100, 150, 3), 
+(200, 250, 3)} 
+
+Optimized 
+value 
+
+0.096 
+
+0.845 
+0.05 
+(200, 250, 3)  
+
+Each optimization run consisted of 3000 train iterations with a batch 
+size of 25 individuals to pick a pair of similar and a pair of dissimilar 
+photos (i.e., a batch size of 100 images), and validating each 300 iter-
+ations. TensorBoard —a set of visualization tools included in the open- 
+source  library  for  machine  learning  TensorFlow—  was  used  to  study 
+the performance of the runs. The selected parameters correspond to the 
+run shown in Supplementary Fig. S3. 
+
+3. Results
+
+2012).  This  selection  was  made  because  it  does  not  require  to  study 
+every possible combination of the parameters in a grid search, it works 
+by incorporating the information that was learned in previous function 
+evaluations to choose an optimal set of coordinates of the search space 
+for the next evaluation. This is made by calculating the posterior pre-
+dictive distribution for the function's value at each point. Table 1 gathers 
+the search space and the selected parameters at the end of the optimi-
+zation process.
+
+This  system  was  built  under  Python  3.9.5  using  TensorFlow  2.4.1 
+and training was performed on an Intel(R) Core(TM) i9-9900K CPU @ 
+3.60GHz processor and 32GB RAM memory. Learning was performed 
+with Stochastic Gradient Descendent (SGD) method, optimizing its pa-
+rameters (learning rate and momentum) and binary cross-entropy as a 
+loss function. The algorithm was also asked to exceed a certain threshold 
+of variability in its predictions, i.e., that the standard deviation of the 
+predicted probabilities exceeds a certain threshold —to be tuned—  so 
+that the output of the classifier is not almost the same for all images that 
+feed  the  model.  Moreover,  the  input  image  size  was  optimized,  since 
+there is a trade-off between the information provided by large resolu-
+tions and the number of weights of the network that need to be trained. 
+The parameters were tuned with Bayesian optimization (Snoek et al.,
+
+p(imagei, n)∀i = 1, …, neval 
+
+Then, we built the final decision by considering the prediction that 
+our model gives for every image in that certain set of new samples and 
+performed majority voting. In this way, the probability of making a poor 
+decision is reduced and we give a more robust one. This is, 
+
+n* = arg max
+n=1,…,N
+
+∑neval
+
+i=1
+
+1(di =n)
+
+This proposed methodology is depicted in Supplementary Fig. S2. 
+
+2.5. Training the model
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Hyperparameters of the model are optimized using Bayesian Optimization. Unlike grid search or random search, Bayesian Optimization doesn't require studying every possible combination of the parameters. Instead, it uses the information from previous evaluations to select the most promising set of parameters for the next evaluation. It achieves this by calculating the posterior predictive distribution for the function's value at each point. In this case, the parameters optimized include the learning rate, momentum, SD threshold, and input size. The specific values for these parameters after optimization can be found in Table 1.

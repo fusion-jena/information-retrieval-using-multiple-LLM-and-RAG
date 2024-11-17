@@ -1,0 +1,146 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To evaluate how well the models performed, we used three standard
+metrics: MSE, mean average error (MAE), and the coefficient of deter-
+mination (r2). For the grid search, we focused on minimizing the MSE to
+identify the optimal set of hyperparameters. Prior to conducting the grid
+search, we divided our data into a training set (80% of the data) and a
+test set (20% of the data). This split ensures that the models are trained
+on one portion of the data and tested on a separate, previously unseen
+portion, allowing us to assess their ability to generalize to new, unseen
+data accurately.
+
+2.3.3. SHAP values
+
+After training the MLP models, we computed SHAP values using the
+model-agnostic Kernel SHAP method to understand which features are
+most important in predicting the start and (height of the) peak of the
+greening season. We used the implementation in the Python SHAP
+package for this analysis Lundberg et al. (2017).
+
+Table 2
+Overview of the explored ranges of hyperparameters used in the Optuna grid
+search. The optimal values for the three different regression tasks are displayed
+in the right-most three columns.
+
+Description
+
+Range
+
+Number of neurons in first
+
+layer
+
+Number of neurons in
+
+second layer
+Strength of the L2
+
+regularization term
+the solver for weight
+
+optimization
+
+initial learning rate
+
+learning rate schedule for
+
+weight updates
+
+maximum number of
+
+iterations
+
+maximum number of
+iterations with no
+improvement
+
+int: 10, 20, …,
+100
+int: 0, 10, …,
+100
+float: 1e-4 —
+1e-1 logscale
+
+SOS
+
+100
+
+0
+
+POS
+
+PEAK
+
+70
+
+0
+
+30
+
+100
+
+0.0290
+
+0.0010
+
+0.0606
+
+adam, lbfgs
+
+adam
+
+adam
+
+adam
+
+Barhate, D., Pathak, S., Dubey, A.K., 2023. Hyperparameter-tuned batch-updated
+stochastic gradient descent: plant species identification by using hybrid deep
+learning. Eco. Inform. 75, 102094 https://doi.org/10.1016/j.ecoinf.2023.102094.
+
+Barr´e, P., St¨over, B.C., Müller, K.F., Steinhage, V., 2017. LeafNet: a computer vision
+
+system for automatic plant species identification. Eco. Inform. 40, 50–56. https://
+doi.org/10.1016/J.ECOINF.2017.05.005.
+
+Beck, P.S., Goetz, S.J., 2011. Satellite observations of high northern latitude vegetation
+
+productivity changes between 1982 and 2008: ecological variability and regional
+differences. Environ. Res. Lett. 6, 045501 https://doi.org/10.1088/1748-9326/6/4/
+045501.
+
+Beck, P.S., Atzberger, C., Høgda, K.A., Johansen, B., Skidmore, A.K., 2006. Improved
+monitoring of vegetation dynamics at very high latitudes: a new method using
+MODIS NDVI. Remote Sens. Environ. 100, 321–334. https://doi.org/10.1016/j.
+rse.2005.10.021.
+
+Despite massive advancements in the field of machine learning (ML)
+during the last decade, ML is not yet often used for vegetation studies.
+ML models can be used for various tasks, among which are classification,
+regression, and image segmentation. In ML, models extract knowledge
+from data and use this knowledge to produce an output relevant to the
+task at hand. These models use three main learning paradigms: super-
+vised learning, unsupervised learning or reinforcement learning. This
+study only considers the first paradigm, as we build a regression model.
+Within supervised learning, there are a multitude of model types, for
+example, support vector machines (Hearst et al., 1998), boosted tree
+ensembles (e.g., XGBoost (Chen and Guestrin, 2016) or LightGBM (Ke
+et al., 2017)) and artificial neural networks (ANNs) (McCulloch and
+Pitts, 1943). This analysis will use ANNs, particularly multilayer per-
+ceptrons (MLPs), which are fully connected feedforward neural net-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The study uses a Multilayer Perceptron (MLP) model for its deep learning approach. The hyperparameters used in the model include the number of neurons in the first and second layers, the strength of the L2 regularization term, the solver for weight optimization, initial learning rate, learning rate schedule for weight updates, maximum number of iterations, and maximum number of iterations with no improvement. The specific range of these hyperparameters can be found in Table 2 of the given context. The optimal values for each parameter were determined through a grid search process, focusing on minimizing the Mean Squared Error (MSE) metric.

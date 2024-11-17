@@ -1,0 +1,67 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+High-intensity ﬂuctuations of the loss function shown in Figure 2, which corresponds to the best
+set of parameter values, are caused by the speciﬁcity of the algorithm used at the training stage. We
+did not have a prebuilt set of images to use for the training. We instead generated batches of training
+images randomly, on the ﬂy, from source images presented in Table 1 (we randomly cropped source
+images to 256 × 256 resolution and applied augmentation), and we never showed exactly the same
+
+Remote Sens. 2020, 12, 1145
+
+8 of 17
+
+this regard, preparing training and validation data are very important steps and should be carried
+out very carefully, taking into account the time elapsed since the disturbance event took place and
+discrepancies in phenology, which could depend on local landscape conditions.
+
+Remote Sens. 2020, 12, 1145
+
+8 of 17
+
+subset of images to the network. Therefore, there was only one step per epoch when training. All of
+that led to ambiguities in the objective function being minimized and likely caused the high values
+of variance. We also tried to change the default learning rate parameter for the Adam algorithm. Its
+decrease did not lead to a signiﬁcant reduction of loss function ﬂuctuations but increased the number
+of epochs required for network training. At the end of the learning process (after 1500 epochs), we
+obtained average values for the loss function that were less than 0.1.
+
+Figure 2. Loss function (blue) of the model for training (a) and testing (b) data with a rolling average
+(orange).
+
+2.6. Comparison to Traditional Machine Learning Algorithms
+
+Freund, Y.; Schapire, R. A decision-theoretic generalization of on-line learning and an application to boosting.
+J. Comput. Syst. Sci. 1997, 55, 119–139. [CrossRef]
+
+69. Pedregosa, F.; Varoquaux, G.; Gramfort, A.; Michel, V.; Thirion, B.; Grisel, O.; Blondel, M.; Prettenhofer, P.;
+Weiss, R.; Dubourg, V.; et al. Scikit-learn: Machine learning in Python. J. Mach. Learn. Res. 2011, 12,
+2825–2830.
+
+70. Kégl, B. The return of AdaBoost.MH: Multi-class Hamming trees. arXiv 2013, arXiv:1312.6086.
+71. Moré, J.J. The Levenberg-Marquardt algorithm:
+
+Implementation and theory.
+
+In Numerical Analysis;
+
+Watson, G.A., Ed.; Springer: Berlin, Germany, 1978; pp. 105–116. [CrossRef]
+
+72. Lopatin, J.; Dolos, K.; Kattenborn, T.; Fassnacht, F.E. How canopy shadow aﬀects invasive plant species
+classiﬁcation in high spatial resolution remote sensing. Remote Sens. Ecol. Conserv. 2019, 5, 302–317.
+[CrossRef]
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not explicitly state the specific criteria used to determine when training is complete. However, it mentions that after 1500 epochs, they obtained average values for the loss function that were less than 0.1. This suggests that one possible criterion for determining when training is complete might be reaching a certain threshold value for the loss function. Additionally, the mention of using a rolling average of the loss function implies that another potential criterion could be observing a stable or consistent trend in the loss function over multiple epochs. It is worth noting that these are just possibilities based on the information given, and other factors such as validation accuracy or performance on a separate test dataset may also play a role in deciding when to stop training.

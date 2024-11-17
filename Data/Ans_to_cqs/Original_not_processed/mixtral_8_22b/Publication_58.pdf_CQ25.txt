@@ -1,0 +1,96 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To run an XGBoost model, neo-channels and multiple texture ﬁlters were used. The
+ﬁlters were: dissimilarity, entropy, homogeneity and mean. Input of 64 × 64 windows
+were used for labeling the central pixel. The training data were the same as for the Deep
+Learning architectures.
+
+3.3. Deep Learning Architectures
+
+The internal parameters of the employed Convolutional Neural Network (CNN)
+architectures were not changed with regards to the originally proposed ones. A CNN [40]
+is a machine learning technique based on sequences of layers of three different types:
+convolutional, pooling or fully connected layers. Convolution and fully connected layers
+are usually followed by an element-wise, non-linear activation function.
+
+40.32%
+35.97%
+46.56%
+50.21%
+38.75%
+50.40%
+48.38%
+
+For the LU detection task, all deep learning techniques except AlexNet outperformed
+XGBoost. Differences were signiﬁcant, with up to 15 percent points in OA. As in the
+previous section, the best performing “single-pixel” architecture is DenseNet and the best
+“semantic labeling” network is DeepLab. Interestingly, DenseNet reached the best PA,
+although DeepLab dominated the remaining metrics.
+
+For the remainder of this study, the best performing “single-pixel” and “semantic
+labeling” were selected. There was little difference between the architectures, so the
+architectures with the best F1-score for the LU classiﬁcation were chosen arbitrarily.
+
+4.3. Inﬂuence of Neo-Channels and Land Cover as Input on the Learning
+
+C
+
+1
+2
+3
+4
+5
+
+6
+7
+8
+9
+10
+
+11
+12
+
+Clouds and shadows were masked in the satellite images and did not appear in the
+nomenclatures. The cloud mask is a remote sensing product provided with SPOT6 data
+and shadows can be detected with a simple heuristic approach that searches (almost)
+black bodies [29]. Subsequently, for Deep Learning architectures, the different classes
+were renamed from 0 to 12 (column C of the Table 4), where class 0 contained clouds and
+shadows and was ignored during the learning process.
+
+The LU and LC labelling were carried out jointly through photo interpretation by
+a unique human operator. This ensured consistent results and also consolidated work,
+since the two nomenclatures overlapped in a large portion of the territory (in particular,
+the natural, uncultivated land). The pixel-accurate labelling of the test area is shown in
+Figure 2.
+
+Remote Sens. 2021, 13, 2257
+
+6 of 22
+
+Among comparisons of methods to classify LULC from satellite images on several
+benchmark datasets, Deep Learning has recently stood out as a particularly effective
+framework for automatic image interpretation [12]. Given large amounts of training data,
+Deep Learning is able to extract very complex decision rules [13]. In image processing in
+particular, Deep Learning is at the top of the state-of-the-art semantic image analyses [14]
+(described in the Methods section), greatly enhanced by the particular design of the
+convolutional deep networks. Indeed, on some tasks its performance matches or even
+exceeds that of humans [15]. Additionally in optical satellite remote sensing, Deep Learning
+has become a standard tool, as it appears to cope particularly well with the continuously
+varying imaging conditions (illumination, sensor properties, atmospheric composition,
+etc.) [16–18]. Deep Learning has been widely employed for remote sensing, including tasks
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the purpose of the deep learning model (e.g., classification, segmentation, detection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The purpose of the deep learning models mentioned in the given context is for land use (LU) detection and classification. Specifically, these models are used for both single-pixel and semantic labeling tasks. The goal is to accurately identify and categorize various land uses within satellite images. The best performing'single-pixel' architecture is DenseNet, while the best'semantic labeling' network is DeepLab. These models have proven to significantly outperform the XGBoost model, with differences being significant, reaching up to 15 percent points in overall accuracy (OA). It should be noted that the internal parameters of the employed Convolutional Neural Network (CNN) architectures were not changed with regards to the originally proposed ones.

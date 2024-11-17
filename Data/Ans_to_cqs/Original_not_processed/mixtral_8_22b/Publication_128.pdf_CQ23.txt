@@ -1,0 +1,80 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.5. Model training 
+
+  To ensure the accuracy of the experimental results and obtain the best classification, the exact 
+parameters  and  functions  as  well  as  classifier  built-in  the  six  neural  network  models  are 
+designed as follows: 
+
+  The resolution of input data is 224×224 with Red Green Blue (RGB) format, and the inputs 
+
+are batch normalized before training; 
+
+  Batch size is applied which is set to 30 when training, but images are tested one by one; 
+  An  optimized  rectified  linear  activation,  Leaky  ReLU,  was  introduced  into  models  after 
+
+convolution or concatenate layer; 
+
+In MobileNet, width multiplier is 1.2, resolution multiplier is 1; 
+
+  Learning rate and dropout rate adopt same value 0.001, bias value is 0;  
+ 
+  For the neural networks with lower depth, the higher training epochs are, the higher probability 
+of over fitting is. Therefor models in which less than 100 layers adhibit raw data 60 epochs, 
+otherwise executed 80 epochs;
+
+convolutional neural network. Symmetry, 2: 256. 
+
+ [6].  Ayinde, B.O.B.A., Inanc, T.T.I.L., Zurada, J.M.J.Z. (2019) Regularizing deep neural networks by 
+enhancing diversity in feature extraction. IEEE Transactions on Neural Networks & Learning 
+Systems, 9: 2650-2661. 
+
+ [7].  Goodfellow, L., Yoshua B., Aaron, C. (2016) Deep learning. MIT Press. 
+ [8].  Jassmann,  T.J.,  Tashakkori,  R.,  Parry, R.M.  (2015) Leaf  classification  utilizing  a  convolutional 
+neural  network.  Institute  of  Electrical  and  Electronics  Engineers  Inc.  Fort  Lauderdale,  FL, 
+United states. 1-3. 
+
+ [9].  Laga, H., Kurtek, S., Srivastava, A., Golzarian, M., Miklavcic, S.J., 2007. A Riemannian elastic 
+metric for shape-based plant leaf classification. In: 2012 International Conference on Digital 
+Image Computing Techniques and Applications (DICTA). Fremantle, WA. 1-7. 
+
+[10]. Ling, H., Jacobs, D.W. (2007) Shape classification using the inner-distance. IEEE Transactions on
+
+functions require three typical CNN computations are: 1) convolution obtains image features; 2) pooling 
+for redundancy reducing, and 3) non-linear activation function provides the capacity of network. For a 
+feature  map  with  width,  height  and  channels  of  w,  h  and  c,  respectively,  the  exportation  of  flatten 
+operation is a one-dimension array with size w×h×c.
+
+  A fully connected layer with softmax activation has 28 nodes, which is regarded as classifier 
+
+while training but removed when inference. 
+
+2.6. Computational resources and environment 
+In this study, the operation system is CentOS Linux release 7.7.1908 (Core) with 32 CPUs and each 
+CPU has 64 processors. The develop environment built-up is Python(version 3.6.2) packaged by Conda-
+forge which compiled with GCC (version4.8.2,20140120). Tool packages used in virtual environment 
+are the TensorFlow (version 1.12.0) and the Numpy (version 1.19.2).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about specific measures taken to ensure the generalizability of the deep learning model, such as using a diverse dataset, cross-validation, or stratified splitting. However, there are some aspects mentioned that can contribute to improving the model's performance and potentially its generalizability:
+
+1. Data preprocessing: Input data is resized to 224x224 pixels with RGB format, and batch normalization is applied before training. This standardizes the input data, making it easier for the model to learn from different examples.
+
+2. Optimizer and Activation Function: The Leaky ReLU activation function is used, which helps prevent the vanishing gradient problem during backpropagation. Additionally, the learning rate and dropout rate are both set to 0.001, while the bias value is set to 0. These settings help regulate the learning process and reduce overfitting.
+
+3. Training Epochs: Depending on the number of layers in the model, either 60 or 80 training epochs are performed. Adjusting the number of epochs based on the complexity of the model can help improve its ability to generalize better.
+
+4. Hardware and Software Environment: The experiments are conducted on a CentOS Linux operating system with 32 CPUs, each having 64 processors. The development environment uses Python version 3.6.2, along with tool packages like TensorFlow and NumPy. Having a powerful hardware setup and appropriate software tools can aid in building more robust and accurate models.

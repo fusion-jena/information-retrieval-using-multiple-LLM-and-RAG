@@ -1,0 +1,77 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Fig.  6. Performance  of  the  models  trained  with  all  annotation  sets  provided 
+from the annotation campaign. Red line corresponds to the model trained with 
+the annotations from the expert. Blues lines with low opacity correspond to the 
+model  trained  with  the  annotations  from  the  novices.  Blue  line  with  high 
+opacity is the mean curve for all novice lines. 
+
+blues curves are 0.85 +/(cid:0) 0.05 and 0.77 +/(cid:0) 0.17 respectively, while 
+they reach 0.90 and 0.85 with the model trained from the expert an-
+notations. For the blue whale’s Dcall, 13 models out of 19 trained from 
+novice annotations showed performance close to the model trained on 
+expert annotations with AUC and mAP metrics at 0.92 +/(cid:0) 0.02 and 
+0.87 +/(cid:0) 0.3 while the model trained with the expert got 0.96 and 0.94. 
+However, 6 curves show very low performances in comparison to the 
+others, with AUC and mAP of 0.56 +/(cid:0) 0.21 and 0.57 +/(cid:0) 0.17.
+
+Fig.  8. Performance  (AUC  and  mAP)  of  the  models  trained  with  aggregated 
+annotation sets of novices using a major voting. The red dotted line corresponds 
+to the performance of the model trained on the expert. 
+
+EcologicalInformatics81(2024)1026427(a)SEIOPBWvocalizations(b)BluewhalesDcall(a)SEIOPBWvocalizations(b)Bluewhale’sDcallG. Dubus et al.
+
+To  ensure  the  relevance  of  the  collected  annotations,  a  clear 
+description of the task is also extremely important: explaining clearly 
+with examples the targeted sounds, if the time-frequency boxes have to 
+be  drawn  on  each  vocalization,  on  only  a  part  of  the  vocalization  or 
+around group of vocalzations. Then, a prior estimation of the task dif-
+ficulty is of high interest for the management of an annotation campaign 
+in terms of human resource planing. Indeed, such estimation will help in 
+finding an initial guess of the number of annotators to start with, and 
+even  adapt  this  number  to  different  time  periods  in  case  of  a  time- 
+dependent estimation. Having said that, this estimation and its appli-
+cations in setting an annotation campaign remains an open question for 
+further investigation. Some previous works [Nguyen Hong Duc et al., 
+2021b; Dubus et al., 2023] already provided first evidence-based results
+
+To  ensure  comparability  across  trained  models,  we  maintained 
+consistent hyperparameters across all training instances for each task (i. 
+e.,  SEIO  PBW  vocalization  and  Dcall).  Specifically,  for  SEIO  PBW 
+
+vocalization  training  and  blue  whale  Dcall  training,  we  set  the  batch 
+sizes to 5 and 4, and the learning rates to 1e-4 and 1e-3, respectively. 
+This decision was based on the fact that more samples were used for 
+SEIO PBW vocalization training. The models were trained for 40 and 25 
+epochs  respectively.  However  an  early  stopping  method  was  used  to 
+keep  the  model  weights  before  the  models  overfitted.  The  patience 
+parameter is set at 10 epochs for all training phases. 
+
+2.4. Evaluation metrics 
+
+Considering  the  absence  of  absolute  ground  truth  for  identifying 
+audio events within underwater acoustic recordings, the annotation sets 
+proposed by the annotators, expert or novice, are called pseudo ground 
+truth in the present study.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training process, several postprocessing steps can be performed depending on the specific requirements of the project. In the given context, two main postprocessing steps are mentioned: calculating evaluation metrics and visualizing saliency maps.
+
+Evaluation metrics are crucial for assessing the performance of the trained models. In this study, Area Under Curve (AUC) and Mean Average Precision (mAP) are used as evaluation metrics. These metrics provide insights into how well the models perform in detecting and classifying audio events within underwater acoustic recordings. To calculate these metrics, the predicted outputs of the models are compared against the pseudo ground truth annotations provided by both experts and novices. This allows for a quantitative assessment of the models' performance.
+
+Additionally, saliency maps can be generated to gain further insight into the models' predictions. Saliency maps highlight the regions of input data that contribute most significantly to the output prediction. By visualizing these maps, researchers can better understand which features of the input data are being utilized by the models during classification tasks. This information can then be used to improve the models' performance or develop new models with enhanced feature extraction capabilities.
+
+Overall, postprocessing steps like evaluating metrics and generating saliency maps play a critical role in understanding the strengths and weaknesses of trained models. They enable researchers to optimize their models and ultimately improve the accuracy of audio event detection and classification in underwater environments.

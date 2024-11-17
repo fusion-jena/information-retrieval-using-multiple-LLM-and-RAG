@@ -1,0 +1,70 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To generate training data for the PCF, 16,660 grid cells with a res-
+olution  of  2560  m  were  created  in  South  Korea.  This  resolution  was 
+selected because the training unit of the U-Net model was 256 pixels, 
+and 2560 m contains 256 pixels of Sentinel-2 with a 10 m resolution. 
+Fig. 6a and b show the extracted results, where 8330 cells (half of the 
+total) were randomly extracted as a mask for training data in Fig. 6a, and 
+3,332 cells (20% of the total) were randomly extracted as a mask for 
+validation data in Fig. 6b. The PSI was extracted from Fig. 6a and b to 
+prepare input data for model training. The sub-class land-cover map of 
+South Korea can be transformed into a macro-class land-cover map by 
+converting all sub-class items into macro-class items (Fig. 4). This con-
+version  process  resulted  in  the  production  of  a  completely  converted 
+sub-class  land-cover  map  of  South  Korea,  as  shown  in  Fig.  6c.  Addi-
+
+2016). In addition, unlike the pseudo-labeling methodology of Kim et al. 
+(2021a), since there is a source domain, the resultant classification re-
+sults can be verified using this method (Kim et al., 2021a). Through this 
+approach, we were able to address the subjective validation issues raised 
+by Kim et al. (2021a), which primarily focused on the concept of PCF. 
+However, when using DA, as reported by Kim et al. (2021a), it is con-
+strained by its need for labeled data from the source domain and the 
+impossibility of classifying specific classes for North Korea; examples of 
+such classes include reclaimed forest and unstocked forests, respectively 
+(Kim et al., 2021a). While these instances may be perceived as limita-
+tions of DA, it is noteworthy that reclaimed and unstocked forests were 
+primarily classified as agricultural land and grass, respectively. This is 
+attributed to the differences in the target years between this study and
+
+the satellite. The labeling part determines the labeling methodology for 
+training  the  deep  learning  model.  In  the  classification  part,  a  deep 
+learning model was trained based on the results of previous steps. The 
+target PSI, which has the same format as the trained PSI, can be classi-
+fied using the trained model. Here, the format refers to the spatial res-
+olution and spectral band used, interval in PSI, and chronological order 
+of  each  band.  If  satellite  imagery  accumulates  owing  to  continuous 
+satellite observations, the PSI can also be continuously generated, and 
+classification can be continued using the model. This enables PCF land 
+monitoring.
+
+resembles land-use classified according to the state of use, whereas the 
+phenological  classification  in  this  study  closely  resembles  land-cover 
+classified  according  to  the  state  of  actual  cover.  Therefore,  the  60% 
+omission error of the used area was significantly higher than the 24% 
+commission error, resulting in the highest error value difference among 
+all  the  results.  PA  and  UA  indicate  a  low  accuracy  for  wet  land  and 
+barren classes, which are the two classes with the lowest accuracy in 
+common, owing to the lack of training data and unstable state of cover, 
+unlike water. Although non-water characteristics do not appear on the 
+surface of water, vegetation can grow in barren areas because of the lack 
+of  management, making  it  difficult  to  distinguish from  the  surface  of 
+grass. In the case of wet land, there is a possibility of confusion, as there 
+are cases where water is filled and drained or aquatic plants and wetland
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the criteria used to determine when training is complete. However, it mentions that 8330 cells (half of the total) were randomly extracted as a mask for training data and 3,332 cells (20% of the total) were randomly extracted as a mask for validation data. This suggests that some form of validation was performed during the training process. Typically, in machine learning models like the U-Net model mentioned here, common criteria to determine when training is complete include observing a plateau in the validation loss, achieving a predefined level of performance on the validation set, or reaching a maximum number of training epochs. Without more specific details, it cannot be definitively stated what exact criteria were used in this particular case.

@@ -1,0 +1,127 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.1. Main results 
+
+Table 2 shows the test results. The largest performance gap between 
+the learnable and traditional frontends stems from using PCEN instead 
+of log compression. When combined with PCEN, the (mel-)spectrogram 
+is on par with the learnable frontends. Noticeably, a proper normaliza-
+tion on top of the log compression produced similar results to the PCEN 
+version of the models. It is hard to eyeball some of these effects, espe-
+cially for the data augmentation. Therefore, a performance summary for 
+the 48 models is depicted in Fig. 3 to comprehend the importance of 
+each component. Fig. 4 shows the confusion matrices of the base and the 
+best configuration for each frontend.
+
+Table 2 
+Test  results  (in  %)  of  the  frontends.  The  codes  ‘A’,’S’,  and  ‘M’  indicate  data 
+augmentation, standardization, and min-max normalization, respectively. Sinc 
+refers to SincNet+.  
+
+Model 
+
+accuracy 
+
+top-3 accuracy 
+
+f1-score 
+
+precision 
+
+recall 
+
+Mel-log-A 
+Mel-log 
+Mel-pcen-S 
+Mel-log-M 
+Mel-log-S 
+Mel-log-M-A 
+Mel-log-S-A 
+Mel-pcen 
+Mel-pcen-M 
+Mel-pcen-S-A 
+Mel-pcen-A 
+Mel-pcen-M-A 
+Stft-log-A 
+Stft-log 
+Stft-log-S 
+Stft-pcen 
+Stft-log-M-A 
+Stft-log-M 
+Stft-pcen-M 
+Stft-log-S-A 
+Stft-pcen-S 
+Stft-pcen-A 
+Stft-pcen-M-A 
+Stft-pcen-S-A 
+Sinc-log-A 
+Sinc-log 
+Sinc-log-M 
+Sinc-pcen 
+Sinc-log-S-A 
+Sinc-log-M-A 
+Sinc-pcen-M 
+Sinc-log-S 
+Sinc-pcen-S-A 
+Sinc-pcen-A 
+Sinc-pcen-S 
+Sinc-pcen-M-A 
+Leaf-log-M 
+Leaf-pcen-S 
+Leaf-log 
+Leaf-pcen 
+Leaf-log-S 
+Leaf-pcen-M 
+Leaf-pcen-S-A 
+Leaf-log-A 
+Leaf-pcen-A 
+Leaf-log-S-A 
+Leaf-log-M-A 
+Leaf-pcen-M-A
+
+The  models  were  trained  for  100  epochs  using  Adam  optimizer 
+(Kingma and Ba, 2017) with the default hyper-parameters and a cosine 
+decay  scheduler  for  the  learning  rate.  The  loss  function  was  cross- 
+entropy for multi-class single-label classification. The macro-averaged 
+f1-score  on  the  validation  set  aided  in  monitoring  the  model  conver-
+gence. Macro averaging gives equal importance to all classes regardless 
+of the number of data points in each one.
+
+Gawlikowski, J., Tassi, C.R.N., Ali, M., et al., 2023. A survey of uncertainty in deep 
+
+neural networks. Artif. Intell. Rev. 56 (Suppl. 1), 1513–1589. 
+
+Gregory, R.D., van Strien, A., 2010. Wild bird indicators: using composite population 
+trends of birds as measures of environmental health. Ornithol. Sci. 9 (1), 3–22. 
+https://doi.org/10.2326/osj.9.3 [Online].  
+
+Gupta, G., Kshirsagar, M., Zhong, M., Gholami, S., Ferres, J.L., 2021. Comparing 
+
+recurrent convolutional neural networks for large scale bird species classification. 
+Sci. Rep. 11 (1), 17 085. 
+
+Ha, W., Singh, C., Lanusse, F., Upadhyayula, S., Yu, B., 2021. Adaptive wavelet 
+
+distillation from neural networks through interpretations. Adv. Neural Inf. Proces. 
+Syst. 34, 20 669–20 682.  
+
+Harris, C.R., Millman, K.J., van der Walt, S.J., et al., Sep 2020. Array programming with 
+NumPy. Nature 585 (7825), 357–362. https://doi.org/10.1038/s41586-020-2649-2 
+[Online].
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The performance of the deep learning models is evaluated using several metrics such as accuracy, top-3 accuracy, f1-score, precision, and recall. These metrics can be found in Table 2 of the given context. Accuracy refers to the proportion of correct predictions out of the total number of instances. Top-3 accuracy considers a prediction as correct if the true label is among the three most probable labels predicted by the model. The f1-score is the harmonic mean of precision and recall, providing a more balanced measure of the model's performance. Precision is the ratio of correctly predicted positive observations to the total predicted positives, while recall is the ratio of correctly predicted positive observations to the actual positives.

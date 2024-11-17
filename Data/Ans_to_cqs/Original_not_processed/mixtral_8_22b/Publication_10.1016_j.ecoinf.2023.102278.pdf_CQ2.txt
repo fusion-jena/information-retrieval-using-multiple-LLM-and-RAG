@@ -1,0 +1,191 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 4 
+Average performance (Avg) and standard deviation (SD) for five trained models. Average precision, recall and F1-score for trained ResNet50 and EfficientNetB3 
+(EffNetB3) models modified for multitask learning (MTL) with transfer learning using pre-trained weights from ImageNet. The models are trained and validated on the 
+TLm  dataset. The models ResNet50, EfficientNetB3 are trained without MTL.  
+
+Model 
+
+Level 
+
+ResNet50MTL 
+EffNetB3MTL 
+
+ResNet50MTL 
+EffNetB3MTL 
+
+ResNet50MTL 
+EffNetB3MTL 
+
+ResNet50 
+EffNetB3 
+
+L1 Order 
+L1 Order 
+
+L2 Family 
+L2 Family 
+
+L3 Species 
+L3 Species 
+
+Species 
+Species 
+
+Avg 
+
+0.990 
+0.986 
+
+0.987 
+0.984 
+
+0.955 
+0.948 
+
+0.955 
+0.953 
+
+Precision 
+
+SD (10
+
+(cid:0) 3) 
+
+(1.0) 
+(4.4) 
+
+(0.8) 
+(3.1) 
+
+(4.3) 
+(5.2) 
+
+(3.3) 
+(2.5) 
+
+Avg 
+
+0.991 
+0.993 
+
+0.986 
+0.988 
+
+0.961 
+0.966 
+
+0.957 
+0.966 
+
+Recall 
+
+SD (10
+
+(cid:0) 3) 
+
+(1.1) 
+(0.5) 
+
+(0.9) 
+(0.7) 
+
+(9.8) 
+(5.1) 
+
+(7.3) 
+(2.5) 
+
+Avg 
+
+0.991 
+0.989 
+
+0.987 
+0.986 
+
+0.957 
+0.956 
+
+0.955 
+0.959
+
+bounding boxes, in the training dataset, are within this size. Examples of 
+full resolution TL images and cropped images of insects may be found in 
+A.
+
+We simplified the network architecture and hierarchical dependency 
+loss  proposed  by  Gao  (2020)  and  rewrote  the  code  from  Ugenteraan 
+(2020), which will be explained in the following sections. 
+
+3.1. A multitask CNN for hierarchical classification 
+
+Our proposed network architecture is shown in Fig. 2. The first part 
+of the architecture is a CNN such, as ResNet (He et al., 2016) or Effi-
+cientNet (Tan and Le, 2019). It is given an input image X transformed by 
+the network NCNN(θCNN), where θCNN  means the trainable parameters of 
+the CNN network. The network output is viewed as a root representation 
+R0, 
+
+R0 = NCNN (X, θCNN )
+
+(1) 
+
+For each level l we add two FC layers and an activation function to 
+perform a non-linear transformation of the input R0  to the level output 
+Rl. 
+
+Rl = (Wl2*σrelu(Wl1*R0 + bl1)) + bl2)
+
+(2)
+
+Eq. (4) denotes the predicted class in level l as the maximum output 
+value from the network at the level. An input image is also classified as 
+‘unsure’ when the predicted class is not correct according to the higher 
+rank in the taxonomic hierarchy as defined in Eq. (7). 
+
+{
+
+̃yl =
+
+Unsure
+̃yl
+
+̃yl⇏̃yl(cid:0) 1
+
+if
+otherwise
+
+or Rlj < th
+
+(7)  
+
+3.3. Training, augmentation and optimizers 
+
+The training on the datasets was  performed using data augmenta-
+tion, including image scaling, horizontal and vertical flip, perspective 
+distortion and adding color jitter for brightness, contrast and saturation. 
+Data augmentation mitigates overfitting by increasing the diversity of 
+the training data. We selected a batch size of 20 for training our models 
+since it is faster to update, and results in less noise, than smaller batch 
+sizes. The accuracy of the models on the training and validation datasets 
+was computed after each epoch. 
+
+The Adam optimizer with a fixed learning rate of 1.0⋅10
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the provided context, the deep learning pipeline uses image data format. This can be inferred from several parts of the text. Firstly, the table presents average performance and standard deviation for five trained models, all of which are based on either ResNet50 or EfficientNetB3 architectures, both of which are designed for processing image data. Secondly, the mention of bounding boxes further supports the use of image data, as they are typically associated with object detection tasks in computer vision. Lastly, the description of data augmentation techniques like image scaling, flipping, distorting, and adding color jitter also indicates that the pipeline processes image data. Therefore, it can be concluded that the deep learning pipeline primarily uses image data format.

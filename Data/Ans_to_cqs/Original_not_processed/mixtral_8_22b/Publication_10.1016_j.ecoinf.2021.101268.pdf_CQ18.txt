@@ -1,0 +1,238 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Model 
+
+AlexNet 
+VGG-19 
+ResNet-101 
+DenseNet-201 
+
+Accuracy 
+
+Raw 
+
+Train 
+
+98.75% 
+96.77% 
+82.25% 
+93.71% 
+
+Validation 
+
+97.16% 
+98.30% 
+89.04% 
+91.30% 
+
+Test 
+
+96.16% 
+95.15% 
+83.30% 
+86.48% 
+
+Pre-processed  
+
+Train 
+
+98.21% 
+96.94% 
+77.25% 
+91.61% 
+
+Validation 
+
+97.92% 
+97.92% 
+79.02% 
+87.33% 
+
+Test 
+
+95.98% 
+96.52% 
+75.44% 
+86.29%  
+
+Table 5 
+Accuracy of the models swapping the testing sets (source → target).  
+
+Model 
+
+Accuracy 
+
+Raw → Pre-processed 
+
+Pre-processed → Raw 
+
+AlexNet 
+VGG-19 
+ResNet-101 
+DenseNet-201 
+
+82.35% 
+82.70% 
+69.22% 
+65.26% 
+
+54.76% 
+78.87% 
+29.56% 
+33.97%  
+
+Fig. 5. Confusion matrices for the VGG-19 architecture.  
+
+et al., 2017) and SmoothGrad (Smilkov et al., 2017) methods over each 
+model. These methods plot a point cloud, where the density denotes the 
+input space relevance. Thus, a higher density in a region suggests that 
+the network ponderates it the most when classifying.
+
+2. Peruvian Amazon forestry dataset
+
+Too  et  al.  (2019)  fine-tune  CNN-based  models  (VGG,  ResNet, 
+Inception,  and  DenseNet)  for  plant  species  classification  and  disease 
+detection. Qian et al. (2020) monitor invasive plant species in the wild 
+by  fine-tuned  models  (Alexnet,  VGG,  and  GoogLeNet).  Chulif  et  al. 
+(2019) classify 10,000 plant species by using pre-trained InceptionNet 
+models. Kaya et al. (2019) analyze deeply the effect of four different TL 
+models on four publicly leaf datasets. (Barr´e et al., 2017) visualize that 
+the  first  convolution  layers  learn  to  extract  leaf  venations  and  edges, 
+while deeper layers derive high-level feature abstractions.
+
+is the output. 
+
+(1) 
+
+s 
+
+s 
+
+Next, we turn IRGB
+
+to Lab color space to boost colors and definitions. 
+Lab color space approximates human vision rather than describing how 
+colors should appear on digital (RGB) or in print (CMYK). According to 
+Fan and Wang (2013), the translation from RGB to Lab color space is a 
+two-step process. We must translate RGB space to XYZ space (Eq. (2)), 
+then translate it into Lab space (Eq. (4)) using the f-function (Eq. (3)). 
+
+Is
+X[i, j] = 0.4124⋅Is
+Is
+Y [i, j] = 0.2126⋅Is
+Is
+Z[i, j] = 0.0193⋅Is
+
+R[i, j] + 0.3576⋅Is
+R[i, j] + 0.7152⋅Is
+R[i, j] + 0.1192⋅Is
+̅̅
+√
+,
+t3
+7.7871∙t + 0.1379,
+
+{
+
+f (t) =
+
+if t > 0.0089
+otherwise
+
+G[i, j] + 0.1805⋅Is
+G[i, j] + 0.0722⋅Is
+G[i, j] + 0.9505⋅Is
+
+B[i, j]
+B[i, j]
+B[i, j]
+
+Is
+L[i, j]
+
+Is
+a[i, j]
+
+Is
+b[i, j]
+
+(
+
+= 116⋅f
+
+)
+
+(cid:0) 16
+
+Is
+Y [i, j]
+100
+)
+
+(
+
+(
+f
+
+= 500⋅
+
+(
+
+= 200⋅
+
+f
+
+Is
+X[i, j]
+95.0489
+)
+(
+
+Is
+Y [i, j]
+100
+
+) )
+
+(
+
+Is
+Y [i, j]
+100
+
+(cid:0)
+
+f
+
+) )
+
+(
+
+f
+
+Is
+Z[i, j]
+108.8840
+
+(2)  
+
+(3)  
+
+(4)
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The strategy implemented to monitor the model performance during training involves evaluating the accuracy of the models on three distinct subsets of data: train, validation, and test. The table presented shows the accuracy results for various models such as AlexNet, VGG-19, ResNet-101, and DenseNet-201 under two conditions: raw and pre-processed. For each condition, the accuracy is reported for all three subsets of data. This approach allows for tracking the progress of the models throughout the training phase and assessing their ability to generalize to unseen data. Additionally, Table 5 presents the accuracy of the models when swapping the testing sets between raw and pre-processed images, providing further insights into the models' adaptability and robustness.

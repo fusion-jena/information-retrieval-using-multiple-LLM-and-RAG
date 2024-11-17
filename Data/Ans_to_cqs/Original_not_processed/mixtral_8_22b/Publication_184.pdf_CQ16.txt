@@ -1,0 +1,84 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The graph illustrates the loss while training the neural network 
+and the average loss is reduced to 0.54%. That means the model 
+is  affected  by  training  data.  A  total  of  4000  iteration  were  run 
+and  it  took  14  hours  to  complete  the  training.  The  model 
+improved swiftly in terms of precision, recall and mean average 
+precision  before  plateauing  after  about  1000  iterations,  and 
+around 1000 iterations the loss showed a rapid decline. 
+
+For  each  epoch,  64  images  are  randomly  selected  and  used  to 
+train  the  model.  Each  image  is  used  multiple  times  due  to  the 
+limited  number  of  samples.  Figure  8,  shows  some  training 
+samples, and the number zero indicates the fish class. 
+
+Figure 8. Training samples.
+
+In  order  to  train  the  model,  it  is important to provide not only 
+the  class  of  the  object  but  also  the  bounding  box  data  of  the 
+object  as  correct  answer.  In  this  context,  we  parsed  the  x,  y 
+coordinates, width and height of the fish in the annotation of the 
+image’s  dataset.  In  addition,  we  used  data  augmentation  to 
+extend the amount of data. 
+
+The  model  has  better  performance  as  number  of  epochs 
+increases.  However,  when  number  of  epochs  exceeds  200,  the 
+network  seems  to  be  overfitted  to  training  data.  As  a  result, 
+Table  I  shows  the  hyper-parameters  used  to  train  and  validate 
+the Yolo model. 
+
+Number 
+of 
+iterations 
+4000 
+
+Number 
+of 
+epochs 
+200 
+
+Learning 
+rate 
+
+Batch 
+size 
+
+Subdivisions 
+
+0.001 
+
+16 
+
+64 
+
+Table 1. Hyper-parameters to train the Yolo model.
+
+information
+
+Figure 5. A flowchart of training and detection process of 
+YOLO-Fish model. 
+
+A  series  of  experiments  were  conducted  to  evaluate  the 
+performance  of  the  model.  The  indexes  for  evaluation  of  the 
+trained model are defined as follows: 
+
+                           Recall = TP / TP + FN           (3) 
+                           Precision = TP / TP + FP       (4)
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Answer: Based on the given information, there isn't a specific criterion mentioned for determining when the training is complete. However, several indicators suggest that the model might have reached its optimal state or close to it. For instance, the model improved swiftly in terms of precision, recall, and mean average precision before plateauing after around 1000 iterations. Additionally, the loss showed a rapid decline around the same point. These observations indicate that the model may have learned most of what it can from the training data. Furthermore, the model was trained for a total of 4000 iterations, which could imply that this was considered sufficient for achieving satisfactory results. Lastly, it's worth noting that when the number of epochs exceeded 200, the network seemed to become overfitted to the training data. This suggests that training beyond this point might lead to diminishing returns or even detrimental effects on the model's ability to generalize to new data. Therefore, while no explicit stopping criterion is stated, these factors collectively hint at potential points where one might decide to conclude the training process.

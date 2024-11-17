@@ -1,0 +1,7 @@
+Answer:::
+
+The training of the CNN model is complete when the value of the loss function stops decreasing in two consecutive checks. In this specific context, the batch size is fixed to 32, and the training loss is checked every 50 epochs. The training process is a one-time process for each reference tree, and it finished in around 20 minutes for the 200-taxon data set and 260 minutes for the 10,000-taxon data set, using a machine with one 2080Ti NVIDIA GPU and 8 CPU cores.
+
+It is important to note that the choices of hyperparameters and training parameters were based on preselected values that were not fine-tuned on any data set. This simple procedure was necessary due to computational reasons. However, when applying in practice on real data, it is possible to fine-tune all the hyperparameters using a validation set. This process involves randomly selecting a subset of the reference species as the validation set, using these as testing data to tune the parameters for the given data set, and then training one last time with all the data with the fine-tuned parameters.
+
+In the context provided, no mention is made of using a validation loss plateau as a criterion to determine when training is complete. Instead, the focus is on monitoring the training loss and stopping the training when the value of the loss function fails to decrease in two consecutive checks. This approach is likely used due to its simplicity and computational efficiency, as it does not require the additional computation needed to maintain a separate validation set during training.

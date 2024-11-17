@@ -1,0 +1,121 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The evaluated augmentation techniques consistently exhibited the
+same qualitative effects across all three of our deep learning models.
+Specifically, if the performance of an augmentation set improved for one
+model, it also improved for the other two, and vice versa. However,
+further research is needed to determine if this observation can be
+generalized. For optimizing augmentation strategies, a more effective
+approach would be to use only the least computationally intensive
+models, e.g., DenseNet-161 or ResNet-50. The best combined augmen-
+tations would then be applied to the best-performing model (ViT-B/16).
+In our future work, we plan on focusing on the creation of so-called
+no-call classifiers with training samples that do not contain bird events
+in general. For this purpose, as well as to explore different transformer-
+based models with improved prediction scores, encompassing, i.a., data-
+efficient image transformers (DeiT) as well as hybrid transformers (Han
+
+3. Test results, evaluation, and discussion
+
+The following sections provide an overview of our test results as well
+as our evaluation and discussion in the context of different augmenta-
+tion methods. Therefore, a differentiation is made between test runs
+without any data augmentation, single augmentation runs, and runs
+with combined augmentations. Finally, the best results and their com-
+binations are discussed.
+
+2.5. Training setup
+
+3.1. Baseline augmentation methods
+
+Table 2
+Overview of our augmentation strategies, their IDs, and related information. For DenseNet-161 and ViT-B/16, their training times are provided in minutes per epoch
+for the different augmentation methods. For IDs 5 and 6, we added noise of the bird audio detection data set from the DCASE challenge (Berger et al., 2018; Himawan
+et al., 2018; Liaqat et al., 2018), which is abbreviated as BAD.
+
+Data augmentation
+
+Time domain
+
+Frequency domain
+
+Spectrogram
+
+Training time [min. / epoch]
+
+DenseNet-161
+
+ViT-B/16
+
+Gaussian noise
+Pink noise (background)
+Primary background noise soundscapes
+Secondary background noise soundscapes
+Primary background noise (BAD)
+Secondary background noise (BAD)
+Background noise (e.g., wind, thunder, or aircrafts)
+Mixed up random bird species
+Horizontal roll
+Vertical roll
+Pitch shift
+Time mask
+Frequency mask
+Gain
+Loudness normalization
+Horizontal flip
+Vertical flip
+Time stretch
+tanh-based distortion
+
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+
+✓
+
+✓
+✓
+
+✓
+
+Table 2 shows the specific domains to which the respective
+augmentation methods were applied to. Fig. 3 visualizes the impact of
+these methods on model performance. A comprehensive overview of all
+results is compiled in Table 4, displaying F1-scores (Schlosser et al.,
+2024; Usman and Versfeld, 2024) for various single and combined
+augmentation strategies.
+
+No augmentation methods (set 0). Scores within the range of 52.6
+% (ResNet-50) to 68.9 % (ViT-B/16) are obtained. These results can be
+seen as the lower reference point for all experiments.
+
+Single augmentation methods (set 1). Our single augmentation
+methods are applied with a probability of 50%. The following results are
+observed:
+
+9 BirdCLEF 2021 - Birdcall
+
+Identification, https://www.kaggle.
+
+com/c/birdclef-20211
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The study employs several data augmentation techniques in its deep learning pipeline. In the time domain, these include Gaussian noise, pink noise (background), primary and secondary background noise soundscapes, primary and secondary background noise from the Bird Audio Detection dataset (BAD), background noise such as wind, thunder, or aircraft sounds, mixed-up random bird species, horizontal and vertical rolls, pitch shifts, time masks, frequency masks, gain, loudness normalization, horizontal and vertical flips, time stretches, and tanh-based distortions. In the spectrogram domain, no specific augmentation techniques are mentioned. It should be noted that these techniques are applied with varying probabilities, with single augmentation methods being used at a 50% probability.

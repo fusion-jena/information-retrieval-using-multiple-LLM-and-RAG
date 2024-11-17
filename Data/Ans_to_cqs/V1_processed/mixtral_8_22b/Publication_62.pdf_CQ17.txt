@@ -1,0 +1,7 @@
+The authors use two main regularization techniques to prevent overfitting in their deep learning pipelines: Dropout and Batch Normalization.
+
+Dropout is a technique where randomly selected neurons are ignored during training, which helps to make the model more robust and prevents it from relying too heavily on any single feature. In both the unstained/stained CNN and the clubmoss/spikemoss CNN, a DropoutLayer with a probability of 0.5 is applied after the FlattenLayer. This means that half of the neurons in this layer will be dropped out during each iteration of training.
+
+Batch Normalization is another regularization method that normalizes the activations of each batch of inputs, reducing internal covariate shift and improving the speed and stability of the network. It is applied after every ConvolutionLayer in both models.
+
+There is no mention of using L2 regularization or other forms of weight decay in these models. However, the use of Dropout and Batch Normalization should be sufficient to prevent overfitting and improve generalization.

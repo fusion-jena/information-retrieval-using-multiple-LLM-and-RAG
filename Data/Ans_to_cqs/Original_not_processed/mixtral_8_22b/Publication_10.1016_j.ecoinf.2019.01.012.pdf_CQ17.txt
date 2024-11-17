@@ -1,0 +1,72 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Ecological Informatics 50 (2019) 220–233
+
+Fig. 5. Learning process for loss (left) and model accuracy (right) over 90 epochs. The gap between training and validation accuracy is caused by using dropout on
+the training data only.
+
+Machine learning, and particularly deep learning, has evolved into
+the most commonly used approaches for the automatic classiﬁcation of
+digital images (LeCun et al., 2015). The major advantage of deep
+learning is that the time-consuming and complex step of previous fea-
+ture extraction becomes unnecessary. Instead, the model learns and
+extracts the relevant features itself during the training process. The
+major drawback of deep learning is that large amounts of labeled
+training data are required (Kamilaris and Prenafeta-Boldú, 2018).
+Among the deep learning architectures, convolutional neural networks
+(CNN) are particularly suitable for image analysis due to their ability to
+extract spatial features. CNNs have proven to be quite powerful in
+performing diﬀerent tasks such as object detection (Everingham et al.,
+2010; Tompson et al., 2014), classiﬁcation (Traore et al., 2018, Xu
+et al., 2017, Amara et al., 2017, Lu et al., 2017, Han et al., 2018) and
+
+3. Results
+
+3.1. Training and model performance on individual tiles
+
+We stopped the learning process after 90 epochs, where the learning
+curve converged and loss values did not longer decrease. Fig. 5 illus-
+trates the improvement in loss and accuracy during the training pro-
+cess. The fact that validation accuracy exceeds training accuracy is a
+common eﬀect when dropout and data augmentation is applied on
+training data only. Consequently, the training set contains more diﬃ-
+cult tiles than the validation set. Based on the validation set, the best
+model reached a maximum accuracy of 96.4% (loss = 0.13). Ad-
+ditionally, we evaluated the performance of the ﬁnal model on a se-
+parate test dataset containing n = 5796 individual tiles, which were not
+used during the process of model selection. On these individual tiles,
+the model reached an accuracy of 96.7% (loss = 0.08).
+
+U. Bayr and O. Puschmann
+
+Ecological Informatics 50 (2019) 220–233
+
+Although the use of pre-trained models has proven to be advanta-
+geous for many image recognition tasks (Weiss et al., 2016), we decided
+to train the model from scratch. We recognized that our speciﬁc clas-
+siﬁcation problem was too diﬀerent from the pre-trained networks.
+Moreover, we considered the number of labeled samples available
+(nearly 30,000 per class) as large enough for training our own network.
+
+We trained the CNN using ReLU activation for the convolutional layers
+and an exponential linear unit (ELU) activation on the fully connected
+layer (Clevert et al., 2015). As optimizer we chose the adaptive ADAM
+(Adaptive Moment Estimation) with a learning rate of lr = 0.0001.
+Training was performed with a batch size of 256 over 16,290 iterations
+(= 90 epochs).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors of this study used dropout as a regularization method to prevent overfitting in their deep learning pipeline. Dropout is a technique where randomly selected neurons are ignored during training, which helps to reduce interdependent learning amongst them. This can help improve the generalizability of the model. However, it should be noted that the authors mention that they only applied dropout to the training data, which resulted in a gap between training and validation accuracy. They also mentioned applying data augmentation, but it is unclear if this was done solely on the training data or both the training and validation sets. There is no explicit mention of other regularization techniques like L2 regularization being employed in this study.

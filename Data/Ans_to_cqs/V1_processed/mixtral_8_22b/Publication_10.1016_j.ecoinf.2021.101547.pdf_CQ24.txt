@@ -1,0 +1,9 @@
+In the given context, there isn't any explicit mention of handling randomness in the deep learning pipeline, such as managing random seed values. However, there are implicit strategies used to manage variability and improve performance.
+
+One strategy mentioned is adjusting the mini-batch size during training. Mini-batch sizes are typically increased in binary increments (e.g., 2, 4, 8, 16, 32, etc.). This allows for better management of resources and helps prevent issues like underfitting or overfitting due to small or large batch sizes, respectively. In this case, the mini-batch size is ultimately limited by the GPU's memory capacity and the complexity of the deep learning model being used.
+
+Another strategy involves selecting and preparing training and validation datasets. To train the Convolutional Neural Network (CNN) on diverse background features, 6092 photos were randomly selected, excluding those containing bears. Each photo was then cropped to 224 x 224 pixels at a random location to match the CNN's input size. Additionally, 1000 more photos were randomly selected and cropped to serve as background validation images. These steps help introduce variability into the dataset and reduce the risk of overfitting.
+
+Lastly, the text mentions the use of image manipulation and augmentation techniques. While specific methods aren't detailed, these techniques generally involve applying transformations to existing images to create new ones, thereby increasing the overall dataset size and introducing further variability. Examples include rotating, flipping, zooming, and changing brightness levels.
+
+Although none of these strategies directly address managing randomness via random seeds, they do contribute to creating a robust and varied dataset, which indirectly mitigates the impact of randomness in the deep learning pipeline.

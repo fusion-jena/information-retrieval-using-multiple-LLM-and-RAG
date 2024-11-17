@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+whole image. Thus, it may minimize the dilution effect and reduce the 
+required amount of training data.
+
+2.4.1. Data transformation 
+
+The labeled sounds in a recording are clipped and transformed into 
+fixed-sized input images for model training. There are four data trans-
+including  audio  standardization,  segmentation, 
+formation  steps, 
+augmentation, and spectrogram conversion. 
+
+The  recordings  are  first  standardized  because  they  are  from  the 
+community-contributed  collections  and  thus  may  be  recorded  with 
+various recording equipment, settings and weather conditions. Because 
+the frequency range of the labeled sounds in our database is between 
+100 Hz and 16 kHz, we use a sampling rate of 32 kHz with a 100 Hz high- 
+pass filter as the parameters for audio standardization.
+
+3.4. Model training and evaluation 
+
+3.4.1. Model training 
+
+We  used  YOLOv5s,  the  smallest  weight  of  YOLOv5,  to  build  the 
+sound identification model. The model was trained for 100 epochs with 
+32 batch size and the input image dimension 640 × 640. We used default 
+data  augmentation  including  scaling,  color  space  adjustments,  and 
+Mosaic  augmentation  during  the  training  process.  Under  this  setting, 
+four  original  spectrograms  were  randomly  selected,  resized,  cropped, 
+color jittered (i.e., changes in hue, saturation and exposure) and then 
+merged into one big input image for model training. The model training 
+was performed using a workstation equipped with the following speci-
+fications: Intel Xeon E5–2660 V4 CPU * 2, DDR4 2400 ECC 16GB RAM * 
+8, NVIDIA Titan RTX GPU * 2, and WD black AN1500 4 TB NVMePCIe 
+SSD * 2. 
+
+3.4.2. Model inference and test datasets
+
+Data  augmentation  is  another  powerful  method  to  overcome  the 
+problem of limited data and improve model performance (Shorten and 
+Khoshgoftaar, 2019). Data augmentation can increase the variability of 
+audio  data  in  a  training  dataset  by  transforming  the  data,  such  as 
+changing  the  frequency,  pitch,  and  volume  of  audio  signals,  shifting, 
+rotating  and  zooming  in  the  time  and/or  frequency  domains  of  spec-
+trograms, and adding additional noise (Dai et al., 2021; Ferreira et al., 
+2020; Kahl et al., 2021; Lasseck, 2019; Nanni et al., 2020b; Ruff et al., 
+2021). Since the augmented dataset can better represent the real-world 
+data  than  the  original  dataset,  this  approach  can  improve  the  model 
+performance trained with a small dataset (Nanni et al., 2020b; Xie et al., 
+2019). However, previous studies show that this approach works well 
+only  on  relatively  clean  recordings,  not  soundscape  recordings  (Kahl
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model, several preprocessing steps are typically involved to prepare the data. In the given context, there are four main data transformation steps mentioned for preparing the labeled sounds in a recording for model training: audio standardization, segmentation, augmentation, and spectrogram conversion.
+
+Audio standardization involves processing the recordings to ensure consistency across different sources. This step is crucial since the recordings come from community-contributed collections, which might have been recorded using various equipment, settings, and weather conditions. In this case, the frequency range of the labeled sounds is between 100 Hz and 16 kHz, so a sampling rate of 32 kHz with a 100 Hz high-pass filter is applied as the parameters for audio standardization.
+
+Segmentation refers to dividing the audio signal into smaller segments or frames, allowing the model to learn local features more effectively. Although not explicitly mentioned in the context, segmentation is often part of the preprocessing pipeline for audio data.
+
+Augmentation is a technique used to artificially expand the dataset by applying various transformations to the existing samples. It helps prevent overfitting and improves the generalizability of the model. In this context, default data augmentation techniques like scaling, color space adjustments, and Mosaic augmentation are employed during the training process. These methods involve random selection, resizing, cropping, color jittering, and merging of multiple spectrograms into a single input image.
+
+Lastly, spectrogram conversion is the process of converting the audio signal into a visual representation called a spectrogram. Spectrograms display the intensity of frequencies over time, making them suitable for analyzing non-stationary signals like speech and music. By converting the audio data into spectrograms, the model can leverage convolutional neural networks (CNNs), which excel at extracting spatial features from images.
+
+In summary, the preprocessing steps involved before training a deep learning model for sound identification include audio standardization, segmentation, augmentation, and spectrogram conversion. These steps help ensure consistent, meaningful representations of the audio data, enabling the model to learn relevant features and patterns effectively.

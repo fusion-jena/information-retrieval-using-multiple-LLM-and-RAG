@@ -1,0 +1,72 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To  address  spatial  sampling  biases  and  spatial  autocorrelation  chal-
+lenges in the analysis, we employed a bootstrapping approach using the 
+spThin package in R (Aiello-Lammens et al., 2019). To achieve a 1 km 
+spatial resolution for the modeling exercise, we conducted 50 iterations 
+of  bootstrapping  using  a  minimum  thinning  distance  of  1  km.  This 
+process  resulted  in  obtaining  12,577  unique  locations.  This  approach 
+effectively minimized  the removal of records while significantly miti-
+gating sampling bias (Aiello-Lammens et al., 2015; Radosavljevic and 
+Anderson,  2014).  Spatially-constrained  and  combined  methods  for 
+generating  background  points  show  greater  efficacy  in  modeling  out-
+comes  despite  ongoing  debates  regarding  the  optimal  method  for 
+generating them (Shipley et al., 2022). For this modeling exercise, we 
+used Arc Map 10.3 (ESRI, Redlands, CA), employing a combined method
+
+By default, we utilized the recommended parameters for all MLMs, 
+except for Random Forest (RF), where we expressly set the number of 
+trees to 500 as an additional parameter. A higher number of trees helps 
+reduce  the  resulting  model’s  bias.  We  calibrated  and  validated  each 
+model after fitting each MLM with optimized parameters using a 10-fold 
+cross-validation (CV) design. For each run of the cross-validation pro-
+cedure, we reserved 30% of the forest fire occurrence data as a valida-
+tion  set,  with  the  remaining  70%  of  the  data  being  used  to  train  the 
+model. This rigorous validation methodology was adopted following the 
+method explained by Eskandari et al. (2021). The approach generated 
+50 resulting models, consisting of 10 models for each machine learning 
+algorithm.
+
+3.2. Model performance MLMs comparisons 
+
+The performance of each MLM was assessed using several metrics, 
+such as AUC, TSS, Kappa, and phi. The outcomes of these evaluations are 
+presented  in  Table  3.  Additionally,  Fig.  4  visually  illustrates  the  pre-
+dictive performance of each model with AUC values for both training 
+and test datasets. Upon analysing the four performance metrics, it was 
+evident that the selected models exhibited high consistency, except for 
+the  CART.  The  performance  of  the  remaining  models  displayed  only 
+slight variations within a small range, as shown in Table 3. Additionally, 
+there was no discernible variation in the classifiers’ prediction accuracy 
+according to the Kruskal-Wallis statistic (p > 0.05).
+
+Ensemble modeling capitalizes on the strengths of multiple models to 
+enhance predictive accuracy, increase stability, improve generalization, 
+provide  robustness  against  overfitting,  and  increase  model  interpret-
+ability  (Ganaie  et  al.,  2022).  Combining  the  predictions  of  diverse 
+models, ensemble modeling achieves more accurate and reliable results 
+by  mitigating  the  risks  of  errors  and  biases,  resulting  in  stable  pre-
+dictions that generalize well to unseen data (Ganaie et al., 2022). All the 
+fitted models obtained from the five ML algorithms exhibited favorable 
+performance measures. The AUC for all models surpassed 0.75, while 
+the TSS exceeded 0.45. We used these results to build the final ensemble 
+model,  employing  the  AUC-weighted  ensemble  method  (Achu  et  al., 
+2021;  Tehrany  et  al.,  2019).  This  technique  utilizes  the  performance 
+metrics to effectively combine the predictions from all models, ensuring
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+In the given context, there is no explicit mention of how the hyperparameters of the model were optimized, such as through techniques like grid search or random search. However, it does state that the authors utilized the recommended parameters for all Maximum Likelihood Models (MLMs) except for Random Forest (RF). In the case of RF, they explicitly set the number of trees to 500 as an additional parameter. It can be inferred that some form of optimization might have been performed beforehand to determine the recommended parameters for each MLM. Nonetheless, without specific details about the optimization process, one cannot definitively conclude which method was used.

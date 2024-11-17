@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4 https://github.com/HKathman/pam_annotation_experiments
+5 https://github.com/kahst/BirdNET-Analyzer/tree/main/checkpoints/V2.4
+6 https://tfhub.dev/google/vggish/1
+7 https://tfhub.dev/google/yamnet/1
+8 tensorflow.keras.applications.vgg16.VGG16(weights=’imagenet’).
+9 tensorflow.keras.applications.resnet_v2.ResNet152V2
+
+(weights=’imagenet’).
+
+Fig. 4. UMAP plots for different embedding layers of different embedding
+models for AnuraSet. For UMAP generation, we randomly select 5000 samples
+and discard all samples that are aligned to more than one class. Colors and
+shapes indicate the 10 classes with the highest occurrence frequency. Layers are
+numbered according to their distance from the classification layer, e.g. ‘Bird-
+Net-1’ is the last layer before the classification layer of the BirdNet model.
+
+EcologicalInformatics82(2024)1027105H. Kath et al.
+
+2.2.1. Model architectures
+
+Following Dufourq et al. (2022), we test ResNet152-V2 (He et al.,
+2016) and VGG16 (Simonyan and Zisserman, 2015); these are CNNs pre-
+trained on ImageNet (Deng et al., 2009), a dataset on the visual mo-
+dality. VGGish, a variant of VGG11A (Simonyan and Zisserman, 2015),
+and YAMNet, a MobileNet-V1 network (Howard et al., 2017), were pre-
+trained on AudioSet (Gemmeke et al., 2017), a dataset from the same
+target modality (audio) but a different domain (YouTube sound clips).
+BirdNet (Kahl et al., 2021) was trained on data from the target modality
+(audio) and a related domain (bird vocalisations from focal recordings,
+also annotated at species level).
+
+2.2.2. Model layers
+
+Along these lines, LeBien et al. (2020) build a pipeline for frog and
+bird species identification from acoustic data using as feature extraction
+a ResNet50 pre-trained on ImageNet, a large image dataset (He et al.,
+2016). Florentin et al. (2020) and Dufourq et al. (2022) explore a wider
+range of CNN architectures pre-trained on ImageNet for single-species
+detection in PAM datasets. Tsalera et al. (2021) compare the perfor-
+mance of CNNs pre-trained on ImageNet or AudioSet, a large acoustic
+dataset, and find that models pre-trained on the audio domain are better
+at detecting sound events. Çoban et al. (2020) use VGGish, a CNN pre-
+trained on AudioSet, to detect coarse grained sound events (e.g., song-
+bird, waterbird, insect) in a PAM dataset. Ghani et al. (2023) compare 5
+models pre-trained on audio data on 6 bioacoustics datasets and find
+that Perch1 and BirdNet (Kahl et al., 2021), which differ only slightly
+regarding their training data, perform best at species identification;
+
+evaluation was done on focal and citizen-science datasets. Swaminathan
+et al. (2024) extend the observation to attention-based architectures pre-
+trained on human speech. Lauha et al. (2022) show that transfer
+learning can be helpful also for small networks trained from scratch on
+small, targeted datasets gathered from online resources such as Mac-
+aulay Library2 (as opposed to foundation models trained on large
+datasets). While the works cited above evaluate transfer learning models
+based on classification performance, McGinn et al. (2023) take a
+different approach and investigate the topology of fine grained, sub-
+species sound events in the embedding space afforded by BirdNet;
+they find that different call types of a same species (e.g., drumming
+versus vocalization) form distinct clusters, and that the vicinity of each
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning pipelines mentioned in the given context utilize various datasets for training and evaluation purposes. These include ImageNet, a large-scale dataset containing millions of images categorized into thousands of classes, which has been employed for pretraining models like ResNet152-V2 and VGG16. Additionally, AudioSet, another extensive dataset comprising YouTube sound clips, serves as the basis for pretraining models such as VGGish and YAMNet. Furthermore, BirdNet has been trained on bird vocalizations from focal recordings, while other studies have utilized smaller, targeted datasets collected from sources like Macaulay Library.

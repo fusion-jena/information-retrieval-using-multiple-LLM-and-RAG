@@ -1,0 +1,105 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.1. Dataset 
+
+open 
+
+repository  Zenodo 
+
+The dataset was built as an open-source and code-based dataset for 
+the evaluation of UML algorithms in the context of ecoacoustics. The 
+dataset  was  named  Darksound  and  is  downloadable  on  the  general- 
+purpose 
+(https://zenodo.org/records 
+/10512103). Data acquisition for building the dataset was made using 
+recordings  freely  available  from  the  Xeno-Canto  database.  All  the  re-
+cordings were in the mp3 format with varying sampling rates ranging 
+from 8 kHz to 96 kHz. Recordings were resampled to a sampling rate of 
+44.1 kHz, with the aliasing problem of the recordings handled using a 
+high-quality Fast Fourier Transform-based bandlimited interpolation. 
+
+3.1.1. Training data acquisition
+
+In general, extracting latent space representations from UML algo-
+rithms links a high DBCV score with a high ARI and AMI score. This leads 
+to coherent clusters that can be easily identified by an expert, potentially 
+accelerating  the  process  of  an  ecoacoustic  research  program.  In  the 
+current  experiment,  fine-tuning  of  the  model  using  a  pretrained  Den-
+seNet network returned the highest DBCV score in all cases except for 
+the  5  way-5  shot  tasks  combined  with  the  Relation  Networks  (RN). 
+Nevertheless, it is not necessarily advisable to favor one pretrained CNN 
+backbone  over  another  as  there  are  no  “universally  optimal  methods 
+that  will  just  produce  natural  clusters”  (Hennig,  2015).  Here,  a
+
+pretrained DenseNet might fit the Darksound dataset well, but there are 
+no  guarantees  that it  will  work  on  another  dataset in  the  exact  same 
+manner. All the CNN backbones used in this experiment were previously 
+trained on the ImageNet database, a large but very general dataset. It has 
+been recently shown that using features extracted from models trained 
+on smaller but more specific datasets, that bird sound datasets, leads to 
+higher quality classification (Ghani et al., 2023; McGinn et al., 2023). 
+Consequently, using features extracted from a model trained on spec-
+trograms of bird sounds (e.g.  BirdNET algorithm (Kahl et  al., 2021)), 
+could  improve  the  parameter  initialization  of  UML  algorithms  of  the 
+MEC method.
+
+4. Results 
+
+Table 4.1 
+Comparative  analysis  of  convolutional  neural  network  (CNN)  backbones 
+without  fine-tuning  the  model  on  the  Darksound  dataset.  Results  include 
+Density-Based  Clustering  Validation  (DBCV),  Adjusted  Rand-Index  (ARI)  and 
+Adjusted  Mutual Information  (AMI)  scores,  as  well  as  the  number  of  clusters 
+found for the 30 target species.  
+
+Backbone 
+
+DBCV 
+
+ResNet18 
+VGG16 
+DenseNet 
+AlexNet 
+
+0.2414 
+(cid:0) 0.0415 
+(cid:0) 0.4019 
+0.1481 
+
+ARI 
+
+0.0988 
+0.0052 
+0.0019 
+0.3911 
+
+AMI 
+
+0.3762 
+0.1018 
+0.0197 
+0.6646 
+
+Clusters 
+
+5 / 30 
+6 / 30 
+7 / 30 
+12 / 30
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the data repository link of the deep learning pipeline (e.g., Link to Zenodo, Figshare, Dryad, GBIF)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The dataset used in this study is called Darksound and is openly accessible via the general-purpose repository Zenodo. You can find the dataset at <https://zenodo.org/records/10512103>.

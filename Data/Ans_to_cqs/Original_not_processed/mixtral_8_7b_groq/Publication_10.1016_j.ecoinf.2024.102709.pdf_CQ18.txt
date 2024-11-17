@@ -1,0 +1,11 @@
+Answer:::
+
+To monitor the model performance during training, the strategy implemented involves using k-fold cross-validation, where the data is split into k different training-test sets. The model is then trained on each training split, and the results are investigated. This method allows for a more robust evaluation of the model's performance as it is trained and tested on different subsets of the data.
+
+In addition to k-fold cross-validation, the YOLO loss function, which is divided into three parts, is used to evaluate the model's performance. The box loss, which is a regression loss that measures the error in the predicted bounding box coordinates and dimensions relative to the ground truth, is one of these parts. When the value is lower, the bounding boxes are more accurate, indicating better model performance. The IoU and DFL are used to compute the box loss. The IoU measures the distance between the ground truth and the actual box, and DFL is a loss function that reduces the impact of easy-to-classify examples and focuses on hard-to-classify examples.
+
+The mAP50 value is also used to monitor the model's performance. The mAP50 value indicates the highest number of correctly predicted labels for the model trained on a specific split. A higher mAP50 value indicates better model performance.
+
+The functions of the Python library scikit-learn were used to split the data and investigate the results of each trained model. The table provided compares the six models in detail by comparing different loss training values, which further helps in monitoring the model's performance during training.
+
+Overall, the strategy implemented to monitor the model performance during training involves using k-fold cross-validation, investigating the YOLO loss function, and monitoring the mAP50 value. These methods provide a comprehensive evaluation of the model's performance during training.

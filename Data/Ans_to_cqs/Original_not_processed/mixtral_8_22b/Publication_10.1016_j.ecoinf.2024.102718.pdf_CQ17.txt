@@ -1,0 +1,101 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+such as Reduc-
+the model, various callbacks
+eLROnPlateau, ModelCheckpoint, and EarlyStopping are included.
+These callbacks dynamically modify the learning rate while preserving
+the optimal model
+iteration according to the validation accuracy.
+Throughout the training phase, spanning 35 epochs with a batch size of
+16, that is meticulously recorded using metrics such as accuracy, pre-
+cision, recall, F1-score, AUC, model size, and analysis time providing a
+
+The proposed BEiT model exhibits considerable performance im-
+provements in the classification task compared to various conventional
+deep learning models, as summarized in Table 16. Achieving an accu-
+racy of 98.1%, the BEiT model exceeds all other State-of-the-art models,
+including the previously top-performing model by Farian et al. (96.1%).
+This improvement in accuracy is statistically significant, with signifi-
+cance denoted by the α markers, indicating p < 0.05 using a two-sided
+McNemar’s test against the BEiT model. It achieves a precision of
+98.2%, a recall of 97.7%, and an F1-score of 96.5%, which are higher
+than those of other models such as the ViT-30, ViT-20, and LAMP-LFD
+models. Vivek et al.’s model, which shows high precision (94.5%) and
+recall (95.0%), still falls short of the BEiT model’s comprehensive
+
+Table 11
+Ablation study evaluating BEiT model performance without added noise.
+
+Model
+
+Acc
+
+Loss
+
+AUC
+
+CK
+
+Precision
+
+Recall
+
+F1
+
+98.33
+99.33
+97.33
+
+0.092
+0.082
+0.121
+
+Initially, we assess our modified BEiT model’s performance against
+existing deep learning and base ViT models under both noise-added and
+noise-free situations. The results obtained from the PlantVillage are
+presented dataset in Tables 6 and 7, The results reveal that the proposed
+BEiT (12 M) achieves an outstanding accuracy of 97.33% with the least
+loss. It outperforms in AUC, CK, precision, recall, and F1 scores in both
+noisy and noiseless conditions. Similarly, the Dhan-Shomadhan dataset
+in Tables 8 and 9, the low parameterized BEiT (12 M) model maintains
+its lead he highest accuracy (96.22% and 97.50%) and least loss (0.131
+and 0.121). It achieves reliable metrics in AUC (0.962), CK (0.88),
+precision (0.97), recall (0.96), and F1 score (0.96). Other models also
+perform well but continually fall below BEiT (12 M)’s specifications
+across both noisy and noiseless situations. These results underline BEiT
+(12 M)’s better performance and reliability in leaf disease classification
+
+adaptability, the implementation employs various callbacks, including
+learning rate reduction (ReduceLROnPlateau), model checkpointing
+(ModelCheckpoint), and early stopping (EarlyStopping). This custom-
+ized model is integrated into an ensemble model, which incorporates a
+final dense layer with softmax activation to facilitate the classification
+task. The training procedure is carried out using a generator-based
+method, with a specific focus on assessing the model’s performance on
+both the training and validation datasets by implementing established
+callbacks.
+
+4. Experimental setup
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+In the given context, there isn't any explicit mention of regularization methods like dropout or L2 regularization being used to prevent overfitting in the deep learning pipeline. However, some techniques employed can be considered as implicit ways to mitigate overfitting.
+
+One technique mentioned is the use of various callbacks during the training process, specifically ReduceLROnPlateau, ModelCheckpoint, and EarlyStopping. ReduceLROnPlateau reduces the learning rate when a metric has stopped improving, which helps avoid getting stuck in local minima and improves generalization. ModelCheckpoint saves the best performing model based on a specified metric, ensuring that the final model chosen is not overfit to the training data. Lastly, EarlyStopping stops the training process if a monitored metric fails to improve after a certain number of epochs, preventing unnecessary iterations that could potentially cause overfitting.
+
+Additionally, the ablation studies conducted for the BEiT model evaluate its performance without added noise, suggesting that the model might have been trained with some form of input augmentation or perturbation to enhance robustness and reduce overfitting.
+
+While these techniques contribute to reducing overfitting, they do not directly correspond to traditional regularization methods like dropout or L2 regularization. Therefore, it cannot be definitively stated what regularization methods were explicitly used to prevent overfitting in this deep learning pipeline.

@@ -1,0 +1,129 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Result
+
+0.79
+0.22
+
+3.2. Summary Statistics
+
+To evaluate the ﬁnal system, including tracking and classiﬁcation, three survey nights
+were selected (30 August to 2 September 2019). This period contained a high number of
+moths and a high variation of species, wherein all eight moths species were represented.
+The duration of the survey every night was from 22:30 to 05:00, adding up to a total of
+22.5 h. Fewer than 1% of the images from this period of survey were used to train the CNN
+model. In this way, the algorithm was tested on a mostly unknown data material.
+
+36. Tan, M.; Le, Q.V. EfﬁcientNet: Rethinking Model Scaling for Convolutional Neural Networks. arXiv 2019, arXiv:1905.11946,
+37. Huang, G.; Liu, Z.; Weinberger, K.Q. Densely Connected Convolutional Networks. arXiv 2016, arXiv:1608.06993,
+38. Wu, S.; Zhong, S.; Liu, Y. ResNet. Multimed. Tools Appl. 2017. [CrossRef]
+39.
+
+Szegedy, C.; Vanhoucke, V.; Ioffe, S.; Shlens, J.; Wojna, Z. Rethinking the Inception Architecture for Computer Vision.
+In
+Proceedings of the 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), Las Vegas, NV, USA, 26 June–1
+July 2016; pp. 2818–2826.
+
+40. R Core Team. R: A Language and Environment for Statistical Computing; R Core Team: Geneva, Switzerland, 2020. Available online:
+
+http://softlibre.unizar.es/manuales/aplicaciones/r/fullrefman.pdf (accessed on 9 November 2020).
+
+•
+•
+•
+•
+•
+
+The CNN model had four layers for feature detection and two fully connected layers
+for ﬁnal species classiﬁcation. The optimal architecture was found by using combinations
+of hyperparameters for the ﬁrst and last layer in the CNN. Below are the parameters used
+to train different CNN’s for species classiﬁcation.
+Fixed pool size and stride, n × n, n ∈ {2}
+Kernel size n × n, n ∈ {1, 3, 5}
+Convolutional depth n, n ∈ {32, 64, 128}
+Fully connected size n, n ∈ {256, 512}
+Optimizer n, n ∈ {Adam, SGD}
+The optimal chosen CNN architecture is shown in Figure 5. The ﬁrst layer performed
+convolution using 32 kernels with a kernel size of 5 × 5 followed by maximum pooling
+of size 2 × 2 and stride 2. All the following layers used a kernel size of 3 × 3. The
+second and third layer performed convolution using 64 kernels with the same pooling
+size as mentioned above. The ﬁnal layer also used 64 kernels based on the optimization of
+
+Sensors 2021, 21, 343
+
+8 of 18
+
+The chosen model shown in Figure 5 had an F1-score of 92.75%, which indicated that
+the trained CNN was very accurate in its predictions. This ﬁnal architecture was chosen
+because it achieved average precision, recall, and an F1-score of 93%, which indicated a
+suitable model classiﬁcation.
+
+Sensors 2021, 21, 343
+
+10 of 18
+
+Table 2. Ranking of the CNN architectures with highest and lowest F1 classiﬁcation scores. Rank 1 to
+32 were trained using the Adam optimizer. Rank 33 to 64 were trained using the SGD optimizer. The
+hyperparameters column shows values of {kernel size layer 1, kernel size last layer, convolutional
+depth layer 1, convolutional depth last layer, fully connected size}.
+
+Rating
+
+Hyperparameters
+
+Learnable
+Parameters
+
+F1/-Score
+
+1.
+2.
+3.
+4.
+5.
+...
+31.
+32.
+
+33.
+34.
+...
+62.
+63.
+64.
+
+3, 3, 32, 128, 512
+5, 1, 32, 128, 512
+5, 3, 32, 64, 512
+3, 3, 32, 64, 512
+5, 3, 32, 128, 512
+
+5, 1, 64, 64, 512
+5, 3, 32, 32, 512
+
+5, 3, 64, 128, 512
+5, 3, 32, 128, 512
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training process, several postprocessing steps can be taken to analyze and validate the performance of the trained model. Some common postprocessing techniques include saliency maps, metrics calculations, and confusion matrices.
+
+Saliency maps are visualizations that highlight the regions of input data that have the most significant impact on the output prediction made by the model. These maps help identify which features or areas of the input data contribute the most to the final classification decision. By examining these saliency maps, researchers can gain insights into how their models work and what factors they consider important when making decisions.
+
+Metrics calculations involve evaluating the performance of the trained model using various quantitative measures such as accuracy, precision, recall, and F1 score. Accuracy represents the proportion of correct predictions out of the total number of samples. Precision indicates the ratio of true positive predictions to the sum of true positives and false positives. Recall signifies the fraction of relevant instances retrieved out of the total number of actual positives. The F1 score combines both precision and recall into a single metric, providing a more balanced evaluation of the model's performance.
+
+Confusion matrices provide a tabular representation of the predicted versus actual classes for each sample in the dataset. Each row of the matrix corresponds to an actual class, while each column represents a predicted class. The diagonal elements indicate the number of correctly classified samples, whereas off-diagonal entries denote misclassifications. Analyzing confusion matrices allows researchers to understand where their models struggle and which classes tend to get confused with one another.
+
+Based on the given context, we can see that the authors evaluated their final system using summary statistics over three survey nights containing a high number of moths and varying species. They calculated the F1-score of their chosen model, achieving an impressive 92.75%. Additionally, they ranked their CNN architectures based on their F1 classification scores, indicating that they likely employed some form of metrics calculation during their postprocessing stage. However, there is no explicit mention of saliency maps or confusion matrices being utilized in this study.

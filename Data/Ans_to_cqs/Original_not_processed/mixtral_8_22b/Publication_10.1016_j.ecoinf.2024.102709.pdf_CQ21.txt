@@ -1,0 +1,64 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To determine the ideal training–test split for our model, we used k- 
+fold  cross-validation  (k  = 5,  epochs  = 500,  imagesize  = 640).  The 
+epochs provide the number of repetitions for training, and the image size 
+is  expressed in  pixels. k-fold  cross-validation  (Rodriguez et  al., 2010) 
+was used to determine the best training test set for the model. Hereby, 
+the data are split into k different training–test sets. The model was not 
+trained on the entire dataset but on each training split. The result was an 
+investigation of the best data split. Functions of the Python library scikit- 
+learn  (scikit-learn  developers,  2023)  were  used  to  split  the  data  and 
+investigate the results of each trained model. In addition, YOLO training 
+losses and mAP50 values of each model were investigated. The split with 
+the  highest  mAP50  value  indicates  the  highest  number  of  correctly 
+predicted labels for the model trained on a specific split. We used the
+
+Table  7  depicts  the  six  models  in  greater  detail  by  comparing 
+different loss training values, which indicate how well the model learned 
+during training. The goal of training was to minimize the loss value. The 
+YOLO loss function was divided into three parts (Zafar et al., 2018). 
+
+The box loss is a regression loss that measures the error in the pre-
+dicted bounding box coordinates and dimensions relative to the ground 
+truth. When the value is lower, the bounding boxes are more accurate (Li 
+et al., 2023; Wang et al., 2023). This value is computed by YOLO using 
+Intersection  over  Union  (IoU)  (Zheng  et  al.,  2016)  and  distributional 
+focal  loss  (DFL)  (X.  Li  et  al.,  2020b).  The  IoU  measures  the  distance 
+between the ground truth and the actual box (Zheng et al., 2016). DFL
+
+Three models (Models 4, 5, and 6) were trained using our own data 
+(clusters of extracted numbers), as described above, as input for training, 
+whereas the other three models (Models 1, 2, and 3) were trained with 
+the modified National Institute of Standards and Technology (MNIST) 
+dataset of handwritten digits, which can be used to train classification 
+models (Deng, 2012).
+
+split  data  with  the  highest  mAP50  (0.987)  for  the  prediction  of  our 
+model.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training process, several postprocessing steps can be performed depending on the requirements of the project or research. Some common postprocessing steps include:
+
+1. Model Evaluation: After training, it is essential to evaluate the performance of the model using various metrics such as accuracy, precision, recall, F1 score, etc. These metrics help us understand how well the model has learned from the given data and its ability to generalize to unseen data.
+
+2. Confusion Matrix: A confusion matrix is a table that summarizes the predictions made by the model compared to the actual outcomes. It provides insights into the types of errors made by the model and helps identify areas where the model needs improvement.
+
+3. Saliency Maps: Saliency maps are visualizations that highlight the regions of an input image that contribute most significantly to the output of the model. They help us understand what features the model focuses on while making predictions.
+
+4. Hyperparameter Tuning: Postprocessing may also involve fine-tuning hyperparameters such as learning rate, batch size, regularization parameters, etc., to improve the model's performance further.
+
+In this case, the authors have used k-fold cross-validation to determine the best training-test split for their model. They have evaluated the performance of their model using the mean Average Precision (mAP50) metric, which measures the proportion of true positive detections among all predicted detections. Additionally, they have calculated the YOLO training losses, which measure the difference between the predicted and actual bounding boxes around objects in the image. Based on these evaluations, they have selected the split with the highest mAP50 value as the best data split for their model. However, the paper does not explicitly mention any saliency map generation or confusion matrix creation as part of their postprocessing steps.

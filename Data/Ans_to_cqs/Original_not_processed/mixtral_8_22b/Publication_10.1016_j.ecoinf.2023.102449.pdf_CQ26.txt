@@ -1,0 +1,118 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Group 
+
+Encoder    
+Pre-processing 
+
+ResStack 1 
+
+ResStack 2 
+
+ResStack 3 
+
+ResStack 3 
+
+Temporal Framing 
+Bottleneck     
+
+Reparameterisation 
+
+Decoder    
+Temporal Framing 
+ResStack 3 
+
+ResStack 3 
+
+ResStack 2 
+
+ResStack 1 
+
+Post-processing 
+
+Operation 
+
+Input Shape 
+
+Output Shape 
+
+5 × 5 Conv + BatchNorm + ReLU 
+Max & Avg pooling +1 × 1 Conv 
+Downsampling block 
+2 × Residual Block 
+Downsampling block 
+2 × Residual Block 
+Downsampling block 
+2 × Residual Block 
+Downsampling block 
+2 × Residual Block 
+Reshape 
+
+Flatten 
+Linear 
+Sample 
+Linear 
+Unflatten 
+
+Reshape 
+Upsampling block 
+2 × Residual Block 
+Upsampling block 
+2 × Residual Block 
+Upsampling block 
+2 × Residual Block 
+Upsampling block 
+2 × Residual Block 
+1 × 1 Conv + BatchNorm + ReLU 
+2 × 2 ConvTranspose + BatchNorm + ReLU 
+5 × 5 Conv
+
+1.  Advancement  of  inductive  biases  by  exploring  the  effect  of  pre- 
+
+training on a more relevant data distribution. 
+
+2. Increased interpretability by introducing a simple method to inter-
+
+pret downstream classification.  
+
+3.  Better temporal aggregation by integrating intermittent and periodic 
+
+audio signals over time into a probabilistic representation. 
+
+1.3.1. Data distribution and preprocessing
+
+quency response that create a potential bias; we demonstrate how a simple linear transformation can be used to 
+mitigate the effect of hardware variance on the learned representation under our approach. Our novel approach 
+paves the way for development of a new class of deep neural networks that afford more interpretable learned 
+ecoacoustic representations to advance both fundamental and applied science and support global conservation 
+efforts.
+
+The  encoder  uses  a  pre-processing  block  containing  a  convolution 
+with a wide receptive field (5 × 5 kernel) and signal coarsening along 
+the time axis (2 × 1 kernel) (Kahl et al., 2021). Coarsening follows the 
+changes suggested in (He et al., 2018) and replicates later versions of 
+BirdNet’s  down-sampling  strategy  by  recombining  the  concatenated 
+output  of  2 × 2  maximum and  2  × 2 average  pooling using  a  1 × 1 
+convolution.  After  convolution,  feature  representations  are  chunked 
+along the time axis into T = 19 independent frames each corresponding 
+to 3.072 s. Each frame is flattened and passed through a final linear layer 
+to  output  T  d-dimensional  mean  μ  and  log  variance  logσ2  vectors  as 
+parameters  for  the  Gaussian  variational  posterior.  A  latent  vector  for 
+each frame in the time-series is sampled from the posterior using the 
+reparameterisation trick. We set d = 128 for comparability with ecoa-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, there isn't any explicit mention of specific techniques such as stratified splitting, oversampling, undersampling, or diverse data collection being employed to address data bias during preprocessing of the deep learning pipeline. However, it does discuss a technique to mitigate the effect of hardware variance on the learned representation. This technique involves applying a simple linear transformation after the initial convolution operation in the pre-processing block. The aim of this transformation is to counteract the potential bias introduced by frequency responses that vary across different hardware devices. Therefore, while not directly addressing data bias in terms of class imbalance or diversity, this approach attempts to ensure that the learned representations remain consistent despite variations in recording equipment.

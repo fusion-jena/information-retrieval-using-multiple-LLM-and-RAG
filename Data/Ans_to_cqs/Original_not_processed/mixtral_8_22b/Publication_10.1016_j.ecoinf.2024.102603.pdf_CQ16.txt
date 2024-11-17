@@ -1,0 +1,75 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+the examined population is recorded and utilized by the next tree in line 
+to improve the previous results. 
+
+To assess the model's performance, we used the leave-one-out pro-
+cedure for cross-validation [Hastie et al., 2001]. It maximizes the use of 
+available data, reduces bias in performance estimation, and is particu-
+larly  useful  for  small  datasets,  as  it  rigorously  assesses  model  perfor-
+mance by iterative training on all but one sample and evaluating the 
+excluded  sample.  The  following  metrics  were  calculated  for  model 
+performance:  the  coefficient  of  determination  (R2),  as  well  as  Mean 
+Absolute Error (MAE), Root Mean Square Error (RMSE), and Relative 
+Root Mean Square Error (RRMSE). 
+
+3. Results 
+
+3.1. Analysis of ground-measured chlorophyll fluorescence
+
+(September–October)  in  2022.  During  the  mid-seasons  in  2022  and 
+2023,  the  standard  deviations  were  at  their  minimum,  ranging  from 
+0.010  to  0.011.  Conversely,  the  initial  (April/May)  and  final 
+(September/October)  stages  of  vegetation  development  in  2022  and 
+September 2023 displayed the highest standard deviations, measuring 
+0.02 and 0.029, respectively. 
+
+3.2. Feature importance and feature selection with XGBoost
+
+The XGBoost model does not have an analytical form and is obtained 
+through numerical optimization of the error function in successive it-
+erations. According to specific criteria, the algorithm takes the form of a 
+so-called  ensemble  model  and  is  based  on  regression  decision  trees 
+(CART)  that  partition  the  example  space  using  a  divide-and-conquer 
+method, aiming to introduce maximum order to the data. The training 
+(spectral-vegetation  indices  referring  to  Table  2)  and  validation 
+(ground-based  Fv/Fm  measurements)  sets  were  divided  in  an  80:20 
+ratio. XGBoost trains a series of trees, with each subsequent tree starting 
+its  learning  process  anew,  taking  into  account  the  correction  for  the 
+residual values of the previous tree. The error value (residual value in 
+the context of classical regression) made by each tree for each element of
+
+Wu, J., Li, Y., Ma, Y., 2021. Comparison of XGBoost and the neural network model on the 
+class-balanced datasets. In: 2021 IEEE 3rd International Conference on Frontiers 
+Technology of Information and Computer (ICFTIC), Greenville, SC, USA, 
+pp. 457–461. https://doi.org/10.1109/ICFTIC54370.2021.9647373. 
+
+Wu, Q., Zhang, Y., Xie, M., Zhao, Z., Yang, L., Liu, J., Hou, D., 2023. Estimation of Fv/Fm 
+in spring wheat using UAV-based multispectral and RGB imagery with multiple 
+machine learning methods. Agronomy 13, 1003. https://doi.org/10.3390/ 
+agronomy13041003. 
+
+Zarco-Tejada, P.J., Berj´on, A., L´opez-Lozano, R., Miller, J.R., Matín, P., Cachorro, V., 
+
+Gonz´ales, M.R., de Frutos, A., 2005. Assessing vineyard condition with hyperspectral 
+indices: leaf and canopy reflectance simulation in a row structured discontinuous 
+canopy. Remote Sens. Environ. 99, 271–287. https://doi.org/10.1016/j. 
+rse.2005.09.002. 
+
+EcologicalInformatics81(2024)10260312
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, the exact criteria for determining when training is complete are not explicitly stated. However, since the study uses the XGBoost model, which is a type of gradient boosting machine, it can be inferred that the training process continues until a certain number of trees or rounds are built, or until the improvement in the evaluation metric becomes negligible. This is because XGBoost models work by building new trees that predict the residuals of the preceding ones, gradually improving the overall prediction accuracy. Therefore, the training could stop when adding more trees no longer significantly improves the model's performance. Additionally, early stopping techniques might also be employed to prevent overfitting, where the training stops if the validation score doesn't improve after a set number of rounds.

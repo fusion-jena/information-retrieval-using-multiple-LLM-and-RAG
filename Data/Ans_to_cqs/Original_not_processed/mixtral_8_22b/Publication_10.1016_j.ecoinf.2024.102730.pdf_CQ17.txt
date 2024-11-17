@@ -1,0 +1,152 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Barhate, D., Pathak, S., Dubey, A.K., 2023. Hyperparameter-tuned batch-updated
+stochastic gradient descent: plant species identification by using hybrid deep
+learning. Eco. Inform. 75, 102094 https://doi.org/10.1016/j.ecoinf.2023.102094.
+
+Barr´e, P., St¨over, B.C., Müller, K.F., Steinhage, V., 2017. LeafNet: a computer vision
+
+system for automatic plant species identification. Eco. Inform. 40, 50–56. https://
+doi.org/10.1016/J.ECOINF.2017.05.005.
+
+Beck, P.S., Goetz, S.J., 2011. Satellite observations of high northern latitude vegetation
+
+productivity changes between 1982 and 2008: ecological variability and regional
+differences. Environ. Res. Lett. 6, 045501 https://doi.org/10.1088/1748-9326/6/4/
+045501.
+
+Beck, P.S., Atzberger, C., Høgda, K.A., Johansen, B., Skidmore, A.K., 2006. Improved
+monitoring of vegetation dynamics at very high latitudes: a new method using
+MODIS NDVI. Remote Sens. Environ. 100, 321–334. https://doi.org/10.1016/j.
+rse.2005.10.021.
+
+Unfortunately, MLPs are black-box models. This means that, while
+they can approximate any function, it is nearly impossible to determine
+the structure of the approximated function. This led to a whole new field
+within ML, explainable artificial intelligence (xAI), which tries to create
+methods that allow human users to understand the predictions made by
+an ML model (Vilone and Longo, 2021). Some popular examples include
+sensitivity analysis (Zeiler and Fergus, 2014), Local Interpretable Model-
+Agnostic Explanations (LIME) (Ribeiro et al., 2016), and SHapley Ad-
+ditive exPlanations (SHAP) values (Lundberg et al., 2017). This study
+uses the last method, as it is gaining in popularity and is now often used
+in ecology. For example, Masago and Lian (2022) use SHAP values to
+investigate how inter-annual variation in the daily average temperature
+affected the first flowering date or the full blossom date of the Yoshino
+
+Despite massive advancements in the field of machine learning (ML)
+during the last decade, ML is not yet often used for vegetation studies.
+ML models can be used for various tasks, among which are classification,
+regression, and image segmentation. In ML, models extract knowledge
+from data and use this knowledge to produce an output relevant to the
+task at hand. These models use three main learning paradigms: super-
+vised learning, unsupervised learning or reinforcement learning. This
+study only considers the first paradigm, as we build a regression model.
+Within supervised learning, there are a multitude of model types, for
+example, support vector machines (Hearst et al., 1998), boosted tree
+ensembles (e.g., XGBoost (Chen and Guestrin, 2016) or LightGBM (Ke
+et al., 2017)) and artificial neural networks (ANNs) (McCulloch and
+Pitts, 1943). This analysis will use ANNs, particularly multilayer per-
+ceptrons (MLPs), which are fully connected feedforward neural net-
+
+After training the MLP models, we computed SHAP values using the
+model-agnostic Kernel SHAP method to understand which features are
+most important in predicting the start and (height of the) peak of the
+greening season. We used the implementation in the Python SHAP
+package for this analysis Lundberg et al. (2017).
+
+Table 2
+Overview of the explored ranges of hyperparameters used in the Optuna grid
+search. The optimal values for the three different regression tasks are displayed
+in the right-most three columns.
+
+Description
+
+Range
+
+Number of neurons in first
+
+layer
+
+Number of neurons in
+
+second layer
+Strength of the L2
+
+regularization term
+the solver for weight
+
+optimization
+
+initial learning rate
+
+learning rate schedule for
+
+weight updates
+
+maximum number of
+
+iterations
+
+maximum number of
+iterations with no
+improvement
+
+int: 10, 20, …,
+100
+int: 0, 10, …,
+100
+float: 1e-4 —
+1e-1 logscale
+
+SOS
+
+100
+
+0
+
+POS
+
+PEAK
+
+70
+
+0
+
+30
+
+100
+
+0.0290
+
+0.0010
+
+0.0606
+
+adam, lbfgs
+
+adam
+
+adam
+
+adam
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit information on all the regularization methods used in the deep learning pipeline. However, it mentions the strength of the L2 regularization term as one of the hyperparameters used in the Optuna grid search. Therefore, it can be inferred that L2 regularization was employed to prevent overfitting in the deep learning pipeline. Unfortunately, the context does not mention other regularization techniques such as dropout.
+
+In general, regularization methods are used to prevent overfitting in machine learning models, including deep learning pipelines. Overfitting occurs when a model learns the noise in the training data instead of the underlying pattern, resulting in poor performance on unseen data. Regularization methods introduce a penalty term to the loss function during optimization, discouraging complex models and promoting simpler ones. Common regularization techniques include L1 regularization, L2 regularization, and dropout.
+
+L1 regularization adds the absolute value of the weights as a penalty term to the loss function, encouraging sparse solutions where many weights become zero. On the other hand, L2 regularization adds the squared magnitude of the weights as a penalty term, favoring smaller weights overall. Dropout is another technique that randomly drops out some neurons during training, preventing the network from relying too heavily on specific neurons and improving its ability to generalize.

@@ -1,0 +1,249 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+and λ2 = 0.5. The performance is averaged over 10 random seeds.  
+
+λ
+
+2 
+
+λ 
+
+1 
+2 
+4 
+8 
+16 
+32 
+64 
+128 
+256 
+512 
+1024 
+2048 
+S 
+
+AWT 
+
+0.682 
+0.690 
+0.695 
+0.697 
+0.699 
+0.695 
+0.684 
+0.672 
+0.662 
+0.654 
+0.649 
+0.647 
+0.698 
+
+CAN 
+
+0.682 
+0.677 
+0.673 
+0.675 
+0.680 
+0.684 
+0.687 
+0.688 
+0.684 
+0.675 
+0.660 
+0.640 
+0.673 
+
+NSW 
+
+0.689 
+0.707 
+0.716 
+0.721 
+0.724 
+0.725 
+0.724 
+0.723 
+0.718 
+0.711 
+0.702 
+0.695 
+0.723 
+
+NZ 
+
+0.730 
+0.737 
+0.740 
+0.741 
+0.742 
+0.745 
+0.746 
+0.744 
+0.740 
+0.733 
+0.727 
+0.721 
+0.742 
+
+SA 
+
+0.784 
+0.803 
+0.811 
+0.814 
+0.814 
+0.811 
+0.806 
+0.799 
+0.793 
+0.789 
+0.786 
+0.785 
+0.814 
+
+SWI 
+
+0.837 
+0.836 
+0.836 
+0.836 
+0.837 
+0.837 
+0.836 
+0.834 
+0.831 
+0.825 
+0.817 
+0.807 
+0.836 
+
+avg 
+
+0.734 
+0.742 
+0.745 
+0.747 
+0.749 
+0.749 
+0.747 
+0.743 
+0.738 
+0.731 
+0.723 
+0.716 
+0.748  
+
+References 
+
+Araújo, M.B., Peterson, A.T., 2012. Uses and misuses of bioclimatic envelope modeling. 
+
+Ecology 93 (7), 1527–1539.
+
+Table B.4 
+Mean AUC performance of other alternative ML loss functions. The performance is averaged over 10 random seeds.   
+
+CE 
+weighted CE 
+Focal CE (γ = 0.5) 
+Focal CE (γ = 1) 
+Focal CE (γ = 2) 
+Focal CE (γ = 5) 
+Focal full weighted (γ = 0.5) 
+Focal full weighted (γ = 1) 
+Focal full weighted (γ = 2) 
+Focal full weighted (γ = 5) 
+LDAM (C = 0.1) 
+LDAM (C = 1) 
+LDAM (C = 10) 
+DB loss (λ = 3) 
+DB loss (λ = 5) 
+Entmax (α = 0.01) 
+Entmax (α = 0.05) 
+Entmax (α = 0.1) 
+Full weighted (λ2 = 0.5) 
+Full weighted (λ2 = 0.8) 
+Full weighted (λ2 = 1) 
+
+AWT 
+
+0.663 
+0.670 
+0.663 
+0.663 
+0.662 
+0.660 
+0.680 
+0.686 
+0.689 
+0.682 
+0.663 
+0.662 
+0.648 
+0.669 
+0.668 
+0.665 
+0.680 
+0.676 
+0.698 
+0.704 
+0.696 
+
+CAN 
+
+0.718 
+0.706 
+0.718 
+0.718 
+0.718 
+0.719 
+0.684 
+0.682 
+0.678 
+0.665 
+0.718 
+0.718 
+0.719 
+0.704 
+0.698 
+0.687 
+0.697 
+0.683 
+0.650 
+0.696 
+0.714 
+
+NSW
+
+where ys is 1 if species s is present (the species has been observed) and 0 
+otherwise,  ̂ys  denotes  the  predicted  suitability  score  for  species  s 
+ʹ
+(ranging from 0 to 1), ̂y
+s  represents the model’s prediction for species s 
+at a random location, S is the number of species considered, and 1[⋅] is the 
+indicator function, returning 1 if the condition inside the brackets is true 
+and 0 otherwise. It is important to note that this loss function is defined 
+for a single presence location, and therefore the overall loss for the entire 
+training dataset is computed by averaging over all the presence locations 
+in the training set. We observe that L full  is composed of three distinct 
+terms, each corresponding to a different type of sample. The first term 
+addresses presences, favoring a high score for the species that is present, 
+and is weighed by a coefficient λ to compensate for the relatively small
+
+3.5. Evaluation and baselines
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The strategy implemented to monitor the model performance during training involves using a specific loss function called L_full. This loss function is designed to handle imbalanced datasets with multiple classes, which is common in ecological studies where there are many more absence points than presence points for any given species. The L_full loss function consists of three terms, each addressing a different type of sample: presences, absences, and background samples. Presence samples receive a higher weight through a coefficient lambda to account for their relative scarcity compared to absence or background samples. By minimizing this loss function during training, the model aims to accurately predict species distributions while accounting for the inherent class imbalance in the data.

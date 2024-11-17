@@ -1,0 +1,11 @@
+Answer:::
+
+The strategy implemented to monitor the model performance during training involves using a loss function that measures the difference between the predicted and actual values for a specific target variable. In this case, the loss function used is the Full weighted loss with a regularization parameter λ2 set to 0.5. This loss function is designed to handle a dataset with multiple species, where each species can be either present or absent.
+
+The Full weighted loss function is composed of three terms, each corresponding to a different type of sample. The first term addresses presences, favoring a high score for the species that is present. This term is weighed by a coefficient λ to compensate for the relatively small number of presence samples compared to the total number of samples. The second term addresses absences, encouraging the model to predict low scores for species that are not present. The third term is a regularization term that helps prevent overfitting by penalizing large model weights.
+
+The performance of the model is evaluated using the Area Under the Curve (AUC) metric, which measures the model's ability to distinguish between positive and negative samples. The AUC metric is calculated for each of the ten random seeds used during training, and the mean AUC is reported for each state (AWT, CAN, NSW, NZ, SA, and SWI).
+
+Additionally, the performance of other alternative machine learning loss functions is also reported, including Cross-Entropy, Focal Cross-Entropy, Logistic Deviance, and Entmax loss functions. These functions are evaluated using the same AUC metric and mean AUC is reported for each state.
+
+Overall, the strategy for monitoring the model performance during training involves using a specialized loss function that takes into account the presence and absence of multiple species, evaluating the model's performance using the AUC metric, and comparing the results to other alternative loss functions.

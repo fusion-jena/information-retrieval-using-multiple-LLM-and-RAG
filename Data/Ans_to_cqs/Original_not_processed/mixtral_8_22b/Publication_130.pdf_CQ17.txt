@@ -1,0 +1,124 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+VGG19 CNN network (i.e. the classifier part) was replaced by layers 
+
+& Mazurowski, 2018). Oversampling was therefore restricted to the 
+
+with random weights that fit our particular task of interest and the 
+
+training dataset and not applied to the validation dataset in order to 
+
+corresponding number of classes (i.e. number of different individu-
+
+avoid  overestimating  the  model's  learning  progress.  For  both  spe-
+
+als; Figure S1).
+
+cies, in order to limit overfitting caused by having very similar pic-
+
+To further increase our training sample, we then used a data aug-
+
+tures  in  the  training  and  validation  datasets,  we  used  images  from 
+
+mentation procedure. This procedure consists of artificially increas-
+
+different  days  in  our  training  and  validation  datasets.  In  total,  we 
+
+ing the sample size by applying transformations to an existing set of 
+
+constructed a dataset of sociable weavers containing 27,038 unique
+
+a deep learning model with an imbalanced training dataset (i.e. when 
+
+35 sociable weavers at the RFIDs antennas. Of these, 30 individuals 
+
+the different classes, here the individuals, have different number of 
+
+with more than 350 pictures were used to train the classifier. In the 
+
+training pictures) can result in the over-generalization for the classes 
+
+great tit population, 77 birds were photographed, of which 10 had 
+
+in majority due to its increased prior probability. For instance, a naïve 
+
+more than 350 pictures. These 10 individuals were used to train a 
+
+classifier  for  a  binary  classification  task  for  a  dataset  in  which  the 
+
+CNN  for  each  of  the  species.  The  remaining  five  sociable  weavers 
+
+ratio  of  the  minority  class  to  the  majority  class  is  1:100  will  have 
+
+and 67 great tits (with <350 pictures) were used to address the issue 
+of working in open areas where new individuals can constantly be
+
+be frozen in order to mitigate overfitting, this is especially important 
+
+is  oversampling,  which  consists  of  creating  copies  of  the  training 
+
+when the training datasets are small. However, as freezing the layers 
+
+data from the less sampled classes.
+
+prevent them from update their weights during the training process 
+
+We applied limited oversampling to our training dataset only. For 
+
+(and therefore could prevent the model from learning key features 
+
+nine sociable weavers and six great tits for which we did not have 
+
+for performing the classification task) and considering the size of our 
+
+1,000 images, we first selected 100 images for the validation dataset 
+
+training datasets, we decided to train the models without freezing 
+
+and then duplicated (through oversampling) the remaining pictures 
+
+any  of  the  layers  of  the  network.  The  fully  connected  part  of  the 
+
+until 900 images were available for the training dataset (Buda, Maki,
+
+of validation pictures, we used a structural similarity index measure 
+
+One  dropout  layer  was  added  just  before  the  first  dense  layer 
+
+(SSIM;  Wang,  Bovik,  Sheikh,  &  Simoncelli,  2004)  to  create  a  data-
+
+(see  github.com/Andre CFerr eira/Bird_indiv idualID  and  Figure  S1 
+
+set  with  maximized  pairwise  dissimilarity  among  images  (following 
+
+for  details  on  the  network  architecture).  Dropout  layers  are  used 
+
+a  similar  procedure  as  Hansen  et  al.,  2018  for  a  pig  dataset).  We 
+
+to limit overfitting by randomly ignoring units of the CNN (i.e. neu-
+
+started by randomly selecting an image to include in the validation 
+
+rons) during the training process (see Srivastava, Hinton, Krizhevsky, 
+
+dataset. We then randomly sampled images and computed the SSIM 
+
+Sutskever, & Salakhutdinov, 2014 for details on dropout). For the so-
+
+between the new image and those already in the validation dataset.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors employed several regularization techniques to prevent overfitting in their deep learning pipeline. One such method was the use of dropout layers, which randomly ignore units of the Convolutional Neural Network (CNN) during the training process. This technique helps limit overfitting by preventing complex co-adaptations on the training data. Additionally, they avoided freezing any layers of the network, allowing all layers to update their weights during the training process. This decision was made to ensure that the model could learn key features necessary for performing the classification task, despite the relatively small size of their training datasets. Furthermore, oversampling was applied to the training dataset to balance the classes, as an imbalanced training dataset can lead to over-generalization for the classes in majority. Lastly, a Structural Similarity Index Measure (SSIM) was utilized to create a validation dataset with maximized pairwise dissimilarity among images, ensuring diversity within the dataset and reducing the risk of overfitting.

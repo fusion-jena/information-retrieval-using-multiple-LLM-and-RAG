@@ -1,0 +1,66 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.2. Process flow 
+
+This study has two perspectives, model training and development on 
+a high-end computer, and the model deployment to an edge device, as 
+shown in Fig. 3. The training dataset could be pre-processed, such as 
+denoising,  contrast  enhancement,  and  image  resizing.  We  only  used 
+image re-sizing to make the images suitable for the input image reso-
+lution required for the selected models. 
+
+After a model has been trained, it needs to be validated and tested to 
+confirm that it has achieved the desired performance. The performance 
+might  be  measured  using  different  metrics,  such  as  classification 
+
+Table 2 
+The class distribution in the Extinction dataset.  
+
+Class 
+
+Number of images
+
+improvement  with  pre-trained  model  customization.  A  pre-trained 
+model,  trained  on  a  large  dataset  provides  an  advantage  of  transfer 
+learning to be used for classification on another dataset and is especially 
+useful as no training will be required. The pre-trained model can also be 
+fine-tuned by training some layers with another dataset, in either case 
+resulting in a quicker training compared to designing and training the 
+model  from  scratch.  A  DNN  consists  of  millions  of  parameters  and 
+therefore requires large datasets to be optimally trained to avoid over-
+fitting,  that  is  learning  or  memorizing  the  features  from  a  smaller 
+dataset,  resulting  in  poor  generalization.  One  alternative  for  transfer 
+learning not considered in this study is to use a large camera trap dataset 
+to fine-tune a pre-trained model on ImageNet. This trained model can 
+then be used for transfer learning on a small camera trap dataset.
+
+utilized, whereas the later layers (to be fine-tuned) learn the high-level 
+features of the new dataset during the model training.
+
+further model performance improvement, some or all the layers in the 
+pre-trained model can be re-trained. Therefore, there is a need for some 
+adaptation  of  a  pre-trained  model  to  achieve  better  performance,  as 
+described in the sections 3.3.2 and 3.3.3.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the given context, the study primarily focuses on model training and development on a high-end computer and its subsequent deployment to an edge device. However, the text does not explicitly mention any specific techniques used to address data bias during preprocessing of the deep learning pipeline.
+
+That being said, common techniques used to mitigate data bias include stratified splitting, which ensures that each subset of the data maintains the same proportions of target classes as the original dataset; oversampling, where samples from underrepresented classes are duplicated to balance the dataset; undersampling, where samples from overrepresented classes are removed to balance the dataset; and diverse data collection, which involves gathering more varied data to reduce bias.
+
+In the context provided, the authors discuss pre-processing steps like denoising, contrast enhancement, and image resizing, but they ultimately chose to only perform image resizing to suit their chosen models' input requirements. They do not elaborate on how they handled potential biases within their dataset.
+
+Therefore, based solely on the information presented, I cannot provide a definitive answer regarding what techniques were employed to address data bias during preprocessing in this particular study.

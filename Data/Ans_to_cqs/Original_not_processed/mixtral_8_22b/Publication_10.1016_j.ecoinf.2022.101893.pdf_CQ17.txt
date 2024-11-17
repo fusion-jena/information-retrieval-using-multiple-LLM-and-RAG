@@ -1,0 +1,309 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+shown in the Fig. 6. 
+
+The network is designed with four convolution kernel pooling layers 
+to extract deep features. After the convolution pooling, the data enters 
+the fully connected layer for connection. The network adds a dropout 
+layer  to  the  fully  connected  layer  to  reduce  network  parameters.  A 
+Dense_1 layer is added after flatten to reduce the dimension of the deep 
+features, and sets the parameter to 500, which is the parameter of the 
+deep feature dimension extracted from different views. 
+
+4.2. Feature selection
+
+5.2. Result analysis 
+
+The datasets are divided into training set and test set according to the 
+ratio of 8:2. And the number of test samples and training samples are 
+3094 and 12,340, respectively. The classification models are built with 
+the training set, and accuracy on test set is used as indicator to evaluate 
+performance of classification models. 
+
+5.2.1. Classic CNN model 
+
+The three features of F1, F2 and F3 are input into CNN model, and 
+
+their classification performance on the test set is shown in Table 6. 
+
+Feature 
+
+F1 
+F2 
+F3 
+
+CNN 
+
+81.00 
+88.36 
+89.11 
+
+Number of features 
+
+500 
+500 
+500  
+
+Table 7 
+Test accuracy (in %) of various features.  
+
+Feature 
+
+F4 
+F5 
+F6 
+F7 
+F4⊕F5⊕F6 
+F4⊕F5⊕F6⊕F7 
+Fdh 
+
+RF 
+
+82.92 
+87.93 
+88.47 
+85.70 
+90.76 
+91.10 
+95.43 
+
+SVM 
+
+85.59 
+91.11 
+91.60 
+64.51 
+93.96 
+93.96 
+96.19 
+
+MLP 
+
+83.85 
+89.53 
+90.46 
+73.45 
+93.40 
+93.53 
+96.03 
+
+Number of features 
+
+500 
+500 
+500 
+13 
+1500 
+1513 
+96  
+
+5.2.3. Proposed models
+
+In recent years, deep learning has an excellent performance and is 
+also widely used in computer vision, speech recognition and other fields. 
+Xie et al. used Chirplet transform, STFT and Mel cepstrum transform to 
+obtain the spectrogram, and combined with the bird species recognition 
+method of deep learning, classified and recognized 18 species of birds 
+(Xie et al., 2018). Since 2015, many research teams have exploited deep 
+learning to classify birdsong in the LifeCLEF bird recognition challenge. 
+For example, Piczak used deep learning to identify South American birds 
+in the BirdCLEF 2016 competition (Piczak, 2016). T´oth et al. used CNN 
+for feature learning in the same competition, and achieved good results 
+(T´oth  and  Czeba,  2016).  Based  on  Xception,  extracted  logmel  or  log-
+linear  spectra  as  features  in  BirdCLEF  2020,  Bai  et  al.  used  data 
+enhancement technology to improve the detection performance of bird
+
+In the work, the CNN pre-training models are constructed with the 
+multi-view data of WT spectrum, HHT spectrum and STFT spectrum as 
+the input of the network. And the output data is 500 features obtained 
+from  the  Dense_1  layer  of  each  CNN.  The  CNN  pre-training  model  is 
+
+1 
+
+2 
+
+3 
+
+4 
+
+5 
+
+6 
+
+7 
+
+8 
+
+9 
+
+10 
+11 
+12 
+13 
+14 
+
+Conv 
+Input 
+
+Input Layer 
+
+– 
+
+Conv 1 
+
+Convolution2D 
+
+Pool 1 
+
+MaxPool2D 
+
+Conv 2 
+
+Convolution2D 
+
+Pool 2 
+
+MaxPool2D 
+
+Conv 3 
+
+Convolution2D 
+
+Pool 3 
+
+MaxPool2D 
+
+Conv 3 
+
+Convolution2D 
+
+Pool 3 
+
+MaxPool2D 
+
+3 × 3 
+
+2 × 2 
+
+3 × 3 
+
+2 × 2 
+
+3 × 3 
+
+2 × 2 
+
+3 × 3 
+
+2 × 2 
+
+– 
+– 
+– 
+– 
+– 
+
+Dropout (0.4) 
+Flatten 
+Dense 
+Dense_1 
+Output 
+
+– 
+– 
+– 
+– 
+– 
+
+– 
+
+1 
+
+2 
+
+1 
+
+2 
+
+1 
+
+2 
+
+1 
+
+2 
+
+– 
+– 
+– 
+– 
+– 
+
+– 
+
+64 
+
+– 
+
+64 
+
+– 
+
+32 
+
+– 
+
+32 
+
+– 
+
+– 
+– 
+– 
+– 
+– 
+
+112 × 112 
+× 3 
+112 × 112 
+× 3 
+112 × 112 
+× 64 
+56 × 56 ×
+64 
+56 × 56 ×
+64 
+28 × 28 ×
+64 
+28 × 28 ×
+32 
+14 × 14 ×
+32 
+14 × 14 ×
+32 
+7 × 7 × 32 
+7 × 7 × 32 
+1568 
+500 
+16
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+In the given context, there is only one explicit mention of a regularization method used to prevent overfitting in the deep learning pipeline. This method is called Dropout, which is applied to the fully connected layer of the neural network. Dropout is a technique where randomly selected neurons are ignored during training, which helps prevent overfitting by making the network more robust and reducing its reliance on any single neuron.
+
+While not explicitly mentioned in the context, another common regularization method used in deep learning pipelines is L2 Regularization, also known as weight decay. This method involves adding a penalty term to the loss function proportional to the sum of squares of all the weights in the network. By doing so, it encourages smaller weights, leading to simpler models that generalize better and are less prone to overfitting.
+
+Other regularization techniques include early stopping, data augmentation, and batch normalization. Early stopping involves monitoring the validation error while training and halting the process once the error starts increasing, indicating that the model might be starting to overfit. Data augmentation generates additional training examples by applying random transformations to existing ones, effectively expanding the dataset and helping the model learn more invariant representations. Lastly, batch normalization standardizes the inputs to each layer, improving convergence speed and reducing overfitting by acting as a form of regularization.

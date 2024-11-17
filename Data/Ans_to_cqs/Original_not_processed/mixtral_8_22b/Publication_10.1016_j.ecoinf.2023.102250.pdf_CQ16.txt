@@ -1,0 +1,242 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+IS 
+
+4.23 
+4.54 
+4.85 
+5.01 
+5.10 
+
+FID 
+
+65.05 
+63.50  
+64.63  
+64.39  
+61.57 
+
+(14) 
+
+Note: “( + )BN/( + )SN” indicates the use of BN or SN in the discriminator of DR- 
+ACGAN. “( (cid:0)
+)CBAM/( + )CBAM”  indicates whether the CBAM is used in the 
+generator of DR-ACGAN.  
+
+F1 (cid:0) score =
+
+2 × Precision × Recall
+Precision + Recall
+
+TP(True  Positive)  indicates  the  number  of  samples  correctly  pre-
+dicted as positive by the model, while TN(True Negative) represents the 
+number  of  predicted  as  positive  by  the  model.  FP(False  Positive)  in-
+dicates the number of negative samples incorrectly predicted as positive 
+by the model, while FN(False Negative) represents the number of posi-
+tive samples incorrectly predicted as negative by the model. 
+
+Top-1 accuracy: It refers to using the highest probability vector in the 
+prediction as the predicted result. If the prediction is correctly classified, 
+it is considered correct. Otherwise, it is considered incorrect.
+
+EcologicalInformatics77(2023)1022507Y. Fu et al.                                                                                                                                                                                                                                       
+
+3.4.2. Classification evaluation metrics 
+
+To  evaluate  the  accuracy  and  effectiveness  of  the  classification 
+model, we use several metrics including Accuracy, Precision, Recall, F1- 
+score,  Top-1  accuracy,  Top-5  accuracy,  Top-1  error,  and  Top-5  error. 
+The formulas for these metrics are shown in 14. 
+
+Accuracy =
+
+TP + TN
+TP + TN + FP + FN
+
+Precision =
+
+Recall =
+
+TP
+TP + FP
+TP
+TP + FN
+
+Table 5 
+Compare  the  IS  and  FID  values  of  the  sampled  generated  spectrogram  of 
+different ACGAN models.  
+
+Models 
+
+ACGAN 
+DR-ACGAN 
+
+Operating 
+
+– 
+( + )BN & ( (cid:0)
+)CBAM 
+( + )BN & ( + )CBAM 
+( + )SN & ( (cid:0)
+)CBAM 
+( + )SN & ( + )CBAM 
+
+IS 
+
+4.23 
+4.54 
+4.85 
+5.01 
+5.10 
+
+FID
+
+During the training process of the DR-ACGAN model, the goal is to 
+achieve an optimal state for both the discriminator and the generator. 
+However,  the  adversarial  training  mechanism  often  leads  to  unstable 
+training of the entire model, making it challenging for the generator to 
+generate realistic samples. 
+
+Lipschitz continuity restricts the drastic degree of function variation, 
+
+Table 2 
+Generator Structure.  
+
+Layers 
+
+Layer0 
+
+Layer1 
+
+Layer2 
+
+Layer3 
+
+Layer4 
+Layer5 
+
+Layer6 
+
+Desciptions 
+
+Embeding()   
+Linear() 
+Residual block 
+Upsampling(2) 
+Conv2d(3,1,1) 
+Residual block 
+Upsampling(2) 
+Conv2d(3,1,1) 
+Residual block 
+Upsampling(2) 
+Conv2d(3,1,1) 
+Residual block 
+Channel attention 
+Spatial attention 
+Conv2d(3,1,1)  
+
+Operations 
+
+Activation 
+
+Reshape  
+Feature fusion  
+Resize  
+BN 
+Feature fusion  
+Resize  
+BN 
+Feature fusion  
+Resize  
+BN 
+Feature fusion 
+Channel score  
+Spatial score  
+
+Relu 
+
+Relu 
+
+Relu 
+Relu 
+
+Tanh 
+
+Output size
+
+88.62% 
+95.28% 
+93.86% 
+90.40% 
+96.47% 
+95.93% 
+91.50% 
+95.85% 
+96.09% 
+93.02% 
+96.27% 
+96.44% 
+94.99% 
+97.28% 
+97.16% 
+95.60% 
+97.60% 
+97.38% 
+
+11.38% 
+4.72% 
+6.14% 
+9.60% 
+3.53% 
+4.07% 
+8.50% 
+4.15% 
+3.91% 
+6.98% 
+3.73% 
+3.56% 
+5.01% 
+2.72% 
+2.84% 
+4.40% 
+2.40% 
+2.62% 
+
+2.33%  
+0.94%  
+1.94% 
+3.39%  
+0.84%  
+0.58% 
+1.39%  
+0.62%  
+1.03% 
+1.00%  
+0.60%  
+0.84% 
+0.84%  
+0.37%  
+0.68% 
+0.52%  
+0.22%  
+0.71% 
+
+Note: “Ori” denotes the original dataset. “G1_Dataset5” denotes the fifth data mixing method in Experimental Group I. “G2_Dataset4” denotes the fourth data mixing 
+method in Experimental Group II. “_DCD” indicates that a dynamic convolution kernel structure is added to the corresponding model. 
+
+EcologicalInformatics77(2023)10225011Y. Fu et al.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text does not provide explicit information on the specific criteria used to determine when training is complete. However, based on common practices in machine learning, some possible criteria include reaching a certain number of epochs, achieving a desired level of performance on a validation set, observing a plateau in the validation loss, or meeting other user-defined stopping conditions. In this case, during the training process of the DR-ACGAN model, the goal is to achieve an optimal state for both the discriminator and the generator. This suggests that the training might continue until both components reach their respective optimum states.

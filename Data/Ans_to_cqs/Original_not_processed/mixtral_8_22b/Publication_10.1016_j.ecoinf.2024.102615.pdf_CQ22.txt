@@ -1,0 +1,135 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The performance of a neural network is traditionally improved by 
+optimizing  its  hyperparameters,  which  influence  the  overall  model 
+performance.  Using  different  hyperparameter  combinations  (e.g., 
+combining  different  learning  rates  and  dropout  values)  will  lead  to 
+marked  differences  in  the  predictive  performance  of  a  model.  As  a 
+traditional  hyperparameter  optimization  method,  the  grid  search 
+approach is widely used to optimize a model by comparing the values of 
+evaluation  metrics  for  different  parameters  and  selecting  the  optimal 
+parameters from a large search space (Bhagat et al., 2020). This method 
+can optimize the model by comparing the values of evaluation metrics 
+for different parameters and selecting the optimal parameters from the 
+search space. In this study, the grid search method was used to optimize 
+five of the MLP model’s hyperparameters. The hyperparameter adjust-
+
+0 
+8,603,648 
+8192 
+0 
+2,098,176 
+4096 
+0 
+1025 
+
+probability  = 25%);  iv)  the  second  hidden  layer  with  1024  neurons, 
+which also uses a ReLu activation function; v) a further batch normali-
+zation layer followed by a dropout layer (random dropout probability =
+25%); and vi) a one-dimensional output layer describing the Mn content. 
+
+2.4.2. Performance metrics and interpretation method of the model 
+
+This  study  uses  the  correlation  coefficient  (R),  root  mean  square 
+error (RMSE), mean absolute error (MAE) coefficient of determination 
+(R2), and mean relative error (MAE) metrics to confirm the prediction 
+performance of the model on the validation set. R measures the linear 
+relationship between two variables. Its value varies between (cid:0) 1 and 1, 
+such that values closer to 0 denote a lesser correlation between the two 
+variables,  indicating  improved  model  performance.  The  formula  for 
+calculating R is as follows (Qi et al., 2018): 
+
+R =
+
+√
+
+∑n
+
+EcologicalInformatics81(2024)1026153M. Zhou et al.                                                                                                                                                                                                                                   
+
+Fig. 3. The performance optimization of the MLP model.  
+
+Table 1 
+Hyperparameters tuning ranges.  
+
+Hyperparameters 
+
+Type 
+
+Tuning range 
+
+The number of neural network layers 
+The number of neurons per layer 
+Dropout 
+Learning rate 
+Batch size 
+
+Integer 
+Integer 
+Float 
+Float 
+Integer 
+
+1–5 
+64, 128, 256, 512, 1024, 2048 
+0.1, 0.25, 0.35, 0.5 
+0.001, 0.0001, 0.00001 
+32, 64, 128, 256  
+
+Table 2 
+the optimal MLP architecture and parameters.  
+
+Layer type 
+
+Input 
+Dense 
+Batch normalization 
+Dropout 
+Dense 
+Batch normalization 
+Dropout 
+Dense(output) 
+Total parameters 
+
+Layer size 
+
+4200 
+2048 
+2048 
+2048 
+1024 
+1024 
+1024 
+1 
+10,715,137  
+
+Parameters 
+
+0 
+8,603,648 
+8192 
+0 
+2,098,176 
+4096 
+0 
+1025
+
+the percentage value of the dropout layers, the learning rate, and the 
+batch size, the optimal model was obtained with an R value of 0.76.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The study uses several metrics to evaluate the performance of the deep learning model. These include the correlation coefficient (R), root mean square error (RMSE), mean absolute error (MAE), coefficient of determination (R^2), and mean relative error (MAE). The correlation coefficient (R) measures the linear relationship between two variables, with values ranging from -1 to 1. Values closer to 0 indicate a weaker correlation and better model performance. The root mean square error (RMSE) calculates the average magnitude of the errors made by the model, while the mean absolute error (MAE) provides the average absolute difference between predictions and actual observations. The coefficient of determination (R^2) represents the proportion of variance in the dependent variable explained by the independent variable(s). Lastly, the mean relative error (MAE) gives the average relative difference between predicted and observed values.

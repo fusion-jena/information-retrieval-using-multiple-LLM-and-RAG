@@ -1,0 +1,133 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To summarize, we have a total of 60 experimental
+
+conﬁgurations, which vary on the following parameters:
+
+1. Choice of deep learning architecture:
+
+AlexNet,
+GoogLeNet.
+
+2. Choice of training mechanism:
+
+Transfer Learning,
+Training from Scratch.
+
+3. Choice of dataset type:
+
+Color,
+Gray scale,
+Leaf Segmented.
+
+4. Choice of training-testing set distribution:
+
+Train: 80%, Test: 20%,
+Train: 60%, Test: 40%,
+Train: 50%, Test: 50%,
+Train: 40%, Test: 60%,
+Train: 20%, Test: 80%.
+
+this paper, we have used the notation of
+
+Throughout
+Architecture:TrainingMechanism:DatasetType:Train-Test-
+Set-Distribution to refer
+experiments. For
+to particular
+instance,
+to refer to the experiment using the GoogLeNet
+learning
+architecture, which was
+on the gray-scaled PlantVillage dataset on a train—test
+set distribution of
+the notation
+GoogLeNet:TransferLearning:GrayScale:60–40.
+
+trained using transfer
+
+60–40, we will use
+
+30/3 epochs),
+• Momentum: 0.9,
+• Weight decay: 0.0005,
+• Gamma: 0.1,
+• Batch size: 24 (in case of GoogLeNet), 100 (in case of AlexNet).
+
+All the above experiments were conducted using our own fork of
+Caﬀe (Jia et al., 2014), which is a fast, open source framework for
+deep learning. The basic results, such as the overall accuracy can
+also be replicated using a standard instance of caﬀe.
+
+RESULTS
+
+representations of
+
+of classes in our dataset), which feeds the softMax layer. The
+softMax layer ﬁnally exponentially normalizes the input that it
+gets from (fc8), thereby producing a distribution of values across
+the 38 classes that add up to 1. These values can be interpreted
+as the conﬁdences of the network that a given input image is
+represented by the corresponding classes. All of the ﬁrst 7 layers
+of AlexNet have a ReLu non-linearity activation unit associated
+with them, and the ﬁrst two fully connected layers (fc{6, 7})
+have a dropout layer associated with them, with a dropout
+ratio of 0.5.
+
+architectures,
+Among
+GoogLeNet
+than AlexNet
+performs
+(Figure 3A), and based on the method of training, transfer
+learning always yields better results (Figure 3B), both of which
+were expected.
+
+the AlexNet
+consistently
+
+better
+
+The three versions of the dataset (color, gray-scale, and
+segmented) show a characteristic variation in performance across
+all the experiments when we keep the rest of the experimental
+conﬁguration constant. The models perform the best in case
+of the colored version of the dataset. When designing the
+experiments, we were concerned that the neural networks might
+only learn to pick up the inherent biases associated with the
+lighting conditions, the method and apparatus of collection of the
+data. We therefore experimented with the gray-scaled version of
+the same dataset to test the model’s adaptability in the absence of
+color information, and its ability to learn higher level structural
+
+Frontiers in Plant Science | www.frontiersin.org
+
+5
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, the provided context does not explicitly mention any specific optimization techniques like Stochastic Gradient Descent (SGD) or Adam that are commonly used in deep learning pipelines. However, some hyperparameters related to optimization are mentioned, including momentum, weight decay, gamma, batch size, and number of epochs. These hyperparameters are often used in conjunction with optimization algorithms like SGD or Adam.
+
+Momentum is a technique used to accelerate gradient descent by adding a fraction of the update vector of the past time step to the current one. This helps to dampen oscillations and speed up convergence. In this context, the momentum value is set to 0.9.
+
+Weight decay, also known as L2 regularization, is another common technique used to prevent overfitting by adding a penalty term to the loss function. Here, the weight decay value is set to 0.0005.
+
+Gamma is a parameter used in learning rate schedules, where the learning rate is reduced after certain intervals during training. It is typically used to improve generalization and avoid local minima. In this context, the gamma value is set to 0.1.
+
+Batch size refers to the number of samples processed before updating the internal model parameters. A larger batch size may lead to more stable updates but requires more memory, while a smaller batch size may result in noisier updates but allows for faster iterations. Here, the batch sizes are set to 24 for GoogLeNet and 100 for AlexNet.
+
+Finally, the number of epochs determines how many times the entire dataset is passed through the network during training. More epochs generally mean better performance but also increase the risk of overfitting. In this context, the number of epochs is not explicitly stated, but it is implied that different numbers of epochs were used for each configuration (e.g., 30/3 epochs).
+
+In conclusion, although the exact optimization algorithm is not specified, several hyperparameters related to optimization are mentioned, suggesting that some form of optimization technique was employed in the deep learning pipeline.

@@ -1,0 +1,11 @@
+Answer:::
+
+The deep learning pipeline described in the given context uses the Adam optimization technique for training the model. The pipeline involves a deep learning framework called Lasagne, built on top of Theano, with the weights of the model initialized with pretrained weights from the ImageNet dataset provided in the Lasagne Model Zoo. The model is trained for 100 epochs on a GTX 1080 for 6 days using Adam as the learning rule.
+
+Adam, or Adaptive Moment Estimation, is a popular optimization algorithm used in deep learning. It is an extension of stochastic gradient descent (SGD) that adaptively adjusts the learning rate for each parameter based on estimates of the first and second moments of the gradient. This makes it well-suited for training deep neural networks, where the gradients can vary widely in magnitude across different parameters.
+
+During training, standard data augmentation techniques such as shearing, translation, and mirroring are applied to the input images. However, rotation and upside-down mirroring are not applied to images tagged as 'habit' to maintain their natural orientation. After applying the transformations, the images are downscaled to the ResNet standard input size of 224x224 pixels.
+
+For ResNet50 evaluation, random ten crop testing is used with smaller data augmentation parameters than those used during training. This technique involves randomly cropping ten patches from the input image and resizing them to the input size before feeding them into the network. This helps to improve the model's ability to generalize to new images by providing it with a variety of different views of the same image.
+
+In summary, the deep learning pipeline described in the given context uses the Adam optimization algorithm for training the ResNet50 model. Standard data augmentation techniques are applied during training, and random ten crop testing is used for evaluation.

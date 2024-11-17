@@ -1,0 +1,13 @@
+Answer:::
+
+In the context of deep learning, randomness is often introduced in various stages of the pipeline, such as initialization of weights, dropout regularization, data shuffling, and batch sampling. Strategies to handle these random elements include the use of fixed random seeds, locally stored variables, and efficient resampling methods.
+
+A fixed random seed value ensures reproducibility in the training process. By setting a predetermined seed value, the sequence of random numbers generated during the initialization and other stages remains consistent across multiple runs. This is crucial for debugging, comparing different models, and tracking the progress of training (et al., 2022).
+
+To minimize the overhead of generating random numbers, locally stored variables are used instead of accessing global memory. This approach reduces read/write latency and improves the overall compute time. For instance, in Algorithm 2 (Hidden State Projection Kernel), storing seeds for random number generation locally allows each thread to produce a sample independently (et al., 2022).
+
+Efficient resampling methods are essential for handling randomness when dealing with highly skewed probability distributions. Algorithms like Forest Resampling for Distributed Sequential Monte Carlo (Lee & Whiteley, 2016) and Semi-complete Data Augmentation for State Space Model Fitting (Borowska & King, 2022) are designed to reduce overall compute time while maintaining asymptotic unbiasedness. However, these methods may require many iterations for sufficiently unbiased samples when working with highly skewed distributions, increasing compute time.
+
+In summary, handling randomness in the deep learning pipeline involves setting fixed random seed values, utilizing locally stored variables for random number generation, and employing efficient resampling methods for dealing with skewed probability distributions. These strategies help ensure reproducibility, minimize latency, and maintain the quality of the training process.
+
+Answer::: (word count: 345)

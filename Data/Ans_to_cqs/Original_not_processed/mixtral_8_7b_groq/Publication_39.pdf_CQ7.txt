@@ -1,0 +1,9 @@
+Answer:::
+
+The annotated dataset, AnnotationsActions, is split randomly into a train set, validation set, and test set for deep learning model training. The split is done such that the test set includes 20% of the video clips of each class. The remaining clips are then divided, with 20% of the clips in each class forming the validation set, and the rest making up the training set. This ensures that the data used to train the model, validate the model, and test the model are representative of the entire dataset.
+
+Furthermore, the SlowFast architecture is trained for 40 epochs, with the learning rate decreased using a cosine strategy. The optimization technique used is Stochastic Gradient Descent (SGD), and the loss function is the cross entropy loss. The input temporal length is set to 16 frames, with a sampling rate of 4 and α = 2. The parameter β is set to 1/8. These parameters are based on the work of Feichtenhofer et al. (2019) and were found to give the best results in the study by F. Schindler and V. Steinhage (2021).
+
+In addition, the ResNet variants are trained for 40 epochs starting with an initial learning rate of 0.001, which is decreased every 10 epochs by multiplying it with a γ = 0.1. The optimization technique used is SGD with a momentum of 0.9 and a weight decay parameter of 4. These parameters were found to give the best results in the study by F. Schindler and V. Steinhage (2021).
+
+Overall, the data is split based on a fixed randomization, and the training parameters are carefully selected based on previous research and experimentation to ensure the best possible results for the deep learning models.

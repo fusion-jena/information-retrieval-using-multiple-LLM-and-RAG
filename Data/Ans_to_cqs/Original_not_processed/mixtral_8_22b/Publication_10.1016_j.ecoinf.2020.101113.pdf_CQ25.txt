@@ -1,0 +1,59 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.3.  Model training 
+
+2.3.1.  Training data preprocessing 
+
+The  CNN  model  used  in  this  study  requires  equally  sized  input 
+images. We chose a time-frequency input window size of 2 s as it is near 
+the mean and median template duration across target call types (Fig. 2). 
+Most  call  types  have  a  duration  below  1  s,  and  for  those  above  2  s,
+
+learning, wherein a model already optimized for a similar dataset is re- 
+trained with new data. We used a ResNet50 model, pre-trained on the 
+ImageNet dataset, which contains over one million photo images across
+
+Our implementation only included the feature extraction layers of 
+ResNet50,  excluding  the  remaining  layers  used  for  ImageNet  classifi-
+cation,  referred  to  as  the  network  “top”.  The  network  top  consists  of 
+fully  connected  (FC)  layers  for  learning  a  predictive  model  from  the 
+input  features.  An  FC  layer  consists  of  a  set  of  nodes,  each  of  which 
+takes  a  weighted  sum  of  the  input's  values  and  passes  it  through  a 
+transfer function. The weights of an FC layer are learnable. In our case, 
+we used two FC layers separated by a drop-out layer. The drop-out layer 
+
+6
+
+J. LeBien, et al.   
+
+Ecological Informatics 59 (2020) 101113
+
+feature learning in the training process, which eliminates or reduces the 
+manual  feature  selection  required.  They  are  also  often  capable  of 
+scaling to a high number of classes. For example, in the 2016 BirdCLEF 
+challenge,  models  were  trained  to  recognize  999  bird  species  and 
+evaluated on both omnidirectional soundscapes (i.e. ambient field re-
+cordings) containing multiple species and monodirectional recordings 
+targeting  single  species  (Goëau  et  al.,  2016).  CNNs  achieved  a  sig-
+nificant  performance  increase  in  the  challenge,  compared  to  other 
+methods that were mostly based on nearest neighbors or decision trees 
+(Goëau  et  al.,  2016;  Sprengel  et  al.,  2016).  CNNs  are  a  type  of  deep 
+neural  network  that  have  achieved  state-of-the-art  performance  on 
+many image-recognition tasks (Aloysius and Geetha, 2017). Their net-
+work  structure  is  characterized  by  layers  designed  for  spatially-in-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the purpose of the deep learning model (e.g., classification, segmentation, detection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The purpose of the deep learning model used in this study is not explicitly stated in the given context. However, considering that the authors use a Convolutional Neural Network (CNN), which is commonly employed for image recognition tasks such as object detection, classification, and segmentation, we can infer that the model might be used for one of these purposes. Furthermore, since the authors mention using a pre-trained ResNet50 model, originally intended for ImageNet classification, it suggests that their primary goal could be related to classification tasks. Additionally, the authors discuss the application of CNNs in recognizing various bird species, further supporting the idea that they may be utilizing the deep learning model for classification purposes.

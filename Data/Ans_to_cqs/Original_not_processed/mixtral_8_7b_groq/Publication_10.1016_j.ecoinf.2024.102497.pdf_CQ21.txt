@@ -1,0 +1,22 @@
+After training a model like the Random Forest Regression (RFR) for nearshore bathymetry, several postprocessing steps can be taken to evaluate the model's performance and interpret the results. These steps typically include calculating various metrics, generating saliency maps, and creating a confusion matrix (in the case of classification problems). However, since the RFR model is a regression model, we won't create a confusion matrix, but we can still calculate metrics and generate saliency maps.
+
+1. Metrics calculation:
+To assess the performance of the RFR model, you can calculate several metrics. These metrics can include:
+
+- Mean Absolute Error (MAE): This measures the average magnitude of the errors in a set of predictions, without considering their direction.
+- Mean Squared Error (MSE): This measures the average of the squared differences between the predicted and actual values.
+- Root Mean Squared Error (RMSE): This is the square root of the mean of the squared differences between the predicted and actual values.
+- R-squared (R²): This measures the proportion of the variance in the dependent variable that is predictable from the independent variables.
+
+2. Saliency maps:
+Saliency maps are a useful tool for interpreting the predictions of a model by visualizing the importance of input features. In the context of bathymetry, you can generate saliency maps for each GF-6 band to understand their relative contributions to the model's predictions.
+
+To generate saliency maps for the RFR model, you can follow these steps:
+
+- For each sample in the test dataset, obtain the feature importances from the decision trees in the forest.
+- Average the feature importances across all decision trees.
+- Normalize the feature importances so that they sum up to 1.
+- Multiply the normalized feature importances with the corresponding GF-6 band values for each sample.
+- Visualize the resulting maps to understand the spatial distribution of feature importances.
+
+These postprocessing steps will help you evaluate the performance of the RFR model and gain insights into the importance of different GF-6 bands for bathymetry predictions.

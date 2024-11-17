@@ -1,0 +1,50 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+(n), small (s), medium (m), large (l), and extra-large (x). These scales 
+meet the requirements of various scenarios and tasks. As scale increases, 
+so does the network depth and width of the model; therefore, ‘n’  rep-
+resents the smallest and fastest scale, whereas ‘x’ is the largest and offers 
+the  highest  accuracy.  Although  the  accuracy  improves  as  the  model 
+depth increases, this also leads to changes in the number of parameters, 
+amount  of  computation,  and  detection  speed,  with  correspondingly 
+higher demands on the hardware configuration. To delve deeper into the 
+underlying causes of enhancing model lightweight and inference speed, 
+we utilised LigObNet, YOLOv5, YOLOv6, YOLOv7, and YOLOv8 to train 
+across  four  scales:  n,  s,  m,  and  l.  As  Fig.  9  illustrates,  reducing  the 
+number  of  parameters  in  the  various  models  does  not  enhance  the 
+processing speed. The total parameter count, representing the combined
+
+targeted fish species dataset. This dataset was then divided into training 
+and validation sets in an 8:2 ratio using a random selection process.
+
+several  times  higher  than  those  of  other  operations  (Li  et  al.,  2018). 
+Therefore,  reducing  memory  access  is  the  key  to  further  enhancing 
+model  performance.  By  reconfiguring  the  computation  sequence  of 
+‘convolutional layer + batch normalisation + activation layer on NVI-
+DIA TESLA V100 GPUs, Wang et al. (2019) reduced memory access by 
+33%,  22%,  and  31%  for  the  ResNet-50,  Inception  V3,  and  DenseNet 
+models,  respectively,  leading  to  increases  in  the  computational  effi-
+ciency  of  20.5%,  18.5%,  and  18.1%.  Lowering  the  memory  access  in 
+models can accelerate operations across the three main layers of CNNs, 
+thus fully harnessing the model's strengths and more effectively utilising 
+the computational resources provided by the embedded devices (Gilan 
+et al., 2019; Zhang et al., 2015). Therefore, by reducing the number of 
+layers  in  the  network  model,  the  number  of  convolutions  and  data
+
+parameters of all the model layers, is linked to the required disk space
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of the deep learning model, several measures were taken. Firstly, a diverse dataset was used, which consisted of targeted fish species. This dataset was then divided into training and validation sets in an 8:2 ratio using a random selection process. This approach helps prevent overfitting and ensures that the model can perform well on unseen data. Additionally, the use of different scales (n, s, m, and l) for the network depth and width of the model allows it to meet the requirements of various scenarios and tasks. However, increasing the model depth also leads to changes in the number of parameters, amount of computation, and detection speed, requiring higher demands on the hardware configuration. To address these issues, efforts were made to reduce memory access, which is crucial for enhancing model performance. This was achieved by reconfiguring the computation sequence of 'convolutional layer + batch normalization + activation layer' on NVIDIA TESLA V100 GPUs. This resulted in reductions in memory access for the ResNet-50, Inception V3, and DenseNet models, leading to increases in their computational efficiency. Furthermore, lowering the memory access in models can accelerate operations across the three main layers of CNNs, thus fully utilizing the model's strengths and more effectively utilizing the computational resources provided by the embedded devices.

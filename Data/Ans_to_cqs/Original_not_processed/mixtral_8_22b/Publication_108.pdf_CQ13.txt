@@ -1,0 +1,142 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1. Hyperparameter ﬁne-tuning results.
+
+Scenario Number of Blocks Number of Filters
+
+Learning Rate Mean IoU Accuracy
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+3
+4
+5
+6
+4
+4
+4
+4
+4
+4
+
+64 , 64, 64
+64, 64, 64, 64
+64, 64, 64, 64, 64
+64, 64, 64, 64, 64, 64
+16, 32, 64, 128
+32, 64, 128, 256
+64, 128, 256, 512
+16, 32, 64, 128
+16, 32, 64, 128
+16, 32, 64, 128
+
+0.001
+0.001
+0.001
+0.001
+0.001
+0.001
+0.001
+0.01
+0.0005
+0.00001
+
+0.30
+0.38
+0.36
+0.32
+0.42
+0.38
+0.31
+0.008
+0.42
+0.39
+
+82%
+89%
+86%
+86%
+94%
+88%
+84%
+71%
+94%
+90%
+
+Scenario 5 was selected as the optimal solution as it had the best values for IoU and accuracy
+while training on fewer epochs. The resulting architecture is shown in Figure 4 and described in
+the following.
+
+2.5.1. Encoding Path
+
+During our study, we tested different hyperparameters to ﬁnd an optimal setting for our problem.
+The different parts of our ﬁnal architecture, as well as the tested hyperparameter settings are described
+in the following.
+
+Figure 4. U-net architecture (experimental setup with 3 encoding blocks).
+
+Remote Sens. 2019, 11, 1976
+
+6 of 14
+
+Figure 5. Loss function of the model (training and validation).
+
+2.4. Evaluation Metrics
+
+To assess the performance of the neural network, several evaluation metrics were used. Evaluation
+metrics were computed during the forward pass, and were not subject to maximization, but were
+rather used as a performance indicator. This helped to optimize the hyperparameters of the model.
+In this study, we used a custom implementation of the intersection over union metric. It computes the
+intersection of the reference dataset and the predicted classiﬁcation and divides it by the union of the
+two (Equation (1)). In addition, we calculated the overall accuracy of the model (Equation (2)).
+
+IoU =
+
+TP
+TP + FP + FN
+
+Accuracy =
+
+TP + TN
+TP + FN + FP + TN
+
+(1)
+
+(2)
+
+where TP, TN, FP, and FN are true positive, true negative, false positive, and false negative.
+
+In general, the limitations of deep learning in comparison to other machine learning methods
+are the requirement of large and high-quality training data, as well as hardware limitations related to
+GPU computing power. The most notable advantage of deep learning is the grade of automatization
+and a high potential to generalize when using large amounts of representative training data, which
+might, however, not always be available; especially with respect to ground-truth labels that might be
+scarce or not exist at all.. Furthermore, the black-box nature makes these algorithms a good choice for
+classiﬁcation as suggested in this study, but a challenge for modeling physical properties, as is often
+the case in forestry. This case study relied on high-resolution orthophotos with 20-cm spatial resolution
+obtained from an aerial survey. The great advantage of these data is that many details can be detected.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The table titled "Hyperparameter fine-tuning results" provides information about the hyperparameters used in the deep learning model. However, it does not explicitly mention the optimizer used. From the table, we can see that various learning rates were tested, including 0.001, 0.01, 0.0005, and 0.00001. Additionally, the number of filters and blocks varied across scenarios. For instance, Scenario 5, which was chosen as the optimal solution, utilized four blocks with filter sizes of 16, 32, 64, and 128. Unfortunately, without explicit information regarding the optimizer, I cannot provide further details on its specific use within the deep learning model.

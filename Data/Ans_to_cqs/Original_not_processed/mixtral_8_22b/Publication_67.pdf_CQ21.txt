@@ -1,0 +1,107 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+(1) Database construction phase: ﬁve training datasets were built with examples of images with
+diﬀerent levels of tree cover, continuous and discrete approximations, and inclusion of auxiliary
+class “Non-Forest” (see Section 2.2 and Supplementary Material, Archive S2).
+
+(2) Training phase: training ﬁve CNN models based on Inception v.3 using two optimization
+
+techniques, transfer learning, and data augmentation (see Section 2.3).
+
+(3) Classiﬁcation phase: classiﬁcation of new 396 images with diﬀerent tree cover in global drylands
+(see Supplementary Material, Table S1 and Archive S3) with the built CNN-based model (see
+Section 2.4).
+
+(4) Validation phase: assessment of performance on the new images (see Section 2.5).
+
+2.2. Datasets Design
+
+Before building the training datasets for the CNN-based models, we compiled a global database
+
+of very high resolution satellite and aerial RGB images from two sources:
+
+•
+
+•
+
+For this, we obtained ﬁve models by training Inception v.3 on the ﬁve created datasets. Several
+studies have shown that increasing the size of the dataset using data augmentation improves the
+performance of the CNN-based models [49,50]. These techniques have been proposed to reduce the
+requirement of a large dataset for model training [43–45]. We conﬁgured the model parameters by
+training the last two fully connected network layers in our dataset using a learning rate of 0.001 and a
+decay factor of 16 every 30 epochs. As an optimization algorithm, we used RMSProp with a momentum
+of 0.9 and epsilon of 0.1.
+
+Supplementary Materials: The following are available online at http://www.mdpi.com/2072-4292/12/3/343/s1,
+Figure S1: Number of results in the Google scholar academic search engine. Date of queries, 28 December 2019.
+[keyword + deep learning]. Keywords: AlexNet, DenseNet, GoogLeNet, Inception, MobileNet, Resnet, Resnext,
+VGG, Xception. Figure S2: Illustration of the diﬀerence between the sampling design strategies, (A) Continuous
+and (B) Discrete, including examples of images (0.5 ha) from each class (Three Tree-Cover levels plus the Non-Forest
+class) of the training dataset. Image data: Google, Maxar, and NWPU-RESISC45 dataset. Archive S1: Metadata of
+FAO’s GDA photointerpreted very high resolution plots (71,135) with zoom 19 in Google Maps. The CVS ﬁle
+contains Id, UpperLeft and Downright coordinates, Zoom, Region, Aridity level, Class (Forest/Non-forest), and
+Tree cover. Archive S2: Metadata of training dataset of continuous larger sample CNN-based model with very
+
+Remote Sens. 2020, 12, 343
+
+5 of 15
+
+Table 1. Five datasets created considering continuous or discrete training strategy for the forest
+classes and with or without the “Non-Forest” class. In the continuous strategy, the forest classes were:
+Open Forest with tree cover 10–40%, Closed Forest with tree cover 41–65%, and Dense Forest with
+tree cover 66–100%. In the discrete strategy, the forest classes were: Open Forest with tree cover 15%,
+Closed Forest with tree cover 55%, and Dense Forest with tree cover 95%). Number of samples (plots)
+used to train the CNN-based models (third column). See Table S1 in Supplementary Material for more
+information about the images used in the classes.
+
+CNN-Based
+Model type
+
+Continuous
+
+Discrete
+
+Continuous
+
+Discrete
+
+Continuous
+
+Tree Cover Classes
+
+Number of Samples
+
+Total Samples (n)
+
+Tree cover 10–40%
+Tree cover 41–65%
+Tree cover 66–100%
+
+Tree cover 15%
+Tree cover 55%
+Tree cover 95%
+
+Non-Forest
+Tree cover 10–40%
+Tree cover 41–65%
+Tree cover 66–100%
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training phase, there are several postprocessing steps that can be taken to evaluate the performance of the trained Convolutional Neural Network (CNN)-based models. Based on the given context, it is clear that the authors followed a specific process involving classification and validation phases. However, the exact postprocessing steps are not explicitly mentioned in the provided information. Nevertheless, some common postprocessing steps include generating saliency maps, calculating metrics such as accuracy, precision, recall, F1 score, etc., and creating confusion matrices.
+
+Saliency maps help visualize which parts of the input image contribute most to the final prediction made by the model. This can provide insights into how the model makes its decisions and whether it focuses on relevant features. Calculating various evaluation metrics allows assessing the overall performance of the model and comparing it against other models or baselines. A confusion matrix provides a detailed breakdown of correct and incorrect predictions across different classes, helping identify any systematic biases or weaknesses in the model.
+
+In summary, while the specific postprocessing steps employed by the authors are not directly stated, common practices include generating saliency maps, computing evaluation metrics, and constructing confusion matrices to better understand and evaluate the performance of their trained CNN-based models.

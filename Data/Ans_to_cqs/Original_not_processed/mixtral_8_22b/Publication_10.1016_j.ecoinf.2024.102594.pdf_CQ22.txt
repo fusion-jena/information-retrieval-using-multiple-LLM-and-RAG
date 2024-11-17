@@ -1,0 +1,103 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+During the DeepLabV3+ model training process, feeding large-size 
+images directly to the network may lead to memory overflow. There-
+fore, it is necessary to cut all remote sensing images and semantic labels 
+of land cover classes into a series of regular image blocks for input. To 
+maximize the sample size and maintain consistency with the cropping 
+approach in the model prediction stage, we set the cropping size to 32 ×
+32  pixels  with  a  redundancy  rate  of  0.5.  In  continuing,  70%  of  the 
+dataset  was  used  for  training  and  the  remaining  for  validation.  The 
+training set was enhanced by: (i) Flipping the images and labels along 
+the X or Y axis; (ii) Exchanging between multiple image channels while 
+the  labels remain unchanged; (iii)  Randomly rotating  the images and 
+◦
+labels by 90
+; and (iv) randomly adding noise to the 
+images  while  maintaining  the  labels  unchanged  (Ye  et  al.,  2022).
+
+SP = 50 
+
+SP = 30 
+
+SP = 15 
+
+UAV_2m 
+GF1_2m 
+
+0.881 
+0.904 
+
+0.792 
+0.876 
+
+0.853 
+0.933 
+
+0.915 
+0.917 
+
+0.894 
+0.905  
+
+EcologicalInformatics81(2024)1025946Z. Chen et al.                                                                                                                                                                                                                                    
+
+Fig. 4. Segmentation results associated with various SPs and classification results of MRS_DeepLabV3+ model (localized zoom-in image).  
+
+Fig. 5. The optimal SP and segmentation time in various datasets.  
+
+EcologicalInformatics81(2024)1025947Z. Chen et al.                                                                                                                                                                                                                                    
+
+Table 5 
+Reduction rates of the OA and kappa in the UAV image models.  
+
+Model
+
+Fig. 12. Growth rate of the overall classification accuracy of the satellite image 
+models compared to the UAV image models. 
+
+classification  results  of  the  MRS_DeepLabV3+ model  with optimal  SP 
+selection  were  superior  to  the  DeepLabV3+ model  with  an  accuracy 
+enhancement  of  about  3%  (Table  4).  This  approach  was  capable  of 
+solving  the  problem  of  fragmented  spatial  edge  information  often 
+encountered when using pixel-based CNNs to extract target categories 
+(Liu et al., 2019). Compared to previous studies on the classification of 
+wetlands using DeepLabV3+ (Buchsteiner et al., 2023; Gonzalez-Perez 
+et al., 2022), the classification results of this study showed a significant 
+lack of the salt-and-pepper phenomenon. The MRS_DeepLabV3+ model 
+was  not  only  capable  of  correcting  the  misclassifications  made  by 
+DeepLabV3+ but also enhancing the delineation of PlatSpe and SurfObj
+
+Enhancing Land Cover/Land Use (LCLU) classification through a comparative 
+analysis of hyperparameters optimization approaches for deep neural network 
+(DNN). Ecol. Inform. 78, 102333 https://doi.org/10.1016/j.ecoinf.2023.102333. 
+Ba, J., Gao, F., Peng, C., Li, J., 2022. Characteristics of nitrate and heavy metals pollution 
+in Huixian Wetland and its health risk assessment. Alex. Eng. J. 61, 9031–9042. 
+https://doi.org/10.1016/j.aej.2022.02.045. 
+
+Berra, E.F., Gaulton, R., Barr, S., 2019. Assessing spring phenology of a temperate 
+
+woodland: a multiscale comparison of ground, unmanned aerial vehicle and Landsat 
+satellite observations. Remote Sens. Environ. 223, 229–242. https://doi.org/ 
+10.1016/j.rse.2019.01.010. 
+
+Buchsteiner, C., Baur, P.A., Glatzel, S., 2023. Spatial analysis of intra-annual reed 
+
+ecosystem dynamics at Lake Neusiedl using RGB drone imagery and deep learning. 
+Remote Sens. 15, 1–22. https://doi.org/10.3390/rs15163961.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not explicitly mention which specific evaluation metrics are used to assess the performance of the deep learning model. However, based on common practices in machine learning and deep learning, some commonly used metrics include accuracy, precision, recall, F1 score, confusion matrix, ROC curve, AUC, etc. In this case, the text mentions that the MRS\_DeepLabV3+ model achieved an accuracy enhancement of around 3% compared to the DeepLabV3+ model. Therefore, one can infer that accuracy might be one of the evaluation metrics used in this study. Additionally, the text mentions that the MRS\_DeepLabV3+ model was able to solve the problem of fragmented spatial edge information often encountered when using pixel-based CNNs to extract target categories. This suggests that the model's ability to accurately classify different land cover types might have been evaluated using metrics such as precision, recall, or F1 score. However, without explicit confirmation from the authors, these assumptions should be taken with caution.

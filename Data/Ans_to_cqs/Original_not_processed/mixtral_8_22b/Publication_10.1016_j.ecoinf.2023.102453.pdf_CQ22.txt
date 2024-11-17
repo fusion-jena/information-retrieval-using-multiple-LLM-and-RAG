@@ -1,0 +1,160 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.8. Performance metrics 
+
+The metrics commonly used to evaluate the DNN classification per-
+formance on the test data are derived based on the relative numbers of 
+the  True  Positive  (TF),  True  Negative  (TN),  False  Negative  (FN),  and 
+False Positive (FP) images. In this paper, we have used the performance 
+metrics of accuracy, precision, recall, and F1-score (Scikit-learn, n.d) as 
+described below: 
+
+Accuracy is the ratio  of correctly predicted instances and  total in-
+stances but may not be reliable with imbalanced classes. The accuracy is 
+defined as 
+
+Accuracy =
+
+TP + TN
+TP + FN + TN + FP
+
+(5) 
+
+Precision is the ratio of correctly predicted positive instances and the 
+
+total positive instances, and is defined as 
+
+Precision =
+
+TP
+TP + FP
+
+(6) 
+
+Recall indicates the number of positive instances that are classified 
+
+correctly, and is defined as 
+
+Recall =
+
+TP
+TP + FN
+
+(7) 
+
+F1-score indicates the harmonic mean of precision and recall and is 
+
+defined as
+
+3.5. Hyperparameter optimization 
+
+The model training process determines the values for the trainable 
+parameters  of  a  model,  e.g.,  Table  4 shows  the  size  of  the  model pa-
+rameters. In addition, a DNN model also has other parameters that need 
+to be selected, e.g., batch size, that determines the model performance. 
+The  model  parameters  define  the  model  and  are  termed  as  hyper-
+parameters. Each hyperparameter has a range of values, from which an 
+optimum  selection  can  improve  the  model  performance.  The  model 
+hyperparameters could be in hundreds, presenting a very large search 
+space, but these differ in their relative importance. The common ones for 
+a DNN are learning rate, batch size, and dropout.
+
+defined as 
+
+F1 (cid:0) Score =
+
+2 X Precion X Recall
+Precision + Recall
+
+(8) 
+
+The  problem  under  consideration  in  this  research  is  multi-class 
+classification,  therefore  in  later  sections  we  have  reported  both  the 
+macro and weighted measures of the performance metrics. These mea-
+sures  are  helpful  to  understand  a  model’s  performance  in  multi-class 
+classification. In eq. (9) and (10) we have shown the Macro Precision 
+and Weighted Precision, but this is applicable to all the metrics in eq. (5) 
+to (8). 
+
+Let Ci  to CN  be the N classes, with the number of occurrences of each 
+class in the dataset as Wi  to WN, and the Precision of each class as Pi  to 
+PN, then the Macro Precision and Weighted Precision can be represented 
+as: 
+
+Macro Precision =
+
+∑N
+
+Pi
+
+i=1
+N
+
+∑N
+
+i=1
+
+PiWi
+
+N
+
+Weighted Precision =
+
+4. Results 
+
+(9)  
+
+(10)  
+
+4.1. Image classification with MobileNetV2 model
+
+large extent on the training data. Thus, it is not certain that the model 
+with  the  best  performance  on  one  dataset,  will  also  perform  best  on 
+another dataset. This is especially true for the pre-trained models where 
+the reported performance metrics are linked to a particular dataset, for 
+example,  MobileNetV3  with  a  reported  higher  accuracy  than  Mobile-
+NetV2, did not perform better (Yang et al., 2022). The performance of 
+MobileNetV2, EfficientNetB0, and EfficientNetB3 were compared on the 
+Caltech  camera  traps  dataset  and  Snapshot  Serengeti,  and  the  Effi-
+cientNetB3 was found to perform better for classification (Cunha et al., 
+2021).  The  proposed  model's  performance  was  improved  by  making 
+changes  to  the  MobileNetV3  architecture,  and  was  shown  to  perform 
+better  than  the  MobileNetV2  and  MobileNetV3  architecture,  for  bird 
+song classification (Yang et al., 2022). Similarly, the number of Mobi-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+In evaluating the performance of a Deep Neural Network (DNN) classification model, several metrics are typically employed. These include Accuracy, Precision, Recall, and F1-Score.
+
+Accuracy is calculated as the ratio of correctly predicted instances to the total instances. However, it might not provide a reliable measure when dealing with imbalanced classes. It is computed using the formula:
+
+Accuracy = (TP + TN) / (TP + FN + TN + FP)
+
+where TP stands for True Positive, TN for True Negative, FN for False Negative, and FP for False Positive.
+
+Precision is another metric used, which represents the proportion of correct positive predictions out of the total predicted positives. It is given by:
+
+Precision = TP / (TP + FP)
+
+Recall, or Sensitivity, measures the proportion of actual positives that were identified correctly. It is expressed as:
+
+Recall = TP / (TP + FN)
+
+Lastly, the F1-Score provides a balance between Precision and Recall, being the Harmonic Mean of these two metrics. Its calculation is as follows:
+
+F1-Score = (2 * Precision * Recall) / (Precision + Recall)
+
+These metrics help assess different aspects of the model's performance, providing a comprehensive evaluation of its effectiveness.

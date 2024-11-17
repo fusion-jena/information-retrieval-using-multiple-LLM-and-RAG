@@ -1,0 +1,111 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+ResNet152V2 model (using 90 dpi and two seconds window) achieved 
+83.9% accuracy (Precision = 56.1%, Sensitivity = 37.2%, Specificity =
+93.8%)  in  a  similar  condition  (i.e.,  detecting  sounds  with  SNR  > 1). 
+Increasing the dpi in the training images improved the model's precision, 
+but decreased its sensitivity, resulting in lower accuracy (Table 1). The 
+best CNN1 model showed lower precision than the one built using 90 dpi 
+but  higher  sensitivity  (or  recall),  thus  reflecting  higher  F1  score 
+(Table 1). Notably, exploratory ad hoc tests investigating the duration of 
+the segments (i.e., window size) used to build the dataset and the res-
+olution  of  the  training  images  were  crucial  in  determining  the  best 
+detection model.
+
+d
+e
+s
+i
+
+m
+o
+t
+s
+u
+C
+
+g
+n
+i
+n
+r
+a
+e
+L
+
+r
+e
+f
+s
+n
+a
+r
+T
+
+1
+≥
+R
+N
+S
+
+y
+r
+a
+r
+b
+i
+L
+
+i
+p
+d
+
+e
+z
+i
+s
+w
+o
+d
+n
+i
+W
+
+size of 32. The most suitable architecture was chosen based on the best 
+validation accuracy (proportion of all correct predictions) and precision 
+(number of true positives divided by true positives and false positives) 
+obtained during training. The model training and prediction procedures 
+were  executed  on  Microsoft  Azure  using  instance  NV12s  v3  with  12 
+vCPUs and 112 GB RAM. The CNNs were implemented using Tensor-
+Flow (Abadi et al., 2016) and Python 3. The Ubuntu 20.04 operating 
+system was used and obtained via the Ubuntu 20.04 Data Science Virtual 
+Machine  on  Microsoft  Azure.  The  algorithm  scripts  are  available  in 
+Supporting Information B. 
+
+2.5. Inference and post-processing
+
+for the customised architecture (see Convolutional neural networks sec-
+tion),  and  the  smallest  one  comprised  3900  images  combining  two 
+seconds  window  size  and  90  dpi  for  the  transfer  learning  approach 
+(Table 1).
+
+training library sizes (8 k and 12 k) demonstrated higher accuracy for 
+the one built using a smaller training dataset. Inference using transfer 
+learning  was  nearly  twice  as  long  as  the  custom  CNN  architectures 
+(Table 1).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The performance of the deep learning models is evaluated using several metrics such as accuracy, precision, sensitivity or recall, specificity, and F1 score. Accuracy measures the proportion of all correct predictions made by the model. Precision is calculated as the number of true positives divided by the sum of true positives and false positives. It indicates how many of the predicted positive cases are actually positive. Sensitivity or recall measures the proportion of actual positive cases that are correctly identified by the model. Specificity calculates the proportion of actual negative cases that are correctly identified as negatives. Lastly, the F1 score is the harmonic mean of precision and recall, providing a single metric that balances both factors. In this study, the ResNet152V2 model achieved 83.9% accuracy with Precision=56.1%, Sensitivity=37.2%, and Specificity=93.8%. Increasing the dpi in the training images improved the model's precision but decreased its sensitivity, resulting in lower accuracy. The best CNN1 model showed lower precision than the one built using 90 dpi but had higher sensitivity, thus reflecting a higher F1 score.

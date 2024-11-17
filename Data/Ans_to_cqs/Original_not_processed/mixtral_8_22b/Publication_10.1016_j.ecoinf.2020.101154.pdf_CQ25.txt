@@ -1,0 +1,73 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+For  the  RI  models  the  same  initial  parameters  were  set  for  the 
+analysis of the CS and NW datasets, then a grid search was performed 
+on both datasets with a two-part split to give hyperparameters with the 
+highest level of accuracy. These were as following: learning rate 0.05 
+and maximum tree depth of 4 for both the CS and the NW models. The 
+early stopping technique was used to determine when to stop the model 
+training  to  avoid  overfitting.  Using  early  stopping  the  number  of 
+iterations required until convergence was 120 for CS and 106 for NW. 
+Grid search was not required for a three-part splits, and further tuning 
+of the parameters was done manually. 
+
+For the RY models, in contrast to the RI models, the best performing 
+models (based on MSE) were models with a slow learning rate of 0.005. 
+Additionally, the NW model had a very shallow tree (tree depth of 2). 
+The number of iterations was kept at 500.
+
+2.4.2.  Hyperparameters 
+
+Hyperparameter tuning was done manually. As a starting point the 
+learning rate was set as low as possible and the number of iterations as 
+high as computationally feasible (Hastie et al., 2009). The learning rate, 
+which is also called a shrinkage parameter, determines the contribution 
+of each tree to the model. The maximum tree depth which reflects the 
+degree of interaction in the model is usually low. GBRT performs best 
+using fairly shallow trees, so-called tree stumps.
+
+A potential drawback of the machine learning approach is that after 
+the model is built using the training dataset, the parameters are opti-
+mised  based  on  how  well  the  model  performs  on  the  test  dataset. 
+Therefore,  prediction  accuracy  for  previously  unseen  data  may  be 
+overestimated. To perform a more robust test of prediction accuracy a 
+
+=+=FxFxLyFx()()(,())mmminFimi111==LyFxLyFxFxargmin,()(,())()minimiimimi1111O. Lyashevska, et al.   
+
+Ecological Informatics 60 (2020) 101154
+
+Fig. 2. Explanatory variables time series for the CS (a) and the NW (b).  
+
+5
+
+O. Lyashevska, et al.   
+
+Ecological Informatics 60 (2020) 101154
+
+three way split was also performed. The data were split (using the RI 
+splitting approach) into train (50%), test (25%) and validation (25%) 
+sets.  The  model  was  built,  tested  and  optimised  using  the  train  and 
+validation  sets  and  the  models  performance  was  confirmed  using  the 
+test set.
+
+between the response and explanatory variables is not specified, instead 
+a learning algorithm is used to find patterns in the data. Due to these 
+flexible properties, GBRT were selected as a suitable method for iden-
+tifying  potential  drivers  of  changes  in  growth  across  the  two  herring 
+populations.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the purpose of the deep learning model (e.g., classification, segmentation, detection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, it appears that the purpose of the deep learning model is not explicitly stated. However, we can infer from the context that the model is likely being used for predictive or regression tasks. This is suggested by the use of terms such as "prediction accuracy" and "MSE" (Mean Squared Error), which is a common metric for evaluating the performance of regression models. Additionally, the mention of "explanatory variables" indicates that the model is being used to understand the relationship between different factors and some outcome variable. Therefore, while the exact purpose of the model is not clear without additional context, it seems reasonable to conclude that it is being used for predictive modeling or regression analysis.

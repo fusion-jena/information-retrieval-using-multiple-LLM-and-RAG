@@ -1,0 +1,85 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+DNN  are  algorithms  consisting  of  neurons  arranged  in  successive 
+layers that apply computations based on learnable parameters (weights 
+and  bias)  and  activation  functions  to  inputs  from  previous  layers, 
+through to an output consistent with the training data. Different types of 
+layers  (convolutional,  pooling,  flatten,  etc.)  may  combine  in  large 
+numbers to create complex algorithms that are difficult to interpret and 
+often referred to as ‘black boxes’ (McGinn et al., 2023; Stowell, 2022). It 
+is virtually impossible to follow how they use millions of parameters to 
+reach a particular decision for any given input. Consequently, there is an 
+
+array of tools and procedures to try to understand some of their inner 
+workings. Here, we focus on the improved utilisation of one technique 
+referred to as “analysis of embeddings”.
+
+Neural information processing scaled for bioacoustics-from neurons to Big Data. In: 
+Proceedings of Neural Information Processing Scaled for Bioacoustics: From Neurons 
+to Big Data, 2013. http://sabiod.univ-tln.fr/NIPS4B2013_book.pdf. 
+
+Gupta, Gaurav, Kshirsagar, Meghana, Zhong, Ming, Gholami, Shahrzad, Ferres, Juan 
+
+Lavista, 2021. Comparing recurrent convolutional neural networks for large scale 
+bird species classification. Sci. Rep. 11 (1), 17085. https://doi.org/10.1038/s41598- 
+021-96446-w. 
+
+He, Kaiming, Zhang, Xiangyu, Ren, Shaoqing, Sun, Jian, 2015. ‘Deep residual learning 
+
+for image recognition’. arXiv. http://arxiv.org/abs/1512.03385. 
+
+Hershey, Shawn, Chaudhuri, Sourish, Ellis, Daniel P.W., Gemmeke, Jort F., Jansen, Aren, 
+Moore, Channing, Plakal, Manoj, et al., 2017. CNN Architectures for Large-Scale 
+Audio Classification. In: International Conference on Acoustics, Speech and Signal 
+Processing (ICASSP).. https://arxiv.org/abs/1609.09430.
+
+4.6. Input selection in active learning 
+
+Active learning enhances and facilitates the labour-intensive process 
+of data generation, important in this field given the scarcity of labelled 
+data or the need to generate training data to target certain species (Allen 
+et  al.,  2021).  It  progressively  increases  the  training  data  by  selecting 
+those  samples  most  likely  to  improve  model  performance  from  pre-
+dictions that a model generates over unlabelled data. Iteratively training 
+new models with additional labelled data selected from their predictions 
+reduces  the  extent  of  manual annotation  (Shuyang  et  al.,  2020). In  a 
+similar process as the example of Tolkova et al. (2021) discussed above, 
+our proposed method of using model embeddings and dimensionality 
+reduction to display model predictions in EV can contribute to selecting 
+the best sample candidates for manual annotation. 
+
+4.7. Closing in on rare events
+
+Access to labelled data is a challenge in the bioacoustics field. There 
+is  generally  a  scarcity  of  labelled  datasets  (Baker  and  Vincent,  2019; 
+Stowell, 2022) and nothing similar to the large datasets existent in other 
+fields  such  as  speech  or  image  processing.  In  many  situations,  model 
+performance  may  need  to  be  assessed  against  an  unlabelled  dataset 
+significantly different to the original training data. That could be dif-
+ferences  in  hardware  characteristics:  often  training  data  involves 
+directional  microphones  while  processing  data  (most  PAM  data) 
+generally comes from omnidirectional microphones (Kahl et al., 2021). 
+Or sounds with geographically diverse origins that would have signifi-
+cant differences in their background soundscapes (Tolkova et al., 2021). 
+So, instead of manually reviewing individual predictions from a model 
+without additional context, a possible approach is one similar to that of
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit details about specific techniques used to address data bias during preprocessing of the deep learning pipeline. However, it mentions the challenges faced due to the scarcity of labeled data and the need for generating training data to target certain species. This suggests that techniques like stratified splitting, oversampling, undersampling, and diverse data collection might be relevant to mitigate these issues.
+
+Stratified splitting ensures that each subset of data maintains the same distribution of classes as the overall dataset, which helps maintain class balance when creating training and testing sets. Oversampling and undersampling involve increasing or decreasing the number of instances in a class to achieve balanced representation. These methods can help prevent the model from being biased towards the majority class.
+
+Additionally, collecting diverse data can also aid in addressing data bias. By gathering data from various sources, environments, and conditions, the model becomes more robust and generalizable, reducing its susceptibility to biases introduced by limited or homogeneous data.

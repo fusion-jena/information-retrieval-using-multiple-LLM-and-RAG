@@ -1,0 +1,181 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.2. Data sources and processing 
+
+2.2.1. NDVI dataset 
+
+For  our  study,  we  utilized  the  MOD13A2  dataset  from  the  GEE 
+platform (Data Catalog: ‘MODIS/006/MOD13A2’) to acquire NDVI data. 
+This remote sensing product offers a spatial resolution of 1 km and a 
+temporal resolution of 16 days. We collected original images of theMRB 
+spanning from January 2001 to December 2020, totaling 460 images (23 
+images per year). The preprocessing steps included proportional scaling 
+(dividing each pixel’s original value by a scale factor of 10,000), pro-
+jection transformations (utilizing the WGS1984-Albers projected coor-
+dinate  system),  and  mask  extraction  based  on  watershed  boundaries 
+(watershed boundaries extracted from the ArcGIS Pro 3.0.2 hydrological 
+analysis toolbox), among other procedures. 
+
+2.2.2. Drivers 
+
+We selected 12 drivers related to climate, terrain and human activity 
+
+(Fig. S1; Table 1).
+
+Fig. 2. Flow chart of the research framework. Table 1 shows the abbreviations used in Fig. 2.  
+
+Table 2 
+Different levels of kNDVI classification.  
+
+kNDVI 
+
+0 < kNDVI<0.15 
+0.15 < kNDVI<0.3 
+0.3 < kNDVI<0.45 
+0.45 < kNDVI<0.6 
+0.6 < kNDVI<0.75 
+
+Type 
+
+Poor 
+Inferior 
+Medium 
+Good 
+Excellent  
+
+time variable, and kNDVIj represents the maximum kNDVI value in the 
+jth  year.  A  positive  slope  denotes  a  vegetation  improvement  trend 
+(kNDVI greening), while a negative slope indicates a degradation trend 
+in  vegetation  (kNDVI  browning).  The  significance  of  the  trends  was 
+evaluated using the F test. Following the criteria outlined in Table 3 and 
+derived from prior studies(Lai et al., 2023; Ren et al., 2023b), the kNDVI 
+trends were categorized into four types. 
+
+Table 3 
+Classification of kNDVI trend types.  
+
+Trends 
+
+Slope < 0&P < 0.05 
+Slope < 0&P > 0.05 
+Slope > 0&P > 0.05 
+Slope > 0&P < 0.05 
+
+Types
+
+Climate 
+
+Terrain 
+
+Human activity 
+
+Evaporation 
+Sunshine duration 
+Relative Humidity 
+Precipitation 
+Temperature 
+Elevation 
+Slope 
+Aspect 
+Geomorphological type 
+Nighttime light 
+Population density 
+Road distance 
+
+Evap 
+Sund 
+Rh 
+Pre 
+Tem 
+Elev 
+Slop 
+Aspe 
+Geomt 
+Nightl 
+Popd 
+Road 
+
+mm(1 km) 
+hour(1 km) 
+%(1 km) 
+mm(1 km) 
+◦
+C(1 km) 
+m(30 m) 
+◦
+(30 m) 
+-(30 m) 
+-(1 km) 
+-(1 km) 
+person/km2(1 km) 
+m(1 km) 
+
+Continuous 
+Continuous 
+Continuous 
+Continuous 
+Continuous 
+Continuous 
+Continuous 
+Type 
+Type 
+Continuous 
+Continuous 
+Continuous 
+
+2001–2020 
+2001–2020 
+2001–2020 
+2001–2020 
+2001–2020 
+– 
+– 
+– 
+– 
+2001–2020 
+2001–2020 
+–  
+
+were then derived from the resampled DEM data using the slope and 
+aspect toolbox in ArcGIS Pro 3.0.2.
+
+The data on landform types were obtained from the Resource and 
+Environmental Sciences Data Centre of the Chinese Academy (RESDC) 
+(https://www.resdc.cn/).  These  data  were  generated 
+from  a 
+1:1,000,000 landform type map of China, which was reclassified into six 
+categories based on different landform types in ArcGIS Pro 3.0.2. 
+
+Mean annual meteorological data for China, including air tempera-
+ture,  precipitation,  sunshine  hours,  evapotranspiration,  and  relative 
+humidity,  were  collected  from  the  RESDC  (https://www.resdc.cn/). 
+This dataset was created by Xu (2022) We used ANUSPLIN software to 
+interpolate  relevant  meteorological  observations  from  2416  national 
+meteorological stations into a 1 km * 1 km grid. This dataset was pre-
+viously used to identify drivers of vegetation growth in earlier research 
+(Xu et al., 2023b; Yao et al., 2023). Based on this dataset, we extracted 
+all the meteorological data for the MRB from 2001 to 2020.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, it is not explicitly stated what specific data formats are used in the deep learning pipeline. However, some clues can be found regarding the data sources and their processing methods.
+
+From section 2.2.1, it is known that the researchers utilized the MOD13A2 dataset from the GEE platform to acquire NDVI data. This dataset provides remote sensing products with a spatial resolution of 1 km and a temporal resolution of 16 days. It can be assumed that the data format used here might be raster or geospatial data since these datasets often come in such formats.
+
+Additionally, in sections 2.2.2 and subsequent paragraphs, various drivers related to climate, terrain, and human activities are mentioned. Some examples include evaporation, temperature, elevation, population density, etc. These variables could potentially be represented in numerical or tabular formats like CSV files.
+
+Furthermore, the text mentions the use of ArcGIS Pro 3.0.2 for projection transformations, mask extractions, and deriving slope and aspect data from DEM data. This suggests that vector or raster data formats may also be involved in the analysis process.
+
+However, without explicit mention of the exact data formats used in the deep learning pipeline, one cannot definitively state the precise formats employed.

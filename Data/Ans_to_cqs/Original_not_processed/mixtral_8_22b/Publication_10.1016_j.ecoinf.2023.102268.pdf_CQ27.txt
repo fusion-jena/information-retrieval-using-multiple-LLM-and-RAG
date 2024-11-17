@@ -1,0 +1,79 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+similarities. It is widely used to visualize high-dimensional data (van der 
+Maaten  and Hinton, 2008). Here the  method has been applied to the 
+fc1000 activation vectors returned by ResNet-50. 
+
+4.2. Classifier model 
+
+The labeled dataset was split 70/30 into training and testing data-
+sets.  For  model  selection  and  parameter  optimization  50%  of  the 
+training data were held-out for validation (see Supporting Information). 
+The final classification model, a SVM with a cubic polynomial kernel, 
+was trained using the ResNet-50 fc1000 activations of the full training 
+dataset. A 10-fold cross-validation was then used to define the score-to- 
+posterior-probability transformation function (Platt, 2000), which pro-
+vides a basis for estimating the posterior probability for new observa-
+tions. Fig. 9 shows a confusion matrix for the test data not seen during 
+training.
+
+Acknowledgments 
+
+Hydrophone deployment and recovery were facilitated by O. Caretti, 
+with  assistance  from  R.  Patrick  Lyon,  E.  Voigt,  and  K.  Simmons.  The 
+members of the Jones Bay Club generously provided use of their boat 
+ramp  for  instrument  deployment  and  recovery.  This  work  benefited 
+from discussions with S. Ricci and D. Eggleston, as well as from early 
+testing and critical conversations with O. Caretti and R. Van Hoeck. 
+
+References 
+
+Almabdy, S., Elrefaei, L., 2019. Deep convolutional neural network-based approaches for 
+face recognition. Appl. Sci. 9 (20), 4397. https://doi.org/10.3390/app9204397. 
+
+Amorim, M.C.P., 2006. Diversity of sound production. In: Ladich, F., Collin, S.P., 
+Moller, P., Kapoor, B.G. (Eds.), Communication in Fishes. Science Publishers, 
+Enfield, NH, pp. 69–103.
+
+EcologicalInformatics77(2023)1022686D.R. Bohnenstiehl                                                                                                                                                                                                                               
+
+Fig.  6. Feature  extraction  and  classification  work-
+flows as applied to the same data segments in Fig. 5. 
+An  850-ms  long  data  segment  (boxes)  is  extracted 
+from the unfiltered waveform around each detection 
+to  form  a  frequency-reassigned  spectrogram  image. 
+These  images  are  fed  into  ResNet-50  CNN,  and  acti-
+vations  from  the  fully  connected  layer  (fc1000)  are 
+used as a feature vector for each detected signal. The 
+SVM  classifier  is  used  to  classify  the  candidate  de-
+tections based on the layer activations. Signals in the 
+‘other’  class  represent  false  alarms  identified  by 
+detection stage.
+
+extracted  automatically  using  the  activations  from  ResNet-50's  deep, 
+fully connected layer fc1000, located just before its classification layer. 
+Based on these activations, a one vs. all support vector machine (SVM) 
+classifier  is  then  used  to  identify  the  optimal  decision  boundary  to 
+differentiate ‘boatwhistles' from ‘other’ signals within the feature space 
+(Fig.  6)  (e.g.,  Kecman,  2005).  Using  a  pre-trained  deep  CNN  with  an 
+SVM is a form of transfer learning (e.g., Bousetouane and Morris, 2015; 
+Halberstadt, 2020), and the workflow mirrors that used by Bohnenstiehl 
+(2023a) for cataloging American silver perch calls. 
+
+3.5. Data labeling
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough information available to provide a detailed answer about the specific process followed to deploy the trained deep learning model. However, it can be inferred that the authors used a combination of ResNet-50 and a Support Vector Machine (SVM) with a cubic polynomial kernel for classification. They also mentioned using a 10-fold cross-validation to define the score-to-posterior-probability transformation function. Based on this information, we can assume that they might have serialized the trained model and deployed it on a suitable platform for further analysis or real-time predictions. But without explicit details regarding the deployment process, it remains speculative.

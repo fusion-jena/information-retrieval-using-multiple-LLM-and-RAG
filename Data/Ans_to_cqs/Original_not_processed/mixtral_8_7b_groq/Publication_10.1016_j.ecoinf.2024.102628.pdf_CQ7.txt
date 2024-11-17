@@ -1,0 +1,13 @@
+Answer:::
+
+The data for deep learning model training was split using a specific cross-validation approach called Leave-One-Group-Out (LOGO). In this method, each multitemporal transect was used once as a test set while the remaining transects were used for training. This approach ensures that there is no information transfer or contamination from previous folds. 
+
+In other words, the data was not split in a traditional sense into separate training, validation, and test sets. Instead, the model was trained and validated using most of the data, and then tested on a single transect that was held out from the training process. This process was repeated for each transect, so that every transect was used as a test set once. 
+
+This approach was chosen because of the specific constraints and characteristics of the data. The data consisted of multitemporal transects, which means that there were multiple observations of the same areas over time. This lack of independence in the data means that a traditional split into separate training, validation, and test sets would not be appropriate, as it could lead to information transfer or contamination between the sets. 
+
+Additionally, the data set was relatively small, so a more efficient use of the available data was necessary. The LOGO approach allowed for more efficient use of the data by using it for both training and validation, while still providing a rigorous test of the model's performance on held-out data. 
+
+It's also worth noting that a broader and more conservative testing strategy was adopted, where three transects (~17% of the data) were excluded for testing in each iteration. Specifically, one transect from each target class - "Plateau", "White-sand", and "Riparian" was excluded. This strategy was used to measure the model's performance across all transects, by assessing the model using coefficient of determination (R2) between true vs predicted for all 648 multitemporal transects predictions. 
+
+In summary, the data was split for deep learning model training using a Leave-One-Group-Out (LOGO) cross-validation approach, where each multitemporal transect was used once as a test set while the remaining transects were used for training. This approach was chosen due to the specific constraints and characteristics of the data, and allowed for more efficient use of the available data while still providing a rigorous test of the model's performance on held-out data.

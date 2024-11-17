@@ -1,0 +1,72 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+overfitting. These samples are selected randomly from all areas that are 
+used in the training set, and are never used to fit the model. The model is 
+trained for 150 epochs and with a batch size of 128. Dropout (Srivastava 
+et al., 2014) with a rate of 0.3 is used during the training to make it more 
+stable. Furthermore, ADAM optimisation (Kingma and Ba, 2014) with a 
+learning  rate  of  0.0001  is  used  to  find  optimal  weights  in  the  neural 
+network in order to minimise the cross entropy loss between the net-
+work’s predictions and the pre-labelled data.
+
+A 10-fold cross validation is performed in order for the result to be 
+generalizable for the remaining maps, to which the CNN is also applied. 
+To create the 10 different sets for the cross validation, we split the map 
+by placing a 3 × 3 grid over the map. The region that is studies is not 
+shaped  as  a  square,  and  the  central  cell  contains  more  area  than  the 
+other 8. This cell is, therefore, split into two cells making it 10 sets in 
+total. The division of the different sets are shown in Fig. 2. During the 
+training of the CNN 9 of these sets are used for the training and the final 
+one is used for evaluation. A challenge to the CNN is that the terrain 
+differs in the different areas, as well as the style of the maps, and thus 
+splitting the dataset in this way would give a good hint on the capability 
+of  the  CNN  to  generalise.  Among  the  samples  that  are  used  for  the 
+training  20%  is  used  as  a  validation  set  to  prevent  the  method  from
+
+2.4. Data pre-processing 
+
+2.2. Convolutional neural networks 
+
+The  idea  behind  convolutional  neural  networks  (CNNs)  was  first 
+
+As mentioned in the previous sections, the data is first split up into 
+several  larger  blocks,  depending  on  coordinates,  with  the  purpose  to 
+cross validate the model. These blocks are then split into many smaller 
+areas of 80 × 80 pixels, due to limitations in the available amount of 
+
+EcologicalInformatics68(2022)1015572N. Ståhl and L. Weimann
+
+Fig. 2. Cross validation of the model. The model is cross validated in such a way that the analysed area is split into 10 sub-areas. These sub-areas varies in terrain 
+type and hence, let us validate the generalisation behaviour of the model to areas with slightly different. 
+
+memory.  These  splits  are  conducted  in  an  iterative  manner  so  the 
+smaller areas are side by side to each other. In addition, a padding of 27 
+pixels  is  added  as  a  frame  around  the  area  used  as  input  in  order  to 
+counter  the  size  reduction  that  occurs  within  the  CNN.  This  process 
+creates 41,601 smaller segments, which can be viewed as small images, 
+that are all handled independently by the model. 
+
+2.5. Data post-processing
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+To ensure the generalizability of the deep learning model, several measures were implemented. Firstly, a diverse dataset was utilized, consisting of samples selected randomly from various areas used in the training set. These samples were never employed to fit the model, thereby preventing any potential bias towards specific regions.
+
+Secondly, a 10-fold cross-validation technique was adopted to further enhance the model's ability to generalize across unseen maps. To achieve this, the study area was divided into ten distinct subsets using a 3x3 grid. Given that the studied region was not perfectly square, one of the nine cells contained more area than the others. This cell was subsequently partitioned into two separate cells, resulting in a total of ten sets. Throughout the training phase, nine of these sets were allocated for training purposes, while the tenth set served as the evaluation subset. This approach allowed for a comprehensive assessment of the model's capacity to handle varying terrains and mapping styles.
+
+Lastly, dropout regularization was incorporated during the training stage with a rate of 0.3. This strategy helped stabilize the model and mitigate overfitting concerns. Additionally, the ADAM optimization algorithm was employed with a learning rate of 0.0001 to determine optimal weights within the neural network. The objective was to minimize the cross-entropy loss between the network's predictions and the labeled data.
+
+These combined strategies aimed to guarantee the robustness and adaptability of the deep learning model when confronted with new or previously unseen datasets.

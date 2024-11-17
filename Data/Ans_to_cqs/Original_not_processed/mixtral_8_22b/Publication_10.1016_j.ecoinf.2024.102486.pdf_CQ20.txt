@@ -1,0 +1,49 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+5.3. Inference using GPUs: context and limitations
+
+EcologicalInformatics80(2024)10248614C. Fagard-Jenkin and L. Thomas                                                                                                                                                                                                            
+
+explanations on writing and profiling GPU reductions, see Sanders and Kandrot (2010).
+
+computation. The first was in 2016 (Mill´an et al., 2016), and thereafter 
+the  proportion  of  articles  using  GPU  computing  rose  rapidly  from 
+approximately 1% in 2016 and 2017 to 12–15% in 2021–2023. By far 
+the most common use (139 of 143 articles, i.e., 97%) was in machine 
+learning  where  the  training  phase  can  readily  be  parallelised  and 
+accessible software tools are available to utilise GPUs for this purpose. 
+(A review of machine learning in ecology is given by Pichler and Hartig, 
+2022.) Typical machine learning applications involved recognition and 
+classification  of  visual  images  (e.g.  Atila  et  al.,  2021)  or  acoustic  re-
+cordings (e.g. Nanni et al., 2020). The most used software tools were 
+those  that  provide  accessible  extensions  to  the  Python  programming 
+language, such as TensorFlow (Abadi et al., 2015), Keras (Chollet et al., 
+2015), and PyTorch (Paszke et al., 2019), although alternatives using
+
+B.1. Warps, blocks, and threads 
+
+This  section  aims  to  highlight  the  most  important  GPU  programming  concepts  that  greatly  aid  in  understanding  parallel  architectures  more 
+generally, and also help to identify families of algorithms in computational statistics that could benefit from a GPU-accelerated implementation. For 
+simplicity, Nvidia-specific terminology will be used to remain consistent with the main text. 
+
+Fig. 1c (main text) represents a GPU streaming multiprocessor (SM), which is a collection of cores with fast cache memory shared between them, 
+and a small amount of resources for control structures. The longer block of memory in the middle of Fig. 1b (main text) is the GPU's global memory, 
+and all information stored here is accessible by all cores (on the GPU), no matter which SM they belong to. 
+
+A single independent stream of computation is known as a thread. On traditional CPU-only machines, we can expect to be able to run up to 128
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The majority of articles using GPU computing for machine learning in ecology involve training phases that can be easily parallelized. This suggests that GPUs are commonly used for training deep learning models due to their ability to handle parallel processing efficiently. Software tools like TensorFlow, Keras, and PyTorch, which extend the Python programming language, have been widely utilized for this purpose. These tools enable users to leverage the power of GPUs for training deep learning models. Therefore, it can be concluded that GPUs are frequently employed as hardware resources for training deep learning models in the field of ecology.

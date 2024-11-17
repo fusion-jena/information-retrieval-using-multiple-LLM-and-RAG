@@ -1,0 +1,127 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.2 Deep Learning
+
+Since the 2012 ImageNet competition, and new computational power accessible
+through latest GPU, Neural Network came back as a strong possibility for clas-
+siﬁcation tasks [18]. Moreover, by integrating convolutional layers, Deep Neural
+Networks (DNN) are able to both create features vectors and classify them.
+
+Neural network is a mathematical model which tries to mimic human brains
+[19]. Like SVM, neural networks may classify feature vectors after a training
+phase. A neural network is composed of interconnected nodes called neurons
+and each neuron of each layer receives a signal from the neurons of the previous
+layer. This signal is modiﬁed according to an activation function and transferred
+to the neurons of the next layer.
+
+We can deﬁne for the neuron n, the ﬁrst operation α(n) as:
+
+α(n)(x(n)) =
+
+c(cid:2)
+
+i=1
+
+i x(n)
+w(n)
+
+i
+
+(1)
+
+where x is the input vector, a given neuron, c the number of connections of this
+neuron, w(n)
+the input of rank i of
+i
+a neuron n.
+
+3.1 Data Preprocessing
+
+The choice of learning data is a crucial point. We worked with biology experts
+of the MARBEC laboratory to label many videos. We cropped some frames of
+the videos and created a training database composed of 13000 ﬁsh thumbnails.
+The thumbnail size varies from a minimum of 20 × 40 pixels to a maximum of
+150 × 200 pixels. Each thumbnail contains only one labeled-ﬁsh as shown on
+Fig. 2.
+
+We decided to keep only the species with more than 450 thumbnails. We also
+widen the database by applying rotations and symmetries in order to capture
+all the possible position of the ﬁshes. Table 1 lists the retained species.
+
+Due to the highly textured natural background, we also added a class for the
+background. This class is constituted with random thumbnails of the background
+which were randomly selected in frames and speciﬁc background thumbnails
+which were taken around the ﬁsh thumbnails.
+
+164
+
+S. Villon et al.
+
+Fig. 2. Some training thumbnails from the MARBEC database
+
+19. Atkinson, P.M., Tatnall, A.R.L.: Introduction neural networks in remote sensing.
+
+Int. J. Remote Sens. 18(4), 699–709 (1997)
+
+20. Schmidhuber, J.: Deep learning in neural networks: an overview. Neural Netw. 61,
+
+85–117 (2015)
+
+21. Lecun, Y., Bottou, L., Bengio, Y., et al.: Gradient-based learning applied to doc-
+
+ument recognition. Proc. IEEE 86(11), 2278–2324 (1998)
+
+22. Szegedy, C., Liu, W., Jia, Y.: Going deeper with convolutions. In: Proceedings of
+the IEEE Conference on Computer Vision and Pattern Recognition, pp. 1–9 (2015)
+23. Joly, A., et al.: LifeCLEF 2015: multimedia life species identiﬁcation challenges.
+In: Mothe, J., Savoy, J., Kamps, J., Pinel-Sauvagnat, K., Jones, G.J.F., SanJuan,
+E., Cappellato, L., Ferro, N. (eds.) CLEF 2015. LNCS, vol. 9283, pp. 462–483.
+Springer, Heidelberg (2015). doi:10.1007/978-3-319-24027-5 46
+
+Finally, in order to improve the localization accuracy, we decided to create
+another class called part of ﬁsh, to ensure that the network does not focus on
+a distinctive part of a ﬁsh as a stripe, a ﬁn, the head, but processes the ﬁsh
+as a whole. We also created a class ﬁsh which contains some unknown ﬁshes to
+make the method able to recognize any ﬁsh even though it is not in the learning
+database. However, this class must contain less samples in order to be sure that
+a ﬁsh will most likely be labeled by its speciﬁc class rather than the generic class
+ﬁsh. Finally, we added 3 classes to our initial thumbnail database as listed in
+Table 2.
+
+Table 2. Classes added to the species database
+
+Class Label
+
+Samples
+
+Random/speciﬁc background 116,820/91,247
+
+Part of Fish
+
+Fish
+
+55,848
+
+970
+
+Coral Reef Fish Detection and Recognition in Underwater Videos
+
+165
+
+3.2 Detection/Recognition Pipeline
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the provided context, there isn't explicit information about how the authors split their dataset into training, testing, or validation sets for their deep learning models. However, typically, datasets are divided into these subsets using various strategies such as random sampling, stratified sampling, or time-series based splitting depending on the nature of the problem and the available data. The common practice is to use approximately 70-80% of the data for training, 10-15% for validation, and 10-15% for testing. It would be reasonable to assume that the authors followed similar practices when preparing their dataset for deep learning model training.

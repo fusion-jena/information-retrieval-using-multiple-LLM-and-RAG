@@ -1,0 +1,232 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+}
+# delete pictures in valid/ directory for which we did not train the model
+to_be_deleted <- setdiff(levels(fct_drop(pix_valid$Keywords)), levels(fct_drop(pix_train$Keywords)))
+if (!is_empty(to_be_deleted)) {
+
+for (i in 1:length(to_be_deleted)){
+
+unlink(paste0('pix/valid/', to_be_deleted[i]))
+
+}
+
+}
+
+What is the sample size of these two datasets?
+
+bind_rows("training" = pix_train, "validation" = pix_valid, .id = "dataset") %>%
+
+group_by(dataset) %>%
+count(Keywords) %>%
+rename(category = Keywords) %>%
+kable() %>%
+kable_styling()
+
+15
+
+Table 5: Sample size (n) for the training and validation datasets.
+
+dataset
+training
+training
+training
+training
+training
+training
+training
+training
+training
+training
+training
+training
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+
+Paszke, Adam, Sam Gross, Francisco Massa, Adam Lerer, James Bradbury, Gregory Chanan, Trevor
+Killeen, et al. 2019. “PyTorch: An Imperative Style, High-Performance Deep Learning Li-
+brary.” In Advances in Neural Information Processing Systems 32, edited by H. Wallach, H.
+Larochelle, A. Beygelzimer, F. dAlché-Buc, E. Fox, and R. Garnett, 8024–35. Curran Associates,
+Inc. http://papers.neurips.cc/paper/9015-pytorch-an-imperative-style-high-performance-deep-
+learning-library.pdf.
+
+Rota, Christopher T., Marco A. R. Ferreira, Roland W. Kays, Tavis D. Forrester, Elizabeth L. Kalies,
+
+27
+
+William J. McShea, Arielle W. Parsons, and Joshua J. Millspaugh. 2016. “A Multispecies Occu-
+pancy Model for Two or More Interacting Species.” Methods in Ecology and Evolution 7 (10):
+1164–73. https://doi.org/https://doi.org/10.1111/2041-210X.12587.
+
+colorspace_2.1-0
+class_7.3-21
+fs_1.6.0
+proxy_0.4-27
+bit64_4.0.5
+splines_4.2.2
+jsonlite_1.8.4
+dbplyr_2.3.0
+httr_1.4.4
+Matrix_1.5-3
+cli_3.6.0
+igraph_1.3.5
+rappdirs_0.3.3
+cellranger_1.1.0
+svglite_2.1.1
+rvest_1.0.3
+rstatix_0.7.1
+zoo_1.8-11
+hms_1.1.2
+yaml_2.3.6
+pbapply_1.7-0
+checkmate_2.1.0
+commonmark_1.8.1
+systemfonts_1.0.4
+labeling_0.4.2
+tidyselect_1.2.0
+R6_2.5.1
+pillar_1.8.1
+units_0.8-1
+
+25
+
+[88] xts_0.12.2
+[91] modelr_0.1.10
+[94] utf8_1.2.2
+[97] jpeg_0.1-10
+
+[100] data.table_1.14.6
+[103] classInt_0.4-8
+[106] viridisLite_0.4.1
+
+abind_1.4-5
+crayon_1.5.2
+tzdb_0.3.0
+grid_4.2.2
+reprex_2.0.2
+webshot_0.5.4
+
+car_3.1-1
+KernSmooth_2.23-20
+rmarkdown_2.19
+readxl_1.4.1
+digest_0.6.31
+munsell_0.5.0
+
+Acknowledgments
+
+interp %>% most_confused()
+
+V1
+
+humain
+
+chasseur
+
+V2 V3
+chien chevreuil 3
+1
+chamois chevreuil 2
+2
+3
+humain vehicule 2
+4 blaireaux sangliers 1
+5
+1
+chat vehicule 1
+6
+1
+7 chevreuil
+1
+lievre
+8
+lynx chevreuil 1
+9
+lynx
+10
+1
+lynx sangliers 1
+11
+renard sangliers 1
+12
+1
+13 sangliers
+1
+14 vehicule
+
+renard
+renard
+
+renard
+humain
+
+renard
+
+23
+
+Table 6: Comparison of the predictions vs. ground truth.
+
+truth
+lynx
+roe deer
+wild boar
+
+prediction
+chamois
+chamois
+sangliers
+
+6.3 Transferability
+
+In this section, we show how to use our freshly trained model to label images that were taken in
+another study site in the Ain county, and not used to train our model. First, we get the path to the
+images.
+
+fls <- list.files(path = "pix/pixAin",
+
+full.names = TRUE,
+recursive = TRUE)
+
+Then we carry out prediction, and compare to the truth.
+
+predicted <- character(3)
+categories <- interp$vocab %>% as.character() %>%
+
+str_replace_all("[[:punct:]]", " ") %>%
+str_trim() %>%
+str_split("
+unlist()
+
+") %>%
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The code snippets provided do not contain information on how the hyperparameters of the model are optimized. Therefore, it is not possible to determine whether a method such as grid search or random search was used for optimization based solely on the given context. Further details would be required to provide a definitive answer.
+
+Answer:::
+
+Based on the provided context, there is no information about how the hyperparameters of the model are optimized. The code snippets only demonstrate deletion of certain files from the 'valid/' directory and displaying the sample sizes of the training and validation datasets. There is no mention of any hyperparameter tuning methods like grid search or random search.

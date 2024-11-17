@@ -1,0 +1,75 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+used to control the training process through an early stopping criterion.
+The reference metric is the Mean Squared Error (MSE). In order to have a
+reliable estimate of the MSE on the test set, we performed a 10-fold Cross
+Validation. In addition, given that our models are probabilistic in nature,
+each evaluation predicts the output per test point through 1000 runs.
+Considering the problem addressed and computational resources, this
+approach ensures an accurate reconstruction of the predicted output
+distribution since it guarantees a robust estimation process with a 95%
+confidence interval and a precision level of 5% (Ghosh et al., 2006). The
+result of the prediction of a single test point is shown in Fig. 5; as stated
+in the previous section, the uncertainty range of the MCD approach is
+wider than that of the VBI approach. Fig. 6 shows the performance of the
+two different architectures during the prediction phase on the whole test
+
+The inability to extrapolate results, the need to accumulate more and
+more data and to complicate the model architecture could be related in
+many cases to the complete absence of uncertainty quantification. Such
+quantification would allow for an estimate of the contribution of each
+individual improvement within the analyzed framework and the estab-
+lishment of thresholds for process optimization (Abdar et al., 2021). The
+issue of uncertainty estimation represents one of the greatest weaknesses
+of Neural Networks and, in several applications, is addressed by intro-
+ducing the principles of the Bayesian approach (Abdar et al., 2021; Wu
+et al., 2023). Unlike deterministic models that provide point estimates,
+Bayesian models make use of probability distributions to represent un-
+certainty about parameters and predictions. This allows Bayesian
+methods to quantitatively express confidence levels in predictions, up-
+date beliefs as new data is observed, and integrate prior knowledge
+
+• Second method: use of BBCH_res values during the training phase
+(standardization is applied here too); the output is converted to the
+BBCH scale through a dictionary; in this case, in order to use the
+dictionary, it is necessary to apply the rounding function on the
+
+output before converting it to the BBCH scale, so it is not possible to
+evaluate the results with and without rounding separately.
+
+Before proceeding, an important observation must be made: in order
+to use the dictionary in the second method, it is necessary to ensure that
+the network outputs are consistent with the keys of the dictionary itself;
+therefore negative values must be forced to zero, while values that
+exceed the upper bound of the keys, i.e. 91, must be forced to 91.
+Furthermore, aiming to have a legitimate comparison between the two
+methods, these corrections are also made during the execution of the
+first method (even if not strictly necessary).
+
+The values of other metrics, namely MAE, SMAPE and NMPIW, are reported in this appendix. In particular, SMAPE and NMPIW are useful because,
+unlike conventional metrics, they provide a measure of the quality of prediction intervals in relation to the variability of the observed data. For a good
+model, desirable values for SMAPE are typically below 20%, indicating accurate and balanced predictions, while NMPIW values should be close to 0,
+reflecting narrow prediction intervals compared with the observed data range. The analysis made for MSE is still considered valid.
+
+EcologicalInformatics82(2024)1027239A. Nappa et al.
+
+A.1. Basic experiment
+
+Here the tables referring to the basic experiment, which uses the re-labeled output (BBCH_res) in both training and prediction phases, are shown.
+MAE - Mean Absolute Error.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not explicitly state the specific criterion used to determine when training is complete. However, it mentions using an early stopping criterion, which suggests that the training process might stop based on some form of performance metric or convergence threshold. Given that the Mean Squared Error (MSE) is mentioned as the reference metric, it can be inferred that the early stopping criterion may involve monitoring the MSE on a validation dataset and halting training once the error stops improving significantly or starts increasing, indicating overfitting.

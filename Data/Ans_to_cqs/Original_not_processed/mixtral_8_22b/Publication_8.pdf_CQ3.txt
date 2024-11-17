@@ -1,0 +1,99 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+This   rising   number   of   digitised   herbarium   sheets   provides   an   opportunity   to   employ
+computer-based   image   processing   techniques,   such   as   deep   learning,   to   automatically
+identify species and higher taxa (Carranza-Rojas et al. 2017, Younis et al. 2018, Carranza-
+Rojas   et   al.   2018)   or   to   extract   other   useful   information   from   the   images,   such   as   the
+presence   of   pathogens   (as   done   for   live   plant   photos   by   Mohanty   et   al.   2016).   Deep
+learning is a subset of machine learning methods for learning data representation. Deep
+learning   techniques   require   huge   amounts   of   training   data   to   learn   the   features   and
+representation of those data for the specified task by fine tuning parameters of hundreds or
+thousands of neural networks, arranged in multiple layers. Learning the value of these
+parameters can take vast computer and time resources, especially on huge datasets.
+
+Due to the large image size and additional parameters of Faster R-CNN, a minibatch size
+of four images per GPU (TITAN Xp) was selected for training the model. The model was
+trained   twice,   once   with   a   training   subset   of   498   images   on   a   single   GPU   for   9000
+iterations and performance evaluated on the test subset of 155 images, also on a single
+GPU   and   then   trained   again   on   all   653   annotated   images   on   three   GPUs   for   18000
+iterations   for   predicting   plant   organs   on   another   un-annotated   independent   dataset   to
+evaluate   our   method.   This   dataset   consists   of   708   full   scale   herbarium   scans,   with   an
+average  size of  ca. 9600  by  6500  pixels,   from  the   Herbarium  Senckenbergianum  (FR)
+(Otte et al. 2011) with a different set of species (Fig. 2) and geographical origins, which is
+also available at GBIF (Senckenberg 2020). The Python code and the trained model have
+
+Biodiversity Data Journal 8: e57090
+
+doi: 10.3897/BDJ.8.e57090 
+
+Research Article 
+
+Detection and annotation of plant organs from
+
+digitised herbarium scans using deep learning
+
+Sohaib Younis
+
+‡,§
+
+, Marco Schmidt
+
+‡,|
+
+Thomas Hickler
+
+‡
+
+, Claus Weiland , Stefan Dressler , Bernhard Seeger , 
+
+‡
+
+§
+
+¶
+
+‡ Senckenberg Biodiversity and Climate Research Centre (SBiK-F), Frankfurt am Main, Germany
+§ Department of Mathematics and Computer Science, Philipps-University Marburg, Marburg, Germany
+| Palmengarten der Stadt Frankfurt, Frankfurt am Main, Germany
+¶ Senckenberg Research Institute and Natural History Museum, Frankfurt am Main, Germany
+
+Corresponding author: Sohaib Younis (sohaibyounis89@gmail.com) 
+
+Academic editor: Ross Mounce
+
+Received: 30 Jul 2020 | Accepted: 16 Nov 2020 | Published: 10 Dec 2020
+
+Citation: Younis S, Schmidt M, Weiland C, Dressler S, Seeger B, Hickler T (2020) Detection and annotation of
+
+The most common type of deep learning network architecture being used for extracting
+image   features   is   the   Convolutional   Neural   Network   (CNN)   (LeCun   and   Bengio   1995).
+A convolutional neural network extracts the features of an image by passing through a
+series of convolutional, non-linear, pooling (image downsampling) layers and passes them
+to a fully connected layer to obtain the desired output. Each convolutional layer extracts the
+visual features of the image by applying convolution operations to the image with kernels,
+using a local receptive field, to produce feature maps and passing it as input to the next
+layer. The initial layers in the network compute primitive features on the image, such as
+corners   and   edges,   the   deeper   layers   use   these   features   to   compute   more   complex
+features consisting  of curves and  basic  shapes  and  the   deepest   layers  combine  these
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, there isn't explicit mention of specific data annotation techniques used in the deep learning pipeline. However, we can infer that bounding box annotations were employed based on the usage of Faster R-CNN (Region-Based Convolutional Neural Network) for object detection tasks.
+
+Bounding boxes are rectangular annotations drawn around objects within an image, providing essential location and spatial information about each object. In this case, they were likely utilized to identify and locate various plant organs present in the digitized herbarium scans.
+
+Instance segmentation, on the other hand, involves creating pixel-wise masks for individual instances of objects within an image. While not explicitly mentioned in the text, it could potentially be applied alongside bounding box annotations to further refine the identification and delineation of plant organ boundaries.
+
+To summarize, although the exact data annotation technique used in the deep learning pipeline remains undisclosed, it is evident that bounding box annotations played a significant role in identifying and locating plant organs in the digitized herbarium scans. Instance segmentation may also have been incorporated to enhance the accuracy of plant organ boundary recognition.

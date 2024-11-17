@@ -1,0 +1,13 @@
+Answer:::
+
+To monitor the model performance during training, a few strategies were implemented. First, the authors used models pre-trained on the ImageNet database and then retrained them for bumble bee species classification using their image dataset. This allowed for a faster training process and provided a baseline performance level for the models.
+
+Next, the full dataset was divided into training (80%) and test (20%) groups, and images within each class (species) were split along the 80:20 ratio to maintain their proportional representations in the training and test groups. This division allowed for the evaluation of the model's performance on unseen data, providing an estimate of how well the model would generalize to new bumble bee images.
+
+For each model, cropped images were resampled to a standard size for model input. Specifically, images of 224 × 224 pixels were used for ResNet, Wide-Resnet, and MnasNet, and 299 × 299 pixels were used for InceptionV3. This standardization helped ensure consistent processing of the images and reduced the likelihood of bias due to differences in image size.
+
+An image augmentation strategy was also employed, including random rotation (≤ 100°), crop (≤ 10%), sheer (≤ 30%), and horizontal flip. This strategy helped reduce overfitting and improved the model's generality by exposing it to a variety of transformed images during training.
+
+Lastly, to account for the class imbalance in the dataset, predictions were weighted. This strategy helped ensure that the model paid appropriate attention to the minority classes, reducing the likelihood of poor performance on those classes.
+
+By implementing these strategies, the authors were able to monitor the model performance during training, ensuring that the models were not overfitting, were generalizing well to new data, and were handling the class imbalance effectively.

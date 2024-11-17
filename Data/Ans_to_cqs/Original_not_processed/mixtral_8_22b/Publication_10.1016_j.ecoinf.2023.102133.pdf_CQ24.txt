@@ -1,0 +1,156 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+random  vectors.  This  technique  is  part  of  ensemble  learning  that  has 
+made  significant  improvements in  learning accuracy  for classification 
+and regression tasks (Breiman, 2001). A random subset of the features is 
+chosen at each candidate split during the learning process when using 
+random forests, which employ a modified tree learning algorithm (Ho, 
+1998). Each decision tree within the RF is constructed and trained from 
+a random subset of the data in the training set. Therefore, the trees do 
+not use the complete set, and at each node the best attribute is chosen 
+from  a  randomly  selected  set  of  attributes  (thus,  not  necessarily  the 
+absolute best attribute). For example, given the training dataset (X, Y), 
+with each element xi ∈ X ∈ R,yi ∈ Y ∈ R, one can train M different trees 
+on  different  subsets,  chosen  randomly  with  replacement,  and  then 
+compute the ensemble average: 
+(
+(
+
+)
+
+)
+
+f
+
+x
+
+=
+
+∑M
+
+m=1
+
+1
+M
+
+fm
+
+x
+
+(9)
+
+R2 = 1 (cid:0)
+
+∑n
+
+i=1
+∑n
+
+i=1
+
+(yi (cid:0) ̂yi)2
+
+(yi (cid:0) yi)2
+
+RMSE =
+
+√
+√
+√
+√
+√
+
+̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+∑n
+(yi (cid:0) ̂yi)2
+
+i=1
+
+n
+
+)
+
+(
+
+yi (cid:0) ̂yi
+
+n
+
+3.3.2. Random Forest 
+
+A Random Forest is a particular classifier/regressor formed by a set 
+of decision trees represented as independent and identically distributed 
+
+∑n
+
+i=1
+
+MBE =
+
+(11)  
+
+(12)  
+
+(13) 
+
+EcologicalInformatics76(2023)1021336A. Pagano et al.                                                                                                                                                                                                                                 
+
+where yi  represents the measured evapotranspiration ETa  value of the i- 
+th sample, ̂yi  is the corresponding predicted value, and yi  is the mean 
+measured data for a total n observations. 
+
+3.3.4. Model hyperparameters selection
+
+Breiman, L., 1996. Bagging predictors. Mach. Learn. 24 (2), 123–140. 
+Breiman, L., 2001. Random forests. Mach. Learn. 45 (1), 5–32. 
+Castel, J., 2000. Water use of developing citrus canopies in valencia, spain. In: 
+Proceeding International Society Citriculture, IX Congress. pp. 223–226. 
+Consoli, S., Stagno, F., Roccuzzo, G., Cirelli, G., Intrigliolo, F., 2014. Sustainable 
+
+management of limited water resources in a young orange orchard. Agric. Water 
+Manag. 132, 60–68. 
+
+El Hari, A., Chaik, M., Lekouch, N., Sedki, A., Lahrouni, A., 2010. Water needs in citrus 
+fruit in a dry region of morocco. J. Agric. Environ. Int. Dev. (JAEID) 104 (3/4), 
+91–99. 
+
+Elbeltagi, A., Deng, J., Wang, K., Malik, A., Maroufpoor, S., 2020. Modeling long-term 
+
+dynamics of crop evapotranspiration using deep learning in a semi-arid 
+environment. Agric. Water Manag. 241, 106334.
+
+Since decision trees are known to be error-prone, they can benefit in 
+important  ways  from  their  averaging.  In  other  words,  decision  trees 
+lower  the  model  variance  without  raising  bias  and,  thus,  this  boot-
+strapping  method  improves  the  model’s  performance.  Indeed,  while 
+single tree predictions are very sensitive to noise in the training set, an 
+average  of  several  trees  reduces  this  sensitiveness,  provided  that  the 
+trees  are  uncorrelated.  Highly  connected  trees  result  from  merely 
+training several trees on a single training set. Through the use of various 
+training sets, bootstrap sampling can de-correlate trees. Thus, random-
+ness is a factor that becomes part of the construction of the RFs, and is 
+intended to increase their diversity and thus decrease their correlation. 
+In  the  case  of  a  regression,  the  final  result  returned  by  the  RF  is  the 
+average of the numerical result by the different decision trees.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The strategy employed to handle randomness in the deep learning pipeline, specifically in the context of Random Forests, involves introducing randomness into the construction of the forest itself. This is achieved through two main methods: bagging and feature randomness.
+
+Bagging, short for Bootstrap Aggregating, is a technique where multiple subsets of the original dataset are created by selecting samples randomly with replacement. Each subset is used to train a separate decision tree. The final prediction is made by aggregating the results from all these trees, often done through voting or averaging. This approach helps reduce overfitting and increases the robustness of the model.
+
+Feature randomness is another strategy used in Random Forests. At each node of every decision tree, only a random subset of features is considered for splitting. This introduces more diversity among the trees and further reduces correlation between them.
+
+These strategies help manage the inherent randomness in the deep learning pipeline, such as the random initialization of weights in neural networks or the random shuffling of datasets before training. By incorporating randomness in a controlled manner, we can improve the generalization ability of our models and prevent overfitting.

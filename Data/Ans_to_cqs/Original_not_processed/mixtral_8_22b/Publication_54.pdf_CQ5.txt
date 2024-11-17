@@ -1,0 +1,94 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+IV. EXPERIMENTAL SETTINGS
+To extract the relevant features of birds, we randomly split
+the endemic bird data into 3,132 images for training and
+760 images for testing. To allow the deep networks to con-
+verge and improve the ability of the model to generalize
+adeptly, we augmented the training dataset 10 times, resulting
+in a total of 31,320 images. Then, 25,056 (80%) images were
+used for training and 6,264 (20%) were used for validation.
+The Inception-ResNet-v2 model was trained using the mini-
+batch gradient descent algorithm with the batch size set to
+32 and the learning rate maintained at 0.0001. The Adam
+optimizer was used to ﬁne-tune the model with the following
+parameters:
+
+• Exponential decay rate of ﬁrst-moment estimation
+
+of 0.9.
+
+The following procedures are used in the approach devel-
+
+oped in this study.
+
+102978
+
+VOLUME 9, 2021
+
+Y.-P. Huang, H. Basanta: Recognition of Endemic Bird Species Using Deep Learning Models
+
+the holdout validation dataset. The presented work was imple-
+mented using the TensorFlow libraries on a GPU workstation
+with an Intel Xeon 8 CPU, 32 GB of memory, and an Nvidia
+GeForce 11 GB GRX 2080 Ti graphics card.
+
+V. PROOF OF CONCEPT
+In this experiment, 760 images, which were excluded from
+the training and validation datasets, were used for testing.
+
+FIGURE 4. Flowchart for model validation.
+
+• Train the Inception-ResNet-v2 architecture on data aug-
+
+mented from original images.
+
+• Test the validation dataset and determine the misclassi-
+
+ﬁed images.
+
+• Randomly interchange the same amount of misclassiﬁed
+validation images with the training images and retrain
+the model again.
+
+• Repeat this process until the classiﬁer adapts to the
+
+speciﬁc target task.
+
+• Fit the model to evaluate the test set.
+In this way, the algorithm can tune itself and improve the
+generalizability of spatial features to the previously unseen
+domains present in the image.
+
+A. ACCURACY COMPARISONS OF BENCHMARK
+NETWORK MODELS
+Several experiments were conducted to evaluate the accuracy
+and practicability of the proposed method. For the quantita-
+tive analysis of the models, we ﬁrst compared state-of-the-art
+deep learning backbone models, such as Inception-ResNet-
+v2 [27], Inception-v3 [28], Xception [32], ResNet101 [29],
+and MobileNetV2 [33]. Fig. 5 lists the classiﬁcation accura-
+cies achieved by the learning models.
+
+Inception-ResNet-v2 was found to consistently outperform
+the other existing learning networks by attaining 100% train-
+ing accuracy, 97.47% validation accuracy, and 97.11% test
+accuracy.
+
+FIGURE 5. Comparison performance of various AI models.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The experimental settings section mentions that the authors use a dataset of endemic bird species images. They have a total of 3,892 images, which they divide into three sets: one for training, another for validation, and the last for testing. Specifically, they use 3,132 images for training and 760 images for testing. To increase the number of training samples and help their deep network converge better, they perform data augmentation on the training dataset, increasing it tenfold to 31,320 images. From these augmented images, they then use 25,056 (80%) for training and 6,264 (20%) for validation. However, the exact source or name of the dataset is not mentioned in the given text.

@@ -1,0 +1,65 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Many machine learning systems have pragmatic design constraints 
+that  limit  the  range  of  durations  they  can  consider.  Our  template- 
+matching method uses ranges directly inherited from the 5 annotated 
+events, although there remain practical limits on very large templates, 
+such as computer memory. In deep learning, long audio files are usually 
+divided into shorter chunks (with fixed durations of e.g. 3 or 10 s), so 
+that a whole batch can fit inside the limited memory of GPUs. To detect 
+long  events,  detections  that  span  these  chunks  are  joined  together  in 
+post-processing. This as well as other considerations meant that post- 
+processing  of  outputs  was  an  important  aspect  of  all  strongly- 
+performing systems.
+
+• Transductive  few-shot  learning  -  Meta  learning  methods  aim  to 
+learn on scarce data in order to generalise to unseen tasks,  which 
+makes the problem fundamentally difficult. In order to mitigate the 
+difficulty, transductive based methods utilise the information present 
+in the unlabeled examples from the query set to adapt the model and 
+improve its predictions. In Liu et al. (2018), the samples in support 
+and query set are jointly modelled as nodes of a graph and the pre-
+diction on query set is conducted by label-propagation algorithm. In 
+Hou  et  al.  (2019),  a  cross-attention  based  map  is  learnt  between 
+support set and query set in order to make predictions on individual 
+query examples.
+
+Such fragmentation hinders the practical usability of deep learning 
+in bioacoustics, and thus in the life sciences at large. Indeed to date, the 
+success of deep neural networks in the supervised regime depends on the 
+availability of a massive corpus of audio examples for the sound events 
+of interest, paired with human annotations. Yet, temporally-precise and 
+fine-grained annotation of audio demands expertise, and is thus costly 
+and time-consuming. In many cases, the obstacle is not only to acquire 
+annotations, but also the audio examples themselves: e.g. for rare spe-
+cies,  remote  locations,  or  costly  equipment.  Furthermore,  these 
+numerous small-data scenarios remain outside the scope of digital bio-
+acoustic archives, such as Xeno-Canto and the Macaulay Library.
+
+Then, for each sample xq  from the query set, a distance function is 
+used  to  calculate  the  Euclidean  distance  of  xq  from  each  prototype, 
+following which a softmax function over the distances produces a dis-
+tribution over the classes. This directly implies that training the neural 
+network to optimise these distances should move prototypes and their 
+corresponding  query  points  closer  together  in  the  embedding  space 
+created  by  fϕ,  and  further  away  from  non-matching  points.  In  other 
+words, the training procedure creates a general representation in which 
+similar  sounds  are  close  to  each  other.  Nearest-neighbour  algorithms 
+such as k-means can then be used to label future data points—even those 
+from novel categories, after a simple procedure of calculating the pro-
+totype of a novel category as the centroid of its k shots.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text does not provide explicit details about the specific criteria used to split the data for deep learning model training (e.g., train, test, validation). However, it mentions that long audio files are divided into shorter chunks, typically with fixed durations like 3 or 10 seconds, to accommodate GPU memory limitations during processing. It also discusses the use of labeled and unlabeled examples in meta learning methods, where the prediction on the query set is conducted using techniques like label propagation or cross-attention mapping. Additionally, the text highlights challenges related to acquiring sufficient annotated audio examples due to factors like rarity of species, remoteness of locations, or expensive equipment requirements. These aspects suggest that the splitting of data might depend on various factors including computational resources, availability of labeled/unlabeled data, and domain-specific considerations.

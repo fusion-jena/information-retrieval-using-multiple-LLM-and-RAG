@@ -1,0 +1,72 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.5.2. Random Forest
+
+For random forest, input features included the mean and standard deviation for image
+window sizes of 5 × 5, 15 × 15, and 32 × 32 in addition to the central pixel values for
+each input feature. We used a random search to identify an optimal parameter set where
+100 sets were sampled and compared using three-fold cross validation. Search parameter
+ranges were number of trees (200 to 800, by 100), minimum samples split (2–4), minimum
+
+Remote Sens. 2021, 13, 634
+
+7 of 21
+
+samples per leaf (2–4), maximum depth (full), bootstrap (true), and maximum features for
+split (square root of the number of features). For a description of these parameters see the
+Scikit-learn documentation [48]. These results were reﬁned using a grid-search with the
+parameter ranges set to ±50 for the number of estimators and ±1 for the other parameters.
+
+2.6. Membership Based Change Detection and Segmentation
+2.6.1. Split Window Detection of Change Seed Points
+
+For classiﬁer development, samples across the prairie region were acquired for train-
+ing, veriﬁcation, and ﬁnal independent testing. The veriﬁcation sample was used to
+determine training convergence of the deep-learning classiﬁer and the test sample for inde-
+pendent assessment. To generate these, a systematic approach was used where samples
+were collected following a grid of sample blocks of 9 by 9 km with 15 km spacing between
+blocks. Blocks were assigned as training, validation, and test. For the test sample a column
+of the sample grid was randomly selected and every fourth column from that added. Only
+every second row for the selected columns were included in the test sample. Figure 2
+shows the distribution of these sample sets. In total there were 39,520 (60%) training
+samples, 23,934 (30%) veriﬁcation samples and 6509 (10%) test samples. Here we focused
+the majority of the samples for training and veriﬁcation in an effort to maximize model
+
+For training, the Adam optimizer was used with 500 epochs and categorical-cross
+entropy loss function. Batch size was set to 64. Data augmentation was applied to enhance
+sample variation and included rotation, reﬂectance bias of ±10%, and random noise of
+±10% reﬂectance for 15% of the input image. To determine training convergence, we
+monitored the validation data across training epochs and the network weights with the
+best performance were kept. Early stopping criteria was applied if no improvement was
+found in 50 epochs. For CNNs, weight initialization and random selection for batch
+training can lead to variability in the results. Thus, an ensemble of three models were
+generated and the average of the ﬁnal output layer taken. Max pooling was used for two
+models in the ensemble and average pooling for one. In initial tests using max or average
+pooling showed that both provided improvement in some cases and thus could enhance
+
+the ensemble results. All CNNs were trained using the TensorFlow backend on a Tesla
+M100 graphic processing unit.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+A systematic approach was employed to collect samples for training, verification, and final independent testing of the deep learning classifier. Samples were gathered following a grid of sample blocks measuring 9 by 9 km with 15 km spacing between blocks. These blocks were then designated as either training, validation, or test blocks.
+
+To create the test sample, a column of the sample grid was chosen at random, and every fourth column starting from this point was added. However, only every second row within the selected columns was incorporated into the test sample. This process resulted in a total of 39,520 (60%) training samples, 23,934 (30%) verification samples, and 6509 (10%) test samples.
+
+The focus was primarily placed on gathering more samples for training and verification efforts in order to maximize the overall performance of the model. During the training phase, the Adam optimizer was utilized along with 500 epochs and a categorical-cross entropy loss function. A batch size of 64 was also established.
+
+Data augmentation techniques such as rotation, reflectance bias of ±10%, and random noise of ±10% reflectance for 15% of the input image were implemented to increase sample diversity. Training convergence was monitored through observation of the validation data over the course of multiple training epochs. The network weights exhibiting the best performance were retained. An early stopping criterion was enforced if no improvements were observed after 50 consecutive epochs.
+
+In summary, the criteria used to split the data for deep learning model training involved creating a grid of sample blocks, designating them as training, validation, or test blocks, and employing various optimization strategies during the training phase to ensure robustness and accuracy of the model.

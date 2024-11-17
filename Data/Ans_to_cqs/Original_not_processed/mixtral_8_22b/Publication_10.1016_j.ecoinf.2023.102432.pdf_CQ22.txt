@@ -1,0 +1,66 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+were calculated on the 20% of the data not used for training the algo-
+rithm  (approximately  720  pixels  with  50  having  Brazilian peppertree 
+present). The confusion matrix was calculated and the overall, producer, 
+and user accuracy are reported.
+
+MTMI-SMF is formulated to work with imperfect data, which can be 
+due to training locations having locational errors or not ideally matching 
+with  image  pixels.  MTMI-SMF  groups  pixels  surrounding  a  training 
+location  that  could  have  invader.  Most  other  machine  learning  algo-
+rithms require a single pixel to represent a training location, which often 
+leaves the user making an educated guess on which pixel best represents 
+that training location. Here, we compare MTMI-SMF classification (i.e., 
+confidence values with a threshold applied) to a commonly used ma-
+chine learning classification approach, random forest.
+
+Random  Forest  is  a  common  machine  learning  approach  used  in 
+remote sensing for classification. This approach requires a single pixel’s 
+spectrum to be associated with a single metadata record, compared to 
+MTMI-SMF which can take many pixels’ spectra and associate it with a 
+single metadata record. Since training locations often did not fall near 
+the center of a pixel (see example in Fig. 3 where the training location 
+falls at the intersection of four NAIP pixels), a random pixel from the 
+pixels  in  closest  proximity  of  the  training  location  was  selected  for 
+analysis. This single pixel dataset was split into training and testing data 
+using 5 K-fold cross-validations. MATLAB’s (MathWorks, Inc., Natick, 
+Massachusetts) TreeBagger function was used to complete the classifi-
+cation using 100 trees. Looping through the k-folds, the random forest 
+algorithm was calculated using 80% of the data and classification results
+
+Table A.5 
+Confusion matrix for RapidEye imagery using Random Forest. Each row is an iteration of the 5 K-Folds used with values only being used on the bags excluded from 
+training. 
+
+Table A.6 
+Confusion matrix for Landsat imagery using Random Forest. Each row is an iteration of the 5 K-Folds used with values only being used on the bags excluded from 
+training. 
+
+References 
+
+Asner, G.P., Knapp, D.E., Kennedy-Bowdoin, T., Jones, M.O., Martin, R.E., Boardman, J., 
+
+Hughes, R.F., 2008. Invasive species detection in Hawaiian rainforests using 
+airborne imaging spectroscopy and LiDAR. Remote Sens. Environ. 112, 1942–1955. 
+https://doi.org/10.1016/j.rse.2007.11.016. 
+
+Blossey, B., 1999. Before, during and after: the need for long-term monitoring in invasive 
+plant species management. Biol. Invasions 1, 301–311. https://doi.org/10.1023/A: 
+1010084724526.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text mentions that the overall, producer, and user accuracy were reported for evaluating the performance of the deep learning model. These metrics are derived from the confusion matrix, which is also mentioned as being calculated. The confusion matrix is a table layout that allows visualization of the performance of an algorithm. Each row of the matrix represents the instances in a predicted class while each column represents the instances in an actual class. It shows the number of correct and incorrect predictions made by the classifier. From this matrix, various metrics such as accuracy, precision, and recall can be computed. However, the text specifically mentions the use of overall, producer, and user accuracy. Overall accuracy is the proportion of all samples that were classified correctly. Producer accuracy refers to the probability that a certain area on the ground is classified as such. User accuracy is the probability that a certain class on the map actually represents that class on the ground.

@@ -1,0 +1,13 @@
+Answer:::
+
+The process followed to deploy the trained deep learning model for automated species identification of Chagas disease vectors involved several steps, including model serialization and platform selection.
+
+Firstly, the deep learning model was trained using TensorFlow, an open-source software platform for deep learning research and applications. The researchers adapted and configured TensorFlow for their project via Python, adjusting two parameters from their default values: validation percentage and number of training steps. The validation percentage was increased from 10% to 16% due to the small number of images available for some species. The number of training steps was explored and compared to find the optimum balance between computing time and classification efficiency.
+
+Once the model was trained, it was necessary to serialize it for deployment. Model serialization is the process of saving the trained model's architecture and weights to a file, allowing it to be loaded and used for inference on new data. The TensorFlow model was saved using the `tf.saved_model.save()` function, which saves the model in a format compatible with TensorFlow Serving, a flexible platform for deploying TensorFlow models in production.
+
+After serializing the model, the researchers selected a platform for deploying it. TensorFlow Serving was used as the platform for deploying the model, as it allows for easy integration with other services and provides efficient model loading and serving. TensorFlow Serving also supports versioning of models, allowing for easy rollback and A/B testing of different models.
+
+To serve the model using TensorFlow Serving, a Docker container was created, which included the TensorFlow Serving binary and the serialized model. The Docker container was then deployed to a server, allowing for inference requests to be made to the model via a REST API.
+
+In summary, the process followed to deploy the trained deep learning model for automated species identification of Chagas disease vectors involved training the model using TensorFlow, serializing it using `tf.saved_model.save()`, and deploying it to a server using TensorFlow Serving within a Docker container.

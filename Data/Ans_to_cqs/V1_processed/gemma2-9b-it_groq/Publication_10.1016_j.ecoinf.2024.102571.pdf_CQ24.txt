@@ -1,0 +1,19 @@
+Deep learning pipelines often incorporate randomness in several stages, primarily for the purpose of introducing variability and preventing overfitting.  Here are some common strategies used to handle randomness:
+
+* **Random Seed Initialization:**  Setting a random seed ensures that the initial weights of the neural network are generated in a reproducible manner. This allows for consistent results across multiple runs and facilitates debugging.
+
+* **Dropout:** This regularization technique randomly "drops out" (ignores) a percentage of neurons during each training step. This prevents the network from relying too heavily on any single neuron, promoting the learning of more robust features.
+
+* **Batch Normalization:** This technique normalizes the activations of neurons within each mini-batch, reducing the internal covariate shift and stabilizing training. The normalization process often involves random sampling within each batch.
+
+* **Data Augmentation:**  Randomly augmenting the training data (e.g., rotating, flipping, cropping images) increases the diversity of the training set and helps the model generalize better to unseen data.
+
+* **Stochastic Gradient Descent (SGD):**  SGD uses a random subset of the training data (a mini-batch) to compute the gradient at each step. This introduces randomness into the optimization process and can help escape local minima.
+
+**Controlling Randomness:**
+
+While randomness is beneficial in many aspects of deep learning, it's crucial to control it to ensure reproducibility and reliable results.  
+
+* **Fixing the Random Seed:** As mentioned earlier, setting a fixed random seed ensures that the same random numbers are generated across different runs.
+
+* **Hyperparameter Tuning:** Carefully tuning hyperparameters such as dropout rate, batch size, and learning rate can influence the impact of randomness on the training process.

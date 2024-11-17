@@ -1,0 +1,180 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+feature  images  while  retaining  crucial  features.  The  Dropout  layer  is  integrated  to  mitigate 
+
+overfitting. Additionally, the Global Average Pooling layer summarizes features, generating input 
+
+for the fully connected layer. This layer also facilitates the visualization of regions relied upon by 
+
+the network for predictions. The subsequent three fully connected layers generate the predicted 
+
+class for the original image 
+
+Table 1: Main parameters of the classification network 
+
+[
+
+Input size 
+
+Output size 
+
+Journal Pre-proof
+
+[
+
+[
+
+[
+
+Parameters 
+
+  conv, strides 1] 
+
+  conv, strides 1] 
+
+  max pool 
+
+  conv, strides 1] 
+
+  conv, strides 1] 
+
+Probability 0.5 
+
+  max pool 
+
+[
+
+  conv, strides 1] 
+
+Layers 
+
+Convolution 
+
+Convolution 
+
+Pooling 
+
+Convolution 
+
+Convolution 
+
+Dropout 
+
+Pooling 
+
+Convolution 
+
+Global Average Pooling 
+
+Dense 
+
+Dense 
+
+Classification layer (Dense) 
+
+128 
+
+128 
+
+128 
+
+128 
+
+128 
+
+128 
+
+1 
+
+- 
+
+- 
+
+- 
+
+-
+
+5.1. Setup 
+
+Journal Pre-proof
+
+In  our  experiments,  we  used  the  Python  3.10  programming  environment  along  with  popular 
+
+libraries  such  as  PyTorch,  TensorFlow,  and  OpenCV.  The  detection  models  were  trained  on  a 
+
+server equipped with an Intel® Core™ i7-8700 CPU @ 3.20GHz (32GB DDR4-2666 memory) 
+
+and an NVIDIA GeForce RTX 3070 GPU (8GB GDDR6 memory). 
+
+The  methods  utilizing  YOLOv5  will  undergo  training  for  300  epochs,  whereas  the 
+
+classification network in method 1 will undergo training for 200 epochs. Here, one epoch signifies 
+
+training the model on all data once. For YOLOv5 training, fundamental parameters such as the 
+
+learning  rate  will  be  set  to  0.02,  with  weight  decay  and  momentum  values  of  0.001  and  0.9, 
+
+respectively.  In  contrast,  methods  employing  Faster  RCNN  will  be  trained  with  90  thousand 
+
+ 
+Journal Pre-proof
+
+Journal Pre-proof
+
+iterations.  Each  iteration  involves  training  the  model  on  a  batch  of  images.  The  fundamental 
+
+parameters for Faster RCNN training mirror those of YOLOv5. 
+
+For evaluating the performance of the object detection models, we used a server equipped 
+
+with  an  Intel(R)  Xeon(R)  CPU  E5-2620  v2  @  2.10GHz  (16GB  DDR3-1066  memory)  and  an 
+
+NVIDIA GeForce GTX 1080 Ti GPU (11GB GDDR5X memory). The Intersection over Union 
+
+(IoU) threshold was set to 0.5, and the confidence threshold was also set to 0.5. 
+
+5.2. Ablation study 
+
+As detailed in the Related Work section, the PollenDataset was initially introduced in [18]. The 
+
+images comprising this dataset were captured at the entrance of a bee colony in June 2017 at the 
+
+Bee facility of the Gurabo Agricultural Experimental Station of the University of Puerto Rico. This 
+
+dataset encompasses 714 honey bee bounding boxes, consisting of 369 bee images with pollen
+
+extracted  from  the  pre-trained  DNNs,  respectively.  For  the  task  of  classifying  images  of 
+
+Journal Pre-proof
+
+pollen-bearing  and  non-pollen-bearing  honeybees,  experimental  results  on  the  Pollen  dataset 
+
+(Rodriguez  et  al.,  2018)  have  shown  that  the  proposed  models  have  quite  high  accuracy.  In 
+
+particular, the model using the transfer learning method with the pre-trained GoogLeNet gave the 
+
+highest accuracy at 99.07%. In [31], the authors proposed a new CNN architecture consisting of 
+
+four  convolutional  layers,  five  max-pooling  layers,  one  flatten  layer,  and  one  dense  layer  to 
+
+classify  images  in  the  corrected  Pollen  dataset.  Although  the  proposed  architecture  was  quite 
+
+compact,  the  experimental  accuracy  was  up  to  100%.  However,  research  [29]  and  [31]  only 
+
+stopped at classifying images of pollen-bearing and non-pollen-bearing honeybees,  and did not
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't any explicit mention of specific preprocessing steps taken before training the deep learning models. However, it can be assumed that some common preprocessing techniques might have been applied, such as normalizing the input images or rescaling them to fit the required input dimensions of the neural networks. Data cleaning could also involve removing irrelevant or corrupted images from the datasets. Furthermore, data augmentation techniques like rotation, zooming, or cropping might have been employed to increase the amount of available training data and improve the robustness of the models. Nevertheless, without further information, these assumptions remain speculative.

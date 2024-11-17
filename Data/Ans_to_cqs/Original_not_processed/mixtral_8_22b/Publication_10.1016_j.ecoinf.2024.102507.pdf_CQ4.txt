@@ -1,0 +1,178 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+With regards to the difference between the results of the original, 
+reduced,  and  augmented  datasets  applied  to  the  deep  learning 
+model, we found that the original and augmented datasets are only 
+under  a  few  specific  numbers  of  bands  and  data  formats  (e.g., 
+VGG19 + 8band_256_8bit, VGG19 + 72band_256_8bit, ResNet50 +
+8band_256_8bit, and ResNet50 + 36band_ 256_8bit). The classifica-
+tion accuracy rate reached more than 50%, and there was no regu-
+larity in the classification accuracy. However, the sampling action of 
+reducing the data had a very obvious and consistent impact on the 
+classification  accuracy,  especially  in  the  VGG19  model,  which  is 
+more  similar  to  the  traditional  CNN  model.  This  representative 
+sampling  action  resulted  in  incomplete  and  complete  feature 
+extraction,  and  some  key  features  were  ignored.  Given  the  above 
+reasons, it is recommended that sampling actions be avoided in the
+
+after the above training data preparation is as follows (Fig. 6). One of the 
+optimal  simulation  results  (72band_256_16bit_split)  was  achieved 
+through the utilization of data augmentation and flattened convolution 
+kernels, as illustrated in Fig. 7.
+
+5.  Spatial reference information for each tile 
+
+Each image tile used in this study was provided with its own spatial 
+reference  information,  ensuring  accurate  geographic  positioning  and 
+alignment during further processing stages.  
+
+6.  Data augmentation and reduction 
+
+Data  augmentation  is  critical  for  enhancing  the  robustness  of  the 
+
+deep  learning  model.  Using  Rasterio,  the  original  image  tiles  were 
+augmented through techniques such as rotation, flipping, and zooming. 
+Data  reduction  techniques  were  applied  to  eliminate  irrelevant  or 
+redundant data, streamlining the dataset for efficient processing.  
+
+7.  Disassembling tiles into single-band images 
+
+Rasterio was employed to disassemble multi-band images into single- 
+band images to enhance efficacy. This step ensured that each spectral 
+band  was  separately  processed,  optimizing  the  potential  for  feature 
+extraction.  
+
+8.  Training and validation of the deep learning model
+
+Data 
+augmentation 
+
+Combination 
+
+3band_256_8bit 
+3band_256_16bit 
+4band_256_8bit 
+4band_256_16bit 
+8band_256_8bit 
+8band_256_16bit 
+36band_256_8bit 
+36band_256_16bit 
+72band_256_8bit 
+72band_256_16bit 
+
+0.12 
+0.12 
+0.12 
+0.06 
+0.09 
+0.19 
+0.12 
+0.12 
+0.25 
+0.12 
+
+0.37 
+0.37 
+0.42 
+0.35 
+0.42 
+0.33 
+0.42 
+0.33 
+0.29 
+0.29 
+
+0.69 
+0.15 
+0.22 
+0.15 
+0.58 
+0.27 
+0.77 
+0.24 
+0.69 
+0.22  
+
+Table 7 
+Results  of  calculations  with  different  parameters  (conv_base.trainable  and 
+Dropout Rate) for VGG19.  
+
+Method 
+
+conv_base.trainable 
+
+True 
+
+VGG19 
+
+Dropout_Rate 
+
+3band_256_8bit 
+3band_256_16bit 
+4band_256_8bit 
+4band_256_16bit 
+8band_256_8bit 
+8band_256_16bit 
+36band_256_8bit 
+36band_256_16bit 
+72band_256_8bit 
+72band_256_16bit 
+
+0.2 
+
+0.14 
+0.14 
+0.12 
+0.10 
+0.13 
+0.15 
+0.14 
+0.14 
+0.13 
+0.11 
+
+0.5 
+
+0.14 
+0.14 
+0.12 
+0.10 
+0.13 
+0.15 
+0.14 
+0.14 
+0.13 
+0.11 
+
+False 
+
+0.2 
+
+0.14 
+0.26 
+0.37 
+0.16 
+0.47 
+0.21 
+0.59 
+0.22 
+0.59 
+0.34 
+
+0.5
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The data augmentation techniques applied in the deep learning pipeline include rotation, flipping, and zooming. These techniques were implemented using the Rasterio library to augment the original image tiles. Data augmentation is crucial for improving the robustness of the deep learning model by creating new training examples from existing ones, thereby increasing the diversity of the dataset and reducing overfitting. Rotation involves rotating the image by a certain angle, while flipping refers to reflecting the image along one of its axes. Zooming entails scaling the image up or down, effectively changing its size without altering its content. By applying these transformations, the model can learn to recognize objects under various conditions, making it more versatile and reliable.

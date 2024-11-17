@@ -1,0 +1,367 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+# validation dataset
+pix_valid <- labels %>%
+
+group_by(Keywords) %>%
+filter(between(row_number(), floor(n()*80/100) + 1, n()))
+
+Eventually, we store these images in two distinct directories named train and valid.
+
+# create dir train/ and copy pix there, organised by categories
+dir.create('pix/train') # create training directory
+for (i in levels(fct_drop(pix_train$Keywords))) dir.create(paste0('pix/train/',i)) # create dir for labels
+for (i in 1:nrow(pix_train)){
+
+file.copy(as.character(pix_train$SourceFile[i]),
+
+paste0('pix/train/', as.character(pix_train$Keywords[i]))) # copy pix in corresp dir
+
+}
+# create dir valid/ and copy pix there, organised by categories.
+dir.create('pix/valid') # create validation dir
+for (i in levels(fct_drop(pix_train$Keywords))) dir.create(paste0('pix/valid/',i)) # create dir for labels
+for (i in 1:nrow(pix_valid)){
+
+file.copy(as.character(pix_valid$SourceFile[i]),
+
+paste0('pix/valid/', as.character(pix_valid$Keywords[i]))) # copy pix in corresp dir
+
+}
+# delete pictures in valid/ directory for which we did not train the model
+to_be_deleted <- setdiff(levels(fct_drop(pix_valid$Keywords)), levels(fct_drop(pix_train$Keywords)))
+if (!is_empty(to_be_deleted)) {
+
+for (i in 1:length(to_be_deleted)){
+
+unlink(paste0('pix/valid/', to_be_deleted[i]))
+
+}
+
+}
+
+What is the sample size of these two datasets?
+
+bind_rows("training" = pix_train, "validation" = pix_valid, .id = "dataset") %>%
+
+group_by(dataset) %>%
+count(Keywords) %>%
+rename(category = Keywords) %>%
+kable() %>%
+kable_styling()
+
+15
+
+Table 5: Sample size (n) for the training and validation datasets.
+
+dataset
+training
+training
+training
+training
+training
+training
+training
+training
+training
+training
+training
+training
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+
+Then we get the model architecture. For the sake of illustration, we use a resnet18 here, but we used
+a resnet50 to get the full results presented in the main text.
+
+learn <- cnn_learner(dls = dls,
+
+arch = resnet18(),
+metrics = list(accuracy, error_rate))
+
+Now we are ready to train our model. Again, for the sake of illustration, we use only 2 epochs here,
+but used 20 epochs to get the full results presented in the main text. With all pictures and a resnet50,
+it took 75 minutes per epoch approximatively on a Mac with a 2.4Ghz processor and 64Go memory,
+and less than half an hour on a machine with GPU. On this reduced dataset, it took a bit more than
+a minute per epoch on the same Mac. Note that we save the model after each epoch for later use.
+
+one_cycle <- learn %>%
+
+fit_one_cycle(2, cbs = SaveModelCallback(every_epoch = TRUE,
+
+fname = 'model'))
+
+0.00%
+
+train_loss
+
+epoch
+------ -----------
+Epoch
+1/2
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+
+valid_loss
+-----------
+:
+[0/36
+:
+[1/36
+:
+[2/36
+:
+[3/36
+
+18
+
+1/2
+1/2
+1/2
+1/2
+1/2
+2.609996
+2/2
+
+Epoch
+Epoch
+Epoch
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+Epoch
+Epoch
+Epoch
+Epoch
+0
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+
+1/2
+1/2
+1/2
+1/2
+
+1/2
+
+1/2
+
+1/2
+
+1/2
+
+1/2
+
+0.00%
+
+10.00%
+
+20.00%
+
+30.00%
+
+40.00%
+
+50.00%
+
+0.00%
+
+2.78%
+
+5.56%
+
+8.33%
+
+2/2
+
+2/2
+
+2/2
+
+2/2
+
+2/2
+
+2/2
+
+2/2
+
+2/2
+
+2/2
+
+2/2
+
+2/2
+
+2/2
+
+11.11%
+
+13.89%
+
+16.67%
+
+19.44%
+
+22.22%
+
+25.00%
+
+27.78%
+
+30.56%
+
+33.33%
+
+:
+:
+:
+:
+[0/10
+:
+[1/10
+:
+[2/10
+:
+[3/10
+:
+[4/10
+:
+[5/10
+:
+:
+:
+:
+:
+0.754422
+:
+[0/36
+:
+[1/36
+:
+[2/36
+:
+[3/36
+:
+[4/36
+:
+[5/36
+:
+[6/36
+:
+[7/36
+:
+[8/36
+:
+[9/36
+:
+
+[10/36
+
+:
+
+[11/36
+
+:
+
+[12/36
+
+|---|
+|--|
+||
+|----------------------------------------
+
+94.44%
+97.22%
+100.00%
+
+[34/36
+[35/36
+[36/36
+
+|------------------------------------
+
+|--------------------------------
+
+|----------------------------
+
+|------------------------
+
+|--------------------
+
+[7/10
+
+[6/10
+
+70.00%
+
+60.00%
+
+80.00%
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The code snippets provided do not explicitly show the criteria used to determine when training is complete. However, based on common practices in deep learning, some possible criteria include reaching a certain number of epochs or iterations, achieving a desired level of performance on the validation set (such as minimizing validation loss), or observing no further improvement in validation accuracy over several epochs (also known as early stopping). In this case, the code shows that the model was trained for 2 epochs using fit\_one\_cycle function from fastai library, which suggests that the criterion used might be simply completing a fixed number of epochs.

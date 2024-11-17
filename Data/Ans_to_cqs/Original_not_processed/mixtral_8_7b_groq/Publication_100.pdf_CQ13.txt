@@ -1,0 +1,17 @@
+Answer:::
+
+The deep learning model was implemented in PyTorch, and the training was carried out using the Adam optimizer, which is a variant of stochastic gradient descent (SGD) that adapts the magnitude of parameter updates based on the statistics of previous updates. This helps to speed up convergence.
+
+The hyperparameters used in the model are as follows:
+
+1. Learning rate (α): The base learning rate used was 10−4.
+2. Batch size (B): The batch size used during training was 64.
+3. Number of models (M): Five models were trained.
+4. Weight decay: The strength of the unit Gaussian prior was controlled using weight decay, with a magnitude of 10−3.
+5. Hyperparameters for the Adam optimizer: The hyperparameters used for the Adam optimizer were β1 = 0.9, β2 = 0.999, and ε = 10−8.
+6. Learning rate reduction: The learning rate was automatically reduced by a factor of 0.1 when the validation loss did not improve for 15 consecutive epochs.
+7. Training duration: Each neural network was trained for approximately 14 days on a single Nvidia RTX2080Ti GPU.
+
+The loss function used in the model is a standard loss function whose minimization corresponds to maximizing the posterior probability of the parameters given the training data. A zero-mean isotropic Gaussian prior over the network parameters and a Gaussian likelihood function with a diagonal covariance matrix were assumed. The loss function is given by equation (1) in the context, which includes the regularization term and the data fitting term.
+
+Answer:::

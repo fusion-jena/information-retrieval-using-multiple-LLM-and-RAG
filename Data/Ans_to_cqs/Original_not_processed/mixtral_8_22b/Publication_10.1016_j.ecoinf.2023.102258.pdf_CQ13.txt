@@ -1,0 +1,83 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Then, for each sample xq  from the query set, a distance function is 
+used  to  calculate  the  Euclidean  distance  of  xq  from  each  prototype, 
+following which a softmax function over the distances produces a dis-
+tribution over the classes. This directly implies that training the neural 
+network to optimise these distances should move prototypes and their 
+corresponding  query  points  closer  together  in  the  embedding  space 
+created  by  fϕ,  and  further  away  from  non-matching  points.  In  other 
+words, the training procedure creates a general representation in which 
+similar  sounds  are  close  to  each  other.  Nearest-neighbour  algorithms 
+such as k-means can then be used to label future data points—even those 
+from novel categories, after a simple procedure of calculating the pro-
+totype of a novel category as the centroid of its k shots.
+
+Query-time adaptation (transductive inference) was shown in mul-
+tiple cases to lead to very strong performance, within both the proto-
+typical  and  fine-tuning  paradigms.  This  comes  at  a  cost  of  added 
+complexity  and  added  query-time  computation,  since  typically  a  new 
+run of statistical optimisation must be performed for a new query task. 
+Thus, from the present results we can recommend that a system should 
+include query-time adaptation for the best possible detections, but that a 
+system without query-time adaptation should be a widespread default. 
+Such fixed embeddings can easily be used off-the-shelf, in the same way 
+that  other  pretrained  networks  are  now  commonly  downloaded  and 
+used.  The  DFSL  method  employed  by  Wu_SHNU  is  an  alternative 
+approach  which  combines  an  unchanging  feature  extraction  with  a 
+query-time  adaptive  weighting.  This  combines  stability  with  dynamic 
+adaptation, and thus is worthy of further investigation.
+
+A prototype in this method is a coordinate in some vector represen-
+tation,  which  is  calculated  as  a  simple  centroid  (mean)  of  the  co-
+ordinates  for  each  of  the  k  examples.  The  training  data  consist  of  a 
+support set S consisting of k labelled samples from each class, with the 
+remaining  samples  comprising  the  query  set  Q.  Prototypical  networks 
+compute a class prototype cn  through an embedding function fϕ : ℝD→ 
+ℝM  with learnable parameters ϕ. In our baseline system D = 128 and 
+M = 64,  and  fϕ  is  a  neural  network.  The  prototype  for  class  n  is 
+computed as the mean of the embedded support points belonging to that 
+class: 
+
+cn =
+
+1
+k
+
+∑
+
+(xi)∈Sn
+
+fϕ(xi)
+
+(1)  
+
+where Sn  represents the subset of S from class n.
+
+• Transductive  few-shot  learning  -  Meta  learning  methods  aim  to 
+learn on scarce data in order to generalise to unseen tasks,  which 
+makes the problem fundamentally difficult. In order to mitigate the 
+difficulty, transductive based methods utilise the information present 
+in the unlabeled examples from the query set to adapt the model and 
+improve its predictions. In Liu et al. (2018), the samples in support 
+and query set are jointly modelled as nodes of a graph and the pre-
+diction on query set is conducted by label-propagation algorithm. In 
+Hou  et  al.  (2019),  a  cross-attention  based  map  is  learnt  between 
+support set and query set in order to make predictions on individual 
+query examples.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit details about the specific hyperparameters such as learning rate or optimizer used in the deep learning model. However, it mentions that the embedding function fϕ has learnable parameters ϕ, and in the baseline system, D=128 and M=64, where D is the input dimension and M is the output dimension of the embedding function. It also states that fϕ is a neural network, but the architecture or any other specific details regarding the network are not mentioned. Therefore, based on the provided context, I cannot give a precise answer to what hyperparameters were used in the deep learning model.

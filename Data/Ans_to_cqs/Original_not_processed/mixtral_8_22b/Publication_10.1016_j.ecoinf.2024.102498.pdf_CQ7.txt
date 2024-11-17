@@ -1,0 +1,145 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Due to processing limitations in GEE, it is impossible to utilize many 
+samples and automate hyperparameter tuning. To fill this gap and avoid 
+overfitting,  the  validation  data  were  employed  for  tuning  the  key 
+hyperparameters for each model. Table 3 presents the hyperparameters 
+set for each model during training and validation. 
+
+5.3.2. Pixel-based approach 
+
+The  pixel-based  classification  approach  relies  on  the  spectral 
+
+Table 3 
+Hyperparameters were set for each machine learning technique within the GEE 
+platform.  
+
+Model 
+
+CART   
+
+RF   
+
+GTB   
+
+SVM   
+
+Hyperparameters 
+
+• Max nodes: No limit  
+• Min leaf population: 1 
+
+• Number of trees: 264  
+• Bag fraction: 0.5  
+• Variables per split: Root of the number of variables 
+
+• Number of trees: 20  
+• Shrinkage: 0.005  
+• Sampling rate: 0.7  
+• Loss: Least absolute deviation 
+
+• Kernel type: RBF  
+• SVM type: C_SVC  
+• Decision procedure: Voting
+
+the inability to split further, is met. This algorithm is simple, fast, and 
+highly interpretable (Gislason et al., 2006). It is important to note that 
+CART models can be susceptible to overfitting without proper tuning of 
+input  parameters.  In  this  research,  by  evaluating  the  model's  perfor-
+mance  using  validation  data,  it  was  determined  that  setting  the  Max 
+Nodes parameter to its default value (no limit on the number of nodes) 
+
+EcologicalInformatics80(2024)10249810M. Ganjirad and H. Bagheri                                                                                                                                                                                                                  
+
+yielded better results.
+
+5.3.1. Classification algorithms in GEE 
+
+In this study, 33,209 samples were collected using a stratified sam-
+pling  approach.  Of  these,  70%  were  allocated  for  training,  and  the 
+remaining 30% were employed for testing. Hyperparameter tuning for 
+ML models was performed using validation data (10% of training data). 
+This  research  utilized  CART,  RF,  GTB,  and  SVM  models  as  classifiers 
+within GEE. 
+
+EcologicalInformatics80(2024)1024989M. Ganjirad and H. Bagheri
+
+Table 1 
+USGS 24 LULC classes defined for WRF simulation.  
+
+Category Index 
+
+Name of the Category 
+
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+
+Urban and Built-up Land 
+Dryland Cropland and Pasture 
+Irrigated Cropland and Pasture 
+Mixed Dryland/Irrigated Cropland and Pasture 
+Cropland/Grassland Mosaic 
+Cropland/Woodland Mosaic 
+Grassland 
+Shrubland 
+Mixed Shrubland/Grassland 
+Savanna 
+Deciduous Broadleaf Forest 
+Deciduous Needleleaf Forest 
+Evergreen Broadleaf 
+Evergreen Needleleaf 
+Mixed Forest 
+Water Bodies 
+Herbaceous Wetland 
+Wooden Wetland 
+Barren or Sparsely Vegetated 
+Herbaceous Tundra 
+Wooden Tundra 
+Mixed Tundra 
+Bare Ground Tundra 
+Snow or Ice
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In this study, 33,209 samples were collected using a stratified sampling approach. Out of these, 70% were allocated for training, while the remaining 30% were employed for testing. For hyperparameter tuning of ML models, validation data consisting of 10% of the training data was used. The specific hyperparameters set for each model during training and validation are presented in Table 3. These include max nodes, min leaf population, number of trees, bag fraction, variables per split, shrinkage, sampling rate, loss, kernel type, SVM type, and decision procedure.
+
+Answer:::
+
+Unhelpful Answer:
+The table shows USGS 24 LULC classes defined for WRF simulation. However, this information does not directly address the query about the criteria used to split the data for deep learning model training.
+
+Answer:::

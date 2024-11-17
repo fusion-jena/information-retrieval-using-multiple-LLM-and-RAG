@@ -1,0 +1,65 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To expand our dataset, we tripled the image pool for each transect by 
+incorporating multi-temporal data. By drawing data from a three-month 
+span (March, September and October 2015) across three environments, 
+we could more effectively train and test deep learning models, which 
+inherently  demand  many  images  to  learn  effectively,  however,
+
+both training and testing. A critical point to highlight is that models are 
+retrained  for  each  fold,  preventing  previous  fold’s  information  from 
+being transferred. We utilized the pretrained ResNet-34 (Which consists 
+of  a  34-layer  convolutional  neural  network)  architecture  which  is  a 
+variant of the ResNet (Residual Network) family, widely used for deep 
+learning tasks, particularly in computer vision (He et al., 2016). ResNet- 
+34 was used inside the fast.ai framework (Howard and Gugger, 2020) to 
+leverage  existing  knowledge,  this  is  particularly  useful  in  our  dataset 
+since its small size. Transfer learning generally consists in using a model 
+pre-trained  on  broad  datasets,  like  ImageNet  (Deng  et  al.,  2009),  to 
+specialized tasks with more limited data. As part of the cross-validation 
+of the Leave-One-Group-Out approach, the test directory containing the 
+multitemporal transect was temporarily moved to test, and DataLoaders
+
+The Convolutional Autoencoder and its variations extracts the most 
+critical features and minimizes noise within the training data (Kingma 
+and Welling, 2019, Zhao et al., 2019, Bank et al., 2023). This process 
+results  in  a  compact  and  informative  feature  matrix,  which  is  subse-
+quently fed into the PLSR or any regression model. PLSR is particularly 
+suitable  for  datasets  that have  undergone  Convolutional Autoencoder 
+processing,  where  the  output  is  a  flattened  vector  representing  each 
+image, and each vector element is a variable in a tabular form. PLSR 
+excels in these scenarios with numerous correlated variables (Carrascal 
+et al., 2009). In our case the final matrix is transformed into a vector that 
+represents each image with a vector with over 8000 values, each one 
+representing one variable as a tabular form. The image dataset is orga-
+nized into 18 folders, one for each of the 450 m transects (150 m *3). The
+
+were created using the remaining image files from the other 17 multi-
+temporal transects. We applied automatic data augmentation in fast.ai 
+and normalization using the ImageNet statistics, this process includes 
+resizing the images to 224 × 224 pixels. We utilized a learning rate of 
+0.007  and  15%  of  the  training  data  was  used  for  training  validation 
+purposes. We trained the models for 15 epochs for each iteration. After 
+each training iteration, we restored the test directory and predicted the 
+topographical  type  for  the  left-out  multitemporal  450  m  (90  images) 
+transect using the trained model on the other 17 multitemporal tran-
+sects. The predictions were then saved in a text file for further analysis. 
+Using a Leave-One-Group-Out, each multitemporal 450 m transect’s 
+final classification was based on the dominant prediction class (or sim-
+ply  the  Mode)  from  the  90  individual  5  m  wide  images  within  it.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, the primary data format used in the deep learning pipeline is images. The researchers expanded their dataset by incorporating multi-temporal image data drawn from a three-month span across three different environments. They used the pretrained ResNet-34 architecture, which is a variant of the Residual Network family widely used for deep learning tasks, particularly in computer vision. The Convolutional Autoencoder and its variations were also employed to extract critical features and minimize noise within the training data. The processed image dataset was organized into 18 folders, one for each of the 450m transects. Automatic data augmentation and normalization were performed using the ImageNet statistics, including resizing the images to 224 x 224 pixels. Therefore, the main data format used in this deep learning pipeline is images.

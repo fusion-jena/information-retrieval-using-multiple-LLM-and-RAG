@@ -1,0 +1,62 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.4. Training protocols
+
+The models were all trained with the same parameters: 500 epochs, 
+an initial learning rate of 0.01 with a weight decay of 0.005, the opti-
+mizer Adam was chosen, with a beta1 of 0.937, and data augmentation 
+transformations  were  applied  while  training.  Data  augmentation  is  a 
+technique used in machine learning to artificially increase the size of a 
+dataset  by  creating  new  samples  from  the  existing  ones.  Augmented 
+samples are used to train the model more effectively by increasing its 
+ability to generalize and its accuracy on the test dataset. The advantage 
+of this technique when dealing with a low amount of data such as in our 
+case, is the reduced risk of overfitting, since models are exposed to more 
+variations, they will tend  to less memorize the dataset. This  becomes 
+essential when you have limited data to train models with, which is a 
+common problem in deep-learning applications. Another advantage is
+
+Because of the low amount of data at our disposal, cross validation 
+was used to ensure the statistical results, and that the model was not 
+over-fitting. Over-fitting happens when a model is too complex for the 
+amount of data given and loses the ability to learn a solution that gen-
+eralizes well because it fits the training data too much, resulting in poor 
+performance  on  unseen  data.  The  cross-validation  technique  we  used 
+works as follows: K crosses are created by randomly shuffling the dataset 
+and dividing it into a training and an evaluation set K times, then for 
+each cross, a new model is trained. This allows us to train K different 
+models,  each  one  on  a  different  version  of  the  dataset.  Once  all  the 
+models are trained, we evaluate them and average all of their perfor-
+mances to better understand the model's capability on this dataset. The 
+similarity  of  each  model's  evaluation  results  would  indicate  that  the
+
+of  the  model to be  correct when  predicting a  species. The higher  the 
+precision for a species, the more confident the model is to be correct 
+when  predicting  it.  From  these  two  metrics,  we  calculated  a  more 
+advanced  metric,  the  precision-recall  curve,  which  is  a  graph  repre-
+senting the balance between the recall and the precision, depending on
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+In the provided context, there isn't explicit information about the specific criteria used to determine when training is complete. However, based on common practices in machine learning, several possible criteria can be suggested.
+
+One commonly used criterion is reaching a validation loss plateau. During training, both the training loss and validation loss decrease. When the validation loss stops decreasing significantly or even starts to increase, it indicates that the model might be starting to overfit the training data. At this point, further training may not improve the model's performance on unseen data. Therefore, reaching a validation loss plateau could be considered as a sign that training should stop.
+
+Another potential criterion mentioned indirectly in the context is the number of epochs. In this case, the models were trained for a fixed number of epochs, specifically 500. An epoch refers to one full pass through the entire training dataset. After each epoch, the model updates its internal parameters based on the observed errors. By setting a maximum number of epochs, the training process has a predefined endpoint.
+
+Additionally, early stopping is another frequently used method to decide when to terminate training. Early stopping involves monitoring the validation error during training and stopping the training process if the validation error does not improve after a certain number of epochs. This helps prevent overfitting and saves computational resources.
+
+Lastly, the use of cross-validation, as described in the context, also provides insights into the model's performance on unseen data. Cross-validation involves splitting the available data into multiple subsets and iteratively using each subset as a validation set while training on the remaining data. By averaging the performances of the models trained on different versions of the dataset, cross-validation gives a more robust estimate of the model's overall performance. While cross-validation itself doesn't directly determine when training is complete, it can help identify whether the model is overfitting or underfitting, thus influencing decisions regarding the optimal duration of training.

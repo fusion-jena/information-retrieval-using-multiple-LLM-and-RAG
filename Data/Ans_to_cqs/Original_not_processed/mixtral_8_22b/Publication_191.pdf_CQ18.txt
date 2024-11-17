@@ -1,0 +1,88 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We  train  our  model  using  Caffe  [35]  framework.  For  the  pa- 
+rameter  setting  in  training,  we  employ  step  learning  policy.  The 
+learning rate was initially set to 10 −3  for all layers to accept the 
+newly deﬁned last fully connected layer set to 10 −2 . It is higher 
+than other layers due to the weights being trained starting from 
+random. The learning rate was then decreased by a factor of 10 ev- 
+ery 20K iteration and was stopped after 100K iterations. The units 
+of the third fully connected layer (fc8) were changed according to 
+the number of classes of training data. We set the batch size to 50 
+and momentum to 0.9. We applied L 
+2 weight decay with penalty 
+multiplier set to 5 × 10 −4 and dropout ratio set to 0.5, respectively. 
+
+4.2. Deconvolutional network
+
+the parameter setting in training, we employ ﬁxed learning policy. 
+We set the learning rate to 10 −3 , and then decrease it by a fac- 
+tor of 10 when the validation set accuracy stops improving. The 
+momentum is set to 0.9 and weight decay to 10 −4 . In this experi- 
+ment, we compute the top-1 classiﬁcation accuracy as described in 
+Section 4.3 . 
+
+6.2.1. Results and discussion
+
+Dataset 
+
+Quantity of images 
+
+Number of 
+categories 
+
+MS COCO [51] 
+Places2 [52] 
+Sport-1M [53] 
+Visual Genome QA [54] 
+ILSVRC 2010 [55] 
+PlantClef2015 dataset [6]  113,205 
+
+328k (2.5 million labeled instances) 
+8.3 million 
+1 million 
+1.7 million questions/answer pairs 
+1.4 million 
+
+91 
+365 
+487 
+–
+10 0 0 
+10 0 0 
+
+pre-train each network using its corresponding leaf data. During 
+the validation phase, we combine both softmax outputs and com- 
+pute the ﬁnal class scores using fusion methods: average (ave) or 
+max voting (mav).
+
+Table  5  shows  the  comparison  performance  between  single 
+stream  and  the  proposed  hybrid  feature  extraction  models.  First 
+of  all,  it  is  noticeable  that  classiﬁcation  performance  is  affected 
+when we constrain the varieties of leaf data to be seen by CNN 
+during  training.  This  is  clearly  shown  in  the  top-1  accuracy  re- 
+sults of the ﬁnetuned AlexNet model. Classiﬁcation performance of 
+the network trained with all training sets (w = 2,288, P = 34,672) 
+is obviously better compared to that trained on smaller subset of 
+data (W = 1,324, P = 3,960). Next, although reducing CNN layer 
+depth might affect feature discrimination power of a network, we 
+found that combining both global and local leaf data is an alterna- 
+tive to boost the classiﬁcation performance. Further analysis of EF 
+and LF reveals that combining both features at the early stage is 
+more beneﬁcial as features are learned end-to-end, starting from
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The strategy implemented to monitor the model performance during training varies depending on the specific model used. For instance, in the case of the deconvolutional network, a fixed learning policy is employed. The learning rate is initially set to 10^-3 and then decreased by a factor of 10 when the validation set accuracy stops improving. This indicates that the model performance is monitored based on the validation set accuracy. On the other hand, for the model trained using the Caffe framework, a step learning policy is utilized. The learning rate is initially set to 10^-3 for all layers but is higher for the newly defined last fully connected layer. The learning rate is then decreased by a factor of 10 every 20K iterations and stopped after 100K iterations. Here, the model performance seems to be monitored based on the number of iterations and the learning rate adjustments. However, without explicit mention of validation set accuracy monitoring in this context, it cannot be confirmed if this strategy is also used here.

@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+14 / 19
+
+Deep learning tools for bat acoustic signal detection
+
+S1 Fig. CNNFAST network architecture description. The CNNFAST network consists of two
+convolution layers (Conv1 and Conv2), with 16 filters each (shown in yellow, with the filter
+size shown inset). Both convolution layers are followed by a max pooling layer (Max Pool1 and
+Max Pool2), and the network ends with a fully connected layer with 64 units (Fully Connect).
+CNNFAST computes feature maps (shown as white boxes) across the entire input spectrogram,
+resulting in less computation and a much faster run time. The fully connected layer is also eval-
+uated as a convolution. The output of the detector is a probability vector (shown in green)
+whose length is one quarter times the width of the input spectrogram. The numbers below
+each layer indicate the height, weight, and depth of the corresponding layer.
+(TIF)
+
+binary classification problem. Our CNNFULL consisted of three convolution and max pooling
+layers, followed by one fully connected layer (see Supplementary Information Methods for fur-
+ther details). We halved the size of the input spectrogram to reduce the input dimensionality
+to the CNN which resulted in an input array of size of 130 frequency bins by 20 time steps, cor-
+responding to a fixed length, detection window size of 23ms. We applied the CNN in a sliding
+window fashion, to predict the presence of a search-phase bat call at every instance of time in
+the spectrogram (Fig 1D). As passive acoustic monitoring can generate large quantities of data,
+we required a detection algorithm that would run faster than real time. While CNNs produce
+state of the art results for many tasks, naïve application of them for detection problems at test
+time can be extremely computationally inefficient [33]. So, to increase the speed of our system
+
+end speech recognition. arXiv preprint arXiv:14125567. 2014.
+
+39. Goeau H, Glotin H, Vellinga W-P, Planque R, Joly A, editors. LifeCLEF Bird Identification Task 2016.
+The Arrival of Deep Learning. Working Notes of CLEF 2016-Conference and Labs of the Evaluation
+forum; 2016; E´ vora, Portugal.
+
+40. Aide TM, Corrada-Bravo C, Campos-Cerqueira M, Milan C, Vega G, Alvarez R. Real-time bioacoustics
+
+monitoring and automated species identification. PeerJ. 2013; 1:e103. https://doi.org/10.7717/peerj.
+103 PMID: 23882441; PubMed Central PMCID: PMCPMC3719130.
+
+41.
+
+The IUCN Red List of Threatened Species. Version 2017–1 [Internet]. 2017 [cited Downloaded on 12
+May 2017.]. Available from: http://www.iucnredlist.org.
+
+42. Everingham M, Van Gool L, Williams CK, Winn J, Zisserman A. The pascal visual object classes (voc)
+
+challenge. International journal of computer vision. 2010; 88(2):303–38.
+
+43. Szewczak JM. Sonobat 2010.
+
+44. Binary Acoustic Technology. SCAN’R. 2014.
+
+Our result that deep learning networks consistently outperformed other baselines, is consis-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: The pipeline uses a deep learning model called CNNFAST, which is based on a Convolutional Neural Network (CNN). This network consists of two convolution layers (Conv1 and Conv2), both followed by a max pooling layer (Max Pool1 and Max Pool2), and ending with a fully connected layer with 64 units (Fully Connect). The CNNFAST network computes feature maps across the entire input spectrogram, resulting in less computation and a much faster runtime.

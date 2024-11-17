@@ -1,0 +1,113 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+.
+
+(3)
+
+where (cid:107) ξi − ξ j (cid:107) provides the Euclidean distance between two samples. Width of Gaussian
+kernel can be set by variance (cid:36) that controls the classiﬁer performance.
+
+3.5. Confusion Matrix
+
+It is the parameter to validate the performance of a machine learning model. It also
+tells us the accomplishment of the classiﬁcation problem. Following are some of the
+essential parameters of the confusion matrix.
+
+1.
+2.
+3.
+4.
+5.
+
+6.
+
+7.
+
+8.
+
+9.
+
+True Positive (TP): It is the accurate prediction of the bleached corals.
+True Negative (TN): It is the accurate prediction of the unbleached corals.
+False Positive (FP): It is the false prediction of the bleached corals.
+False Negative (FN): It is the false prediction of the unbleached corals.
+Sensitivity (TPR): It is the ratio of accurate prediction of the corals and can be given
+by Equation (4).
+
+Sensitivity
+
+(TPR) =
+
+TP
+(TP + FN)
+
+(4)
+
+Figure 3. The proposed framework steps visual representation.
+
+3.1. Explanation of Steps
+
+Initially, an image is taken with the help of an underwater drone. In the next step,
+the image is segmentized and divided into small patches. Features are extracted from
+each patch with the help of handcrafted descriptors and D-CNNs. A visual vocabulary
+
+Big Data Cogn. Comput. 2021, 5, 53
+
+5 of 15
+
+(VV) is created, as shown in Figure 4, this visual vocabulary is the features extracted
+from these features, and the training features are passed to classiﬁer i.e., SVM, which
+classiﬁes whether the VV-features are of bleached coral or healthy coral. We used different
+handcrafted features as well as different D-CNN’s but AlexNet shows the highest accuracy.
+We used different classiﬁers i.e., SVM, kNN, and decision tree, but SVM outperforms all
+other classiﬁers.
+
+Figure 4. Visual Vocabulary of features.
+
+3.2. Feature Extraction
+
+SVM ClassifierLinear KernelBleached or unbleached coral12345678910abbbb12345678910Input ImageConvolutional Layer 1Convolutional Layer 2Convolutional Layer 3Convolutional Layer 4Convolutional Layer 5Fully Connected Layer 6 Fully Connected Layer 7ClassifierOutputDescriptionStride sizeab4 x 41 x 1227 x 227 x 355 x 55 x 9627 x 27 x 25613 x 13 x 38413 x 13 x 38413 x 13 x 25640964096Big Data Cogn. Comput. 2021, 5, 53
+
+7 of 15
+
+Algorithm 1: k-means Clustering Algorithm.
+
+Input: Features as data points
+Let features F = {F1, F2, F2, ..., Fn} is set of data points and C = {C1, C2, C3, ..., Co}
+is set of centers.
+
+The datasets used for research contain images of corals of the Great Barrier Coral Reef
+of Australia. Most of the images are captured with underwater drone [22]. The model is
+trained with 60% of the images, 20% of the images are used for validation while testing is
+done on the remaining 20%. The ﬁrst dataset can be publicly accessed at [35]. While the
+other two datasets Bleached and Unbleached corals and bleached, healthy, and dead (BHD)
+corals dataset can be publicly accessed at [36,37], respectively. We have used a publicly
+available dataset having nine different classes to test the generalized performance of the
+model. This dataset can be easily accessed at [38]. We created bleached and unbleached
+corals datasets to compare the performance of the model trained on the ﬁrst dataset. We
+also created a BHD dataset for the classiﬁcation of bleached, healthy, and dead corals. We
+also tested our model to classify Crustose Coralline Algae (CCA), Turf algae, Macroalgae,
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, there are several postprocessing steps that can be performed depending on the specific requirements of the project. Some common postprocessing steps include saliency maps, metrics calculation, and creating a confusion matrix.
+
+Saliency maps are used to highlight the important regions in the input image that contribute most to the final classification result. They provide insights into how the model makes its decisions and can help identify any biases or errors in the model.
+
+Metrics calculation involves evaluating the performance of the model using various evaluation metrics such as precision, recall, F1 score, accuracy, etc. These metrics help quantify the effectiveness of the model and allow for comparison with other models.
+
+Creating a confusion matrix is another useful postprocessing step. A confusion matrix is a table that summarizes the predictions made by the model compared to the actual labels. It helps visualize the performance of the model and identify any patterns or trends in the misclassifications.
+
+In the case of the given paper, it appears that the authors did not explicitly mention any postprocessing steps after the model training. However, they do discuss the use of a confusion matrix to evaluate the performance of their model. Specifically, they define four essential parameters of the confusion matrix - True Positive (TP), True Negative (TN), False Positive (FP), and False Negative (FN). Additionally, they calculate sensitivity (TPR) using Equation (4) to measure the accuracy of the model. Therefore, based on the information available, we can infer that the authors likely used a confusion matrix as part of their postprocessing steps to evaluate the performance of their model.

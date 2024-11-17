@@ -1,0 +1,73 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+D. Model Training
+
+Feature Extraction: The hardware to train the model included
+a Lenovo laptop equipped with an 8265U CPU at 1.80 GHz
+of Intel Core i5, 8 GB of RAM running on a Windows 10 64-
+bit system. The software tools included Annaconda3 Jupyter
+Notebook with Python 3.8, where the Tensorﬂow, OpenCV-
+python3 [37] and Keras [38] libraries were used. The dataset
+was divided in a ratio of 75:25 into a training set of 5789
+images and a test set of 1930 images. To obtain the pre-
+trained weight parameters, we built the base models from the
+MobileNetV2, MobileNetV3-Large and MobileNetV3-Small
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on August 29,2024 at 05:51:17 UTC from IEEE Xplore.  Restrictions apply.
+
+optimizer (SGD) with a learning rate of 0.5 and momentum
+of 0.9. All models were trained on a training set within 10
+and 100 epochs (iterations).
+Fine-Tuning: We un-froze the base models and trained the
+weights of the top layers of these models along with the
+classiﬁer layer added in the previous step. The models were
+trained in 10 iterations to force the weights to be tuned from
+generic feature maps to feature associated with the leaf dataset.
+For a fair comparison, both V2 and V3 models were trained
+with the same dataset and training parameters, i.e. 235,704.
+The models were ﬁne-tuned and re-evaluated. The models
+were saved in the machine with all the class labels.
+
+models, pre-trained on 1.4M images from 1000 classes. First,
+the intermediate layer of all the models was selected to use
+for feature extraction. For this purpose, the output of the last
+layer (bottleneck layer) is commonly used prior to the ﬂatten
+operation. The reason is that all the fully connected layers
+are specialized to the task network was trained on; thus, the
+features learned by these layers will not be useful for the new
+task. The bottleneck features are more generic. Therefore, the
+base models were frozen, loaded with weights trained on the
+ImageNet dataset and used as a feature extractor. We added
+a dropout layer with a dropout rate of 0.2 to reduce the
+overﬁtting of the model. Finally, the top classiﬁer softmax
+layer was added for predicting the class for an input image.
+The model with the base model of MobileNetV2 was compiled
+and optimized with Adam optimizer. The other with the base
+model of MobileNetV3 were optimized with Gradient descent
+
+of the model was reduced to 60%, trainable parameters were
+declined to 188,600 and training, and validation accuracies
+were between 92%-94% and 82%-86%, respectively.
+
+Fig. 2. Training and Validation Accuracy of MNV2/MNV3-based Transfer
+Learned Models.
+
+Fig. 3. Training and Validation Accuracy of MNV2/MNV3-based Fine-tuned
+Models.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+To monitor the model performance during training, the authors employed two strategies: tracking training and validation accuracy. They utilized graphs to visualize the progression of these metrics over time. Specifically, they plotted the training and validation accuracy of their transfer learned models based on MobileNetV2 and MobileNetV3 architectures (as shown in Fig. 2). Similarly, they tracked the training and validation accuracy of their fine-tuned models based on the same architectures (as depicted in Fig. 3). By observing these graphs, one can assess how well the models are performing and whether they are improving or deteriorating over time. This information is crucial for making informed decisions about adjusting hyperparameters, modifying the architecture, or even stopping the training process if necessary.

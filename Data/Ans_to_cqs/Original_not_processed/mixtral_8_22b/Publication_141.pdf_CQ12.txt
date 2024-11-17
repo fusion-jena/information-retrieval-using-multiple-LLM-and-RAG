@@ -1,0 +1,77 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Fig. 2. Architecture of the proposed CNN model, where input images of 512x512
+pixels with 3 colour channels are transformed into a 2048 feature vector that is
+subject to classiﬁcation using the fully connected layer. A normalized exponential
+function (softmax) then takes the input vector and normalizes it into a probability
+distribution to determine the probability for each class.
+
+CNN, while the remaining 20% were used for validation of the
+model. The 80:20 split of the image data was carried out per cate-
+gory (chironomid taxa), where each ﬁfth image was chosen for the
+validation dataset (Table 1).
+
+4. Discussion
+
+2014), which is suggested for relatively small datasets such as ours
+(Ng et al., 2015; Peng et al., 2018). The CNN model (Fig. 2) is trained
+using a two-stage process. In the ﬁrst stage only a top classiﬁer
+(fully connected layer) is trained based on features extracted from
+processing images with a pretrained convolutional part of the net-
+work. In the second stage, an adjustment of the network in a ﬁne-
+tuned manner (using smaller learning rates) is done by training it
+as a whole. A two phase approach was used to speed up the process
+by preserving pretrained encoder weights in the ﬁrst phase of the
+training and achieve optimal model performance using the second
+phase. We also applied data augmentation by randomly deforming
+input images in each training cycle due to the small sample size.
+Additionally, dropout techniques (Hinton et al., 2012) were applied
+to extracted features to enhance model robustness.
+
+The implementation of the CNN classiﬁer was done in Python
+programming language (https://www.python.org/), using the
+Keras high level deep learning library (https://keras.io/), and Ten-
+sorFlow with graphical processing unit (GPU) execution as the
+back-end engine (https://www.tensorﬂow.org/). The regions of
+the images most informative for the decision making process in
+the deep learning model were visualized using Gradient-
+weighted Class Activation Mapping (Grad-CAM; (Selvaraju et al.,
+2017)). As an output, heatmaps were generated that indicated
+important aspects of the each head capsule used to determine
+the taxonomic decision-making process of the model.
+
+3. Results
+
+3.1. Classiﬁcation results
+
+factors: network architecture, protocol type of image acquisition
+(Martineau et al., 2017), and robustness of input matrix (number
+of entities and replicates). Our choice to use a ResNet-50 network
+architecture, in combination with transfer learning, data augmen-
+tation, and dropout proved appropriate for the current number of
+taxa in our demonstration dataset. ResNet-50 network architecture
+represents a midsize solution in the ResNet palette (18, 34, 50, 101,
+152 layers) that combines both representation power and lower
+complexity that allows relatively fast training of the models. How-
+ever, the protocol for image acquisition inﬂuences the complexity
+of features, which will be processed by CNNs. Controlled object
+position during the collection of images can also govern the level
+of feature variability. Our dataset was constructed under the lab-
+based protocol of image acquisition with fully controlled position
+of the larvae (ventral point of view). This was not the case in pre-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+A Convolutional Neural Network (CNN) is used in this study. The authors propose a CNN model that transforms input images of 512x512 pixels with three color channels into a 2048 feature vector. This feature vector is subjected to classification using a fully connected layer. The softmax function is then employed to convert the input vector into a probability distribution, determining the likelihood for each class. The CNN model is trained using a two-stage process involving a pretrained convolutional part of the network and fine-tuning with smaller learning rates. Data augmentation and dropout techniques are utilized to improve model robustness. The implementation of the CNN classifier is performed using Python programming language, Keras high-level deep learning library, and TensorFlow with GPU execution as the backend engine.

@@ -1,0 +1,182 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.3.3. Classification 
+
+Pretrained classification models such as VGG16 have demonstrated 
+to perform well on various plant species identification tasks (Pang and 
+Lim,  2019).  To  train  our  classification  model,  we  adapted  the  vgg16 
+network  pre-trained  on  ImageNet  dataset  (Simonyan  and  Zisserman, 
+2014). The fully connected layers of the networks were replaced with a 
+global max-pooling layer, a dropout layer with a dropout ratio of 0.5 as a 
+network regularizer and single hidden layer with a total of 256 units for 
+a larger image sized model(512 × 512) and 128 units for a smaller image 
+size model (256 × 256). Both networks were trained for 20 epochs with 
+a  batch  size  of 32  and  various data augmentation  techniques such as 
+height and width shift, flipping, zooming and brightness changes were 
+
+Table 2 
+Summary of the model parameters.   
+
+PConv networks 
+
+256 × 256/512 × 512 
+
+1 
+2e-4
+
+Family name 
+
+Training 
+
+Validation 
+
+Testing 
+
+Anacardiaceae 
+Annonaceae 
+Dipterocarpaceae 
+Ebenaceae 
+Euphorbiaceae 
+Malvaceae 
+Phyllanthaceae 
+Polygalaceae 
+Rubiaceae 
+Sapotaceae 
+Total 
+
+209 
+199 
+202 
+201 
+207 
+207 
+210 
+200 
+205 
+200 
+2040 
+
+29 
+28 
+28 
+30 
+29 
+29 
+30 
+28 
+29 
+28 
+288 
+
+61 
+58 
+59 
+60 
+61 
+61 
+60 
+58 
+60 
+58 
+596  
+
+performance computing facility  equipped with an AMD Ryzen Threa-
+dripper 3960 × 24-Core Processor (48 CPUs)-3.8GHz, 64GB RAM and 
+two NVIDIA GeForce RTX 2080 SUPER GPUs. 
+
+3.1. Dataset acquisition
+
+PConv networks 
+
+256 × 256/512 × 512 
+
+1 
+2e-4 
+
+Adam optimizer 
+per-pixel loss, perceptual 
+loss, style loss and total 
+variation loss 
+50 
+Pre-trained on ImageNet 
+
+Pix2Pix 
+networks 
+
+256 × 256/512 
+× 512 
+1 
+9e-5 
+
+Classification 
+networks 
+
+256 × 256/512 
+× 512 
+32 
+0.03 
+
+Adam optimizer 
+Adversarial loss 
+and L1 loss 
+
+Adam optimizer 
+Cross-entropy 
+loss 
+
+50 
+Trained from 
+Scratch 
+
+20 
+Pre-trained on 
+ImageNet  
+
+Input 
+
+dimension 
+
+Batch size 
+Learning 
+rate 
+Optimizer 
+Loss function 
+
+Epochs 
+Pre-trained 
+network 
+
+applied.  All  input  images  were  preprocessed  by  mean  centering  the 
+image with ImageNet values and then rescaled between 0 and 1. Since 
+our dataset was balanced, both networks were trained with a learning 
+rate of 0.03, cross-entropy loss as a loss function optimized by Adam 
+optimizer (Kingma and Ba, 2014). Table 2 summarizes the parameter 
+used for training each model. 
+
+3.4. Performance evaluation
+
+Fig. 4. (a)Sample image, (b) the generated mask and the masked image in (c) used for training reconstruction models.  
+
+EcologicalInformatics61(2021)1012435B.R. Hussein et al.                                                                                                                                                                                                                              
+
+parameters  were  used  in  each  category  unless  otherwise  specified. 
+Where available, the original implementation reported earlier in liter-
+ature were used (Isola et al., 2017; Liu et al., 2018). 
+
+3.3.1. PConv network
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the specific strategy implemented to monitor the model performance during training. However, it mentions that the networks were trained for 20 epochs with a batch size of 32 using cross-entropy loss as a loss function optimized by Adam optimizer. This suggests that monitoring the model performance might involve observing metrics like accuracy or loss over epochs during training. Additionally, since the dataset was balanced, it can be assumed that standard practices such as splitting the dataset into training, validation, and testing sets could also be employed to evaluate the model's performance.

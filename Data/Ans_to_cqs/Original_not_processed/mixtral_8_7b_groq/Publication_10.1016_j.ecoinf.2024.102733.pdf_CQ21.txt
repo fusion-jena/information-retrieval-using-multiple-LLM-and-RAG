@@ -1,0 +1,7 @@
+Based on the provided context, there is no explicit information about postprocessing steps such as saliency maps, metrics calculation, or confusion matrix generation after the model training. However, it does mention some processes that could be considered part of the overall model training and evaluation pipeline.
+
+After training the diffusion model, an MLP is trained using the features extracted by the frozen, generative model. This MLP training is a separate step from the diffusion model training. The diffusion model is used in a self-supervised fashion, where data labels are not used during training, and the model is only used to extract features from both training and testing data.
+
+Additionally, the starting point of the reverse process (t) in the diffusion model has a significant impact on the training and performance of the classifier. The ideal choice for t is found to be 4 or 5, and using SMOTE (Synthetic Minority Over-sampling Technique) leads to improved performance. The best results on the test set are achieved with t equal to 4, a batch size of 16, a learning rate of 0.00005, and weight decay set to 0.0001.
+
+In summary, while the context does not explicitly mention common postprocessing steps like saliency maps, metrics calculation, or confusion matrix generation, it does describe the use of an MLP trained on features extracted by the diffusion model and the impact of the starting point of the reverse process (t) on the model's performance.

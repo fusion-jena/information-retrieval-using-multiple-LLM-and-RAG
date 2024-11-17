@@ -1,0 +1,136 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+specific segmentation models. The full instructions and options are 
+
+cluded in model training are shown in Figure 1.
+
+provided on the GitHub repository.
+
+2.3 | Model training procedure
+
+2.5 | Sashimi online model repository
+
+We first used the VGG Image Annotator Version 1.0.6 (https://www.
+
+We constructed a website to serve as a repository for the fish seg-
+
+robots.ox.ac.uk/~vgg/softw are/via/via- 1.0.6.html;  Dutta  et  al., 
+2016) to manually annotate pixel coordinates to create precise po-
+
+mentation model (presented here) and future, community generated 
+
+organismal  segmentation  models  (https://sashi mi.shawn tyler schwa 
+
+lygonal mask contours directly around the fish body boundary (i.e. 
+
+rtz.com). We aim to inspire other biologists interested in automated 
+
+where the foreground pixels of the target fish body meet those of 
+
+segmentation to create pre- trained models for their organism(s) of 
+
+the background). We intentionally assigned all segmentation masks
+
+select both common and rarer examples of digitized organismal im-
+
+ages reflecting a diverse set of appearances, backdrops, and contexts. 
+
+Gathering images representing high phenotypic and contextual visual 
+
+diversity  should  help  enhance  model  generalizability  and  perfor-
+
+mance in most cases. Over and above training dataset construction is 
+
+considering the iterative nature of model training required to achieve 
+
+performance  suitable  for  one's  specific  needs.  For  instance,  if  an 
+
+ecologist aims to segment the bodies of organisms for a color pattern 
+
+analysis,  images  with  small  visual  artifacts  along  the  boundaries  of 
+
+the body should not expectedly impact downstream analytical goals. 
+
+However, a morphometric analysis aiming to measure landmarks on 
+
+regions at the edge of the body may require more fine- grained model 
+
+tuning  such  that  predicted  segmentation  masks  more  carefully  ex-
+
+tract the foreground pixels from the background pixels at the bound-
+
+aries of the target. Such model training may require hundreds or even 
+
+thousands of relevant example images and may possibly require addi-
+
+tional generations of training. Users should also consider the quality 
+
+of their supplied mask annotations for training dataset images. Care 
+
+should be taken during manual annotation to ensure coordinates re-
+
+flect a smooth boundary delineating the background pixels from the 
+
+foreground  pixels,  rather  than  a  more  jagged,  rough  approximation 
+
+of the target's location within the image. In sum, users interested in 
+
+refining the model for different use cases should anticipate iteratively 
+
+training models with different sized training datasets and parameters 
+
+until suitable performance is achieved.
+
+Overall,  Sashimi  provides  an  extensible  toolkit  for  automating 
+
+and  evaluating  image  segmentation  performance  using  the  power-
+
+interest and share them to the Sashimi online database for the rest 
+
+for each image a class label name corresponding to the general bio-
+
+of  the  community  to  use  and  build  upon.  All  models  will  be  open- 
+
+logical name of the organism (e.g. ‘fish’). Given that our intention is 
+
+source and available to download, and users can submit requests to 
+
+to  build  broad,  organism- specific  models  one- by- one,  we  suggest 
+
+share new models, which will be evaluated before becoming publicly 
+
+building organism- specific training sets where all segmentation con-
+
+available.
+
+tours  across  images  are  labelled  the  same  name  (i.e.  ‘whale’).  We 
+
+then used these coordinates to train a model using transfer learning 
+
+(Razavian et al., 2014) with the COCO pre- trained weights (Lin et al., 
+
+2.6 | Evaluating fish segmentation model efficacy
+
+2014), a ResNet- 101 (a CNN with 101 layers; He et al., 2016) and a
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the postprocessing steps involved after the model training. However, it mentions that the VGG Image Annotator was used to manually annotate pixel coordinates to create precise polygonal mask contours directly around the fish body boundary. This suggests that one possible postprocessing step could involve comparing the predicted segmentation masks with the ground truth labels created through manual annotation.
+
+Additionally, the text discusses the importance of considering the iterative nature of model training required to achieve performance suitable for one's specific needs. It highlights that users interested in refining the model for different use cases should anticipate iteratively training models with different sized training datasets and parameters until suitable performance is achieved. This implies that another potential postprocessing step could involve evaluating the performance of the model using various metrics and adjusting the training process accordingly.
+
+Furthermore, the text notes that users should take care during manual annotation to ensure coordinates reflect a smooth boundary delineating the background pixels from the foreground pixels. This indicates that yet another possible postprocessing step might entail assessing the quality of the predicted segmentation masks and ensuring they accurately capture the desired features of the target object.
+
+In summary, while the text does not explicitly state the postprocessing steps involved after the model training, it suggests several possibilities based on the described procedures and best practices. These include comparing predicted segmentation masks with ground truth labels, evaluating model performance using various metrics, and assessing the quality of predicted segmentation masks.

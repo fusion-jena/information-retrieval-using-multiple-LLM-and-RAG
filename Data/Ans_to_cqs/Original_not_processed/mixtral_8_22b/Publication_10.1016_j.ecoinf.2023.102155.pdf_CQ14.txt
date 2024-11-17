@@ -1,0 +1,61 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+bias correctionsumNIMSE1e45e41e53e5indivknnkmeansrandomCFLoopALoopTLoopEindivknnkmeansrandomCFLoopALoopTLoopEindivknnkmeansrandomCFLoopALoopTLoopEhidden observations20%50%80%median performance individual methodE. Guilbault et al.
+
+the ppmlasso package.;  
+
+• sp.scale: the spatial resolution for the quadrature grid in km—as defined in the ppmlasso package;  
+• cov.bias: The column number of the variable chosen as a proxy for the observer bias in quadsenv. The default value is set to NULL;  
+• kVal: the value to factor out of the observer bias proxy cov.bias. The default value is set to NULL;  
+• n.fits: the number of models to fit through the regularization path—as defined in the ppmlasso package. The default value is set to 50. 
+
+To run the ppmlassoMixEngine, we can use the following lines:
+
+The  elements  returned  by  this  function  are  the  same  as  the  ones presented  by  the  ppmMixEngine function  in  the  supporting  information  of 
+
+Guilbault et al. (2021). 
+
+B.1.2.2. Loop methods. The ppmlassoLoopEngine function applies the Loop methods with extensions. The following arguments are the same to 
+those developped in ppmLoopEngine and in the section above:
+
+tion point patterns nor the observed point patterns—d1, d2, d3, and d4 
+were also simulated and used in the model fitting process. Although they 
+were  not  used  to  generate  the  species  intensities,  the  uninformative 
+covariates d1, …d4  were used in fitting the models to explore the effects 
+of the lasso on model performance for the various algorithms. In prac-
+tice, we might not necessarily know which covariates are meaningful. 
+Hence, incorporating a lasso penalty as a regularization method (Renner 
+and Warton, 2013; Tibshirani, 1996) whereby we penalize the sum of 
+the  absolute  value  of  the  coefficients  often  improves  the  predictive 
+performance.  Contrary  to  ridge  regression,  the  lasso  penalization  can 
+also perform variable selection and thereby produce simpler and more 
+interpretable models (James et al., 2013). We therefore fit models by 
+maximizing a penalized log-likelihood function: 
+
+ℓL(α, β, β′, s) = ℓ(α, β, β′, s) (cid:0) λ ×
+
+(
+
+∑4
+
+k=1
+
+|βk| +
+
+EcologicalInformatics77(2023)1021554indivknnkmeansrandomCFLoopALoopTLoopEindivknnkmeansrandomCFLoopALoopTLoopEindivknnkmeansrandomCFLoopALoopTLoopE0.20.40.60.8no lasso no bias correctionmeanRSSindivknnkmeansrandomCFLoopALoopTLoopEindivknnkmeansrandomCFLoopALoopTLoopEindivknnkmeansrandomCFLoopALoopTLoopE0.20.40.60.8indivknnkmeansrandomCFLoopALoopTLoopEindivknnkmeansrandomCFLoopALoopTLoopEindivknnkmeansrandomCFLoopALoopTLoopE0.20.40.60.8no lasso bias correctionmeanRSSindivknnkmeansrandomCFLoopALoopTLoopEindivknnkmeansrandomCFLoopALoopTLoopEindivknnkmeansrandomCFLoopALoopTLoopE0.20.40.60.8indivknnkmeansrandomCFLoopALoopTLoopEindivknnkmeansrandomCFLoopALoopTLoopEindivknnkmeansrandomCFLoopALoopTLoopE0.20.40.60.8lasso no bias correctionmeanRSSindivknnkmeansrandomCFLoopALoopTLoopEindivknnkmeansrandomCFLoopALoopTLoopEindivknnkmeansrandomCFLoopALoopTLoopE0.20.40.60.8indivknnkmeansrandomCFLoopALoopTLoopEindivknnkmeansrandomCFLoopALoopTLoopEindivknnkmeansrandomCFLoopALoopTLoopE0.20.40.60.8lasso
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it appears that the optimization of hyperparameters for the model is not explicitly mentioned or described. However, there are some clues that suggest how hyperparameter tuning may be approached. For instance, the argument 'n.fits' in the ppmlasso package indicates the number of models to fit through the regularization path. This suggests that the model may employ a form of cross-validation or iterative fitting to find optimal hyperparameters. Additionally, the mention of a lasso penalty as a regularization method implies that the model uses some form of hyperparameter tuning to determine the strength of this penalty. Unfortunately, without further context or details about the specific implementation of these functions, it is difficult to provide a definitive answer regarding the exact method used for hyperparameter optimization.

@@ -1,0 +1,331 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+the objects of interest. Conversely, weights are reduced for simpler samples. 
+
+Consequently, focal loss diminishes the impact of straightforward samples on training loss 
+
+while  amplifying  the  significance  of  challenging  ones.  The  focal  loss  function  is  calculated  as 
+
+Journal Pre-proof
+
+  is the probability of belonging to the class 
+
+  represents  the  ratio  of  generated  boxes  containing  background  and  foreground 
+
+information, aiding in balancing the disparity between background and foreground when 
+
+generating boxes. 
+
+ 
+
+  represents the “concentration” of indistinguishable regions; the larger 
+
+, the smaller 
+
+the error values in the distinguishable regions, and the lower the contribution to the total 
+
+loss of the model. 
+
+follows: 
+
+where: 
+
+ 
+
+ 
+
+(6) 
+
+()=(1)()ttttFLpplogptpt 
+ 
+ 
+ 
+ 
+Journal Pre-proof
+
+4.5. Third improvement: Two class Faster RCNN + Overlap Sampler technique
+
+feature  images  while  retaining  crucial  features.  The  Dropout  layer  is  integrated  to  mitigate 
+
+overfitting. Additionally, the Global Average Pooling layer summarizes features, generating input 
+
+for the fully connected layer. This layer also facilitates the visualization of regions relied upon by 
+
+the network for predictions. The subsequent three fully connected layers generate the predicted 
+
+class for the original image 
+
+Table 1: Main parameters of the classification network 
+
+[
+
+Input size 
+
+Output size 
+
+Journal Pre-proof
+
+[
+
+[
+
+[
+
+Parameters 
+
+  conv, strides 1] 
+
+  conv, strides 1] 
+
+  max pool 
+
+  conv, strides 1] 
+
+  conv, strides 1] 
+
+Probability 0.5 
+
+  max pool 
+
+[
+
+  conv, strides 1] 
+
+Layers 
+
+Convolution 
+
+Convolution 
+
+Pooling 
+
+Convolution 
+
+Convolution 
+
+Dropout 
+
+Pooling 
+
+Convolution 
+
+Global Average Pooling 
+
+Dense 
+
+Dense 
+
+Classification layer (Dense) 
+
+128 
+
+128 
+
+128 
+
+128 
+
+128 
+
+128 
+
+1 
+
+- 
+
+- 
+
+- 
+
+-
+
+VnPollenBee dataset. The best metrics values are shown in bold font. 
+
+Method 
+
+Evaluation metrics 
+
+Journal Pre-proof
+
+Our proposed methods 
+
+Baseline methods 
+
+0.12  0.004 
+
+0.15  0.009 
+
+0.086  0.03 
+
+0.99 
+
+0.99 
+
+0.58 
+
+0.96 
+
+0.41 
+
+0.91 
+
+0.85 
+
+0.88 
+
+0.88 
+
+MR 
+
+Yolov5 + classification  0.11 
+
+Yolov5 + focal loss 
+
+Yolov5 [39] 
+
+Faster RCNN [40] 
+
+0.91 
+
+0.93 
+
+0.70 
+
+0.93 
+
+FAR  Precision  Recall  F1-score 
+
+Faster RCNN 
+
++ Overlap Sampler 
+
+0.07 
+
+0.01 
+
+0.99 
+
+0.93 
+
+0.95 
+
+Figure 14: Evaluation metrics of the pollen-bearing bee detection results. 
+
+Figure 15: Detection results of the proposed improvement: (above) YOLOv5 + focal loss, (below) 
+
+Faster  RCNN  +  Overlap  sampler.  The  green  and  red  boxes  indicate  pollen-bearing  and 
+
+ 
+ 
+Journal Pre-proof
+
+non-pollen-bearing bees, respectively. Values indicate the confidence score. 
+
+Furthermore,  Fig.  15  depicts  some  detection  outcomes  of  the  second  proposed
+
+Journal Pre-proof
+
+Accuracy 
+
+Dataset 
+
+Mean 
+
+99.3 
+
+99.3 
+
+98.4 
+
+97.9 
+
+97.9 
+
+Fold 1  Fold 2  Fold 3  Fold 4  Fold 5 
+
+97.8 
+
+Figure 12: Normalized confusion matrix obtained with the proposed classification method on the 
+
+Table 2: Accuracy obtained for each fold and mean accuracy for all folds. 
+
+and non-pollen-bearing bees. 
+
+validation set from PollenDataset. 
+
+ 
+ 
+ 
+Journal Pre-proof
+
+Table  3:  Comparison  between  the  proposed  and  state-of-the-art  classification  methods  on 
+
+PollenDataset. The highest accuracy is shown in bold font, while the second-highest values are 
+
+shown in underline font. 
+
+Methods 
+
+Architecture  Accuracy 
+
+Method in [18] 
+
+Method in [18] 
+
+1-Layer 
+
+VGG16 
+
+96.4 
+
+87.2 
+
+5.3. Pollen bearing bee detection results 
+
+Figure 13: GradCAM visualization of the classification network decision. 
+
+90.2 
+
+96.4 
+
+98.4 
+
+The proposed classification method 
+
+VGG19 
+
+5-Layer 
+
+2-Layer 
+
+Method in [28] 
+
+Method in [18] 
+
+Journal Pre-proof
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In machine learning models, including those mentioned in this context such as YOLOv5 and Faster RCNN, there are several criteria used to determine when training is complete. These include:
+
+1. Validation Loss Plateau: One common criterion is observing a plateau or minimal decrease in the validation loss over multiple epochs. When the model stops improving its performance on unseen data, it may suggest that further training will not significantly improve the model's generalizability.
+
+2. Early Stopping: To prevent overfitting, early stopping can be employed. In this approach, training is halted if the validation loss does not improve after a certain number of epochs. This helps ensure that the model remains robust and avoids memorizing the training data.
+
+3. Learning Rate Scheduling: Adjusting the learning rate during training can help optimize convergence and prevent overshooting local minima. By reducing the learning rate once the validation loss has reached a satisfactory level, we can fine-tune the model without causing significant changes.
+
+4. Maximum Number of Epochs: Setting a maximum number of epochs ensures that the training process terminates even if other conditions have not been met. This prevents excessive resource consumption and allows for timely evaluation of the trained model.
+
+Based on the given context, specific details regarding these criteria for determining when training is complete are not explicitly stated. However, these general principles apply to most deep learning models, including YOLOv5 and Faster RCNN.

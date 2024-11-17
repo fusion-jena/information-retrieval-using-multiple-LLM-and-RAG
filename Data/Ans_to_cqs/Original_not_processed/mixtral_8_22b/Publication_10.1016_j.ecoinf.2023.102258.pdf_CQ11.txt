@@ -1,0 +1,213 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Baselines 
+
+Prototypical 
+
+Mel +PCEN 
+
+Systems submitted 
+to the public 
+challenge 
+
+Template matching 
+
+Yang et al. (2021) 
+
+Lin 
+
+Mel 
+
+Tang et al. (2021) 
+
+Lin + PCEN 
+
+Du_NERCSLIP 
+
+Mel +PCEN 
+
+Liu_Surrey 
+
+Mel +PCEN & 
+delta-MFCC 
+
+CNN 
+
+n/a 
+
+CNN 
+
+CNN 
+
+CNN 
+framewise 
+
+CNN 
+
+n/a 
+
+x-ent 
+
+Proto 
+
+x-ent 
+
+Proto 
+(modifed) 
+
+Wu_SHNU (+Wu 
+2023 ICASSP) DFSL 
+Moummad_IMT 
+
+Other 
+
+Wolters 2021 arxiv 
+Perceiver 
+
+You et al. (2023) 
+(ICASSP 2023) 
+
+Mel 
+
+Mel 
+
+Mel 
+
+Mel +PCEN 
+
+CNN (ResNet) 
+
+x-ent 
+
+DFSL attentive 
+
+No 
+
+Pseudo-pos 
+
+– 
+
+Proto 
+
+Dist:Proto 
+
+TI, Retrain 
+
+5 
+
+Between-the-5 +
+Pseudo-neg 
+(SpecSim) 
+Pseudo-neg 
+
+CNN (ResNet) 
+
+SCL 
+
+CNN + CRNN 
++Perceiver 
+
+Proto +RPN 
+(R-CRNN) 
+
+Posterior 
+
+Finetune 
+
+Between-the-5 
+
+Dist:Proto 
+
+No 
+
+n/a 
+
+5 
+
+5 
+
+AST 
+
+Proto 
+
+Proto 
+
+Dist:Proto 
+
+Finetune, TI 
+
+Between-the-5 
+
+5 + aug 
+
+New 
+templates 
+Retrain (new 
+pos + neg) 
+Proto 
+
+Finetune last 
+layer 
+
+DFSL 
+attentive 
+Finetune last 
+layer 
+Proto
+
+• Transductive  few-shot  learning  -  Meta  learning  methods  aim  to 
+learn on scarce data in order to generalise to unseen tasks,  which 
+makes the problem fundamentally difficult. In order to mitigate the 
+difficulty, transductive based methods utilise the information present 
+in the unlabeled examples from the query set to adapt the model and 
+improve its predictions. In Liu et al. (2018), the samples in support 
+and query set are jointly modelled as nodes of a graph and the pre-
+diction on query set is conducted by label-propagation algorithm. In 
+Hou  et  al.  (2019),  a  cross-attention  based  map  is  learnt  between 
+support set and query set in order to make predictions on individual 
+query examples.
+
+Such fragmentation hinders the practical usability of deep learning 
+in bioacoustics, and thus in the life sciences at large. Indeed to date, the 
+success of deep neural networks in the supervised regime depends on the 
+availability of a massive corpus of audio examples for the sound events 
+of interest, paired with human annotations. Yet, temporally-precise and 
+fine-grained annotation of audio demands expertise, and is thus costly 
+and time-consuming. In many cases, the obstacle is not only to acquire 
+annotations, but also the audio examples themselves: e.g. for rare spe-
+cies,  remote  locations,  or  costly  equipment.  Furthermore,  these 
+numerous small-data scenarios remain outside the scope of digital bio-
+acoustic archives, such as Xeno-Canto and the Macaulay Library.
+
+Query-time adaptation (transductive inference) was shown in mul-
+tiple cases to lead to very strong performance, within both the proto-
+typical  and  fine-tuning  paradigms.  This  comes  at  a  cost  of  added 
+complexity  and  added  query-time  computation,  since  typically  a  new 
+run of statistical optimisation must be performed for a new query task. 
+Thus, from the present results we can recommend that a system should 
+include query-time adaptation for the best possible detections, but that a 
+system without query-time adaptation should be a widespread default. 
+Such fixed embeddings can easily be used off-the-shelf, in the same way 
+that  other  pretrained  networks  are  now  commonly  downloaded  and 
+used.  The  DFSL  method  employed  by  Wu_SHNU  is  an  alternative 
+approach  which  combines  an  unchanging  feature  extraction  with  a 
+query-time  adaptive  weighting.  This  combines  stability  with  dynamic 
+adaptation, and thus is worthy of further investigation.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the data repository link of the deep learning pipeline (e.g., Link to Zenodo, Figshare, Dryad, GBIF)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide any direct reference to a specific data repository link for a deep learning pipeline. However, it mentions two potential sources for audio examples and annotations: Xeno-Canto and the Macaulay Library. These resources could potentially contain relevant datasets for developing deep learning pipelines in bioacoustics. Unfortunately, no explicit links to these repositories or their respective deep learning pipelines are mentioned in the provided context. Therefore, I cannot directly provide the requested data repository link.
+
+To find the desired data repository link, one would need additional information about the specific deep learning pipeline being referred to. With this information, it may be possible to locate the corresponding dataset and associated code in a publicly accessible repository like Zenodo, Figshare, Dryad, or GBIF.

@@ -1,0 +1,54 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+kernel to expand without increasing the number of parameters [39]. This expansion of the
+window is controlled by the dilation rate and it enables the network to capture information
+from a larger receptive ﬁeld of view with the same parameters and computational complex-
+ity as the normal convolution. The combination of spatial pyramid pooling with Atrous
+convolutions resulted in an efﬁcient multi-scale processing module called Atrous spatial
+pyramid pooling (ASPP). In the earlier version (DeepLabV3) [40], the last ResNet block of
+the modiﬁed ResNet-101 uses different Atrous convolutions with different dilation rates.
+ASPP, together with bilinear up sampling, is also used on top of the modiﬁed ResNet block.
+DeepLabv3+ is an improvement in the previous version by adding an effective decoder
+module to improve the boundaries of the segmentation results [41]. Furthermore, apart
+from ResNet-101, an Xception model can be used as a feature extractor while applying a
+
+2019, 19, 4850. [CrossRef] [PubMed]
+
+33. Yao, X.; Yang, H.; Wu, Y.; Wu, P.; Wang, B.; Zhou, X.; Wang, S. Land use classiﬁcation of the deep convolutional neural network
+
+method reducing the loss of spatial features. Sensors 2019, 19, 2792. [CrossRef]
+
+34. Torres, D.L.; Feitosa, R.Q.; Happ, P.N.; la Rosa, L.E.C.; Marcato, J., Jr.; Martins, J.; Bressan, P.O.; Gonçalves, W.N.; Liesenberg,
+V. Applying fully convolutional architectures for semantic segmentation of a single tree species in urban environment on high
+resolution UAV optical imagery. Sensors 2019, 20, 563. [CrossRef]
+
+35. Bai, R.; Jiang, S.; Sun, H.; Yang, Y.; Li, G. Deep neural network-based semantic segmentation of microvascular decompression
+
+images. Sensors 2019, 21, 1167. [CrossRef]
+
+of the network to make them non-trainable and added an extra max-pooling layer before the fully connected layers to reduce the dimen-sion of the previous layer. The feature vector of the fully connected layer was reduced from 2048 units of the original VGG16 to 128 units, which helped in reducing the compu-tational complexity without sacrificing much on performance. The model was imple-mented using Keras with TensorFlow backend [52]. We trained with a batch size of 32 images per iteration and applied binary cross-entropy as the loss function. All input images were resized to 300 × 300 resolution and trained for 100 epochs with an Adam optimizer at a learning rate of 1 × 10−4. We also ap-plied data augmentation for the training images such as flipping and rotation, with height and width shift as leaves were expected to be indifferent orientations, size, and location hence helped the model to generalize better. The trained classifier was then used as a filter Sensors 2021, 21, 4549
+
+Training procedure—We adapted a pre-trained VGG16 network that is a CNN trained
+on the ImageNet dataset and used for transfer learning on our dataset [51]. We froze
+earlier layers of the base version of the network to make them non-trainable and added an
+extra max-pooling layer before the fully connected layers to reduce the dimension of the
+previous layer. The feature vector of the fully connected layer was reduced from 2048 units
+of the original VGG16 to 128 units, which helped in reducing the computational complexity
+without sacriﬁcing much on performance. The model was implemented using Keras with
+TensorFlow backend [52].
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit details about specific regularization methods used to prevent overfitting in the deep learning pipeline, such as dropout or L2 regularization. However, there are some techniques mentioned that could potentially help mitigate overfitting indirectly. For instance, freezing earlier layers of the pre-trained VGG16 network makes those layers non-trainable, effectively reducing the overall capacity of the model and thus its ability to memorize the training set. Additionally, the inclusion of an extra max-pooling layer before the fully connected layers helps reduce dimensionality, further limiting the model's capacity. Lastly, data augmentation techniques like image flipping, rotation, and shifting are employed during training, which can aid in preventing overfitting by introducing variations into the training data.

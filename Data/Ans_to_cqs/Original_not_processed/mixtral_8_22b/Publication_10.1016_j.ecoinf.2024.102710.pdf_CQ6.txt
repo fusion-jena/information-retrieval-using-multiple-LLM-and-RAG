@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4 https://github.com/HKathman/pam_annotation_experiments
+5 https://github.com/kahst/BirdNET-Analyzer/tree/main/checkpoints/V2.4
+6 https://tfhub.dev/google/vggish/1
+7 https://tfhub.dev/google/yamnet/1
+8 tensorflow.keras.applications.vgg16.VGG16(weights=’imagenet’).
+9 tensorflow.keras.applications.resnet_v2.ResNet152V2
+
+(weights=’imagenet’).
+
+Fig. 4. UMAP plots for different embedding layers of different embedding
+models for AnuraSet. For UMAP generation, we randomly select 5000 samples
+and discard all samples that are aligned to more than one class. Colors and
+shapes indicate the 10 classes with the highest occurrence frequency. Layers are
+numbered according to their distance from the classification layer, e.g. ‘Bird-
+Net-1’ is the last layer before the classification layer of the BirdNet model.
+
+EcologicalInformatics82(2024)1027105H. Kath et al.
+
+ResNet-50 variant (no transfer learning), and the small size of their
+validation set (6.25 h, or 0.003% of the data) precludes comparing
+different active learning methods. Similarly, van Osta et al. (2023) use
+transfer learning (ResNet seemingly pre-trained on ImageNet) and an
+active learning strategy to train a classifier for a single cryptic bird
+species, but do not compare different active learning strategies.
+
+Deep neural networks learn multiple representations of different
+levels of abstraction: the first layers reflect low level input features,
+while the last layers capture structure more directly related to the pre-
+dictions output by the model (Bengio, 2009). We evaluate embeddings
+at different layers within the CNNs. For VGG16 we investigate the last
+three layers before the final classification layer (‘fc2’,
+‘fc1’, and
+‘flatten’). For ResNet152-V2 we only investigate the last embedding
+layer (‘avg_pool’). Considering our future goal of implementing a real-
+time pipeline with transfer learning and active learning, we decide not
+to explore further layers of both visual domain models due to their large
+dimensionality (100,352 for both models). Since the models pre-trained
+on AudioSet were designed to be used as feature extractors, we only use
+the last layer for VGGish and the penultimate layer for YAMNet. For
+BirdNet we investigate the last three embedding layers, batch normali-
+
+evaluation was done on focal and citizen-science datasets. Swaminathan
+et al. (2024) extend the observation to attention-based architectures pre-
+trained on human speech. Lauha et al. (2022) show that transfer
+learning can be helpful also for small networks trained from scratch on
+small, targeted datasets gathered from online resources such as Mac-
+aulay Library2 (as opposed to foundation models trained on large
+datasets). While the works cited above evaluate transfer learning models
+based on classification performance, McGinn et al. (2023) take a
+different approach and investigate the topology of fine grained, sub-
+species sound events in the embedding space afforded by BirdNet;
+they find that different call types of a same species (e.g., drumming
+versus vocalization) form distinct clusters, and that the vicinity of each
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The preprocessing steps involved before training a deep learning model may vary depending on the specific application and dataset. However, some common preprocessing techniques include:
+
+* Normalization: This involves rescaling the values of the input features so they fall within a certain range, typically between 0 and 1. This helps prevent any particular feature from dominating the others during training.
+* Scaling: Similar to normalization, this technique involves adjusting the scale of the input features so they have similar magnitudes. This can help improve convergence during training.
+* Cleaning: This step involves removing noise or irrelevant information from the dataset. For example, missing values might need to be imputed or outliers removed.
+* Augmentation: Data augmentation techniques involve creating new examples by applying transformations to existing ones. This can help increase the diversity of the training data and reduce overfitting.
+
+For audio data specifically, additional preprocessing steps may include converting raw audio files into spectrograms or mel-frequency cepstral coefficients (MFCCs), which can then be fed into the deep learning model. The exact preprocessing steps will depend on the specific requirements of the task and the chosen architecture.

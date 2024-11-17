@@ -1,0 +1,73 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We  also  investigated  the  extent  to  which  using  active  learning  to 
+select training data could reduce the number of texts required to achieve 
+peak  performance  for  BERT  models.  Our  experiments  showed  that 
+classifiers  trained  using  data  selected  randomly  or  with  the  least 
+
+EcologicalInformatics75(2023)1020766S.B. Hunter et al.                                                                                                                                                                                                                               
+
+Fig. 4. The relationship between the number of texts in training data (increased at increments of 50) and the median F1 achieved by classifiers over five runs. The 
+model used, the classification task and the dataset from which training and testing data are derived are compared. N.B. this does not include stratified training data.
+
+Beltagy, I., Lo, K., Cohan, A., 2019. SciBERT: a pretrained language model for scientific 
+text. In: Proceedings of the 2019 Conference on Empirical Methods in Natural 
+Language Processing and the 9th International Joint Conference on Natural 
+Language Processing (EMNLP-IJCNLP), pp. 3615–3620. 
+
+Benıtez-L´opez, A., Santini, L., Schipper, A.M., Busana, M., Huijbregts, M.A., 2019. Intact 
+but empty forests? Patterns of hunting-induced mammal defaunation in the tropics. 
+PLoS Biol. 17 (5), e3000247. 
+
+Blasi, D., Anastasopoulos, A., Neubig, G., 2022. Systematic inequalities in language 
+technology performance across the world’s languages. In: Proceedings of the 60th 
+Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), 
+pp. 5486–5505. https://doi.org/10.18653/v1/2022.acl-long.376. 
+
+Bojanowski, P., Grave, E., Joulin, A., Mikolov, T., 2017. Enriching word vectors with 
+
+subword information. Trans. Assoc. Comput. Linguist. 5, 135–146.
+
+dataset. After each training round, the sample size was increased by 50. 
+This was repeated five times for each model and for each classification 
+task. 
+
+We also tested the performance of classifiers trained on texts selected 
+using active learning. We initialized the BERT-base classification model 
+with  a  randomly  selected  sample  of  50  texts.  We  then  queried  the 
+original  training  set,  using  the  Embedding  K-means  and  Least  Confi-
+dence active learning algorithms, to select the next 50 texts for training, 
+after  which  the  model  was  retrained.  This  was  repeated  up  to  1150 
+training texts as, after this point, there are only 50 remaining texts to 
+select from.
+
+Since BERT can only accept a maximum of 512 tokens as input, we 
+used smaller subsections of the longer web articles as classifier input, an 
+approach previously applied to long document classification (Fiok et al., 
+2021; Sun et al., 2019). To identify the sections of text most likely to be 
+relevant to the classification decision, documents were split into chunks 
+of 300 tokens using the NLTK word-tokenizer. Chunks that contained 
+any  of  our  original  query  terms  (i.e.  any  bat-related  or  exploitation- 
+related  term)  were  retained.  If  more  than  one  chunk  contained  key-
+words,  the  first  such  chunk  of  the  document  was  retained  for  use  in 
+model training and evaluation. Before being fed into the BERT model, 
+texts are tokenized using the BERT tokenizer. Here, we set the maximum 
+number of tokens as 400 for social media posts, as most were very short, 
+and 512 for web articles, meaning some texts would have been further 
+truncated at this step.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The provided context does not contain specific details about how the trained deep learning model was deployed. Therefore, it is not possible to provide a helpful answer based solely on the given context.

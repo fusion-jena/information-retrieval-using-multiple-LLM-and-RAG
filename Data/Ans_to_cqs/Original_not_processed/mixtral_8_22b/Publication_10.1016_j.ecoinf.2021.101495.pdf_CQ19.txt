@@ -1,0 +1,106 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+(b) Computing infrastructure used to train both neural networks 
+
+Infrastructure 
+Search strategy 
+Training duration 
+(best assignment) 
+
+Nvidia Tesla V100 (16GB) 
+Manual tuning  
+Segmentation 
+Classification 
+
+4 h 6 min 24 s 
+9 h 22 min 34 s
+
+Fig. 3. Example of individual fishes once the segmentation is done. These fishes belong to a monospecific set of YFT.  
+
+Table 2 
+Computing  infrastructure,  search  space  and  best  assignments  of  hyper-
+parameters of the neural networks.  
+
+(a) Hyperparameters used for the training of each neural network. The base models 
+have been obtained from TensorFlow Object Detection API (segmentation) and the 
+base implementation of TensorFlow (classification) 
+
+Hyperparameter  Module 
+
+Search space 
+
+Best assignment 
+
+Epochs 
+
+Batch size 
+
+Learning rate 
+
+Activation 
+
+Train/test split 
+
+Segmentation 
+Classification 
+Segmentation 
+Classification 
+Segmentation 
+Classification 
+Segmentation 
+Classification 
+Segmentation 
+Classification 
+
+[1000(cid:0) 20,000] 
+[500–5000] 
+[2(cid:0) 32] 
+[2–128] 
+[0.0001–0.01] 
+[0.0001–0.01] 
+Softmax 
+Softmax 
+[0.9/0.1–0.8/0.2] 
+[0.9/0.1–0.8/0.2] 
+
+15,000 
+500 
+4 
+128 
+0.008 
+0.0001 
+Softmax 
+Softmax 
+0.9/0.1 
+0.8/0.2
+
+2.3. Fish classification by species 
+
+A classifier based on deep neural networks was also used for this task. 
+In this case, the chosen architecture is a residual neural network, whose 
+main characteristic is that it can skip some of its layers (He et al., 2016). 
+In particular, the implementation of ResNet50V2 model in TensorFlow 
+and  pre-trained  with  the  ImageNet  dataset  (training  parameters  in 
+Table  2).  A  problem  encountered  in  initial  tests  related  to  species 
+
+EcologicalInformatics67(2022)1014954X. Lekunberri et al.
+
+the classification model with a total of 86,208 segments. Fig. 7 shows 
+how the model is able to learn in fewer steps and with better accuracy if 
+data augmentation is used.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text mentions that the base models have been obtained from TensorFlow Object Detection API (for segmentation) and the base implementation of TensorFlow (for classification). Additionally, the implementation of ResNet50V2 model in TensorFlow is mentioned for fish classification by species. Therefore, we can conclude that TensorFlow is the primary framework used to build the deep learning models in this study.

@@ -1,0 +1,50 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+H. ovalis) with a max stride of 32. It is worth noting that data augmen-
+tation is a well-proven and common technique to avoid overfitting and 
+to render a model generalised. We applied random cropping, horizontal/ 
+vertical flipping, image rotation, image translation, zooming, brightness 
+adjustment,  contrast  adjustment,  hue  and  saturation  adjustment, 
+gaussian  noise,  random  erasing  both  of  our  models  training,  which 
+helped increase the size and variability of our dataset.
+
+and store the objects in binary format. This file format data requires less 
+space to hold and transfer the data. ‘TFRecords’ file format data requires 
+less time for model training and testing and is the ultimate choice for 
+larger datasets. For our YOLO model training, we wrote a function that 
+takes the .xml file formats as input and converts them to a .txt file format 
+where the bounding-box coordinates of objects are stored in a dictio-
+nary.  Each  line  of  text  in  the  .txt  file  describes  bounding-box 
+information.
+
+4.3. Qualitative evaluation
+
+Our proposed detector-1 is based on the YOLOv5 model, which was 
+trained on the ECUHO-1 training dataset. The model was trained in the 
+PyTorch framework with Python version 3.9.5, Torch version 1.10.0 and 
+Torchvision  version  0.11.1  with  Pyyaml  version  6.0  and  Cudatoolkit 
+version 10.2.89. The model was tested on both ECUHO-1 and ECUH0–2 
+test sets. We set the stochastic gradient descent (SGD) as our optimiser to 
+optimise the training loss with 0.1 momentum and 0.0001 weight decay. 
+Next,  we  initialised  the  backbone  parameters  from  the  pre-trained 
+classification  model  weight  on  the  COCO  dataset  and  monitored  the 
+validation loss using early stopping during training time for every epoch 
+on the validation set. We chose a patience of 20 and batch size of 16 and 
+a number of epochs of 500. All training and testing images were resized 
+to 800 × 800 for this detector. The number of classes was set to 1 (only
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The strategy implemented to monitor the model performance during training involves using early stopping. Early stopping is a form of regularization used to avoid overfitting by terminating the training process before it has the chance to fit the noise in the training data. In this case, the validation loss was monitored using early stopping during training time for every epoch on the validation set. A patience of 20 was chosen, meaning that if the validation loss did not improve after 20 consecutive epochs, the training would be stopped. Additionally, a batch size of 16 and a number of epochs of 500 were also specified for the training process.

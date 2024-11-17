@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The model was trained over 200 epochs using the Adam optimizer 
+(cid:0) 5. The batch size 
+(Kingma and Ba, 2015), with a weight decay of 1 × 10
+was fixed at 16, and the loss function was updated as per Eq. (6). The 
+learning rate was initially set at 0.001 and was subsequently reduced by 
+a  factor  of  0.1  in  a  step-wise  manner  whenever  the  validation  loss 
+remained  constant  for  five  epochs.  The  minimum  learning  rate  was 
+(cid:0) 5. The hyper-parameter λ in Eq. (4) was set to 0.8, 
+established at 1 × 10
+Mk  in Eq. (5) was defined as 2k+1(k = 1, 2, …K), and β in Eq. (6) was set 
+to 0.4.
+
+their  convolutional  kernels  and  pooling  layers.  Regarding  this  issue, 
+Zhang  et  al.  (2019)  incorporated  a  long  short-term  memory  (LSTM) 
+network to develop a 3DCNN-LSTM model as a classifier, making the 
+network more sensitive to the temporal changes in birdsong informa-
+tion. It is important to note that the use of RNNs such as the CRNN model 
+requires  more  computing  resources  for  training,  and  performance 
+improvement is not always guaranteed. Another common approach to 
+addressing  the  limitations  of  CNNs  is  to  introduce  attention  mecha-
+nisms.  For  example,  Soundception  (Sevilla  and  Glotin,  2017)  was 
+developed  by  introducing  time  and  time-frequency  attention  mecha-
+nisms to Inception V4; the resulting model achieved first place in the 
+BirdCLEF  2017  Competition.  Fu  et  al.  (2023)  proposed  an  improved 
+ACGAN model named DR-ACGAN based on the residual structure and an
+
+propagation. Then, the specific hierarchical features Fh,k(⋅) are obtained 
+and  transmitted  to  the  classification  module.  This  module  consists  of 
+parallel  K  fully-connected  layers  followed  by  a  softmax  activation 
+̂
+S = {̂s1, ̂s2, ⋯, ̂sK},  repre-
+function,  which  generates  predicted  scores 
+senting the probability of each class within the K classification levels. 
+Finally, a path correction scheme is utilized to generate the predictive 
+labels ̂y. Our primary objective is to learn the model parameters, namely 
+θ = {θa, θb, θc}, through end-to-end training to enable the model for bird 
+sound identification. More specific technical details are elaborated on in 
+the subsequent sections.
+
+of these methods degrades when the individual templates fail to capture 
+the  within-class  variation  present  in  the  test  set.  As  a  result,  these 
+methods  generally struggle to handle large-scale bird populations. To 
+address  this,  machine  learning  methods  have  focused  on  complex 
+feature  engineering  to  analyze  and  classify  bird  vocalizations  more 
+effectively. This includes the use of Gaussian mixture modeling (GMM) 
+to simulate the distribution of feature spaces, as described by Mohanty 
+et al. (2020) and Kalan et al. (2015). Traditional hidden Markov models 
+(HMMs) (Janˇcoviˇc et al., 2014; Stastny et al., 2018) utilize probability 
+density functions to represent features in each state and identify birds by 
+constructing a single model for each species. Discriminant methods such
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The deep learning model was trained using the Adam optimizer over 200 epochs. The batch size was fixed at 16. The initial learning rate was set at 0.001 and was subsequently reduced by a factor of 0.1 in a step-wise manner whenever the validation loss remained constant for five epochs. The minimum learning rate was established at 1 × 10^-5. The hyperparameter λ in Eq. (4) was set to 0.8, Mk in Eq. (5) was defined as 2k+1(k = 1, 2,...K), and β in Eq. (6) was set to 0.4.

@@ -1,0 +1,92 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Final test set performances at epoch 69 are A30 = 0.87 and MSA30 =
+0.48. This means that i) the correct label is returned among the first 30 
+species  for  87%  of  the  test  observations  (representative  of  common 
+species),  and  ii)  when  each  species  in  the  test  set  is  given  the  same 
+weight, the correct label is within the first 30 classes returned almost 
+half the time. This second metric may seem low, but it actually measures 
+a particularly difficult task, given that the test set contains 4166 species
+
+Fig. 2. Average error control setting on the validation set. The accuracy of the 
+model  is  represented  against  the  threshold  on  the  species  conditional  proba-
+bility of presence, denoted by λ. To calibrate the model and reach precautionary 
+species assemblages at any point, we set the limiting condition on the average 
+error to be ϵ = 0.03 ⇔ AS ≥ 0.97 (green curve), as shown in Eq. (3). The optimal 
+̂λ, is highlighted in red. It guarantees that i) AS  is superior 
+threshold, denoted by 
+or  equal  to  0.97  while  ii)  the  average  species  assemblage  size  is  as  small  as 
+possible.  Matching  macro-average  accuracy  MSAS  (grey  function) is  reported 
+with a red dashed line. Average set sizes are indicated. (For interpretation of the 
+references  to  colour  in  this  figure  legend,  the  reader  is  referred  to  the  web 
+version of this article.)
+
+Finally,  we  can  chose  λ  so  as  to  minimize  the  average  species 
+assemblage size E[|Sλ(X) |] - which is equivalent to maximize λ  - while 
+guarantying that the average error rate is lower than an ϵ objective: 
+
+argmin
+λ∈[0,1]
+
+E[|Sλ(X) |]
+
+max
+λ∈[0,1]
+
+(λ)
+
+⇔
+
+s.t. ℰ(Sλ) ≤ ϵ
+
+s.t. ℰ(Sλ) ≤ ϵ
+
+(3) 
+
+This is equivalent to what is called conformal prediction in machine 
+learning (Fontana et al., 2023) and guarantees that the actual species is 
+contained within the set with probability 1 (cid:0) ϵ. 
+
+2.3. Conservation indices for species assemblages 
+
+2.3.1. Definition of the indices 
+
+In addition to the classical Shannon index ℐH , we define two novel 
+indices characterizing the extinction risk of a predicted species assem-
+blage, ℐc and ℐO . They respectively render the proportion of threat-
+ened species in the assemblage and the most critical IUCN status in the 
+assemblage. Let’s break down their construction. 
+
+2.3.2.
+
+IUCN status notations
+
+After validating and calibrating the model on the validation set for 
+predicting species assemblages, a new training is started from scratch on 
+the entire dataset. It stops at the best epoch previously determined on 
+the  validation  set  (epoch  69).  The  aim  is  to  obtain  the  best  possible 
+model  weights  before  global-scale  inference.  Finally,  the  species  as-
+semblages  are  post-processed.  i)  Predictions  outside  the  continents 
+where species are known to occur (according to our observation dataset) 
+are removed, and ii) conditional probabilities associated with orchids 
+are normalised, see SI Box B for more details and resulting maps. 
+
+3.2. ℐO  indicator: Most critical status of the species in the assemblage 
+
+3.2.1. Global patterns
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The training process is completed based on the performance of the model on the validation set. Specifically, the training stops at the best epoch previously determined on the validation set. In this case, the best epoch was found to be epoch 69. After determining the best epoch, a new training is initiated from scratch using the entire dataset. The goal is to achieve the best possible model weights prior to conducting global-scale inference. Therefore, the criterion used to determine when training is complete is reaching the best epoch on the validation set.

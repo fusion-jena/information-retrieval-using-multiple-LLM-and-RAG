@@ -1,0 +1,225 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+B 
+
+1521 
+6705 
+1564 
+6748 
+1185 
+6885 
+1160 
+6661 
+1786 
+6452 
+1004 
+6885 
+2109 
+6314 
+1805 
+6471 
+478 
+6979 
+1634 
+6294 
+
+1131 
+
+Accuracy (%) 
+
+93.00 
+
+93.00 
+
+94.48 
+
+94.41 
+
+90.12 
+
+95.42 
+
+89.60 
+
+91.22 
+
+97.57 
+
+91.18 
+
+93.00 
+
+Figure 7 shows the relation between Min-batch size and Accuracy, Epoches. As we see in Figure 
+7(a), when the Min-batch size is 128, the accuracy is the highest. This indicates the Min-batch size is 
+relation to the accuracy of algorithm. In Figure 7(b), the larger is the Min-batch size, the larger is the 
+number of epochs. When the Min-batch size is more than 256, the number of epochs is sharp large. The 
+larger is the number of the epochs, the more is the consumed time when the algorithm converges. We 
+also  can  see,  when  the  Min-batch  size  is  128,  the  accuracy  of  algorithm  is  high,  and  the  number  of 
+epochs is relatedly small.
+
+Accuracy
+
+
+
+TP TN
+
+TP TN FP FN
+
+
+
+
+
+
+
+
+100%
+
+Precision
+
+
+
+TP
+TP TN
+
+
+
+
+100%
+
+Recall
+
+
+
+TP TN
+
+TP FN
+
+
+
+
+100%
+
+F
+1
+
+
+
+2 Precision Recall
+
+Precision Recall
+
+
+
+
+
+
+
+100%
+
+(1) 
+
+(2) 
+
+(3) 
+
+(4) 
+
+AUC is Area under the Curve of ROC (Receiver Operating Characteristics). The min-batch size 
+is  the  number  of  samples  in  one  batch.  The  time  is  the  identifying  time  of  samples.  The  number  of 
+layers is the number of convolutional and full connected layers, which can denote the complexity of the 
+model. For obtaining valid results, the k-fold cross-validation (CV) is used to evaluate the algorithms 
+and k is 10 in our experiments. 
+
+Mathematical Biosciences and Engineering 
+
+Volume 18, Issue 2, 1121–1135. 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1129 
+
+3.3.  Comparative algorithms 
+
+To  efficiently  validate  the  proposed  method,  we  make  comparisons  with  LeNet,  AlexNet, 
+
+GoogLeNet, VGG-19 and ResNet, all of which are deep CNNs [20].
+
+The size of output result is 17,280. 
+
+Eleventh layer: This layer is the full connected layer with 100 neurons. 
+Twelfth layer: This layer is the Softmax activation function layer with 2 neurons. 
+In  our  ICSNet,  we  adopt  the  inception  module  from  GoogLeNet,  but  only  three  inception 
+modules  are  built  in  ICSNet.  And  we  also  add  more  convolution  layers  than  AlextNet,  but  the 
+number of convolution layers is less than VGGNet and ResNet. Consequently, the tradeoff between 
+accuracy and time consuming can be achieved by our ICSNet. This is basic idea of our work. 
+
+Mathematical Biosciences and Engineering 
+
+Volume 18, Issue 2, 1121–1135. 
+
+ 
+1127 
+
+3.  Experiments 
+
+3.1.  Data description
+
+The results of six algorithms are listed in Table 1 and Figure 6. Compared with ICSNet, ICSNet_n 
+do not include inception modules. As we can see, the accuracy of ICSNet is 93.00%, the highest among 
+six  algorithms.  The  identifying  time  of  ICSNet  is  7.439  s,  ranking  the  third  shortest  among  six 
+algorithms.  The  number  of  layers  of  ICSNet  is  12,  ranking  the  third  lest  among  six  algorithms.  The 
+accuracy  of  ResNet  is  equal  to  our  algorithm,  but  their  identifying  time  is  more  than  that  of  our 
+algorithm.  The  time  of  LeNet  and  AlexNet  is  less  than  that  of  our  algorithm,  but  their  accuracy  is 
+obviously lower than our algorithm. The Precision of our algorithm is 93.20%, only is lower than that 
+of  ResNet.  The  Recall  of  our  algorithm  is  93.30%,  equal  to  that  of  ResNet  ranking  the  first  highest 
+among six algorithms. The F1 of our algorithm is 93.00%, equal to that of ResNet, ranking the highest
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The performance of a deep learning model can be evaluated using various metrics such as accuracy, precision, recall, and F1 score. These metrics provide insights into different aspects of the model's performance.
+
+Accuracy measures the proportion of correct predictions out of total predictions made by the model. It is calculated as shown in equation (1):
+
+Accuracy = (TP + TN) / (TP + TN + FP + FN) * 100%
+
+where TP represents true positives, TN stands for true negatives, FP denotes false positives, and FN signifies false negatives.
+
+Precision evaluates the proportion of correctly predicted positive instances out of all instances predicted as positive. Equation (2) demonstrates how it is computed:
+
+Precision = (TP) / (TP + FP) * 100%
+
+Recall calculates the proportion of correctly predicted positive instances out of all actual positive instances. Its formula is given in equation (3):
+
+Recall = (TP) / (TP + FN) * 100%
+
+Lastly, the F1 score combines both precision and recall to give a single metric representing the overall performance of the model. It is defined in equation (4):
+
+F1 = (2 * Precision * Recall) / (Precision + Recall) * 100%
+
+These metrics help assess the effectiveness of a deep learning model and identify areas where improvements may be needed.

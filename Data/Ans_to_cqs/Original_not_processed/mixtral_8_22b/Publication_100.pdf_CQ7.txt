@@ -1,0 +1,49 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+training and testing the model is provided, too.
+
+4.5. Implementation details
+
+We have implemented our models in PyTorch (Paszke et al., 2017).
+We trained 𝑀 = 5 models with batch size 𝐵 = 64 and a base learning
+rate 𝛼 = 10−4. The learning rate is automatically reduced by a factor
+of 0.1 when the validation loss has not improved for 15 consecutive
+epochs. We apply weight decay to control the strength of the unit
+Gaussian prior, with an empirically chosen magnitude of 10−3 that
+is inversely proportional to the hyperparameter 𝜆 from Eq. (1). We
+chose 𝛽1 = 0.9, 𝛽2 = 0.999 and 𝜖 = 10−8 as hyper-parameters for the
+Adam optimizer. Each neural network was trained on a single Nvidia
+RTX2080Ti GPU for ∼14 days.
+
+5. Experimental results and discussion
+
+particular when trained on large data sets.
+
+We divide each ALS project geographically into horizontal stripes
+of width 900 pixels (9.0 km). Within each stripe we assign the north-
+ernmost 5.4 km to the training set, the next 1.8 km to the validation
+set and the southernmost 1.8 km to the test set. In this way, the
+different regions and modalities in each ALS area are evenly distributed
+between the three sets. Overall, the data set consists of 105,022,419
+pixels (10,502 km2) of ALS reference data, divided into 64,487,551
+training pixels (6449 km2), 20,784,407 validation pixels (2078 km2)
+and 19,750,461 test pixels (1975 km2), following the ‘‘60-20-20’’ ratio
+often used in machine learning studies.
+
+3.2. Sentinel satellite imagery
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The data is divided based on its geographical location within each ALS project. Each project is horizontally segmented into stripes of width 900 pixels or 9.0 kilometers. These stripes are then further divided into three sections: the northernmost 5.4 kilometers for the training set, the subsequent 1.8 kilometers for the validation set, and the remaining 1.8 kilometers for the test set. This approach ensures an equal distribution of different regions and modalities among the three sets. The dataset comprises a total of 105,022,419 pixels (10,502 square kilometers) of ALS reference data. Out of these, 64,487,551 pixels (6449 square kilometers) are allocated for training, 20,784,407 pixels (2078 square kilometers) for validation, and 19,750,461 pixels (1975 square kilometers) for testing. This division adheres to the commonly employed '60-20-20' ratio in machine learning research.

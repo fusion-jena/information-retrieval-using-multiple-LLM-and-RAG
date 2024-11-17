@@ -1,0 +1,176 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.3.2. Data augmentation 
+
+Data augmentation is a technique for expanding a data set without 
+acquiring additional data. By applying transformations to the existing 
+data, new images are generated that are slightly different while main-
+taining the same class. This technique is used to allow for the training of 
+larger networks and to balance the data. When the training set is un-
+balanced (classes with a significantly larger number of examples), the 
+trained models will become biased towards larger classes. Augmentation 
+can be used to increase the data for the classes with less representation, 
+which  allows  all  classes  to  be  learned  in  a  uniform  manner.  Care  is 
+needed in these situations as any change in the composition of data risks 
+the training sets not being representative of real-life situations.
+
+3.  ConvNeXt (Liu et al., 2022): This architecture was presented as the 
+convolutional answer to the current trend in transformer-based ap-
+proaches. In particular, the authors claimed that recent advances in 
+network  training  since  the  introduction  of  ResNet  were  the  real 
+reason behind the improved performance of self-attention. To prove 
+their hypothesis, they presented an improved architecture on top of 
+ResNet  following  new  developments  such  as  the  use  of  new  nor-
+malisation techniques, better activation functions and other tweaks 
+to the architectural design. 
+
+3.3.2. Data augmentation
+
+Table 4 
+The number of patches (#patch) and true positive/false Positive rate (TPR/FPR) values for each DL network and species. For the upper half of the table, no data 
+augmentation was used. For the lower half of the table, the training set included data augmentation.  
+
+WITHOUT DATA AUGMENTATION 
+
+#patch 
+
+Inutsuge 
+Kyaraboku 
+Matsu 
+Kaede 
+Nanakamado 
+Sakura 
+
+408 
+1061 
+449 
+736 
+1560 
+353 
+
+WITH DATA AUGMENTATION 
+
+#patch 
+
+Inutsuge 
+Kyaraboku 
+Matsu 
+Kaede 
+Nanakamado 
+Sakura 
+
+1060 
+1289 
+1167 
+1042 
+1560 
+917 
+
+ConvNeXt 
+
+57.31 
+84.03 
+43.33 
+49.45 
+91.98 
+81.69 
+
+ConvNeXt 
+
+51.21 
+89.20 
+60.00 
+69.59 
+89.74 
+84.50 
+
+4.07 
+7.11 
+2.90 
+3.64 
+12.25 
+0.94 
+
+2.15 
+6.54 
+3.14 
+4.68 
+8.44 
+1.18 
+
+TPR ∣ FPR %  
+
+Resnet 
+
+53.65 
+80.28 
+40.00 
+57.43 
+87.50 
+80.28 
+
+TPR ∣ FPR %  
+
+Resnet 
+
+60.97 
+79.81 
+45.55 
+61.48 
+86.85 
+81.69 
+
+5.99 
+6.97 
+4.47 
+4.42 
+12.25 
+0.71 
+
+6.83 
+4.97 
+3.99 
+4.42 
+11.42 
+0.82 
+
+Swin 
+
+56.09 
+84.50 
+38.88 
+60.81 
+92.94 
+92.95 
+
+Swin
+
+In  order  to  mitigate  this  issue,  in  Section  4.2.2  we  used  “data 
+
+augmentation”, to modify the class balance by increasing the number of 
+examples for the underrepresented classes. The overall accuracy for all 
+the networks increased in this experiment, with ConvNeXt obtaining the 
+highest  accuracy  of  79.58%  (2%  increase).  Although  TPR  values 
+(Table 4) for the larger classes were reduced, the metrics for the smaller 
+classes  significantly  improved  leading  to  a  better  overall  accuracy. 
+However, each DL network improved its results in a different way with 
+more  data.  Nonetheless,  the  overall  improvement  suggests  that  even 
+higher  degrees  of  accuracy  may  be  attainable  if  more  unique  data 
+samples were acquired for training.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Unfortunately, the given context does not provide specific details about the exact data augmentation techniques applied in the deep learning pipeline. However, it mentions that data augmentation involves applying transformations to the existing data to generate new images that maintain the same class but are slightly different. Common data augmentation techniques include flipping, rotating, scaling, cropping, and adjusting brightness or contrast. These techniques help expand the dataset without acquiring additional data, allowing for the training of larger networks and balancing the data when there are significant differences in the number of examples per class.

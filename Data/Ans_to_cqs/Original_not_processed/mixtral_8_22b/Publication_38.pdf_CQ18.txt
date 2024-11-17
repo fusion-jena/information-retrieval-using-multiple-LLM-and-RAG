@@ -1,0 +1,54 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+S2 Fig. Spectrogram annotation interface from Bat Detective. Boxes represent example user
+annotations of sounds in a spectrogram of a 3840ms sound clip, showing annotations of two
+sequences of search-phase echolocation bat calls (blue boxes), and an annotation of an insect
+call (yellow box).
+(TIF)
+
+S3 Fig. Example search-phase bat echolocation calls from iBats Romania & Bulgaria train-
+ing dataset. Each example is represented as a spectrogram of duration 23 milliseconds and fre-
+quency range from 5–115 kHz using the same FFT parameters as the main paper, and contains
+examples of different search-phase echolocation call type, but also a wide variety of back-
+ground non-bat biotic, abiotic and anthropogenic sounds.
+(TIF)
+
+many more unused annotations in the Bat Detective dataset that could potentially increase our
+training set size. However, we found some variability in the quality of the citizen science user
+annotations, as in other studies [61]. To make best use of these annotations, we need user
+models for understanding which annotations and users are reliable [62, 63]. The Bat Detective
+dataset also includes annotations of particular acoustic behaviours (feeding buzzes and social
+calls), which in future can be used to train detection algorithms for different acoustic behav-
+iours [e.g., 64].
+
+binary classification problem. Our CNNFULL consisted of three convolution and max pooling
+layers, followed by one fully connected layer (see Supplementary Information Methods for fur-
+ther details). We halved the size of the input spectrogram to reduce the input dimensionality
+to the CNN which resulted in an input array of size of 130 frequency bins by 20 time steps, cor-
+responding to a fixed length, detection window size of 23ms. We applied the CNN in a sliding
+window fashion, to predict the presence of a search-phase bat call at every instance of time in
+the spectrogram (Fig 1D). As passive acoustic monitoring can generate large quantities of data,
+we required a detection algorithm that would run faster than real time. While CNNs produce
+state of the art results for many tasks, naïve application of them for detection problems at test
+time can be extremely computationally inefficient [33]. So, to increase the speed of our system
+
+and manual filtering as reported by the authors of [49]. Specifically, it takes CNNFAST under
+10 seconds to process the 500 files in the iBats Romania and Bulgaria test set compared to 30
+minutes for SonoBat in batch mode. This increase in performance both in terms of speed and
+accuracy is crucial for future large scale monitoring programmes.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information on the specific strategy implemented to monitor the model performance during training. However, given that the task involves binary classification with a Convolutional Neural Network (CNN), common strategies such as cross-validation or validation split might have been employed. These methods involve setting aside a portion of the labeled data to evaluate the model's performance after each epoch or iteration during training. Additionally, metrics like accuracy, precision, recall, or F1 score may have been utilized to assess the model's effectiveness in detecting search-phase bat calls.

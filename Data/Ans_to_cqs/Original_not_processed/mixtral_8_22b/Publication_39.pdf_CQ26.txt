@@ -1,0 +1,73 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Feichtenhofer et al. (2019). This parameter combination achieved the 
+best  results  in  our  experiments.  The  Slow  and  Fast  pathways  are 
+implemented by a ResNet-101. 
+
+We  split  the  annotated  dataset  AnnotationsActions  (cf.  Section  2.2) 
+randomly (but fixed for all experiments and all networks) into a train set, 
+validation set and test set. The test set includes 20% of the video clips of 
+each class. Of the remaining clips, again 20% of the clips in each class 
+form the validation set. The remaining clips are the training set. 
+
+4.4.1. Data augmentation for action recognition
+
+We  utilize  different  data  augmentation  techniques  during  the 
+training process to prevent overfitting and to generalize better. We use 
+the python library imgaug (Jung et al. (2020)) for the data augmentation 
+of  our  images  and  videos.  For  Mask  R-CNN  and  FGFA  the  same 
+augmentation  technique  with  identical  parameters  is  applied  to  each 
+frame of the video. We use the augmentation techniques horizontal flip, 
+
+add / subtract intensity, Guassian blur and additive Gaussian noise. All the 
+mentioned augmentation techniques are used simultaneously. A further 
+special augmentation function from imgaug we use, is Fog. This complex 
+technique simulates fog in the video. Since it is a very strong augmen-
+tation,  we  combine  it  only  with  the  random  horizontal  flip.  The  Fog 
+augmentation is performed with a probability of 10%. The other com-
+bined  augmentation  techniques  described  above  are  applied  with 
+probability of 90%.
+
+4.4. Action recognition 
+
+The three ResNet variants are trained for 40 epochs starting with an 
+initial learning rate of 0.001. The learning rate is decreased every 10 
+epochs by multiplying it with a γ = 0.1. For optimization we utilize the 
+Stochastic  Gradient  Descent  (SGD)  with  a  momentum  of  0.9  and  a 
+
+EcologicalInformatics61(2021)1012158F. Schindler and V. Steinhage
+
+We use a pretrained backbone for FGFA. The backbone is extracted 
+from  a  Mask  R-CNN  network  trained  on  the  segmentation  dataset. 
+During the training process FGFA trains only the head and the RPN. We 
+implement  the  flow  network  in  the  FGFA  architecture  with  a  SPyNet 
+(Ranjan and Black (2017)). Other popular choices are FlowNet (Doso-
+vitskiy et al. (2015)) and FlowNet 2.0 (Ilg et al. (2017)). SPyNet is more 
+lightweight than the FlowNets. It uses 96% less parameters than Flow-
+Net. Therefore it is more efficient in an embedded environment like our 
+FGFA architecture. Moreover, the results of SPyNet are more accurate 
+than the results of the FlowNets. 
+
+4.3.1. Data augmentation for segmentation and detection
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't any explicit mention of specific techniques such as stratified splitting, oversampling, undersampling, or diverse data collection being employed to address data bias during preprocessing of the deep learning pipeline. However, some relevant information regarding data handling can be found.
+
+For instance, the authors have mentioned using different data augmentation techniques during the training process to prevent overfitting and improve model performance. These techniques include horizontal flipping, adding/subtracting intensity, applying Gaussian blur, adding additive Gaussian noise, and simulating fog in the video. They also state that these augmentations are applied simultaneously, except for the fog simulation which has a separate application probability.
+
+Additionally, they describe how the dataset was divided into training, validation, and testing sets. Specifically, the dataset was randomly but consistently split across all experiments and networks, with 20% of the video clips forming the test set, another 20% of the remaining clips creating the validation set, and the rest comprising the training set.
+
+However, without additional context, it cannot be determined if these methods were specifically implemented to mitigate data bias or if they served other purposes within their deep learning pipeline.

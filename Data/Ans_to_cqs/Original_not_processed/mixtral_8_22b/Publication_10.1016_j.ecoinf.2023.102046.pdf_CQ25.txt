@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+ResNet-50 is a convolutional neural network model that uses skip 
+connections,  which  made  it  possible  to  get  good  performance  with 
+deeper models than was previously possible (He et al., 2015). Training 
+deep neural networks can result in exploding gradients, and skip con-
+nections  were  introduced  to  ameliorate  that  problem.  ResNet-50  was 
+chosen  for  comparison  as  it  is  a  proven  CV  classification  model.  It  is 
+commonly used and provides a well-performing baseline. 
+
+Inception-V3  is  a  convolutional  neural  network  used  for  image 
+classification, that has an auxiliary classifier that acts as a regularizer 
+(Szegedy et al., 2015b). The Inception-V3 architecture is built on pre-
+vious Inception models, with the aim of making the V3 computationally
+
+Inception Architecture for Computer Vision [arXiv:1512.00567 [cs]]. https://doi. 
+org/10.48550/arXiv.1512.00567. 
+
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, Ł., 
+Polosukhin, I., 2017. Attention is all you need. Adv. Neural Inf. Proces. Syst. 30. 
+Wang, C.-H., Walther, B.D., Gillanders, B.M., 2019. Introduction to the 6th international 
+
+otolith symposium. Mar. Freshw. Res. 70 (12), i–iii. 
+
+Xu, Z., Zhu, L., Yang, Y., 2016. Few-Shot Object Recognition from Machine-Labeled Web 
+Images [arXiv: 1612.06152]. arXiv:1612.06152 [cs]. Retrieved January 6, 2022, 
+from. http://arxiv.org/abs/1612.06152. 
+
+EcologicalInformatics76(2023)10204614
+
+For  few-shot  learning,  CLIP  (Contrastive  Language  Image  Pre- 
+training)  is  a  combination  of  two  transformer  models  that  was 
+recently introduced. It consists of a text encoder and an image encoder, 
+and is trained using contrastive learning to allow the image encoder to 
+learn  visual  concepts  through  natural  language  supervision  (Radford 
+et al., 2021). The image encoder maps an image to a vector that can be 
+considered a robust semantic feature representation of the image, which 
+can transfer to diverse tasks and often perform competitively with fully 
+supervised baselines in a zero-shot fashion, without the need for fine- 
+tuning.  CLIP  was  trained  on  400  million  images  from  the  web  along 
+with their captions. While these models have shown impressive perfor-
+mance, they are not perfect and have, for example, shown limited zero- 
+shot  performance  in  detecting  tumors  on  x-ray  images.  We  aim  to
+
+The Inception-V3 model accepts images resized to (299, 299) pixels 
+but ViT and ResNet resize to (224, 224) pixels. Dataset imbalance was 
+dealt with by including class weights in the cross-entropy loss function. 
+For the training we used AdamW optimizer for Hugging Face models, 
+which is the default optimizer in the transformers library by Hugging-
+Face. For Inception-V3, we used Adam since that was the optimizer used 
+in  previous  work  (and  AdamW  is  not  available  in  Keras).  We  used  a 
+(cid:0) 4  for 
+batch  size  of  16  examples  and  the  learning  rate  was  set  to  10
+(cid:0) 5  for  Vanilla  Inception-V3  and  ViT.  For  Deep  Otolith 
+ResNet  but  10
+(cid:0) 4 as suggested by Politikos 
+Inception we used a learning rate of 4 × 10
+et  al.  (2021).  For  every  fine-tuning  experiment,  the  model  with  the 
+
+smallest validation loss was used for evaluation on the test set. 
+
+2.3. Performance
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the purpose of the deep learning model (e.g., classification, segmentation, detection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The purpose of the deep learning models mentioned in the given context is primarily for image classification. Both ResNet-50 and Inception-V3 are convolutional neural network models designed for this task. ResNet-50 is known for its use of skip connections, which help improve performance in deeper models, while Inception-V3 includes an auxiliary classifier that acts as a regularizer. Additionally, CLIP (Contrastive Language Image Pre-training) is another model mentioned, which also contributes to image classification by mapping images to vectors that represent robust semantic features. These models are used to classify images into different categories based on their learned representations.

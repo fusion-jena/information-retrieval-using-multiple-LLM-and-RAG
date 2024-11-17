@@ -1,0 +1,11 @@
+Answer: Based on the provided context, the deep learning pipeline used in the study involves the processing of RGB-D (Red, Green, Blue, and Depth) data. The data format consists of both image and depth information, forming a combined dataset for training the deep learning model.
+
+The study focuses on the detection and recognition of a specific species, in this case, deer, using a deep learning architecture called D-Mask R-CNN. The RGB-D data format is used as input to the model, which undergoes several processing stages, including normalization and feature fusion.
+
+First, the input channels (red, green, blue, and depth) are normalized by subtracting the respective mean and dividing by the respective standard deviation over the whole dataset. This normalization process helps to standardize the input data and improve the model's learning capabilities.
+
+Next, a feature fusion module is introduced to combine the extracted features from both backbones using one 3 × 3 convolution per FPN (Feature Pyramid Network) scale. This module reduces the number of channels from 2 × 256 to 256, allowing the use of pre-trained weights from the Microsoft COCO dataset for the region proposal network (RPN) classifier and mask head.
+
+The evaluation of the D-Mask R-CNN model is restricted to instances of deer, as it is the most common species in the RGB-D dataset. The results are quantified using the average precision (AP), AP50, and AP75 metrics, which are defined by the Microsoft COCO dataset.
+
+In summary, the deep learning pipeline in this study uses the RGB-D data format, which includes both image and depth information. This format undergoes normalization and feature fusion processes before being fed into the D-Mask R-CNN model for training and evaluation.

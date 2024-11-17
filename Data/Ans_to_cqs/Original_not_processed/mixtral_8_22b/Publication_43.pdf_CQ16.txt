@@ -1,0 +1,203 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The training-zone used for training the CNN-based model. This zone is located in Cabo de
+Gata-Níjar Natural Park, 36◦49(cid:48)43(cid:48)(cid:48) N, 2◦16(cid:48)22(cid:48)(cid:48) W, in the province of Almería, Spain (Figure 2).
+The climate is semi-arid Mediterranean. The vegetation is scarce and patchy, mainly dominated
+by large Ziziphus lotus shrubs surrounded by a heterogeneous matrix of bare soil and small
+scrubs (e.g., Thymus hyemalis, Launea arborescens and Lygeum spartum) with low coverage ([49,52]).
+Ziziphus lotus forms large hemispherical bushes with very deep roots and 1–3 m tall that trap and
+accumulate sand and organic matter building geomorphological structures, called nebkhas, that
+constitute a shelter micro-habitat for many plant and animal species ([19,49,53]).
+Test-zone-1 and test-zone-2 belong to two different protected areas. Test-zone-1 is located 1.5 km
+
+Deep CNNs, such as ResNet and GoogLeNet, are generally trained based on the prediction loss
+minimization. Let x and y be the input images and corresponding output class labels, the objective of
+the training is to iteratively minimize the average loss deﬁned as
+
+J(w) =
+
+1
+N
+
+N
+∑
+i=1
+
+L( f (w; xi), yi) + λR(w)
+
+(1)
+
+This loss function measures how different is the output of the ﬁnal layer from the ground truth.
+N is the number of data instances (mini-batch) in every iteration, L is the loss function, f is the
+predicted output of the network depending on the current weights w, and R is the weight decay with
+the Lagrange multiplier λ. It is worth mentioning that in the case of GoogLeNet, the losses of the
+
+Remote Sens. 2017, 9, 1220
+
+6 of 22
+
+two auxiliary classiﬁers are weighted by 0.3 and added to the total loss of each training iteration.
+The Stochastic Gradient Descent (SGD) is commonly used to update the weights.
+
+wt+1 = µwt − α∆J(wt)
+
+(2)
+
+wt+1 = µwt − α∆J(wt)
+
+(2)
+
+where µ is the momentum weight for the current weights wt and α is the learning rate.
+
+The network weights, wt, can be randomly initialized if the network is trained from scratch.
+However, this is suitable only when a large labeled training-set is available, which is expensive in
+practice. Several previous studies have shown that data-augmentation ([44]) and transfer learning ([45])
+help overcoming this limitation.
+
+•
+
+Table 3. CNN-detection results in Test-zone-1 at different sliding window sizes. Accuracies are
+expressed in terms of true positives (TP), false positives (FP), and false negatives (FN), precision, recall,
+F1-measure, and execution time of the detection process.
+
+Win. Size Total # of
+
+(Pixels)
+
+Win.
+
+TP
+
+FP
+
+FN
+
+385×385
+194×194
+129×129
+97× 97
+77×77
+64×64
+55×55
+48×48
+42×42
+38× 38
+
+196
+961
+2209
+4096
+5929
+9506
+13,340
+17,292
+22,200
+27,888
+
+31
+34
+42
+59
+59
+65
+65
+68
+70
+71
+
+18
+7
+6
+6
+5
+7
+12
+16
+17
+39
+
+41
+38
+30
+13
+13
+7
+7
+4
+2
+1
+
+Precis. Recall
+
+F1-
+
+(%)
+
+63.27
+82.93
+87.50
+90.77
+92.19
+90.28
+84.42
+80.95
+80.46
+64.55
+
+(%) Meas. (%)
+
+43.06
+47.22
+58.33
+81.94
+81.94
+90.28
+90.28
+94.44
+97.22
+98.61
+
+51.24
+60.18
+70.00
+86.13
+86.76
+90.28
+87.25
+87.18
+88.05
+78.02
+
+Time
+(min)
+
+6.0
+29.4
+67.6
+125.4
+181.5
+291.0
+408.4
+529.3
+679.6
+853.7
+
+Remote Sens. 2017, 9, 1220
+
+13 of 22
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Training completion for Deep Convolutional Neural Networks (CNNs), like ResNet and GoogLeNet, is determined by minimizing the prediction loss during the training phase. The objective function J(w) is defined as the sum of individual losses L(f(w;xi), yi) for all data instances within a mini-batch divided by the batch size N, plus a regularization term λR(w). The goal is to iteratively adjust the network weights w using Stochastic Gradient Descent (SGD) until the desired level of accuracy or convergence is achieved. In practice, training may stop when the validation loss reaches a plateau or after a predefined maximum number of epochs.

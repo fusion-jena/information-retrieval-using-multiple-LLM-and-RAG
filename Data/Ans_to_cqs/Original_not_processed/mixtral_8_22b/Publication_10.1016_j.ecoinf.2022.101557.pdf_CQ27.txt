@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+overfitting. These samples are selected randomly from all areas that are 
+used in the training set, and are never used to fit the model. The model is 
+trained for 150 epochs and with a batch size of 128. Dropout (Srivastava 
+et al., 2014) with a rate of 0.3 is used during the training to make it more 
+stable. Furthermore, ADAM optimisation (Kingma and Ba, 2014) with a 
+learning  rate  of  0.0001  is  used  to  find  optimal  weights  in  the  neural 
+network in order to minimise the cross entropy loss between the net-
+work’s predictions and the pre-labelled data.
+
+Since the collection and annotation of data for the training of models, 
+as  the  one  in  this  paper,  is  a  labour-intensive  process,  it  would  be 
+valuable  to  perform  such  profound  investigations  and  quantify  the 
+amount of data that may be needed. Another way forward, which avoids 
+the labour intense labelling, would be to look for already annotated data 
+that have been used for other purposes and then use that data to build AI 
+models. One technique, which needs to be further investigated, in order 
+to facilitate the collected data better, is to generate additional synthet-
+ical  samples  from the  annotated  dataset, using  generative  adversarial 
+models,  such  as  in  the  presented  work  by  Fang  et  al.  (2019)  and  Li 
+(2019). In such approaches, several new samples are created in a real-
+istic  way,  adding  more  variation  and  more  samples  to  the  original 
+dataset. Hence, a small dataset can be extended with samples that are
+
+2.4. Data pre-processing 
+
+2.2. Convolutional neural networks 
+
+The  idea  behind  convolutional  neural  networks  (CNNs)  was  first 
+
+As mentioned in the previous sections, the data is first split up into 
+several  larger  blocks,  depending  on  coordinates,  with  the  purpose  to 
+cross validate the model. These blocks are then split into many smaller 
+areas of 80 × 80 pixels, due to limitations in the available amount of 
+
+EcologicalInformatics68(2022)1015572N. Ståhl and L. Weimann
+
+2.5. Data post-processing 
+
+Some post-processing is required to transform the result of the CNN 
+into an easy accessible GIS-resource. This is primarily done to produce 
+and refine the material covering southern Sweden, as well as making it 
+easily  accessible  for  further  analyses.  This  process  consists  of  several 
+steps. In the first step, the pixel predictions from the CNN are rounded, 
+
+so all predictions with predicted value larger than 0.5 are considered as 
+wetlands  and  all  predictions  below  are  non-wetlands.  This  creates  a 
+raster over the whole map, where each pixel is either deemed to be part 
+of a wetland or not. The next step is to convert this raster representation 
+into a vector representation, to enable further analyses. This conversion 
+is  also  conducted  to  minimise  storage  space  and  making  it  easier  to 
+distribute.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough information in the given context to provide a detailed answer about how the trained deep learning model was deployed. However, based on common practices in machine learning projects, after training the model, it might have been serialized and saved in a format like.h5 or.pkl. Then, it could have been loaded onto a platform suitable for its intended application, such as a web server or cloud service, to serve predictions. But without specific details, I cannot confirm these steps were taken in this case.

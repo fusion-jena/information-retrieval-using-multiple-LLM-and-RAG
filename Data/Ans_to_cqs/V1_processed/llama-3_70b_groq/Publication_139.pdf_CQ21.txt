@@ -1,0 +1,13 @@
+Based on the provided context, the postprocessing steps involved after model training are:
+
+1. Generating prediction records: After neural network training and validation, predictions for the entire unvalidated recording period were generated. Specifically, for each of the five training folds, a single prediction for every 8 s-interval was made for the duration of the year.
+
+2. Averaging prediction records: The five prediction records that resulted were then averaged together to create a single prediction record.
+
+3. Aggregating predictions into hourly records: The 8 s-interval predictions were then aggregated into hourly prediction records, containing the number of instances that each particular sound stimuli was predicted per hour.
+
+4. Normalizing hourly records: The hourly prediction records were normalized by the number of 8-s intervals actually recorded during that hour, to account for the possibility that missing audio data would render a given prediction record artificially low.
+
+5. Calculating metrics: The average unweighted and category-weighted training classification accuracies, as well as the average unweighted and weighted testing accuracies, were calculated. Additionally, the F1-scores for the training and testing datasets were computed.
+
+No mention is made of saliency maps or confusion matrix calculation in the provided context. However, it is mentioned that the test confusion matrix for all 19 sound classes is shown in Table 4, but the details of the calculation are not provided.

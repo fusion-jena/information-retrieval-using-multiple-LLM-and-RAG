@@ -1,0 +1,24 @@
+Answer:::
+
+The hyperparameters used in the deep learning model, specifically the dynamic β-VAE, include the following:
+
+1. Learning rate: The learning rate of the Adam optimizer is 1e-5.
+2. Optimizer: The models were trained using the Adam optimizer.
+3. Number of epochs: All models were trained for 5000 epochs.
+4. Batch size: The batch size used during training was 256.
+5. Scaling of the clustering loss (γ): In the semi-supervised mode, the scaling of the clustering loss was cycled between 0.01 and 0.2 every 100 epochs.
+6. Decision to adapt β: A decision to adapt β was taken every fifth epoch.
+
+The dynamic β-VAE model has several tunable model parameters, which were found to be sufficiently robust on the dataset used in the study without any fine-tuning. These model parameters include:
+
+1. a = 0.2
+2. b = 0.05
+3. w1 = w2 = 1.2
+4. w3 = 0.9
+5. w4 = 1.1
+
+The notation (: t (cid:0) 1) is used to indicate all epochs up to (t-1) and provides a form of long-term memory of the previous local optima for each of the two loss terms. The β dynamics in Eq. (5) can be divided into two regimes aimed at optimizing reconstruction and regularization terms, corresponding to the increase and decrease of β, respectively.
+
+The models were implemented in PyTorch and trained on an Nvidia GTX 1050 graphics processing unit with 4 GB memory.
+
+Answer:::

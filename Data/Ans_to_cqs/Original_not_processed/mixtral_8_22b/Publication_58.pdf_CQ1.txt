@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.4. Sampling Method
+
+The SPOT6 satellite data for our ﬁve study areas were preprocessed to be fed into the
+different Deep Learning architectures and the XGBoost model. First, the data were split
+into three mutually exclusive parts: a learning set, a validation set and a test set totally
+independent of the two previous ones.
+
+Four of the ﬁve areas were used for learning and validation. The last, isolated scene
+was then used as the test set. It contained all the classes for the two nomenclatures, the ﬁve
+LC classes, and the 12 LU classes. In addition, this image contained all the environments
+representing the New Caledonian landscape: urban, mining, mountainous and forest
+environment with variations from the coastline to the inland mountain areas. It is on this
+entire scene that the ﬁnal confusion matrix and quality metrics were computed.
+
+We empirically compare a number of these promising Deep Learning architectures.
+Moreover we also include a standard machine learning baseline, XGboost, which has
+shown very good performances in several benchmarks related to classiﬁcation [23]. Since
+“neo-channels”, which are non-linear combinations of the raw channels, and texture ﬁlters
+derived by arithmetic combinations of the raw image channels are widely used in the ﬁeld
+of remote sensing [24], we also assess the interest of such additional information when
+using XGboost and Deep Learning, even if in the latter case, the technique is able to build
+its own internal features by combining the raw information.
+
+40.32%
+35.97%
+46.56%
+50.21%
+38.75%
+50.40%
+48.38%
+
+For the LU detection task, all deep learning techniques except AlexNet outperformed
+XGBoost. Differences were signiﬁcant, with up to 15 percent points in OA. As in the
+previous section, the best performing “single-pixel” architecture is DenseNet and the best
+“semantic labeling” network is DeepLab. Interestingly, DenseNet reached the best PA,
+although DeepLab dominated the remaining metrics.
+
+For the remainder of this study, the best performing “single-pixel” and “semantic
+labeling” were selected. There was little difference between the architectures, so the
+architectures with the best F1-score for the LU classiﬁcation were chosen arbitrarily.
+
+4.3. Inﬂuence of Neo-Channels and Land Cover as Input on the Learning
+
+In this article, several Deep Learning architectures for LULC classiﬁcation are com-
+pared across ﬁve speciﬁc regions of South Province of New Caledonia. The goal is to
+prepare an operational system for LULC monitoring for the South Province territory, since
+its natural environment is subject to signiﬁcant human pressures [21,22]. Many powerful
+Deep Learning architectures in the ﬁeld of remote sensing use two possible strategies:
+“central-pixel labeling” or “semantic segmentation” (described in the Methods section).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What methods are utilized for collecting raw data in the deep learning pipeline (e.g., surveys, sensors, public datasets)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The given context does not provide explicit details about the method used for collecting raw data in the deep learning pipeline. However, it mentions that the SPOT6 satellite data was used for the five study areas. This suggests that the raw data might have been collected using satellite imagery. Satellite imagery is commonly used in remote sensing applications, including land cover classification tasks like the one described in the context. Therefore, it can be inferred that the method utilized for collecting raw data in this deep learning pipeline is likely satellite imagery.

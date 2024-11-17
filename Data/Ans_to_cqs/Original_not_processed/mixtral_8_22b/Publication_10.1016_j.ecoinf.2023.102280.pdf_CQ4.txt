@@ -1,0 +1,66 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+be  established  (Xie  et  al.,  2021).  Deep  noise  reduction  methods 
+(Defossez et al., 2020) often use a U-net architecture which consists of an 
+encoder and decoder section. The encoder produces a compressed latent 
+space representation. The decoder then uses this latent space to recon-
+struct the denoised waveform. Recently, transformer attention mecha-
+nisms have also been applied with great success (Cao et al., 2022; Luo 
+and  Mesgarani,  2019;  Luo  and  Mesgarani,  2023;  Zhang  et  al.,  2022; 
+Zhao et al., 2022). As most deep-noise reduction methods focus on NLP 
+applications, models are optimized for bandwidths ranging from 16 to 
+22  kHz.  Bioacoustics  applications  commonly  exceed  this  bandwidth. 
+Additionally, the sparsity of vocalisations in this application and many 
+other  bioacoustics  applications  makes  the  development  of  large-scale 
+datasets  infeasible  (Stowell,  2021).  These  factors  limit  the  success  of
+
+5.2. Ablation studies 
+
+Data  requirements  are  a  key  consideration  for  many  monitoring 
+applications  given  the  lack  of  existing  datasets.  Audio  enhancement 
+models  require  training  data  for  fine-tuning.  Fine-tuning  does  not 
+necessarily require large datasets. Section 4.1.2 demonstrate that similar 
+performance could be achieved using a subset of 100 training examples. 
+Data  augmentation  techniques  such  as  superimposing  noise  samples 
+should  also  be  considered  as  bioacoustics  applications  typically  have 
+abundant  noise  features.  Both  WPD  and  spectral  subtraction  do  not 
+require training data.
+
+Deep learning-based denoising methods are most commonly applied 
+to  natural  language  processing  (NLP)  such  as  a  human  speech 
+enhancement. D´efossez et al. (Defossez et al., 2020) demonstrated the 
+potential for deep noise reduction techniques to achieve state-of-the-art 
+(SOTA) performance and be applied in sub-real time on limited hard-
+ware. These methods commonly operate on audio spectrograms but in 
+recent  years  SOTA  deep  learning  methods  (Wang  et  al.,  2021)  have 
+successfully  used  raw  waveform  data  (Luo and  Mesgarani,  2019; Luo 
+and Mesgarani, 2023) for wider applications such as source separation 
+and classification. This removes errors introduced when applying a Fast 
+Fourier  Transform  (FFT)  to  generate  a  time-frequency  representation 
+and reconstruction errors due to the loss of phase information. These 
+networks tend to require more data for training as the latent space must
+
+training  deep  noise  reduction  techniques.  There  are  also  challenges 
+when generating training data for fine-tuning. Generally, clean data is 
+collected, and noise profiles are superimposed to provide both the input 
+data  and  a  “denoised”  ground  truth.  Collecting  clean  recordings  is 
+infeasible  in  many  cases  or  requires  the  recording  of  captive  animals 
+which  may  not  be  representative  of  the  wider  population.  Adjacent 
+fields can generate human speech or music as required but this is not an 
+option for many bioacoustics applications.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not explicitly mention specific data augmentation techniques like flipping, rotating, or scaling. However, it does suggest that data augmentation techniques are considered for bioacoustic applications, particularly superimposing noise samples. Superimposing noise samples involves adding background noise to the original signal to create new training examples. This technique helps improve the model's robustness against various types of noises present in real-world scenarios. Other common data augmentation techniques for audio signals include shifting time, changing pitch, altering speed, and adjusting volume. These techniques help increase the diversity of the dataset without collecting additional data, making them valuable for applications where obtaining large-scale datasets is challenging or infeasible.

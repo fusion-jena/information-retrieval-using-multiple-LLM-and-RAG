@@ -1,0 +1,129 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Data  distribution  shifts  are  commonly  encountered  in  deploying 
+machine learning systems, manifested as degraded model performance 
+(Koh et al., 2021). This is conceivably true for weed recognition models
+
+Abbeel, Pieter, 2017. Domain randomization for transferring deep neural networks 
+from simulation to the real world. In: Paper Presented at the 2017 IEEE/RSJ 
+International Conference on Intelligent Robots and Systems (IROS). 
+
+Wang, Pei, Tang, Yin, Luo, Fan, Wang, Lihong, Li, Chengsong, Niu, Qi, Li, Hui, 2022. 
+Weed25: a deep learning dataset for weed identification. Front. Plant Sci. 13, 
+1053329. 
+
+Wang, Su, Saharia, Chitwan, Montgomery, Ceslee, Pont-Tuset, Jordi, Noy, Shai, 
+
+Pellegrini, Stefano, Onoe, Yasumasa, Laszlo, Sarah, Fleet, David J., Soricut, Radu, 
+2023. Imagen editor and editbench: Advancing and evaluating text-guided image 
+inpainting. In: Paper presented at the Proceedings of the IEEE/CVF Conference on 
+Computer Vision and Pattern Recognition. 
+
+Weyler, Jan, L¨abe, Thomas, Magistri, Federico, Behley, Jens, Stachniss, Cyrill, 2023. 
+Towards domain generalization in crop and weed segmentation for precision 
+farming robots. IEEE Robot. Automat. Lett. 8 (6), 3310–3317.
+
+6  https://github.com/ultralytics/ultralytics/issues/189 
+
+EcologicalInformatics81(2024)1025466B. Deng et al.                                                                                                                                                                                                                                    
+
+Fig. 3. Flowchart of our cross-season weed detection.  
+
+Table 2 
+Primary hyperparameter settings of the three detection models.  
+
+Hyperparameters 
+
+Detection models 
+
+Initial learning 
+
+rate 
+
+Learning rate 
+schedule 
+NMS threshold 
+Confidence 
+threshold 
+Weight decay 
+Image size 
+Batch size 
+
+Optimizer 
+
+YOLOX 
+
+YOLOv8 
+
+0.01 
+
+0.01 
+
+Warm up +
+cosine decay 
+0.45 
+
+Warm up + cosine 
+decay 
+0.7 
+
+0.25 
+
+0.0005 
+800 
+8 
+
+SGD 
+
+0.25 
+
+0.0005 
+800 
+8 
+
+SGD 
+
+Classification loss 
+
+BCE 
+
+Location loss 
+
+IoU 
+
+Data augmentation 
+
+Color jitter 
++ mosaic 
+
+VFL (Zhang et al., 
+2021) 
+DFL (Li et al., 2020) 
++ CIoU (Zheng et al., 
+2021)
+
+jitter and mosaic augmentations, while DINO implements random crop 
+and scale augmentation. The original weed images, which were mostly 
+with high resolutions (over 10 megapixels), were resized to the input of 
+800  × 800  pixels,  which  is  compatible  with  model  architectures  and 
+training efficiency. The resizing was done by rescaling the long side of 
+each image to 800 and adding padding to the short side to maintain the 
+original image aspect ratio. All models were trained for 40 epochs with 
+batch  size  8,  which  could  adequately  converge  based  on  empirical 
+observations.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The provided context does not contain information about the deployment process of the trained deep learning model. Therefore, it is not possible to provide details regarding the specific steps taken for model serialization or platform selection.

@@ -1,0 +1,11 @@
+Answer:
+
+The strategy implemented to monitor the model performance during training involves evaluating the performance of the RF, ANN, and LightGBM models using the loss function (mean squared error), mean absolute error (MAE), and the coefficient of determination (R2). The structure and hyperparameters of the RF and ANN models were optimized using Optuna 2.10.0, while the LightGBM models used Optuna's LightGBM Tuner for hyperparameter fitting.
+
+For the RF models, the hyperparameters optimized include the number of decision trees, the maximum depth of trees, and the minimum number of samples required to split an internal node. For the ANN models, the number of nodes in the input layer, the number of nodes in the middle layers, the activation function, and the optimizer were optimized. The LightGBM models had hyperparameters such as the maximum tree leaves for base learners, L1 and L2 regularization, a subset of features on each iteration, and the frequency for bagging.
+
+After optimizing the models, the first flowering and full blossom dates for each station and year were calculated using the optimized models. The root mean square error (RMSE) was calculated for all observation sites to evaluate the overall performance of the optimized models, and the RMSE for each observation site was calculated to evaluate the performance of the models for each site.
+
+Furthermore, the use of SHAP (SHapley Additive exPlanations) values helped in understanding the machine learning models by quantifying the importance of each input variable in the prediction. The SHAP values were calculated as the average of the absolute SHAP values for each input variable, and the hyperparameters for the SHAP calculations included the number of trees, maximum depth, and the number of middle layers.
+
+Therefore, the strategy implemented to monitor the model performance during training involved evaluating the models using various performance metrics, optimizing the structure and hyperparameters, and calculating the SHAP values to understand the models' behavior.

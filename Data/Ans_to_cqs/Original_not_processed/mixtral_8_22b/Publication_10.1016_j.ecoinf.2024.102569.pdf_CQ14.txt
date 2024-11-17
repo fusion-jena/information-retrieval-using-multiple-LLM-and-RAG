@@ -1,0 +1,150 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+= 0, and ϕk
+
+The root trimmed mean squared prediction error (RTMSPE) is uti-
+lized to select the appropriate values for the tuning parameters τ and ϕ, 
+removing  the  impact  of  heterogeneous  observations.  The  RTMSPE  is 
+defined as follows: 
+
+√
+√
+√
+√
+
+RTMSPEδ =
+
+̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+∑hδ
+
+1
+hδ
+
+i=1
+
+e2
+[i]
+
+(0 < δ < 1),
+
+(6)  
+
+(cid:0)
+
+2 
+
+s[1]
+
+2, …,
+
+[1] and e2
+
+[n] are  the  order  statistics  of
+
+To simultaneously carry out shrinkage estimation and variable se-
+lection,  we  employ  the  penalized  loss  function  with  an  L1  penalty 
+(Tibshirani, 1996), defined as follows: 
+
+lϕ
+Ξ(θ) = lΞ(θ) +
+
+∑p
+
+k=0
+
+ϕk∣βk∣,
+
+(5)  
+
+where lΞ  is the loss function minimized by solving the estimating eqs. (2) 
+=
+and (3), and is given by eq. (10) in Appendix A. We set ϕ0
+ϕ (k ∕= 0, ϕ ≥ 0) as a constant tuning parameter. The loss function has no 
+penalties for the intercept parameter β0 of the intensity function and the 
+coefficient  paramter  α  for  the  detection  probability  model.  We  can 
+compute the L1  penalized estimates using the gradient ascent method 
+(Goeman,  2010).  The  detailed  computation  algorithm  is  provided  in 
+Appendix C. 
+
+= 0, and ϕk
+
+[1] ≤ ⋯ ≤ e2
+where  hδ = ⌊(n + 1)δ ⌋  and  e2
+[
+) ]
+(cid:0)
+) ]
+[
+m[n] (cid:0) λˆθ
+m[1] (cid:0) λˆθ
+s[n]
+for  non-overlapping  grid  cells 
+(s[1],…,s[n]) and the number of observations (m[1],…,m[n]) in the cells. For 
+example, e2
+[n] represent the minimum and maximum values of the 
+squared prediction errors across all grid cells, respectively. The value of 
+δ  is set to ensure that 1 (cid:0) δ represents the expected proportion of het-
+erogeneous observations. In other words, the REMSPE trims the data of 
+observations that have squared residuals with magnitudes in the top 1 (cid:0)
+δ, because they are considered to have a high possibility of being het-
+erogeneous  observations.  It  may  be  recommended  to  perform  cross- 
+validation to obtain the RTMSPE or calculate using a validation data-
+set which is independent of the training dataset. Due to computational 
+cost of cross-validation, the RTMSPE is calculated using the training data 
+in this paper. 
+
+4. Simulation 
+
+)Τ
+
+)Τ
+
+, γ1
+
+light-contamination 
+
+case; 
+
+case; 
+
+and 
+
+the 
+
+in 
+
+Fig.  1. Plots  of  the  Parato  type  II  distribution  function  with  ν =
+0.5, 1.0, 2.0, 5.0. 
+
+Fig. 2 shows the boxplot of the parameter estimates. In addition, the 
+selected percentages for the values of tuning parameter τ  are given in 
+Table 1. In the no-contamination case, both the MLE and MIDE correctly 
+estimated the true values of the coefficient parameters. Among the re-
+sults for MIDE, 21.5% of simulations selected τ as ∞ (equivalent to the 
+MLE). On the other hand, in both the light- and heavy-contamination 
+cases, the MIDEs of the parameter β  of interest were close to the true 
+
+EcologicalInformatics81(2024)10256930.000.250.500.751.000246810xF(x)ν=0.50ν=1.00ν=2.00ν=5.00Y. Saigusa et al.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The hyperparameters of the model, specifically the tuning parameters τ and ϕ, are optimized using the Root Trimmed Mean Squared Prediction Error (RTMSPE). This approach removes the impact of heterogeneous observations and helps in selecting the appropriate values for these hyperparameters.
+
+The RTMSPE is defined as the square root of the average of the squares of the middle (1 - δ) fraction of the ordered squared prediction errors. Here, δ is a value between 0 and 1, and it ensures that 1/(1 - δ) represents the expected proportion of heterogeneous observations. These heterogeneous observations are identified based on their large squared residual magnitudes, which indicate a higher likelihood of them being outliers or anomalies.
+
+The RTMSPE is used to evaluate different combinations of hyperparameter values, and the combination that results in the lowest RTMSPE is chosen as the optimal one. However, due to the computational cost of cross-validation, the RTMSPE is calculated using the training data instead of a separate validation dataset.
+
+It should also be noted that the L1 penalty is employed to simultaneously carry out shrinkage estimation and variable selection. This involves adding a penalty term to the loss function, which discourages overfitting and encourages simpler models. The L1 penalized estimates are computed using the gradient ascent method.

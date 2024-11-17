@@ -1,0 +1,64 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+In general, the limitations of deep learning in comparison to other machine learning methods
+are the requirement of large and high-quality training data, as well as hardware limitations related to
+GPU computing power. The most notable advantage of deep learning is the grade of automatization
+and a high potential to generalize when using large amounts of representative training data, which
+might, however, not always be available; especially with respect to ground-truth labels that might be
+scarce or not exist at all.. Furthermore, the black-box nature makes these algorithms a good choice for
+classiﬁcation as suggested in this study, but a challenge for modeling physical properties, as is often
+the case in forestry. This case study relied on high-resolution orthophotos with 20-cm spatial resolution
+obtained from an aerial survey. The great advantage of these data is that many details can be detected.
+
+As stated in the Introduction, there exist many different CNNs for different applications, and it is
+important to ﬁnd the appropriate solution for a speciﬁc task. Retraining existing powerful architectures
+such as VGG19 [27], ResNet, or Inception Net to solve other problems by transfer learning is one
+approach that is often used. However, this was not an option in our four-band setting and very
+particular segmentation task with features that might differ signiﬁcantly from features learned by
+networks trained on common image datasets such as ImageNet. Thus, we opted to implement a U-Net
+architecture, which is a particular implementation of a CNN ﬁrst developed by Ronneberger [19] for
+biomedical image segmentation. One major advantage of CNNs is the ability to extract spatial features
+and to detect patterns independently of their position on the input image. The U-Net architecture is
+
+Remote Sens. 2019, 11, 1976
+
+8 of 14
+
+2.6. Comparison to a Support Vector Machine Classiﬁer and a Random Forest Algorithm
+
+To better understand the performance of the CNN, comparisons with pixel-wise classiﬁcations
+based on an SVM and an RF classiﬁer were carried out using the 4 spectral bands of the orthophotos
+(see Section 2.1) as predictors. Due to computational reasons, it was not possible to utilize the entire
+original training dataset (as used for the CNN) for the SVM and the RF classiﬁer. Thus, we used a
+subsample of 10,000 randomly-selected pixels for the training phase of both classiﬁers. These pixels
+were representative for the data space. Note that both classiﬁers used a pixel-based approach while the
+CNN was extracting features and thus considered the spatial correlation between neighboring pixels.
+For the SVM classiﬁer, the radial basis function kernel (RBF) was applied. The RF classiﬁer was run
+with a maximum tree depth of 5 and 100 estimators (i.e., decision trees).
+
+2.5.1. Encoding Path
+
+The encoding path of our network was composed of three encoding blocks; each block was
+composed of a convolutional layer with a ﬁlter of size (3, 3) and a ReLU activation function [32] ,
+a dropout layer to force each neuron to learn more than only one feature, a second convolutional layer
+followed by ReLU activation, and a max pooling layer with the size (2,2), which replaced each 2 × 2
+region on the feature map by the region’s maximum value and thus decreased the size of the feature
+map by keeping only the highest values.
+
+2.5.2. Decoding Path
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the purpose of the deep learning model (e.g., classification, segmentation, detection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The purpose of the deep learning model in this context is segmentation. Specifically, the authors implemented a U-Net architecture, which is a type of Convolutional Neural Network (CNN) designed for biomedical image segmentation. The goal of the U-Net architecture is to perform pixel-level semantic segmentation, where each pixel in an image is classified into a specific category. In this case, the U-Net architecture was used to segment high-resolution orthophotos obtained from an aerial survey. The U-Net architecture consists of two main paths: an encoding path and a decoding path. The encoding path is responsible for capturing the contextual information in the images, while the decoding path is responsible for precise localization of objects within the images. Together, these paths enable the U-Net architecture to accurately segment objects within complex scenes.

@@ -1,0 +1,102 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+improvement techniques such as data-augmentation and transfer-learning, which allow reutilization
+of the knowledge acquired from a set of images into other new images. Currently, the most commonly
+used software implementing CNNs is the open source library of Tensorﬂow by GoogleTM ([18]),
+which requires programming skills since it does not have a graphical user-interface.
+
+,
+
+recall =
+
+True Positives
+True Positives + False Negatives
+
+,
+
+F1 measure = 2 ×
+
+precision × recall
+precision + recall
+
+and
+
+5.1. Finding the Best CNN-Based Detector
+
+For the experiments with GoogLeNet and ResNet-based models, we have used the open source
+software library Tensorﬂow ([18]). For training CNNs, the image patches are resized from 80 × 80-pixels
+to 299 × 299 by GoogLeNet and to 224 × 224 by ResNet. Such rescaling is due to the fact that the
+architecture of all the layers of GoogLeNet and ResNet are adapted according to these input sizes,
+independently from the original resolution of the input images.
+
+5.1.1. CNN Training With Fine-Tuning and Data-Augumentation
+
+To improve the accuracy and reduce overfitting we (i) used fine-tuning by initializing the evaluated
+models with the pre-trained weights of ImageNet, and (ii) applied data augmentation techniques to
+increase the size of the dataset from 100 to 6000 images. In particular, for data-augmentation we applied:
+
+•
+•
+•
+•
+
+Deep CNNs, such as ResNet and GoogLeNet, are generally trained based on the prediction loss
+minimization. Let x and y be the input images and corresponding output class labels, the objective of
+the training is to iteratively minimize the average loss deﬁned as
+
+J(w) =
+
+1
+N
+
+N
+∑
+i=1
+
+L( f (w; xi), yi) + λR(w)
+
+(1)
+
+This loss function measures how different is the output of the ﬁnal layer from the ground truth.
+N is the number of data instances (mini-batch) in every iteration, L is the loss function, f is the
+predicted output of the network depending on the current weights w, and R is the weight decay with
+the Lagrange multiplier λ. It is worth mentioning that in the case of GoogLeNet, the losses of the
+
+Remote Sens. 2017, 9, 1220
+
+6 of 22
+
+two auxiliary classiﬁers are weighted by 0.3 and added to the total loss of each training iteration.
+The Stochastic Gradient Descent (SGD) is commonly used to update the weights.
+
+wt+1 = µwt − α∆J(wt)
+
+(2)
+
+In this work, we considered the two most accurate CNNs, ResNet ([42]) and GoogLeNet ([43]).
+ResNet won the ﬁrst place on the 2015 ILSVRC (ImageNet Large Scale Visual Recognition Competition
+(ILSVRC)) and is currently the most accurate and deepest CNN available. It has 152 layers and
+25.5 million parameters. Its main characteristic with respect to the previous CNNs is that ResNet
+creates multiple paths through the network within each residual module. GoogLeNet won the ﬁrst
+place of the 2014 ILSVRC. GoogLeNet is based on inception v3 and has 23.2 million parameters and
+22 layers with learnable weights organized in four parts: (i) the initial segment, made up of three
+convolutional layers, (ii) nine inception v3 modules, where each module is a set of convolutional and
+pooling layers at different scales performed in parallel then concatenated together, (iii) two auxiliary
+classiﬁers, where each classiﬁer is actually a smaller convolutional network put on the top of the
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text mentions that the most commonly used software implementing Convolutional Neural Networks (CNNs) is the open source library of Tensorflow by Google. This indicates that Tensorflow was used as the framework to build the deep learning model in this specific context. However, it should be noted that there are other popular frameworks like PyTorch, Keras, and Caffe that can also be used to build deep learning models.
+
+Answer:::

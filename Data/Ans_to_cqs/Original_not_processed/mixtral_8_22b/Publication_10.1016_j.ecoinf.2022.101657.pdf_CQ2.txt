@@ -1,0 +1,81 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+van Rijsbergen, C.J., 1979. Information Retrieval, 2nd ed. Butterworth-Heinemann, USA.  
+Wang, C.Y., Bochkovskiy, A., Liao, H.Y.M., 2021. Scaled-YOLOv4: Scaling cross stage 
+partial network. In: Conference on Computer Vision and Pattern Recognition 
+(CVPR), pp. 13029–13038. 
+
+Wei, W., Luo, G., Ran, J., Li, J., 2020. Zilong: a tool to identify empty images in camera- 
+trap data. Ecol. Inform. 55, 101021 https://doi.org/10.1016/j.ecoinf.2019.101021. 
+Weingarth, K., Zimmermann, F., Knauer, F., Heurich, M., 2013. Evaluation of six digital 
+
+camera models for the use in capture-recapture sampling of Eurasian Lynx. 
+Wald¨okologie Online 13, 87–92. 
+
+Xi, T., Wang, J., Qiao, H., Lin, C., Ji, L., 2021. Image filtering and labelling assistant 
+
+(ifla): expediting the analysis of data obtained from camera traps. Ecol. Inform. 64, 
+101355 https://doi.org/10.1016/j.ecoinf.2021.101355.
+
+6.2.1. Data 
+
+The GBIF database10 contains over 2300 videos of animals, although 
+many of these are not suitable for our purpose. We have curated a subset 
+of  330  videos  that  are  shot  with  static  cameras.  These  videos  are 
+therefore good representations of the style of input this pipeline is ex-
+pected  to  receive.  Every  frame  from  each  of  these  videos  has  been 
+manually annotated, indicating whether or not it contains an animal. We 
+have provided the training (30) and validation (300) split as used to tune 
+parameters and evaluate the system, respectively. It is important to note 
+that  camera-related  parameters  have  not  been  annotated  or  used  in 
+testing  the  DynAIkonTrap. For these  tests we have  assumed the  focal 
+length for all cameras to be the same as that of the RPi camera module –
+
+Whilst ML approaches exist that could theoretically be used for this 
+task,  these  models  are  currently  too  slow  to  be  used  in  practice:  the 
+purpose of having a multi-filter pipeline is to reduce the set of images 
+that need to be inspected by a ML model. 
+
+4.2. Detection methods 
+
+Video encoding standards such as H.264 commonly reduce temporal 
+redundancy  of  the  video  stream  by  using  motion  vectors that  encode 
+how pixel patches, of sizes between 4 × 4 to 16 × 16 px, move from one 
+frame to the next, thus reducing the need to send full frames all the time. 
+These motion vectors can be extracted from the video stream without 
+fully decoding it, are computed in hardware and therefore can be uti-
+lised without further overhead. To the best of our knowledge, utilising 
+these motion vectors in this way has not been integrated into camera 
+trap products until now, nor discussed in the literature. Section 4.2.3 
+
+3  https://gitlab.dynaikon.com/dynaikontrap/vid2frames
+
+Recently,  Artificial  Intelligence  (AI)  has  been  brought  to  some 
+commercial camera traps, such as the Trail-Guard by Resolve, although 
+literature around effectiveness for this is lacking. The use of AI “at the 
+edge” may be able to overcome some of the issues of traditional camera 
+traps, such as a large number of empty images being kept for analysis 
+and  later  discarded.  More  specifically,  machine  learning,  especially 
+based  on deep  learning techniques, is  being explored by  the research 
+community to reduce as much as possible the amount of useless data 
+being  collected.  For  example,  Schindler  and  Steinhage  (2021)  use  a 
+combination  of  Mask  R-CNN  with  Flow-Guided  Feature  Aggregation 
+(Zhu et al., 2017) to optimize instance segmentation of animal species in 
+video clips. Their study is applied to data obtained by camera traps with 
+PIR,  capturing  at  dusk  and  night,  in  Bavaria,  four  classes  of  animals
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning pipeline primarily uses video data format. Specifically, the pipeline employs a subset of 330 videos that are shot with static cameras. Each frame from these videos has been manually annotated to indicate whether or not it contains an animal. The training and validation splits used to tune parameters and evaluate the system consist of 30 and 300 videos, respectively. However, it should be noted that camera-related parameters have not been annotated or used in testing the DynAIkonTrap. Instead, the focal length for all cameras was assumed to be the same as that of the RPi camera module. While other data formats like images, audio, or CSV might also be relevant for different applications, they do not appear to be explicitly mentioned or utilized within the given context regarding the deep learning pipeline.

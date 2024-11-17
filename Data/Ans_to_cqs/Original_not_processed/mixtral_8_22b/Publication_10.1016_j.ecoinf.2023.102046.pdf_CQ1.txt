@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+ResNet-50 is a convolutional neural network model that uses skip 
+connections,  which  made  it  possible  to  get  good  performance  with 
+deeper models than was previously possible (He et al., 2015). Training 
+deep neural networks can result in exploding gradients, and skip con-
+nections  were  introduced  to  ameliorate  that  problem.  ResNet-50  was 
+chosen  for  comparison  as  it  is  a  proven  CV  classification  model.  It  is 
+commonly used and provides a well-performing baseline. 
+
+Inception-V3  is  a  convolutional  neural  network  used  for  image 
+classification, that has an auxiliary classifier that acts as a regularizer 
+(Szegedy et al., 2015b). The Inception-V3 architecture is built on pre-
+vious Inception models, with the aim of making the V3 computationally
+
+For  few-shot  learning,  CLIP  (Contrastive  Language  Image  Pre- 
+training)  is  a  combination  of  two  transformer  models  that  was 
+recently introduced. It consists of a text encoder and an image encoder, 
+and is trained using contrastive learning to allow the image encoder to 
+learn  visual  concepts  through  natural  language  supervision  (Radford 
+et al., 2021). The image encoder maps an image to a vector that can be 
+considered a robust semantic feature representation of the image, which 
+can transfer to diverse tasks and often perform competitively with fully 
+supervised baselines in a zero-shot fashion, without the need for fine- 
+tuning.  CLIP  was  trained  on  400  million  images  from  the  web  along 
+with their captions. While these models have shown impressive perfor-
+mance, they are not perfect and have, for example, shown limited zero- 
+shot  performance  in  detecting  tumors  on  x-ray  images.  We  aim  to
+
+Recent progress in few-shot learning has been based on transformers. 
+These  models were first  applied  successfully  in  natural language  pro-
+cessing (NLP), and are used in popular language models such as Bidi-
+rectional  Encoder  Representations  from  Transformers  (BERT,  Devlin 
+et al., 2019). They have also been implemented in vision models, such as 
+the Vision Transformer (ViT) (Dosovitskiy et al., 2023). The transformer 
+architecture,  introduced  by  Vaswani  et  al.,  2017,  uses  an  attention 
+mechanism  such  that  the  model  can  learn  what  parts  of  the  input  it 
+should attend to. This allows it to outperform state-of-the-art models in 
+NLP  tasks  without  using  recurrence  in  the  model  architecture.  Doso-
+vitskiy et al., 2023 showed that convolutions are not necessary for state- 
+of-the-art  performance  in  image  classification  tasks,  and  that  trans-
+formers can perform well on these tasks when applied to image patches.
+
+The Inception-V3 model accepts images resized to (299, 299) pixels 
+but ViT and ResNet resize to (224, 224) pixels. Dataset imbalance was 
+dealt with by including class weights in the cross-entropy loss function. 
+For the training we used AdamW optimizer for Hugging Face models, 
+which is the default optimizer in the transformers library by Hugging-
+Face. For Inception-V3, we used Adam since that was the optimizer used 
+in  previous  work  (and  AdamW  is  not  available  in  Keras).  We  used  a 
+(cid:0) 4  for 
+batch  size  of  16  examples  and  the  learning  rate  was  set  to  10
+(cid:0) 5  for  Vanilla  Inception-V3  and  ViT.  For  Deep  Otolith 
+ResNet  but  10
+(cid:0) 4 as suggested by Politikos 
+Inception we used a learning rate of 4 × 10
+et  al.  (2021).  For  every  fine-tuning  experiment,  the  model  with  the 
+
+smallest validation loss was used for evaluation on the test set. 
+
+2.3. Performance
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What methods are utilized for collecting raw data in the deep learning pipeline (e.g., surveys, sensors, public datasets)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the given context, there isn't any explicit mention of specific methods used for collecting raw data in the deep learning pipeline. However, some clues can be derived indirectly. For instance, the context mentions that CLIP was trained on 400 million images from the web along with their captions. This suggests that one method for gathering raw data could involve scraping or downloading images and associated metadata from publicly accessible sources like websites. Additionally, the use of Inception-V3, ResNet-50, and other models implies that existing datasets might have been employed for training purposes. These datasets may include those created via manual labeling efforts, sensor data collection, or even crowdsourced contributions. Nonetheless, without more detailed information about the exact process followed in this case, it remains speculative to pinpoint the precise methods used for collecting raw data.

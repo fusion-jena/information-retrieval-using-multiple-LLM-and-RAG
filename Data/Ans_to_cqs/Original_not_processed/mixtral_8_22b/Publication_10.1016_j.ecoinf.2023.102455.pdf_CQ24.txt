@@ -1,0 +1,95 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The last step in configuring the model involves feeding in predictors 
+that  the  advanced  deep  learning  algorithm  feeds  by  the  decomposed 
+components  resulting  from  the  previous  steps.  The  primary  model  is 
+CNN-BiGRU  with  three  comparative  ML  methods  (KELM,  RVFL  and 
+CNN-BiRNN),  which  provide  four  complementary  models  including 
+MVMD-CNN-BiGRU,  MVMD-RVFL,  MVMD-KELM  and  MVMD-CNN- 
+BiRNN.  These  models  are  used  to  create  the  multi-temporal  fore-
+casting model of daily streamflow (Qflow). Setting hyperparameters and 
+their structural architecture is the most important aspect of executing 
+ML-based  predictive  models  (Jamei  et  al.,  2023b).  Based  on  recent 
+research, the main approaches to tuning parameters are algorithms of 
+metaheuristic optimization, schemes of cross-validation schemes (Nes-
+ted/rolling  basis  cross-validation)  (Huyghues-Beaufond  et  al.,  2020),
+
+Strobl, C., Boulesteix, A.-L., Kneib, T., Augustin, T., Zeileis, A., 2008. Conditional 
+
+variable importance for random forests. BMC Bioinform. 9, 307. https://doi.org/ 
+10.1186/1471-2105-9-307. 
+
+Suganthan, P.N., Katuwal, R., 2021. On the origins of randomization-based feedforward 
+
+neural networks. Appl. Soft Comput. 105, 107239. 
+
+Tao, H., Abba, S.I., Al-Areeq, A.M., Tangang, F., Samantaray, S., Sahoo, A., Siqueira, H. 
+
+V., Maroufpoor, S., Demir, V., Dhanraj Bokde, N., Goliatt, L., Jamei, M., 
+Ahmadianfar, I., Bhagat, S.K., Halder, B., Guo, T., Helman, D.S., Ali, M., Sattar, S., 
+Al-Khafaji, Z., Shahid, S., Yaseen, Z.M., 2024. Hybridized artificial intelligence 
+models with nature-inspired algorithms for river flow modeling: a comprehensive 
+review, assessment, and possible future research directions. Eng. Appl. Artif. Intell. 
+129, 107559 https://doi.org/10.1016/j.engappai.2023.107559. 
+
+Tiwari, M.K., Chatterjee, C., 2011. A new wavelet–bootstrap–ANN hybrid model for daily
+
+CNN Layers = 2, filters = 64, kernel_size =
+[1,4], BiGRU Layers = 1, BiGRU neurons =
+30, Optimizer: Adam, activation function =
+‘relu’, epochs = 43,batch_size = 32, 
+learning_rate = 0.000455, Dense = 100 
+CNN Layers = 2, filters = 64, kernel_size =
+[1,4], BiGRU Layers = 1, BiGRU neurons =
+30, Optimizer: Adam, activation function =
+‘relu’, epochs = 1000,batch_size = 32, 
+learning_rate = 0.0015, Dense = 100 
+num_nodes: 20, regular_para = 0.2, 
+weight_random_range = [(cid:0) 1,1], 
+bias_random_range = [0,1], 
+num_nodes: 50, regular_para = 0.9, 
+weight_random_range = [(cid:0) 1, 1], 
+bias_random_range = [0, 1], 
+Regularization_coefficient = 3E+05, 
+kernel_parameter =7000 
+Regularization_coefficient = 9E+06, 
+kernel_parameter =9E+05 
+CNN Layers = 2, filters = 64, kernel_size =
+[1,4], BiRNN Layers = 1, BiRNN neurons =
+30, Optimizer: Adam, activation function =
+‘relu’, epochs = 200,batch_size = 32, 
+learning_rate = 0.0002, Dense = 100 
+CNN Layers = 2, filters = 64, kernel_size =
+
+CNN Layers = 2, filters = 64, kernel_size =
+[1,4], BiRNN Layers = 1, BiRNN neurons =
+30, Optimizer: Adam, activation function =
+‘relu’, epochs = 200,batch_size = 32, 
+learning_rate = 0.0001, Dense = 100 
+CNN Layers = 2, filters = 64, kernel_size =
+[1,4], BiRNN Layers = 1, BiRNN neurons =
+30, Optimizer: Adam, activation function =
+‘relu’, epochs = 200,batch_size = 32, 
+learning_rate = 0.0001, Dense = 100
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't any explicit mention of specific strategies employed to handle randomness in the deep learning pipeline, such as managing the random seed value. However, we can infer some general practices based on common machine learning techniques.
+
+One approach to manage randomness is using fixed seeds during training or testing phases. This ensures reproducibility of results across different runs of the same experiment. Another strategy is employing ensemble methods, where multiple models are trained with varying initial conditions (like different random seeds) and their predictions are combined to produce more robust outcomes.
+
+In terms of parameter tuning, metaheuristic optimization algorithms and cross-validation schemes are mentioned. Metaheuristic optimization algorithms, like genetic algorithms or particle swarm optimization, often involve stochastic components but aim to find optimal solutions despite this inherent randomness. Cross-validation schemes, such as nested or rolling basis cross-validation, help evaluate model performance while accounting for variability due to random factors.
+
+Lastly, it should be noted that the CNN-BiGRU model uses the Adam optimizer, which adapts individual learning rates for each network weight based on estimates of first and second moments of gradients. Although not directly addressing randomness related to seed values, adaptive learning rate methods like Adam can contribute to better handling of noise and variability within the data itself.

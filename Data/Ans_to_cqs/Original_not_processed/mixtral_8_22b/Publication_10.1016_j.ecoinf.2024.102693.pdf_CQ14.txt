@@ -1,0 +1,166 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1 
+General transfer training hyper-parameters for each basic model.  
+
+Hyper-parameter / Model 
+
+ResNet-50 
+
+ViT-S/16 
+
+Volo-d1 
+
+ViP-Small/7 
+
+Learning rate 
+Minimum learning rate 
+Optimizer 
+Scheduler 
+Batch size 
+Weight decay 
+Input size 
+Epochs 
+
+1e-4 
+2e-3 
+1e-5 
+1e-5 
+Adamw(0.9, 0.999) 
+Cosine 
+128 
+5e-4 
+224 × 224 
+210  
+
+64 
+5e-4 
+
+8e-6 
+4e-6 
+
+64 
+1e-8 
+
+2e-3 
+1e-5 
+
+64 
+5e-2 
+
+EcologicalInformatics82(2024)1026936M. Chen et al.                                                                                                                                                                                                                                   
+
+Table 2 
+Classification performance (%) of basic models and proposed methods on the 
+IP102 dataset.  
+
+which they are applicable. 
+
+5.1. Ablation experiments 
+
+Model 
+
+Accuracy 
+
+Precision 
+
+Recall 
+
+F1-score 
+
+Resnet-50 
+ViT-S/16 
+Volo-d1 
+ViP-Small/7 
+VecEnsemble (Ours) 
+MatEnsemble (Ours)
+
+2.2. Transformer-like model 
+
+Transformer  was  proposed  by  Vaswani  et  al.  (2017)  and  initially 
+designed for Seq2Seq tasks, replacing long short-term memory (LSTM) 
+with a full-attention structure. It was primarily applied in NLP, and both 
+the  transformer  and  its  subsequent  iterations  demonstrated  excellent 
+performance in a wide range of downstream tasks. With the success of 
+the transformer in NLP, researchers have begun to explore its applica-
+tion in CV. 
+
+The core structure of the transformer-like visual model is an encoder 
+module, which comprises several stacked blocks. Each block consists of 
+two  components:  a  token  mixer  module  (Yu  et  al.,  2022)  for  fusing 
+spatial information and an MLP module for fusing channel information. 
+The main distinction among the different transformer-like visual models 
+lies in the variations in the token mixer module. For example, the token 
+mixer in a ViT (Dosovitskiy et al., 2020) is a self-attention module.
+
+be  O
+
+to 
+
+)
+
+(cid:0)
+
+(cid:0)
+
+)
+
+Nnm2 + nm3
+
+, respectively. Here, N represents the number of samples 
+O
+in the validation set, n is the number of classes, and m is the number of 
+basic models.
+
+wi = 1
+C
+2
+
+(cid:0) 1d,
+
+(13)  
+
+∑
+
+N
+k=1Pk,iPT
+k,i
+
+where  C =
+∈ ℝm.  By  sepa-
+rately solving the n minimization problems, we can obtain w1, …, wn, 
+which can be constructed into W (Algorithm 2). 
+
+∈ ℝm×m  and  d = 2
+
+∑
+N
+k=1Pk,iyk,i
+
+4. Results 
+
+As described in this section, we trained the four basic models intro-
+duced in Section 3.2 on the IP102 dataset. These models spanned the 
+three mainstream architectures of CNNs, transformers, and MLPs, pos-
+sessing similar parameter counts (approximately 24 M) while exhibiting 
+diverse performance characteristics, thereby validating the robustness 
+of  the  proposed  methods.  Additionally,  we  utilized  the  two  proposed 
+ensemble methods to combine these four basic models and compared the 
+results with those of other existing methods. 
+
+4.1. Experimental setup and training strategy
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The table provided does not explicitly state how the hyperparameters were optimized. However, it lists the final values used for various hyperparameters such as learning rate, minimum learning rate, optimizer, scheduler, batch size, weight decay, input size, and epochs for each of the models ResNet-50, ViT-S/16, Volo-d1, and ViP-Small/7. Without additional context or information, it cannot be determined whether techniques like grid search or random search were employed during optimization.

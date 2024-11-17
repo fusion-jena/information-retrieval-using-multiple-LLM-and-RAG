@@ -1,0 +1,11 @@
+The pre-processing block in the encoder of the deep learning model described in the context involves several steps to prepare the input data for training.
+
+First, a convolution with a wide receptive field (5 × 5 kernel) is applied to the input. This step helps to extract features from the input data. Following this, signal coarsening along the time axis is performed using a 2 × 1 kernel. This step reduces the temporal resolution of the input data, which can help to improve the model's ability to handle sequences of varying lengths.
+
+The coarsening step follows the changes suggested in He et al. (2018) and replicates later versions of BirdNet’s down-sampling strategy by recombining the concatenated output of 2 × 2 maximum and 2 × 2 average pooling using a 1 × 1 convolution. This approach allows for the preservation of both fine-grained and coarse-grained information in the input data.
+
+After convolution and coarsening, the feature representations are chunked along the time axis into T = 19 independent frames, each corresponding to 3.072 seconds. Each frame is then flattened and passed through a final linear layer to output T d-dimensional mean μ and log variance logσ2 vectors as parameters for the Gaussian variational posterior.
+
+Finally, a latent vector for each frame in the time-series is sampled from the posterior using the reparameterisation trick. This step allows for the modeling of uncertainty in the input data, which can help to improve the model's ability to handle noisy or incomplete data.
+
+Therefore, the pre-processing steps involved in this specific deep learning model include convolution, signal coarsening along the time axis, recombination of pooled outputs, chunking along the time axis, flattening, and sampling from the posterior using the reparameterisation trick. While these steps are specific to this model, other pre-processing steps commonly used in deep learning models include normalization, scaling, and cleaning of the input data.

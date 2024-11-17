@@ -1,0 +1,9 @@
+The strategy implemented to monitor the model performance during training involves the use of precision, recall, and F1-score metrics. These metrics are calculated at both micro and macro levels at training, validation, and testing time. 
+
+Micro-F1, precision, and recall computed the statistics across all classes, given their distribution on the whole dataset, while macro statistics placed equal weight on all classes. This means that class-wise differences in performance more greatly impacted the macro-recall and macro-precision scores. The micro-recall is equivalent to the overall top-1 accuracy of the models, and these two terms are used interchangeably.
+
+Moreover, the learning rate (LR) was trained and optimized using the grid search tool implemented in scikit-learn on the validation set. This tool helps to find the best LR that provides the optimal model performance.
+
+Additionally, the study used a method called Safe Gradient Reduction (SGR) to monitor the model performance during training. SGR was applied at risk levels ranging from 5 to 30% and resulted in thresholds, coverages, and bounds for the coverage. The top-5 accuracy on the unclassified part of the dataset was also assessed. SGR was trained on the validation set and applied to the training and test set with the aforementioned risk levels to assess the corresponding coverages. This method helps to ensure that the model's predictions are safe and reliable.
+
+Overall, the strategy implemented to monitor the model performance during training involves the use of precision, recall, and F1-score metrics, optimizing the learning rate, and using the SGR method to ensure safe and reliable predictions.

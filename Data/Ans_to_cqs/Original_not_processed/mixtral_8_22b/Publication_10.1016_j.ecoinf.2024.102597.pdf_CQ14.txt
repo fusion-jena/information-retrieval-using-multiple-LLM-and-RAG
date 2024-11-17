@@ -1,0 +1,75 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.3. Model performance 
+
+All algorithms were evaluated using the same dataset, and five EL 
+models were established for both the Chla concentration and turbidity: 
+RF,  GBDT,  LightGBM,  XGBoost,  and  CatBoost.  Before  tuning  each 
+model, we established a benchmark model with default parameters to 
+evaluate  whether  parameter  adjustments  had  a  beneficial  impact  on 
+model performance. Hyperparameter optimisation was performed using 
+
+both the random grid search and Bayesian optimisation methods, which 
+were  implemented  using  GridSearchCV  from  Scikit-learn  and  the 
+Hyperopt  library (version 0.2.7).  We selected the best  parameters  for 
+each model and compared the results.
+
+)
+
+yj (cid:0) yj
+
+(cid:0)
+i=1(yi (cid:0) yi)
+∑n
+
+i=1(yi (cid:0) yi)2
+
+(4)  
+
+(5)  
+
+(6)  
+
+where n represents the number of sample points, i represents a single 
+data point, yi and yj represent the measured and model-predicted values, 
+respectively.  yi  and  yj  represent  the  mean  measured  and  predicted 
+values, respectively. RSRi  (λ) represents the relative spectral response 
+function of Sentinel bands, λmin and λmax are the wavelength ranges of 
+the  spectral  response  functions  for  each  band,  Rrs(λ) is  the  measured 
+remote  sensing  reflectance,  Rrs (λi)is  the  Sentinel-2  equivalent  band 
+(λi)represents  the  satellite  reflectance 
+remote  sensing  reflectance,  Rc
+rs
+before  and  after  correction,  and  N  represents  the  number  of  sample 
+points. 
+
+Fig. 7. (a): The error before and after the correction of the remote sensing reflectivity of each band; (b): Comparison of errors before and after remote sensing 
+reflectance correction in different years.
+
+L). Overall, the performance of RF and GBDT was weaker than that of 
+CatBoost. However, in our experiment, the training and hyperparameter 
+optimisation times for CatBoost were significantly longer than those of 
+the  other  models,  which  may  be  due  to  the  complex  internal  feature 
+processing  of  the  model  and  the  fact  that  we  did  not  use  a  GPU  for 
+training. For Nansi Lake, XGBoost demonstrated the highest robustness 
+for estimating the water Chla concentration and turbidity.
+
+Bayesian  ridge,  it  exhibited  the  strongest  theoretical  generalisation 
+ability (R2 = 0.8120, RMSE = 2.0720 NTU, Slope = 0.7941, and MAE =
+1.6218 NTU).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The hyperparameters of the model are optimised using two methods: the random grid search and Bayesian optimisation. These methods are implemented using GridSearchCV from Scikit-learn and the Hyperopt library (version 0.2.7), respectively. After selecting the best parameters for each model, their performances are then compared.

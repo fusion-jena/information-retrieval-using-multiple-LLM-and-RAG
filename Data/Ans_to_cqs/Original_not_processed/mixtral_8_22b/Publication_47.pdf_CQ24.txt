@@ -1,0 +1,81 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Keywords: biodiversity, data quality, IUC-NN, IUCN Red List, machine learning, Orchidaceae, sampling bias
+
+Evaluación Automatizada de la Conservación de la Familia Orchidaceae mediante Aprendizaje Profundo
+
+Royal Botanic Gardens Kew. 2010. Plants under pressure—a global as-
+sessment: the first report of the IUCN sampled red list index for
+plants. Royal Botanic Gardens, Kew,Richmond, United Kingdom.
+Schmidt M, et al. 2017. Diversity, distribution and preliminary conser-
+vation status of the flora of Burkina Faso. Phytotaxa Monographs
+304:1–215.
+
+Silvestro D, Andermann T. 2020. Prior choice affects ability
+to identify unknowns. arXiv,
+
+of Bayesian neural networks
+https://doi.org/arXiv:2005.04987.
+
+Subedi A, Kunwar B, Choi Y, Dai Y, van Andel T, Chaudhary RP, de
+Boer HJ, Gravendeel B. 2013. Collection and trade of wild-harvested
+orchids in Nepal. Journal of Ethnobiology and Ethnomedicine 9:64.
+Swarts ND, Dixon KW. 2009. Perspectives on orchid conservation in
+
+botanic gardens. Trends in Plant Science 14:590–598.
+
+Swarts N, Dixon K. 2017. Conservation methods for terrestrial orchids.
+
+J. Ross Publishing, Fort Lauderdale, Florida.
+
+We implemented a deep neural network algorithm
+(Goodfellow et al. 2016)—IUC-NN—as an R package
+(IUCNN, available at https://github.com/azizka/IUCNN)
+based on the Python (version 3.7) TensorFlow (https://
+www.tensorflow.org) library to predict the conservation
+status of unevaluated orchid species. We based the pre-
+dictions on 4 groups of features, derivable from digitally
+available occurrence records: geographic (mean latitude
+and longitude, longitudinal and latitudinal range, extent
+of occurrence [EOO], area of occupancy [AOO], number
+of locations [sensu IUCN], and occurrence records); cli-
+matic (mean of 19 bioclim variables [Karger et al. 2017]);
+biome (presence in 14 biomes [Olson et al. 2001]); and
+
+anthropogenic (mean Human Footprint Index [Wildlife
+Conservation Society & International Earth Science In-
+formation Network 2005]).
+
+We trained IUC-NN on all species with an IUCN RL as-
+sessment and available occurrence records. Prior to the
+training, we randomly split the data set into a training
+set (90% of the entries) and a test set (10%). We used
+20% of the training set for validation. Because the size
+of the data set was comparatively small, we performed
+cross-validation by shifting the validation set 5 times to
+quantify the average validation cross-entropy loss and ac-
+curacy. We then used the neural network with the lowest
+cross-entropy loss across a range of models with differ-
+ent numbers of hidden layers and subsets of features to
+predict the conservation status of all orchid species at
+2 levels: binary (possibly threatened vs. not threatened)
+and detailed (CR, EN, VU, NT, and LC). See Supporting
+Information for details on the network architecture and
+training. We combined the IUC-NN assessments with dis-
+tribution data from WCSP to show the number and pro-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors employ several strategies to handle randomness in their deep learning pipeline. Firstly, they use a fixed random seed value throughout their experiments to ensure reproducibility. Secondly, they perform cross-validation by shifting the validation set five times to quantify the average validation cross-entropy loss and accuracy. This helps them to evaluate the performance of their model more robustly and reduce the impact of any potential randomness. Lastly, they select the best performing model based on its cross-entropy loss across different feature sets and architectures, which further reduces the risk of overfitting due to random factors. Overall, these strategies help to mitigate the effects of randomness and improve the reliability of their results.

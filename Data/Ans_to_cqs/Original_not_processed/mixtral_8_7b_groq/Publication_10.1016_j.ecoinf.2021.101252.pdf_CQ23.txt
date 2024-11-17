@@ -1,0 +1,11 @@
+Answer:::
+
+Based on the provided context, the following measures were taken to ensure the generalizability of the deep learning model:
+
+First, the training and internal validation of deep learning models were conducted using a balanced dataset. This was achieved by randomly duplicating presence records and deleting absence records until a balance of approximately 50:50 was obtained. This balance was executed using the ROSE package for R, and it was applied to the datasets used for internal assessment of accuracy within the mcfly framework (At, Av, and Bt). Data partitioning was also performed to ensure that the data was split appropriately for training and validation purposes.
+
+Second, the AutoML procedure was used to generate a set of candidate models with architectures and hyperparameters selected at random from a prespecified range of values. This allowed for a diverse set of models to be considered, which increased the likelihood of identifying a model that would generalize well to new data. Each candidate model was trained using a small subset of the data during a small number of epochs. After training, the performance of the candidate models was compared using a left-out validation data set. The selected candidate model was then trained on the full training data. This process allowed for the identification of an optimal number of training epochs, which helped to avoid under- or overfitting of the model.
+
+Third, the accuracy of the candidate models was measured using the proportion of correctly classified cases. The accuracy of the selected models was measured using the area under the receiver operating characteristic curve (AUC). The use of AUC as a performance metric is advantageous because it provides a measure of the model's ability to distinguish between positive and negative classes, which is particularly useful when dealing with imbalanced datasets.
+
+In summary, the use of a balanced dataset, the AutoML procedure, and the AUC as a performance metric were the measures taken to ensure the generalizability of the deep learning model. These measures allowed for the identification of a diverse set of candidate models, the selection of a model that would generalize well to new data, and the evaluation of the model's ability to distinguish between positive and negative classes.

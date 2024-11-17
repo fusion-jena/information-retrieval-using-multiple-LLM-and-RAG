@@ -1,0 +1,220 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Supplementary materials
+
+Suppl. material 1: Notebook used to deﬁne and train the unstained/stained CNN.
+
+Authors:  Paul B. Frandsen, Abel Brown
+Data type:  Mathematica notebook
+Filename: stained_unstained_RGB256.nb - Download ﬁle (16.96 MB) 
+
+Suppl. material 2: Annotated notebook used to deﬁne and train the unstained/stained
+CNN.
+
+Authors:  Paul B. Frandsen, Abel Brown
+Data type:  PDF
+Filename: stained_unstained_RGB256.pdf - Download ﬁle (6.24 MB) 
+
+Suppl. material 3: Notebook used to deﬁne and train the clubmoss/spikemoss CNN.
+
+Authors:  Paul B. Frandsen, Abel Brown
+Data type:  Mathematica notebook
+Filename: clubmoss_spikemoss_RGB256.nb - Download ﬁle (5.81 MB) 
+
+ 
+ 
+ 
+ 
+ 
+ 
+Applications of deep convolutional neural networks to digitized natural ...
+
+9
+
+Suppl. material 4: Annotated notebook used to deﬁne and train the clubmoss/
+spikemoss CNN
+
+Authors:  Paul B. Frandsen, Abel Brown
+Data type:  PDF
+Filename: clubmoss_spikemoss_RGB256.pdf - Download ﬁle (2.68 MB)
+
+included two convolutional layers and two pooling layers (Table 2; https://doi.org/10.6084/
+m9.ﬁgshare.5501716). The code used to deﬁne and train these CNNs can be found in our
+Mathematica notebooks (Suppl. materials 1, 3, 2, 4).
+
+Table 1. 
+
+Constitutive layers and tensor/vector shapes for the unstained/stained CNN.
+
+Layer
+
+Input
+
+ConvolutionLayer
+
+BatchNormalizationLayer
+
+Ramp (ReLU)
+
+PoolingLayer
+
+ConvolutionLayer
+
+BatchNormalizationLayer
+
+Ramp (ReLU)
+
+PoolingLayer
+
+ConvolutionLayer
+
+BatchNormalizationLayer
+
+Ramp (ReLU)
+
+PoolingLayer
+
+Type
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+Shape
+
+3×256×256
+
+16×252×252
+
+16×252×252
+
+16×252×252
+
+16×126×126
+
+32×122×122
+
+32×122×122
+
+32×122×122
+
+32×61×61
+
+64×57×57
+
+64×57×57
+
+64×57×57
+
+64×28×28
+
+Applications of deep convolutional neural networks to digitized natural ...
+
+5
+
+ConvolutionLayer
+
+BatchNormalizationLayer
+
+Ramp (ReLU)
+
+PoolingLayer
+
+FlattenLayer
+
+DropoutLayer
+
+LinearLayer
+
+Ramp (ReLU)
+
+LinearLayer
+
+SoftmaxLayer
+
+Output
+
+Table 2. 
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+vector
+
+vector
+
+vector
+
+vector
+
+vector
+
+vector
+
+class
+
+48×26×26
+
+48×26×26
+
+48×26×26
+
+48×13×13
+
+8112
+
+8112
+
+CNNs   were   built   in   Mathematica   version   11.1   (Wolfram   Research   Inc.)   and   trained   on
+NVIDIA   K80   GPUs.   For   each   dataset   (stained/unstained   and   clubmoss/spikemoss),   we
+randomly partitioned the images into three non-overlapping sets each time before training
+the network: 70% were used for training the model; 20% were used for validation; and 10%
+were reserved as our test dataset (i.e., the images used to train the CNNs were not used to
+assess   their   accuracy).   We   resized   the   color   images   to   256×256   pixels,   creating   a
+3×256×256 tensor for our input layer (the ﬁrst dimension separated by RGB values), and
+explored the performance of a variety of CNNs for each dataset. For the stained/unstained
+dataset, the best CNN included four convolutional and four pooling layers (Table 1; https://
+doi.org/10.6084/m9.ﬁgshare.5501743). For the clubmoss/spikemoss dataset, the best CNN
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning models were trained using NVIDIA K80 GPUs. This information is mentioned in the text where it states, "CNNs were built in Mathematica version 11.1 (Wolfram Research Inc.) and trained on NVIDIA K80 GPUs." Therefore, the hardware resource used for training the deep learning model was NVIDIA K80 GPUs.

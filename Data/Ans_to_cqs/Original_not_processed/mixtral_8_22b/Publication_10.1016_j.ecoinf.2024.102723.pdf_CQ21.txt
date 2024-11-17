@@ -1,0 +1,143 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+used to control the training process through an early stopping criterion.
+The reference metric is the Mean Squared Error (MSE). In order to have a
+reliable estimate of the MSE on the test set, we performed a 10-fold Cross
+Validation. In addition, given that our models are probabilistic in nature,
+each evaluation predicts the output per test point through 1000 runs.
+Considering the problem addressed and computational resources, this
+approach ensures an accurate reconstruction of the predicted output
+distribution since it guarantees a robust estimation process with a 95%
+confidence interval and a precision level of 5% (Ghosh et al., 2006). The
+result of the prediction of a single test point is shown in Fig. 5; as stated
+in the previous section, the uncertainty range of the MCD approach is
+wider than that of the VBI approach. Fig. 6 shows the performance of the
+two different architectures during the prediction phase on the whole test
+
+Algorithm 1. MCD model
+
+Algorithm 2. VBI model
+
+A. Nappa et al.
+
+are shown in Fig. 3.
+
+3.1. Neural networks settings
+
+w/o
+round
+
+46 ± 8
+53 ± 8
+50 ± 7
+51 ± 10
+49 ± 6
+48 ± 7
+51 ± 5
+59 ± 14
+59 ± 11
+67 ± 13
+67 ± 9
+69 ± 6
+71 ± 12
+64 ± 5
+69 ± 8
+
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+
+Second Method
+
+MCD
+
+VBI
+
+41 ± 4
+44 ± 4
+42 ± 4
+43 ± 2
+45 ± 5
+46 ± 4
+50 ± 4
+51 ± 3
+52 ± 5
+59 ± 7
+60 ± 8
+62 ± 9
+69 ± 7
+68 ± 6
+69 ± 3
+
+38 ± 3
+40 ± 3
+37 ± 3
+41 ± 4
+43 ± 5
+43 ± 8
+46 ± 7
+47 ± 6
+49 ± 7
+55 ± 6
+62 ± 8
+68 ± 6
+72 ± 7
+70 ± 6
+74 ± 6
+
+• Second method: use of BBCH_res values during the training phase
+(standardization is applied here too); the output is converted to the
+BBCH scale through a dictionary; in this case, in order to use the
+dictionary, it is necessary to apply the rounding function on the
+
+output before converting it to the BBCH scale, so it is not possible to
+evaluate the results with and without rounding separately.
+
+Before proceeding, an important observation must be made: in order
+to use the dictionary in the second method, it is necessary to ensure that
+the network outputs are consistent with the keys of the dictionary itself;
+therefore negative values must be forced to zero, while values that
+exceed the upper bound of the keys, i.e. 91, must be forced to 91.
+Furthermore, aiming to have a legitimate comparison between the two
+methods, these corrections are also made during the execution of the
+first method (even if not strictly necessary).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, there are several postprocessing steps involved depending on the specific requirements of the task. However, based on the provided context, the following postprocessing steps can be identified:
+
+1. Standardization: Before using the BBCH\_res values during the training phase, standardization is applied. This step involves transforming the data such that its distribution approximates a normal distribution with mean=0 and variance=1.
+
+2. Output Conversion: After obtaining the output from the trained model, it needs to be converted to the BBCH scale through a dictionary. This requires applying the rounding function on the output before conversion.
+
+3. Correction for Dictionary Consistency: To ensure consistency with the keys of the dictionary used for output conversion, negative values are forced to zero, and values exceeding the upper bound of the keys are forced to 91. These corrections are applied even when they may not be strictly necessary for the first method.
+
+4. Evaluation Metric Calculation: The Mean Squared Error (MSE) is used as the reference metric to evaluate the performance of the models. A reliable estimate of the MSE on the test set is obtained by performing a 10-fold cross validation. Additionally, each evaluation predicts the output per test point through 1000 runs due to the probabilistic nature of the models.
+
+5. Uncertainty Range Comparison: The uncertainty range of the Monte Carlo Dropout (MCD) approach is compared with that of the Variational Bayesian Inference (VBI) approach. This comparison helps assess the confidence intervals and precision levels of the predictions.
+
+These postprocessing steps contribute to ensuring accurate reconstruction of the predicted output distribution, providing a robust estimation process with a 95% confidence interval and a precision level of 5%.

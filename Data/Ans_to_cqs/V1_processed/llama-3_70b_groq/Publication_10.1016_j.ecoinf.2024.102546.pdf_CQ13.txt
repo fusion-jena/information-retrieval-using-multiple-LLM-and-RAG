@@ -1,0 +1,15 @@
+The hyperparameters used in the deep learning models are provided in Table 2 of the context. Specifically, the hyperparameters for the three detection models (YOLOX, YOLOv8, and I3Net) are as follows:
+
+* Initial learning rate: 0.01 for YOLOX and YOLOv8, and 0.001 for I3Net (with a reinitialization to 0.01 later in training)
+* Learning rate schedule: Warm up + cosine decay for all models
+* NMS threshold: 0.45 for YOLOX, 0.7 for YOLOv8, and not specified for I3Net
+* Confidence threshold: 0.25 for YOLOX and YOLOv8, and not specified for I3Net
+* Weight decay: 0.0005 for all models
+* Image size: 800 for all models
+* Batch size: 8 for all models
+* Optimizer: SGD for all models
+* Classification loss: BCE for all models
+* Location loss: IoU for all models
+* Data augmentation: Color jitter + mosaic for all models, with additional augmentations (VFL, DFL, and CIoU) for YOLOX and YOLOv8.
+
+Note that some hyperparameters are not specified for I3Net, as they may be specific to the domain adaptation task or not relevant for the particular experiment.

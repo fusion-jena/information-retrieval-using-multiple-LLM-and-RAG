@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.5. Model training 
+
+  To ensure the accuracy of the experimental results and obtain the best classification, the exact 
+parameters  and  functions  as  well  as  classifier  built-in  the  six  neural  network  models  are 
+designed as follows: 
+
+  The resolution of input data is 224×224 with Red Green Blue (RGB) format, and the inputs 
+
+are batch normalized before training; 
+
+  Batch size is applied which is set to 30 when training, but images are tested one by one; 
+  An  optimized  rectified  linear  activation,  Leaky  ReLU,  was  introduced  into  models  after 
+
+convolution or concatenate layer; 
+
+In MobileNet, width multiplier is 1.2, resolution multiplier is 1; 
+
+  Learning rate and dropout rate adopt same value 0.001, bias value is 0;  
+ 
+  For the neural networks with lower depth, the higher training epochs are, the higher probability 
+of over fitting is. Therefor models in which less than 100 layers adhibit raw data 60 epochs, 
+otherwise executed 80 epochs;
+
+  A fully connected layer with softmax activation has 28 nodes, which is regarded as classifier 
+
+while training but removed when inference. 
+
+2.6. Computational resources and environment 
+In this study, the operation system is CentOS Linux release 7.7.1908 (Core) with 32 CPUs and each 
+CPU has 64 processors. The develop environment built-up is Python(version 3.6.2) packaged by Conda-
+forge which compiled with GCC (version4.8.2,20140120). Tool packages used in virtual environment 
+are the TensorFlow (version 1.12.0) and the Numpy (version 1.19.2).
+
+AlexNet: In 2012, Krizhevsky et al.[28] constructed a model with more convolutional layers than 
+LeNet for better high-dimensional feature extraction, and then three fully connected layers are used after 
+flatten layer to pool channel information. This model employed rectified linear activation (ReLU) as 
+activation  function  to  speed  up  training  process,  which  partially  solved  the  vanishing  gradient  and 
+exploding problem. Features of each layer in AlexNet were depicted in Figure 2. Feature visualization 
+of  AlexNet  layer  by  layer.  The  annotations  above  are  defined  as  Name𝑑@k×k,  and  the  annotations 
+below  are  denominated  in  form  of  Operation𝑑@r×r.  Where d , k and r is  feature  depth,  convolution 
+kernel and image resolution, respectively..
+
+Figure 2. Feature visualization of AlexNet layer by layer. The annotations above are defined as 
+Name𝑑@k×k, and the annotations below are denominated in form of Operation𝑑@r×r. Where d , k 
+and r is feature depth, convolution kernel and image resolution, respectively. 
+
+ResNet: In 2016, He et al.[30] proposed a short connection from low layer to the second higher layer, 
+which  increases  network  layers  but  avoids  degradation  at  the  same  time.  The  residual  block  idea  of 
+ResNet significantly speeds up the learning process between input data and output data space, which 
+makes it easily extended to very deeper learning layers (could be thousands of layers).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit details about any specific postprocessing steps involved after the model training. However, based on common practices in machine learning and deep learning, some possible postprocessing steps could include:
+
+1. Evaluation metrics: After training the models, various evaluation metrics can be calculated to assess their performance. These may include accuracy, precision, recall, F1 score, ROC curves, etc. Depending on the task and dataset, different metrics might be more relevant.
+
+2. Confusion matrix: A confusion matrix is often used to evaluate the performance of a classification model. It provides a summary of prediction results on a classification problem. Each row of the matrix represents the instances in an actual class while each column represents the instances in a predicted class.
+
+3. Visualizations: Postprocessing may also involve creating visual representations of the trained models or their outputs. Examples include saliency maps, which highlight areas of an input image that most influence the model's predictions, or t-SNE plots, which help visualize high-dimensional data in two dimensions.
+
+4. Ensemble methods: Sometimes, multiple models are combined using ensemble methods like bagging, boosting, or stacking to improve overall performance. This would require additional postprocessing steps to combine the individual models' outputs.
+
+However, without further context or information regarding the specific application or goals of these models, it is difficult to determine exactly what postprocessing steps would be necessary or appropriate.

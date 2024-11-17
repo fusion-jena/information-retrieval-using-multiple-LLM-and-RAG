@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Wav2vec is one of the latest state-of-art models for Automatic Speech 
+Recognition  and  other  audio-related  problems  (Boigne  et  al.,  2020) 
+(Shibano et al., 2021). The architecture of the Wav2vec is based on the 
+transformer's  encoder,  with  a  training  objective  like  BERT's  masked 
+language modelling objective but adapted for speech instead of text. The 
+self-supervised  way  of  training  allows  Wav2vec  to  pre-train  on  unla-
+belled data, which is more accessible (Hendrycks et al., 2019). Later, the 
+model can be fine-tuned on a particular dataset for a specific purpose. 
+This  approach  shows  remarkable  improvement  in  the  model's  perfor-
+mance, especially if the dataset size is very small with label.
+
+EcologicalInformatics80(2024)1024714B. Swaminathan et al.                                                                                                                                                                                                                         
+
+network and outputs the probabilities of each audio sample belonging to 
+different bird species. Then cross-entropy loss is back propagated, and 
+weights of both the feed-forward neural network block and the wav2vec 
+network are fine-tuned to understand the unique characteristics of bird 
+calls of different species. Fig. 5 depicts the overall training process of the 
+proposed methodology. 
+
+3.1. Feature encoder
+
+As machine learning continues to advance, the process of identifying 
+bird species can be automated by transferring the knowledge of experts 
+in this field to a learning model. A recent study has shown that deep 
+learning is an effective method for classifying birds based on their calls, 
+such as processing large amounts of audio data, which allows it to detect 
+subtle  differences  between  bird's  calls  (Michaud  et  al.,  2023).  Addi-
+tionally, deep learning models can be trained on a wide variety of audio 
+data,  allowing  them  to  identify  even  rare  ecological  moment  of  bird 
+species (Akbal et al., 2022). Transfer learning is an important tool in 
+machine learning, allowing models to leverage the knowledge learned 
+from  one  domain  and  apply  it  to  another.  Transfer  learning  is  very 
+helpful when there is insufficient data to fully train a model, such as 
+recognizing  uncommon  bird  species  (Huang  and  Basanta,  2021).
+
+3.1. Feature encoder 
+
+The feature encoder of the pre-trained Wav2vec model reduces the 
+dimensionality of the audio data, converting the raw waveform into a 
+sequence of feature vectors Z every 20 milliseconds. The main compo-
+nent of the feature encoder's architecture is seven layers of a 1D con-
+volutional neural network with 512 channels at each layer. The size of 
+the kernel and strides decreases as the layer progresses in the network. 
+The waveform is normalized before passing through the convolutional 
+layer, followed  by  layer  normalization and  GELU  activation function. 
+Finally,  latent  feature  vectors  represent  the  latent  feature  of  bird 
+vocalization.  Thus,  it  helps  the  model  to  identify  and  understand  the 
+sequential information in the vocalization audio of multi-bird species. 
+
+3.2. Context network
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Where is the code repository of the deep learning pipeline available (e.g., GitHub, GitLab, BitBucket)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, the given context does not provide any information about where the code repository of the deep learning pipeline is available. Therefore, I cannot determine whether the code repository is available on platforms such as GitHub, GitLab, or BitBucket. Please refer to additional sources or contact the authors directly for further details regarding the availability of the code repository.

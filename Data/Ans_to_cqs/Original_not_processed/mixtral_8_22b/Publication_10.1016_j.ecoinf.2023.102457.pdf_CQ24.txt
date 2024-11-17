@@ -1,0 +1,59 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Fig. 4. Mean and 95% confidence intervals of classification accuracy over 20 random iterations for each of the five feature types as a function of distance. Feature 
+embeddings  from  the  BirdNET  algorithm  performed  comparably  to  MFCCs  for  calls  recorded  at  closer  distances,  whereas  embeddings  from  the  VGGish  model, 
+Wav2Vec2 model, and the acoustic indices performed worse. The lack of visible confidence intervals for some points indicates a very narrow confidence interval. 
+
+Fig. 5. Mean and 95% confidence intervals of Normalized Mutual Information (NMI) for the five feature types as a function of distance for affinity propagation 
+clustering (A) and HDBSCAN (B). The lack of visible confidence intervals for some points indicates a very narrow confidence interval. 
+
+Successful clustering was obtained through the use of MFCCs as a feature 
+extraction technique, and HDBSCAN for unsupervised classification at 
+distances ≤150 m (Fig. 6).
+
+The second approach we used to extract embeddings was from the 
+pre-trained  BirdNET  model.  The  original  version  of  the  model  was
+
+hidden states and taking the mean and standard deviation for each 1-s 
+clip, which resulted in a feature vector of length 40.
+
+3.4. Supervised classification 
+
+We used random forest, a supervised classifier, implemented in the 
+‘randomForest’ R package to classify the female gibbon calls (Liaw and 
+Wiener,  2001);  and  therefore,  test  the  efficiency  of  MFCCs,  BirdNET, 
+VGGish, Wav2Vec2, and acoustic indices as feature extraction methods 
+for supervised classification of gibbon individuals. For each recorder (e. 
+
+EcologicalInformatics80(2024)1024575M.W. Lakdari et al.                                                                                                                                                                                                                            
+
+g., distance category) we randomly divided our data into an 80/20 split 
+of training and test sets over 20 iterations of cross-validation. We report 
+the classification accuracy, mean, and standard deviation for each of the 
+methods to compare their ability to classify great calls.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there is no direct information about handling randomness in the deep learning pipeline, such as managing random seed values. However, it can be inferred that the authors have taken steps to address variability in their results by using multiple iterations and reporting average performance metrics with confidence intervals. Specifically, they mention using 20 random iterations for each feature type and distance category when evaluating classification accuracy. This suggests that they may have incorporated some form of randomization or shuffling in their dataset during these iterations. Additionally, they report the mean and standard deviation of classification accuracy across these iterations, providing insight into the stability and consistency of their models' performance. While this does not directly address the management of random seeds, it demonstrates an awareness of the need to account for variability in deep learning pipelines.
+
+Answer:::
+
+From the provided context, it appears that the researchers did not explicitly discuss strategies for handling randomness in the deep learning pipeline, such as managing random seed values. However, they do employ techniques to mitigate the effects of randomness and improve the robustness of their findings.
+
+One strategy used is the application of multiple iterations to evaluate the performance of different feature extraction methods. In particular, the study mentions using 20 random iterations for each feature type and distance category when assessing classification accuracy. By repeating the evaluation process several times, the researchers can obtain more reliable estimates of the models' performance and reduce the impact of any single iteration being influenced by specific random factors.
+
+Additionally, the study reports the mean and standard deviation of classification accuracy across these iterations. This provides valuable insights into the stability and consistency of the models' performance, allowing the researchers to gauge how much variation exists due to random factors. A smaller standard deviation would indicate that the models perform consistently well across different iterations, while a larger standard deviation might suggest greater sensitivity to random factors.
+
+Although the context does not provide explicit details on managing random seed values, the described methodology implies that the researchers were aware of the importance of accounting for randomness in deep learning pipelines. They demonstrate this by incorporating multiple iterations and reporting aggregate performance metrics, which help ensure the reliability and validity of their findings.

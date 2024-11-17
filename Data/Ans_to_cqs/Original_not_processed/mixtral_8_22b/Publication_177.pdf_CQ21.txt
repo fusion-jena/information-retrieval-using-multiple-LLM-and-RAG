@@ -1,0 +1,222 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+TABLE I.  
+
+PERFORMANCE METRICS FOR UBD_45 DATASET 
+
+Model 
+
+Performance Metrics 
+
+Sensitivity 
+
+Specificity 
+
+Precision 
+
+F1-Score 
+
+InceptionResnet2 
+
+95.93 
+
+Resnet50 
+
+Xception 
+
+Inceptionv3 
+
+Mobilenetv2 
+
+Googlenet 
+
+95.93 
+
+94.44 
+
+91.85 
+
+92.04 
+
+85.00 
+
+99.92 
+
+99.90 
+
+99.87 
+
+99.85 
+
+99.83 
+
+99.62 
+
+97.65 
+
+97.20 
+
+95.90 
+
+94.73 
+
+95.16 
+
+86.15 
+
+96.78 
+
+96.56 
+
+95.16 
+
+93.27 
+
+93.57 
+
+85.57 
+
+TABLE II.  
+
+PERFORMANCE METRICS FOR VP_200 DATASET 
+
+Model 
+
+Performance Metrics 
+
+Sensitivity 
+
+Specificity 
+
+Precision 
+
+F1-Score 
+
+InceptionResnet2 
+
+91.20 
+
+Resnet50 
+
+Xception 
+
+Inceptionv3 
+
+Mobilenetv2 
+
+Googlenet 
+
+88.68 
+
+91.80 
+
+88.65 
+
+85.58 
+
+83.28 
+
+99.96 
+
+99.94 
+
+99.96 
+
+99.94 
+
+99.93 
+
+99.92 
+
+91.92 
+
+89.46 
+
+92.83 
+
+90.47 
+
+87.20 
+
+84.90 
+
+91.56 
+
+89.07 
+
+92.31 
+
+89.55 
+
+86.38 
+
+84.08
+
+𝐹1 − 𝑠𝑐𝑜𝑟𝑒 =  
+
+        (5) 
+
+III.  RESULTS AND DISCUSSION 
+The  implementation  of  models  and  ensemble  learning 
+methods was performed using the MATLAB R2021a. Based 
+on the transfer learning approach, the individual models were 
+trained  using  the  six  pre-trained  networks  for  each  dataset.  
+The weights for the first 10 layers for each pre-trained network 
+were  frozen  and  the  optimization  of  hyperparameters  was 
+performed using the Bayesian optimization. The classification 
+accuracies  for  validation  and  testing  data  for  UBD_45  and 
+VP_200  datasets  are  presented  in  Fig.  4  and  Fig.  5, 
+respectively.  For  the  UBD_45  dataset,  all  models  perform 
+well with a testing accuracy above 90% except for GoogleNet. 
+
+C.  Network Training 
+
+𝑃𝑟𝑒𝑐𝑖𝑠𝑖𝑜𝑛 =  
+
+                                (3) 
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on September 08,2024 at 16:24:56 UTC from IEEE Xplore.  Restrictions apply.
+
+The  selected  network  models  were  initialized  with  pre-
+trained ImageNet weights and then fine-tuned to our datasets. 
+The performance of a deep neural network for a dataset highly 
+depends on network hyperparameters. The selection and fine-
+tuning of  optimized hyperparameters  is  generally  a  difficult 
+and  time-consuming  task.  Instead  of  manually  selecting  the 
+hyperparameters, we employed Bayesian optimization to find 
+their optimal values for each of the six models.  A Gaussian 
+process  model  of  the  objective  function  is  used  by  the 
+Bayesian optimization technique.  Different variables can be 
+optimized using this technique such as network section depth, 
+batch size, initial learning rate, momentum, and regularization 
+strength. For this study, we optimized the network for batch 
+size  (between  1  and  32)  and  initial  learning  rate  (between 
+1×10-4  and  1×10-2).  The  optimization  was  performed  by
+
+minimizing  the  loss  on  the  validation  dataset  to  perform 
+objective function evaluations. The models were trained for a 
+maximum of 10 epochs using the stochastic gradient descent 
+with  a  momentum  (‘sgdm’)  optimizer.  Thus,  a  total  of  six
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training process, several postprocessing steps can be taken to evaluate the performance of the models and gain insights into their predictions. Some common postprocessing steps include:
+
+1. Calculating Performance Metrics: After training the models, various performance metrics can be calculated to assess how well they have learned to classify images. These metrics may include sensitivity, specificity, precision, F1-score, and accuracy. In Tables I and II, these metrics are reported for different models applied to two datasets, namely UBD\_45 and VP\_200.
+2. Creating Confusion Matrix: Another useful tool for evaluating the performance of a model is creating a confusion matrix. This matrix shows the number of true positives, false negatives, false positives, and true negatives predicted by the model. It provides insight into which classes the model has difficulty distinguishing between.
+3. Generating Saliency Maps: To understand what features the model is focusing on when making its predictions, saliency maps can be generated. These maps highlight the regions of an image that contribute most significantly to the final prediction made by the model. They provide valuable information about the decision-making process of the model.
+4. Visualizing Predictions: Finally, visualizations of the predictions made by the model can also be helpful in understanding its behavior. By plotting the output probabilities or activations of certain neurons, one can see how confidently the model predicts each class and identify any patterns or biases in its predictions.
+
+These postprocessing steps help researchers better understand the strengths and weaknesses of their models and improve them further.

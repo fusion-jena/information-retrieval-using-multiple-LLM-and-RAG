@@ -1,0 +1,81 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+5.2. Deep GVI learning 
+
+In  GreenCam,  we  measure  photo  GVI  by  SegFormer  (Xie  et  al., 
+2021),  a  state-of-the-art  Transformer-based  model  for  semantic  seg-
+mentation. As shown in Fig. 12, SegFormer follows the encoder-decoder 
+structure, which combines a Transformer-based encoder (i.e., MiT) with 
+a  lightweight  decoder  (i.e.,  ALL-MLP)  that  is  composed  entirely  of 
+multilayer perceptron (MLP) blocks.
+
+Caesar, H., Uijlings, J., Ferrari, V., 2018. Coco-stuff: Thing and stuff classes in context. In: 
+
+Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 
+pp. 1209–1218. 
+
+Cai, B.Y., Li, X., Seiferling, I., Ratti, C., 2018. Treepedia 2.0: applying deep learning for 
+large-scale quantification of urban tree cover. In: 2018 IEEE International Congress 
+on Big Data (BigData Congress). IEEE, pp. 49–56. 
+
+Ca˜nas, I., Ayuga, E., Ayuga, F., 2009. A contribution to the assessment of scenic quality of 
+landscapes based on preferences expressed by the public. Land Use Policy 26, 
+1173–1181. 
+
+Chen, Z., Xu, B., Gao, B., 2015. Assessing visual green effects of individual urban trees 
+
+using airborne lidar data. Sci. Total Environ. 536, 232–244. 
+
+Chen, L.-C., Zhu, Y., Papandreou, G., Schroff, F., Adam, H., 2018. Encoder-decoder with 
+
+atrous separable convolution for semantic image segmentation. In: Proceedings of 
+the European Conference on Computer Vision (ECCV).
+
+As a matter of fact, any semantic models of image can be incorpo-
+rated into GreenCam's framework as long as they can be deployed and 
+run on smartphone. We have evaluated FCN (Long et al., 2015), HRNet 
+(Wang et al., 2020), PSPNet (Zhao et al., 2017), and DeepLabV3+ (Chen 
+et  al.,  2018)  (which  are  all  widely-used  segmenters)  on  our  UGE-D 
+dataset,  compared  them  with  SegFormer,  and  found  that  SegFormer 
+outperforms those four models in terms of mIOU, accuracy and F1-score. 
+Table  1  tells  the  details.  The  results  indicate  that  SegFormer  demon-
+strates stronger segmentation performance across different categories. 
+Despite  being  slightly  inferior  in  inference  time  and  parameters 
+compared  to  models  with  MobileNetV2  (Sandler  et  al.,  2018),  when 
+considering  the  segmentation  performance,  SegFormer  remains  the 
+model  with  the  strongest  overall  performance.  Table  2  presents  the
+
+5. Learning GVI from photo 
+
+In  this  section,  we  first  introduce  a  dataset  specially  designed  to 
+facilitate GVI extraction and then, employ SegFormer (Xie et al., 2021), 
+a  deep-learning  model  for  semantic  segmentation,  to  complete  GVI 
+learning. 
+
+5.1. Construction of dataset 
+
+We propose a new dataset, called UGE-D (Urban Green Extraction 
+Dataset), to train the GVI-learning model. For the semantic segmenta-
+tion  tasks  in  urban  scenarios,  a  number  of  datasets  with  annotations 
+have  been  proposed.  COCO-Stuff  (Caesar  et  al.,  2018)  is  a  dataset 
+including 164 K well-annotated images. Cityscapes (Cordts et al., 2016) 
+is a benchmark dataset for the semantic understanding of urban street 
+scenes. AED20K (Zhou et al., 2017), on the other hand, is a large-scale 
+dataset for general scene understanding, and it consists of 150 seman-
+tic categories (or classes) such as car, person, sky, and so forth. However,
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the purpose of the deep learning model (e.g., classification, segmentation, detection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The purpose of the deep learning model used in GreenCam is semantic segmentation. This model, known as SegFormer, is employed to extract Green View Index (GVI) from photos. It follows an encoder-decoder structure, combining a Transformer-based encoder with a lightweight decoder made up entirely of multilayer perceptron (MLP) blocks. The goal is to accurately identify and classify different elements within an image, specifically focusing on urban green spaces.

@@ -1,0 +1,11 @@
+Answer: The regularization methods used to prevent overfitting in the deep learning pipeline include dropout and weight decay (L2 regularization).
+
+Dropout is a regularization technique that prevents overfitting by randomly dropping out neurons during training, which helps to break up co-adaptations of neurons and improves the model's ability to generalize. Dropout is applied to the fully connected layers, and the probability of retaining a neuron is denoted as the dropout rate. In the context provided, a dropout layer with a dropout rate of 0.2 was added to the model to reduce overfitting.
+
+Weight decay, also known as L2 regularization, is a method that reduces the complexity of the model by adding a penalty term to the loss function, which discourages large weights and promotes smaller weights. This penalty term is the sum of the squares of all the model's weights multiplied by a regularization coefficient. By adding this penalty term, the model is encouraged to learn a simpler and more generalizable representation of the data.
+
+In the context provided, the deep learning pipeline for leaf classification uses transfer learning from pre-trained models, specifically MobileNetV2 and MobileNetV3. The intermediate layer of these models is selected for feature extraction, and the bottleneck features are used as input to the top classifier softmax layer. To prevent overfitting, a dropout layer is added after the feature extractor, and the model is optimized using the Adam optimizer for MobileNetV2 and gradient descent for MobileNetV3.
+
+It is worth noting that the use of pre-trained models and transfer learning is another way to prevent overfitting, especially when the amount of labeled data is limited. By using pre-trained models, the deep learning pipeline can leverage the knowledge learned from large-scale datasets and apply it to the new task. This reduces the need for a large amount of labeled data and helps to prevent overfitting.
+
+In summary, the regularization methods used to prevent overfitting in the deep learning pipeline include dropout and weight decay (L2 regularization). Dropout is applied to the fully connected layers, and weight decay is added to the loss function as a penalty term. Transfer learning from pre-trained models is another way to prevent overfitting, especially when the amount of labeled data is limited.

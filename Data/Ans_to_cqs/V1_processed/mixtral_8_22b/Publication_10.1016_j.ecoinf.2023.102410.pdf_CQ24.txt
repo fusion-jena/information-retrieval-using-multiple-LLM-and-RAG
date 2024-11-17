@@ -1,0 +1,9 @@
+Randomness is often introduced into the deep learning pipeline through various means such as weight initialization, dropout regularization, and shuffling training examples. To handle this randomness, several strategies can be employed:
+
+1. Fixed Random Seeds: One common strategy is to use fixed random seeds for all operations involving randomness. This ensures reproducibility by making sure that every time the code runs, it produces the same results. However, this might not always be desirable if we want our model to generalize well on unseen data.
+
+2. Multiple Runs with Different Seeds: Another approach is to run the experiment multiple times with different random seeds and then average or select the best performing models based on validation metrics. This helps in capturing the variance due to randomness and provides a more robust estimate of performance.
+
+3. Cross-Validation: In addition to using different random seeds, cross-validation techniques like k-fold cross-validation can also help reduce overfitting caused by randomness. By splitting the dataset into 'k' folds and iteratively training the model on 'k-1' folds while testing on the remaining fold, we get a better understanding of how well our model will perform on new data.
+
+4. Ensemble Methods: Combining predictions from multiple models trained with different initializations or architectures can further improve performance and provide uncertainty estimates. Techniques like bagging, boosting, and stacking fall under ensemble methods.

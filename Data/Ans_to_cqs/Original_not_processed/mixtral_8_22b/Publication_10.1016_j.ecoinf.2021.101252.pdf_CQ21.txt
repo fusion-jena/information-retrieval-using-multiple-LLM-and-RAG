@@ -1,0 +1,152 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+time, from the onset of candidate model training to the 72nd training 
+epoch of the selected model, took 26 min on a desktop PC. On the high- 
+end workstation, a distinct modelling event took 3 min.
+
+To identify an ‘optimal’ number of training epochs, we examined the 
+progression of validation performance (Bv). Models can be trained for an 
+infinite number of epochs, so here we stopped training if no increase in 
+validation performance was observed after 25 epochs (other thresholds 
+could be considered, according to time resources available). Finally, the 
+model trained with the number of epochs showing highest AUC in pre-
+dicting Bv was used to classify the test data (data set T), with perfor-
+mance measured using AUC. 
+
+We recorded processing time of all models from the onset of training 
+of candidate models to the last training epoch evaluated for the selected 
+model. This was done on two distinct systems: a ‘desktop PC’ with an
+
+Table 1 
+Type of architecture and accuracy of candidate models and predictive performance of selected models (bold). The accuracy of candidate models was measured using 
+the proportion of correctly classified cases. The accuracy of selected models was measured using the area under the receiver operating characteristic curve (AUC).  
+
+Candidate 
+model 
+
+Architecture 
+
+Accuracy of 
+candidate 
+models (% 
+correct) 
+
+AUC of 
+selected 
+model 
+
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+
+Case study 1 
+
+ResNet 
+InceptionTime 
+LSTM 
+CNN 
+ResNet 
+LSTM 
+InceptionTime 
+CNN 
+CNN 
+ResNet 
+InceptionTime 
+LSTM 
+ResNet 
+CNN 
+InceptionTime 
+LSTM 
+CNN 
+InceptionTime 
+LSTM 
+ResNet 
+
+0.32  
+0.66  
+0.31  
+0.7  
+0.46  
+0.32  
+0.57  
+0.68  
+0.39  
+0.32  
+0.32  
+0.39  
+0.32  
+0.49  
+0.85 
+0.39  
+0.6  
+0.79  
+0.36  
+0.42  
+
+0.96 
+
+AUC of 
+selected 
+model  
+
+0.91 
+
+Architecture 
+
+Case study 2
+
+model.  A  model  trained  too  few  epochs  will  not  capture  all  relevant 
+patterns in the data, reducing predictive performance. A model trained 
+for an excessive number of epochs might overfit, reducing its generality 
+and ability to classify new data. There is no definitive way to identify an 
+optimal  number  of  training  epochs,  but  one  practical  approach  is 
+through  monitoring  the  model’s  validation  performance  (i.e.,  using 
+holdout  data  partition  Bv;  Fig.  2).  The  ‘optimal’  number  of  training 
+epochs is the one that provides the best validation performance. Finally, 
+the performance of the model having an ‘optimal’  number of training 
+epochs is evaluated using a ‘final’ test data set (T; Fig. 2), providing the 
+best estimate of the predictive performance of the model.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: After the model training process, several postprocessing steps can be performed depending on the specific requirements of the task or project. Some common postprocessing steps include:
+
+1. Model evaluation metrics: Calculating various evaluation metrics such as accuracy, precision, recall, F1 score, ROC curves, etc., to assess the performance of the model. In this case, the authors use the Area Under Curve (AUC) metric to evaluate their models.
+
+2. Hyperparameter tuning: Adjusting hyperparameters like learning rate, batch size, regularization parameters, etc., based on the results obtained during the initial training phase.
+
+3. Early stopping: Monitoring the validation loss or other metrics during training and halting the training process when there is no further improvement in these metrics. For example, the authors stop training if no increase in validation performance is observed after 25 epochs.
+
+4. Ensemble methods: Combining multiple models to improve overall performance by averaging predictions or using more complex ensemble techniques like stacking or boosting.
+
+5. Visualizing results: Creating visualizations like confusion matrices, ROC curves, saliency maps, etc., to better understand the strengths and weaknesses of the model. However, it seems that the authors did not explicitly mention any visualization techniques in the given context.
+
+6. Deployment: Once satisfied with the model's performance, deploying it into production environments where it can be integrated with existing applications or services.

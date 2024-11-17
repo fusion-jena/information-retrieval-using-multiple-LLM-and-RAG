@@ -1,0 +1,5 @@
+The strategy implemented to monitor the model performance during training involves a repeated nested k-fold cross-validation approach. This approach ensures accuracy and reliability of results for all machine learning models developed.
+
+Initially, a 10 k-fold cross-validation is applied to divide the data into holdout data and data for model development. Following this, a 5 k-fold cross-validation is utilized within the first fold to minimize the bias caused by tuning of hyperparameters on training results.
+
+The training performance is determined based on the inner cross-validated ensemble, while the testing performance is established by choosing the best set of hyperparameters from the complete training set to forecast on the holdout data. To further diminish any potential bias or variance related to random sampling, this process is executed 15 times for every distinct model.

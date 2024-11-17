@@ -1,0 +1,96 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.2. Model fine-tuning 
+
+To  fine-tune  the  base  model  with  Gulf  of  Mexico  data  the  feature 
+extractor remains frozen. Models are trained with the same parameters 
+as the base model but we use a cyclical learning rate of 0.0004 and is set 
+to run for 50 epochs, with early stopping set to deploy if the validation 
+loss does not improve within 10 epochs. A dropout rate of 0.2 is used 
+during  fine-tuning,  and  DropConnect  is  employed.  Drop  out  layers 
+randomly  discard  the  output  of  the  hidden  nodes  during  training, 
+DropConnect randomly discards the input of the hidden layer (Sun et al., 
+2022). 
+
+2.2.1. Data acquisition
+
+Fig. 3. Experimental design. a) A training set is developed by manually labelling 3 s frames of PAM data collected on December 3rd 2019 in the Gulf of Mexico. The 
+training set is amplified using data augmentation to create 600 frames per class. Three-channel RGB stacked spectrograms are produced per frame. A randomly 
+sampled training set is computed per experimental batch size; 50, 100, 200, 300 & 500 frames, repeated five times per batch size. Similarly, a validation set of 100 
+frames is extracted from the randomly sampled pool. An ambient only experimental batch is randomly sampled, taking 500 ambient frames from the larger pool. The 
+base model is fine-tuned on each individual training set. b) A comparison of the mean pixel intensity of 100 randomly sampled spectrograms per class, compared 
+between the base model and the Gulf of Mexico training sets. The base model mean per class is marked with a dotted line, demonstrating the intensity shift present
+
+2.1.1. Experimental design 
+
+To evaluate the effect of local training data on model performance 
+we  fine-tune  a  base  model  with  randomly  pooled  training  sets  of 
+increasing size (sets of 50, 100, 200, 300 and 500- frames) from the Gulf 
+of Mexico acoustic data collected December 3rd 2019 (Fig. 3). An extra 
+training set is considered consisting of 500 frames of randomly sampled 
+ambient noise from December 3rd 2019. 
+
+The models are validated during training by combining the original 
+base model validation set (Table 1) with 100 frames per class from the 
+labelled December 3rd 2019 training set, randomly pooled per experi-
+ment. In this way the model’s performance is assessed across both en-
+vironments simultaneously(Fig. 4). 
+
+2.2. Model fine-tuning
+
+C:  30th  December  2019  and  Day  D:  4th  January  2020,  Table  2.  The 
+minimum time between test datasets is 4 days. Each 24-h period of PAM 
+data equates to 28,800 frames, a total of 115,200 frames for the four 
+days (Table 2). In this dataset the delphinid tonal class is least repre-
+sented, accounting for only 0.6% of the frames. 
+
+2.4.1. Model evaluation 
+
+Each fine-tuned model’s performance was evaluated using Precision 
+(P),  Recall  (R)  and  Accuracy  (A),  (Mesaros  et  al.,  2016).  These  are 
+calculated based on the number of true and false positive detections, NTP 
+and NFP, along with the number of true and false negative detections, 
+NTN and NTP: 
+
+P =
+
+NTP
+NTP + NFP
+
+R =
+
+NTP
+NTP + NFN
+
+,
+
+A =
+
+NTP + NTN
+NTP + NFP
+
+.
+
+(1)  
+
+(2)  
+
+(3) 
+
+The F1 score, the harmonic mean of the precision and recall, is also
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: Training completion is determined by employing early stopping, which deploys if the validation loss does not improve within 10 epochs. This means that if the validation loss does not decrease after 10 consecutive epochs, the training process will be stopped automatically.

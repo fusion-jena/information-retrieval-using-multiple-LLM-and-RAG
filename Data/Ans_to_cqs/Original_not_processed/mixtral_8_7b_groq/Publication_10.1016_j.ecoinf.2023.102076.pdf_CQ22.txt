@@ -1,0 +1,17 @@
+Answer:::
+
+The performance of the deep learning model, in this case, BERT, is evaluated using several metrics, including precision, recall, and F1 score. These metrics are more informative than accuracy, which can be misleading due to the balance of classes in the testing data.
+
+Precision, also known as specificity, measures the proportion of texts identified as relevant that were actually relevant. It is calculated as the number of true positives (relevant texts correctly identified) divided by the total number of texts identified as relevant (both true positives and false positives).
+
+Recall, also known as sensitivity, measures the proportion of relevant texts correctly identified as relevant. It is calculated as the number of true positives divided by the total number of relevant texts (both true positives and false negatives).
+
+The F1 score is the harmonic mean of precision and recall and provides a single metric that encapsulates both precision and recall. It is calculated as 2 * (precision * recall) / (precision + recall).
+
+These metrics are used to evaluate the performance of the BERT model for each classification task and for both social media posts and longer web articles. The experiments were repeated for each of the three models (Naive Bayes, Neural Network, and BERT) for each classification task, and the results were compared.
+
+It is worth noting that for web articles, the BERT model used a truncated section of the whole text due to the maximum input limit of 512 tokens. To identify the sections of text most likely to be relevant to the classification decision, documents were split into chunks of 300 tokens using the NLTK word-tokenizer. Chunks that contained any bat-related or exploitation-related terms were retained, and the first such chunk of the document was used in model training and evaluation.
+
+The mean (across five repeats) precision, recall, F1 score, and accuracy achieved by all models, classification tasks, and datasets (social media and web articles) were reported in Table 1 when trained with 1200 randomly selected, manually labeled texts and tested using a separate dataset.
+
+Therefore, the performance of the BERT model is evaluated using precision, recall, and F1 score, which provide a comprehensive evaluation of the model's performance in identifying relevant texts.

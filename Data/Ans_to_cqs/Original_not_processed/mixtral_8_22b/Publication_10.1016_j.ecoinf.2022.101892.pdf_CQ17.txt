@@ -1,0 +1,83 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We  used  Pytorch  to  build  our  deep  neural  network,  which  was 
+trained on Nvidia V100 GPU. In order to accelerate the convergence of 
+the model, our model was pre-trained on the ImageNet dataset (Deng 
+et  al., 2009) and then independently  fine-tuned on our  PAD Full and 
+PAD Lite datasets. However, some individuals cross multiple age groups. 
+Thus, to eliminate the influence of individuals, we applied a five-fold 
+subject-exclusive  (SE)  (Han  et  al.,  2014;  Pan  et  al.,  2018)  which 
+ensured the same subject did not appear in the training set and testing 
+set at the same time. We downscaled the resolution of all images to 224 
+× 224 pixels before feeding them to seven models. To avoid overfitting 
+and imbalanced problem, we applied aggressive data augmentation. Our 
+original images were captured under different illumination and angles. 
+Thus, we augmented all training sets randomly via horizontal flipping,
+
+different VGG nets, such as VGG-11, VGG-16, and VGG-19. VGG-16 has 
+been applied in many researches and it is often used to extract features in 
+the age estimation tasks Pan et al. (2018). In this study, we replaced the 
+last three Fully-Connected (FC) layers of the original VGG model with 
+one FC layer to reduce parameters. And we adopt Batch Normalization 
+(BN) (Ioffe and Szegedy, 2015) to accelerate the training of networks. 
+For this study, we selected VGG-11-BN and VGG-16-BN to extract the 
+features from panda facial images. 
+
+2.2.2. ResNet
+
+2.2.2. ResNet 
+
+However,  with  the  network  depth  increasing,  the  degradation 
+problem has been exposed. The degradation indicates that the gradient 
+vanishing will limit the performance of the network. Inspired by VGG 
+nets, ResNet (He et al., 2016) was proposed to address this problem by 
+adding identity mapping (two-branch architecture). ResNets have lower 
+complexity and higher performance. In this work, we used ResNet-18 
+and ResNet-50 as backbone networks for our experiments. 
+
+2.2.3. RepVGG 
+
+Multi-branch architectures have better performance during training, 
+but inference speed is limited. Thus, RepVGG was developed to use a re- 
+parameterization technique to decouple the training-time multi-branch 
+and inference-time plain architecture to increase inference speed while 
+maintaining performance (Ding et al., 2021). RepVGG models are over 
+80% faster than ResNets with better performance. And RepVGG-A0 and 
+RepVGG-A1 were applied in our experiments. 
+
+2.2.4. MobileNet-V3
+
+Hu, J., 1987. A study on the age and population composition of the giant panda by 
+
+judging droppings in the wild. ACTA Theriol. Sinica 7 (2), 81–84. 
+
+Ioffe, S., Szegedy, C., 2015. Batch normalization: Accelerating deep network training by 
+reducing internal covariate shift. In: International Conference on Machine Learning. 
+PMLR, pp. 448–456. 
+
+Ito, H., Udono, T., Hirata, S., Inoue-Murayama, M., 2018. Estimation of chimpanzee age 
+based on dna methylation. Sci. Rep. 8 (1), 1–5. https://doi.org/10.1038/s41598- 
+018-28318-9. 
+
+Jalal, A., Salman, A., Mian, A., Shortis, M., Shafait, F., 2020. Fish detection and species 
+classification in underwater environments using deep learning with temporal 
+information. Ecol. Inform. 57, 101088 https://doi.org/10.1016/j. 
+ecoinf.2020.101088. 
+
+Jarman, S.N., Polanowski, A.M., Faux, C.E., Robbins, J., De Paoli-Iseppi, R.,
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors mention several techniques to prevent overfitting in their deep learning pipeline. One method they employ is aggressive data augmentation, which involves applying various transformations to the input images, such as horizontal flipping, to create new training examples. This helps improve the generalizability of the model by exposing it to more diverse inputs. Another approach used to mitigate overfitting is replacing the last three fully connected layers of the original VGG model with one fully connected layer. By reducing the number of parameters, this modification can help prevent the model from memorizing the training data. Additionally, batch normalization is adopted to stabilize the learning process and accelerate the training of networks. While specific regularization methods like dropout or L2 regularization are not explicitly mentioned, these techniques could also be employed alongside the described approaches to further enhance the robustness of the model against overfitting.

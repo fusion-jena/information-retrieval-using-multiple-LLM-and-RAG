@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+models are less likely to be overfitting on the data, therefore showing 
+that they are more likely to be capable of generalizing this task on un-
+seen data. The opposite would be if the models achieve highly different 
+results, suggesting that they are very dependent on the data they were 
+trained on and might generalize poorly to unseen data. In our case, each 
+model used a cross-validation of 5 crosses.
+
+The models were all trained with the same parameters: 500 epochs, 
+an initial learning rate of 0.01 with a weight decay of 0.005, the opti-
+mizer Adam was chosen, with a beta1 of 0.937, and data augmentation 
+transformations  were  applied  while  training.  Data  augmentation  is  a 
+technique used in machine learning to artificially increase the size of a 
+dataset  by  creating  new  samples  from  the  existing  ones.  Augmented 
+samples are used to train the model more effectively by increasing its 
+ability to generalize and its accuracy on the test dataset. The advantage 
+of this technique when dealing with a low amount of data such as in our 
+case, is the reduced risk of overfitting, since models are exposed to more 
+variations, they will tend  to less memorize the dataset. This  becomes 
+essential when you have limited data to train models with, which is a 
+common problem in deep-learning applications. Another advantage is
+
+Since  we  had  multiple  species,  we  also  used  the  mAP  Eq.  4  (Mean 
+average precision) which gives a score for the whole model whereas the 
+AP will give one for each one of them. The objective of these models is to 
+be  reliable  enough  to  be  used  by  experts  in  real-life  conditions.  This 
+means that we had to be confident enough in the model prediction to use 
+it. We allowed ourselves 5% of mistakes in the prediction of each species 
+of interest. We created a benchmark to compare the results of state-of- 
+the-art models of deep learning on this task. To create a benchmark of 
+models, we use the mAP to analyze which model does best on average 
+for each species and the AP to analyze how good it is at predicting each 
+species. To ensure the model's ability to reach 95% precision, we used
+
+relevant regions within the images. ROI pooling aids in the selection and 
+analysis  of  specific  image  regions  for  accurate  object  classification.  2 
+different  versions  of  Faster  R-CNN  were  created  for  the  benchmark, 
+Faster R-CNN (640) with an input dimension of 640 × 640 and Faster R- 
+CNN (1280) with an input dimension of 1280 × 1280. They both used 
+Resnet50 as a backbone, have 41 m parameters, and are pre-trained on 
+ImageNet.  Both  those  dimensions  were  chosen  to  match  the  Yolov5 
+input dimensions. Still, after multiple tests, the 640-version had incon-
+clusive results. This can be explained by the important features being too 
+small using this resolution for Faster R-CNN. Only the 1280 version was 
+used in the benchmark.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of the deep learning model, several measures were implemented. Firstly, the models were trained with consistent parameters across all experiments, including 500 epochs, an initial learning rate of 0.01 with a weight decay of 0.005, and the optimizer Adam with a beta1 of 0.937. These uniform settings helped maintain consistency and reduce potential biases introduced by varying configurations.
+
+Secondly, data augmentation techniques were employed during training to artificially expand the dataset. By generating new samples from existing ones, the model could learn from a broader range of variations, thereby improving its capacity to generalize and reducing the risk of overfitting. This approach is particularly beneficial when working with limited datasets, which is often the case in deep learning applications.
+
+Thirdly, cross-validation was utilized to assess the performance of the models. Specifically, a five-fold cross-validation was performed, where the original sample was randomly partitioned into five equal subsets. Four of these subsets were used for training, while the remaining subset served as the validation set. This process was repeated five times, ensuring that each unique group functioned as the validation set once. Cross-validation helps prevent overfitting and provides a robust estimate of the model's performance on unseen data.
+
+Lastly, the Mean Average Precision (mAP) metric was adopted to evaluate the overall performance of the model across multiple species. Unlike the Average Precision (AP), which only considers individual species, the mAP offers a comprehensive assessment of the model's reliability. This holistic perspective enables researchers to gauge the model's effectiveness in handling diverse scenarios, further enhancing its applicability in real-world situations.

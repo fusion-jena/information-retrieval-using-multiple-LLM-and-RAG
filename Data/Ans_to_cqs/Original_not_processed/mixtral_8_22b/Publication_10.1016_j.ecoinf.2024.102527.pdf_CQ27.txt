@@ -1,0 +1,167 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+respectively.  N  represented  the  number  of  images  in  the  test  set  or 
+validation set. 
+
+2.2.6. Model training and hyper-parameters 
+
+We  trained  models  on  the  training  sets  and  tracked  the  model 
+training process on the validation set. The training process was stopped 
+when  the  loss  value  of  the  model  on  the  validation  set  no  longer 
+decreased. We then tested the model performance on the test set. Our 
+computing platform was a Dell PowerEdge C4130 rack server with two 
+Tesla  K80  GPUs  and  256  GB  of  memory.  For  the  deep  learning  envi-
+ronment,  we  utilized  the  PyTorch  1.7.1  platform.  We  employed  the 
+Stochastic Gradient Descent (SGD) optimizer with a momentum value of 
+μ  = 0.9 to train the model. Other hyper-parameter settings for model 
+training were shown in Table S.4 of the Supporting Information. 
+
+3. Results 
+
+3.1. Experiment results of transfer strategy optimization
+
+Fig. 1. Conceptual model of transfer learning. Si (i = 0,1, …,n) represented the five convolutional stages and the final fully connected stage (including softmax) of the 
+ResNext-101 model. 
+
+Table 2 
+Source domain data splitting on SS dataset.   
+
+Usage 
+
+Number of 
+images 
+
+Class 
+number 
+
+Description 
+
+S_2_10 
+
+Training 
+
+100,000 
+
+S_2_50 
+
+Training 
+
+500,000 
+
+S_2_100 
+
+Training 
+
+1,000,000 
+
+S_2_V 
+
+Validation 
+
+8095 
+
+S_2_T 
+
+Test 
+
+8118 
+
+S_10_10 
+S_10_50 
+S_10_100 
+S_10_V 
+S_10_T 
+
+Training 
+Training 
+Training 
+Validation 
+Test 
+
+100,000 
+500,000 
+1,000,000 
+61,693 
+60,342 
+
+2 
+
+2 
+
+2 
+
+2 
+
+2 
+
+10 
+10 
+10 
+10 
+10 
+
+Empty image vs. 
+Animal image 
+Empty image vs. 
+Animal image 
+Empty image vs. 
+Animal image 
+Empty image vs. 
+Animal image 
+Empty image vs. 
+Animal image 
+10 species 
+10 species 
+10 species 
+10 species 
+10 species  
+
+2.2.4. Experiment design  
+
+(1)  Transfer learning strategy optimization
+
+(2)  Source model optimization 
+
+Fig. 2. Five different transfer learning strategies. The light purple layers and 
+the green layers represented the fixed layers and updating layers respectively. 
+(For interpretation of the references to colour in this figure legend, the reader is 
+referred to the web version of this article.) 
+
+The main  objective  of  this  experiment  was  to  investigate how  the 
+source model affects the performance of the transfer learning model. We 
+focused on two key aspects of the source domain training set used to 
+
+EcologicalInformatics80(2024)1025274D.-Q. Yang et al.                                                                                                                                                                                                                                
+
+Fig. 4. Source model optimization experiment scheme.
+
+2.2.3. Data splitting 
+
+Based on the conceptual model mentioned above, we split the data to 
+construct  the  source  and  target  domain  datasets  to  carry  out  transfer 
+learning experiments.  For the  ImageNet  dataset, we directly  used the 
+pre-trained model on ImageNet-1 k as the source model, so there was no 
+need to split the dataset. Both the SS and the LSM dataset are camera 
+trap  image  datasets.  Each  time  the  camera  is  triggered,  it  captures 
+multiple images in succession, called a capture event. A capture event 
+frequently  comprises  three  images.  Notably,  images  within  the  same 
+event are significantly similar to each other. Splitting the images in an 
+event into training and test sets may lead to poor generalization of the 
+DCNN  model. To  prevent  this, we kept  the integrity  of events  during 
+data splitting, putting all images of an event into the same dataset.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After training the deep learning model using the Stochastic Gradient Descent (SGD) optimizer with a momentum value of μ = 0.9, the authors tested the model performance on the test set. They conducted their computations on a Dell PowerEdge C4130 rack server equipped with two Tesla K80 GPUs and 256 GB of memory. Their deep learning environment was based on the PyTorch 1.7.1 platform. However, the paper does not explicitly mention the specific process followed to deploy the trained deep learning model, such as model serialization or platform selection. Therefore, further information would be required to provide a more detailed response regarding the deployment process.

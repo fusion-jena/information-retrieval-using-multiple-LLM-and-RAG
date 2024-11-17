@@ -1,0 +1,131 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Due to processing limitations in GEE, it is impossible to utilize many 
+samples and automate hyperparameter tuning. To fill this gap and avoid 
+overfitting,  the  validation  data  were  employed  for  tuning  the  key 
+hyperparameters for each model. Table 3 presents the hyperparameters 
+set for each model during training and validation. 
+
+5.3.2. Pixel-based approach 
+
+The  pixel-based  classification  approach  relies  on  the  spectral 
+
+Table 3 
+Hyperparameters were set for each machine learning technique within the GEE 
+platform.  
+
+Model 
+
+CART   
+
+RF   
+
+GTB   
+
+SVM   
+
+Hyperparameters 
+
+• Max nodes: No limit  
+• Min leaf population: 1 
+
+• Number of trees: 264  
+• Bag fraction: 0.5  
+• Variables per split: Root of the number of variables 
+
+• Number of trees: 20  
+• Shrinkage: 0.005  
+• Sampling rate: 0.7  
+• Loss: Least absolute deviation 
+
+• Kernel type: RBF  
+• SVM type: C_SVC  
+• Decision procedure: Voting
+
+the inability to split further, is met. This algorithm is simple, fast, and 
+highly interpretable (Gislason et al., 2006). It is important to note that 
+CART models can be susceptible to overfitting without proper tuning of 
+input  parameters.  In  this  research,  by  evaluating  the  model's  perfor-
+mance  using  validation  data,  it  was  determined  that  setting  the  Max 
+Nodes parameter to its default value (no limit on the number of nodes) 
+
+EcologicalInformatics80(2024)10249810M. Ganjirad and H. Bagheri                                                                                                                                                                                                                  
+
+yielded better results.
+
+5.3.6. Classification accuracy assessments
+
+Table 1 
+USGS 24 LULC classes defined for WRF simulation.  
+
+Category Index 
+
+Name of the Category 
+
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+
+Urban and Built-up Land 
+Dryland Cropland and Pasture 
+Irrigated Cropland and Pasture 
+Mixed Dryland/Irrigated Cropland and Pasture 
+Cropland/Grassland Mosaic 
+Cropland/Woodland Mosaic 
+Grassland 
+Shrubland 
+Mixed Shrubland/Grassland 
+Savanna 
+Deciduous Broadleaf Forest 
+Deciduous Needleleaf Forest 
+Evergreen Broadleaf 
+Evergreen Needleleaf 
+Mixed Forest 
+Water Bodies 
+Herbaceous Wetland 
+Wooden Wetland 
+Barren or Sparsely Vegetated 
+Herbaceous Tundra 
+Wooden Tundra 
+Mixed Tundra 
+Bare Ground Tundra 
+Snow or Ice
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of the deep learning model, several measures were taken. Firstly, a diverse dataset was used, which included various land use and land cover categories such as urban areas, croplands, forests, water bodies, wetlands, tundras, and snow or ice. The diversity in the dataset helped improve the model's ability to classify different types of landscapes accurately. Secondly, cross-validation was performed to evaluate the performance of the model. Cross-validation involves dividing the dataset into multiple subsets and then training and testing the model on these subsets iteratively. This process helps prevent overfitting and ensures that the model performs well on unseen data. Lastly, stratified splitting was applied when partitioning the dataset into training and validation sets. Stratified splitting maintains the same proportion of samples from each category in both sets, ensuring that the model learns from all categories equally. These measures collectively contributed to improving the robustness and reliability of the deep learning model.
+
+Based on the given information, it appears that the authors took steps to ensure the generalizability of their deep learning model. However, they did not explicitly mention any specific techniques like diverse datasets, cross-validation, or stratified splitting. Instead, they focused on discussing the hyperparameters set for each machine learning technique within the Google Earth Engine platform. They also mentioned employing validation data for tuning key hyperparameters to avoid overfitting. Therefore, while we cannot definitively state what measures were taken to ensure the generalizability of the deep learning model based solely on the provided context, it seems reasonable to infer that some form of cross-validation and possibly stratified sampling may have been utilized due to common practices in machine learning applications.

@@ -1,0 +1,90 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+For  our  dataset,  feature  scaling  refers  to  preprocessing  the  input 
+features so that they each have range [0,1] but retain the shape of the 
+original distribution. This is done through min-max scaling 
+
+xscaled =
+
+x (cid:0) min(x)
+.
+max(x) (cid:0) min(x)
+
+(5) 
+
+Maximums and minimums of the variables were computed over the 
+
+full modeling dataset. 
+
+5.2.3. Selecting priors 
+
+We started by assigning weak priors to Bayesian models. Then for 
+Bayesian logistic regression, we used the priorsense package to assess 
+prior sensitivity. Priorsense is an R package that automates the diagnosis 
+by  using  slightly  perturbed  versions  of  the  prior  and  likelihood 
+distributions. 
+
+For the GAMs, the fast method used by priorsense did not work well, 
+and  the  prior  sensitivity  analysis  was  made  simply  by  re-running  the 
+inference with different prior choices. 
+
+The list of initial and final priors used for Bayesian logistic regression
+
+In  our  case,  the  possible  configurations  we  explored  were  these 
+modeling  options:  two  sets  of  features  selected  from  a  larger  pool  of 
+available features (method in Section 5.2.1), whether or not to scale the 
+features, choice of prior strength, and for Bayesian GAM only, the basis 
+dimension. For the priors, we were partially able to utilize the priorsense 
+package (Kallioinen et al., 2021) to optimize the exploration of different 
+configurations.  For  the  rest  of  the  settings  however,  we  kept  to  the 
+repeated iterations of the Bayesian workflow. Our workflow results are 
+the visualizations and scores presented in Figs. 3, 4, and B.11, and the 
+observations are the discussions and analysis in this text: what we can 
+interpret from the scores and visualizations and diagnoses of problems, 
+if any. 
+
+5.2. Modeling options 
+
+5.2.1. Feature selection
+
+The  iterative  model  exploration  in  this  work  roughly  follows  the 
+Bayesian workflow described by Gelman et al. (Gelman et al., 2020). The 
+Bayesian and non-Bayesian model pairs are chosen so that one repre-
+sents  a  less  flexible  model  in  terms  of  possible  shapes  of  its  decision 
+boundary (Bayesian logistic regression and MLE logistic regression) and 
+one  represents  a  more  flexible  model  (Bayesian  GAM  and  random 
+forest).
+
+Our process of finding the best model roughly follows the Bayesian 
+workflow described by Gelman et al. (Gelman et al., 2020). This is an 
+iterative modeling process in which one systemically repeats the cycle of 
+inspecting the outputs of a model, analyzing the effects of the model and 
+its  configurations,  and  adjusting  the  configurations  or  switching  to 
+another model type according to the observations. The cycle is repeated 
+multiple times while recording the observations and results.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model, several preprocessing steps may be involved depending on the nature of the data and the specific requirements of the model. These steps often include:
+
+1. Data Cleaning: This involves handling missing values, removing duplicates, correcting inconsistent entries, and dealing with outliers.
+
+2. Normalization/Standardization: This step scales numeric columns to a standard scale to ensure all features contribute proportionately to the model fitting. Standardization transforms the data to have mean=0 and variance=1, while normalization scales the data to a range typically between 0 and 1. In the given context, feature scaling refers to preprocessing the input features so that they each have a range of [0,1], retaining the original distribution shape. This is achieved through min-max scaling.
+
+3. Encoding Categorical Variables: Deep learning models cannot handle categorical variables directly; hence, they need to be converted into numerical form. Techniques like label encoding, one-hot encoding, or ordinal encoding might be employed based on the variable's nature.
+
+4. Splitting Dataset: Before training, it’s common practice to split the dataset into training, validation, and test datasets. Training set is used to train the model, validation set helps tune hyperparameters, and test set evaluates the final performance of the trained model.
+
+5. Data Augmentation: This technique is mainly applied to image data where new images are created from existing ones by applying various transformations such as rotation, zooming, flipping, etc. It increases the amount of training data and helps prevent overfitting.

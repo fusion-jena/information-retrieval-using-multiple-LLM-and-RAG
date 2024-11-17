@@ -1,0 +1,72 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Query-time adaptation (transductive inference) was shown in mul-
+tiple cases to lead to very strong performance, within both the proto-
+typical  and  fine-tuning  paradigms.  This  comes  at  a  cost  of  added 
+complexity  and  added  query-time  computation,  since  typically  a  new 
+run of statistical optimisation must be performed for a new query task. 
+Thus, from the present results we can recommend that a system should 
+include query-time adaptation for the best possible detections, but that a 
+system without query-time adaptation should be a widespread default. 
+Such fixed embeddings can easily be used off-the-shelf, in the same way 
+that  other  pretrained  networks  are  now  commonly  downloaded  and 
+used.  The  DFSL  method  employed  by  Wu_SHNU  is  an  alternative 
+approach  which  combines  an  unchanging  feature  extraction  with  a 
+query-time  adaptive  weighting.  This  combines  stability  with  dynamic 
+adaptation, and thus is worthy of further investigation.
+
+Then, for each sample xq  from the query set, a distance function is 
+used  to  calculate  the  Euclidean  distance  of  xq  from  each  prototype, 
+following which a softmax function over the distances produces a dis-
+tribution over the classes. This directly implies that training the neural 
+network to optimise these distances should move prototypes and their 
+corresponding  query  points  closer  together  in  the  embedding  space 
+created  by  fϕ,  and  further  away  from  non-matching  points.  In  other 
+words, the training procedure creates a general representation in which 
+similar  sounds  are  close  to  each  other.  Nearest-neighbour  algorithms 
+such as k-means can then be used to label future data points—even those 
+from novel categories, after a simple procedure of calculating the pro-
+totype of a novel category as the centroid of its k shots.
+
+• Transductive  few-shot  learning  -  Meta  learning  methods  aim  to 
+learn on scarce data in order to generalise to unseen tasks,  which 
+makes the problem fundamentally difficult. In order to mitigate the 
+difficulty, transductive based methods utilise the information present 
+in the unlabeled examples from the query set to adapt the model and 
+improve its predictions. In Liu et al. (2018), the samples in support 
+and query set are jointly modelled as nodes of a graph and the pre-
+diction on query set is conducted by label-propagation algorithm. In 
+Hou  et  al.  (2019),  a  cross-attention  based  map  is  learnt  between 
+support set and query set in order to make predictions on individual 
+query examples.
+
+The next system in rank, Liu_Surrey, implements a novel approach 
+designed to optimise the contrast between positive events and negative 
+prototypes. This, together with an adaptive segment length dependent 
+on each target class, works well across all the evaluation sets. 
+
+The problem of very different lengths of events across target classes 
+was also directly addressed by other submissions. Both Martinsson_RISE 
+and Zgorzynski_SRPOL implemented an ensemble approach where each 
+individual model focuses on a different input size range. In Liu_BIT-SRCB 
+this is explored through a multi-scale ResNet, and in Willbo_RISE with a 
+wide ResNet containing many channels. Also in XuQianHu_NUDT_BIT, 
+they implement a novel adaptive mechanism - squeeze/excitation block 
+- designed to assign different weights to different channels of the feature 
+map.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough specific information in the given context to determine exactly how the hyperparameters of the models were optimized. However, it does mention some optimization techniques such as meta-learning, transductive learning, and adaptive mechanisms like the squeeze/excitation block. These techniques could potentially involve various forms of hyperparameter tuning, including grid search or random search. For instance, in the case of meta-learning, one might use a form of gradient descent to update the parameters of the model during training, while in transductive learning, the model may be adapted using the information from the unlabelled examples in the query set. Similarly, the adaptive mechanisms mentioned could involve adjusting certain hyperparameters dynamically based on the input data. Without more detailed information about the specific models and their architectures, however, it's not possible to provide a definitive answer regarding the exact methods used for hyperparameter optimization.

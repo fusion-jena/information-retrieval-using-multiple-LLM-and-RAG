@@ -1,0 +1,70 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+For the CNN, The large number of hyperparameters (Table 4) and 
+high  computational  demand,  mean  that  an  exhaustive  grid-search  is 
+inappropriate.  Instead  our  preliminary  work  showed  that  common 
+default parameters, were suitable for our data. These include a batch- 
+size of 32 images and a cross-entropy loss function. We also used the 
+Adam learning rate optimizer (Kingma and Ba, 2015), which automat-
+ically adjusted our initial learning rate of 1e-03 during training in a way 
+that  improved  performance.  Adam  is  computationally  efficient  and 
+straight-forward to use. In preliminary work, each model was set to train 
+for  100  epochs  maximum.  However  for  later  time-saving  and  better 
+automation, we enabled early stopping if the validation error (loss) did 
+not reduce for 10 epochs. This identified a suitable number of epochs for 
+each dataset: 14, 14 and 23 epochs for Datasets 1, 2 and 3, respectively.
+
+EcologicalInformatics81(2024)1026194C.A. Game et al.                                                                                                                                                                                                                                
+
+Fig. 2. Infographic of the ML workflows (CNN & CNN þ SVM) used in this study.  
+
+VGG16 network cannot be trained, we therefore unfroze (replaced) the 
+final  FC  layers  (FC2  &  FC3)  to  re-initialize  the  weights  for  training. 
+Training only these FC layers enables comparison to the CNN þ SVM 
+approach in which they have been replaced with an SVM classifier. We 
+also reduced the number of output nodes in FC3 from 1000 (number of 
+ImageNet  classes)  to  3,  to  prepare  the  CNN  to  classify  the  3  habitat 
+classes. 
+
+2.2.4. Feature extraction & visualisation
+
+Christin, S., Hervet, N., 2019. Lecomte, Applications for deep learning in ecology. 
+Methods Ecol. Evol. 10 (10), 1632–1644. https://doi.org/10.1111/2041- 
+210X.13256. 
+
+Cogan, C.B., Todd, B.J., Lawton, P., Noji, T.T., 2009. The role of marine habitat mapping 
+in ecosystem-based management. ICES J. Mar. Sci. 66 (9), 2033–2042. https://doi. 
+org/10.1093/icesjms/fsp214. https://doi.org/10.1093/icesjms/fsp214. 
+
+Cortes, C., Vapnik, V., 1995. Support-vector networks. Mach. Learn. 20 (3), 273–297. 
+
+https://doi.org/10.1007/BF00994018. 
+
+Cristianini, N., Shawe-Taylor, J., 2000. An Introduction to Support Vector Machines and 
+
+Other Kernel-Based Learning Methods. Cambridge University Press.
+
+EcologicalInformatics81(2024)1026193C.A. Game et al.                                                                                                                                                                                                                                
+
+Table 3 
+Required steps in our ML workflows. 
+
+aNote that the order of steps may vary with ML frameworks (i.e. pytorch, 
+tensorflow) or may be achievable simultaneously. 
+bGrey shading denotes model-specific steps.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors do not explicitly mention any specific strategies employed to handle randomness in the deep learning pipeline, such as setting a fixed random seed value. However, they discuss using default parameters for their models, including a batch size of 32 images and a cross-entropy loss function. They also employ the Adam learning rate optimizer, which automatically adjusts the initial learning rate during training. To save time and improve automation, they enable early stopping when the validation error does not decrease for 10 epochs. This helps determine the appropriate number of epochs for each dataset. Additionally, they unfreeze and replace the final fully connected (FC) layers of the VGG16 network to reinitialize the weights for training, reducing the number of output nodes in FC3 to match the three habitat classes being classified.

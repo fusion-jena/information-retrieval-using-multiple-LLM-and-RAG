@@ -1,0 +1,70 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Acknowledging  that  water  quality  observations  from  monitoring 
+stations are limited to specific scenarios, and with the aim of applying 
+CNN  for  detailed,  small-scale  predictions,  a  carefully  defined  spatial 
+extent was essential. Initially, a radius of 500 m (25 pixels) was selected 
+for the CNN's training and testing phases, and the accuracy for sizes both 
+larger and smaller than 25 pixels was evaluated. In the end, the image 
+with 21 pixels had the highest accuracy (a measure of the overall cor-
+rectness),  reaching  83.87%  (Fig.  4a).  Additionally,  metrics  such  as 
+precision (a measure of how many correctly predicted positive instances 
+there are among all instances predicted as positive), recall (measures the 
+ability of the model to capture all the positive instances), F1 score (the 
+harmonic mean of precision and recall) and confusion matrix (Fig. 4b) 
+were computed for 21 pixels, and the coverage area of 21 pixel size in
+
+the study area is shown in Fig. 5. The CNN structure, depicted in Fig. 3, 
+comprises five convolutional layers, one pooling layer; three fully con-
+nected  layers,  and  three  water-quality  level  labels  including  Class  I, 
+Class II, and Class III. To enhance model reliability, a dropout function 
+was incorporated between the fully connected layers. Parameters were 
+set with a kernel size of 3, stride of 1, and a dropout rate of 50% post the 
+fully connected layer. The training was conducted over 500 epochs with 
+(cid:0) 4, momentum at 0.9, with the learning rate 
+an initial learning rate of 10
+halved  every  20  rounds  to  optimize  performance,  culminating  in  the 
+selection of the most effective model weights for each cycle.
+
+Fig. 3. CNN model architecture and band reflectance of water quality monitorings (partial). The convolutional layer is a layer that extracts or detects input image 
+features; ReLU (The Rectified Linear Unit) refers to the activation function, which is used to perform nonlinear mapping of the output results of the convolutional 
+layer; the pooling layer (this study uses max pooling) is used to reduce the dimension of the feature map; the fully connected layers are used to classify input images 
+into labels. 
+
+EcologicalInformatics80(2024)1025494H. Meng et al.                                                                                                                                                                                                                                   
+
+Fig. 4. Accuracy comparison of different pixels and the accuracy, precision, recall, F1 score of the final selected 21 pixels, (b) confusion matrix of 21 pixels.
+
+techniques used in agriculture. Ecol. Inform. 77, 102217 https://doi.org/10.1016/j. 
+ecoinf.2023.102217. 
+
+Baek, S., Pyo, J., Chun, J.A., 2020. Prediction of water level and water quality using a 
+CNN-LSTM combined deep learning approach. Water-SUI 12, 3399. https://doi.org/ 
+10.3390/w12123399. 
+
+Braak, C.J.F.T., Prentice, C., Ter Braak, C.J.F., 1988. A theory of gradient analysis. Adv. 
+
+Ecol. Res. 18, 271–317. 
+
+Campbell, A.D., Fatoyinbo, T., Charles, S.P., Bourgeau-Chavez, L.L., Goes, J., Gomes, H., 
+Halabisky, M., Holmquist, J., Lohrenz, S., Mitchell, C., Moskal, L.M., Poulter, B., 
+Qiu, H., Resende De Sousa, C.H., Sayers, M., Simard, M., Stewart, A.J., Singh, D., 
+Trettin, C., Wu, J., Zhang, X., Lagomasino, D., Oak Ridge National Lab. ORNL, O.R.T. 
+U, 2022. A review of carbon monitoring in wet carbon systems using remote sensing. 
+Environ. Res. Lett. 17, 25009. https://doi.org/10.1088/1748-9326/ac4d4d.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To evaluate the performance of the deep learning model, several metrics are used. These include accuracy, precision, recall, and F1 score. Accuracy measures the overall correctness of the model by comparing the number of correct predictions to the total number of predictions made. Precision measures the proportion of true positives (correctly identified positive instances) out of all instances predicted as positive. Recall measures the ability of the model to capture all the positive instances. The F1 score is the harmonic mean of precision and recall, providing a single metric that balances these two factors. In this case, the authors also use a confusion matrix to further assess the performance of their model.

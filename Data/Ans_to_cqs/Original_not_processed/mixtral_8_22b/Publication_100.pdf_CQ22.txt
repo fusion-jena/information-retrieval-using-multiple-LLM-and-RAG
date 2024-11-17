@@ -1,0 +1,199 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.3. Uncertainty in deep learning
+
+Although deep learning has become the most widely used method
+in computer vision, model outputs are often trusted ‘‘blindly’’. In re-
+gression problems, outputs are usually point estimates with no attached
+notion of uncertainty, while classification scores have been shown to
+be overconfident (Guo et al., 2017; Lakshminarayanan et al., 2017).
+To mitigate this effect and to develop more trustworthy models, reli-
+ably quantifying the predictive uncertainty is important -and an open
+research question (Gustafsson et al., 2020).
+
+ISPRSJournalofPhotogrammetryandRemoteSensing195(2023)269–286271A. Becker et al.
+
+4.5. Implementation details
+
+We have implemented our models in PyTorch (Paszke et al., 2017).
+We trained 𝑀 = 5 models with batch size 𝐵 = 64 and a base learning
+rate 𝛼 = 10−4. The learning rate is automatically reduced by a factor
+of 0.1 when the validation loss has not improved for 15 consecutive
+epochs. We apply weight decay to control the strength of the unit
+Gaussian prior, with an empirically chosen magnitude of 10−3 that
+is inversely proportional to the hyperparameter 𝜆 from Eq. (1). We
+chose 𝛽1 = 0.9, 𝛽2 = 0.999 and 𝜖 = 10−8 as hyper-parameters for the
+Adam optimizer. Each neural network was trained on a single Nvidia
+RTX2080Ti GPU for ∼14 days.
+
+5. Experimental results and discussion
+
+1
+𝑁𝑡𝑒𝑠𝑡
+
+𝑁𝑡𝑒𝑠𝑡∑
+
+𝑖=1
+
+̄𝜇𝑖𝑗 − 𝑦𝑖𝑗
+
+(5)
+
+(6)
+
+(7)
+
+To represent the predictive distribution for each pixel 𝑖 and variable 𝑗 as
+a point estimate, we use its approximate mean ̄𝜇𝑖𝑗 in accordance with
+Eq. (3). The MAE and RMSE metrics measure the average deviation
+between model prediction and reference data (with RMSE giving higher
+penalty to large deviations), while the MBE serves to identify systematic
+biases in the predictions. In addition to the above metrics, we calculate
+their normalized counterparts MAE%, RMSE% and MBE% by dividing
+by the corresponding mean values over the training data.
+
+Table 1
+Test set evaluation results of the proposed model for all ALS areas (subtable a) as
+well as for the individual geographic regions shown in Fig. 2 (subtables b–d). P95 and
+MeanH metrics are given in meters, while Dens, Gini and Cover are reported as
+fractions. All normalized metrics (postfixed with %) are given as a fraction over the
+respective training set mean.
+
+P95
+
+MeanH
+
+Dens
+
+Gini
+
+Cover
+
+(a) All regions
+
+(b) East
+
+(c) North
+
+(d) West
+
+MAE
+MAE%
+RMSE
+RMSE%
+MBE
+MBE%
+
+MAE
+MAE%
+RMSE
+RMSE%
+MBE
+MBE%
+
+MAE
+MAE%
+RMSE
+RMSE%
+MBE
+MBE%
+
+MAE
+MAE%
+RMSE
+RMSE%
+MBE
+MBE%
+
+1.648
+0.129
+2.298
+0.179
+−0.086
+−0.007
+
+1.631
+0.127
+2.250
+0.176
+−0.090
+−0.007
+
+1.451
+0.113
+2.238
+0.175
+−0.068
+−0.005
+
+1.845
+0.144
+2.609
+0.204
+−0.069
+−0.005
+
+1.127
+0.144
+1.595
+0.204
+−0.040
+−0.005
+
+1.127
+0.144
+1.589
+0.203
+−0.040
+−0.005
+
+0.904
+0.115
+1.329
+0.170
+−0.038
+−0.005
+
+1.224
+0.156
+1.740
+0.222
+−0.041
+−0.005
+
+0.061
+0.118
+0.082
+0.158
+−0.003
+−0.006
+
+0.060
+0.114
+0.080
+0.153
+−0.004
+−0.007
+
+0.071
+0.136
+0.095
+0.182
+0.003
+0.005
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The experimental results section mentions several metrics used to evaluate the performance of the deep learning model. These include Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and Mean Bias Error (MBE). Additionally, their normalized counterparts MAE%, RMSE%, and MBE% are also calculated. However, it should be noted that these metrics are specific to regression tasks and may not be applicable to other types of deep learning tasks such as classification or object detection. For those tasks, different metrics like accuracy, precision, recall, F1 score, etc., might be used instead.

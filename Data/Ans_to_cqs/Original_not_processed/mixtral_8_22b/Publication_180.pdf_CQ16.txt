@@ -1,0 +1,80 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+TensorFlow
+TensorFlow is an open-source software platform (Abadi et al. 2016) 
+that supports deep learning research and applications, having been 
+released  by  researchers  at  Google  (Google  Brain  Team;  https://re-
+search.google.com/teams/brain/).  We  adapted  and  configured 
+TensorFlow  for  application  and  use  in  our  project  via  Python. We 
+adjusted  two  parameters  from  their  default  values:  validation  per-
+centage and number of training steps. Although the default setting 
+for validation percentage was 10%, given small numbers of images 
+available for some species, we had to increase this number to 16%. 
+For number of training steps, although the default value was 4000 
+steps,  we  explored  different  numbers  and  compared  the  results  to 
+find  the  optimum  balance  between  computing  time  and  classifica-
+tion efficiency.
+
+To evaluate the classifier, it is necessary to set some images aside 
+from  classifier  development  entirely.  Given  the  limited  numbers  of 
+photographs available for some of the species, we used a leave-one-
+out  cross-validation  approach  for  evaluation.  That  is  to  say,  as  a 
+trade-off between maximizing numbers of samples for training the 
+classifier and optimizing computing time, in each round, we left out 
+n images, or one image from among the n species in that country, 
+with which to evaluate the model.
+
+deep learning? Cell Syst. 2: 12–14.
+
+Ramsey, J. M., M. Elizondo-Cano, G. Sanchez-González, A. Peña-Nieves, and 
+A. Figueroa-Lara. 2014. Opportunity cost for early treatment of Chagas 
+disease in Mexico. Plos Negl. Trop. Dis. 8: e2776.
+
+Ramsey,  J.  M.,  A.  T.  Peterson,  O.  Carmona-Castro,  D.  A.  Moo-Llanes,  Y. 
+Nakazawa, M. Butrick, E. Tun-Ku, K. d. la Cruz-Félix, and C. N. Ibarra-
+Cerdeña.  2015.  Atlas  of  Mexican  Triatominae  (Reduviidae:  Hemiptera) 
+and  vector  transmission  of  Chagas  disease.  Mem.  Inst.  Oswaldo  Cruz. 
+110: 339–352.
+
+Schmidhuber, J. 2015. Deep learning in neural networks: an overview. Neural 
+
+Netw. 61: 85–117.
+
+Schofield, C. J., J. Jannin, and R. Salvatella. 2006. The future of Chagas disease 
+
+control. Trends Parasitol. 22: 583–588.
+
+Coura, J. R., and P. A. Viñas. 2010. Chagas disease: a new worldwide chal-
+
+Sinkins, S. P., and F. Gould. 2006. Gene drive systems for insect disease vectors. 
+
+lenge. Nature. 465: S6–S7.
+
+We  calibrated  our  models  for  Mexican  and  Brazilian  spe-
+cies  using  different  numbers  of  training  steps,  and  considered  two 
+factors  to  find  optima  for  training TensorFlow  (Fig.  2):  1)  correct 
+identification rate, which improved up to a certain point, but then 
+reached  a  plateau,  beyond  which  we  saw  no  significant  improve-
+ment,  and  2)  processing  time  (in  hours),  which  showed  a  positive 
+linear relationship with number of training steps. For the Mexican 
+dataset, with 12 species, 2,000 emerged as an optimum number of 
+training steps, which resulted in an 83.0% overall identification rate 
+(Fig. 2); the largest gap between the processing time trace and iden-
+tification  rate  occurred  following  this  number  of  steps. Above  this 
+number of training steps, subtle improvements in identification rate
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors determined the optimal number of training steps based on two factors: 1) correct identification rate, which improved up to a certain point before reaching a plateau where further improvement was not significant, and 2) processing time, which increased linearly with the number of training steps. They found that for the Mexican dataset, consisting of 12 species, 2,000 training steps were optimal, resulting in an 83.0% overall identification rate. This determination was made by observing the largest gap between the processing time trace and identification rate after 2,000 steps. Beyond this number of steps, only minor improvements in identification rate were observed despite longer processing times.

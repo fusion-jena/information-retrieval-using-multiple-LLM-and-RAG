@@ -1,0 +1,75 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.2. Fine-tuning of the pretrained CNN backbone 
+
+Fine-tuning of the pretrained CNN backbone was performed using 
+classical meta-metric learning architectures adapted from the EasyFSL
+
+pretrained DenseNet might fit the Darksound dataset well, but there are 
+no  guarantees  that it  will  work  on  another  dataset in  the  exact  same 
+manner. All the CNN backbones used in this experiment were previously 
+trained on the ImageNet database, a large but very general dataset. It has 
+been recently shown that using features extracted from models trained 
+on smaller but more specific datasets, that bird sound datasets, leads to 
+higher quality classification (Ghani et al., 2023; McGinn et al., 2023). 
+Consequently, using features extracted from a model trained on spec-
+trograms of bird sounds (e.g.  BirdNET algorithm (Kahl et  al., 2021)), 
+could  improve  the  parameter  initialization  of  UML  algorithms  of  the 
+MEC method.
+
+3.3. Comparative analysis of CNN backbones 
+
+Comparative  analysis  of  CNN  backbones  was  accomplished  to 
+determine  the  optimal  CNN  architecture  to  use.  Original  feature 
+extraction part of the meta-learning algorithms was replaced with four 
+CNN  pretrained  on  the  ImageNet  dataset,  that  is  ResNet18,  VGG16, 
+DenseNet121 and AlexNet. Recent work has shown that the addition of 
+pretrained networks can improve the classification (Yang et al., 2020). 
+The selection of pretrained CNNs was based on the ranking of standard 
+off-the-shelf CNN architectures used in the context of eco-acoustics with 
+DL  (Stowell,  2022)  to  highlight  their  energy  consumption.  Other  ar-
+chitectures  such  as  DNN  models  optimized  for  embedding  systems 
+requiring  low  power  consumption  (Velasco-Montero  et  al.,  2018)  or 
+traditional  audio  feature  extraction  (Lakdari  et  al.,  2024)  could  be 
+investigated further in the future.
+
+As  a  result,  fine-tuning  a  pretrained  DenseNet  on  the  Darksound 
+dataset returned the highest DBCV scores in all cases, except RN com-
+bined  with  AlexNet  fine-tuned  on  5  way-5  shot  tasks  (Table  4.3).  In 
+addition, highest ARI and AMI scores were obtained in all cases using a 
+pretrained  DenseNet,  except  with  MN  combined  with  ResNet18  fine- 
+tuned  on  5  way-1  shot  tasks  (Table  4.2).  This  illustrates  the  impor-
+tance of the DBCV score for determining the optimal CNN backbone for 
+fine-tuning  the  model  without  knowledge  of  the  ground  truth  labels. 
+Note  that  the  backbone  VGG16  never  performed  well  whatever  the 
+configuration. 
+
+Training  the  model  for  100  epochs  consumed  more  energy  when 
+fine-tuning was performed on 5-way 5-shot tasks than on 5-way 1-shot 
+tasks. The pretrained DenseNet consumed the most energy in 5 out of 6 
+cases (Fig. 8).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the given context, there isn't any direct mention of techniques used to address data bias during preprocessing of the deep learning pipeline. However, some relevant information can still be derived.
+
+In section 2.2, it discusses the fine-tuning of a pretrained Convolutional Neural Network (CNN) backbone using classical meta-metric learning architectures adapted from EasyFSL. While not directly addressing data bias, this technique helps adapt the network to better suit the target dataset, potentially reducing biases introduced by training on a different dataset like ImageNet.
+
+Section 3.3 mentions comparative analysis of CNN backbones to determine the optimal architecture. Four pretrained CNNs - ResNet18, VGG16, DenseNet121, and AlexNet - were tested, with DenseNet121 performing best overall. Using pretrained networks can help reduce potential biases caused by insufficient training data.
+
+Although not explicitly mentioned, stratified splitting, oversampling, undersampling, and diverse data collection are common techniques used to address data bias during preprocessing. Stratified splitting ensures each subset maintains the original class distribution, while oversampling and undersampling balance classes by duplicating minority samples or removing majority ones, respectively. Collecting diverse data reduces biases due to limited representation.
+
+To summarize, although the given context does not provide explicit details about techniques used to address data bias during preprocessing, methods like fine-tuning pretrained networks and selecting appropriate architectures can indirectly mitigate these issues. Common techniques include stratified splitting, oversampling, undersampling, and diverse data collection.

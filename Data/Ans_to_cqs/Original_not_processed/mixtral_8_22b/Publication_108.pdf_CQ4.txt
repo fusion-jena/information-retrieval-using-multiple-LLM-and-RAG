@@ -1,0 +1,128 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Remote Sens. 2019, 11, 1976
+
+12 of 14
+
+greater than 0.5 ha. As these results also required choosing optimal parameters, the transferability of
+the method was somewhat more complex compared to the pretrained U-Net architecture, which can be
+applied without tuning additional parameters speciﬁc to the area of interest. An in-depth investigation
+of the performance of the proposed architecture on further datasets would be an interesting future
+project, especially with respect to the power of generalization, which can be increased by different data
+augmentation techniques.
+
+4.2. Limitations of This Study
+
+In general, the limitations of deep learning in comparison to other machine learning methods
+are the requirement of large and high-quality training data, as well as hardware limitations related to
+GPU computing power. The most notable advantage of deep learning is the grade of automatization
+and a high potential to generalize when using large amounts of representative training data, which
+might, however, not always be available; especially with respect to ground-truth labels that might be
+scarce or not exist at all.. Furthermore, the black-box nature makes these algorithms a good choice for
+classiﬁcation as suggested in this study, but a challenge for modeling physical properties, as is often
+the case in forestry. This case study relied on high-resolution orthophotos with 20-cm spatial resolution
+obtained from an aerial survey. The great advantage of these data is that many details can be detected.
+
+As stated in the Introduction, there exist many different CNNs for different applications, and it is
+important to ﬁnd the appropriate solution for a speciﬁc task. Retraining existing powerful architectures
+such as VGG19 [27], ResNet, or Inception Net to solve other problems by transfer learning is one
+approach that is often used. However, this was not an option in our four-band setting and very
+particular segmentation task with features that might differ signiﬁcantly from features learned by
+networks trained on common image datasets such as ImageNet. Thus, we opted to implement a U-Net
+architecture, which is a particular implementation of a CNN ﬁrst developed by Ronneberger [19] for
+biomedical image segmentation. One major advantage of CNNs is the ability to extract spatial features
+and to detect patterns independently of their position on the input image. The U-Net architecture is
+
+Table 1. Hyperparameter ﬁne-tuning results.
+
+Scenario Number of Blocks Number of Filters
+
+Learning Rate Mean IoU Accuracy
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+3
+4
+5
+6
+4
+4
+4
+4
+4
+4
+
+64 , 64, 64
+64, 64, 64, 64
+64, 64, 64, 64, 64
+64, 64, 64, 64, 64, 64
+16, 32, 64, 128
+32, 64, 128, 256
+64, 128, 256, 512
+16, 32, 64, 128
+16, 32, 64, 128
+16, 32, 64, 128
+
+0.001
+0.001
+0.001
+0.001
+0.001
+0.001
+0.001
+0.01
+0.0005
+0.00001
+
+0.30
+0.38
+0.36
+0.32
+0.42
+0.38
+0.31
+0.008
+0.42
+0.39
+
+82%
+89%
+86%
+86%
+94%
+88%
+84%
+71%
+94%
+90%
+
+Scenario 5 was selected as the optimal solution as it had the best values for IoU and accuracy
+while training on fewer epochs. The resulting architecture is shown in Figure 4 and described in
+the following.
+
+2.5.1. Encoding Path
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the specific data augmentation techniques applied in the deep learning pipeline. However, it mentions that different data augmentation techniques could increase the power of generalization, suggesting that some form of data augmentation was likely employed. Data augmentation techniques commonly used in deep learning include flipping, rotating, scaling, cropping, and adding noise to images. These techniques help improve model robustness and prevent overfitting by increasing the diversity of the training dataset. Without further context, it cannot be determined exactly which data augmentation techniques were utilized in this study.

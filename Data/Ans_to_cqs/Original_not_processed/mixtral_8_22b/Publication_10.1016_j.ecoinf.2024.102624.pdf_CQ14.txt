@@ -1,0 +1,81 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+EcologicalInformatics81(2024)1026244L. Szab´o et al.                                                                                                                                                                                                                                   
+
+Table 1 
+Hyperparameters in the grid search.  
+
+Algorithm 
+
+Hyperparameter ranges 
+
+RF 
+SVM 
+
+MARS 
+
+mtry: 1–20 with increments of 1 
+gamma: 0.01–0.1 with increments of 0.01 
+C: 2–16 with increments of 2 
+degree: 1–3 
+nprune: 2 to 100 with increments of 10  
+
+(Conrad et al., 2015). The optimal segment size was chosen based on the 
+extent of the patches, without losing any elements of the species pattern. 
+The mean values of the segments were used for classification. Segments 
+are  optimal  to  avoid  spatial  autocorrelation  when  using  k-fold  cross- 
+validation  (KCV)  in  the  model-building  and/or  accuracy  assessment 
+phase.
+
+We  classified  all  the  input  dataset combinations  (10  variable  sets; 
+Table  2)  with  each  classifier  (RF,  SVM,  MARS)  and  with  two  sets  of 
+classes (7C and 13C); thus, we had 60 models as a result of the classi-
+fications. Classifications and hyperparameter tuning were conducted in 
+R  4.2  (R  Core  Team,  2023)  with  the  caret  package  (Kuhnaut  et  al., 
+2022). 
+
+2.4. Accuracy assessment
+
+and Dr˘agut¸, 2016; Breiman, 2000; Phinzi et al., 2020); and Multivariate 
+Adaptive Regression Splines (MARS) as a non-parametric extension of 
+regressions, which is insensitive to nonlinearity (Friedman, 1991; Garosi 
+et al., 2019; Rotigliano et al., 2018). All classification models were run 
+with hyperparameter tuning using the grid search method to determine 
+the  best  sets  of  function  parameters  (Table  1).  RF  has  one  important 
+hyperparameter, mtry, which controls the input variables for the deci-
+sion trees. SVM has two parameters to fine-tune: gamma (how large the 
+influence of the training data is: small values define large distance, large 
+values define small distance in the hyperspace defined by the variables), 
+and C (small values increase, large values decrease misclassifications). 
+In  the  case  of  MARS,  the  two  parameters  are  the  degree  (maximum 
+degree of interactions between input variables) and nprune (controls the
+
+Thirty models of the 10 input datasets with three classifiers revealed 
+that the best five medians belonged to the SVM and RF, while the MARS 
+was only ranked 6th (7C) and 10th (13C) (Fig. 6). The best OAs were 
+96.1% (7C) and 85.4% (13C), and the model performance also depended 
+on the input datasets, while the best accuracy of 7C was obtained with 
+the RFE variable selection dataset. In the case of 13C, it required the use 
+of  all  variables;  nevertheless,  the  RFE  dataset  ensured  only  slightly 
+(1.1%)  worse  OA.  Regarding  the  minimum  OAs,  RF  (with  the  RFE 
+dataset)  provided  3.8%  better  results  than  the  SVM  (with  the  RFE 
+dataset; 80.7%) in the case of 7C, and we experienced the same in the 
+case of 13C, but the difference was only 1.9%. The texture index alone 
+was the worst input data, with median OAs of 38.8% and 30.9% (7C and 
+13C, respectively), followed by 74.0% and 66.6% for spectral indices,
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The hyperparameters of the model are optimized using the grid search method. This method involves specifying a set of possible values for each hyperparameter and then testing every combination of these values to find the best set of function parameters. For example, in this study, the Random Forest algorithm uses'mtry' as its main hyperparameter, which controls the number of input variables for decision trees. The Support Vector Machine algorithm uses 'gamma' and 'C', where 'gamma' determines how much influence the training data has, and 'C' balances the tradeoff between minimizing misclassification and maximizing margin width. Lastly, the Multivariate Adaptive Regression Splines algorithm uses 'degree' and 'nprune'. The 'degree' parameter defines the maximum degree of interaction between input variables, and 'nprune' controls the complexity of the final model.

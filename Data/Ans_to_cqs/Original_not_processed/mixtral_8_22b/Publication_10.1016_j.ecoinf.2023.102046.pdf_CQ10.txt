@@ -1,0 +1,60 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+ResNet-50 is a convolutional neural network model that uses skip 
+connections,  which  made  it  possible  to  get  good  performance  with 
+deeper models than was previously possible (He et al., 2015). Training 
+deep neural networks can result in exploding gradients, and skip con-
+nections  were  introduced  to  ameliorate  that  problem.  ResNet-50  was 
+chosen  for  comparison  as  it  is  a  proven  CV  classification  model.  It  is 
+commonly used and provides a well-performing baseline. 
+
+Inception-V3  is  a  convolutional  neural  network  used  for  image 
+classification, that has an auxiliary classifier that acts as a regularizer 
+(Szegedy et al., 2015b). The Inception-V3 architecture is built on pre-
+vious Inception models, with the aim of making the V3 computationally
+
+For  few-shot  learning,  CLIP  (Contrastive  Language  Image  Pre- 
+training)  is  a  combination  of  two  transformer  models  that  was 
+recently introduced. It consists of a text encoder and an image encoder, 
+and is trained using contrastive learning to allow the image encoder to 
+learn  visual  concepts  through  natural  language  supervision  (Radford 
+et al., 2021). The image encoder maps an image to a vector that can be 
+considered a robust semantic feature representation of the image, which 
+can transfer to diverse tasks and often perform competitively with fully 
+supervised baselines in a zero-shot fashion, without the need for fine- 
+tuning.  CLIP  was  trained  on  400  million  images  from  the  web  along 
+with their captions. While these models have shown impressive perfor-
+mance, they are not perfect and have, for example, shown limited zero- 
+shot  performance  in  detecting  tumors  on  x-ray  images.  We  aim  to
+
+82% agreement of the annotators.
+
+For fine-tuning, we used the HuggingFace implementations of ViT 
+(“google/vit-hugepatch14–224-in21k”) and ResNet (“microsoft/resnet- 
+50”)  but  the  Keras  implementation  of  Inception-V3.  All  fine-tuning 
+models  had  been  pre-trained  on  the  ImageNet  (Deng  et  al.,  2009) 
+dataset. 
+
+We replaced the classifier head on all models so that it received the 
+output of the models along with the additional parameters, quarters and 
+length. We also tried adding additional dropout and dense layers at the 
+end of the Inception model as for the DeepOtolith model Politikos et al. 
+(2021). To differentiate we use Deep Otolith Inception-V3 for the model 
+
+EcologicalInformatics76(2023)1020463A.R. Sigurðard´ottir et al.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the code repository link of the deep learning pipeline (e.g., Link to GitHub, GitLab, BitBucket)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information about the specific code repository link of the deep learning pipeline. Therefore, I cannot provide the exact link to the GitHub, GitLab, or BitBucket repository containing the deep learning pipeline mentioned in this study. However, based on the context, it appears that some parts of the pipeline might be available in open source libraries such as HuggingFace and Keras. For instance, the authors mention using the HuggingFace implementation of Vision Transformer (ViT) and the Keras implementation of Inception-V3. These implementations could potentially be found within the respective repositories of those projects. Nevertheless, without further details regarding the custom components developed by the authors, it is impossible to determine if there exists a single repository containing the entire deep learning pipeline described in this work.

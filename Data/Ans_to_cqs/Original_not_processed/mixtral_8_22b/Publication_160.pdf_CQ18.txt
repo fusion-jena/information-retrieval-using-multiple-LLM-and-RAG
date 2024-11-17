@@ -1,0 +1,160 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+with batch size 512 (65.54; see Table 2). These results provide a dif-
+ferent perspective than the conclusions drawn by previous studies
+(Masters and Luschi, 2018; Mishkin et al., 2016) where the use of small
+or even mini-batches enhanced performances. This could be explained
+by the high imbalance between classes and the fine-grained nature of
+the classification task. Larger batches may therefore be more re-
+presentative of the intra-class variability which in turn allows the net-
+work to focus on inter-class variance. It will be asserted that our best
+ResNet18 (ResNet18–224; 65.94 micro-F1, see Table 3) easily out-
+performed deeper network architectures, whether trained from scratch
+with a smaller batch size (ResNet50–128; micro-F1 63.89), or pre-
+trained with fine-tuned weights (ResNet152–224; 60.09 micro-F1) ac-
+cording to standard procedures (King et al., 2018). Our results support
+the findings of a recent study which advocated the use of carefully
+
+60.64
+63.82
+65.77
+66.30
+
+60.17
+63.57
+65.54
+65.94
+
+Table 3
+Performances of different ResNet architectures on validation and test sets. ResNetX-Y is written so that X indicates the network's depth and Y the input size. In bold
+the best value for each metric.
+
+Network -patch Size
+
+Batch size
+
+Validation set
+
+Test set
+
+Macro-F1
+
+Top-1 accuracy
+
+Micro-F1
+
+Macro-F1
+
+Top-1 accuracy
+
+Micro-F1
+
+ResNet152–224
+ResNet50–128
+ResNet18–128
+ResNet18–224
+Ensemble
+
+16
+128
+128
+200
+128
+
+37.45
+52.04
+51.40
+54.93
+60.56
+
+62.38
+64.07
+63.90
+66.70
+70.60
+
+60.46
+63.85
+63.88
+66.44
+70.35
+
+38.26
+52.27
+51.62
+53.93
+60.38
+
+61.71
+64.35
+63.60
+66.30
+70.54
+
+60.09
+63.89
+63.44
+65.94
+70.37
+
+The deeply learned features and the different layer outputs of the
+training, validation, and test sets were extracted in advance. LRs were
+trained and optimised using the grid search tool implemented in scikit-
+learn2 on the validation set.
+
+SGR was applied at risk levels ranging from 5 to 30% and resultant
+thresholds. Coverages and bounds for the coverage were assessed to-
+gether with top-5 accuracy on the unclassified part of the dataset. SGR
+was trained on the validation set and applied to the training and test set
+with the aforementioned risk levels to assess the corresponding cov-
+erages.
+
+All architectures were implemented in Python 3.6 using the Keras3
+library and Tensorflow4 backend. All training and testing processes
+were performed on a Windows 10 workstation with 64 bits OS, 128 Gb
+RAM, 2 × NVidia GeForce GTX 1080 Ti 11 Gb memory and 12 cores
+CPU 2.9 GHz.
+
+5.2. Evaluation metrics
+
+5.2.1. Classification performances
+
+5.2.1. Classification performances
+
+The performances of the networks were assessed with the precision,
+recall and F1-score. At training, validation and testing time; precision,
+recall and F1-score were calculated as follows:
+
+With:
+
+(1)
+
+(2)
+
+(3)
+
+F1 ranges from 0 to 1, 1 being a perfect classifier.
+The three metrics were computed at both micro and macro levels.
+Micro-F1, precision, and recall computed the statistics across all classes,
+given their distribution on the whole dataset, while macro statistics
+placed equal weight on all classes, meaning that class-wise differences
+in performance more greatly impacted the scores. This rendered micro-
+recall equivalent to the overall top-1 accuracy of the models (these two
+terms will be used interchangeably).
+
+5.2.2. Calibration of the networks
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text does not explicitly mention a specific strategy implemented to monitor the model performance during training. However, it can be inferred that the authors might have used some form of monitoring based on the evaluation metrics mentioned in section 5.2.1. Classification Performances. They assessed the performances of the networks with precision, recall, and F1-score at training, validation, and testing times. Additionally, they computed these metrics at both micro and macro levels. Micro-F1, precision, and recall were computed across all classes given their distribution on the whole dataset, while macro statistics placed equal weight on all classes. Therefore, it can be assumed that the authors monitored the model performance during training using these evaluation metrics.

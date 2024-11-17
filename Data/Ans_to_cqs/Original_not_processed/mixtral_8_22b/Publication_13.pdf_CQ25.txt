@@ -1,0 +1,111 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+training was done using taxon labels from the source images and data-
+
+training images on prediction accuracy, whereby the CNN model was
+
+trained with N images randomly selected from the dataset and predicted
+
+the class (family label) of n test images randomly selected from the rest.
+
+N ranged between 100 and 700 for LH (with intervals of 100 images),
+between 50 and 250 for LL (with intervals of 50 images) and between
+100 and 900 for GH (with intervals of 100 images). The number of test
+images n was set to 200 for LH and GH, and 50 for LL due to the small
+size of the dataset. To evaluate the consistency of prediction accuracy,
+
+and TensorFlow 2.5.0 (https://www.tensorflow.org) libraries, and all
+
+statistical analyses were conducted with R 4.1.0 (R Core Team, 2021).
+
+Between-datasets classification
+
+For the between-dataset prediction, the CNN model was trained with
+
+RE SU LT S
+
+a source dataset to predict images from a different target dataset. The
+
+NN was trained with N images randomly selected from the source
+
+Performance of within-dataset classification
+
+dataset, which was then used to predict all images of the target data-
+set and AccT and ΔAcc were measured. We ran the above procedures
+for three source–target pairs (training dataset!predicted dataset),
+GH!LH, GH!LL and LL!LH. These settings simulate two alternative
+scenarios: (i) a global image database is used to predict local samples
+(GH!LH and GH!LL) and (ii) conventional
+
+images, as
+
+those
+
+Effects of datasets and the number of images
+
+The accuracy of within-dataset classification and the effect of the
+
+datasets. Conversely to the above analyses, here the model was
+
+tion to the classifier (Figure S1). The training procedure then optimizes
+
+trained to classify datasets instead of taxa. Then, a classification error
+of the SVM, εsource(cid:4)target, was measured as a proportion of incorrect
+predictions of 200 test images sampled from the two datasets. An
+
+the model parameters in the shared part of the network to not only
+
+minimize the loss of the label classifier (taxon prediction) but at the
+
+same time to maximize the loss of the domain classifier (dataset predic-
+
+intuitive interpretation of this measure is that the dataset classifica-
+
+tion). This adversarial training procedure optimizes shared intermediate
+
+tion task is harder when the feature distributions between two data-
+
+features to be invariant between the two domains, and hence the
+
+sets are more similar. Therefore, a large classification error indicates
+
+model can generalize across them, which potentially improves the accu-
+
+offering high numbers of images per taxon, which is more difficult to
+
+200 images in each of the three datasets used here. However, the
+
+obtain locally, although it is critical for increasing the performance of
+
+degree of accuracy is greatly affected by the image quality and the
+
+the CNN-based classification (Figure 2; Donahue et al., 2013; Valan
+
+complexity of the dataset: both the LL (low image quality) and in
+
+et al., 2019, 2021).
+
+(a)
+
+(b)
+
+F I G U R E 6
+
+Prediction probabilities for the successful, failed and out-of-distribution predictions at a 0.95 threshold (horizontal line). (a) Intra-
+dataset predictions of LH images using 400 randomly selected images for training. (b) Predictions of LH images using 800 GH images for training.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the purpose of the deep learning model (e.g., classification, segmentation, detection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The purpose of the deep learning model discussed in the given context is for classification tasks. Specifically, the model is designed to classify images into their respective family labels or taxa. The model uses convolutional neural networks (CNNs) and is trained using taxon labels from source images and data. The training process involves selecting a certain number of images from the dataset and using them to train the model, while another set of images is used for testing purposes. The goal is to improve the prediction accuracy of the model in identifying the correct class or family label for the input images. Additionally, the model is also used for between-dataset classification, where it is trained with one dataset and used to predict images from a different dataset.

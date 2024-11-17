@@ -1,0 +1,159 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4. Results 
+
+4.1. Evaluation of fusion quality 
+
+(1)  The  feature  dataset,  training  samples,  and  validation  samples 
+were used as input into five base models to generate prediction 
+results  (TKNN,  TRF,  TAdaBoost,  TXGBoost,  TLightGBM)  of  the  training 
+samples  and  prediction  results  (VKNN,  VRF,  VAdaBoost,  VXGBoost, 
+VLightGBM) of the validation samples.  
+
+(2)  TKNN, TRF, TAdaBoost, TXGBoost, and TLightGBM  were combined in a 
+column manner to obtain T, and VKNN, VRF, VAdaBoost, VXGBoost, 
+VLightGBM were combined in a column manner to obtain V.  
+(3)  Using T in the base model as training data for the meta-model, the 
+RF  algorithm  was  used  to  generate  the  prediction  results 
+(α1, α2, α3, α4, α5) of  training  data  T  by  5-fold  cross-validation. 
+Stack (α1, α2, α3, α4, α5) in rows to get A.  
+
+(4)  (β1
+
+, β2
+
+, β3
+
+, β4
+
+, β5
+
+) is  obtained  by  predicting  V.  Additionally,  the 
+
+classification result B was obtained by voting.
+
+3.3. Feature selection 
+
+This study used Recursive Feature Elimination and Cross-Validation 
+(RFECV) to select the optimal features that could reduce the redundancy 
+caused  by  multi-source  feature  datasets  and  improve  model  perfor-
+mance. RFECV is a wraparound approach to feature selection based on 
+
+Table 2 
+Training samples and validation samples.  
+
+Class 
+
+Number of training samples 
+
+Number of validation samples from image 
+
+Number of validation samples from field survey 
+
+P. australis 
+S. salsa 
+Tidal flat 
+Aquatic environment 
+Paddy field 
+Aquaculture pond 
+Dryland 
+Forested region 
+Developed land 
+Total 
+
+900 
+171 
+375 
+852 
+819 
+746 
+220 
+129 
+761 
+4973 
+
+336 
+55 
+150 
+248 
+223 
+277 
+67 
+59 
+375 
+1790 
+
+71 
+18 
+5 
+134 
+82 
+35 
+0 
+0 
+0 
+345 
+
+Total 
+
+1307 
+244 
+530 
+1234 
+1124 
+1058 
+287 
+188 
+1136 
+7108
+
+Ke, G., Meng, Q., Finley, T., Wang, T., Chen, W., Ma, W., Ye, Q., Liu, T.-Y., 2017. 
+LightGBM: A Highly Efficient Gradient Boosting Decision Tree, 31st Annual 
+Conference on Neural Information Processing Systems (NIPS). 
+
+Lang, M.W., Kasischke, E.S., 2008. Using C-band synthetic aperture radar data to monitor 
+
+forested wetland hydrology in Maryland’s coastal plain, USA. IEEE Trans. Geosci. 
+Remote Sens. 46 (2), 535–546. 
+
+Li, Q., Wong, F.K.K., Fung, T., 2021. Mapping multi-layered mangroves from 
+multispectral, hyperspectral, and LiDAR data. Remote Sens. Environ. 258. 
+Li, X., Zhao, C., Kang, M., Ma, M., 2022. Responses of net primary productivity to 
+
+phenological dynamics based on a data fusion algorithm in the northern Qinghai- 
+Tibet Plateau. Ecol. Indic. 142, 109239. 
+
+Liu, M., Yang, W., Zhu, X., Chen, J., Chen, X., Yang, L., Helmer, E.H., 2019. An improved
+
+(2)  The features with the lowest importance scores are removed from 
+the  current  feature  combinations,  and  the  process  of  feature 
+pruning  is  repeated  recursively  until  the  cross-validation  accu-
+racy reaches the highest level. In the RFECV process, a five-fold 
+cross-validation  was  used  to  select  the  number  and  combina-
+tions of features. 
+
+3.4. Classification model and classification schemes
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, several postprocessing steps can be performed depending on the specific requirements of the project or research. Some common postprocessing steps include:
+
+1. Model evaluation metrics: Calculating various performance metrics such as accuracy, precision, recall, F1 score, ROC curve, etc., to evaluate the performance of the trained model. These metrics help in understanding how well the model has learned from the given data and its ability to generalize to unseen data.
+
+2. Confusion Matrix: It is a table layout that allows visualization of the performance of an algorithm. Each row of the matrix represents the instances in an actual class while each column represents the instances in a predicted class. This helps in identifying which classes are being misclassified more often.
+
+3. Saliency Maps: They are visualizations that highlight the pixels in the input image that contribute most strongly to the output of a convolutional neural network. This helps in understanding what parts of the input image are important for making predictions.
+
+In this particular case, after the model training, the authors have evaluated the fusion quality using different base models and meta-models. They have also used Recursive Feature Elimination and Cross-Validation (RFECV) for feature selection. However, they do not explicitly mention any postprocessing steps like saliency maps or confusion matrices. Therefore, it cannot be said if these techniques were used in their analysis.

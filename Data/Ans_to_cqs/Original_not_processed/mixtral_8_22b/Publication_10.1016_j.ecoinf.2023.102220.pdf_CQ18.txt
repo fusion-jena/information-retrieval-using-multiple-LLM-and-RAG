@@ -1,0 +1,67 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.3. Analysis of case-study: Aphid data 
+
+To  predict  the  threshold  representing  an  outbreak  for  the  aphid 
+population dynamics (Fig. 6), we select x* = 200 considering the num-
+ber of species collected in the four traps of the monitoring system, which 
+was  related  to  the  10%  of  plants  infected  by  aphids  resulting  in  the 
+economic  threshold.  Applying  PBP  using  different  training  data  ob-
+tained from percentages of the initial observations of the time series of 
+aphids,  the  accuracy  values  were  higher  than  70%  regardless  of  the 
+percentage of training using the original aphid time series.
+
+Also, considering the influence of the model, we found that the rank 
+of  models  in  which  our  method  produced  higher  performance  is, 
+respectively, starting with the best one, the negative binomial (ϕ = 1.2), 
+Gaussian, negative binomial (ϕ = 3) and Poisson stochastic models. On 
+average, we obtain an accuracy of 84.6% with a standard deviation of 
+20.5%, a false positive rate of 14.9% with a standard deviation of 24.2% 
+and a true positive rate of 59.6% with a standard deviation of 42.0% for 
+the  negative  binomial  (ϕ = 1.2)  model.  Considering  the  Gaussian 
+model, we obtained an accuracy of 75.2% with a standard deviation of 
+18.0%, a false positive rate of 22.9% with a standard deviation of 22.2% 
+and a true positive rate of 55.5% with a standard deviation of 37.3%. 
+This finding makes our method a promising prediction tool since we got 
+good results even when using stochastic approaches to simulate the data. 
+
+3.3. Analysis of case-study: Aphid data
+
+machine  learning  methods:  Support  Vector  Machines,  Deep  Neural  Networks,  Long  Short  Term  Memory  and 
+Random Forests. The PBP method yielded a competitive performance associated with higher true-positive rates 
+in most comparisons while providing interpretability rather than being a black-box method. It is an improvement 
+over current state-of-the-art machine learning tools, especially by non-specialists, such as ecologists aiming to use 
+a quantitative approach for pest monitoring. We provide the implemented PBP method in Python through the 
+pypbp package.
+
+With  respect  to  interpretability,  when  using  RF,  it  is  possible  to 
+obtain variable importance. However in this case, this will tell us which 
+previous  steps  were  most  important  when  predicting  outbreaks,  not 
+necessarily  how  they  relate  to  its  occurrence.  When  using  LSTM  and 
+DNN,  which  are  commonly  referred  to  as  ‘black-box’  methods  (Liang 
+et al., 2021), it is even more challenging to find explainable frameworks 
+that allow us to study the relationship between the predictors and the 
+outbreaks. However, each hyperparameter in the PBP framework pro-
+vides a clear interpretation, and we are able to create visual represen-
+tations  of  the  patterns  that  occurred  before  the  outbreak  (the  P′
+means 
+matrix).  For  instance,  Fig.  7  displays  the  three  patterns  in  P′
+means  ob-
+tained from employing PBP using the optimised hyperparameter values 
+for the aphid data using 50% of the time series for training.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not explicitly mention the specific strategy used to monitor the model performance during training. However, it can be inferred that the authors used various metrics such as accuracy, false positive rate, and true positive rate to evaluate the performance of their proposed Predictive Boundary Points (PBP) method. They also compared the performance of their method with other machine learning techniques like Support Vector Machines, Deep Neural Networks, Long Short Term Memory, and Random Forests. Additionally, they mentioned using different percentages of the initial observations of the time series of aphids for training, indicating that they might have employed cross-validation or similar strategies to assess the model's performance on unseen data.

@@ -1,0 +1,90 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1. Training parameters used in DeepLabV3+.
+
+Training Parameter
+
+Value
+
+Learning policy
+Base learning rate
+Learning rate decay factor
+Learning rate decay step
+Learning power
+Training number of steps
+Momentum
+Train batch size
+Weight decay
+Train crop size
+Last layer gradient multiplier
+Upsample logits
+Drop path keep prob
+tf_initial_checkpoint
+initialize_last_layer
+last_layers_contain_logits_only
+slow_start_step
+slow_start_learning_rate
+ﬁne_tune_batch_norm
+min_scale_factor
+max_scale_factor
+scale_factor_step_size
+atrous_rates
+output_stride
+
+Poly
+0.0001
+0.1
+2000
+0.9
+≥100,000
+0.9
+2
+0.00004
+‘513,513’
+1
+True
+1
+deeplabv3_pascal_train_aug
+False
+True
+0
+1 × 10
+False
+0.5
+2
+0.25
+[6,12,18]
+16
+
+−4
+
+makes the deep learning method’s loss function to be biased toward the overrepresented classes resulting in poor classification performance for the underrepresented classes [50]. One should also pay attention when applying deep learning methods to new applications because one requirement for deep learning is the availability of a vast amount of training data. Moreover, the training data needs to have similar characteristics as the testing data. Otherwise, deep learning methods may not yield good performance. Augmenting the training dataset using different brightness levels, adding vertically and horizontally flipped versions, shifting, rotating, or adding noisy versions of the training images could be potential strategies to mitigate the issues when test data characteristics differ from the training data. 5. Conclusions In this paper, we investigated the performance of three methods for vegetation detection. Two of these methods are based on deep learning and another one is an
+
+One other challenge with deep learning methods is when the dataset is imbalanced. With heavily
+imbalanced datasets, the error from the overrepresented classes contributes much more to the loss
+value than the error contribution from the underrepresented classes. This makes the deep learning
+method’s loss function to be biased toward the overrepresented classes resulting in poor classiﬁcation
+performance for the underrepresented classes [50]. One should also pay attention when applying deep
+learning methods to new applications because one requirement for deep learning is the availability of
+a vast amount of training data. Moreover, the training data needs to have similar characteristics as the
+testing data. Otherwise, deep learning methods may not yield good performance. Augmenting the
+training dataset using diﬀerent brightness levels, adding vertically and horizontally ﬂipped versions,
+shifting, rotating, or adding noisy versions of the training images could be potential strategies to
+
+work can be seen in Table 1. Table 1. Training parameters used in DeepLabV3+. Training Parameter Value Learning policy Poly Base learning rate 0.0001 Learning rate decay factor 0.1 Learning rate decay step 2000 Learning power 0.9 Training number of steps ≥100,000 Momentum 0.9 Train batch size 2 Weight decay 0.00004 Train crop size ‘513,513′ Last layer gradient multiplier 1 Upsample logits True Drop path keep prob 1 tf_initial_checkpoint deeplabv3_pascal_train_aug initialize_last_layer False last_layers_contain_logits_only True slow_start_step 0 slow_start_learning_rate 1e-4 fine_tune_batch_norm False min_scale_factor 0.5 max_scale_factor 2 scale_factor_step_size 0.25 atrous_rates [6,12,18] output_stride 16   Remote Sens. 2020, 12, 2502
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors mention several data augmentation techniques that can be employed to improve the performance of deep learning models when dealing with imbalanced datasets or when there are differences between the characteristics of the training and testing data. These techniques include adjusting brightness levels, creating vertical and horizontal flips of the original images, shifting, rotating, and introducing noise into the training images. By employing such techniques, it becomes possible to increase the diversity of the training set without actually collecting additional data, which can help prevent overfitting and improve the model's ability to generalize to unseen data.

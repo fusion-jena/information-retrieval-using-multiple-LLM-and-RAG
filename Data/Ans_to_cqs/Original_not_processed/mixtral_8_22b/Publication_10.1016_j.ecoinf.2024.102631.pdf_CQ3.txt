@@ -1,0 +1,92 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+structures with an increasing number of output channels, encouraging 
+the network to learn complex representations. To enhance the network's 
+capacity  for  capturing  fine-grained  features  and  context,  Spatial  and 
+Channel Attention (SCA) modules are integrated into the architecture. 
+These modules act as mechanisms for focusing on relevant spatial re-
+gions  and  channel-wise  information,  respectively.  These  attention 
+mechanisms are integrated at multiple stages in the network to enrich 
+the feature representations. The decoder upscales the feature maps and 
+fuses  information  from  the  encoder  using  skip  connections.  Each 
+decoder block consists of a transposed convolutional layer to increase 
+spatial  resolution,  followed  by  batch  normalization  and  ReLU  activa-
+tion.  The  final  stage  of  the  network  involves  upsampling  the  feature 
+maps, followed by a convolutional layer with 4 × 4 filters to produce the
+
+2. Related Work 
+
+Image enhancement plays a crucial role in improving visual quality 
+and  extracting  meaningful  information  from  images.  Over  the  years, 
+researchers  have  explored  various  methodologies  to  enhance  images, 
+with  two  prominent  streams  of  investigation  emerging.  One  branch 
+primarily focuses on leveraging traditional image processing techniques, 
+while the other harnesses the power of deep learning algorithms. In this 
+section,  we  review  some  of  the  currently  available  solutions  using 
+classical and deep learning-based approaches. 
+
+2.1. Classical image enhancement techniques
+
+The network takes images with dimensions of 256 × 256 pixels and 
+three  color  channels  as  input.  It  follows  a  fully  convolutional  design, 
+with  each  layer  applying  2D  convolutions  using  4  × 4  filters.  Batch 
+Normalization and Leaky-ReLU activation functions are used after each 
+convolution  layer  to  facilitate  network  training  and  stability.  The 
+encoder consists of 5 blocks, which progressively reduce the spatial di-
+mensions and learn features. It starts with a convolutional layer with 32 
+output channels and strides of 2, followed by a residual block. The re-
+sidual block comprises a Conv-ReLU-Conv structure, where a convolu-
+tional layer is followed by a Rectified Linear Unit (ReLU) activation and 
+another convolutional layer. This configuration is designed to effectively 
+capture  and  enhance  image  features,  serving  as  a  critical  component 
+within the network's architecture. The residual block output is then fed
+
+score within the C-60 dataset, it falls short compared to the scores ob-
+tained in the other two datasets. This discrepancy can be attributed to 
+the challenging nature of the dataset, precisely due to the inclusion of 
+deep water scenes with low-light visibility. Also, our method exhibited 
+lower UIQM scores compared to Funie-GAN, specifically in scenes with 
+greenish  color  distortions.  Our  model  encounters  limitations  in  effec-
+tively enhancing images within these particular scenes, contributing to 
+the observed disparity in performance across datasets. Also, our image 
+enhancement  model  is  designed  to  generate  images  of  a  fixed  size 
+(256×256). While this resolution is suitable for certain applications, it 
+poses  a  potential  limitation  in  scenarios  requiring  larger  or  more 
+detailed images. On the other hand, increasing the output image size 
+would increase the model size would result in higher time and compu-
+tation complexities.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: Unfortunately, there isn't any specific mention of data annotation techniques used in the given context. However, I can provide some general insights about common data annotation techniques used in deep learning pipelines.
+
+Data annotation is the process of labeling raw data such as text, images, or videos so that machine learning models can understand them better. Some popular data annotation techniques include:
+
+1. Image classification: Labeling entire images based on their content. For example, classifying whether an image contains a cat or a dog.
+
+2. Object detection/bounding boxes: Drawing rectangular boxes around objects in an image and assigning labels to those objects. This technique helps localize and identify different objects within an image.
+
+3. Semantic segmentation: Assigning pixel-level labels to every object in an image. This technique provides detailed information about the shape and location of objects in an image.
+
+4. Instance segmentation: Similar to semantic segmentation but also distinguishes between individual instances of the same object class. This technique is useful when dealing with overlapping objects or objects of the same class appearing together.
+
+5. Polygon annotation: Outlining objects in an image using polygons instead of rectangles. This technique offers more precise boundaries for irregularly shaped objects.
+
+6. Key point annotation: Marking specific points on an object in an image. This technique is often used for facial recognition tasks, where key points like eyes, nose, and mouth need to be identified.
+
+7. Text annotation: Annotating text documents for tasks like named entity recognition, part-of-speech tagging, sentiment analysis, etc.
+
+8. Audio annotation: Transcribing audio files or adding tags to indicate emotions, speaker changes, background noise, etc.
+
+9. Video annotation: Frame-by-frame labeling of video sequences for tasks like action recognition, object tracking, etc.

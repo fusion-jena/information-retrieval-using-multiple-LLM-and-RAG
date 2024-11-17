@@ -1,0 +1,145 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.2. Experimental setup 
+
+During the training phase, to accommodate multivariate input and 
+univariate output, the input and output dimensions of the encoder and 
+decoder  are set  to the  number of variables  in the  dataset. The model 
+dimensionality  is  set  to  128  to  achieve  a  balance  between  model 
+complexity  and  computational  efficiency.  Additionally,  the  model  in-
+tegrates 8 attention heads to enhance its ability to process parallel in-
+formation flows. The model architecture includes two layers of encoders 
+and one layer of decoders, which help to comprehensively capture fea-
+tures from time series data. To reduce the risk of overfitting, a dropout 
+
+4.3.2. Results for the Shandong peninsula
+
+S = ⌊ 1
+Ξ(f)
+
+⌋
+
+(25) 
+
+During  training,  the  input  tensor  comprises  three  dimensions:  the 
+batch  size,  the  number  of  model  variables,  and  the  future  prediction 
+length. The dimension concerning the number of features is segmented 
+by dynamically changing the slice sizes and strides, and the segmented 
+tensors are folded, adding a slice dimension. Finally, by merging the first 
+
+In the second stage of the attention calculation, the covariates are 
+dynamically segmented, capturing their features at different time scales 
+through multiscale attention. Specifically, for the static variables S(t), 
+the multiscale attention FMSA
+S(t)
+)
+(cid:0)
+S(t) = Softmax
+FMSA
+
+is calculated as in Formula 30: 
+
+Wf ,S⋅IS(λk)
+
+(30) 
+
+Similarly, for dynamic variables Z(t), the calculation is as in Formula 
+
+31: 
+
+(cid:0)
+Z(t) = Softmax
+FMSA
+
+)
+
+Wf ,Z⋅IZ(λk)
+
+3.4.3. Attention fusion 
+
+(31)
+
+The  architecture  of  the  Transformer  model  consists  of  two  main 
+parts: an encoder and a decoder. Each encoder layer contains a multi-
+head self-attention mechanism and a feedforward neural network. The 
+multihead attention mechanism is implemented through Formula 8: 
+
+MultiHead(Q, K, V) = Concat(head1, …, headh)WO
+
+Each”head” (headi) is computed using Attention
+
+(8) 
+)
+. 
+The decoder layer in the Transformer adds encoder–decoder attention, 
+focusing on the encoder's output. Given the complex dependencies in the 
+input DO series, a Transformer-based architecture is used in this study to 
+mitigate the risk of gradient issues during training. 
+
+, KWK
+i
+
+, VWV
+i
+
+QWQ
+i
+
+(cid:0)
+
+EcologicalInformatics82(2024)1026953J. Hu et al.                                                                                                                                                                                                                                       
+
+3. Proposed framework
+
+√
+
+The self-attention mechanism enables the model to capture context 
+from the entire input sequence, making it highly effective for tasks such 
+as  sequence-to-sequence  modeling.  Additionally,  the  Transformer  uti-
+lizes a positional encoding scheme to give the model a sense of word 
+order, which is crucial for understanding the structure of a sentence. The 
+positional encoding is added to the input embeddings and is defined as 
+follows: 
+
+PE(pos, 2i) = sin
+
+)
+
+(
+
+pos
+100002i/dmodel
+
+PE(pos, 2i + 1) = cos
+
+)
+
+(
+
+pos
+100002i/dmodel
+
+(6)  
+
+(7) 
+
+In these equations, pos is the position and i is the dimension. Each 
+dimension of the positional encoding corresponds to a sinusoid, which 
+helps  the  model  determine  the  position  or  order  of  the  tokens  in  the 
+input sequence.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The proposed framework uses a Transformer-based deep learning model. This model is chosen due to its effectiveness in handling complex dependencies in the input data and mitigating the risk of gradient issues during training. The Transformer model consists of two main parts: an encoder and a decoder. Each encoder layer contains a multi-head self-attention mechanism and a feedforward neural network. The multi-head attention mechanism allows the model to capture context from the entire input sequence, while the positional encoding scheme gives the model a sense of word order.

@@ -1,0 +1,155 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+All the collected data is divided into three parts: data from 2003 to 
+2020 for training, 2021 data for validation, and 2022 data for testing. 
+We  determine  the  structure  and  hyperparameters  of  the  model  by 
+assessing the effectiveness of validation data forecasts using data from 
+points  A,  B,  and  C.  The  structure  of  all  models,  including  hyper-
+parameters such as kernel size and number of nodes, is determined using 
+a method that controls variables. This involves keeping other variables 
+constant and selecting the parameters that optimize the validation data 
+forecast results as the model’s hyperparameters. Table 1 illustrates the 
+adjustment process of the solver for training the network and the input 
+time  series  length  for  all  models.  In  the  vast  majority  of  cases,  when 
+using  Adam  as  the  solver  for  training  the  network,  the  RMSE  of  the 
+validation data forecasting results is lower. Adam combines the benefits
+
+3.3. Main influence parameters 
+
+Sensitivity experiments were conducted to investigate the impact of 
+different  parameters  on  the  hybrid  CNN-LSTM  model,  as  shown  in 
+Fig. 10. In the region with high Chl concentrations (point A), excluding 
+the Chl parameter from the model input resulted in the largest increase 
+in  RMSE,  indicating  that  Chl  is  the  most  critical  factor  affecting  the 
+model’s forecasting performance. Conversely, in the region with low Chl 
+concentrations (point C), excluding the Wind-U and Current-U param-
+eters led to a significant increase in RMSE, highlighting these parameters 
+as the primary factors affecting model accuracy in low-value regions. In 
+the medium-value region (point B), the absence of the Wind-U param-
+eter also increased RMSE, though the impact was more pronounced in 
+the low Chl concentrations region. 
+
+4. Discussion
+
+influencing factors of A. catenella bloom using machine learning and numerical 
+simulation. Harmful Algae 103, 102007. https://doi.org/10.1016/j. 
+hal.2021.102007. 
+
+Barzegar, R., Aalami, M.T., Adamowski, J., 2020. Short-term water quality variable 
+
+prediction using a hybrid CNN-LSTM deep learning model. Stoch. Env. Res. Risk A. 
+34 (2), 415–433. https://doi.org/10.1007/s00477-020-01776-2. 
+
+Behrenfeld, M.J., Boss, E.S., 2014. Resurrecting the ecological underpinnings of ocean 
+plankton blooms. Annu. Rev. Mar. Sci. 6, 167–194. https://doi.org/10.1146/ 
+annurev-marine-052913-021325. 
+
+Cai, L.N., Tang, R., Yan, X.J., Zhou, Y.D., Jiang, J.J., Yu, M.H., 2022a. The spatial- 
+temporal consistency of chlorophyll-a and fishery resources in the water of the 
+Zhoushan archipelago revealed by high resolution remote sensing. Front. Mar. Sci. 9, 
+1022375. https://doi.org/10.3389/fmars.2022.1022375. 
+
+Cai, L.N., Yu, M.H., Yan, X.J., Zhou, Y.D., Chen, S.Y., 2022b. HY-1C/D reveals the
+
+Table 1 
+The  adjustment  process  of  solver  for  training  network  and  input  time  series 
+length for all deep learning models.  
+
+RMSE (10 μg/L) 
+
+Solver for training network (5 Days) 
+
+Input time series length 
+
+adam 
+
+sgdm 
+
+RMSProp 
+
+3 Days 
+
+7 Days 
+
+CNN 
+
+LSTM 
+
+CNN-LSTM 
+
+A 
+B 
+C 
+A 
+B 
+C 
+A 
+B 
+C 
+
+3.17 
+0.62 
+0.43 
+2.09 
+0.54 
+0.33 
+2.19 
+0.56 
+0.35 
+
+3.23 
+0.67 
+0.44 
+2.13 
+0.55 
+0.33 
+2.20 
+0.57 
+0.38 
+
+3.22 
+0.63 
+0.42 
+2.18 
+0.55 
+0.37 
+2.27 
+0.60 
+0.36 
+
+2.69 
+0.64 
+0.46 
+2.13 
+0.65 
+0.48 
+2.18 
+0.61 
+0.36 
+
+3.32 
+0.63 
+0.41 
+2.13 
+0.57 
+0.73 
+2.21 
+0.52 
+0.34
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The hyperparameters of the model are optimized using a method that controls variables. This involves keeping other variables constant and selecting the parameters that optimize the validation data forecast results as the model’s hyperparameters. Specifically, the structure of all models, including hyperparameters such as kernel size and number of nodes, is determined using this method. However, the exact optimization technique used, whether it be grid search, random search, or another method, is not explicitly stated in the given context.

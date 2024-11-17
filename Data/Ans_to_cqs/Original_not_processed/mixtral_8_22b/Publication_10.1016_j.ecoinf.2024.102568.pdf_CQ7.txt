@@ -1,0 +1,96 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 5 
+Exp.1 results. 
+
+of RMSE and MAE higher than 20 and in green the values lower than 8; 
+while  the  values  of  MRE  are  in  green  if  lower  than  0.4  and  in  red  if 
+higher than 1. In the end, we used green for accuracy higher than 0.9 
+and red for values lower than 0.75. In addition, the number of obser-
+vations in the training set is reported in the column “train size”, while 
+the column “% out of range” shows the number of observations in the 
+test set with the value of at least one of the two channels out of the range 
+between the minimum and the maximum values of the training set. 
+
+6.1. Exp.1
+
+The LSTM model is trained using the mean squared error (MSE) as 
+loss function and the ADAM optimization (Kingma and Ba (2015)). To 
+avoid overfitting, a dropout layer is added. The dropout layer, described 
+¨
+by 
+Ozgür  and  Nar  (2020),  is  a  regularization  method  that  randomly 
+excludes some inputs from activation and weight updates while training 
+a network. Inputs not set to zero are scaled up by 1/(1 (cid:0) rate) such that 
+the  sum  over  all  inputs  remains  the  same.  The  training  set  is  pre-
+processed using a MinMaxScaler that transforms each feature by scaling 
+it  to  a  [0–1]  range.  The  dimension  of  the  temporal  window  must  be 
+selected  dynamically  considering  the  performance  obtained  with 
+different values on the available dataset. 
+
+In  the  specific  case  of  Modena,  an  Italian  city  spanning  183  km2, 
+
+there are two legal AQ stations denoted by red dots in Fig. 6.
+
+7.1. Performance 
+
+Comparing the results of VR + SVR and LSTM, we can observe that, 
+even if in some cases VR + SVR is performing better than LSTM, the 
+increase in performance is usually less significant. Instead, in most cases 
+where LSTM shows better results it significantly increases accuracy and 
+reduces RMSE, MAE and MRE. Nevertheless, in cases where the size of 
+the training dataset is restricted, the performance of LSTM models may 
+prove to be inadequate. In these cases, the VR + SVR can provide better 
+performance than the LSTM. From our experiments, we observed that a 
+training period with <4000 observations generates a model unable to 
+achieve satisfactory performance levels.
+
+Fig. 5. Structure of the LSTM cell.  
+
+Several  configurations  of  the  LSTM  architecture  were  tested  and 
+compared  in  Casarotti  (2021)  showing  that  a  three  hidden  layer 
+configuration of LSTM does not radically improve the performances, and 
+with a small training dataset might be affected by overfitting. 
+
+Since the co-location period needs to be as short as possible and deep 
+learning models usually need many input data, the implemented solu-
+tion  of  LSTM  is  a  trade-off  between  reaching  good  performances  and 
+minimizing the dimension of the training data. 
+
+For this reason, the LSTM model implemented has only one hidden 
+layer  of  y  neurons,  where  y  is  determined  based  on  the  number  of 
+training observations: 
+
+y =
+
+Ns
+α*(Ni + No)
+
+where Ns is the number of samples in the training set, Ni is the number of 
+input neurons, No  is the number of output neurons, and α is usually a 
+value between 5 and 10.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the given context, there isn't explicit information about the exact criteria used to split the data for deep learning model training into sets like train, test, or validation. However, there are some clues that suggest how the data was handled.
+
+Firstly, the text mentions a training set and a test set. This implies that the data was divided into at least two parts - one for training the model and another for testing its performance. It also states that the number of observations in the training set is reported in the column "train size," which further supports the idea of having separate datasets for different purposes.
+
+Secondly, the context discusses the use of a dropout layer as a regularization method to avoid overfitting. Overfitting occurs when a model learns too much from the training data and performs poorly on unseen data. By adding a dropout layer, some inputs are excluded during training, preventing the model from relying too heavily on any single input. This suggests that the authors were aware of the importance of generalizing the model beyond the training data.
+
+Lastly, the context refers to the performance of the LSTM model being evaluated against other methods, such as VR+SVR. Comparisons between these models indicate that they were likely tested on similar datasets to ensure fair evaluations.
+
+While the context doesn't explicitly state the criteria used to split the data, it does imply that the data was separated into distinct subsets for training and testing purposes. Additionally, measures were taken to prevent overfitting and ensure the validity of comparisons between different models.

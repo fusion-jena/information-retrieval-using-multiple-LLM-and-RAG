@@ -1,0 +1,91 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+As  the  dataset  in  this  study  is  self-defined  and  contains  only  one 
+category,  challenges  arise  during  model  training,  including  concerns 
+about  overfitting,  the  inability  to  assess  the  model’s  generalization 
+ability,  and  uneven  data  distribution  affecting  prediction  rates.  To 
+address these issues, the dataset was divided into five subsets using k- 
+fold cross-validation. Each subset served as a validation set, whereas the 
+remaining  four  subsets  constituted  the  training  set.  The  YOLOv7 
+detection  model  underwent  five  rounds  of  training  and  validation  to 
+assess  its  generalizability.  Fig.  10  depicts  the  accuracy  curve  graph 
+resulting from the 5-fold cross-validation model. This reveals that the 
+five  YOLOv7  models  optimally  used  all  the  samples  in  the  dataset, 
+ensuring  that  each  sample  was  trained  and  validated  in  a  different 
+subset. This approach yielded a prediction rate closer to 1. However, the
+
+1 (cid:0) rT
+
+}
+
+{
+
+j r(i)
+
+k
+
+k ∈ Ri
+
+(6) 
+
+The above equation signifies the appearance feature descriptor of the 
+detected  box  and  the  restriction  condition.  Represents  the  minimum 
+cosine  distance  from  the  ith  detection  box  to  the  jth  prediction  box. 
+(2)(i, j) was below the threshold, the two boxes were considered 
+When d
+to  match  excellently.  For  every  matched  track,  a  graph  gallery  Ri =
+{
+
+}
+
+is  created  to  store  the  last  n  descriptors  (n  is  a  settling 
+
+(i)
+r
+k
+
+Lk
+
+k=1 
+
+parameter).
+
+2.4.2.
+
+Improved KF
+
+for  conserving  Procapra  przewalskii  and 
+
+Our subsequent work will focus on further optimizing the detection 
+model and implementing migration learning during model training to 
+further improve detection accuracy. The FEN will be further modified to 
+be  as  lightweight  as  possible  while  guaranteeing  accuracy,  making  it 
+more adaptable to UAV platforms with limited computational resources. 
+
+CRediT authorship contribution statement
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, there isn't explicit information about specific criteria for determining when training is complete. However, we can infer some potential indicators based on the methods employed in the study.
+
+One common criterion for determining when training is complete is the observation of a validation loss plateau. In other words, if the validation loss stops decreasing significantly after several epochs, it might indicate that the model has learned most of what it can from the training data.
+
+In this study, the researchers use k-fold cross-validation to divide their dataset into five subsets. Each subset serves as a validation set once, while the remaining four subsets form the training set. This process is repeated five times, allowing each sample to be trained and validated in a different subset.
+
+While the text does not explicitly mention a validation loss plateau, the fact that they perform multiple rounds of training and validation suggests that they monitor the performance of the model across these iterations. It's reasonable to assume that they would stop training when they observe no significant improvement in the model's performance on the validation sets.
+
+Additionally, the study mentions the use of an appearance feature descriptor and a restriction condition represented by Equation (6), which seems to play a role in determining the quality of matches between detected and predicted boxes. While this doesn't directly relate to stopping criteria for training, it indicates that the researchers consider various metrics to evaluate the model's performance.
+
+Therefore, although the exact criteria for determining when training is complete aren't specified, it's likely that the researchers monitor the model's performance on the validation sets and stop training when they see little or no improvement.

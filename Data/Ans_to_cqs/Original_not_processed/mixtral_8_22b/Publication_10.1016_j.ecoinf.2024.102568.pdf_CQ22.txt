@@ -1,0 +1,174 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+and 
+
+4.2. Assessment metrics 
+
+Four metrics are taken into consideration when evaluating the per-
+formances  of  the  algorithms:  Root  Mean  Square  Error  (RMSE),  Mean 
+Absolute Error (MAE), Mean Relative Error (MRE), and accuracy. 
+
+Given  the  calibrated  value  ̂yi  and  the  corresponding  ground  truth 
+
+value yi, RMSE is calculated by the formula: 
+
+RMSE =
+
+̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+√
+1
+i=1(̂yi (cid:0) yi)2
+Σn
+n
+
+where n is the total number of observations. Since the errors are squared 
+before they are averaged, the RMSE gives a relatively high weight to 
+large errors. On the other hand, MAE measures the average magnitude of 
+the errors weighing all the errors in the same way and without consid-
+ering the error direction, following the formula: 
+
+MAE =
+
+1
+Σn
+i=1∣̂yi (cid:0) yi∣ 
+n
+
+200–400 
+120–140 
+
+C5 
+
+> 400 
+> 140  
+
+accuracy. Accuracy is widely used in classification problems, and it is the 
+ratio between the number of correct predictions and the total number of 
+input samples. For multi-label classification, if ̂yi  is the predicted value 
+of  the  ith  sample  and  yi  is  the  corresponding  true  value,  accuracy  is 
+defined as: 
+
+accuracy(y, ̂y) =
+
+1
+nsamples
+
+∑nsamples(cid:0) 1
+
+i=0
+
+1(̂yi = yi)
+
+where 1(x) is the indicator function. The value of accuracy can give an 
+idea about the significance of the errors in the predicted values.
+
+Table 5 
+Exp.1 results. 
+
+of RMSE and MAE higher than 20 and in green the values lower than 8; 
+while  the  values  of  MRE  are  in  green  if  lower  than  0.4  and  in  red  if 
+higher than 1. In the end, we used green for accuracy higher than 0.9 
+and red for values lower than 0.75. In addition, the number of obser-
+vations in the training set is reported in the column “train size”, while 
+the column “% out of range” shows the number of observations in the 
+test set with the value of at least one of the two channels out of the range 
+between the minimum and the maximum values of the training set. 
+
+6.1. Exp.1
+
+LSTM 
+
+6.65 
+8.50 
+14.51 
+1.62 
+7.41 
+36.79 
+7.12 
+10.45 
+12.31 
+
+MRE 
+
+VR + SVR 
+
+1.02 
+0.58 
+3.04 
+1.29 
+0.49 
+24.88 
+1.47 
+1.06 
+2.64 
+
+LSTM 
+
+0.95 
+0.52 
+2.22 
+0.71 
+0.52 
+26.40 
+1.02 
+0.80 
+1.59 
+
+ACCURACY  
+
+VR + SVR 
+
+0.90 
+0.83 
+0.97 
+1.00 
+0.98 
+0.47 
+0.92 
+0.81 
+0.89 
+
+LSTM 
+
+0.92 
+0.84 
+0.96 
+0.92 
+0.95 
+0.46 
+0.92 
+0.82 
+0.89  
+
+VR + SVR). As already discussed in Section 6.2, 4004 is a special case 
+employed to demonstrate that calibration needs to be repeated when a 
+cell is changed, and 4003 and 4013 both had a broken humidity sensor; 
+thus, bad performances were expected. In the end, the hourly results of 
+Exp.3 suggest that LSTM is able to reach better performances than VR +
+SVR for all pollutants. 
+
+8. Conclusion
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The performance of the deep learning models is evaluated using four different metrics: Root Mean Square Error (RMSE), Mean Absolute Error (MAE), Mean Relative Error (MRE), and accuracy. These metrics help assess the quality of the predictions made by the models.
+
+Root Mean Square Error (RMSE) calculates the difference between the actual and predicted values, then squares and averages these differences before taking their square root. This metric provides a measure of how spread out the residuals or prediction errors are. A smaller RMSE indicates a more accurate model.
+
+Mean Absolute Error (MAE) also computes the difference between the actual and predicted values but does not square them. Instead, it takes the absolute value of each difference and finds its mean. This metric helps understand the average magnitude of the errors in the dataset. Lower MAE values indicate better model performance.
+
+Mean Relative Error (MRE) expresses the average of the relative errors, which are computed as the ratio of the absolute error to the actual value. It provides information on the overall percentage error of the model. Smaller MRE values signify superior model performance.
+
+Accuracy is commonly employed in classification tasks and represents the proportion of correctly classified instances among the entire dataset. Higher accuracy values imply improved model performance. However, this metric may not always provide a complete picture of the model's effectiveness, especially when dealing with imbalanced datasets.

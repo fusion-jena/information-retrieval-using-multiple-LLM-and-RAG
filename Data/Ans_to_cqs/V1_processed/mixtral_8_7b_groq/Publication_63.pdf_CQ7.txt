@@ -1,0 +1,11 @@
+The data was split into three sets for deep learning model training: training, validation, and test datasets. The training dataset, which was the largest of the three, consisted of 80% of the data and was used to train the weights of the CNN model. The validation dataset, which was 20% of the data, was used to indicate the training progress after each full training cycle, also known as an epoch. It helped to prevent overfitting by showing the model's performance on unseen data during the training process. The test dataset, which was a random sample of 10% of the dataset of each trait, was not involved in the training process and exclusively served for the independent evaluation of the trained models.
+
+In addition, a 3-fold cross-validation was used to assess the final model performance. This involved creating three different training, validation, and test splits of the data, and the resulting mean absolute error (MAE) was computed for each split. This allowed for a comparison of model performance across traits.
+
+The data was split into these three sets before the model training process. The minimum and maximum values used for normalizing the targets and bioclimatic variables were derived from the training dataset exclusively, preventing a leakage of information of the validation and test datasets to the training process.
+
+Another constraint for the training process was that bioclimatic data was fed into the CNN with the same model and data configuration for all the setups.
+
+An ensemble approach was also tested, in which two more state-of-the-art model architectures, namely Xception51 and MobileNetV2, were trained on the configuration of setup 3, and their predictions were subsequently averaged. These models differed strongly in their number of trainable weights, resulting in a different depth.
+
+In summary, the data was split into training, validation, and test datasets, and a 3-fold cross-validation was used for the final model performance assessment. Bioclimatic data was fed into the CNN with the same model and data configuration for all setups, and an ensemble approach was also tested. The minimum and maximum values used for normalizing the targets and bioclimatic variables were derived from the training dataset exclusively.

@@ -1,0 +1,79 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+parameter values were selected based on the RMSEcv values (De San-
+tana  et  al.,  2021).  SVM  was  performed  in  MATLAB  R2016a,  and  the 
+training model was established by using the libsvm package in MATLAB.
+
+2.5. Evaluating model performance 
+
+The accuracy of calibrated and validated models is assessed by four 
+parameters,  namely,  coefficient  of  determination  (R2),  root-mean- 
+square  error  (RMSE),  ratio  of  performance  to  deviation  (RPD),  and 
+ratio of performance to interquartile range (RPIQ) (Zizala et al., 2019). 
+The model is considered accurate when the bias is close to zero. RPD 
+corresponds to the ratio of standard deviation (SD) to RMSE, which is 
+widely used to evaluate VNIR spectral models. RPIQ considers predic-
+tion  errors  and  variations  in  observations  simultaneously,  thereby 
+providing  a  more  objective  and  easily  comparable  measure  of  model 
+validity in model validation studies and has no assumptions about the 
+distribution of observations (Guo et al., 2019). 
+
+Table 2 
+Importance bands for SOC estimation by PLSR.  
+
+Model 
+
+PC 
+
+Important bands (nm) 
+
+R/PLSR 
+
+17 
+
+SG/PLSR 
+
+17
+
+SVMR is a kernel-based machine learning algorithm that originated 
+in  statistical  theory  and  can  be  used  for  regression  and  classification 
+(Cortes and Vapnik, 1995). The algorithm maps each covariate in the 
+training set (sensitive bands filtered by the CARS algorithm) to a high- 
+dimensional feature space by using a kernel function. Epsilon refers to 
+an insensitive loss function that maps the maximum epsilon deviation of 
+the independent data and the associated training data. Errors within the 
+epsilon are ignored, whereas errors larger than the epsilon are penal-
+ized. The epsilon-SVR model and Gaussian radial basis function (RBF) 
+are  used  to  construct  the  calibration  model.  Epsilon-SVR  optimal  pa-
+rameters (e.g., cost C, epsilon p, and gamma g) are used to make the 
+model  achieve  the  best  accuracy,  where  parameters  C  and  p  help  us 
+avoid overfitting of SVMR. For each parameter combination, the best
+
+Fig. 4. Reference vs. predicted values of SOC under different PLSR(a–f) and SVM (g–l) models in the train and test sets. 
+Note: R/PLSR, the combination of the PLSR model with raw spectrum; SG/PLSR, the combination of the PLSR model with SG spectrum; SG-FD/PLSR, the combi-
+nation of the PLSR model with SG smoothing and FD; SG-SD/PLSR, the combination of the PLSR model with SG smoothing and SD; SG-MSC/PLSR, the combination of 
+the PLSR model with SG smoothing and MSC; SG-RL/PLSR, the combination of the PLSR model with SG smoothing and RL; R/SVMR, the combination of the SVMR 
+model with raw spectrum; SG/SVMR, the combination of the SVMR model with SG spectrum; SG-FD/SVMR, the combination of the SVMR model with SG smoothing 
+and FD; SG-SD/SVMR, the combination of the SVMR model with SG smoothing and SD; SG-MSC/SVMR, the combination of the SVMR model with SG smoothing and 
+MSC; SG-RL/SVMR, the combination of the SVMR model with SG smoothing and RL.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The strategy implemented to monitor the model performance during training involves evaluating the model's accuracy using several parameters such as the coefficient of determination (R^2), root-mean-square error (RMSE), ratio of performance to deviation (RPD), and ratio of performance to interquartile range (RPIQ). These metrics allow researchers to determine how well their models perform and whether they need further adjustments or improvements.
+
+In this case, the Support Vector Machine Regression (SVMR) model was trained using the libsvm package in MATLAB. Parameter values were chosen based on the Root Mean Square Error Cross Validation (RMSEcv) values. During the training process, the epsilon-SVR model and Gaussian Radial Basis Function (RBF) were employed to build the calibration model. Optimal parameters like cost C, epsilon p, and gamma g were utilized to ensure the highest possible accuracy without overfitting the SVMR model.
+
+To summarize, the strategy to monitor the model performance during training includes selecting appropriate evaluation metrics, choosing suitable algorithms and packages for training, setting optimal parameter values, and avoiding overfitting. This approach enables researchers to create reliable and robust predictive models.

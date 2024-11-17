@@ -1,0 +1,72 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+overall process mostly followed current best practices in deep learning 
+which are well summarized in (Chollet, 2017).
+
+2. Methods 
+
+Our overall workflow for training a deep neural network consisted of 
+the acquisition of large amounts of audio data, the pre-processing of this 
+data to generate visual representations of sound, the augmentation of 
+these visualizations, and, finally, the training of a complex model ar-
+chitecture with ~27 million trainable parameters. We ran inference on 
+independent validation and test splits of the acquired data and applied 
+our model to continuous soundscape recordings, which are part of an 
+ongoing monitoring project in Ithaca, NY, USA. 
+
+2.1. Data acquisition
+
+followed  the  original  Wide  ResNet  design.  Our  downsampling  blocks 
+employed the changes suggested in (Xie et al., 2018). The third and final 
+component, the classification block, was derived from (Schlüter, 2018) 
+and resulted in probability predictions for all 987 classes per second (i. 
+e., three predictions per 3-s input spectrogram) followed by global log- 
+mean-exponential  pooling  and  sigmoid  activation.  Most  convolutions 
+use 3 × 3 kernels with padding and are succeeded by batch normali-
+zation  (Ioffe  and  Szegedy,  2015)  and  ReLU  activation  (if  not  noted 
+differently).  Because  we  treated  spectrograms  as  monochrome  input 
+images, the input was a single channel mel spectrogram of size 64 × 384, 
+visualizing three seconds of audio at a sampling rate of 48 kHz. 
+
+2.5. Training
+
+Sevilla, A., Glotin, H., 2017. Audio bird classification with inception-v4 extended with 
+
+Xie, J., He, T., Zhang, Z., Zhang, H., Zhang, Z., Li, M., 2018. Bag of tricks for image 
+
+time and time-frequency attention mechanisms. In: CLEF (Working Notes), 1866. 
+
+classification with convolutional neural networks. arXiv Preprint. arXiv:1812.01187. 
+
+Shiu, Y., Palmer, K., Roch, M.A., Fleishman, E., Liu, X., Nosal, E.-M., Helble, T., 
+
+Zagoruyko, S., Komodakis, N., 2016. Wide residual networks. arXiv Preprint. 
+
+Cholewiak, D., Gillespie, D., Klinck, H., 2020. Deep neural networks for automated 
+detection of marine mammal species. Sci. Rep. 10 (1), 1–12. 
+
+arXiv:1605.07146. 
+
+Zhang, H., Cisse, M., Dauphin, Y.N., Lopez-Paz, D., 2017. mixup: Beyond empirical risk 
+
+Shonfield, J., Bayne, E., 2017. Autonomous recording units in avian ecological research: 
+
+minimization. arXiv Preprint. arXiv:1710.09412. 
+
+current use and future applications. Avian Conserv. Ecol. 12 (1).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning pipeline primarily uses audio data. This is evident from the statement "acquisition of large amounts of audio data" in section 2. However, it's important to note that the audio data is converted into visual representations, specifically single-channel mel spectrograms of size 64 x 384. These spectrograms can be considered as monochrome images, as mentioned in section 2.5. Therefore, while the initial data format is audio, it is transformed into a visual representation for further processing in the deep learning pipeline.

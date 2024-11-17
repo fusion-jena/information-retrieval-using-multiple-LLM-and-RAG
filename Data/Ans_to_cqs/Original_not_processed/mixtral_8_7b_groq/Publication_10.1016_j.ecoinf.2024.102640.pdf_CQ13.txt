@@ -1,0 +1,17 @@
+Answer:::
+
+In the GreenCam project, the deep learning model used for measuring photo GVI is SegFormer, a Transformer-based model for semantic segmentation. The specific encoder-decoder structure of SegFormer used in this project is MiT-B1, which is chosen for its balance between performance and efficiency.
+
+The model is trained on a server with an NVIDIA GeForce GTX 3090 GPU, which has 24 GB of memory. The encoder and decoder are initialized with weights pretrained on the ImageNet-1K dataset.
+
+The AdamW optimizer is used for training, with the momentum parameters β1 set to 0.9 and β2 set to 0.999. A cosine annealing schedule is employed, and the initial learning rate is set to 0.0001. The model is trained for 100 epochs with a batch size of eight.
+
+The Cross-Entropy loss function is used for supervising the training of SegFormer. It is formulated as:
+
+L = - 1 N N ∑ C ∑ i=1 j=1 yijlog pij ,
+
+where N is the number of pixels, C is the number of classes, yij is the ground truth label for pixel i in class j, and pij is the predicted probability for pixel i in class j.
+
+The MiT encoder of SegFormer is designed as a hierarchical transformer structure, which generates high-resolution coarse features and low-resolution fine-grained features. The MiT transformer blocks use a sequence reduction process in self-attention layers, which reduces the computational burden by a constant ratio. Each transformer block directly places a Mix-FNN component along its feed-forward path and right before its output, which allows SegFormer to work without the need for positional encoding and with better generalization ability.
+
+The ALL-MLP decoder of SegFormer consists entirely of MLP components, arranged in four main steps. With the introduction of few additional parameters, the ALL-MLP decoder is simple but effective.

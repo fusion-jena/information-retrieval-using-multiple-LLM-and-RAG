@@ -1,0 +1,8 @@
+Answer:::
+The provided context does not explicitly mention the use of saliency maps as a post-processing step. However, it does mention the calculation of metrics and the creation of a confusion matrix.
+
+After model training, the authors applied two a posteriori decision rules (r1 and r2) to correct the raw outputs of the models. Decision rule r1 was used to address the issue of false positives, where the model would classify some fish as environment with a high confidence score. This rule states that when the first proposition of the network was 'environment' with a confidence lower than 99%, the final output would be the fish class with the highest probability.
+
+Decision rule r2 was used to address the issue of "part of species" classes, which were not present in the test database. This rule states that when the result given by the network is "part of species X", the final output would be "species X".
+
+The authors also calculated the success rate of the models, which ranged from 85.2 to 100% among the 18 species. They also created a confusion matrix (Table 3) to evaluate the performance of the models, which showed that confusions between two fish species were lower than 4%. Additionally, they calculated the error rate of misidentifying fish as environment, which decreased to less than 4% after applying decision rule r1.

@@ -1,0 +1,170 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+EcologicalInformatics79(2024)10240510Input:: Training input sequences, : Training target labels, : Validation input sequences, : Validation target labels, : Attention weight vector,,, ,,, ℎ,ℎ,ℎ, (ℎ,), , ℎ, ℎOutput:Trained AODEGRUmodel1.Initialize the AODEGRUmodel with the given parameters.2.Define the loss function andthe optimizer.3.Initialize empty lists to store the training loss and accuracy for each epoch.4.Start the training loop:5.For each epoch in the range (ℎ):6.Initialize the total loss and total correct predictions to 0.7.Randomly shuffle the training data.8.Split the shuffled training data into mini batchesof size ℎ.9.For each mini batch(ℎ,ℎ):10.Zero the gradients of the model parameters.11.For each time step t in the input sequence ℎ:12.Calculate the reset gate:13.={,,,ℎ−1,}(Theorem-2)14.Calculate the update gate:15.={,,,ℎ−1,}(Theorem-1)16.Calculate the new memory content:17.ℎ′={ℎ,,ℎ,,ℎ−1,ℎ}(Theorem-3)18.Calculate the hidden state
+
+82.71 
+81.93 
+80.98 
+81.56 
+0.163 
+93.43 
+91.27 
+91.28 
+76.03 
+0.086 
+55.8 
+51.85 
+55.8 
+43.81 
+0.202 
+92.39 
+91.78 
+92.30 
+91.50 
+0.101 
+90.13 
+91.72 
+90.30 
+90.50 
+0.121 
+98.69 
+98.5 
+97.33 
+98.01 
+0.036  
+
+Table 6 
+10-fold cross validation on AODEGRU with state-of-art models on a real-time 
+dataset.  
+
+Models 
+
+Models-Real Time Dataset 
+
+Fold 
+
+2 
+
+4 
+
+6 
+
+8 
+
+10 
+
+DWT-POA (Nagaraju 
+
+et al., 2023) 
+
+TFT (Metin et al., 
+
+2023) 
+
+Dual-input fuzzy 
+logic (Li et al., 
+2023) 
+
+Bi-LSTM (Shreesha 
+
+et al., 2023) 
+
+Neuro fuzzy (Manzar 
+
+et al., 2022) 
+
+Proposed AODEGRU 
+
+Accuracy 
+Precession 
+Recall 
+F-Score 
+Loss 
+Accuracy 
+Precession 
+Recall 
+F-Score 
+Loss 
+Accuracy 
+Precession 
+Recall 
+F-Score 
+Loss 
+Accuracy 
+Precession 
+Recall 
+F-Score 
+Loss 
+Accuracy 
+Precession 
+Recall 
+F-Score 
+Loss 
+Accuracy 
+Precession 
+Recall 
+F-Score 
+Loss
+
+Accuracy 
+Precision 
+Recall 
+F-Score 
+Loss 
+
+94.91 
+94.85 
+93.49 
+99.19 
+0.218 
+
+98.1 
+98.61 
+97.83 
+99.29 
+0.203 
+
+99.19 
+99.43 
+99.17 
+97.83 
+0.178 
+
+98.21 
+97.67 
+98.32 
+98.01 
+0.182 
+
+97.6 
+98.17 
+98.41 
+97.43 
+0.180 
+
+99.89 
+99.26 
+99.62 
+99.29 
+0.0104  
+
+4.4. Illustrating the performance of proposed models with state-of-art 
+models using 10-fold cross validation
+
+the hidden state update:19.ℎ={(1−),ℎ−1,,ℎ′}(Theorem-4)20.Calculate the attention scores:21.={(,ℎ)}(Theorem-4)22.Calculate the weighted attention.23.={(,ℎ)}(Theorem-5)24.Calculate the predicted labels for the current mini batchusing c.25.Calculate the loss between the predicted labels and the true labels ℎ.26.Backpropagate the gradients and update the model parameters using the optimizer.27.Update the total loss and total correct predictions.P.G. Arepalli and K.J. Naik
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the provided context, it appears that the training process involves multiple epochs, where each epoch consists of iterations over all the mini-batches of the training dataset. The number of epochs can be determined by setting a maximum limit or by monitoring specific metrics such as validation loss or accuracy. In this case, there isn't explicit information about how many epochs were used or what criteria were employed to stop the training process. However, common practices include stopping the training when the validation loss stops decreasing significantly (validation loss plateau) or when the validation accuracy reaches a satisfactory level. Additionally, early stopping can also be implemented to prevent overfitting, which occurs when the model performs well on the training set but poorly on unseen data due to memorization rather than generalization. Early stopping involves halting the training process if the validation metric does not improve after a certain number of epochs.

@@ -1,0 +1,64 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To train the EfficientNet, we prepared 4000 images for each category 
+using the data augmentation method proposed above. We used 80% of 
+the 4000 images for training and the remaining 20% for validation. The 
+EfficientNet was trained by the Adagrad in 100 epochs. The dropout rate 
+for each task was set at 0.5. The batch size was set at 20. 
+
+All evaluations were performed on the NVIDIA GeForce RTX 2080Ti 
+GPU with 11G memory, and the software was Windows 10, Python 3.7, 
+CUDA 10.2. Keras 2.4.3 were used to build all models. 
+
+To compare model results with the test video, we used IoU as the 
+threshold  for  positives  or  negatives  based  on  the  object  confidence 
+scores estimated by the object detector. IoU was defined as the inter-
+section  over  the  union  of  the  two  bounding  boxes,  which  were  the 
+ground-truth  bounding  box  and  the  predicted  bounding  box.  In  this 
+paper, we set the threshold of IoU at 0.3 to consider correct or incorrect 
+detection results.
+
+these methods. By applying random erasing to the training dataset of the 
+EfficientNet, performance was also moderately improved (Table 6).
+
+2.3. Data augmentation 
+
+Although  optimizing  many  parameters  of  CNN  based  on  deep 
+learning required a large dataset, there were only small datasets for pest 
+detection and identification. Existing datasets only had approximately 
+100 images for each type (Samanta and Ghosh, 2012; Rustia et al., 2018; 
+Xia  et  al.,  2018;  He  et  al.,  2019;  Wang  et  al.,  2012;  Venugoban  and 
+Ramanan, 2014; Xie et al., 2018; Deng et al., 2018). To obtain a more 
+generalized model, training data should have fine diversity as the ob-
+jects varied in size, lighting conditions, and poses. To circumvent the 
+limited quantity and diversity of training data, data augmentation was a 
+useful technique that could increase the size of the training set without
+
+The  past  development  of  CNN  was  synonymous  to  the  increased 
+depth of the network. By increasing the depth and widening the channel 
+size, a more complex network achieved a high resolution of the image 
+data. In addition, it resulted in more fine-grained characteristics. This 
+development in the network size improved the classification accuracy of 
+the network, but also led to the problem of the high computational cost 
+of the gradient explosion parameter. ResNet (He et al., 2015) proposed 
+that skip connection could avoid gradient explosion skillfully. Mobile-
+Net (Howard et al., 2017) used pointwise and depthwise convolutions to 
+reduce network parameters and improve training efficiency. The SENet 
+(Hu et al., 2017) weighted various features by loss of network training in 
+order to achieve better results in model training.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, one regularization method is mentioned to prevent overfitting in the deep learning pipeline - Dropout. The dropout rate for each task was set at 0.5 during the training process of the EfficientNet model. Dropout is a commonly used regularization technique in neural networks where randomly selected neurons are ignored during training, which helps prevent overfitting by making the model more robust and reducing its dependency on individual neurons. Other common regularization techniques not explicitly mentioned in the context include L1 and L2 regularizations, early stopping, and weight decay. These methods help control the complexity of the model and reduce overfitting by adding a penalty term to the loss function or limiting the number of iterations during training.

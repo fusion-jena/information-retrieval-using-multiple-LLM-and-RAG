@@ -1,0 +1,157 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+the  shortcut  connections  within  the  network  that  makes  the  training 
+faster; bottleneck architecture which consists of a 1 × 1 convolutional 
+layer  for  dimension  reduction,  3  × 3  convolution  layer  for  feature 
+extraction, and another 1 × 1 convolutional layer for dimension resto-
+ration;  shortcut  connections  which  allows  gradients  to  flow  directly 
+through  the  network  due  to  the  input  added  directly  to  the  output; 
+global  average  pooling  (GAP)  which  computes  spatial  average  of  the 
+feature  maps  at  the  end  section  of  the  convolutional  layer;  and  skip 
+connections which bypass multiple residual blocks. On the other hand, 
+InceptionV3 is a 48-layer 24 CNN containing 24 × 106 parameters with 
+enhancement using label smoothing and factorized convolutional layers 
+in order to easily propagate the information from the input to the output 
+section. For all image-based pre-trained networks, the purpose of CNN
+
+The first approach in traceability modelling required numerical data 
+as  inputs.  The  input  features  are  the  PCA-NCA-selected  bivalve  shell 
+features. The considered pre-trained deep neural network for approach 1 
+are  EfficientNet-B0,  ResNet101,  MobileNetV2,  and  InceptionV3  with 
+simplified  architectures  shown  in  Fig.  3.  EfficientNet-B0  is  a  mobile- 
+sized  convolutional  neural  network  (CNN)  that  can  innately  classify 
+>1000 objects through training from the ImageNet database and has 11 
+× 106  trainable parameters. Another mobile-sized CNN is the Mobile-
+NetV2  with  3.4  × 106  parameters  that  have  17  bottleneck  residual 
+blocks  which  makes  it  a  lightweight  model  outperforming  ShuffleNet 
+and MobileNetV1. ResNet101 is a CNN with 101 deep layers and 44.7 ×
+106 parameters capable of clustering 1000 classes. ResNet101's internal 
+residual  network  is  composed  of  the  following  components:  residual
+
+Algorithm 
+
+Accuracy 
+(%) 
+
+Reference 
+
+CNN models (VGG19, 
+InceptionV3, and 
+Resnet50) 
+
+91.14% 
+
+U-Net architecture CNN 
+
+High (na)1 
+
+Cephalopod species 
+identification 
+
+Quantification of sheet 
+nacre morphogenesis 
+
+In Situ Sea Cucumber 
+
+Detection 
+
+Micro-CT scanning 
+image analysis of 
+fossil and shelly 
+invertebrates 
+Assess bivalve 
+phylogeny 
+
+Species identification 
+using shell image 
+analysis 
+
+Common cockle harvest 
+
+origin 
+
+1 Non-available. 
+
+Tree-structured support 
+vector machines (SVM) 
+
+U-Net 
+
+CNN 
+
+SVM trained on 
+pretrained VGG16 
+features 
+Deep and shallow neural 
+networks with emphasis 
+to spectral, texture, and 
+geometric features 
+selection using PCA-NCA 
+and sequence layers of 
+GRU-LSTM-BiLSTM 
+(BivalveNet) 
+
+(Tan et al., 
+2021) 
+
+(Beliaev 
+et al., 2020) 
+(Xia et al., 
+2018) 
+
+(Edie et al., 
+2023) 
+
+97.6% 
+
+97.0% 
+
+77.0% 
+
+(Kiel, 2021) 
+
+96.0% 
+
+(Wijaya and 
+Town, 
+2022) 
+
+96.91% 
+
+This work
+
+Approach 3 utilized the same PCA-NCA-selected bivalve features of 
+Approach  1  as  inputs  to  six  combination  models  of  3-layer  sequence 
+neural  networks  that  are  primarily  composed  of  LSTM,  GRU,  and 
+BiLSTM. The six developed models using sequence neural networks are 
+hybrid PCA-NCA and GRU-LSTM-BiLSTM sequence (BivalveNet), LSTM- 
+GRU-BiLSTM, LSTM-BiLSTM-GRU, GRU-BiLSTM-LSTM, BiLSTM-LSTM- 
+GRU,  and  BiLSTM-GRU-LSTM  (Fig.  10),  and  among  these  predictive 
+traceability models, the GRU-LSTM-BiLSTM resulted as the most accu-
+rate, sensitive, and specific model with the following scores, 96.91%, 
+96%, and 96%, respectively (Table 1). Hence, the GRU-LSTM-BiLSTM is 
+considered the BivalveNet. Interestingly, BivalveNet has the lowest fall- 
+out of 4% among all models among Approaches 1 to 3 which means that 
+it has the lowest misprediction instances for both false positive and false 
+negative (Table 1). This claim is supported by the confusion matrix in
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The pipeline uses various types of deep learning models depending on the approach. In Approach 1, pre-trained deep neural networks such as EfficientNet-B0, ResNet101, MobileNetV2, and InceptionV3 are employed. These are Convolutional Neural Networks (CNNs) designed for image classification tasks. They use convolutional layers to extract features from images and fully connected layers to perform classification based on those extracted features.
+
+On the other hand, Approach 3 utilizes three-layer sequence neural networks primarily composed of Long Short-Term Memory (LSTM), Gated Recurrent Units (GRU), and Bidirectional LSTM (BiLSTM). These are Recurrent Neural Networks (RNNs) suitable for processing sequential data like time series or text. They maintain an internal state that captures information about previous elements in the sequence, allowing them to understand temporal dependencies in the data.
+
+Therefore, the pipeline employs both CNNs and RNNs, each serving different purposes according to the requirements of the respective approaches.

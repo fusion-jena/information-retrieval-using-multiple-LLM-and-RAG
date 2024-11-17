@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.4.2.  Evaluation metrics 
+
+Let TP ≡ TP(τ) represent number of true-positive CNN predictions 
+(i.e. correct predictions of species presence). Similarly, let TN represent 
+number of true negatives (i.e. correct predictions of absence), let FP be 
+number of false positives (i.e. incorrect predictions of presence), and let 
+FN be number of false negatives (i.e. incorrect predictions of absence). 
+All counts are dependent on the chosen threshold τ. 
+
+Performance  was  quantified  by  several  metrics  described  below. 
+The  precision  P(τ)  is  the  fraction  of  predictions  of  presence  that  are 
+correct. 
+
+where NP′ is the number of predicted presences. Recall R(τ), also known 
+as sensitivity or true-positive rate, measures  the fraction of presences 
+that are correctly identified.
+
+2.3.  Model training 
+
+2.3.1.  Training data preprocessing 
+
+The  CNN  model  used  in  this  study  requires  equally  sized  input 
+images. We chose a time-frequency input window size of 2 s as it is near 
+the mean and median template duration across target call types (Fig. 2). 
+Most  call  types  have  a  duration  below  1  s,  and  for  those  above  2  s,
+
+where  NP  represents  the  number  of  true  presences.  A  precision-recall 
+curve consists of the points in precision-recall space achieved at each 
+possible threshold. Recall is typically the horizontal axis and precision 
+the vertical axis. Based on the precision-recall curve we also measured 
+the average-precision (AP) of predictions. The AP is defined: 
+
+where (τ1, τ2, …, τN) are the different thresholds to be evaluated, sorted 
+in descending magnitude. Typically, the chosen thresholds (τ1, τ2, …, τN) 
+are the sorted predicted scores. The AP is the weighted sum of preci-
+sions at each threshold, using the increase in recall from the previous 
+threshold as the weight. It approximates the integral of, or area under, 
+the  precision-recall  curve.  The  AP  is  independent  of  the  chosen 
+threshold τ, so it is commonly used for model comparison. The mean- 
+average-precision (mAP) across classes is commonly used in multi-label 
+prediction evaluation.
+
+1000 classes (Deng et al., 2009). Although ImageNet does not contain 
+spectrograms,  models  pre-trained  with  the  dataset  learn  a  variety  of 
+image features that have been successfully tuned to spectrogram clas-
+sification  previously  (Lasseck,  2019;  Florentin  et  al.,  2020).  While 
+previous  studies  have  found  optimal  performance  using  ensembles  of 
+multiple CNN models (Kahl et al., 2017; Lasseck, 2019; Florentin et al., 
+2020), in the interest of prediction efficiency and reasonable memory 
+requirements, we chose to evaluate a single ResNet50 model.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Answer: The performance of the deep learning model is evaluated using several metrics. Precision (P(τ)) is one such metric, which measures the fraction of predictions of presence that are correct. It is calculated as the ratio of true positive (TP) predictions to the total number of predicted presences (NP'). Another metric used is recall (R(τ)), also known as sensitivity or true-positive rate, which measures the fraction of presences that are correctly identified. It is calculated as the ratio of true positive (TP) predictions to the total number of true presences (NP). Additionally, based on the precision-recall curve, the average-precision (AP) of predictions is measured. This is defined as the weighted sum of precisions at each threshold, where the weights are the increases in recall from the previous threshold. The AP is independent of the chosen threshold, making it useful for model comparison. In cases of multi-label prediction evaluation, the mean-average-precision (mAP) across classes is often used.

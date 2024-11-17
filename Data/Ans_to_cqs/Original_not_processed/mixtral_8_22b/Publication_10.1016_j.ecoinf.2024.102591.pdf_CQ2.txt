@@ -1,0 +1,64 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The  initial  version  of  the  BA  algorithm  implemented  in  FIREMAP 
+involves  a  supervised  ML  classification  to  procure  a  BA  vector  of  the 
+region of interest defined by the user. A data-mining approach using a 
+large predefined training dataset (e.g. Gaveau et al., 2021; Ramo et al., 
+2018)  is  adopted,  following  a  mono-temporal  perspective  relying  on 
+atmospherically corrected, harmonized Sentinel-2 (S2) post-fire Level-2 
+A scenes (COPERNICUS/S2_SR_HARMONIZED dataset in GEE from 2018 
+onwards). First, we considered in this initial version the exclusive use of 
+post-fire scenes to (i) minimize commission errors associated with land 
+cover changes such as logging, harvesting or flooding in the post-fire 
+period  (assuming  those  associated  with  shadows  and  water  bodies) 
+(Chuvieco et al., 2019), and (ii) maximize the synergistic potential of S2 
+near-infrared  (NIR),  short-wave  infrared  (SWIR),  and  red-edge  (RE)
+
+indices (Fern´andez-Guisuraga et al., 2023d). The results can be exported 
+to the user's Google Drive account in the preferred raster format for the 
+region of interest.
+
+bands  to  discriminate  the  burned  signal  by  operating  with  individual 
+bands  themselves  rather  than  using  context-dependent,  broadband 
+spectral indices with limited spectral information (Huang et al., 2016; 
+Quintano et al., 2023). Although mono-temporal approaches are usually 
+preferred  when  using  individual  bands,  complex  interactions  among 
+them as inputs in data-mining ML approaches can be expected (Afira and 
+Wijayanto,  2022).  Second,  cloud  masks  in  S2  Level-1C  scenes  may 
+seriously underestimate the presence of dense clouds and cirrus, with 
+omission errors higher than 50% (Coluzzi et al., 2018). The use of S2 
+Level-2  A  scenes  minimizes  this  issue  but  may  feature  a  topography 
+overcorrection in mountain areas (Roteta et al., 2021). More user op-
+tions (multi-temporal approaches and additional sensors, including S2 
+Level-1C) will be provided in future implementations (see Section 4) to
+
+interest and for the official fire perimeters of the EFFIS database. The 
+algorithm automatically selects the date range of interest for the pre- 
+and post-fire scenes in the case of using an official perimeter from the 
+EFFIS database. Otherwise, the date range can be manually selected by 
+the user. The automatic search for pre- and post-fire scenes of acceptable 
+quality can either be based on a single-date approach or on pixel-based 
+temporal  mean  composites  as  determined  by  the  Sentinel  (QA60)  or 
+Landsat (QA_PIXEL) quality assessment bands (see Section 2.2.1). When 
+the  user requests the  calculation of a  spectral index in FIREMAP, the 
+result is automatically displayed on the main screen as a continuous or 
+categorized fire severity map, with the possibility of using user-defined 
+thresholds.  The  latter  has  been  included  because  of  the  ecosystem- 
+dependent  nature  of  the  relationships  between  the  CBI  and  spectral
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The text does not explicitly mention the specific data formats used in the deep learning pipeline. However, it does indicate that the initial version of the BA algorithm implemented in FIREMAP involves a supervised machine learning classification to procure a BA vector of the region of interest defined by the user. This process uses a large predefined training dataset consisting of atmospherically corrected, harmonized Sentinel-2 (S2) post-fire Level-2 A scenes. These scenes are likely in a raster format, considering they are satellite images. Additionally, the results can be exported to the user's Google Drive account in the preferred raster format for the region of interest. Therefore, it can be inferred that the primary data format used in the deep learning pipeline is raster data, specifically satellite imagery.

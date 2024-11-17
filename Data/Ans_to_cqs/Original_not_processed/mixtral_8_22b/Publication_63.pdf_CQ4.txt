@@ -1,0 +1,56 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+53.  Hernández-García, A. & König, P. Further advantages of data augmentation on convolutional neural networks. ICANN 95–103, 
+
+(2018).
+
+ 54.  Allaire, J. & Chollet, F. keras: R Interface to ’Keras’. R package version 2.3.0.0 (2020).
+ 55.  Allaire, J. & Tang, Y. tensorflow: R Interface to ’TensorFlow’. R package version 2.2.0.9000 (2020).
+ 56.  Hijmans, R. J. raster: Geographic Data Analysis and Modeling. R package version 3.4–5 (2020).
+ 57.  Wei, T. & Simko, V. corrplot: Visualization of a Correlation Matrix. R package version 0.84 (2017).
+
+Author contributions
+T.K. conceived the study and assisted in conducting the experiments. C.S. planned and conducted the experi-
+ments, performed the analyses, and wrote the manuscript. T.K. and S.S. assisted in the analysis and in writing 
+the manuscript. C.B. and A.M.-M. contributed data and helped to interpret the results. All authors provided 
+edits and reviewed the manuscript.
+
+We increased the robustness and transferability of the model predictions by means of ’image augmentation’ 
+(also: ’data augmentation’), which works independent of the choice of the specific CNN  architecture53. The 
+image augmentation procedure serves to inflate the amount of training data, while simultaneously assisting the 
+CNN to learn spatial features independent of the data acquisition, e.g. camera settings. Therefore, the images of 
+the training data were subjected to horizontal and vertical flipping as well as adjusting the contrast, saturation 
+and brightness (between factors of .9 and 1.1 each) of the images. After these adjustments, the pixel values were 
+clipped to a range between 0 and 1 in order to prevent the value range from being enlarged.
+
+(3)  As a contextual constraint, bioclimatic data (see above) was fed into the CNN with the same model and 
+data configuration including Plasticity in a mixed data approach (‘Worldclim’ in Fig. 2, setup 3 in Fig. 1). 
+4) We tested an Ensemble approach, in which two more state-of-the-art model architectures, namely 
+ Xception51 and MobileNetV2, the latter with halved number of trainable  parameters52, were trained on the 
+configuration of setup 3, and their predictions were subsequently averaged (’Ensemble’ in Fig. 2, setup 4 in 
+Fig. 1). These models differed strongly in their number of trainable weights, resulting in a different depth. 
+The final model performance was assessed using a 3-fold cross-validation, with three different training, 
+validation and test splits. To enable a comparison of model performance across traits, the resulting mean 
+absolute error (MAE) was normalised by division over the range of the target values of the respective test
+
+extracted a random sample of 10% of the dataset of each trait before model training. This ‘test dataset’ was not 
+involved in the training process and exclusively served for the independent evaluation of the trained models. 
+The remaining data was split into ’training dataset’ and ’validation dataset’ by a ratio of 4:1 (Table 1). The train-
+ing dataset was employed to train the weights of the CNN model, whereas the validation dataset indicated the 
+training progress after each full training cycle (’epoch’).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In this study, several data augmentation techniques were applied to increase the robustness and transferability of the model predictions. Specifically, image augmentation procedures were used to inflate the amount of training data and help the Convolutional Neural Network (CNN) learn spatial features independently of the data acquisition. The image augmentation techniques included horizontal and vertical flipping, as well as adjusting the contrast, saturation, and brightness of the images. The contrast, saturation, and brightness were adjusted within a factor range of 0.9 to 1.1 each. After applying these adjustments, the pixel values were clipped to a range between 0 and 1 to prevent the value range from expanding.

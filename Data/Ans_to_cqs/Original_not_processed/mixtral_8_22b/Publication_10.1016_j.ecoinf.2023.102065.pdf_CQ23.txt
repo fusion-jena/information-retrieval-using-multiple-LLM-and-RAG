@@ -1,0 +1,51 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+ence data available for training were limited, so we sought to explore 
+different network sizes in conjunction with pre-training with additional 
+acoustic reference data from outside of our audio domain, followed by 
+fine-tuning with ROI data from our study site.
+
+2.5. CNN fine-tuning data from ROIs 
+
+We randomly sampled 50 ROIs per species with “presence” to form a 
+held-out test set for accuracy assessment (Section 2.8.1). The remaining 
+ROIs with species presence were used to fine-tune the CNN models. We 
+randomly sampled 100 of these ROIs per species to form a validation set 
+and the remaining formed a training set, which had on average 887 per 
+species (min = 349, max = 3094). ROIs that were >2 s in duration were 
+used in their entirety. For those that were <2 s in duration, we expanded 
+the start/stop (i.e., padded) equally on each side of the ROI to total 2 s. 
+Different vocalizations for a given species were combined into a single 
+class per species. If any ROIs were overlapping in time from different 
+pattern-matching runs for a given species, we placed those ROIs in the 
+training set to avoid temporal autocorrelation in our validation and test 
+data.
+
+obstacles, and our final predictions allowed us to demonstrate how deep learning applied to acoustic data from 
+low-cost ARUs paired with citizen science can provide valuable bird diversity data for monitoring and conser-
+vation efforts.
+
+out set of sample data from the same dataset as the training/validation 
+data (i.e., ROIs) greatly overestimates performance of CNN models. 
+
+3.3. Comparison with BirdNET
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of the deep learning model, several measures were taken. Firstly, due to limited training data availability within the specific audio domain, the researchers explored different network sizes along with pre-training using additional acoustic reference data from outside of their audio domain. This approach helped expose the model to diverse acoustic patterns, potentially improving its ability to generalize across various scenarios.
+
+Secondly, the researchers employed a stratified sampling strategy when preparing datasets for fine-tuning the Convolutional Neural Networks (CNN) models. They randomly selected 50 Regions Of Interest (ROIs) per species with 'presence' to create a held-out test set for assessing accuracy. The remaining ROIs with species presence were utilized for fine-tuning the CNN models. To further validate the model's performance, they created separate validation and training sets. A random selection of 100 ROIs per species was allocated to the validation set, while the rest formed the training set. This method ensured that both the validation and training sets contained representative samples from all classes (species), thereby promoting better generalization capabilities.
+
+Lastly, the researchers took steps to prevent temporal autocorrelation in their validation and test data. When dealing with overlapping ROIs from different pattern-matching runs for a given species, they assigned such instances to the training set. By doing this, they aimed to minimize potential biases caused by similarities between adjacent or temporally close segments, thus enhancing the model's capacity to generalize effectively.

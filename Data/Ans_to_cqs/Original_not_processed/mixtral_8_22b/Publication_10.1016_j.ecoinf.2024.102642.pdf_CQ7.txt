@@ -1,0 +1,75 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+During  the  campaign,  methods  are  proposed  to  assess  inter- 
+annotator  variability  and  aggregate  annotation  sets.  Those  methods 
+will help to define the minimal number of annotators needed [Dubus 
+et al., 2023; Walter et al., 2022]. Increasing the number of annotators 
+per sample could be helpful if the variability is too high. Finally, the two 
+grouping  methods:  majority  voting  (Section  2.2.3)  and  soft  labeling 
+(Section 2.3.2) can also be used to produce relevant annotation sets for 
+deep learning. 
+
+6. Conclusion 
+
+In this study, new approaches were explored to improve the accuracy 
+and  efficiency  of  cetacean  vocalization  detection  using  deep  learning 
+models. Leveraging multi-annotation campaigns involving both expert 
+and novice annotators aimed to address the challenges associated with 
+the scarcity of ground truth data in underwater PAM studies.
+
+To  ensure  comparability  across  trained  models,  we  maintained 
+consistent hyperparameters across all training instances for each task (i. 
+e.,  SEIO  PBW  vocalization  and  Dcall).  Specifically,  for  SEIO  PBW 
+
+vocalization  training  and  blue  whale  Dcall  training,  we  set  the  batch 
+sizes to 5 and 4, and the learning rates to 1e-4 and 1e-3, respectively. 
+This decision was based on the fact that more samples were used for 
+SEIO PBW vocalization training. The models were trained for 40 and 25 
+epochs  respectively.  However  an  early  stopping  method  was  used  to 
+keep  the  model  weights  before  the  models  overfitted.  The  patience 
+parameter is set at 10 epochs for all training phases. 
+
+2.4. Evaluation metrics 
+
+Considering  the  absence  of  absolute  ground  truth  for  identifying 
+audio events within underwater acoustic recordings, the annotation sets 
+proposed by the annotators, expert or novice, are called pseudo ground 
+truth in the present study.
+
+The number of 50-s sections for each dataset is presented in Table 1. 
+For the dataset AmStP, the percentage of positive sections is given as 
+mean and standard deviation, computed on all annotations (19 novices 
+and  1  expert).  As  the  number  of  positive  sections  in  the  training  set 
+(dataset AmStP) for the blue whale’s Dcall was particularly low, models 
+trained on different ratios of positive/negative sections were tested from 
+the  annotation  sets  produced  by  the  expert,  by  randomly  removing 
+negative sections from the testing set (undersampling method [Johnson 
+and  Khoshgoftaar (2019)]). Ultimately, a  positive section ratio  of 0.2 
+was practically determined to enhance the model’s ability to learn from 
+the data. 
+
+2.3.2. From multi-annotation to soft labels for training
+
+directly  to  datasets  where  the  relevance  of  annotations  has  not  been 
+evaluated.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the provided context, it appears that the data was split into training and testing sets for deep learning model training. For the SEIO PBW vocalization training, a larger batch size of 5 was used compared to the blue whale Dcall training which had a batch size of 4. This difference in batch sizes was likely due to the fact that there were more samples available for SEIO PBW vocalization training. Additionally, the learning rate for SEIO PBW vocalization training was set to 1e-4 while the learning rate for blue whale Dcall training was set to 1e-3. These differences in hyperparameters suggest that the data may have been split based on the specific characteristics of each dataset.
+
+Furthermore, the context mentions that the models were trained for 40 and 25 epochs respectively, but an early stopping method was used to prevent overfitting. This suggests that the data may have been split such that the training set contained enough examples to allow the model to learn effectively without becoming overfit.
+
+However, the context does not provide explicit information about how the data was specifically split into train, test, and validation sets. It is possible that the authors used a common approach such as splitting the data into 80% for training, 10% for validation, and 10% for testing. Alternatively, they may have used a more sophisticated approach such as k-fold cross-validation or stratified sampling. Without additional context, it is difficult to determine exactly how the data was split for deep learning model training.

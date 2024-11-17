@@ -1,0 +1,140 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Miura, Y., Imamoto, H., Asada, Y., Sagehashi, M., Akiba, M., Nishimura, O., Sano, D., 
+2023. Prediction of algal bloom using a combination of sparse modeling and a 
+machine learning algorithm: automatic relevance determination and support vector 
+machine. Eco. Inform. 78, 102337 https://doi.org/10.1016/j.ecoinf.2023.102337. 
+
+Nguyen, G., Dlugolinsky, S., Bob´ak, M., Tran, V., L´opez García, 
+
+´
+A., Heredia, I., Malík, P., 
+Hluchý, L., 2019. Machine learning and deep learning frameworks and libraries for 
+large-scale data mining: a survey. Artif. Intell. Rev. https://doi.org/10.1007/ 
+s10462-018-09679-z. 
+
+Noori, R., Asadi, N., Deng, Z., 2019. A simple model for simulation of reservoir 
+stratification. J. Hydraul. Res. 57 (4), 561–572. https://doi.org/10.1080/ 
+00221686.2018.1499052. 
+
+Noori, R., Ansari, E., Jeong, Y.-W., Aradpour, S., Maghrebi, M., Hosseinzadeh, M.,
+
+Data-driven models are an alternative type of models, among which 
+machine learning and deep learning (ML and DL) models stand out in 
+recent years. According to Lee et al. (2023) data-driven models applied 
+to freshwater ecosystems have been mainly focused on phytoplankton, 
+while there is a lack of research in modelling future changes, such as 
+climate change and subsequent changes in habitat conditions. A good 
+example of a data-driven model focused on algal blooms prediction is 
+that  presented  by  Miura  et  al.  (2023).  Nonetheless,  there  are  several 
+examples in the scientific literature about ML or DL models designed to 
+predict the temperature profile in water masses. Liu and Chen (2012) 
+developed ML models based on Artificial Neural Networks (ANN) using 
+as inputs meteorological conditions to predict the temperature in the 3 
+
+Fig. 1. Map of the study site. Made with QGIS, data by OpenStreetMap.
+
+The result of this process was added to the dataset as a new cate-
+gorical binary variable that stored the existence of stratification or not 
+(took the value of 0 when the reservoir was not stratified and 1 when it 
+was stratified). 
+
+2.5.3. Forecasting ML models 
+
+A classification model was designed in order to detect if there existed 
+
+Table 1 
+Initial hyperparameters space.  
+
+Initial hyperparameters space 
+
+Hyperparameters 
+
+Values 
+
+Layers 
+
+Number of neurons of the dense layer 
+Dropout rate of the dropout layer 
+Learning rate 
+Batch size 
+
+1 dense layer, 1 dense layer +1 dropout 
+layer 
+32, 64 
+0.2, 0.4 
+(cid:0) 3, 10
+10
+32, 64  
+
+(cid:0) 4
+
+67.6 
+66.9 
+70.4 
+70.3 
+70.0 
+70.6 
+
+P50 
+
+1.47 
+1.66 
+1.26 
+1.18 
+1.04 
+1.11 
+
+Testing 
+
+MAE 
+
+2.47 
+2.63 
+2.28 
+1.99 
+1.99 
+2.10 
+
+Percentile 
+
+65.5 
+66.7 
+70.8 
+67.3 
+67.3 
+67.9 
+
+P50 
+
+1.54 
+1.55 
+1.23 
+0.98 
+0.93 
+1.25  
+
+* The number of neurons in successive dense layers is separated by a comma, with the dropout rate in parentheses if a dropout layer existed after a dense layer. 
+
+lagged variables were added this improvement only took place for the 
+test set. Therefore, in order to reach a balance between the train and test 
+fractions, the optimal model to classify the days as presenting thermal 
+stratification or not was the model with up to 4 days-lagged variables. 
+This model presents a testing accuracy of 96.0% and AUC of 0.99.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+In handling randomness within the deep learning pipeline, various strategies can be implemented. One common approach involves setting a fixed random seed value before running any code that includes stochastic elements. This ensures reproducibility across different runs of the same experiment. Another strategy is to use techniques like cross-validation or bootstrap sampling to reduce variability caused by random initialization of weights in neural networks. Additionally, ensemble methods, where multiple models are trained independently and their predictions combined, can also help mitigate the effects of randomness. However, none of the given references directly discuss these specific strategies; they focus more on applying machine learning algorithms rather than addressing issues related to randomness in deep learning pipelines.

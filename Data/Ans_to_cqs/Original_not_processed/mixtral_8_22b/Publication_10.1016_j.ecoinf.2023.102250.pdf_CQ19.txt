@@ -1,0 +1,168 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Operations 
+
+spectral normalization 
+spectral normalization 
+spectral normalization 
+spectral normalization 
+spectral normalization  
+spectral normalization  
+
+Activation 
+
+LeakyReLU 
+LeakyReLU 
+LeakyReLU 
+LeakyReLU 
+
+Output size 
+
+(16,256,256) 
+(32,128,128) 
+(64,64,64) 
+(128,32,32) 
+(128*32*32,1) 
+(128*32*32,17)  
+
+number of convolutional weights by a factor of K, resulting in a lack of 
+compactness  in  the  model.  Secondly,  jointly  optimizing  dynamic 
+attention and static convolutional kernels becomes a challenging task. 
+To address these issues, Li proposed the dynamic convolutional kernel 
+decomposition in 2021 (Li et al., 2021). This approach effectively re-
+duces the number of parameters in dynamic convolution and improves 
+the classification performance of neural networks that utilize dynamic 
+convolutional kernels. 
+
+In (Li et al., 2021), the static convolution kernel can be re-defining by 
+
+the formula 9. 
+
+Wk = W0 + ΔWk, k ∈ {1, …, K}
+
+(9)  
+
+∑
+
+Relu 
+
+Relu 
+
+Relu 
+Relu 
+
+Tanh 
+
+Output size 
+
+(16,100)  
+(100,128*32*32) 
+(128,32,32)  
+(128,64,64)  
+(64,64,64) 
+(64,64,64)  
+(64,128,128)  
+(32,128,128) 
+(32,128,128)  
+(32,256,256)  
+(16,256,256) 
+(16,256,256) 
+(16,256,256)  
+(16,256,256) 
+(3,256,256) 
+
+Note: The full name of the abbreviation “BN” is Batch Normalization. The three parameters of “Conv2d(3,1,1)” represent the size of the convolution kernel, the stride 
+size, and the padding, respectively. 
+
+EcologicalInformatics77(2023)1022505128*32*32Noise,labels32326464128128256256LinearLayer 1Layer 2Layer 3Layer 4Attention Layer 5Layer 62562563212864163Conv2dBatchNorm2dReluUpsamplingNearest2d......EmbeddingLayer Structure16Y. Fu et al.                                                                                                                                                                                                                                       
+
+Fig. 4. Convolutional Block Attention Module.
+
+Dataset 
+
+MobileNetV2 
+
+ResNet18 
+
+VGG16 
+
+Ori 
+G1_Dataset1 
+G1_Dataset2 
+G1_Dataset3 
+G1_Dataset4 
+G1_Dataset5 
+G2_Dataset1 
+G2_Dataset2 
+G2_Dataset3 
+G2_Dataset4 
+G3_Dataset1 
+G3_Dataset2 
+G3_Dataset3 
+G3_Dataset1_mixup 
+G3_Dataset2_mixup 
+G3_Dataset3_mixup 
+Ori 
+G1_Dataset1 
+G1_Dataset2 
+G1_Dataset3 
+G1_Dataset4 
+G1_Dataset5 
+G2_Dataset1 
+G2_Dataset2 
+G2_Dataset3 
+G2_Dataset4 
+G3_Dataset1 
+G3_Dataset2 
+G3_Dataset3 
+G3_Dataset1_mixup 
+G3_Dataset2_mixup 
+G3_Dataset3_mixup 
+Ori 
+G1_Dataset1 
+G1_Dataset2 
+G1_Dataset3 
+G1_Dataset4 
+G1_Dataset5 
+G2_Dataset1 
+G2_Dataset2 
+G2_Dataset3 
+G2_Dataset4 
+G3_Dataset1 
+G3_Dataset2 
+G3_Dataset3 
+G3_Dataset1_mixup 
+G3_Dataset2_mixup 
+G3_Dataset3_mixup 
+
+Recall
+
+The low classification accuracy of the neural network caused by the 
+lack of birdsong spectrogram data can be solved by data augmentation 
+of ACGAN. In addition, we can improve the feature extraction capability 
+of the network by increasing its depth. However, increasing the network 
+depth  may  lead  to  overfitting  and  require  significant  computational 
+resources.  Some  researchers  have  proposed  dynamic  convolution  to 
+solve  those  problems,  using  a  set  of  K  parallel  convolution  kernels 
+instead  of  a  single  convolution  kernel  per  layer.  These  parallel  con-
+volutional kernels are dynamically aggregated by attention. The atten-
+tion  dynamically  adjusts  the  weight  of  each  convolution  kernel 
+according to the input, thus generating an adaptive dynamic convolu-
+tion. Experiments results show that this structure achieved a 2.9% gain 
+in the Imagenet classification task and an AP gain of 2.9 in CoCo Key-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, based on the given information, it is not possible to determine which specific framework was used to build the deep learning models mentioned in the text. The information provided does not include any details about the programming languages or libraries used for building the models. Therefore, I cannot provide a definitive answer to this query.

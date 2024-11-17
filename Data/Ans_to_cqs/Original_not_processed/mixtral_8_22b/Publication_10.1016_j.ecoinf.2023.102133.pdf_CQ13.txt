@@ -1,0 +1,116 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+model (Sowmya et al., 2020). The best model is selected comparing the 
+performance scores of all possible combinations of hyperparameters.
+
+(cid:0) 3, 10
+
+(cid:0) 4;  
+
+The following configuration optimized the performance of the model 
+and was accordingly adopted for analysis: Adam solver (Kingma and Ba, 
+(cid:0) 4,  constant  learning 
+2014),  10 neurons  per  hidden  layer, alpha  = 10
+rate, and rectifier activation function, also called Rectified Linear Unit 
+(ReLU) activation function, defined as: 
+
+(
+
+)
+
+{
+
+ReLU
+
+k
+
+=
+
+k, if k > 0;
+0, if k⩽0.
+
+(14) 
+
+In the case of the RF, the hyperparameters include the number of 
+decision trees in the forest, the maximum depth of the decision tree, the 
+number of features considered by each tree when splitting a node, etc. 
+This  set  of  hyperparameters  was  tested  using  the  grid  configuration 
+shown below:  
+
+1.  Number of decision trees: from 100 to 1000 (in steps of 100);  
+2.  Number of features to consider at every split (max features): auto,
+
+sqrt, log2, None;  
+
+3.  Maximum number of levels in decision tree: None, or from 10 to 100 
+
+(in steps of 10);
+
+3.3.4. Model hyperparameters selection 
+
+For  both  MLP  and  RF  predictors,  the  grid  search  technique  was 
+applied to compute the optimum values of hyperparameters. Regarding 
+the MLP, the network was implemented with an input layer, 3 hidden 
+layers, and  an output layer. In the model selection  phase, the perfor-
+mance  obtained  using  different  hyperparameters  was  compared.  Spe-
+cifically, the following hyperparameters were tested:  
+
+1.  Solvers:  Limited-Broyden–Fletcher–Goldfarb–Shanno 
+
+(L-BFGS), 
+Adam,  Stochastic  Gradient  Descent  (SGD)  with  constant  learning 
+rate, SGD with adaptive learning rate;  
+
+2.  Number of neurons in the hidden layers: from 1 to 100;  
+(cid:0) 2, 10
+(cid:0) 1, 10
+3.  Regularization factor “alpha” (L2 penalty): 10
+4.  Activation function: identity, logistic, tanh, ReLU;  
+5.  Learning Rate: constant, invscaling, adaptive. 
+
+(cid:0) 3, 10
+
+(cid:0) 4;
+
+This section describes the design and implementation of the exam-
+ined ML models. As a starting point, four models were initially tested: 
+Linear Regression (LR), Support Vector Machine (SVR), Random Forest 
+(RF),  and  Multi-Layer  Perceptron  (MLP).  From  preliminary  results, 
+omitted  here  for  the  sake  of  brevity,  only  MPL  and  RF  models  were 
+selected  for  their  ability  to  model  the  nonlinear  evapotranspiration 
+phenomena. The models were implemented using the scikit-learn library 
+(Pedregosa  et  al.,  2011),  an  open-source  ML  library,  for  the  python 
+programming language. Furthermore, the code developed in this work is 
+released open source to the scientific community (Git Repository, 2023). 
+This  will  allow  repeatability  and  ease  future  research  efforts  in  the 
+development of environmentally sustainable irrigation solutions. In the 
+following, an introduction to Artificial Neural Networks (ANNs) and RF
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The deep learning model used in this study is a Multi-Layer Perceptron (MLP) model. The hyperparameters used in this model are as follows:
+
+1. Solvers: Limited-Broyden–Fletcher–Goldfarb–Shanno (L-BFGS), Adam, Stochastic Gradient Descent (SGD) with constant learning rate, SGD with adaptive learning rate. The optimal solver chosen for this model is Adam.
+
+2. Number of neurons in the hidden layers: This ranges from 1 to 100. However, the optimal number of neurons per hidden layer for this model is 10.
+
+3. Regularization factor "alpha" (L2 penalty): This is set to 10.
+
+4. Activation function: The options tested are identity, logistic, tanh, and ReLU. The optimal activation function chosen for this model is ReLU.
+
+5. Learning Rate: The options tested are constant, invscaling, and adaptive. However, the specific learning rate used in this model is not explicitly mentioned.
+
+These hyperparameters were selected through a process of grid search, where all possible combinations of hyperparameters were tested and the combination that resulted in the best performance score was chosen.

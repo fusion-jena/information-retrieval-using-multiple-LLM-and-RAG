@@ -1,0 +1,135 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Keywords—deep  learning,  transfer  learning,  convolutional 
+neural  networks,  animal  classification,  camera  trap,  wildlife 
+monitoring, edge computing, TensorFlow lite, raspberry pi, IoT 
+
+I.  INTRODUCTION
+
+TABLE II.  
+
+HYPERPARAMETERS DETERMINED USING GRID SEARCH 
+
+Model Name 
+
+Inception-V3 
+MobileNet-V2 
+ResNet-18 
+DenseNet-121 
+
+Batch 
+Size 
+48 
+32 
+32 
+16 
+
+Learning 
+Rate 
+0.05 
+0.01 
+0.005 
+0.001 
+
+Parameters 
+# of 
+Epochs 
+75 
+100 
+150 
+100 
+
+Input Image Size 
+
+299 (cid:3400) 299 (cid:3400) 3 
+224 (cid:3400) 224 (cid:3400) 3 
+224 (cid:3400) 224 (cid:3400) 3 
+224 (cid:3400) 224 (cid:3400) 3 
+
+C.  Results 
+
+  As  Table  III  show  all  models  performed  reasonably  well 
+with macro-F1 averages above 91%. Because the models are to 
+be deployed on IoT edge devices, the size of each model is an 
+important  consideration.  As  Table  III  shows 
+the  best 
+performing model was Inception-V3 with a macro Average F1 
+score of 0.93, and the smallest size of 175 MB.   
+
+TABLE III.  
+
+BEST RESULTS FOR EACH NN ARCHITECTURE 
+
+Model 
+
+InceptionV3 
+DenseNet-121 
+ResNet-18 
+MobileNetV2 
+
+Model Size 
+(MB) 
+175 
+446 
+480 
+507 
+
+Accuracy 
+
+94% 
+93% 
+92% 
+93%
+
+Finally,  a  recent  architecture  called  EfficientNet  [19] 
+achieved 84.4% top-1 and 97.5% top-5 accuracy on ImageNet 
+
+while  being  6.1x  faster  on  inference  than  the  best  existing 
+ConvNet and 8.4x smaller. The small size of the model and high 
+accuracy achieved make this architecture a good candidate for 
+running on edge devices.  
+
+B.  Embedded Devices for the Edge Inference  
+   Many neural networks have been deployed on edge devices 
+for  the  purposes  of  animal  classification.  The  most  common 
+edge  device  used  was  a  Raspberry  Pi  (RPi)  [11],  [14],  [20], 
+[21],[22].
+
+%
+40.15 
+28.28 
+17.07 
+5.77 
+5.20 
+3.48 
+100 
+
+Inception-V3,  MobileNet-V2,  ResNet-18,  and  DenseNet-
+121, were all trained on this data. All architectures were pre-
+initialized  to  ImageNet  weights.  Initially,  the  models  were 
+trained by freezing the feature extraction layers and training the 
+classification layers only. However, better results where the F1-
+score  improved  by  about  20-30%,  were  obtained  when  both 
+feature extraction and classifier layers of each architecture were 
+configured to be trainable. Stochastic Gradient Descent (SGD) 
+was  used  as  the  optimizer  for  all  four  models.  Other  hyper-
+parameters like batch size, learning rate, and number of epochs 
+were  obtained  using  the  grid  search.    The  models  were 
+implemented  using  Keras  (https://keras.io/).  The  resulting 
+hyperparameters for each model are shown in Table II.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information regarding the specific hardware resources used for training the deep learning models. Therefore, it is not possible to determine whether GPUs, TPUs, or other hardware resources were utilized during the training process based solely on the provided context.

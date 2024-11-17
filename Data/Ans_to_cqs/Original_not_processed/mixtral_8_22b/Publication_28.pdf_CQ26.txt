@@ -1,0 +1,83 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Fig. 5. Structure of VAE.  
+
+Stochastic  gradient  descent  (SGD)  on  BP  is  managing  stochastic 
+input,  then  not  stochastic  unit  within  the  networks.  The  solution  is 
+named as “reparameterization trick”, which is to transfer the sampling 
+to input layer. It is easy from N(μ(x), θ(x)) by sampling ∈ ~ N(0, I), af-
+terward calculating pmodelz = μ(x) + θ1/2(x) * e. Where μ(x) and θ(x) are 
+the mean and covariance of (z| x). So, Eq. (13) is calculated as: 
+
+L(q) = Ee∼N(0,I)pmodel
+
+(cid:0)
+
+x|z = μ(x) + θ1/2(x) × ∈
+
+)
+
+(cid:0) DKL(q(z|x)‖pmodel(z) )
+
+(14) 
+
+In VAE is comprised of input layer, various AEs, and output layer. 
+Then, an unsupervised pre-training step, the supervised fine-tuning step 
+is implemented for learning the entire network parameters by employ-
+ing the BP technique. This technique is comprised of 1 input layer, 5 
+hidden layers, and 1 output layer. 
+
+4. Performance validation
+
+Data availability statement 
+
+Data  sharing  not  applicable  to  this  article  as  no  datasets  were 
+
+generated or analyzed during the current study. 
+
+EcologicalInformatics66(2021)1014528H.M. Alshahrani et al.                                                                                                                                                                                                                         
+
+Unnikrishnan, A., Sowmya, V., Soman, K.P., 2019. Deep learning architectures for land 
+cover classification using red and near-infrared satellite images. Multimed. Tools 
+Appl. 78 (13), 18379–18394. 
+
+Wei, C.L., Wang, G.G., 2020. Hybrid annealing krill herd and quantum-behaved particle 
+
+swarm optimization. Mathematics 8 (9), 1403. 
+
+Xia, M., Tian, N., Zhang, Y., Xu, Y., Zhang, X., 2020. Dilated multi-scale cascade forest for
+
+satellite image classification. Int. J. Remote Sens. 41 (20), 7779–7800. 
+Yuan, Y., Wan, J., Wang, Q., 2016. Congested scene classification via efficient 
+
+unsupervised feature learning and density estimation. Pattern Recogn. 56, 159–169. 
+Zhang, L., Xia, G., Wu, T., Lin, L., Tai, X., 2016. Deep learning for remote sensing image 
+
+understanding. J. Sens. 2016, 1–2. 
+
+EcologicalInformatics66(2021)1014529
+
+VAE initially draw an instance z from the code distribution pmodel(z). The 
+sample is executed via a differentiable generator network g(z). Lastly, x 
+undergo sampling from a distribution Pmodel(x; g(z)) = pmodel(x| z). At the 
+time of training process, the estimated inference network (or encoder) q 
+(z| x)  can  be  employed  for  obtaining  z  and  Pmodel  (x| z)  is  afterward 
+considered  as  the  decoder  network  (Dai  et  al.,  2019).  The  main 
+perception of VAE is that it can be trained using the maximization of the 
+variational lower bound L(q) related to the data point x:
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information about specific techniques used to address data bias during preprocessing of the deep learning pipeline such as stratified splitting, oversampling, undersampling, or diverse data collection. However, it discusses the use of Variational Autoencoders (VAEs) in deep learning models for satellite image classification. In VAEs, the initial sample is drawn from the code distribution pmodel(z) and executed through a differentiable generator network g(z). Then, x undergoes sampling from a distribution Pmodel(x; g(z)) = pmodel(x| z). During the training process, an estimated inference network (or encoder) q(z| x) is employed for obtaining z, and Pmodel(x| z) is considered as the decoder network. The main perception of VAE is that it can be trained using the maximization of the variational lower bound L(q) related to the data point x.

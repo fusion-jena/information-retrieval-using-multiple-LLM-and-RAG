@@ -1,0 +1,108 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The  experimental  results  suggest  that  there  might  be  room  to 
+improve the generalization capacity of the deep learning classifiers. That 
+could  be  achieved  by  better  exploiting  the  training  data,  e.g.,  with 
+additional data augmentation techniques, using recent advances in un-
+supervised learning techniques, such as self-supervised methods, or by 
+just simplifying the classifiers in terms of the number of parameters, thus 
+reducing the risk of overfitting. 
+
+Another direction for continuing this research is to exploit the clas-
+sification uncertainty further in an active learning context. The uncer-
+tainty measure could be used in interactively training the deep learning 
+models,  selecting  high-uncertainty  samples  in  the  datasets,  and 
+increasing their importance in the computation of the loss function. 
+
+CRediT authorship contribution statement
+
+4.4. Performance metrics 
+
+As already mentioned, the accuracy metrics values reported in Sec-
+tion 5 are averages across the testing folds. Therefore, the performance 
+of the classifiers in all experiments is expressed in terms of the average 
+F1-scores computed for each individual class. Specifically, for each class 
+the F1-score is expressed by the harmonic mean of Precision (Pc) and 
+Recall (Rc) as follows: 
+
+F1 (cid:0) scorec =
+
+2 × Pc × Rc
+Pc + Rc
+
+,
+
+where 
+
+Pc =
+
+tp
+tp + fp
+
+.
+
+Rc =
+
+tp
+tp + fn
+
+.
+
+(9)  
+
+(10)  
+
+(11) 
+
+In Eqs. (10) and (11), tp is the number of images correctly assigned to 
+the class c (true positives), fp  represents the number of images errone-
+ously classified as the current class c (false positives). Similarly, fn  cor-
+responds to the number of images incorrectly classified as non-class c 
+(false negatives). 
+
+5. Results and discussion
+
+6. Conclusions 
+
+In  this  work,  six  state-of-the-art  deep  learning  architectures  were 
+evaluated  for  the  problem  of  deep-sea  substratum  characterization. 
+Additionally, a classification decision committee (CDC) constituted by 
+an  ensemble  of  networks  with  those  architectures,  in  which  the  indi-
+vidual predictions are fused through a majority voting mechanism, was 
+proposed and evaluated. 
+
+All deep learning models were evaluated on single and multi-label 
+classification  problems,  and  three  different  sites  were  considered  in 
+the  experiments.  Besides  the  conventional  training  scheme  in  which 
+data from a single site is used for training and testing the models, we also 
+evaluated  the  models  in  cross-site  scenarios,  aiming  to  assess  the 
+generalization  capacity  of  the  different  architectures  and  that  of  the 
+
+ensemble.
+
+Table 4 shows the CDC results in terms of F1-scores for all substratum 
+characterization criteria and sites. The table shows the average F1-score 
+of three rounds of experiments as in the previous experiments. Similarly, 
+the bold values represent the best results obtained with the committee. 
+In general, the ensemble of networks reached similar scores to those 
+obtained by each network individually. Specifically, considering eval-
+uations in sites where the classifiers were trained, i.e., results described 
+in the diagonal of Table 4, CDC reached results that are superior to most 
+of those obtained with the individual models.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The performance of the deep learning classifiers is evaluated using the average F1-scores computed for each individual class. The F1-score is calculated as the harmonic mean of Precision (Pc) and Recall (Rc). Precision is defined as the ratio of true positive (tp) images correctly assigned to the class c to the total number of images predicted as belonging to class c (including both true positives and false positives). Recall is defined as the ratio of true positive images to the sum of true positives and false negatives (fn), where false negatives correspond to images incorrectly classified as not belonging to class c.

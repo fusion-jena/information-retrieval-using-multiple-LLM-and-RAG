@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Where γm presents the number of training samples belonging to the 
+wetland class with the highest number of training samples and γi shows 
+the number of training data of other wetland classes. The 3D patches of 
+Sentinel-1/2 imagery with the dimension of γi × S × S × B, as well as the 
+output of the conditional map unit, are employed in each of Ui. Next is to 
+transform the output of the conditional unit map (intermediate feature 
+expressed by If) to a feature with the length of γi. It should be noted that S 
+and B present image patch size (i.e., 8) and the number of utilized bands 
+(i.e., 18). In the GAN network, a dense layer is employed first, followed 
+by  a  softmax  layer.  For  the  generation  of  the  class-specific  random 
+feature (Im) with the dimension of n × γ, the feature vector n = S × S × B 
+times is repeated. The 3D Sentinel-1/2 image patches with the dimen-
+sion  of  γi  × S  × S  × B  are  then  converted  into  a  matrix  (Pm)  with  a
+
+3.6. Cost of computation in terms of time 
+
+The hardware configurations for the experiments in this study con-
+sisted of Intel Core i7-10750H 2.60 GHz CPU, GeForce RTX 2070-MaxQ 
+GPU, and 16GB RAM. As seen in Table 5, the Swin Transformer classifier 
+had  the  least  cost  in  terms  of  time,  with  approximately  1.5  h  of  its 
+required training time, while the CoAtNet algorithm required about 5 h 
+for its training. The proposed 3DUNetGSFormer required around 3.5 h 
+for its training time. 
+
+4. Discussion 
+
+Understanding  dynamic land  cover changes  in wetland-dominated 
+regions such as Canada requires accurate mapping of diverse and com-
+plex  wetland  ecosystems.  Up-to-date  maps  showing  wetlands’  extent 
+and  spatial  pattern  are  critical  for  protecting  and  conserving  these 
+important  ecosystems.  The  rapid  evolution  of  free  access  and  high
+
+dimension  of  n  × γ.  Afterward,  the  Sentinel-1/2 class-specific  feature 
+matrix (Fm) is calculated (see Eq. 3).
+
+3.4. Impact of data split 
+
+This  section  illustrates  the  impact  of  the  data  split  (i.e.,  test  and 
+training data ratio) on the final accuracy of wetland mapping. By eval-
+uating  the  classification  results  of  the  proposed  model  with  different 
+training data, we will better understand the required amount of data to 
+reach  an  acceptable  wetland  accuracy  level.  This  is  significant  when 
+there is a limited number of reference data in a project. We utilized a 
+
+different ratio of training data from reference data. The training ratio 
+started from 10% to 90%, increasing by 10%. Based on the results, as the 
+amount of data gradually increased, the classification accuracy of our 
+method was improved. This improvement was substantial for increasing 
+the  training  ratio  from  10%  to  30%  (average  accuracy  improved  by 
+17.47%).  However,  average  accuracy  just  increased  by  7.01%  by 
+increasing the training ratio from 30% to 90% (see Fig. 10).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't any information available regarding how the hyperparameters of the model were optimized. The given context does not mention whether techniques like grid search or random search were used for optimization purposes. Therefore, it remains unclear which method was applied to optimize the hyperparameters of the model.

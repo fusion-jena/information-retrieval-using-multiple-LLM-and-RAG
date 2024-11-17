@@ -1,0 +1,147 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Supporting Information section.
+
+How to cite this article: Norouzzadeh MS, Morris D, Beery S, 
+
+Joshi N, Jojic N, Clune J. A deep active learning system for 
+
+species identification and counting in camera trap images. 
+
+Methods Ecol Evol. 2021;12:150–161. https://doi.org/10.1111/ 
+
+2041-210X.13504
+
+NOROUZZADEH Et Al. 2041210x, 2021, 1, Downloaded from https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13504 by Vamsi Krishna Kommineni - Friedrich-Schiller-Universität , Wiley Online Library on [28/08/2024]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+|  159
+
+because eventually both methods have sufficient constraints to learn 
+
+active  learning  pipeline  on  the  crops  produced  from  running  the 
+
+a good embedding.
+
+3.3.2 | Active learning strategies
+
+MegaDetector  model  over  the  NACTI  dataset.  We  employed  mar-
+
+gin-based active learning. After the first 30,000 active queries, the 
+
+classifier  achieves  93.2%  overall  accuracy  which  further  confirms 
+
+the usefulness of the suggested pipeline. More detailed results are 
+
+available in Table S3.
+
+Different strategies can be employed to select samples to be labelled 
+
+by the oracle. The most naive strategy is selecting queries at random. 
+
+Here  we  try  five  different  query  selection  strategies  and  compare 
+
+4 |  D I S CU S S I O N
+
+them against a control of selecting samples at random. In particular, 
+
+we try model uncertainty criteria (confidence, margin, entropy; Lewis 
+
+This  paper  demonstrates  the  potential  to  significantly  reduce
+
+3 |  R E S U LT S
+
+retaining  speed.  Before  processing  the  crops  from  a  target  dataset, 
+
+we learn an embedding model (a deep neural network) on a large data-
+
+As  explained  above,  our  suggested  pipeline  consists  of  three 
+
+set, and use this model to embed the crops from our target dataset 
+
+steps: (a) running a pre-trained detector model on images, (b) em-
+
+into  a  256-dimensional  feature  space.  We  chose  256  features  after 
+
+bedding the obtained crops into a lower-dimensional space and (c) 
+
+preliminary experimentation showed it performed better than 64 and 
+
+running an active learning procedure. In this section, we report the 
+
+128. Choosing more than 256 features slows down the active learning 
+
+results of our pipeline and analyse the contribution of these steps 
+
+procedure. The embedding model turns each image into a 256-dimen-
+
+to  the  overall  results.  For  these  results,  the  eMammal  Machine
+
+Algorithm 1. Active learning procedure
+
+1:
+
+2:
+
+3:
+
+4:
+
+5:
+
+6:
+
+7:
+
+8:
+
+Start from a small, randomly selected labelled subset of data
+
+while Stopping criteria not met do
+
+Train the underlying model with the available labelled samples
+
+Compute a selection criterion for all the samples in the 
+
+unlabelled pool
+
+Select n samples that maximize the criterion
+
+Pass the selected samples to the oracle for labelling
+
+Gather the labelled samples and add them to the labelled 
+
+set
+
+end while
+
+this case, a network can first be trained on the large dataset and then 
+
+Deep learning usually requires a large-scale dataset and a con-
+
+fine-tuned on the target dataset (Norouzzadeh et al., 2018; Yosinski 
+
+siderable amount of computational resources to achieve high accu-
+
+et al., 2014).
+
+1.5 | Active learning
+
+racy.  Existing  active  learning  frameworks  cannot  scale  to  datasets 
+
+with millions of high-dimensional samples, such as large camera trap
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the code repository link of the deep learning pipeline (e.g., Link to GitHub, GitLab, BitBucket)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, based on the given information, there is no explicit mention of a specific code repository link for the deep learning pipeline used in the study. Therefore, without additional context or information, it is impossible to provide the exact code repository link. However, considering that the authors published their work in Methods in Ecology and Evolution, they might have followed the journal's guidelines regarding sharing research materials, including source codes. It would be best to check the original publication or contact the corresponding author(s) directly to obtain the relevant code repository link.

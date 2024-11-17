@@ -1,0 +1,66 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To prevent spatial autocorrelation between neighboring tiles, the
+tiles retrieved from all 50 training photographs were collected in one
+folder and shuﬄed, before they were split into training, validation and
+test set. In this regard, the validation set is used during training for the
+ﬁne tuning of hyperparameters and model selection (Hastie et al.,
+2009). Only after the best model setup has been found, its prediction
+error is assessed once again on the test set. For splitting the whole set of
+samples into the three sets, we ﬁrst took a random sample of 10% from
+the total number of tiles as validation set and then a further sample of
+10% as test set. The remaining 80% of the tiles were used as training
+set. To further increase the number of sample tiles, we performed data
+augmentation on the training set. Data augmentation is a common
+practice in machine learning to artiﬁcially increase the number of
+training samples by applying slight transformation on the original data,
+
+Ecological Informatics 50 (2019) 220–233
+
+Fig. 5. Learning process for loss (left) and model accuracy (right) over 90 epochs. The gap between training and validation accuracy is caused by using dropout on
+the training data only.
+
+Although the use of pre-trained models has proven to be advanta-
+geous for many image recognition tasks (Weiss et al., 2016), we decided
+to train the model from scratch. We recognized that our speciﬁc clas-
+siﬁcation problem was too diﬀerent from the pre-trained networks.
+Moreover, we considered the number of labeled samples available
+(nearly 30,000 per class) as large enough for training our own network.
+
+We trained the CNN using ReLU activation for the convolutional layers
+and an exponential linear unit (ELU) activation on the fully connected
+layer (Clevert et al., 2015). As optimizer we chose the adaptive ADAM
+(Adaptive Moment Estimation) with a learning rate of lr = 0.0001.
+Training was performed with a batch size of 256 over 16,290 iterations
+(= 90 epochs).
+
+All statistics were performed in R (version 3.3.1). The best model
+was chosen based on the two parameters accuracy and loss, whereby
+loss serves as a measure on how far model predictions diﬀer from the
+actual class. Model accuracy and loss were calculated for both training
+and validation set. We tested the performance of the ﬁnal model on two
+diﬀerent data sets: 1) on individual tiles and 2) on whole repeat pho-
+tographs. Prediction accuracy on individual tiles was calculated using
+the 5796 tiles from the test set (= 10%), which has been separated from
+the total number of samples before training. We evaluated the accuracy
+on whole repeat photographs based on the image pairs of the second set
+of photographs. The classiﬁcation results for each of these 34 images
+were compared to the corresponding manual classiﬁcation (reference
+data). A confusion matrix was prepared for each photograph in-
+dividually. The confusion matrix consists of pixel numbers for true
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning model used in this study employed several hyperparameters. The optimizer used was Adaptive Moment Estimation (ADAM) with a learning rate of 0.0001. Training was conducted with a batch size of 256 over 16,290 iterations or 90 epochs. The choice of these hyperparameters was guided by the need to fine-tune the model for optimal performance, as indicated by the validation set used during training. It's important to note that the specific values of these hyperparameters can significantly impact the model's performance, hence their careful selection and adjustment during the training phase.

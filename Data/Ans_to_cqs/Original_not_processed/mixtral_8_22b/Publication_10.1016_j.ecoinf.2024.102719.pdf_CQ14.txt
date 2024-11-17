@@ -1,0 +1,62 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The tree-structured Parzen estimator (TPE) improves the perfor-
+mances of ML algorithms by finding the optimal hyperparameter set of
+each ML model. The TPE estimates the probability distribution of the
+hyperparameters using a probabilistic model and iteratively constructs a
+tree of Gaussian distributions to approximate the objective function.
+This probabilistic model then selects new hyperparameters for the
+subsequent rounds of ML evaluation. The TPE is designed for efficient
+searching in high-dimensional spaces.
+
+In the present study, the TPE algorithm identified the most effective
+
+During this process the hyperparameters of the heterogeneous
+ensemble models were set to those optimized by the TPE algorithms.
+Each ML model was trained on 100 different subsets generated from the
+original training sets using the bootstrap method (sampling with
+replacement). The number of samples in each subset equaled the num-
+ber of samples in the original training data. The predictions of the
+trained models on the testing dataset were averaged to obtain the main
+prediction. The average loss, average bias, and average variance were
+then derived for each model. The noise was assumed as 0 following
+previous studies (Domingos, 2000; Kohavi and Wolpert, 1996).
+
+3.3. Model interpretation
+
+Fig. 3. Flowchart of the modeling procedure. Eleven machine learning models
+were utilized in the study: multilayer perceptron (MLP), logistic regression
+(LR), naïve Bayes (NB), CatBoost (CAT), random forest (RF), XGBoost (XGB),
+LightGBM (LGB), weighted soft voting (WSOFT), weighted hard voting
+(WHARD), blending, and stacking.
+
+and TPE algorithms were implemented in the CatBoost package
+(V.1.0.6), LightGBM package (V.3.2.1), XGBoost package (V.1.5.0), and
+Hyperopt package (V.0.2.7), respectively.
+
+3.2. Bias–variance decomposition
+
+indices. In general, researchers develop several ML models and select the
+model giving the highest testing performance. However, a single ML
+model that outperforms other models on a particular training set might
+perform sub-optimally on a training set with (even minor) changes
+(Belkin et al., 2019). The potentially unstable behaviors of a ML model
+decrease the generalizability of the model to unseen data, limiting its
+potential applicability as an assistant tool for decision making (Abdar
+et al., 2021; Forster, 2000).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: The hyperparameters of the model are optimized using the Tree-structured Parzen Estimator (TPE) algorithm. This algorithm is specifically designed for efficient searching in high-dimensional spaces. It works by estimating the probability distribution of the hyperparameters using a probabilistic model. Then, it iteratively constructs a tree of Gaussian distributions to approximate the objective function. Based on this probabilistic model, new hyperparameters are selected for subsequent rounds of Machine Learning (ML) evaluation. In this study, the TPE algorithm was implemented in various packages such as CatBoost, LightGBM, XGBoost, and Hyperopt.

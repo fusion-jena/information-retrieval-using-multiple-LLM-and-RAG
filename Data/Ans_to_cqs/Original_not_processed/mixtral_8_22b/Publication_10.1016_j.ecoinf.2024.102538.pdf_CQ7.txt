@@ -1,0 +1,123 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The model was trained over 200 epochs using the Adam optimizer 
+(cid:0) 5. The batch size 
+(Kingma and Ba, 2015), with a weight decay of 1 × 10
+was fixed at 16, and the loss function was updated as per Eq. (6). The 
+learning rate was initially set at 0.001 and was subsequently reduced by 
+a  factor  of  0.1  in  a  step-wise  manner  whenever  the  validation  loss 
+remained  constant  for  five  epochs.  The  minimum  learning  rate  was 
+(cid:0) 5. The hyper-parameter λ in Eq. (4) was set to 0.8, 
+established at 1 × 10
+Mk  in Eq. (5) was defined as 2k+1(k = 1, 2, …K), and β in Eq. (6) was set 
+to 0.4.
+
+13/47/100  
+
+the  two  datasets  using  the  “stratified  sampling”  method.  We  selected 
+birds of different class sizes from BirdCLEF2018, abbreviated as “BC-S" 
+(BirdCLEF-Small)  and  “BC-L"  (BirdCLEF-Large).  From  the  Lishui- 
+Zhejiang Birdsdata, we chose 100 bird species, referred to as “LS”. We 
+then halved the number of training samples of each species for “LS” to 
+construct  a  supplementary  small-scale  training  set,  denoted  as  “LS*”. 
+The datasets were divided into three exclusive groups: 80% for training, 
+10% for validation, and 10% for testing to compare the experimental 
+results. Detailed statistical information is presented in Table 3. 
+
+4.2. Experimental results 
+
+This section presents the experimental results of our PPNN model,
+
+their  convolutional  kernels  and  pooling  layers.  Regarding  this  issue, 
+Zhang  et  al.  (2019)  incorporated  a  long  short-term  memory  (LSTM) 
+network to develop a 3DCNN-LSTM model as a classifier, making the 
+network more sensitive to the temporal changes in birdsong informa-
+tion. It is important to note that the use of RNNs such as the CRNN model 
+requires  more  computing  resources  for  training,  and  performance 
+improvement is not always guaranteed. Another common approach to 
+addressing  the  limitations  of  CNNs  is  to  introduce  attention  mecha-
+nisms.  For  example,  Soundception  (Sevilla  and  Glotin,  2017)  was 
+developed  by  introducing  time  and  time-frequency  attention  mecha-
+nisms to Inception V4; the resulting model achieved first place in the 
+BirdCLEF  2017  Competition.  Fu  et  al.  (2023)  proposed  an  improved 
+ACGAN model named DR-ACGAN based on the residual structure and an
+
+Table 3 
+Overview  of four subsets from the two benchmark datasets. The first column 
+provides  the  dataset  name  and  abbreviations;  the  second  column  states  the 
+publication  year;  the  third  column  shows  the  locations  where  the  recordings 
+were captured; the fourth column details the samples in the training, validation, 
+and test sets, and the fifth column indicates the number of categories at each 
+level (from coarse to fine).  
+
+Dataset name 
+
+Release 
+year 
+
+Country 
+with records 
+
+#Sounds 
+
+#Categories 
+
+BirdCLEF2018- 
+Small (BC-S) 
+BirdCLEF2018- 
+Large (BC-L) 
+Lishui-Zhejiang 
+Birdsdata (LS) 
+Lishui-Zhejiang 
+
+Birdsdata (LS*) 
+
+2018 
+
+2018 
+
+2024 
+
+Europe & 
+America 
+Europe & 
+America 
+China 
+
+2024 
+
+China 
+
+3118/308/ 
+308 
+10,216/ 
+1005/1005 
+20,512/ 
+2514/2513 
+10,279/ 
+2514/2513 
+
+14/42/122/ 
+150 
+22/57/309/ 
+500 
+13/47/100 
+
+13/47/100
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The data was split into three exclusive groups for deep learning model training: 80% for training, 10% for validation, and 10% for testing. This division allows the model to learn patterns from the majority of the data during training while also providing separate sets for tuning hyperparameters (validation) and evaluating the final model performance (testing). The specific method used to divide the data was stratified sampling, which ensures that each subset maintains the same distribution of classes as the original dataset.

@@ -1,0 +1,79 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The dataset was divided into training (60%), validation (20%), and 
+testing (20%) subsets for model evaluation and hyperparameter search 
+(Fig. 3 (b)). This approach was chosen to obtain an unbiased estimation 
+of  error.  Data  augmentation  was  only  applied  to  the  training  data  to 
+avoid overlapping the same data in different partitions. To evaluate the 
+models we used the coefficients of determination (R2  - calculated as the 
+squared  Pearson's  correlation  coefficient),  which  measures  the  per-
+centage of variation in the response variable explained by the model. 
+Additionally,  we  used  the  root  mean  squared  error  (RMSE)  metric, 
+where  RMSE =
+,  with  Yi = the  actual  values  pine 
+̂
+Y i = the predicted pine cove values. In our work, RMSE 
+cover values and 
+values ranged from 0.0 to 1.0, with values closer to 0 indicating better 
+model  predictions.  The  overfitting  was  assessed  by  comparing  model
+
+We applied the  standard machine learning hyperparameter  search 
+over  two  sites  because  of  computational  cost.  In  our  research,  we 
+considered the activation function, the optimizer, and the learning rate. 
+In addition, we performed an exhaustive search for the fully connected 
+architecture for all mono-site and multi-site models. In all these cases, 
+we compare the training, validation, and testing performance to avoid 
+overfitting.  We  could  have  achieved  the  same  results  using  hyper-
+parameter search software such as Optuna and Sklearn. However, even 
+though they could save coding time, we prefer to control every aspect of 
+the process to avoid problems. The hyperparameter search involved a 
+small grid search selecting the following hyperparameters and values:  
+
+1.  Hidden activation function: ReLU, sigmoid, or elu,  
+2.  Optimizer: RMSprop or adam  
+3.  Learning rate: 0.1, 0.001, 0.0001, and 0.00001.
+
+of the models. For instance, Mil`a et al. (2022) used the Nearest Neighbor 
+Distance Matching (NNDM) LOO CV method to delineate a geographic 
+space  in  which  predictions  can  be  made.  Many  of  these  approaches 
+accurately  demonstrate  the  model's  transfer  learning  capabilities,  yet 
+they  impose  limitations  on  the  training  domain,  leading  to  reduced 
+training  heterogeneity  (Meyer  and  Pebesma,  2021).  However,  con-
+ducting large CV experiments with deep learning-based models is often 
+infeasible due to  their high computational costs. Deep  learning-based 
+models  typically  employ  simple  data  partitioning  strategies,  such  as 
+training, validation, and testing (Ocer et al., 2020). This simple scheme 
+can help to add heterogeneous information to the training procedure, 
+but may also overlook the diversity of heterogeneous spatial information 
+in remotely sensed data that is aligned with different learning domains
+
+testing  data,  is  essential.  Typically,  models  are  evaluated  within  the 
+domain  of  the  training  data,  using  test  data  from  the  same  domain. 
+Therefore,  evaluations  within  and  outside  the  domain  of  the  training 
+data can provide a deeper insight into the generalization capabilities of a 
+model.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The dataset was divided into three subsets for model evaluation and hyperparameter search: training (60%), validation (20%), and testing (20%). This division aimed to achieve an unbiased estimation of error. Data augmentation was applied solely to the training data to prevent duplication across different partitions.
+
+To evaluate the models, the coefficients of determination (R^2) and the root mean squared error (RMSE) were employed. R^2 measures the percentage of variation in the response variable explained by the model, while RMSE quantifies the difference between the actual and predicted values. Lower RMSE values indicate superior model predictions. Overfitting was checked by contrasting the performance of the models on the training, validation, and testing datasets.
+
+A standard machine learning hyperparameter search was conducted over two sites due to computational constraints. The considered parameters included the activation function, the optimizer, and the learning rate. An exhaustive search was carried out for the fully connected architecture for all mono-site and multi-site models. The hyperparameter search encompassed a small grid search involving the hidden activation function (ReLU, sigmoid, or elu), the optimizer (RMSprop or adam), and the learning rate (0.1, 0.001, 0.0001, or 0.00001).
+
+Deep learning-based models commonly use straightforward data partitioning methods like training, validation, and testing. While this strategy facilitates the incorporation of diverse information into the training process, it might not adequately capture the variety of heterogeneous spatial information present in remote sensing data associated with distinct learning domains.
+
+In summary, the dataset was segmented into training, validation, and testing subsets to ensure an impartial assessment of error. The primary criterion for splitting the data was to maintain a balance between the subsets, allocating 60%, 20%, and 20% of the data to training, validation, and testing, respectively. Additionally, data augmentation was exclusively implemented on the training set to evade redundancy across various partitions.

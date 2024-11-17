@@ -1,0 +1,71 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+then fine-tuned on the birdsong dataset. Colour spectrograms stored as 
+PNG images were used as input to the CNN. Low resource computational 
+devices were the focus of the study of Disabato et al. (2021). Three layers 
+(the  first  convolution,  first  pooling,  and  second  convolution)  were 
+extracted from ResNet18 (He et al., 2016a) (pre-trained on ImageNet) 
+and  a  fully  connected  output  layer  was  added.  This  model  was  less 
+computationally  expensive  compared  to  commonly  used  CNNs  used 
+within  the literature,  and  thus, sets the  premise  for exploring  models 
+that are both accurate and are able to be executed on hardware with 
+limited resources.
+
+Since CNNs require a fixed input size, we studied the vocalisations 
+within the presence class for each dataset to determine the character-
+istics of the calls which would allow us to create fixed input, which we 
+refer to as segments. For example, the Hainan gibbon calls vary from 2 to 
+9 s (Dufourq et al., 2021), and thus a suitable input size was 4 s to ensure 
+that the smallest call would fit within the segment. A longer input (>4 
+seconds) would result in CNNs with more network parameters, an un-
+desirable consequence as this would increase the chances to overfit. A 
+shorter input (<4 s) would not contain enough information, especially 
+in cases where the individual pulses that make up a call are long. A short 
+input could omit parts of the call. Preliminary experiments were con-
+ducted on the different datasets to minimise the input length as much as 
+possible,  thus  minimising  network  parameters.  The  characteristics  of
+
+4. Results 
+
+Under many conditions, CNNs pre-trained on the ImageNet dataset 
+were  able  to  produce  classifiers  which  were  able  to  identify  calls  in 
+bioacoustic  datasets  with  a  high  degree  of  accuracy  (Table  3).  Our 
+comparison over the 12 pre-trained CNNs revealed that ResNet101V2 
+and ResNet152V2 produced the best results (Table 4). We compared the 
+CNNs when the feature extractor was frozen and when it was fine-tuned 
+and the difference in performance varied across the CNNs. Our findings 
+reveal that when only 25 samples are used freezing the feature extractor 
+results in CNNs that were as good as CNNs where the feature extractor 
+was fine-tuned (Fig. 6). However, when more data was used, fine-tuning 
+the feature extractor was the most optimal approach. Finally, we show 
+that  the  performance  of  the  CNNs  can  be  improved  when  taking  the
+
+practitioner can manually annotate a few examples and then start using 
+a  pre-trained  ResNet152V2  model  to  find  new  examples.  Once  addi-
+tional examples have been found via the pre-trained model, these new 
+examples can be incorporated into the training set. This iterative process 
+can be repeated until a large training set is obtained, after which, the 
+pre-trained CNN can be fine-tuned to create a more robust classifier. We 
+thus argue that practitioners can begin using CNNs relatively early on 
+within  a project to  speed up  the rate at  which calls  are found.  These 
+findings  oppose  existing  knowledge  that  deep  learning  requires  large 
+training  datasets.  One  possible  explanation  for  the  good  performance 
+achieved in this study is due to the high signal-to-noise ratio. It was also 
+hypothesised  that  good  performance  was  obtained  due  to  the  lack  of 
+variation within the calls (e.g. gibbons and whydah datasets), however
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not explicitly mention the specific bioacoustic datasets used in the deep learning pipeline. However, it mentions that the CNNs were pre-trained on the ImageNet dataset and later fine-tuned on the birdsong dataset. Additionally, there are references to the Hainan gibbon calls dataset and the whydah dataset, but no further details about their origin or composition are given. Therefore, based on the provided context, the datasets used in the deep learning pipeline include ImageNet, birdsong, Hainan gibbon calls, and whydah datasets.

@@ -1,0 +1,65 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+the guesswork out of developing a training dataset by including a group 
+of pixels around a field site and knowing that the ‘truth’ is included in 
+one of those pixels. Lastly, MTMI-SMF is computationally very efficient 
+compared  to  most  machine-learning  algorithms  because  it  relies  on 
+simple matrix multiplication.
+
+MTMI-SMF is formulated to work with imperfect data, which can be 
+due to training locations having locational errors or not ideally matching 
+with  image  pixels.  MTMI-SMF  groups  pixels  surrounding  a  training 
+location  that  could  have  invader.  Most  other  machine  learning  algo-
+rithms require a single pixel to represent a training location, which often 
+leaves the user making an educated guess on which pixel best represents 
+that training location. Here, we compare MTMI-SMF classification (i.e., 
+confidence values with a threshold applied) to a commonly used ma-
+chine learning classification approach, random forest.
+
+Random  Forest  is  a  common  machine  learning  approach  used  in 
+remote sensing for classification. This approach requires a single pixel’s 
+spectrum to be associated with a single metadata record, compared to 
+MTMI-SMF which can take many pixels’ spectra and associate it with a 
+single metadata record. Since training locations often did not fall near 
+the center of a pixel (see example in Fig. 3 where the training location 
+falls at the intersection of four NAIP pixels), a random pixel from the 
+pixels  in  closest  proximity  of  the  training  location  was  selected  for 
+analysis. This single pixel dataset was split into training and testing data 
+using 5 K-fold cross-validations. MATLAB’s (MathWorks, Inc., Natick, 
+Massachusetts) TreeBagger function was used to complete the classifi-
+cation using 100 trees. Looping through the k-folds, the random forest 
+algorithm was calculated using 80% of the data and classification results
+
+Multiple-instance  learning  can  be  used  to  overcome  the  need  for 
+precise training labels by allowing for errors in GNSS locations, mixed 
+pixels, and other inaccuracies in training data (Jiao et al., 2018). This 
+approach groups pixels into what is referred to as bags and assigns a 
+positive or negative label to the bag rather than assigning that label to 
+individual pixels. Each bag may contain many pixels, but a bag is labeled 
+positive if at least one of the pixels belongs to the target class (i.e., an 
+invader). In practical terms, this means that if, on data collection day, 
+there is a GNSS accuracy of 4 m, a 4 m buffer could be placed around an 
+invader’s  location,  and  all  pixels  falling  within  that  buffer  would  be 
+placed in a bag that is labeled positive. The algorithm then compares the
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information about any specific optimization techniques applied in the deep learning pipeline such as Stochastic Gradient Descent (SGD) or Adaptive Moment Estimation (Adam). Instead, it discusses two different approaches for remote sensing classification - MTMI-SMF and Random Forest.
+
+MTMI-SMF stands for Multiple Training Metrics Integrated Spectral Mixture Fractional Analysis. It is designed to handle imperfect data and works by grouping pixels surrounding a training location that could potentially include an invasive species. This method is more flexible than traditional machine learning algorithms that typically rely on a single pixel to represent a training location. MTMI-SMF also has computational advantages due to its use of simple matrix multiplication.
+
+On the other hand, Random Forest is a popular machine learning technique used for classification tasks. Unlike MTMI-SMF, Random Forest requires a single pixel's spectrum to be associated with a single metadata record. When dealing with training locations that do not align perfectly with image pixels, a random pixel from the nearest pixels is chosen for analysis. The dataset is then divided into training and testing sets using 5-fold cross-validation, and the TreeBagger function in MATLAB is employed to perform the classification using 100 decision trees.
+
+In summary, while both methods are useful for remote sensing classification, they do not directly address the query regarding optimization techniques used in deep learning pipelines like SGD or Adam.

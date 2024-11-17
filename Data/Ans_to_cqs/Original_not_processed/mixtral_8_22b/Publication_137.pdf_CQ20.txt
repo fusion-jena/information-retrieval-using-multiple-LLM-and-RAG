@@ -1,0 +1,92 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+123
+
+2170
+
+Journal of the Indian Society of Remote Sensing (September 2021) 49(9):2163–2172
+
+training, we set the learning decay rate to 0.7 so that the
+learning rate gradually decays as the training progresses.
+Table 1 shows the experimental results in which we ﬁxed
+the voxel size and batch size and adjusted the regulariza-
+tion strength, from which we can be told that result is better
+while regularization strength is 0.2.
+
+2. Model training: We process data with a deep neural
+network and adjust the training epoch, batch size, and
+volume size to output a classiﬁer for prediction.
+3. Result output: The point cloud test set is segmented,
+and we can obtain the ﬁnal segmentation results. The
+output ﬁles include point cloud geometric partition
+graphs, SPGs, and segmentation results.
+
+Results and Discussion
+
+For tree species segmentation, appropriately increasing
+batch size can improve efﬁciency while improving seg-
+mentation accuracy. We believe that within a reasonable
+range limited by GPU memory, a larger training batch size
+of 8 can better preserve the original features of the point
+clouds than others. In addition, the network more easily
+obtains a sharp minimum rather than a ﬂat minimum when
+the batch size is larger. Therefore, we can obtain better
+results when the batch size is 8 in our experiments
+(Table 3).
+
+Through the experimental results, we ﬁnd that
+the
+adjustment of the parameters can also improve the mis-
+segmentation situation. In summary, we obtain the best
+result in the ﬁve tree species experiments: The mIoU is
+81.49% and the OA is 92.45%, while the voxel size is 0.04,
+
+the training batch size is 8 and the regularization strength is
+0.2.
+
+Effectiveness of the Framework for Target
+Segmentation
+
+Point Cloud Segmentation
+
+First, we compute the geometric partition. Then, each
+geometric partition is converted into a superpoint. Next, we
+input the superpoints in the SPG to a PointNet network for
+superpoint embedding. The ﬁnal operation is to segment
+the point clouds based on context with a graph convolution
+network.
+
+We use PyTorch as the deep learning framework and
+Ubuntu 16.0 as the experimental platform, and we ﬁnished
+the experiments with 32 GB of memory and an NVIDIA
+RTX 2070 GPU.
+
+The main experimental pipeline of the experiments is as
+
+follows:
+
+1. Data pre-processing: We only use point coordinate
+information in this algorithm, which corresponds to the
+label of each point. We pre-process input data with
+voxelization subsampling by computing per-voxel
+
+mean positions and observations over a regular 3D
+grid, which can help increase the computational
+efﬁciency. After that, we convert the information and
+labels into the hdf5 format.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The experiment was conducted using Ubuntu 16.0 as the experimental platform, with 32GB of memory and an NVIDIA RTX 2070 GPU. This indicates that the deep learning model was trained using a GPU for processing power. No mention of other specialized hardware such as TPUs or FPGAs was made, suggesting that these were not utilized in the experiment.

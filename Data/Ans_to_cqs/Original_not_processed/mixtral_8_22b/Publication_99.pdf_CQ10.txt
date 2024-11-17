@@ -1,0 +1,152 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.3.3. Classification 
+
+Pretrained classification models such as VGG16 have demonstrated 
+to perform well on various plant species identification tasks (Pang and 
+Lim,  2019).  To  train  our  classification  model,  we  adapted  the  vgg16 
+network  pre-trained  on  ImageNet  dataset  (Simonyan  and  Zisserman, 
+2014). The fully connected layers of the networks were replaced with a 
+global max-pooling layer, a dropout layer with a dropout ratio of 0.5 as a 
+network regularizer and single hidden layer with a total of 256 units for 
+a larger image sized model(512 × 512) and 128 units for a smaller image 
+size model (256 × 256). Both networks were trained for 20 epochs with 
+a  batch  size  of 32  and  various data augmentation  techniques such as 
+height and width shift, flipping, zooming and brightness changes were 
+
+Table 2 
+Summary of the model parameters.   
+
+PConv networks 
+
+256 × 256/512 × 512 
+
+1 
+2e-4
+
+PConv networks 
+
+256 × 256/512 × 512 
+
+1 
+2e-4 
+
+Adam optimizer 
+per-pixel loss, perceptual 
+loss, style loss and total 
+variation loss 
+50 
+Pre-trained on ImageNet 
+
+Pix2Pix 
+networks 
+
+256 × 256/512 
+× 512 
+1 
+9e-5 
+
+Classification 
+networks 
+
+256 × 256/512 
+× 512 
+32 
+0.03 
+
+Adam optimizer 
+Adversarial loss 
+and L1 loss 
+
+Adam optimizer 
+Cross-entropy 
+loss 
+
+50 
+Trained from 
+Scratch 
+
+20 
+Pre-trained on 
+ImageNet  
+
+Input 
+
+dimension 
+
+Batch size 
+Learning 
+rate 
+Optimizer 
+Loss function 
+
+Epochs 
+Pre-trained 
+network 
+
+applied.  All  input  images  were  preprocessed  by  mean  centering  the 
+image with ImageNet values and then rescaled between 0 and 1. Since 
+our dataset was balanced, both networks were trained with a learning 
+rate of 0.03, cross-entropy loss as a loss function optimized by Adam 
+optimizer (Kingma and Ba, 2014). Table 2 summarizes the parameter 
+used for training each model. 
+
+3.4. Performance evaluation
+
+The main objective of this study is to develop a method that can be 
+used  in  reconstructing  damaged  herbarium  leaves  images  as  a  pre- 
+processing  step  in  building  species  identification  system.  Hence,  we 
+propose the use of deep learning techniques to reconstruct damaged leaf 
+before passing it  to a classifier. Two different families  of convolution 
+neural  networks  (CNNs)  architectures  are  assessed  by  training  and 
+testing  for  developing  damaged  leaves  reconstruction  model.  Fig.  1 
+depicts the framework used for training and evaluating the quality of the 
+
+Fig. 2. Illustration of the PConv network.  
+
+EcologicalInformatics61(2021)1012432B.R. Hussein et al.                                                                                                                                                                                                                              
+
+Fig. 3. Illustration of Pix2Pix framework.
+
+Contents lists available at ScienceDirect 
+
+Ecological Informatics 
+
+journal homepage: www.elsevier.com/locate/ecolinf 
+
+Reconstruction of damaged herbarium leaves using deep learning 
+techniques for improving classification accuracy 
+
+Burhan Rashid Hussein a, Owais Ahmed Malik a, b, *, Wee-Hong Ong a,b, 
+Johan Willem Frederik Slik c 
+a Digital Science, Faculty of Science, Universiti Brunei Darussalam, Gadong, Jalan Tungku Link, BE1410, Brunei Darussalam 
+b Institute of Applied Data Analytics, Universiti Brunei Darussalam, Gadong, Jalan Tungku Link, BE1410, Brunei Darussalam 
+c Environmental and Life Sciences, Faculty of Science, Universiti Brunei Darussalam, Gadong, Jalan Tungku Link, BE1410, Brunei Darussalam   
+
+A R T I C L E  I N F O    
+
+A B S T R A C T    
+
+Keywords: 
+Deep learning 
+Damaged leaves 
+Generative adversarial networks 
+Partial convolution 
+Plant species identification 
+Herbaria
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the code repository link of the deep learning pipeline (e.g., Link to GitHub, GitLab, BitBucket)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough information in the given context to provide the exact code repository link of the deep learning pipeline. However, based on common practices, researchers often share their code repositories along with their publications or presentations. Therefore, if this research paper has been published, it might be possible to find the corresponding code repository linked within the publication details or the authors' personal websites. Please refer to the original source of this text for more information.

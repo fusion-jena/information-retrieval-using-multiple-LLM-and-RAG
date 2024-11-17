@@ -1,0 +1,70 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+randomly  splitting  all  individual  observations.  This  data  splitting  ap-
+proach is generally considered optimum in machine learning as it does 
+not  introduce  any  systematic  differences  between  the  test  and  train 
+datasets. To perform the RY data splitting, individual observations were 
+grouped according to year of capture and years were randomly selected 
+for inclusion in the train and test datasets. Although this may produce 
+systematic  differences  between  the  test  and  train  datasets,  it  ensures 
+that  the  model  is  tested  using  previously  unseen  combinations  of  ex-
+planatory  variables  and  is  therefore  a  more  robust  test  of  model  per-
+formance in this context.
+
+For  the  three-part  split  the  VI  score  on  the  validation  set  is  used 
+instead of the test set. Then one is allowed to tweak the values in the 
+parameters grid to see if values that improve the score can be found. 
+Once  there  is  confidence  that  the  validation  score  cannot  be  further 
+improved  via  parameter  tweaking  (or  feature  engineering)  one  can 
+evaluate the  best  model on  the  final test  set  (only  once). In some in-
+stances  the final  test score maybe lower  than the  validation score.  In 
+that case the test score is taken as the most realistic evaluation of the 
+true generalization performance of the final model. 
+
+2.4.2.  Hyperparameters
+
+For the two-part split hyperparameters were tuned using grid search 
+which performs an exhaustive search over specified parameter values 
+for  an  estimator.  Grid  search  takes  a  set  of  possible  values  for  each 
+hyperparameter that should be tuned and evaluates a model trained on 
+each  element  of  the  Cartesian  product  of  the  sets. It  is  an  exhaustive 
+search that trains and evaluates a model for each possible combination 
+of  the  hyperparameter  values  supplied.  This  algorithm  automatically 
+generates the validation sets internally. So there is no need to generate 
+a validation set to select the best model.
+
+For  the  RI  models  the  same  initial  parameters  were  set  for  the 
+analysis of the CS and NW datasets, then a grid search was performed 
+on both datasets with a two-part split to give hyperparameters with the 
+highest level of accuracy. These were as following: learning rate 0.05 
+and maximum tree depth of 4 for both the CS and the NW models. The 
+early stopping technique was used to determine when to stop the model 
+training  to  avoid  overfitting.  Using  early  stopping  the  number  of 
+iterations required until convergence was 120 for CS and 106 for NW. 
+Grid search was not required for a three-part splits, and further tuning 
+of the parameters was done manually. 
+
+For the RY models, in contrast to the RI models, the best performing 
+models (based on MSE) were models with a slow learning rate of 0.005. 
+Additionally, the NW model had a very shallow tree (tree depth of 2). 
+The number of iterations was kept at 500.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, two types of data splitting approaches have been discussed - Random Year (RY) data splitting and Three-Part Split. For the RY data splitting approach, individual observations were grouped based on the year of capture, and years were randomly chosen for inclusion in either the train or test dataset. However, this method could potentially lead to systematic differences between the test and train datasets. On the other hand, the Three-Part Split involves dividing the data into training, validation, and testing sets. Here, the Validation Set Index (VI) score is used instead of the test set score during the process of fine-tuning the model's hyperparameters. Once confident that the validation score cannot be improved further through parameter adjustments or feature engineering, the best model is evaluated on the final test set only once.
+
+Hyperparameters play a crucial role in optimizing the performance of deep learning models. In the given context, hyperparameters were tuned using Grid Search, which conducts an exhaustive search across predefined parameter values for an estimator. Grid Search generates validation sets internally, eliminating the need for manual creation. For the RI models, the same initial parameters were applied to analyze the CS and NW datasets, followed by a Grid Search on both datasets with a Two-Part Split to identify hyperparameters yielding the highest accuracy levels. Conversely, Grid Search was unnecessary for Three-Part Splits, and additional parameter tuning was carried out manually.
+
+In summary, the criteria used to split the data for deep learning model training include random selection of years for RY data splitting and division into training, validation, and testing sets for Three-Part Split. Additionally, hyperparameters are essential for improving model performance, and they can be optimized using techniques like Grid Search.

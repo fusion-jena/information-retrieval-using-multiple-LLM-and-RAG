@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Results
+
+We  calibrated  models  for  classification  challenges  using  different  numbers  of  training 
+steps, and considered two factors to find optima for training TensorFlow (Khalighifar et al. 
+2019): correct identification rate and processing time. As a result, for all challenges except 
+Challenge 3, we chose 4000 training steps as an optimum number. For Challenge 3, given 
+the number of species (41 species), 8000 training steps proved to be the optimum number. 
+The details of results associated with each classification task are as follows:
+
+Challenge 1
+
+We  created  a  confusion  matrix  to  depict  TensorFlow’s  initial  results  with  20  species 
+(Fig. 3). The overall correct identification rate was 94.3%. We achieved 100% correct iden-
+tification rate for 11, and 90% or above for 17, species. The lowest identification rates were 
+for closely-related species Platymantis isarog and P. montanus, with 70 and 75% correct
+
+647
+
+Model architecture
+
+Convolutional neural networks (CNNs) are a subset of DNNs that are specialized for image 
+classification  tasks  and  pattern  recognition.  One  of  the  main  advantages  of  CNNs  is  the 
+ability to perform automated feature extraction, eliminating the need for hand-crafted fea-
+ture  extraction.  CNN  architecture  is  built  on  three  types  of  layers:  (1)  convolutional  lay-
+ers,  which  are  the  most  important  because  they  apply  hierarchical  feature  extraction  and 
+decomposition  of  input  images;  (2)  pooling  layers,  which  carry  out  operations  to  reduce 
+numbers of parameters and necessary computation; and (3) fully connected layers, which 
+perform the actual classification at the end of the pipeline.
+
+In  recent  years,  a  robust  group  of  classifiers  has  been  introduced  (Deep  Neural  Net-
+works,  DNNs;  Schmidhuber  2015),  which  outperform  existing  methods  in  various  clas-
+sification tasks (Ramcharan et al. 2017; Smith et al. 2019). One of the state-of-the-art DNN 
+platforms  is  TensorFlow  (Abadi  et  al.  2016),  an  open-source  software  platform  designed 
+by  the  Google  Brain  Team  (https ://www.resea rch.googl e.com/teams /brain ).  One  crucial 
+advantage of applying TensorFlow is the Transfer Learning technique, which is a shortcut 
+for achieving high-performance classification. This approach involves using a large dataset 
+to train a model, and then re-training with a new calibrating dataset both to improve identi-
+fication rates at lower computational cost.
+
+CNNs require large training datasets to achieve accurate classification rates. Although 
+training  on  a  large  dataset  provides  a  powerful  framework,  building  and  training  a  CNN 
+from  scratch  is  both  computationally  expensive  and  time  consuming.  To  overcome  these 
+limitations, we used a transfer learning technique. Transfer learning means using experi-
+ence acquired from classification task A in classification task B. This technique allows the 
+user to retrain the final layer of an existing model on the training set associated with a new 
+classification task. One of the most successfully implemented models of transfer learning 
+is Inception v3 (Szegedy et al. 2016)—a CNN, implemented in TensorFlow (Abadi et al. 
+2016). This CNN consists of 48 layers, and is trained on > 1 M images from the ImageNet 
+database (http://www.image -net.org). Inception v3 is widely recognized for outperforming
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The text does not provide explicit information about specific optimization techniques such as Stochastic Gradient Descent (SGD) or Adam being used in the deep learning pipeline. However, it mentions that Convolutional Neural Networks (CNNs) are employed for image classification tasks, which typically involve some form of gradient descent optimization algorithm during their training process. Additionally, the use of TensorFlow, an open-source software library for machine intelligence, suggests that standard optimization techniques available within this framework might have been utilized. Nonetheless, without further context or explicit mention of optimization techniques like SGD or Adam, one cannot definitively assert which specific optimization algorithms were applied in the deep learning pipeline.

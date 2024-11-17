@@ -1,0 +1,98 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The training set contained 1.4 million images, and the test set
+contained 105,000 images. Since the SS dataset contains labels
+for only capture events (not individual images), we assigned the
+label of each capture event to all of the images in that event. All
+of the architectures achieved a classiﬁcation accuracy of >95.8%
+on this task. The VGG model achieved the best accuracy of
+96.8% (Table 2). To show the difﬁculty of the task and where the
+models currently fail, several examples for the best model (VGG)
+are shown in SI Appendix, Results on the Volunteer-Labeled Test
+Set, and SI Appendix, Fig. S10 shows the best model’s confusion
+matrix.
+
+Background and Related Work
+Machine Learning. Machine learning enables computers to solve
+tasks without being explicitly programed to solve them (15).
+State-of-the-art methods teach machines via supervised learning
+(i.e., by showing them correct pairs of inputs and outputs) (16).
+For example, when classifying images, the machine is trained
+with many pairs of images and their corresponding labels, where
+the image is the input and its correct label (e.g., “buffalo”) is the
+output (Fig. 3).
+
+A well-known method for further improving classiﬁcation
+accuracy is to use an ensemble of models at the same time
+and average their predictions. After training all of the nine
+models for each stage, we formed an ensemble of the trained
+models by averaging their predictions (SI Appendix, Prediction
+Averaging). More details about the architectures, training meth-
+ods, preprocessing steps, and the hyperparameters are in SI
+Appendix, Preprocessing and Training. To enable other groups
+to replicate our ﬁndings and harness this technology for their
+own projects, we are publishing the software required to run
+our experiments as freely available, open-source code. We are
+also publishing the ﬁnal DNNs trained on SS so that others
+can use them as is or for transfer learning. Both the code and
+the models can be accessed at https://github.com/Evolving-AI-
+Lab/deep learning for camera trap images.
+
+Table 2. Accuracy of different models on task I: Detecting
+images that contain animals
+
+Architecture
+
+AlexNet
+NiN
+VGG
+GoogLeNet
+ResNet-18
+ResNet-34
+ResNet-50
+ResNet-101
+ResNet-152
+Ensemble of models
+
+Top-1 accuracy, %
+
+95.8
+96.0
+96.8
+96.3
+96.3
+96.2
+96.3
+96.1
+96.1
+96.6
+
+The bold font indicates the top-performing architecture.
+
+E5720 | www.pnas.org/cgi/doi/10.1073/pnas.1719367115
+
+Norouzzadeh et al.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training process, there are several postprocessing steps that can be taken to evaluate and improve the performance of the deep neural networks (DNNs). Some of these steps include creating saliency maps, calculating metrics, and generating confusion matrices.
+
+Saliency maps help visualize which parts of the input data were most important for the model's decision-making process. This can provide insights into how the model interprets the data and whether it focuses on relevant features. In the given context, saliency maps could be used to understand which areas of the images contributed most to the animal detection task.
+
+Calculating various evaluation metrics is another crucial step in assessing the performance of the DNNs. These metrics may include classification accuracy, precision, recall, F1 score, and area under the receiver operating characteristic curve (AUC-ROC). For instance, Table 2 in the provided context presents the Top-1 accuracy percentages for different architectures on Task I: detecting images containing animals.
+
+Lastly, generating confusion matrices allows researchers to identify patterns of misclassification made by the models. A confusion matrix is a table that summarizes the predicted and actual classes, providing valuable information about false positives and negatives. As mentioned in the context, the best model's confusion matrix was presented in SI Appendix, Fig. S10.
+
+In summary, some essential postprocessing steps after model training involve creating saliency maps, calculating evaluation metrics, and generating confusion matrices. These techniques aid in understanding the model's behavior, evaluating its performance, and identifying potential improvements.

@@ -1,0 +1,170 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+5.2. Result analysis 
+
+The datasets are divided into training set and test set according to the 
+ratio of 8:2. And the number of test samples and training samples are 
+3094 and 12,340, respectively. The classification models are built with 
+the training set, and accuracy on test set is used as indicator to evaluate 
+performance of classification models. 
+
+5.2.1. Classic CNN model 
+
+The three features of F1, F2 and F3 are input into CNN model, and 
+
+their classification performance on the test set is shown in Table 6. 
+
+Feature 
+
+F1 
+F2 
+F3 
+
+CNN 
+
+81.00 
+88.36 
+89.11 
+
+Number of features 
+
+500 
+500 
+500  
+
+Table 7 
+Test accuracy (in %) of various features.  
+
+Feature 
+
+F4 
+F5 
+F6 
+F7 
+F4⊕F5⊕F6 
+F4⊕F5⊕F6⊕F7 
+Fdh 
+
+RF 
+
+82.92 
+87.93 
+88.47 
+85.70 
+90.76 
+91.10 
+95.43 
+
+SVM 
+
+85.59 
+91.11 
+91.60 
+64.51 
+93.96 
+93.96 
+96.19 
+
+MLP 
+
+83.85 
+89.53 
+90.46 
+73.45 
+93.40 
+93.53 
+96.03 
+
+Number of features 
+
+500 
+500 
+500 
+13 
+1500 
+1513 
+96  
+
+5.2.3. Proposed models
+
+4.2. Feature selection 
+
+Feature selection is to select some of the most efficient feature sub-
+sets  from  the  raw  feature  set  to  reduce  the  process  of  feature  space 
+dimension  (Liu and  Motoda, 1999). Some  irrelevant or  redundant in-
+formation  of  the  sample  can  be  removed  by  feature  selection,  which 
+reduces the complexity and processing time of the classification algo-
+rithm,  and  improves  the  performance  and  efficiency  of  the  classifier. 
+Minimal-redundancy-maximal-relevance  (mRMR)  is  a  filter  feature 
+measurement method (Peng et al., 2005), which is intended to select the 
+
+EcologicalInformatics72(2022)1018936S. Xie et al.                                                                                                                                                                                                                                       
+
+Fig. 6. CNN pre-training model.
+
+The redundancy of all features in S, which is the mean of all mutual 
+
+information between fi and fj, as shown in Eq. (13): 
+
+R(S) =
+
+1
+|s|2
+
+∑
+
+)
+
+(cid:0)
+
+I
+
+fi; fj
+
+fi ,fj∈S
+
+The criterion of mRMR can be illustrated in Eq. (14): 
+
+mRMR = max
+
+s
+
+(D(S, c) (cid:0) R(S) )
+
+(13) 
+
+(14) 
+
+Incremental search method can select the optimal feature set quickly 
+and efficiently. For a raw feature set X, if the optimal feature Sm(cid:0) 1 has 
+been selected, the search continues for the optimal feature that maxi-
+mizes Eq. (14) in the remaining feature space X (cid:0) Sm(cid:0) 1. The optimal 
+feature should satisfy Eq. (15):
+
+shown in the Fig. 6. 
+
+The network is designed with four convolution kernel pooling layers 
+to extract deep features. After the convolution pooling, the data enters 
+the fully connected layer for connection. The network adds a dropout 
+layer  to  the  fully  connected  layer  to  reduce  network  parameters.  A 
+Dense_1 layer is added after flatten to reduce the dimension of the deep 
+features, and sets the parameter to 500, which is the parameter of the 
+deep feature dimension extracted from different views. 
+
+4.2. Feature selection
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there is no information about the specific criteria used to determine when training is completed, such as validation loss plateau. However, it does mention that the dataset is divided into training and testing sets using an 8:2 ratio, and the classification models are built using the training set. The performance of these models is then evaluated based on their accuracy on the test set. This suggests that the authors may have used the convergence of the model's performance on the test set as one possible criterion for determining when training is complete. But without more explicit information, this cannot be confirmed.

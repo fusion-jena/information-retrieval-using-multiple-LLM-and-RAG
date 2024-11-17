@@ -1,0 +1,54 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+in  this  setting  usually  achieve  better  performances  since  they  can  be 
+adapted to specific models and also have access to more information at 
+inference time.
+
+• No-overfitting. In this setting, the optimization algorithm of CNNs is 
+Stochastic Gradient Descent (SGD), with a learning rate of 0.0001 
+and a weight decay of 0.5. The batch size is set to 32, the number of 
+training epochs to 200 and finally the batch-norm and dropout (0.5) 
+are used to reduce the overfitting level.  
+
+• Overfitting.  We  use  the  same  hyperparameters  setting  as  the  no- 
+overfitting  but  we  remove  the  use  of  batch-norm,  weight  decay 
+and dropout techniques to ensure that the model overfits.
+
+5.5. Siamese neural network 
+
+6.2. Model generalization capability
+
+3.2.2.3. Label-only  (Choquette-Choo  et  al.,  2021). Rather  than  using 
+confidence predictions, query-based attacks restrict the attack to using 
+only the predicted labels from the target model. More precisely, label- 
+only attacks determine membership status by issuing multiple queries 
+to the target model. In practice, these queries are obtained by applying 
+adversarial  perturbations  to  the  input  sample  until  a  change  in  the 
+predicted label occurs. The attack assesses the perturbation’s size and 
+categorizes  a  data  sample  as  a  member  if  its  magnitude  surpasses  a 
+predefined threshold. More formally, if we have an estimate dist(x, y)
+representing a point’s l2-distance from the model’s boundary, the attack 
+predicts that x is a member when dist(x, y) ≥ τ, in which τ is a specific 
+threshold value.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit details on how the hyperparameters were optimized, such as through methods like grid search or random search. However, it does mention two scenarios for training the model: one where measures are taken to prevent overfitting, and another where conditions are created to encourage overfitting.
+
+In the scenario designed to avoid overfitting, the Stochastic Gradient Descent (SGD) optimization algorithm is employed with a learning rate of 0.0001 and a weight decay of 0.5. Other parameters include a batch size of 32, 200 training epochs, and the application of batch normalization and dropout techniques. These settings seem to be fixed rather than being the result of a systematic hyperparameter tuning process.
+
+Similarly, in the scenario intended to induce overfitting, the same hyperparameters are used except for the removal of batch normalization, weight decay, and dropout techniques. Again, there's no indication of any specific method used to select these values; they appear to be predetermined.
+
+Therefore, based on the given information, it cannot be definitively stated how the hyperparameters were optimized. It appears that the hyperparameters were chosen beforehand without specifying whether methods like grid search or random search were utilized.

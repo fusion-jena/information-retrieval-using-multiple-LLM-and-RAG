@@ -1,0 +1,233 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Recall = TP
+
+TP + FN
+
+=
+
+TP
+Ground Truth 
+
+The  uncertainties  of  precision  and  recall  for  each  model  are  also 
+estimated by calculating the Confidence Interval (CI) for each metric as: 
+
+CI = (Metric) ± z × SEmetric  
+
+where z is the z-score that corresponds to z ≈ 1.96 for a 95% confidence 
+assuming a normal distribution and the Standard Error (SE) defined as: 
+
+SEPrecision =
+
+√
+
+̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+Precision × (1 (cid:0) Precision)
+Number Detected
+
+and 
+
+SERecall =
+
+√
+
+̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+Recall × (1 (cid:0) Recall)
+Ground Truth
+
+Furthermore, in order to establish the balance between the precision 
+and recall of each model, the F-score is also calculated as the harmonic 
+mean of precision and recall uncertainty of the model: 
+F-score = 2 × Precision × Recall
+Precision + Recall  
+
+3. Results
+
+Model 
+
+F-score 
+
+Std Err Precision 
+
+CI_Precision Lower Limit 
+
+CI_Precision Upper Limit 
+
+Std Err Recall 
+
+CI_Recall Lower Limit 
+
+CI_Recall Upper Limit  
+
+FRCNN 
+TPH-YOLOv5 
+YOLOv5s 
+YOLOv5m 
+
+FRCNN 
+TPH-YOLOv5 
+YOLOv5s 
+YOLOv5m 
+
+FRCNN 
+TPH-YOLOv5 
+YOLOv5s 
+YOLOv5m 
+
+0.821 
+0.734 
+0.852 
+0.808 
+
+0.814 
+0.768 
+0.838 
+0.783 
+
+0.830 
+0.696 
+0.871 
+0.835 
+
+0.009 
+0.010 
+0.008 
+0.009 
+
+0.012 
+0.012 
+0.011 
+0.013 
+
+0.014 
+0.016 
+0.011 
+0.013 
+
+0.735 
+0.769 
+0.867 
+0.808 
+
+0.724 
+0.855 
+0.857 
+0.776 
+
+0.733 
+0.667 
+0.866 
+0.823 
+
+Both Sites 
+
+0.771 
+0.809 
+0.897 
+0.844 
+
+Collapit Mudflat (Site A) 
+
+0.772 
+0.901 
+0.899 
+0.826 
+
+Scoble Point Rocky Shore (Site B) 
+
+0.787 
+0.731 
+0.910 
+0.873 
+
+0.007 
+0.011 
+0.009 
+0.010 
+
+0.010 
+0.015 
+0.012 
+0.013 
+
+0.010 
+0.016 
+0.012 
+0.013 
+
+0.888 
+0.666 
+0.807 
+0.772 
+
+0.874 
+0.653 
+0.777 
+0.739 
+
+0.894 
+0.662 
+0.830 
+0.797 
+
+0.916 
+0.708 
+0.841 
+0.810  
+
+0.912 
+0.711 
+0.825 
+0.791  
+
+0.932 
+0.726 
+0.878 
+0.849
+
+Similarly,  the  F-scores  and  Confident  Intervals  (CI)  are  shown  on 
+Table 3 to give an estimation of the uncertainties of each model and the 
+balance between precision and recall. In all cases, YOLOv5s presents a 
+higher F-score of approximately 85% which indicates a better trade-off 
+between precision and recall than the other models. The 95% confident 
+interval for precision is 86.7% - 89.7% meaning that the true precision of 
+the YOLO5s model across both sites is 88.2% with a margin of error of 
+1.5%. In other words, we are 95% confident that 88.2% ± 1.5% of the 
+detection raised by YOLO5s are indeed Pacific oyster. Similarly, the 95% 
+confidence  interval  for  YOLO5s  recall  is  80.7%  -  84.1%  which  is 
+equivalent to say that it might miss to identify between 15.9% - 19.3% of 
+the Pacific oysters. FRCNN presents the second best F-score but it pre-
+sents  however  the  largest  differences  between  precision  and  recall
+
+3. Results 
+
+The  results  are  presented  in  Table  2,  which  shows  the  evaluation 
+scores for each model using the data from both sites combined as well as 
+split  into  the  two  different  evaluation  sites  with  the  different  back-
+grounds  of  rocky  shore  and  mudflats  respectively.  For  each  case,  the 
+models  that  return  the  higher  number  of  true  positives,  the  lower 
+number  of  false  negatives  and  those  that  score  best  on  precision  and 
+recall, are highlighted in bold. 
+
+The results show YOLOv5s model performs best in both site, with 
+precision scores of ≈ 88 (cid:0) 89%. On the mudflats site, both YOLOv5s and 
+TPH-YOLOv5 are almost exactly matched for precision scores (with a 
+difference in precision below 0.05%) though YOLOv5s shows a higher 
+recall (80% vs 68%). If the recall is prioritised over precision, then the 
+FRCNN model performs best across all sites. For YOLO models, results
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: The performance of the deep learning models is evaluated using several metrics such as precision, recall, and F-score. Precision measures the proportion of true positive predictions out of total predicted positives, while recall measures the proportion of true positive predictions out of actual positives. The F-score is the harmonic mean of precision and recall, providing a single measure of the model's overall performance. Additionally, the uncertainties of these metrics are estimated by calculating the Confidence Interval (CI), which provides a range within which the true value lies with a certain level of confidence.

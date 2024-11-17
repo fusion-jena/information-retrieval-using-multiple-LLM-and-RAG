@@ -1,0 +1,119 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Since  the  available  files  are  of  different  lengths,  we  employed  a 
+sliding window with an overlap of 50% so that it was possible to divide 
+the available audio into fragments of the same size during both training 
+and testing. The overlap was required in order not to lose potentially 
+important information existing on the edges of the window. On top of 
+that, there are a plethora of cases where more than one classes exist in a 
+single file as outputted by the AAD algorithm. The highest performance 
+was obtained with a sliding window lasting 2 s. As regards the RF, the 
+number of trees was set equal to 500 after an optimization phase con-
+sisting  of  a  grid  search  within  the  set  {5,10,25,50,100,500,1000}. 
+Interestingly, the algorithm’s predictions are used to count the number 
+of bleatings existing in a specific audio file towards characterizing their 
+activities. 
+
+3.2.2. Transfer learning based on YAMNet
+
+model for extracting the embeddings. 
+
+These are pulled from YAMNet and then fed as input to a sequential 
+and  a  reduce  mean  layer  mapping  to  the  classes  mentioned  above 
+(Ntalampiras et al., 2021). At this point, the final layers of the network 
+map the YAMNet embeddings to the available labels as shown in Fig. 5. 
+
+3.3. Results on goat vocalization detection 
+
+The  dataset  presented  in  Section  3.2  was  divided  into  70%  for 
+training, 10% for validation, and 20% for testing purposes. The division 
+was  kept  the  same  when  experimenting  with  RF  and  YAMNet-based 
+
+3  The 
+
+librosa  python  package  available  at  https://librosa. 
+
+org/doc/latest/index.html was employed at this stage 
+
+Fig. 3. A close-up picture of a Sensortile.
+
+Farm 
+
+A 
+B 
+C 
+D 
+Total 
+
+# Annotated Events 
+
+# Audio Files 
+
+Duration (h) 
+
+1046 
+791 
+961 
+2171 
+4969 
+
+3,468,415 
+2,939,211 
+1,662,819 
+1,920,752 
+9,991,197 
+
+~ 10,527.82 
+~ 12,519.97 
+~ 5036.06 
+~ 6172.18 
+~ 34,256.03  
+
+Therefore, the recording campaign was planned to last an entire year so 
+as  to  capture  the  variations  that  goat  vocalizations  demonstrate 
+throughout  the  year.  Overall,  we  have  collected  approximately  10  M 
+sound  events  lasting  more  than  34,000  h.  Fig.  7  illustrates  the  data 
+distribution per farm in terms of number of audio files, annotations and 
+durations.
+
+3.2.2. Transfer learning based on YAMNet 
+
+The second algorithm exploits the representation extracted from a 
+deep neural network, i.e. YAMNet, which is pre-trained on data coming 
+from 521 classes. Interestingly, YAMNet follows the MobileV1 convo-
+lution architecture and is trained on the AudioSet-YouTube corpus (Shor 
+et  al.,  2020).  Towards  using  YAMNet,  the  audio  data  is  processed  as 
+follows:  
+
+1.  The audio is converted to a monophonic channel and resampled at 
+
+16 kHz.  
+
+2.  The spectrogram is extracted and created using STFT magnitudes of 
+
+25 ms overlapped by 15 ms.  
+
+3.  The Mel spectrogram is calculated by mapping to 64 bins of the Mel 
+
+scale within the range of 125–7500 Hz.  
+
+4.  Finally, the algorithm is applied and its outcome is passed to YAMNet 
+
+model for extracting the embeddings.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The dataset was divided into three parts for the purpose of training, validating, and testing the deep learning models. Specifically, 70% of the dataset was allocated for training, 10% for validation, and the remaining 20% for testing. This distribution was maintained consistently while working with both Random Forest (RF) and YAMNet-based algorithms.

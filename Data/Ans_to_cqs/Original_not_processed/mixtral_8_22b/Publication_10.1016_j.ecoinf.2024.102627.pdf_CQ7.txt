@@ -1,0 +1,77 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+(IDRIS). A full description of the model architecture, dataset spatial split 
+and training procedure can be found in supplementary information (SI) 
+Box A. Finally, the settings of our species assemblage model are sum-
+marised in the Fig. 1.
+
+(cid:0)
+
+̂ηs(x) = exp
+exp
+
+∑
+
+j
+
+)
+
+θ(x)
+f s
+(
+f j
+θ(x)
+
+)
+
+where θ is the set of parameters of the neural network to be optimised by 
+minimizing the loss function of Eq. (2). 
+
+Using this very common deep learning framework, it is possible to 
+show that the species assemblage predictor Sλ(x) of Eq. (1) is consistent 
+λ(x) when  the 
+(Lorieul,  2020),  i.e.  it  tends  towards  the  optimal  set  S*
+number  of  training  samples  increases.  In  other  words,  our  species 
+assemblage predictor is as simple as training a deep neural network with 
+a cross-entropy loss function on the presence-only samples and thresh-
+olding  the  output  softmax  probabilities  to  get  the  assemblage  of  pre-
+dicted species. 
+
+◦
+
+Fig. 1. Method summary scheme. The orchid observation set of 999,258 occurrences from 14,129 species (Section 2.1.1 and Box D) is enriched with predictive 
+features: WorldClim2 bioclimatic variables, Soilgrids pedological variables, Human Footprint rasters, terrestrial ecoregions of the world and location (description Box 
+E, list Table S2 and examples Fig. S5). Next, the Inception v3 model (Szegedy et al., 2016) is first trained with the observation set (Section 3.1.1). Secondly, it is used 
+to predict the most likely species assemblages on a global regular grid of 30-s resolution (Section 2.4.1). The calibration step, which determines the threshold λ on the 
+relative probability of species presence, is described theoretically in Section 2.2.2 and set in Section 3.1.2. When the model is provided with a predictor tensor in 
+inference, the final output is the associated species assemblage Sλ.
+
+After validating and calibrating the model on the validation set for 
+predicting species assemblages, a new training is started from scratch on 
+the entire dataset. It stops at the best epoch previously determined on 
+the  validation  set  (epoch  69).  The  aim  is  to  obtain  the  best  possible 
+model  weights  before  global-scale  inference.  Finally,  the  species  as-
+semblages  are  post-processed.  i)  Predictions  outside  the  continents 
+where species are known to occur (according to our observation dataset) 
+are removed, and ii) conditional probabilities associated with orchids 
+are normalised, see SI Box B for more details and resulting maps. 
+
+3.2. ℐO  indicator: Most critical status of the species in the assemblage 
+
+3.2.1. Global patterns
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not explicitly mention the specific criteria used to split the data for deep learning model training into train, test, and validation sets. However, it does provide some clues about the overall process. After the initial training of the Inception v3 model using the observation set, the model is used to predict the most likely species assemblages on a global regular grid. Then, the model is validated and calibrated on a separate validation set for predicting species assemblages. Once the best epoch has been determined on the validation set, a new training is initiated from scratch on the entire dataset. This suggests that there might have been an initial splitting of the data into training and validation sets, but the exact criteria used for this division are not specified in the given context.

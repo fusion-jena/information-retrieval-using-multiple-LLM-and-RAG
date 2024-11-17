@@ -1,0 +1,184 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+hierarchical classification of protein families. PLoS ONE 16 (10 October 2021). 
+https://doi.org/10.1371/journal.pone.0258625. 
+
+Silla, C.N., Freitas, A.A., 2011. A survey of hierarchical classification across different 
+application domains. Data Min. Knowl. Disc. 22 (1–2) https://doi.org/10.1007/ 
+s10618-010-0175-9. 
+
+Smith, L.N., 2018. A disciplined approach to neural network hyper-parameters: Part 1 – 
+Learning rate, batch size, momentum, and weight decay. arXiv 2018:1–21URL: 
+http://arxiv.org/abs/1803.09820. arXiv:1803.09820. 
+
+Tan, M., Le, Q.V., 2019. EfficientNet: Rethinking model scaling for convolutional neural 
+networks. In: 36th International Conference on Machine Learning, ICML 2019. 
+volume 97; 2019. p. 6105–6114. 
+
+Taylor, S., Jaques, N., Nosakhare, E., Sano, A., Picard, R., 2020. Personalized multitask 
+learning for predicting tomorrow’s mood, stress, and health. IEEE Trans. Affect. 
+Comput. 11 (2) https://doi.org/10.1109/TAFFC.2017.2784832.
+
+Table 4 
+Average performance (Avg) and standard deviation (SD) for five trained models. Average precision, recall and F1-score for trained ResNet50 and EfficientNetB3 
+(EffNetB3) models modified for multitask learning (MTL) with transfer learning using pre-trained weights from ImageNet. The models are trained and validated on the 
+TLm  dataset. The models ResNet50, EfficientNetB3 are trained without MTL.  
+
+Model 
+
+Level 
+
+ResNet50MTL 
+EffNetB3MTL 
+
+ResNet50MTL 
+EffNetB3MTL 
+
+ResNet50MTL 
+EffNetB3MTL 
+
+ResNet50 
+EffNetB3 
+
+L1 Order 
+L1 Order 
+
+L2 Family 
+L2 Family 
+
+L3 Species 
+L3 Species 
+
+Species 
+Species 
+
+Avg 
+
+0.990 
+0.986 
+
+0.987 
+0.984 
+
+0.955 
+0.948 
+
+0.955 
+0.953 
+
+Precision 
+
+SD (10
+
+(cid:0) 3) 
+
+(1.0) 
+(4.4) 
+
+(0.8) 
+(3.1) 
+
+(4.3) 
+(5.2) 
+
+(3.3) 
+(2.5) 
+
+Avg 
+
+0.991 
+0.993 
+
+0.986 
+0.988 
+
+0.961 
+0.966 
+
+0.957 
+0.966 
+
+Recall 
+
+SD (10
+
+(cid:0) 3) 
+
+(1.1) 
+(0.5) 
+
+(0.9) 
+(0.7) 
+
+(9.8) 
+(5.1) 
+
+(7.3) 
+(2.5) 
+
+Avg 
+
+0.991 
+0.989 
+
+0.987 
+0.986 
+
+0.957 
+0.956 
+
+0.955 
+0.959
+
+(cid:0) 4 was finally 
+chosen after comparing with stochastic gradient descent (SGD) with the 
+(cid:0) 4  and learning rate of 
+(cid:0) 4, weight decay of 1.0⋅10
+momentum of 1.0⋅10
+(cid:0) 3. SGD was tested with the parameters as recommended by L. 
+1.0⋅10
+Smith  (Smith,  2018),  but  achieved  a  1%–2%  decrease  in  accuracy 
+compared to using the Adam optimizer. 
+
+The  ResNet50  architecture  (He  et  al.,  2016)  was  modified  and 
+trained with transfer learning using pre-trained weights from ImageNet 
+(Smith,  2018).  Models  trained  with  transfer  learning  outperformed 
+models trained with random weights with an increase of 4% in the F1-
+
+The average and standard deviation of the precision, recall and F1- 
+score  are  shown  in  Table  4  for  the  ResNet50  and  EfficientNetB3 
+models validated  with multitask learning and  pre-trained weights. As 
+expected,  we  observe  higher  precision,  recall  and  F1-score  at  higher 
+taxonomic  ranks.  Here  we  see  an  increase  in  the  average  F1-score 
+ranging from 95.7% (L3) to 98.7% (L2) and 99.1% (L1) at the highest 
+ranks  with  ResNet50MTL.  A  resent  study  by  Ong  and  Hamid  (2022) 
+designed  to  classify  five  taxa  of  museum  insect  species  achieved  Fl- 
+scores  below  90%  with  separate  models  for  each  level  of  the 
+
+hierarchy. However, our dataset is more comprehensive with a lower 
+image resolution.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The deep learning models used in this research were ResNet50 and EfficientNetB3, both modified for multitask learning (MTL) with transfer learning using pre-trained weights from ImageNet. The models were trained and validated on the TLm dataset.
+
+For optimization, the Adam optimizer was chosen over Stochastic Gradient Descent (SGD). This decision was made after comparing the two methods, where Adam showed a 1%-2% increase in accuracy compared to SGD. The specific hyperparameters used with the Adam optimizer were not explicitly mentioned in the given context.
+
+However, it is known that the Adam optimizer typically uses default parameter values such as a learning rate of 0.001, beta_1 of 0.9, beta_2 of 0.999, epsilon of 1e-08, and no weight decay or momentum. These are common defaults, but they may have been adjusted during the training process.
+
+In terms of other hyperparameters, the models were trained with transfer learning using pre-trained weights from ImageNet. This technique often involves freezing some layers of the pre-trained model while fine-tuning others, but the exact configuration was not specified in the given context.
+
+Additionally, the models were validated with multitask learning, which implies that multiple tasks were learned simultaneously. This could involve additional hyperparameters related to task balancing or loss function weighting, but again, these details were not included in the provided context.

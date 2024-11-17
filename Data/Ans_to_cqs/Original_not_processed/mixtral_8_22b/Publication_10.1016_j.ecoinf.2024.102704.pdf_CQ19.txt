@@ -1,0 +1,89 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+(n), small (s), medium (m), large (l), and extra-large (x). These scales 
+meet the requirements of various scenarios and tasks. As scale increases, 
+so does the network depth and width of the model; therefore, ‘n’  rep-
+resents the smallest and fastest scale, whereas ‘x’ is the largest and offers 
+the  highest  accuracy.  Although  the  accuracy  improves  as  the  model 
+depth increases, this also leads to changes in the number of parameters, 
+amount  of  computation,  and  detection  speed,  with  correspondingly 
+higher demands on the hardware configuration. To delve deeper into the 
+underlying causes of enhancing model lightweight and inference speed, 
+we utilised LigObNet, YOLOv5, YOLOv6, YOLOv7, and YOLOv8 to train 
+across  four  scales:  n,  s,  m,  and  l.  As  Fig.  9  illustrates,  reducing  the 
+number  of  parameters  in  the  various  models  does  not  enhance  the 
+processing speed. The total parameter count, representing the combined
+
+several  times  higher  than  those  of  other  operations  (Li  et  al.,  2018). 
+Therefore,  reducing  memory  access  is  the  key  to  further  enhancing 
+model  performance.  By  reconfiguring  the  computation  sequence  of 
+‘convolutional layer + batch normalisation + activation layer on NVI-
+DIA TESLA V100 GPUs, Wang et al. (2019) reduced memory access by 
+33%,  22%,  and  31%  for  the  ResNet-50,  Inception  V3,  and  DenseNet 
+models,  respectively,  leading  to  increases  in  the  computational  effi-
+ciency  of  20.5%,  18.5%,  and  18.1%.  Lowering  the  memory  access  in 
+models can accelerate operations across the three main layers of CNNs, 
+thus fully harnessing the model's strengths and more effectively utilising 
+the computational resources provided by the embedded devices (Gilan 
+et al., 2019; Zhang et al., 2015). Therefore, by reducing the number of 
+layers  in  the  network  model,  the  number  of  convolutions  and  data
+
+2.4. Model training 
+
+The  experiments  were  conducted  on  a  Windows  10-based  mobile 
+laptop  equipped  with  an  Intel(R)  i7-11800H  CPU  and  a  GeForce 
+RTX3080  GPU  with  16GB  of  video  memory.  The  PyCharm  software 
+platform was utilised to carry out the experiments, employing Python 
+3.8 and the Pytorch 1.9 deep learning framework for training purposes. 
+The  details  of  the  specific  environmental  configurations  and  model 
+training parameters are listed in Table 1. To enhance detection accuracy, 
+this study established detection thresholds of IoU = 0.3 and score = 0.3, 
+indicating that a bounding box with a likelihood of containing a fish of 
+30% or higher was considered valid and thus retained. 
+
+3. Results 
+
+3.1. LigObNet detection speed and accuracy 
+
+3.1.1.
+
+Impact of C1 module on network layer and inference time
+
+Li, J., Yan, G., Lu, W., Jiang, S., Gong, S., Wu, J., Li, X., 2018, March. SmartShuttle: 
+Optimizing off-chip memory accesses for deep learning accelerators. In: 2018 
+Design, Automation & Test in Europe Conference & Exhibition (DATE). IEEE, 
+pp. 343–348. 
+
+Li, J., Liu, C., Lu, X., Wu, B., 2022a. Fish passage monitoring based on improved 
+
+YOLOv5s and TensorRT deployment. Trans. Chin. Soc. Agric. Machin. 12, 314–322. 
+Li, J., Liu, C., Lu, X., Wu, B., 2022b. CME-YOLOv5: an efficient object detection network 
+
+for densely spaced fish and small targets. Water 14 (15), 2412. 
+
+Li, W., Li, F., Li, Z., 2022c. CMFTNet: multiple fish tracking based on counterpoised 
+
+JointNet. Comput. Electron. Agric. 198, 107018. 
+
+Wang, J.J., Hao, Z.Y., Li, H.L., 2019. Training memory access optimization for 
+
+convolutional neural networks. J. Xi’an Univ. Electron. Sci. Technol. 02, 98–107. 
+
+Wang, Q., Wu, B., Zhu, P., Li, P., Zuo, W., Hu, Q., 2020. ECA-net: efficient channel
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Answer: The PyTorch 1.9 deep learning framework is used to build the deep learning model. This information is mentioned in the section titled "3. Results" under the subsection "3.1. LigObNet detection speed and accuracy." Specifically, it states that the experiments were carried out using the PyCharm software platform, employing Python 3.8 and the Pytorch 1.9 deep learning framework for training purposes.

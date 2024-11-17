@@ -1,0 +1,11 @@
+The strategy implemented to monitor the model performance during training involves the use of accuracy metrics on separate testing data. Specifically, 25% of the samples are withheld as testing data, which is a randomly sampled split that is a standard practice in modeling. This testing data is used to determine how well the classifier assigns classes using predictor variables.
+
+Two measures are used to assess the accuracy of the classifier: the true positive rate or sensitivity, and the true negative rate or specificity. The true positive rate is a measure of the number of predicted observations that were accurately assigned to a class, while the true negative rate is a measure of the number of predicted observations where the response variable of interest did not occur.
+
+These accuracy metrics are calculated after the selected classifier has been configured with the most accurate final model configuration. This configuration is achieved through automated tuning of parameters using modeling package options, which enables resampling and standard default values.
+
+It is important to note that the accuracy metrics are calculated on withheld testing data, rather than the training data. This approach allows for an independent assessment of the model's performance and helps to prevent overfitting, which can occur when a model is too closely fit to the training data.
+
+Moreover, the use of sample thinning had little effect on accuracy or variable importance, indicating no clear benefits for tampering with samples that may provide information about species characteristics and responses to the environment. Therefore, sample thinning is not necessary to add as a modeling step, although it may be beneficial if thousands of samples were taken from one study site.
+
+In conclusion, the strategy to monitor the model performance during training involves the use of accuracy metrics on separate testing data, which are calculated after the classifier has been configured with the most accurate final model configuration. This approach allows for an independent assessment of the model's performance and helps to prevent overfitting.

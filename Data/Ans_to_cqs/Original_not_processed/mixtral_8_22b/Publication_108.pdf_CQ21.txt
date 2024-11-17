@@ -1,0 +1,122 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1. Hyperparameter ﬁne-tuning results.
+
+Scenario Number of Blocks Number of Filters
+
+Learning Rate Mean IoU Accuracy
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+3
+4
+5
+6
+4
+4
+4
+4
+4
+4
+
+64 , 64, 64
+64, 64, 64, 64
+64, 64, 64, 64, 64
+64, 64, 64, 64, 64, 64
+16, 32, 64, 128
+32, 64, 128, 256
+64, 128, 256, 512
+16, 32, 64, 128
+16, 32, 64, 128
+16, 32, 64, 128
+
+0.001
+0.001
+0.001
+0.001
+0.001
+0.001
+0.001
+0.01
+0.0005
+0.00001
+
+0.30
+0.38
+0.36
+0.32
+0.42
+0.38
+0.31
+0.008
+0.42
+0.39
+
+82%
+89%
+86%
+86%
+94%
+88%
+84%
+71%
+94%
+90%
+
+Scenario 5 was selected as the optimal solution as it had the best values for IoU and accuracy
+while training on fewer epochs. The resulting architecture is shown in Figure 4 and described in
+the following.
+
+2.5.1. Encoding Path
+
+The overall workﬂow of preprocessing, network design, and prediction are shown in Figure 2.
+Due to the size of the orthophotos and due to memory limitations when doing computations, it is
+intuitive to process the orthophotos into relatively small labeled tiles (or rather small image cubes) and
+feed them into the CNN. Each orthophoto of size 10,000 × 10,000 pixels was divided into 1525 tiles of
+256 × 256 pixels. The data (orthophoto and corresponding labels) were then split into three datasets:
+training (80%), validation (20%), and test (two full images of 10,000 × 10,000 pixels). The training
+data were used for optimizing the neural network, while the validation dataset was used to assess the
+performance during the training process. The test dataset was used to assess the performance of the
+ﬁnal optimized neural network. The training and validation images were read into arrays with the
+
+2.5.1. Encoding Path
+
+The encoding path of our network was composed of three encoding blocks; each block was
+composed of a convolutional layer with a ﬁlter of size (3, 3) and a ReLU activation function [32] ,
+a dropout layer to force each neuron to learn more than only one feature, a second convolutional layer
+followed by ReLU activation, and a max pooling layer with the size (2,2), which replaced each 2 × 2
+region on the feature map by the region’s maximum value and thus decreased the size of the feature
+map by keeping only the highest values.
+
+2.5.2. Decoding Path
+
+During our study, we tested different hyperparameters to ﬁnd an optimal setting for our problem.
+The different parts of our ﬁnal architecture, as well as the tested hyperparameter settings are described
+in the following.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, there are several postprocessing steps that can be performed depending on the specific requirements of the project. However, based on the given context, there is no explicit mention of any postprocessing steps taken after the model training. Therefore, I cannot provide a definitive answer regarding the specific postprocessing steps involved in this case.
+
+However, some common postprocessing steps include generating saliency maps to visualize the areas of the input image that most influence the output predictions, calculating various metrics such as precision, recall, F1 score, or area under the curve (AUC) to evaluate the performance of the model, and creating confusion matrices to compare predicted versus actual classifications. These steps help to better understand the strengths and weaknesses of the trained model and identify potential areas for improvement.

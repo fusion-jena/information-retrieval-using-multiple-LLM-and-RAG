@@ -1,0 +1,83 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+dictions to the total number of positive predictions. This metric indicates 
+the  proportion  of  positive  predictions  correctly  classified  as  positive. 
+Recall  shows  the  proportion  of  truly  positive  cases  that  the  model 
+correctly identified among all the actual positive cases. The F1 score is a 
+geometric mean of both precision and recall criteria. This metric offers a 
+more robust evaluation, mainly when there is an imbalance in the data 
+distribution  among  classes.  Each  metric  mentioned  above  provides 
+unique insights into the model's performance. Consequently, conducting 
+a comprehensive review of these metrics contributes to a more precise 
+evaluation of the overall performance of the model.
+
+Due to processing limitations in GEE, it is impossible to utilize many 
+samples and automate hyperparameter tuning. To fill this gap and avoid 
+overfitting,  the  validation  data  were  employed  for  tuning  the  key 
+hyperparameters for each model. Table 3 presents the hyperparameters 
+set for each model during training and validation. 
+
+5.3.2. Pixel-based approach 
+
+The  pixel-based  classification  approach  relies  on  the  spectral 
+
+Table 3 
+Hyperparameters were set for each machine learning technique within the GEE 
+platform.  
+
+Model 
+
+CART   
+
+RF   
+
+GTB   
+
+SVM   
+
+Hyperparameters 
+
+• Max nodes: No limit  
+• Min leaf population: 1 
+
+• Number of trees: 264  
+• Bag fraction: 0.5  
+• Variables per split: Root of the number of variables 
+
+• Number of trees: 20  
+• Shrinkage: 0.005  
+• Sampling rate: 0.7  
+• Loss: Least absolute deviation 
+
+• Kernel type: RBF  
+• SVM type: C_SVC  
+• Decision procedure: Voting
+
+5.3.6. Classification accuracy assessments
+
+5.3.1. Classification algorithms in GEE 
+
+In this study, 33,209 samples were collected using a stratified sam-
+pling  approach.  Of  these,  70%  were  allocated  for  training,  and  the 
+remaining 30% were employed for testing. Hyperparameter tuning for 
+ML models was performed using validation data (10% of training data). 
+This  research  utilized  CART,  RF,  GTB,  and  SVM  models  as  classifiers 
+within GEE. 
+
+EcologicalInformatics80(2024)1024989M. Ganjirad and H. Bagheri
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To monitor the model performance during training, the researchers used a strategy involving hyperparameter tuning with validation data. They allocated 70% of their sample data for training purposes and reserved 30% for testing. Within the training dataset, they further separated 10% of the data for use as validation data. This validation data was then employed to tune the key hyperparameters for each model, helping prevent overfitting due to limited processing capabilities in Google Earth Engine (GEE). The specific hyperparameters set for each machine learning technique are listed in Table 3, which includes details such as max nodes, min leaf population, number of trees, bag fraction, variables per split, shrinkage, sampling rate, loss, kernel type, SVM type, and decision procedure. By utilizing this strategy, the researchers aimed to ensure optimal model performance while avoiding potential issues related to overfitting or underfitting.

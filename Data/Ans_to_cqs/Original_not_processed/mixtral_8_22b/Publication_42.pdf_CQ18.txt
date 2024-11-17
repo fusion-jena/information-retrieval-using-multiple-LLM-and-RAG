@@ -1,0 +1,148 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1. Number of insect species in the dataset used for training and validation.
+
+No.
+
+Species
+
+Numbers
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+Agrotis puta
+Amphipyra pyramidea
+Autographa gamma
+Hoplodrina complex
+Mythimna pallens
+Noctua ﬁmbriata
+Noctua pronuba
+Xestia c-nigrum
+Vespula vulgaris
+
+Total
+
+250
+250
+250
+250
+250
+250
+250
+250
+250
+
+2250
+
+The chosen model shown in Figure 5 had an F1-score of 92.75%, which indicated that
+the trained CNN was very accurate in its predictions. This ﬁnal architecture was chosen
+because it achieved average precision, recall, and an F1-score of 93%, which indicated a
+suitable model classiﬁcation.
+
+Sensors 2021, 21, 343
+
+10 of 18
+
+Table 2. Ranking of the CNN architectures with highest and lowest F1 classiﬁcation scores. Rank 1 to
+32 were trained using the Adam optimizer. Rank 33 to 64 were trained using the SGD optimizer. The
+hyperparameters column shows values of {kernel size layer 1, kernel size last layer, convolutional
+depth layer 1, convolutional depth last layer, fully connected size}.
+
+Rating
+
+Hyperparameters
+
+Learnable
+Parameters
+
+F1/-Score
+
+1.
+2.
+3.
+4.
+5.
+...
+31.
+32.
+
+33.
+34.
+...
+62.
+63.
+64.
+
+3, 3, 32, 128, 512
+5, 1, 32, 128, 512
+5, 3, 32, 64, 512
+3, 3, 32, 64, 512
+5, 3, 32, 128, 512
+
+5, 1, 64, 64, 512
+5, 3, 32, 32, 512
+
+5, 3, 64, 128, 512
+5, 3, 32, 128, 512
+
+Sensors 2021, 21, 343
+
+3 of 18
+
+Using a combination of YOLO and SVM minimized the amount of training data required,
+but the classiﬁcation was only done to the taxonomic resolution of insect orders with a
+counting and classiﬁcation precision of 92.5% and 90.8%, respectively. The classiﬁcations
+made with SVM were based on manually deﬁned features. The method is, therefore,
+difﬁcult to scale up to individual species classiﬁcation (e.g., of moth species) as selecting
+useful features would be challenging.
+
+Roosjen et al. [21] present an automated monitoring system of fruit ﬂies in crops for
+pest management. The system uses image-based object detection through deep learning to
+identify the spotted wing Drosophila (Drosophila suzukii). The trained ResNet [17] model
+was able to perform sex discrimination based on 4753 annotated ﬂies.
+
+Result
+
+0.79
+0.22
+
+3.2. Summary Statistics
+
+To evaluate the ﬁnal system, including tracking and classiﬁcation, three survey nights
+were selected (30 August to 2 September 2019). This period contained a high number of
+moths and a high variation of species, wherein all eight moths species were represented.
+The duration of the survey every night was from 22:30 to 05:00, adding up to a total of
+22.5 h. Fewer than 1% of the images from this period of survey were used to train the CNN
+model. In this way, the algorithm was tested on a mostly unknown data material.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, there isn't any explicit mention of the specific strategy employed to monitor the model performance during training. However, we can infer some aspects related to the evaluation process.
+
+Firstly, the final model selection was made based on the F1-score, which indicates the balance between precision and recall. The chosen model had an F1-score of 92.75%. Additionally, the table showing the ranking of CNN architectures suggests that various hyperparameter combinations were explored to find the best performing models.
+
+Secondly, the use of different optimization algorithms like Adam and SGD implies that these methods might have been utilized to improve the model's performance during training. Optimizers help minimize the loss function by adjusting the weights and biases of the neural network.
+
+Lastly, the summary statistics section mentions that fewer than 1% of the images from the survey period were used to train the CNN model. This approach allows testing the algorithm on mostly unknown data material, providing insights into how well the model generalizes to unseen data.
+
+In conclusion, while the exact strategy to monitor the model performance during training remains undisclosed, the available information points towards evaluating the model using metrics such as F1-scores, exploring different hyperparameters, employing optimization techniques, and assessing the model's ability to generalize to new data.

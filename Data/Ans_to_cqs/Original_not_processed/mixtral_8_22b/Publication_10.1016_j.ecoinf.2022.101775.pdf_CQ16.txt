@@ -1,0 +1,113 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We  trained  algorithms  with  the  amount  of  data  available  after 
+manually  removing  the  testing  set,  as  described  above.  During  the 
+training, 10% of data served as the validation set to check for overfitting. 
+We used a min-max scaler reverted at the end to compute the perfor-
+mance metrics in the test set. In all cases, we used a batch size of 64 
+samples and trained the algorithm during 100 epochs using Adam as the 
+algorithm  to  optimize  the  network  parameters.  Algorithms  were 
+implemented in Pytorch (Paszke et al., n.d.) and models were trained 
+and tested in Google Colaboratory.2
+
+3.3. Comparison of DMF and state of the art 
+
+In this experiment, the period analyzed, the configuration of DMF4, 
+and its training are the same as those described in subsection 3.2. The 
+MF model (Rivera-Mu˜noz et al., 2021) used here for comparison was 
+tuned by employing a grid search. As a result of the tuning process, λ was 
+set at 0.1, k = 360, and the number of iterations to 100. The imputation 
+by EM algorithm is carried out using the function em of Python package 
+impyute and eps parameter is set 0.1. For MICE, we used the function 
+IterativeImputer  of  Python  package  sklearn  (Pedregosa  et  al.,  2011b) 
+with  the  recommended  parameters  (BayesianRidge  as  estimator  and  a 
+max_iter = 10).
+
+Table 2 
+Missing data for each month. The first and second rows show the amount and 
+percentage of missing measurements from the ≈93600 corresponding to each 
+month  (30  days  ×24  h  × 130  sensors).  The  third  and  fourth  rows  show  the 
+amount  and  percentage  of  manually  removed  data  used  to  compute  the  per-
+formance metrics.   
+
+Missing data 
+
+Removed data 
+
+Month 
+
+February 
+March 
+April 
+May 
+June 
+July 
+
+# 
+
+17,250 
+17,297 
+20,951 
+19,396 
+17,106 
+16,712 
+
+% 
+
+18.43 
+18.48 
+22.38 
+20.72 
+18.28 
+17.85 
+
+# 
+
+20,190 
+20,143 
+16,489 
+18,044 
+20,334 
+20,728 
+
+% 
+
+21.57 
+21.52 
+17.62 
+19.28 
+21.72 
+22.15
+
+Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., 
+Cournapeau, D., Brucher, M., Perrot, M., Duchesnay, E., 2011b. Scikit-learn: 
+machine learning in Python. J. Mach. Learn. Res. 12, 2825–2830. 
+
+Piech, C., Bassen, J., Huang, J., Ganguli, S., Sahami, M., Guibas, L.J., Sohl-Dickstein, J., 
+2015. Deep knowledge tracing. In: Cortes, C., Lawrence, N., Lee, D., Sugiyama, M., 
+Garnett, R. (Eds.), Advances in Neural Information Processing Systems, vol. 28. 
+Curran Associates, Inc, pp. 505–513. 
+
+In: WHO Regional Office for Europe. Tech. Rep. 
+
+Xie, K., Ning, X., Wang, X., Xie, D., Cao, J., Xie, G., Wen, J., 2017. Recover corrupted data 
+in sensor networks: a matrix completion solution. IEEE Trans. Mob. Comput. 16 (5), 
+1434–1448. 
+
+Xue, H.-J., Dai, X., Zhang, J., Huang, S., Chen, J., 2017a. Deep matrix factorization
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not explicitly mention the specific criteria used to determine when training is completed. However, it can be inferred that the training duration is predetermined based on the statement "trained the algorithm during 100 epochs." Additionally, the use of a validation set suggests that monitoring validation performance might have been employed to ensure the model did not overfit during training. Therefore, while there isn't explicit information about the exact stopping criterion, one could infer that the model was trained for a fixed number of epochs (100) and possibly monitored for overfitting using the validation set.

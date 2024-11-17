@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Feichtenhofer et al. (2019). This parameter combination achieved the 
+best  results  in  our  experiments.  The  Slow  and  Fast  pathways  are 
+implemented by a ResNet-101. 
+
+We  split  the  annotated  dataset  AnnotationsActions  (cf.  Section  2.2) 
+randomly (but fixed for all experiments and all networks) into a train set, 
+validation set and test set. The test set includes 20% of the video clips of 
+each class. Of the remaining clips, again 20% of the clips in each class 
+form the validation set. The remaining clips are the training set. 
+
+4.4.1. Data augmentation for action recognition
+
+4.4. Action recognition 
+
+The three ResNet variants are trained for 40 epochs starting with an 
+initial learning rate of 0.001. The learning rate is decreased every 10 
+epochs by multiplying it with a γ = 0.1. For optimization we utilize the 
+Stochastic  Gradient  Descent  (SGD)  with  a  momentum  of  0.9  and  a 
+
+EcologicalInformatics61(2021)1012158F. Schindler and V. Steinhage
+
+Fig. 7. The SlowFast architecture: The backbone for the Slow and Fast pathway is a ResNet. Above, for both pathways the feature map sizes are denoted before the 
+first convolution in the Stem. The letter T represents the number of frames that are sampled by the Slow pathway. Further, C is the number of channels and S is the 
+width and height of a square crop from a frame. 
+
+A true positive detection (TP) is given if  
+
+• the  confidence  score  is  greater  than  a  threshold,  e.g.  0.5  (Is  the 
+
+detection reliable?)  
+
+• the IoU is greater than a threshold, e.g. 0.5 (Is the detection in the 
+
+right place?)  
+
+• the class prediction is correct
+
+Stochastic Gradient Descent (SGD) is used as optimization technique. 
+We start with a learning rate of 0.0005, a momentum of 0.9 and weight 
+decay of 0.0005. Different settings of momentum and weight decay are 
+checked but show no improvements. In the training process, we decrease 
+the learning rate every 10 epochs by multiplying it with γ = 0.1. In the 
+first  epoch  we  use  warmup  iterations  for  the  learning  rate  with  a 
+warmup factor of 1/1000. These parameters gave the best results in our 
+evaluations. We train our models for 30 epochs.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the provided context, there isn't explicit information about the specific postprocessing steps involved after the model training. However, some insights can be derived indirectly.
+
+For instance, during the evaluation phase, the concept of True Positive (TP) detections is mentioned, which involves setting thresholds for confidence scores and Intersection over Union (IoU), and ensuring the correctness of class predictions. This suggests that metrics calculation could potentially be part of the postprocessing steps.
+
+Additionally, since Stochastic Gradient Descent (SGD) is used as the optimization technique, it might imply that performance metrics such as accuracy or loss would need to be calculated post-training.
+
+However, without more direct information, it cannot be definitively stated what other postprocessing steps like saliency maps or confusion matrices are involved. Therefore, based solely on the provided context, the exact postprocessing steps remain unclear.

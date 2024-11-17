@@ -1,0 +1,159 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 3. CNN Architecture.
+
+No.
+
+Layers
+
+Output Shape
+
+Parameters
+
+Dropout Rate
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+
+Input
+Convolutional
+Activation (ReLu)
+MaxPooling
+Convolutional
+Activation (ReLu)
+MaxPooling
+Convolutional
+Activation (ReLu)
+MaxPooling
+Dropout
+Flatten
+Fully Connected
+Activation (ReLu)
+Fully Connected
+Activation (softmax)
+
+128 × 128 × 3
+128 × 128 × 32
+—
+64 × 64 × 32
+64 × 64 × 32
+—
+32 × 32 × 32
+32 × 32 × 64
+—
+16 × 16 × 64
+16 × 16 × 64
+16,384
+64
+—
+4
+—
+
+—
+896
+—
+—
+9248
+—
+—
+18,496
+—
+—
+—
+—
+1,048,640
+—
+—
+260
+
+—
+—
+—
+—
+—
+—
+—
+—
+—
+—
+0.4
+—
+—
+—
+—
+—
+
+4.2.1. Data Augmentation
+
+The fundamental concept behind the ResNet model is to use shortcut links to bypass
+blocks of convolutional layers (bottleneck). The CONV layers each have a 3 × 3 ﬁlter
+and are designed according to two rules: (1) the layers have the same number of ﬁlters
+with the same output feature map size and (2) the number of ﬁlters is multiplied if the
+feature map size is halved. The convolutional layers conduct the downsampling with
+a stride of 2. The network ends with an average POOL layer and 1000 FC layers with
+a SoftMax activation function. The default input size is 224 × 224 × 3 [24].
+Xception: The Xception model’s architecture was proposed by Chollet (2017). This
+model is a CNN-based architecture also trained on the ImageNet dataset. The Xception
+architecture comprises 36 CONV layers with a 3 × 3 ﬁlter and stride of 2. These CONV
+layers are structured into 14 modules, all of which have the ReLu activation function
+
+VGG16: Simonyan and Zisserman (2014) proposed the architecture of the VGG16
+model. VGG16 is a CNN model that consists of 16 hidden layers, including a total with
+convolutional, max pooling and fully connected layers. VGG16 was trained on the
+ImageNet dataset, which consists of 1,000,000 images. VGG16 is constructed of ﬁve
+blocks of convolutional layers with a 3 × 3 ﬁlter and stride of 1. After each convolution,
+an activation function (ReLU) is executed, followed by a max-pooling process with
+a 2 × 2 max ﬁlter and stride of 2. At the end of the ﬁve blocks, three FC layers are
+added: the ﬁrst two layers with 4096 neurons and an ReLU activation function each,
+and the third layer with 1000 neurons and a SoftMax activation function [21]. The
+default input size is 224 × 224 × 3 [22].
+ResNet-50: The ResNet model’s architecture was proposed in 2015 by He et al. ResNet-
+50 is a 50 convolutional neural network layers pre-trained on the ImageNet dataset [23].
+
+Transfer Learning
+
+Transfer learning (TL) is a DL approach for transferring knowledge from one pre-
+trained model to another [18]. TL is commonly used when training a small dataset where
+the CNN’s weights are initialized before being ﬁne-tuned with the new dataset [19]. TL
+aids in adapting current models trained on large datasets to work in a speciﬁc context [20].
+There are several pre-trained models approaches based on this research, including VGG16,
+ResNet-50, Xception and DenseNet121. Each of these common TL approaches is de-
+scribed below:
+
+•
+
+•
+
+•
+
+•
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, there is only one explicit mention of a regularization method used to prevent overfitting in the deep learning pipeline - Dropout. Dropout is a technique where randomly selected neurons are ignored during training, which helps prevent overfitting by making the model more robust and less sensitive to the specific weights of individual neurons. In Table 3, it can be seen that Dropout is applied after MaxPooling in Layers 10 and 11, with a rate of 0.4. However, other regularization techniques such as L2 regularization or early stopping are not explicitly mentioned in the provided context. Therefore, while Dropout is confirmed as a regularization method used in this case, we cannot definitively state whether any other methods were employed without further information.

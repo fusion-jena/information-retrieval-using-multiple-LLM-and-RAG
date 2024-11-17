@@ -1,0 +1,136 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The  encoder  uses  a  pre-processing  block  containing  a  convolution 
+with a wide receptive field (5 × 5 kernel) and signal coarsening along 
+the time axis (2 × 1 kernel) (Kahl et al., 2021). Coarsening follows the 
+changes suggested in (He et al., 2018) and replicates later versions of 
+BirdNet’s  down-sampling  strategy  by  recombining  the  concatenated 
+output  of  2 × 2  maximum and  2  × 2 average  pooling using  a  1 × 1 
+convolution.  After  convolution,  feature  representations  are  chunked 
+along the time axis into T = 19 independent frames each corresponding 
+to 3.072 s. Each frame is flattened and passed through a final linear layer 
+to  output  T  d-dimensional  mean  μ  and  log  variance  logσ2  vectors  as 
+parameters  for  the  Gaussian  variational  posterior.  A  latent  vector  for 
+each frame in the time-series is sampled from the posterior using the 
+reparameterisation trick. We set d = 128 for comparability with ecoa-
+
+Group 
+
+Encoder    
+Pre-processing 
+
+ResStack 1 
+
+ResStack 2 
+
+ResStack 3 
+
+ResStack 3 
+
+Temporal Framing 
+Bottleneck     
+
+Reparameterisation 
+
+Decoder    
+Temporal Framing 
+ResStack 3 
+
+ResStack 3 
+
+ResStack 2 
+
+ResStack 1 
+
+Post-processing 
+
+Operation 
+
+Input Shape 
+
+Output Shape 
+
+5 × 5 Conv + BatchNorm + ReLU 
+Max & Avg pooling +1 × 1 Conv 
+Downsampling block 
+2 × Residual Block 
+Downsampling block 
+2 × Residual Block 
+Downsampling block 
+2 × Residual Block 
+Downsampling block 
+2 × Residual Block 
+Reshape 
+
+Flatten 
+Linear 
+Sample 
+Linear 
+Unflatten 
+
+Reshape 
+Upsampling block 
+2 × Residual Block 
+Upsampling block 
+2 × Residual Block 
+Upsampling block 
+2 × Residual Block 
+Upsampling block 
+2 × Residual Block 
+1 × 1 Conv + BatchNorm + ReLU 
+2 × 2 ConvTranspose + BatchNorm + ReLU 
+5 × 5 Conv
+
+Several recent papers have trialled a transfer learning approach by 
+deploying a pre-trained CNN model to extract features from PAM audio 
+spectrograms (Sethi et al., 2020; Sethi et al., 2022a; Sethi et al., 2022b; 
+Sethi  et  al.,  2023).  The  algorithm  in  question,  VGGish,  is  an  object 
+detection and image classification algorithm deep convolutional neural 
+network adapted to operate over monochrome images for acoustic event 
+detection  (Hershey  et  al.,  2017).  However  its  training  data  and  pre- 
+processing  pipeline  hard-code  prior  assumptions  about  the  feature 
+recognition task that may not necessarily be suitable for ecoacoustics. 
+Furthermore we don’t understand how this particular algorithm predicts 
+ecologically  relevant  factors.  Its  architecture  provides  no  means  to 
+inspect  how  latent  representations  are  embedded,  thereby  obviating 
+insight into the basis of predictions. In this paper we recognise the po-
+
+arXiv: 1609.09430 [cs.SD].  
+
+Hsu, Wei-Ning, et al., 2021. HuBERT: Self-Supervised Speech Representation Learning by 
+
+Masked Prediction of Hidden Units arXiv: 2106.07447 [cs.CL].  
+
+Hurlbert, Stuart H., 1971. The nonconcept of species diversity: a critique and alternative 
+
+parameters. Ecology 52 (4), 577–586. 
+
+Ioffe, Sergey, Szegedy, Christian, 2015. Batch Normalization: Accelerating Deep Network 
+
+Training by Reducing Internal Covariate Shift arXiv: 1502.03167 [cs.LG].  
+
+Jiang, Junyan, et al., 2020. Transformer VAE: a hierarchical model for structure-aware 
+and interpretable music representation learning. In: ICASSP 2020–2020 IEEE 
+international conference on acoustics, Speech and Signal Processing (ICASSP), 
+pp. 516–520. https://doi.org/10.1109/ICASSP40776.2020.9054554. 
+Kahl, Stefan, et al., 2021. BirdNET: a deep learning solution for avian diversity 
+
+monitoring. Eco. Inform. 61, 101236. 
+
+Lakshminarayanan, Balaji, Pritzel, Alexander, Blundell, Charles, 2017. Simple and
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it appears that the deep learning pipeline primarily deals with audio data. Specifically, the pipeline employs Passive Acoustic Monitoring (PAM) audio spectrograms. These are visual representations of sound frequencies over time, often used in bioacoustics research. Therefore, while the original input format might be raw audio files, they are transformed into spectrograms before being fed into the deep learning models. There is no mention of other data formats such as images, videos, or CSV files being used in the pipeline.

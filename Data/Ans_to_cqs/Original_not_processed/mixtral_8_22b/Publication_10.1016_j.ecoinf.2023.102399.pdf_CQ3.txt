@@ -1,0 +1,87 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Contents lists available at ScienceDirect 
+
+Ecological Informatics 
+
+journal homepage: www.elsevier.com/locate/ecolinf 
+
+Fully automatic system for fish biomass estimation based on deep 
+neural network 
+
+Tianye Zhang a, b,c, d, Yuqiao Yang d, Yueyue Liu a, b, c, d, Chenglei Liu e, Ran Zhao a, b, c,d, 
+Daoliang Li a,b,c, d, Chen Shi a, b, c, d, * 
+a National Innovation Center for Digital Fishery, China Agricultural University, Beijing 100083, China 
+b Key Laboratory of Smart Farming Technologies for Aquatic Animal and Livestock, Ministry of Agriculture and Rural Affairs, China Agricultural University, Beijing 
+100083, China 
+c Beijing Engineering and Technology Research Centre for Internet of Things in Agriculture, China Agricultural University, Beijing 100083, China 
+d College of Information and Electrical Engineering, China Agricultural University, Beijing 100083, China 
+e Mingbo Aquatic Co., Ltd, Laizhou, China   
+
+A R T I C L E  I N F O    
+
+A B S T R A C T
+
+There is no doubt that low-quality images will increase the workload 
+of  image  processing,  requiring  more  complex  algorithms.  Obtaining 
+high-quality  images  through  a  fully  automated  biomass  estimation 
+method, without any manual intervention, can significantly reduce the 
+workload  for  humans.  To  decrease  the  need  for  manual  intervention, 
+Ravanbakhsh et al. (2015) implemented a deep learning technique that 
+automatically detected and identified the head and mouth of Southern 
+Bluefin tuna that were cultured in deep-sea cages. The head and mouth 
+of the fish in specific positions within the underwater stereo images were 
+accurately recognized using the Haar classifier. Although this technique 
+efficiently  decreases  manual  processes,  achieving  fully  automated 
+acquisition  of  biomass  information  is  still  lacking  in  certain  aspects. 
+Fernandes et al. (2020) combined computer vision with deep learning
+
+Fig. 4. The manual measurement of total length (yellow double-headed arrows), height (red double-headed arrows), and body weight (For interpretation of the 
+references to colour in this figure legend, the reader is referred to the web version of this article.) 
+
+The precise dimensions of the object can be determined by rotating the 
+minimum bounding rectangle and aligning it with the scale bar (Fig. 4 b 
+and c) in the image. 
+
+2.3. Fish image collection method 
+
+The YOLOv5 model has been categorized into five versions based on 
+varying  sizes,  training  speeds,  inference  speeds  and  model  accuracy, 
+which were model n, s, m, l and x, respectively. The real-time detection 
+of  free-swimming  orthogonal  fish  bodies  requires  high  performance, 
+making model version n the most appropriate for this research project, 
+with the fastest speed and smallest parameters.
+
+fish leads to greater errors in weight estimation. Consequently, the use of 
+a deep learning network for high-quality target detection proved crucial 
+in dealing with the complexities of the underwater environment. Using 
+fish body area as a parameter to estimate body weight resulted in higher 
+accuracy with a MRE of 3.44% (Shi et al., 2022). However, a consid-
+erable  amount  of  image  processing  work,  including  segmentation, 
+erosion, and angle correction, led to a decline in the efficiency of body 
+weight estimation. Therefore, the proposed method for fully automatic 
+biomass  estimation  had  minimized  the  workload  and  complexity  of 
+image preprocessing, thereby increasing the efficiency and robustness of 
+body weight estimation.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, there isn't explicit mention of the specific data annotation techniques used in their deep learning pipeline. However, we can infer from the text that they likely employed some form of object detection or semantic segmentation, considering their focus on detecting and identifying fish in images.
+
+Object detection involves drawing bounding boxes around objects of interest in an image, which could be what was done here since they discuss recognizing the head and mouth of fish in specific positions within underwater stereo images. This process often uses techniques like bounding box annotation during the labeling phase.
+
+Semantic segmentation, on the other hand, involves assigning each pixel in an image to a particular class, essentially creating a mask over the entire image. This might have been used in their approach, especially when discussing the use of fish body area as a parameter to estimate body weight, suggesting they may have needed to accurately delineate the boundaries of individual fish. Instance segmentation is a related concept, where not only do you identify the pixels belonging to each object but also distinguish between different instances of the same class.
+
+Without further details about their exact methods, it's hard to definitively state which specific data annotation techniques were used. But based on the described tasks, it seems plausible that either bounding box annotation for object detection or semantic/instance segmentation for accurate fish boundary identification would have been necessary.

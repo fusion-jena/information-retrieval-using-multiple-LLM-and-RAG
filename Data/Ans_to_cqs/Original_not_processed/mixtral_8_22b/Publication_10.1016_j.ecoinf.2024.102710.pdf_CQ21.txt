@@ -1,0 +1,127 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4 https://github.com/HKathman/pam_annotation_experiments
+5 https://github.com/kahst/BirdNET-Analyzer/tree/main/checkpoints/V2.4
+6 https://tfhub.dev/google/vggish/1
+7 https://tfhub.dev/google/yamnet/1
+8 tensorflow.keras.applications.vgg16.VGG16(weights=’imagenet’).
+9 tensorflow.keras.applications.resnet_v2.ResNet152V2
+
+(weights=’imagenet’).
+
+Fig. 4. UMAP plots for different embedding layers of different embedding
+models for AnuraSet. For UMAP generation, we randomly select 5000 samples
+and discard all samples that are aligned to more than one class. Colors and
+shapes indicate the 10 classes with the highest occurrence frequency. Layers are
+numbered according to their distance from the classification layer, e.g. ‘Bird-
+Net-1’ is the last layer before the classification layer of the BirdNet model.
+
+EcologicalInformatics82(2024)1027105H. Kath et al.
+
+The active learning experiments are carried out in the embedding
+space of the selected transfer learning model (BirdNet-1, see Section
+3.1). We explore a range of sampling strategies: uncertainty and di-
+versity based, myopic (greedy) and adaptive (batch mode), and com-
+binations thereof. Fig. 2 provides a schematic overview of the pure
+families of sampling strategies: Random sampling selects samples arbi-
+trarily, uncertainty sampling targets samples near the decision bound-
+ary, and diversity sampling focuses on samples that span the entire data
+space. In all cases, 5% of the samples are selected at random. Class labels
+are available for all samples used in this study, and an active learning
+scenario is emulated by hiding all labels from the classifier at first and
+incrementally revealing the ones for each batch of samples queried by
+the sampling methods. We use a batch size of 20 samples. The classifier
+heads are identical to those from the transfer learning training process.
+
+3.1. Transfer learning
+
+We start by testing different pre-trained models as feature extractors
+for species-level sound event detection. All performance metrics are
+
+Table 1
+Required computational time for all active learning (AL) strategies. The
+computational time is normalized, i.e. it is divided by the time required for
+random sampling.
+
+AL Family
+
+AL Strategy
+
+uncertainty
+
+diversity
+adaptive
+
+combination
+
+least confidence avg
+entropy avg
+ratio avg
+ratio max
+clustering
+adapt uncertainty
+adapt diversity
+ratio max + clustering
+adapt uncert + clustering
+ratio max + adapt div
+adapt uncert + adapt div
+
+tstrategy
+trandom
+
+1.06
+1.23
+1.10
+1.09
+2.04
+1.98
+9.98
+2.01
+3.86
+12.20
+16.96
+
+evaluation was done on focal and citizen-science datasets. Swaminathan
+et al. (2024) extend the observation to attention-based architectures pre-
+trained on human speech. Lauha et al. (2022) show that transfer
+learning can be helpful also for small networks trained from scratch on
+small, targeted datasets gathered from online resources such as Mac-
+aulay Library2 (as opposed to foundation models trained on large
+datasets). While the works cited above evaluate transfer learning models
+based on classification performance, McGinn et al. (2023) take a
+different approach and investigate the topology of fine grained, sub-
+species sound events in the embedding space afforded by BirdNet;
+they find that different call types of a same species (e.g., drumming
+versus vocalization) form distinct clusters, and that the vicinity of each
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, several postprocessing steps can be performed depending on the specific requirements of the project or task. Some common postprocessing steps include:
+
+1. Model evaluation: This involves calculating various metrics like accuracy, precision, recall, F1 score, etc., to assess the performance of the model. These metrics help determine how well the model has learned to predict the target variable.
+
+2. Confusion matrix: A confusion matrix is a table that summarizes the predictions made by the model compared to the actual values. It helps visualize the performance of the model and identify any patterns or biases in its predictions.
+
+3. Saliency maps: Saliency maps highlight the regions of input data that contribute most significantly to the output prediction. They provide insights into which features of the input data are important for making accurate predictions.
+
+4. Feature importance: Similar to saliency maps, feature importance analysis identifies the most relevant features contributing to the model's predictions. This information can be useful for understanding the underlying relationships between variables and improving the interpretability of the model.
+
+5. Hyperparameter tuning: After evaluating the initial model, hyperparameters may need to be adjusted to improve performance further. Techniques such as grid search, random search, or Bayesian optimization can be employed to optimize these parameters.
+
+6. Ensemble modeling: Combining multiple models through techniques like bagging, boosting, or stacking can often lead to improved overall performance. Postprocessing steps might involve creating ensembles of individual models and comparing their results.
+
+7. Visualizing embeddings: Tools like t-SNE or UMAP can be used to visualize high-dimensional embeddings generated by deep learning models. This allows researchers to understand better how the model represents complex data structures and identify potential issues or areas for improvement.
+
+Based on the given context, it appears that the authors have evaluated their models using various metrics and visualized the embeddings using tools like UMAP. However, they do not explicitly mention other postprocessing steps like generating saliency maps or performing hyperparameter tuning.

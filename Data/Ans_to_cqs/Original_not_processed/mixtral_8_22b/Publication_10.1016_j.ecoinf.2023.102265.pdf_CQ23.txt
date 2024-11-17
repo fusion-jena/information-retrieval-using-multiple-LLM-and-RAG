@@ -1,0 +1,57 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+easy to train with reduced complexity, even though they have deeper 
+layers than CNN models, because of the presence of skip connections 
+between the input and output of each block (He et al., 2016). ResNet has 
+different variants with a variety of convolution layers. We trialled three 
+depths, ResNet-18, (cid:0) 50 and (cid:0) 101, and compared their training times 
+and validation accuracies. They behaved similarly but ResNet-50 had a 
+marginally  higher  validation  accuracy  (Section  3.1.1)  leading  us  to 
+choose it for feature extraction.
+
+ran in approximately 1.2 min for our experiments on the CPU, whilst 
+softmax  took  12  min  on  the  GPU  to  complete  the  same  task.  So, 
+although, softmax can accomplish our classification task, our proposed 
+method has advantages.
+
+EcologicalInformatics77(2023)1022656ALA Input Image224 x2247x7 conv, 643x3 MaxpoolSize112Conv1Size561x1conv, 643x3conv,641x1 conv, 256Conv2Size28Conv31x1conv, 1283x3conv,1281x1 conv, 512Size141x1conv, 2563x3conv,2561x1 conv, 1024Conv4Size71x1conv, 5123x3conv,5121x1 conv, 2048Conv5AveragepoolingFullyconnectedSize1000FeaturevectorFeature Extraction with ResNet-50 Model(Generates feature vector of size 1000)SVM ClassifierALA data with natural backgrounds ALA data with anthropogenic backgroundsOutput(Classified image with class label)3X4X6X3X1XS. Singha Roy et al.
+
+EcologicalInformatics77(2023)1022657S. Singha Roy et al.                                                                                                                                                                                                                            
+
+Fig. 7. Visualisation of extracted features using a pre-trained ResNet-50 CNN model showing that the background microhabitat classes are well structured. Green 
+triangles represent ‘natural’ microhabitats and the light brown circles represent ‘anthropogenic’ mirohabitats. (For interpretation of the references to colour in this 
+figure legend, the reader is referred to the web version of this article.) 
+
+Table 1 
+Comparison  of  training  time  for  pre-trained  ResNet-18/50/101  models  for 
+extracting features of backgrounds of 500 honey bee images.   
+
+ResNet-18 
+
+ResNet-50 
+
+ResNet-101 
+
+Training time 
+
+1.25 s 
+
+1.2 s 
+
+1.22 s
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors used a diverse dataset consisting of honey bee images with both 'natural' and 'anthropogenic' backgrounds to ensure the generalizability of their deep learning model. Additionally, they employed a pre-trained ResNet-50 Convolutional Neural Network (CNN) model for feature extraction, which was chosen based on its marginally higher validation accuracy compared to other depths such as ResNet-18 and ResNet-101. The use of a pre-trained model allowed them to leverage the knowledge gained from large datasets during the initial training phase, thereby improving the model's ability to generalize to new data. However, the paper does not explicitly mention any specific techniques like cross-validation or stratified splitting to further enhance the model's generalization capabilities.

@@ -1,0 +1,101 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+vancements in deep learning to enhance performance. Specifically, our 
+MLP architecture consists of four layers, each containing 512 neurons 
+and connected with residual connections (He et al., 2016). We employ 
+batch normalization (Ioffe and Szegedy, 2015) and the Rectified Linear 
+Unit (ReLU) activation function in all layers except the final one, where 
+instead a sigmoid function is used to enable multi-label classification. 
+The model is trained with a batch size of 256 for 30 epochs using the 
+AdamW optimizer (Loshchilov and Hutter, 2017). Both the weight decay 
+and learning rate are set to 0.0001. Additionally, we employ a learning 
+rate scheduler with exponential decay of 0.95, and introduce dropout
+
+We aim to bridge this gap since the use of neural networks and deep 
+learning  techniques  stands  as  a  promising  and  efficient  approach  for 
+SDMs (Botella et al., 2023; Davis et al., 2023; Teng et al., 2023). These
+
+In  the  field  of  machine  learning,  training  a  model  often  involves 
+minimizing a loss function that quantifies the model’s error on training 
+data. Generally, deep learning-based SDMs are trained with the binary 
+cross-entropy loss (Benkendorf and Hawkins, 2020; Deneu et al., 2021; 
+Zbinden et al., 2023; Zhang et al., 2022), with the target-group back-
+ground points often used as the de facto negative samples when absence 
+data is unavailable. Nevertheless, the loss function can be modified to 
+reflect the specificities of the problem. In our case, we can adapt the loss 
+function to inform the model about how pseudo-absences are integrated. 
+This can be achieved by adjusting or assigning weights to the different 
+components of the loss function. Recently, Cole et al. (2023) introduced 
+the  following  full  assume  negative  loss,  designed  to  account  for  both 
+target-group background points and random background points: 
+
+⎡
+
+L full(y, ̂y) = (cid:0) 1
+S
+
+∑S
+
+s=1
+
+NSW 
+
+0.076 
+
+0.166 
+
+NZ 
+
+0.388 
+
+0.388 
+
+SA 
+
+0.730 
+
+0.730 
+
+SWI 
+
+0.847 
+
+0.847 
+
+avg 
+
+0.346 
+
+0.360  
+
+Optimizing the full loss. The sole adjustable parameter of the losses proposed by Cole et al. (2023) is the λ value of the full loss function, which 
+they set to 2048. In Table C.9, we show the performance variability of the full loss across different values of λ. Notably, simply using λ = 2048 results in 
+relatively low performance in our experiments. Additionally, other values of λ also demonstrate inferior performance compared to our full weighted 
+loss on average. Ultimately, setting λ to be proportionate to the number of species S yields satisfactory performance on average (last row of Table C.9).  
+
+Table C.9 
+Mean AUC performance of the L full  loss with varying values of λ. S is the number of species, therefore the last line corresponds to our automatic tuning of λ. Note that 
+the L full  loss is equivalent to the L full(cid:0) weighted  loss when λ1 =
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The deep learning pipeline described employs the AdamW optimizer (Loshchilov and Hutter, 2017) during its training phase. This optimizer is a variant of the popular Adam optimizer, which combines the advantages of Adaptive Gradient Algorithm (AdaGrad) and Root Mean Square Propagation (RMSProp). AdamW further improves upon Adam by introducing decoupled weight decay regularization, making it more suitable for large scale learning problems.
+
+In addition to selecting an appropriate optimizer, the learning rate is another crucial hyperparameter that needs to be carefully chosen. Here, the learning rate is set to 0.0001. Furthermore, a learning rate scheduler with exponential decay of 0.95 is employed to gradually decrease the learning rate over time, allowing the model to converge more smoothly towards the optimal solution.
+
+Dropout is another technique mentioned in the context, although not directly related to optimization. Dropout is a form of regularization used to prevent overfitting by randomly dropping out units from the network during training.
+
+However, there is no mention of Stochastic Gradient Descent (SGD) being used in this particular deep learning pipeline.

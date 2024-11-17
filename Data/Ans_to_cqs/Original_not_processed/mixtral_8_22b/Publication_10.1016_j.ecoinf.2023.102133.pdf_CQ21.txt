@@ -1,0 +1,112 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.2. Performance evaluation and results
+
+(in steps of 10);  
+
+4.  Minimum number of samples required to split a node (samples split): 
+
+2, 5, 10; 
+
+5. Minimum  number  of  samples  required  at  each  leaf  node  (sam-
+
+ples leaf): 1, 2, 4;  
+
+6.  Method of selecting samples for training each tree (bootstrap): True 
+
+or False;  
+
+7.  Parameter  for  minimal  cost-complexity  pruning  (cpp alpha):  from 
+
+0 to 0.06 (in steps of 4⋅10
+
+(cid:0) 4). 
+
+The following setup was chosen for investigation since it achieved the 
+best  prediction  accuracy:  1000  trees,  max features  = auto,  50  levels, 
+samples split = 2, samples leaf = 2, bootstrap = True, cpp alpha = 0. 
+Finally,  feature  analysis  was  performed  to  test  different  combina-
+tions  of  the  input  features  among  a  set  of  12  different  possibilities. 
+Moreover, ML algorithms were also exploited to compensate for missing 
+values in the dataset, as detailed in the following Section 3.3.5. 
+
+3.3.5. Prediction algorithms and gap filling
+
+(cid:0) 3, 10
+
+(cid:0) 4;  
+
+The following configuration optimized the performance of the model 
+and was accordingly adopted for analysis: Adam solver (Kingma and Ba, 
+(cid:0) 4,  constant  learning 
+2014),  10 neurons  per  hidden  layer, alpha  = 10
+rate, and rectifier activation function, also called Rectified Linear Unit 
+(ReLU) activation function, defined as: 
+
+(
+
+)
+
+{
+
+ReLU
+
+k
+
+=
+
+k, if k > 0;
+0, if k⩽0.
+
+(14) 
+
+In the case of the RF, the hyperparameters include the number of 
+decision trees in the forest, the maximum depth of the decision tree, the 
+number of features considered by each tree when splitting a node, etc. 
+This  set  of  hyperparameters  was  tested  using  the  grid  configuration 
+shown below:  
+
+1.  Number of decision trees: from 100 to 1000 (in steps of 100);  
+2.  Number of features to consider at every split (max features): auto,
+
+sqrt, log2, None;  
+
+3.  Maximum number of levels in decision tree: None, or from 10 to 100 
+
+(in steps of 10);
+
+4.1. Feature analysis 
+
+Since ML models usually portray the relationship between input and 
+output features, a preliminary feature analysis was performed. Indeed, 
+this  analysis  plays  a  key  role  in  reducing  the  dimensionality  of  the 
+problem  by  favoring  the  application  of  ML  models  with  a  limited 
+number  of  features,  reducing  the  complexity,  implementation  and 
+deployment costs in the field.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The given context does not provide explicit information about the specific postprocessing steps used after model training. However, based on common practices in machine learning, some possible postprocessing steps could be:
+
+1. Model Evaluation: This involves calculating metrics such as accuracy, precision, recall, F1 score, ROC AUC, etc., to evaluate the performance of the trained model.
+
+2. Confusion Matrix: It is often used to visualize the performance of the algorithm. Each row of the matrix represents the instances in a predicted class while each column represents the instances in an actual class.
+
+3. Cross-Validation: To ensure the robustness of the model, cross-validation techniques like K-Fold can be applied.
+
+4. Hyperparameter Tuning: After initial training, tuning the hyperparameters of the model might improve its performance. Grid search or random search methods can be employed for this purpose.
+
+5. Saliency Maps: These are particularly useful in image classification tasks where they highlight the pixels contributing most to the final output.
+
+However, without more specific details regarding the type of model being used and the problem domain, these suggestions remain speculative.

@@ -1,0 +1,63 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+• No-overfitting. In this setting, the optimization algorithm of CNNs is 
+Stochastic Gradient Descent (SGD), with a learning rate of 0.0001 
+and a weight decay of 0.5. The batch size is set to 32, the number of 
+training epochs to 200 and finally the batch-norm and dropout (0.5) 
+are used to reduce the overfitting level.  
+
+• Overfitting.  We  use  the  same  hyperparameters  setting  as  the  no- 
+overfitting  but  we  remove  the  use  of  batch-norm,  weight  decay 
+and dropout techniques to ensure that the model overfits.
+
+chastic Gradient Descent (SGD) with a momentum of 0.9. Additionally, 
+the learning rate was set to 0.001, the batch size to 32 and a decay of 0.5 
+was  applied  every  512  iterations,  summing  up  to  a  total  of  2048 
+iterations.
+
+3.2.1.1. Training process. Dtrain  is the training dataset, which is used for 
+training the target model using the learning algorithm A. In contrast, DS 
+functions as the attack dataset, completely separate from the training 
+dataset  Dtrain,  and  consists  of  data  points  drawn  from  the  same  data 
+distribution as the training samples in Dtrain. The adversary first trains 
+the attack model using the attack training dataset DS  and the learning 
+algorithm A, in such as way that the attack model mimics the behavior of 
+the target model. T is the attack test dataset that is assumed to be both 
+disjoint  from  Ds  and  Dtrain,  in  the  sense  that  it  is  composed  by  non- 
+member  individuals  never  seen  before  by  Ds  and  Dtrain.  Once  the 
+training of the attack model is finished, the adversary proceeds to query 
+the  attack  model  using  both  the  attack  training  and  test  datasets, 
+extracting  the  resulting  prediction  vectors  for  each  data  point.  More
+
+0.62 s 
+0.66 s 
+1.57 s  
+
+2021) 
+
+computer equipped with a NVIDIA TITAN X Pascal GPU featuring 12GB 
+of memory. More precisely, the training time corresponds to the time 
+required to train the attack model while discrimination time refers to the 
+average computational time for a membership inference on a single data 
+point. Nonetheless, metric-based MIAs can often achieve a performance 
+that is not too far from the best  attack. For instance, on the GREMM 
+dataset,  the  attack  performance  of  ResNet50  + LabelOnly  is  0.744 
+against  0.695  for  ResNet50  + Yeom.  Therefore,  if  the  adversary  has 
+limited  computation  resources,  metric-based  MIAs  may  be  a  more 
+appropriate choice than LabelOnly MIA.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text mentions that the experiments were conducted on a computer equipped with a NVIDIA TITAN X Pascal GPU featuring 12GB of memory. This suggests that the deep learning models were trained using a GPU for acceleration. However, there is no explicit mention of other types of hardware resources like TPUs or CPUs being used.

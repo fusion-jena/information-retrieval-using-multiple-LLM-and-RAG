@@ -1,0 +1,17 @@
+Answer:::
+
+The performance of the deep learning model was evaluated using several metrics, including the mean reciprocal rank (MRR), accuracy (ACC), average accuracy across all class hierarchies (avg_ACC), and hierarchical distance of a mistake (HDM).
+
+The MRR is an official evaluation metric of the BirdCLEF2018 competition and was employed to assess processes that generate a list of potential responses to a sample of queries ranked by their likelihood of correctness. Accuracy was used to determine the proportion of correctly classified items, and the avg_ACC was calculated to evaluate the efficacy of the hierarchical classification.
+
+The HDM was used to quantify the degree of misclassification when only a single class could be predicted. It is important to note that misclassifying a bird species may not incur the same penalty as misclassifying it as a different species.
+
+These metrics were chosen to evaluate the model's performance as they are well-suited for hierarchical classification tasks, which are common in bird species classification. The MRR and accuracy metrics assess the model's ability to rank the correct bird species, while the avg_ACC and HDM metrics evaluate the model's ability to classify bird species accurately within the hierarchical structure.
+
+The model was trained over 200 epochs using the Adam optimizer with a batch size of 16 and a weight decay of 1 × 10^-4. The learning rate was initially set at 0.001 and was subsequently reduced by a factor of 0.1 in a step-wise manner whenever the validation loss remained constant for five epochs. The hyper-parameter λ in Eq. (4) was set to 0.8, and β in Eq. (6) was set to 0.4.
+
+The model's architecture consisted of convolutional kernels and pooling layers, which were designed to capture the temporal and spectral features of bird songs. To address the limitations of CNNs, a long short-term memory (LSTM) network was incorporated to develop a 3DCNN-LSTM model as a classifier. Additionally, attention mechanisms were introduced to improve the model's sensitivity to temporal changes in bird songs.
+
+The model's performance was compared to other models, including the CS-CLDNN, Soundception, BirdNet, AMResNet, and LHT+ models. The PPNN (ours) model achieved the best performance in terms of MRR, avg_ACC, and HDM, while the Soundception model achieved the second-best performance in terms of MRR and avg_ACC.
+
+In summary, the performance of the deep learning model was evaluated using the MRR, accuracy, avg_ACC, and HDM metrics. These metrics were chosen to assess the model's ability to rank and classify bird species accurately within the hierarchical structure. The model's architecture consisted of convolutional kernels and pooling layers, which were designed to capture the temporal and spectral features of bird songs. To address the limitations of CNNs, attention mechanisms and LSTM networks were introduced to improve the model's sensitivity to temporal changes in bird songs. The PPNN (ours) model achieved the best performance in terms of MRR, avg_ACC, and HDM, while the Soundception model achieved the second-best performance in terms of MRR and avg_ACC.

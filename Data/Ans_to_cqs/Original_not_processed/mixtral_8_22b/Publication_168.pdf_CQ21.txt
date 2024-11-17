@@ -1,0 +1,217 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Keywords—forest species classification, convolutional neural 
+network  (CNN),  unmanned  aerial  vehicle(UAV),  hyperspectral 
+image(HSI) 
+
+I.  INTRODUCTION
+
+(5) 
+
+(a)
+
+(b)
+
+IV. RESULTS AND DISCUSSION
+
+The  experiment  is  performed  on  the  UAV  hyperspectral 
+image  described  in  section  II.  There  are  ten  different  land-
+cover  classes  in  the  captured  UAV  hyperspectral  image  as 
+shown in Table I. Considering it is hard to label hyperspectral 
+image in the real world, we split the labeled pixels of UAV 
+hyperspectral image into the training set and test set with the 
+ratio 1:9. The training samples were used to learn the weights 
+and  biases  of  the  network,  and  the  test  samples  are  used  to 
+evaluate the classification performance.
+
+k
+
+1
+(cid:32)
+
+l
+
+(cid:32)
+
+0
+
+m
+
+(cid:32)
+
+0
+
+,
+l m
+w v
+,
+i j k
+,
+
+(
+x l
+(cid:14)
+( 1),
+i
+(cid:16)
+
+),(
+k
+
+y m
+(cid:14)
+
+)
+
+)
+
+ (4) 
+
+where bi,j is the bias,  Ki-1 is the number of the feature ma 
+in (i-1)th layer,  Li and  Mi are the height and width of 2 –D 
+f (cid:152) is the 
+convolutional kernel in the ith layer respectively,  
+ReLU activation function as shown in Eq. (2). 
+
+( )
+
+The pooling layer is mainly applied to compress the input 
+data,  which  often  follows  convolutional  layer.  The  max-
+pooling strategy is used in SSPCNN. 
+
+Table I Ground object classes and numbers of labeled pixels in 
+
+UAV hyperspectral image 
+
+Class 
+
+Samples 
+
+No. 
+
+Name 
+
+Train 
+
+Test 
+
+1 
+
+2 
+
+3 
+
+4 
+
+5 
+
+6 
+
+7 
+
+8 
+
+9 
+
+10 
+
+Osmanthus 
+
+1251 
+
+11262 
+
+Holly 
+
+1070 
+
+9629 
+
+Platanus orientalis 
+
+5378 
+
+48402 
+
+Cyclobalanopsis oak 
+
+420 
+
+3781 
+
+Willow 
+
+1434 
+
+12908 
+
+Camphor tree 
+
+4775 
+
+42973 
+
+Camellia2 
+
+Soil 
+
+Road 
+
+Water 
+
+  Toal 
+
+614 
+
+586 
+
+5529 
+
+5277 
+
+1810 
+
+16288 
+
+1525
+
+spectral  and 
+
+spatial 
+
+the 
+
+The classification map of the whole image is shown in Fig. 
+6. According  to  the  Fig.  6  ,  we  can  further  validate  the
+effectiveness  of  the  SSPCNN  classification  performance.
+Besides that, the classification map obtained by SVM, 1-D-
+CNN have a very noisy appearance. The main reason is that
+SVM,  1-D-CNN  just  use  the  spectral  information  for
+classification, but ignores the spatial information of the image. 
+Nevertheless,2-D-CNN, SSPCNN obviously reduce the noise
+interference since make full use of  the spatial information of
+the UAV hyperspectral.
+
+V. CONCLUSION
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, there are several postprocessing steps that can be taken to evaluate the performance of the model and gain insights into its predictions. Some common postprocessing steps include:
+
+* Calculating metrics such as accuracy, precision, recall, F1 score, etc. These metrics provide quantitative measures of how well the model performs on the test data.
+* Generating confusion matrices to visualize the performance of the model across all classes. A confusion matrix shows the true positive, false positive, true negative, and false negative rates for each class.
+* Creating saliency maps or heatmaps to highlight the regions of the input images that contribute most to the model's predictions. This can help identify any biases or errors in the model's decision making process.
+
+In this paper, the authors do not explicitly mention any specific postprocessing steps they took after training their models. However, based on the results presented in Section IV, it appears that they calculated some form of accuracy metric to compare the performance of their proposed method (SSPCNN) against other methods (SVM, 1-D CNN, and 2-D CNN). They also generated a classification map of the entire image using their trained model, which could potentially serve as a type of saliency map if interpreted correctly.

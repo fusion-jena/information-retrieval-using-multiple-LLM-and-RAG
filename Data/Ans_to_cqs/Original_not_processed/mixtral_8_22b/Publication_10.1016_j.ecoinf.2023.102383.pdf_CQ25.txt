@@ -1,0 +1,65 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+for a model to detect and identify them. Under this condition, more CNN 
+layers mean that more abstractly semantic information can be extracted. 
+Therefore, FRC_ResNet152FPN has more advantages than others in this 
+sense.
+
+compressed,  reducing  to  only  a  few  pixels  in  deeper  CNN  layers.  For 
+instance, an object with dimensions of 15 × 15 pixels in a UAV thermal 
+image might be represented by just 1 pixel in the feature map from Layer 
+4 of ResNet152 (refer to Fig. 4). The limited spatial resolution can lead to 
+loss of fine details, making it difficult for the model to distinguish small 
+objects from the background. Through FPN, different feature maps from 
+different layers can complement each other, and deeper feature map can 
+receive some spatial information from shallower layers. However, still 
+certain  spatial  features  might  have  been  lost  during  the  process  of 
+convolution operations. Consequently, the models of FRC_ResNet18FPN 
+and FRC_ResNet34FPN can obtain higher AP for medium and large ob-
+jects than the remaining models because they have less CNN layers than 
+others.  Notably,  the  FRC_ResNet152FPN  obtains  the  best  detection
+
+3. Methodology 
+
+3.1. Overview 
+
+Generally, an object detection model takes images as input, and a 
+DCNN,  served  as  the  backbone  network,  is  used  to  construct  feature 
+maps.  Subsequently,  a  region  proposal  network  comes  into  play,  and 
+generates  region  proposals,  assigning  a  probability  for  containing  an 
+object to each region. The derived region proposals are reshaped by a 
+pooling layer to generate Regions of Interest (RoIs). Finally, classifica-
+tion and bounding box regression is engaged to predict both the pres-
+ence and location of objects within the original images. These types of 
+models are commonly called ‘two-stage detectors’ due to their two-step 
+process (Goyal et al., 2023).
+
+For deep learning-based object detection, two fundamental elements, 
+feature  maps  and  anchor  boxes,  play  critical  roles.  Feature  maps  are 
+extracted from original images and utilized to identify potential objects 
+of  interest  and  locate  their  rough  positions  within  an  image.  Subse-
+quently, anchor boxes come into play for generating regions of interest 
+(RoIs)  and  facilitating  bounding  box  regression,  which  enables  the 
+refinement of RoIs to better match the bounding box of the objects of 
+interest. In the general definition of CNNs, the CNN layers that are closer 
+to the input layer are called shallower layers, while deeper layers are 
+those more distant  from the  input  layer. In the  architecture of  object 
+detection,  various  CNNs—such  as  ResNet18,  ResNet34,  ResNet50, 
+ResNet101, and ResNet152—differ in the overall depth of their layers. 
+These CNNs are used to extract feature maps from the original imagery.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the purpose of the deep learning model (e.g., classification, segmentation, detection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The purpose of the deep learning model discussed in the given context is object detection. This type of model is designed to take images as input and use a DCNN (Deep Convolutional Neural Network) as its backbone network to construct feature maps. A Region Proposal Network then generates region proposals, assigning a probability for containing an object to each region. These derived region proposals are reshaped by a pooling layer to generate Regions of Interest (RoIs). Finally, classification and bounding box regression are employed to predict both the presence and location of objects within the original images. Such models are often referred to as 'two-stage detectors' due to their two-step process.

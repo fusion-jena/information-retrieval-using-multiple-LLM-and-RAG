@@ -1,0 +1,85 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.5. Hyperparameter optimization 
+
+The model training process determines the values for the trainable 
+parameters  of  a  model,  e.g.,  Table  4 shows  the  size  of  the  model pa-
+rameters. In addition, a DNN model also has other parameters that need 
+to be selected, e.g., batch size, that determines the model performance. 
+The  model  parameters  define  the  model  and  are  termed  as  hyper-
+parameters. Each hyperparameter has a range of values, from which an 
+optimum  selection  can  improve  the  model  performance.  The  model 
+hyperparameters could be in hundreds, presenting a very large search 
+space, but these differ in their relative importance. The common ones for 
+a DNN are learning rate, batch size, and dropout.
+
+4.4. Hyperparameter optimization 
+
+The hyperparameter optimization results for the learning rate for the 
+EfficientNetV2B0  and  MobileNetV2  model  were  obtained  using  the 
+Hyperband and Bayesian Optimization for the Extinction dataset. The 
+optimum values determined using the Keras Tuner for the learning rate 
+were 0.00001 for both the models. The F1-Scores were then obtained for 
+the  optimal  learning  rate  (0.00001),  a  higher  value  (0.0001),  and  a 
+lower value (0.000001) and are shown in Fig. 13. It can be seen that the 
+
+optimal learning rate found through the hyperparameter optimization 
+provides better model classification performance for the selected models 
+and the dataset. 
+
+4.5. Visualising predictions
+
+Hyperparameter  optimization  was  illustrated  with  only  a  single 
+dataset  and  one  hyperparameter.  Such  limited  explorations  could  be 
+useful unless the aim is to optimize a single model by considering all the 
+important model hyperparameters (Kuncheva et al., 2023). The hyper-
+parameter  tuning  was  shown  to  improve  the  model  performance 
+(Fig. 13) for the selected models. Only a single hyperparameter, that is, 
+the learning rate was optimized with hyperband and Bayesian Optimi-
+zation techniques. In actual practice, more hyperparameters would need 
+to  be  considered  to  design  an  optimized  model.  Another  factor  to 
+consider  is  that  different  models  have  different  number  and  types  of 
+hyperparameters,  and  trying  to  fully  optimize  each  will  require 
+considerable compute resources and time as the hyperparameter search 
+space would be large.
+
+5.3. Study uncertainties and limitations 
+
+The model evaluation was performed on two datasets which are in 
+comparison  much  smaller  to  the  ImageNet  dataset  used  for  the  pre- 
+trained  models.  Hence  the  proposed  techniques  of  fine  tuning  have 
+not been applied to the large datasets. However, the general rules pro-
+vided  in  section  3.3  for  selecting  a  particular  transfer  learning  (just 
+replacing the classification head vs. fine-tuning by training few or all 
+layers) can guide the implementation choice. The selection of an opti-
+mum model however  would  also  be governed by  experimentation, to 
+resolve uncertainty in the process.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The context does not provide explicit information about the specific criteria used to determine when training is completed. However, it mentions concepts related to model training and hyperparameter optimization, which often involve monitoring certain metrics such as validation loss or accuracy to decide when to stop training.
+
+In general, some commonly used criteria to determine when training is complete include:
+
+1. Validation Loss Plateau: When the validation loss stops decreasing significantly over several epochs, this may indicate that the model has learned most of what it can learn from the data, and further training might lead to overfitting.
+
+2. Early Stopping: This technique involves stopping the training process if the validation metric (loss or accuracy) doesn't improve after a specified number of epochs. This helps prevent overfitting and saves computational resources.
+
+3. Maximum Number of Epochs: Training can be stopped once a maximum number of epochs have been reached. This ensures that the training process doesn't continue indefinitely even if there is no improvement in the validation metric.
+
+4. Learning Rate Scheduling: Adaptive learning rates can help determine when training should be stopped. For example, reducing the learning rate when the validation loss plateaus can sometimes allow the model to find a better minimum. Conversely, increasing the learning rate when the validation loss stagnates can help escape local minima.
+
+While the context does not directly address the query, these general principles can be applied to determine when training is complete based on various factors like validation loss, early stopping, maximum epochs, and learning rate scheduling.

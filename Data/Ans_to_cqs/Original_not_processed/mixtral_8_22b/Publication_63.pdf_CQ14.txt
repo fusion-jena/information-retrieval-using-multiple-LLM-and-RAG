@@ -1,0 +1,230 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Vol.:(0123456789)www.nature.com/scientificreports/Training  process  and  hyperparameters. 
+In  order  to  build  upon  a  pre-existing  knowledge  base,  we 
+employed  ’transfer  learning’  by  using  pre-trained  layer  weights  (the  storage  of  the  model’s  knowledge)  from 
+a classification task on a dataset on www. image- net. org38 for all CNN models used in this study. The regressor 
+following the basic CNN consisted of a global average pooling layer followed by two dense layers with 512 and 1 
+output units. The latter forces the CNN to output exactly one prediction (trait) value. In case of the mixed data 
+model (setups (3) and (4)), the CNN consisted of parallel branches to incorporate the different input data types. 
+The branch processing the bioclimatic data consisted of three dense layers with 64, 32 and 4 output units, and 
+the last layer of the CNN regressor contained 4 output units. After concatenating the two branches (image and
+
+For the training process, a batch size of 20 images and an RMSprop optimiser with a learning rate of 0.001 and 
+a learning rate decay of 0.0001 was used. The chosen loss function was mean squared error, while the prediction 
+accuracy was quantified by the MAE of the respective dataset. The MAE of the validation dataset was computed 
+after each epoch. Models were trained until the validation MAE did not further improve compared to the preced-
+ing epochs and diverged from the training MAE (’overfit’). The trained model was then applied to the test dataset.
+All CNN were implemented using the Keras API version (2.3.0.0)54 and the TensorFlow backend (version 
+2.2.0)55 in R (version 3.6.3)23. Model training was undergone on a workstation with two CUDA-compatible 
+NVIDIA GPUs (GeForce RTX 2080 Ti, CUDA version 11.0).
+
+15,759
+
+13,140
+
+12,364
+
+9725
+
+1076
+
+10,763
+
+Table 1.   Summary of plant functional trait datasets. Information on the maximum number of images per 
+species, total number of species ( Nspecies ), number of images with woody ( Nwoody ) and non-woody species 
+( Nnon−woody ), number of observations with non-zero standard deviations for Plasticity setup ( NTA ), number 
+of images in training ( Ntraining ), validation ( Nvalidation ) and test ( Ntest ) dataset as well as total number of images 
+( Ntotal ) in each trait dataset. LA, leaf area; GH, growth height; SLA, specific leaf area; LNC, leaf nitrogen 
+concentration; SM, seed mass; SSD, stem specific density.
+
+(cid:31)(cid:31)
+
+(cid:31)(cid:31)
+
+(cid:31)(cid:31)
+
+(cid:31)(cid:31)
+
+(cid:31)(cid:31)
+
+(cid:31)(cid:31)
+
+(cid:31)(cid:31)
+
+(cid:31)(cid:31)
+
+(cid:31)(cid:31)
+
+(cid:31)(cid:31)
+
+(cid:31)(cid:31)
+
+(cid:31)(cid:31)
+
+a)
+
+3
+1
+
+)
+
+%
+
+(
+
+2
+1
+
+E
+A
+M
+d
+e
+s
+
+i
+l
+
+1
+1
+
+a
+m
+r
+o
+N
+
+0
+1
+
+(cid:31)(cid:31)
+
+(cid:31)(cid:31)
+
+(cid:31)(cid:31)
+
+| https://doi.org/10.1038/s41598-021-95616-0
+
+1
+
+Vol.:(0123456789)www.nature.com/scientificreportsData collec(cid:17)on
+
+Model setups
+
+Trait predic(cid:17)ons
+
+Evalua(cid:17)on
+
+TRY database
+
+Trait records:
+• leaf area (LA)
+• growth height (GH)
+• speciﬁc leaf area 
+
+(SLA)
+
+• leaf nitrogen 
+content (NM)
+• seed mass (SM)
+• stem speciﬁc 
+density (SSD)
+
+linked via 
+species 
+name
+
+iNaturalist database
+
+• plant photographs
+• geoloca€ons
+
+1
+
+Baseline
+
+one common 
+CNN model
+
+2
+
+Plas(cid:20)city
+
+adding knowledge 
+on trait variability
+
+3
+
+Worldclim
+
+adding six 
+climate variables
+
+4
+
+Ensemble
+
+combining results of 
+three CNN architectures
+
+LA = …
+
+GH = …
+SLA = …
+NM = …
+SM = …
+
+SSD = …
+
+LA = …
+
+GH = …
+SLA = …
+NM = …
+SM = …
+
+SSD = …
+
+LA = …
+
+GH = …
+SLA = …
+NM = …
+SM = …
+
+SSD = …
+
+Output
+
+Trait predic€ons 
+for each trait
+and photograph
+
+Predic(cid:17)ve Performance
+
+• mean absolute error
+• explained variance
+
+Generalisability
+
+across
+• … image quali€es
+• … growth forms
+• … image-target
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: The text does not provide explicit information about how the hyperparameters of the model were optimized. However, it mentions that a batch size of 20 images and an RMSprop optimizer with a learning rate of 0.001 and a learning rate decay of 0.0001 were used. This suggests that these values were selected beforehand rather than through optimization methods such as grid search or random search. Therefore, based on the given information, it is unclear whether any hyperparameter optimization techniques were employed.

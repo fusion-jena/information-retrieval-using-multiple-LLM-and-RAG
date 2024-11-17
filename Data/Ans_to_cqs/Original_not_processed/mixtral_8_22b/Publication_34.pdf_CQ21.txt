@@ -1,0 +1,130 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+10.3.5 Evaluation Metrics
+
+Predictions are made for every species of E50 and several model performance
+metrics are calculated for each species and for two disjoints and randomly sampled
+subsets of sites: A train set (4781 sites) which is used for ﬁtting all models and a
+test set (400 sites) which aims at testing models generalization capacities. Then,
+train and test metrics are averaged over the 50 species. The performance metrics are
+described in the following.
+
+10.3.5.1 Mean Loss
+
+Mean loss, just named loss in the following, is an important metric to consider
+because it is relevant regarding our ecological model and it is the objective function
+that is minimized during model training. The Mean loss of model m on species i
+and on sites 1, . . . , K is:
+
+Loss(m, i,
+
+1, . . . , K
+
+{
+
+)
+}
+
+=
+
+1
+K
+
+K
+
+k
+
+1
+
+=
+
+λm,θi (xk)
+
+−
+
+yi
+k log(λm,θi (xk))
+
+shift and help to regularize our model as well. It consists of a parameterized
+centering and reduction of pre-activations. This facilitates optimization and enables
+to raise the learning rate leading to a quicker convergence. At the same time, it has
+a regularization effect because the centering and reduction of a neuron activation
+is linked to the mini-batch statistics. The mini-batch selection being stochastic at
+every iteration, a neuron activation is stochastic itself, and the model will not rely
+on it when it has no good effect on prediction.
+
+.,.,j is (d.reslat,j
+
+46.
+
+64
+
+×
+
+=
+
+×
+
+×
+
+10.3.4 Detailed Models Architectures and Learning Protocol
+
+MAXENT is learned independently on every species of E50. Similarly, we ﬁt a
+classic loglinear model to give a naive reference. Then, two architectures of NN are
+tested, one with a single hidden layer (SNN), one with six hidden layers (DNN).
+Those models take a vector of environmental variables xk as input. As introduced
+previously, we want to evaluate if training a multi-response NN model, i.e. a NN
+predicting several species from a single aNh(m)
+(x, θ ), can prevent overﬁtting. One
+m
+architecture of CNN is tested, which takes as input an array Xk. Hereafter, we
+described more precisely the architecture of those models.
+
+10.3.4.1 Baseline Models
+
+• LGL Considering a site k, and its environmental variables vector xk, the output
+p is simply the
+
+function λLGL of the loglinear model parametrized by β
+exponential of a scalar product between xk and β :
+
+R
+
+∈
+
+λLGL(xk, β)
+
+exp
+
+βT xk
+
+=
+
+m (x, θ )
+
+j )T al
+
+:=
+
+1,.
+
+Learning of model parameters is done through optimization (minimization
+by convention) of an objective function that depends on the prediction goal.
+Optimization method for NN parameters θ is based on stochastic gradient descent
+algorithms, however, the loss function gradient is approximated by the back-
+propagation algorithm [18].
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: After the model training process, there are several postprocessing steps that can be taken depending on the specific requirements of the project or analysis. In this case, predictions are made for every species of E50 using the trained models. Several model performance metrics are then calculated for each species and for two disjoint and randomly sampled subsets of sites: a train set and a test set. These sets aim to test the models' generalization capabilities. The performance metrics include mean loss, precision, recall, F1 score, and area under the ROC curve (AUC-ROC). Additionally, saliency maps may also be generated to visualize the importance of different features in making predictions. However, the text does not explicitly mention confusion matrices as part of the postprocessing steps.

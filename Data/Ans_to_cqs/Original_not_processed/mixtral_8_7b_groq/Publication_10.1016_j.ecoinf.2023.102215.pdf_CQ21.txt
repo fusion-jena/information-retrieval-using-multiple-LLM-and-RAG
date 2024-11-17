@@ -1,0 +1,14 @@
+Based on the provided context, there is no explicit information about the postprocessing steps involved after the model training. However, we can infer some possible steps based on the information given about the model's architecture and evaluation.
+
+First, the model generates saliency maps at multiple levels during training. These saliency maps, denoted as S(i) for i in 1 to 6, are supervised along with the final predicted saliency map, Spre. The loss function used in training includes the Binary Cross-Entropy losses of these multi-level saliency maps and the final predicted saliency map.
+
+After training, the model outputs a single saliency map, Fagg, by aggregating all the generated saliency maps, S(i). This aggregated saliency map is then passed into a TA (Texture Attention) module to obtain the final predicted saliency map, Spre.
+
+As part of the evaluation, the model's performance is compared with a set of State-of-the-art (SOTA) models using various metrics. However, the specific metrics used are not mentioned in the provided context.
+
+Therefore, the inferred postprocessing steps after the model training are:
+
+1. Generating the final predicted saliency map, Spre, by passing the aggregated saliency map, Fagg, into a TA module.
+2. Evaluating the model's performance by comparing it with SOTA models using unspecified metrics.
+
+It is important to note that there is no explicit mention of generating a confusion matrix as part of the postprocessing steps.

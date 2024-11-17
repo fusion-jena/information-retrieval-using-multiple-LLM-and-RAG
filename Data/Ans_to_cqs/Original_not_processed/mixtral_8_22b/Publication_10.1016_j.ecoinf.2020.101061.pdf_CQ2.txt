@@ -1,0 +1,58 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Tesla K80 GPU for 5 epochs. To align these unsupervised classiﬁcations
+with the ImageNet pretraining weights, we normalized the RGB chan-
+nels by subtracting the ImageNet mean from each channel. We then
+retrained the network using the hand-annotated data for 40 epochs. For
+more details of this approach see Weinstein et al. (2019). Data aug-
+mentation of random ﬂips and translations was tested and found to
+have little eﬀect on the ﬁnal score.
+
+2.2. Deep learning
+
+We used our previously developed algorithm for RGB-based tree
+identiﬁcation, which was used at a single site (Weinstein et al., 2019).
+
+Collecting a suﬃcient number of training samples will often be a
+bottleneck in developing supervised methods in airborne imagery. It is
+therefore useful to test the number of local training samples needed to
+achieve maximum performance. We performed a sensitivity study by
+training models using diﬀerent proportions of training data. We se-
+lected 5%, 25%, 50% and 75% of the total hand-annotations to com-
+pare to the full dataset for the within-site results for each site. We reran
+this experiment ﬁve times to account for the random subsampling of
+annotations. In addition, we ran the evaluation plots for the pretraining
+model only (i.e. 0% hand-annotated data) to assess whether the addi-
+tion of hand-annotated data improved the within-site pretraining.
+
+3. Results
+
+Within the ﬁeld of computer vision, there has been a broad shift
+away from user-designed features toward approaches that learn fea-
+tures from data using neural networks (Agarwal et al., 2018). There
+have been few attempts to use learned features in tree detection (Dai
+et al., 2018) due to the need for large amounts of labeled training data,
+which is often diﬃcult or impossible to collect in ecological contexts.
+Overall, generalization of deep learning algorithms across applications
+in airborne remote sensing remains a challenging task (Zhu et al.,
+2017). A typical neural network has millions of parameters and is
+therefore at risk of overﬁtting when using the small datasets usually
+available for training. Given the diversity of trees, ﬁnding general
+features will require a combination of large training datasets and al-
+gorithmic approaches that allow the neural networks to learn the
+combination of features that characterize trees across forest types.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text does not explicitly state what type of data format is being used in the deep learning pipeline. However, it can be inferred that the data format used is images since the paper discusses RGB-based tree identification and retraining the network using hand-annotated data. Additionally, the mention of normalizing the RGB channels further supports the idea that the data format used is images. Therefore, the data format used in the deep learning pipeline is likely images.

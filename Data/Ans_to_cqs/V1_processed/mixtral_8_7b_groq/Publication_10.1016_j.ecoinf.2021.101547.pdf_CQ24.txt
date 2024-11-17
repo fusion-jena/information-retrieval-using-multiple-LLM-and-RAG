@@ -1,0 +1,15 @@
+The provided context discusses the use of randomness in the deep learning pipeline, specifically in the training of a Convolutional Neural Network (CNN) for polar bear detection in aerial survey imagery. However, it does not explicitly mention the use of a random seed value to control this randomness.
+
+Nonetheless, there are several strategies employed in the described pipeline that involve randomness:
+
+1. **Random selection of background training images**: A subset of 6092 background images (out of a total of 60,000) was randomly selected to train the CNN. This helps ensure that the network is exposed to a diverse set of background features throughout the aerial survey imagery.
+
+2. **Random cropping of training images**: Each selected image was cropped to 224 × 224 pixels at a random location. This augmentation technique further increases the diversity of background features presented to the network, reducing the risk of overfitting and misclassification of background features as polar bears.
+
+3. **Random selection of background validation images**: Another set of 1000 background images was randomly selected from the full set to serve as background validation images. These images were used to assess the network's classification accuracy throughout the training process.
+
+4. **Mini-batch size**: The mini-batch size was set to 64 images. This value was determined based on the significantly imbalanced training image set, which required both a large variety of background images and a certain minimum number of polar bear images in each mini-batch.
+
+While not explicitly mentioned, the use of a random seed value could have been employed to ensure the reproducibility of these random processes. By setting a specific seed value, the same sequence of random numbers would be generated, ensuring consistent results across multiple training runs.
+
+In summary, the deep learning pipeline described in the context employs various strategies that involve randomness, such as random selection and cropping of training images, and the choice of mini-batch size. However, it does not explicitly mention the use of a random seed value to control this randomness.

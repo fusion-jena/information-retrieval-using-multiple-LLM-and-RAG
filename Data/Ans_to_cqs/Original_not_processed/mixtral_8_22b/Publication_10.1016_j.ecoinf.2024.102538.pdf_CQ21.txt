@@ -1,0 +1,74 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The model was trained over 200 epochs using the Adam optimizer 
+(cid:0) 5. The batch size 
+(Kingma and Ba, 2015), with a weight decay of 1 × 10
+was fixed at 16, and the loss function was updated as per Eq. (6). The 
+learning rate was initially set at 0.001 and was subsequently reduced by 
+a  factor  of  0.1  in  a  step-wise  manner  whenever  the  validation  loss 
+remained  constant  for  five  epochs.  The  minimum  learning  rate  was 
+(cid:0) 5. The hyper-parameter λ in Eq. (4) was set to 0.8, 
+established at 1 × 10
+Mk  in Eq. (5) was defined as 2k+1(k = 1, 2, …K), and β in Eq. (6) was set 
+to 0.4.
+
+The  model’s  performance  was  assessed  using  the  mean  reciprocal 
+rank  (MRR),  accuracy  (ACC),  and  hierarchical  distance  of  a  mistake 
+(HDM) as metrics. The MRR (Go¨eau et al., 2018), an official evaluation 
+metric of the BirdCLEF2018 competition, was employed to assess pro-
+cesses that generate a list of potential responses to a sample of queries 
+which are ranked by their likelihood of correctness. Accuracy was used 
+to determine the proportion of correctly classified items, and an average 
+accuracy across all class hierarchies (avg_ACC) was calculated to eval-
+uate the efficacy of the hierarchical classification. The HDM (Bertinetto 
+et al., 2020) was used to quantify the degree of misclassification when 
+only  a  single  class  could  be  predicted.  For  example,  misclassifying 
+Garrulax canorus as  Leiothrix lutea may not incur the same penalty as 
+misclassifying Garrulax canorus as Caprimulgus jotaka. The mean height
+
+We denote the mean of training the hierarchical framework proposed 
+by Wang et al., 2021 using our attention-based Xception backbone as 
+“LHT+”,  where  LHT  stands  for  label  hierarchy  transformation.  This 
+framework  uses  specific  classification  headings  at  different  levels  to 
+distinguish features of varying levels. Finer-level features contribute to 
+predicting coarser-level labels through a label hierarchy transformation 
+matrix. Our path correction strategy was also incorporated. To ensure a 
+fair  comparison,  we  avoided  data  augmentation  in  all  models  and 
+maintained consistent hyper-parameters and random seed settings.
+
+Subsequent  tests  involved  the  exclusion  of  hierarchical  attention 
+(“w/o  HA”)  and  position  attention  (“w/o  PA”)  mechanisms  from  the 
+main block. Table 9 shows that the removal of positional attention from 
+the backbone network led to an average 1.5% decrease in classification 
+accuracy across all levels. A similar trend was observed when attention 
+was removed from the hierarchical modules, resulting in a more pro-
+nounced performance drop. This implies that the strategic integration of 
+various attention mechanisms within the model can enhance key feature 
+extraction  and  improve  the  discriminability  of  different  feature 
+categories. 
+
+Finally,  the  effectiveness  of  the  proposed  path  correction  strategy 
+was evaluated; the results are reported in Table 9. The omission of this 
+step  (denoted  as  “w/o  path_corr”)  also  resulted  in  a  degradation  of
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, several postprocessing steps were mentioned or implied in the given context. These include:
+
+1. Evaluation Metrics Calculation: The model's performance was assessed using various evaluation metrics such as Mean Reciprocal Rank (MRR), Accuracy (ACC), Hierarchical Distance of a Mistake (HDM), and Average Accuracy across all class hierarchies (avg\_ACC). These metrics help evaluate the model's ability to accurately predict bird species based on audio recordings.
+2. Path Correction Strategy: The text mentions incorporating a path correction strategy into the model. However, it does not provide details about what this strategy entails. It is likely a method to refine or adjust the model's predictions based on certain criteria or rules.
+3. Exclusion of Attention Mechanisms: Subsequent tests involved removing hierarchical attention ("w/o HA") and position attention ("w/o PA") mechanisms from the main block. This process helps understand the impact of these components on the overall performance of the model.
+
+However, there is no explicit mention of other common postprocessing techniques like saliency maps or confusion matrices in the provided context. Therefore, I cannot confirm if they were part of the postprocessing steps for this particular model.

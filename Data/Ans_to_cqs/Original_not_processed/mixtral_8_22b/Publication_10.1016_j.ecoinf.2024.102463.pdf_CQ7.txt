@@ -1,0 +1,70 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+hyperparameters for model architectures.  
+
+2.  Partial training: Models are partially trained (on a small fraction of 
+the data) to quickly eliminate underperforming configurations.  
+3.  Successive Halving: The remaining configurations are grouped into 
+sets of different sizes, and the associated models are trained further. 
+The best-performing configurations in each set are promoted to the 
+next  stage,  while 
+the  under-performing  configurations  are 
+eliminated. 
+
+4. Repeat: Steps 2 and 3 are repeated until only one configuration re-
+mains, which is then considered the best configuration found.
+
+described in the next section. 
+
+During the training of the model, the data is then standardized. In 
+section 4, one of the three datasets will be defined as a training base, on 
+which the standardizaion parameters will be calculated and applied to 
+the  other  two  datasets  considered  as  test  base.  The  best  result  of  the 
+optimisation will allow us to determine the base that will be used for 
+training. 
+
+4. Model optimization: Determination hyperparameters and 
+parameter training 
+
+4.1. Optimisation algorithm and experimental design
+
+structure as the one present in the encoder 
+
+For more details on the theory of the elements discussed we refer the 
+reader to the reference book (Goodfellow et al., 2016). This architecture 
+involves  a  large  number  of  hyperparameters  related  to  the  different 
+types of layers (convolutional or recurrent) and therefore a large number 
+of  parameters.  As  a  reminder,  a  parameter  is  internal  to  the  neural 
+network.  It  will  evolve  during  the  whole  training  process  A  hyper-
+parameter is external to the training process, it defines the properties of 
+the network. It remains static during the training process. 
+
+The  HyperBand  algorithm  is  proposed  for  optimisation  and  is 
+
+described in the next section.
+
+the role of training base and test base of each system is swapped. The 
+Hyperband algorithm is applied to each database to determine the best 
+model (hyperparameters + parameters). This first treatment will allow 
+us to identify the most suitable database to be the training base.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the given context, the criteria used to split the data for deep learning model training are not explicitly mentioned. However, it can be inferred from the text that the data is divided into a training base and a test base. One dataset out of the three available datasets is chosen as the training base, and the standardization parameters are calculated based on this dataset. These parameters are then applied to the remaining two datasets, which serve as the test bases.
+
+Additionally, the context mentions using the HyperBand algorithm for optimization, where the role of the training base and test base of each system is swapped. This suggests that the data might also be split into multiple sets for cross-validation purposes. Cross-validation is a technique used to assess how well a statistical model will generalize to an independent dataset. By splitting the data into multiple subsets, the model can be trained and evaluated several times, with each subset serving as both the training and testing data.
+
+In summary, although the exact criteria used to split the data are not specified in the provided context, it can be deduced that the data is divided into a training base and a test base, possibly with additional splits for cross-validation purposes.

@@ -1,0 +1,11 @@
+The criteria used to split the data for deep learning model training are not explicitly mentioned in the provided context. However, it does mention some data transformation steps that are applied to the labeled sounds in a recording before they are used for model training.
+
+First, the recordings are standardized because they are from community-contributed collections and may be recorded with various recording equipment, settings, and weather conditions. The standardization process involves using a sampling rate of 32 kHz with a 100 Hz high-pass filter.
+
+Next, the standardized recordings are segmented into clips with a fixed duration. The context explains that the clips are segmented into 3-second clips because the duration of most sound classes in their database is less than 3 seconds. This step is likely necessary to ensure that each clip contains a complete sound event and to reduce the required amount of training data.
+
+After segmentation, the audio clips are transformed into spectrograms as input images for model training. This involves applying the short-time Fourier transform (STFT) with a window size of 1600 samples, hop size of 400 samples (75% overlap), and 240 mel-scale frequency bins. Each spectrogram thus has a height of 438 pixels and a width of 436 pixels.
+
+Finally, the context mentions data augmentation but does not provide details on how it is implemented. Data augmentation is a common technique used to increase the size of the training dataset and improve the model's ability to generalize.
+
+Based on the provided context, it can be inferred that the data is split into clips before being transformed into spectrograms. However, the criteria used to split the data into training, validation, and test sets are not mentioned. It is best practice to split the data into these three sets to evaluate the model's performance and prevent overfitting. A common approach is to use 70% of the data for training, 15% for validation, and 15% for testing. However, the specific criteria used may depend on the size and nature of the dataset.

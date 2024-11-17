@@ -1,0 +1,76 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.5.1. Model selection and parametrization 
+
+For  the  classification  task,  before  the  implementation  of  deep 
+learning models, all images were resized to the same resolution (227×
+197  pixels)  by  considering  the  mean  dimensions  of  the  set,  and  then 
+normalized to the [0,1] range (Na and Fox, 2020). Then, six open source 
+CNNs  were  selected:  VGG16  (Simonyan  and  Zisserman,  2015), 
+ResNet50,  ResNet101  (He  et  al.,  2016),  Inception-v3  (Szegedy  et  al., 
+2016), DenseNet201 (Huang et al., 2017) and EfficientNetB0 (Tan and 
+Le,  2019).  These  algorithms  were  selected  because  of  their  ease  for 
+transfer  learning and  high  performance  on  similar classification  tasks 
+(Arun  and  Viknesh,  2022;  Vallabhajosyula  et  al.,  2022).  For  model 
+optimization, we used the Adam optimizer algorithm (Kingma and Ba, 
+2015), a batch size of 10 and 100 epochs. The learning rates were chosen 
+(cid:0) 6 showing 
+from empirical trials over 100 epochs, with and 10
+
+2.5.2. Model training and validation 
+
+For  the  classification  task,  the  performance  of  the  models  was 
+
+evaluated  using  5-fold  cross  validation  over  the  dataset  described  in 
+Sections 2.3 and 2.4, as this approach provides a robust and unbiased 
+estimate of a model’s performance while also guiding effective hyper-
+parameter  tuning  for  improved  overall  performance  (James  et  al., 
+2023). The dataset was divided into 5 subsets, and, at each iteration of 
+the 5-fold cross validation, one was used to evaluate the models using 
+the  performance  metrics  that  will  be  presented  in  Section  2.5.4.  The 
+remaining  4  subsets  were  used  for  training  (90%  of  the  images)  and 
+validation (10% of the images).
+
+A.1b),  with  high  performances  (e.g.,  f1-score  values  above  93.09%; 
+Table  4).  Unlike  the  training  task,  the  best  results  were  obtained  by 
+(cid:0) 4,  in  terms  of  accuracy 
+EfficientNetB0  with  a  learning  rate  of  10
+(97.50%),  sensitivity  (96.00%)  and  f1-score  (97.46%),  followed  by 
+(cid:0) 4),  which  also  showed 
+Inception-v3  with  the  same  learning  rate  (10
+high accuracy (96.88%), sensitivity (94.00%), specificity (99.75%) and 
+f1-score (96.78%). In the case of the EfficientNetB0 model, only 4% of 
+the  images  displaying  the  Cortaderia  selloana  were  confused  by  the 
+model as showing no C. selloana (false negatives; Fig. A.1c). Likewise, 
+from  the  images  showing  no  C.  selloana,  in  1%  of  the  cases  Effi-
+cientNetB0  incorrectly  predicted  the  class  “With  Cortaderia  selloana” 
+(false  positives;  Fig.  A.1d).  A  similar  pattern  was  verified  for  the 
+remaining CNNs (see confusion matrices in Tables A.6 and A.7).
+
+Table 2 
+Performance metrics for both learning rates scenarios trained for each classification model (mean ±
+standard deviation of the five folds). ACC – Accuracy, TPR – Sensitivity, TNR – Specificity and F1 – 
+F1-score. Light grey cells highlight the best performance results for learning rate and metric. 
+
+Table 3 
+Performance metric (mAP@0.50IOU; mean average precision), average inference time per image and total 
+loss (sum of the classification and localization losses) for each model. Light grey cells highlight the best model 
+results for performance (mAP), total loss and speed. 
+
+3.3. Mapping the spatial distribution of Cortaderia selloana
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning models used for the classification task employed the Adam optimizer algorithm for optimization. The learning rates were determined through empirical trials over 100 epochs. However, the exact learning rates used are not explicitly mentioned in the given context. The models were evaluated using 5-fold cross-validation, with a batch size of 10 and 100 epochs. It is important to note that the best results were obtained by EfficientNetB0 with a learning rate of 10^-4, achieving high accuracy, sensitivity, and f1-score. Similarly, Inception-v3 with the same learning rate also demonstrated high performance.

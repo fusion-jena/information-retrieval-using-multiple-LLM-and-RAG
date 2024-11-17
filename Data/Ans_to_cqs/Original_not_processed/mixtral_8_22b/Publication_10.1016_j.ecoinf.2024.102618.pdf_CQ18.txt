@@ -1,0 +1,158 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Fig. 2. Preprocessing step.  
+
+EcologicalInformatics81(2024)1026184A.H. Ali et al.                                                                                                                                                                                                                                    
+
+Fig. 3. The proposed model.  
+
+minority classes during training. 
+
+This  is  implemented  in  two  steps.  First  we  use  a  function  called 
+compute_class_weights from sklearn library in Python. This function is 
+responsible of calculating the weights that should be given to each class 
+depending on the class numbers. 
+
+The second step involves using these class weights as inputs to train 
+the model. This is done by setting the class weight parameters using the 
+
+previously calculated weights. The fit function inside sklearn is imple-
+mented in a way to accept such parameters and it applies them during 
+training. 
+
+3.4. Deep learning models
+
+model 
+
+Accuracy 
+
+DenseNet201 
+efficientNetB0 
+efficientNetB3 
+Inceptionresnetv2 
+ResNet50v2 
+ensemble of EfficientNetB0, Inceptionresnetv2, resnet50v2 
+ensemble of EfficientNetB0, DesNet201 
+ensemble of EfficientNetB0, Desnet201, ResNet50V2 
+ensemble of EfficientNetB0, EfficientNetB3 
+ensemble of EffieicntNetB0, EffieicntNetB3, 
+inceptionresnetv2, Desnet201, ResNet50V2 
+ensemble of EfficientNetB0, inceptionresnetv2, Desnet201 
+ensemble of EfficientNetB0, inceptionresnetv2, 
+Desnet201, EfficientNetB3 
+ensemble of EfficientNetB0, inceptionresnetv2,Desnet201, 
+ResNet50V2 
+ensemble of EfficientNetB0, inceptionresnetv2, 
+EfficientNetB3 
+ensemble of inceptionresnetv2 + Desnet201 + ResNet50V2 
+
+F1- 
+score 
+
+0.9948 
+0.9979 
+0.9979 
+0.9948 
+0.9917 
+0.9979 
+0.9979 
+0.9979 
+0.9990 
+0.9990 
+
+0.9929 
+0.9964 
+0.9952 
+0.9972 
+0.9764 
+0.9978 
+0.9977 
+0.9981 
+0.9986 
+0.9986 
+
+0.9986 
+0.9989 
+
+0.9990 
+0.9990 
+
+0.9987 
+
+0.9990 
+
+0.9987 
+
+0.9979 
+
+0.9978 
+
+0.9990
+
+3.7. Performance metrics 
+
+In this work, we measure the accuracy of the deep-learning models 
+
+by using the following metrics:  
+
+• Accuracy 
+
+accuracy which is a simple metric for deep-learning classification 
+models. This metric measures the overall percentage of correct pre-
+dictions. However, accuracy does not take into account the different 
+types  of  errors.  That  is  the  reason  we  employ  other  metrics  for 
+measuring the efficiency of deep learning models. 
+
+Accuracy =
+
+TP + TN
+TP + TN + FP + FN
+
+• Precision 
+
+(1)    
+
+Precision  is  a  metric  that  measures  the  number  of  positive  pre-
+dictions  that  are  actually  correct  viz.  a  viz.  correct  and  incorrect 
+positive predictions. 
+
+recall is a metric that measures the number of positive predictions 
+that are actually correct viz. a viz. correct positive predictions and 
+incorrect negative predictions. Recall measures how many positive 
+predictions were correctly spotted by the model. 
+
+Recall = TP
+
+TP + FN
+
+for the EfficientNetB3 model. Fast convergence is noticed in the model’s 
+response  as  it  converges  at  the  fourth  epoch.  Figs.  4  and  5  show  the 
+confusion  matrix  of  classification  of  plant  diseases  by  the  ensemble 
+model and by EfficientNetB3 respectively. A confusion matrix shows the 
+number of correct classifications for each class in its diagonal cells. It 
+also shows the number of misclassifications in other cells than the di-
+agonal.  It  can  be  seen  from  the  confusion  matrix  that  EfficientnetB3 
+model misclassified class 19 with class 22 23 time. This classification 
+error  is  removed  with  ensemble  modelling.  It  can  be  seen  from  the 
+confusion matrix of the ensemble model that there is a small number of 
+misclassifications compared to the EfficientNetB3 model. Figue 5 shows 
+a small number of misclassification. It can be seen that the model biggest 
+error  is  a  misclassifcations  of  class  7.  These  misclassifications  are
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To address the issue of minority classes during training, the authors implement a strategy in two steps. Firstly, they utilize a function called compute\_class\_weights from the sklearn library in Python. This function computes the weights that should be assigned to each class based on their respective class numbers. Secondly, these computed class weights are then used as input when training the model. This is achieved by setting the class weight parameter using the previously calculated weights. The fit function within sklearn accepts such parameters and applies them during the training process.
+
+Therefore, the strategy implemented to monitor the model performance during training involves utilizing class weights to balance the impact of minority classes. By assigning higher weights to underrepresented classes, the model becomes more sensitive to those classes, reducing bias towards majority classes and improving overall performance.

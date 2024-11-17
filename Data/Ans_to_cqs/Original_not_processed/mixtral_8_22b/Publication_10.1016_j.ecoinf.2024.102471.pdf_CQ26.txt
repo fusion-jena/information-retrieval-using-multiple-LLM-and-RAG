@@ -1,0 +1,127 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Fig. 2. Wav2Vec pre-training phase.  
+
+quantized representation for the masked latent feature representation. 
+Diversity loss shown in (2) is also added to the objective function for 
+regularization during pre-training. 
+
+(
+
+Lm = (cid:0)
+
+log
+
+sim(ct ,qt )
+e
+k
+
+/
+
+∑
+
+q′∈Qt
+
+sim(ct ,q′)
+e
+k
+
+Ld =
+
+(cid:0)
+*
+
+1
+GV
+
+) )
+
+(cid:0)
+
+pg
+
+(cid:0) H
+
+(1)  
+
+(2) 
+
+In the supervised fine-tuning phase, the labelled dataset is used in 
+training the model to predict particular words or phonemes. Fig. 3 de-
+picts the process and components in the fine-tuning phase of wav2vec. 
+Phonemes are the smallest unit of sound, usually one or two letters, in 
+the language. During fine-tuning, the quantization module is removed. 
+Instead, a linear projection layer is added to the context network. Then 
+the model is fine-tuned on connectionist temporal classification (CTC) 
+loss for the Automatic Speech Recognition task. So, the wav2vec model 
+has a general understanding of phonemes present in human speech.
+
+Attention-based  hybrid  CNN-LSTM  is  a  deep  learning-based  archi-
+tecture that hybridizes CNN and LSTM with an attention mechanism for 
+the classification of audio recordings (Hamdi et al., 2022) (Zhang et al., 
+2021).  The  main  advantage  of  an  Attention-based  CNN-LSTM  over  a 
+simple CNN-LSTM is that it can focus on the most important parts of the 
+input  data  when  making  predictions.  An  Attention-based  model  can 
+learn to assign higher weights to the most important parts of the input 
+data and lower weights to the less important parts. It can lead to better 
+performance, as the model can focus on the most relevant parts of the 
+data  instead  of  being  distracted  by  irrelevant  parts.  Furthermore, 
+attention-based models can lead to higher interpretability because the 
+model  is  more  explicit  about  which  input  data  elements  has  to  pay 
+attention.
+
+4.3. Baseline models 
+
+Hybrid  CNN-LSTM  is  an  architecture  that  combines  the  temporal 
+modelling ability of the LSTM with the CNN ability to learn invariant 
+features  (Ayadi  and  Lachiri,  2022)  (Yadav  and  Vishwakarma,  2020) 
+(Ashraf  et  al.,  2023).  The  combination  of  Convolutional  Neural  Net-
+works  (CNN)  and  Long  Short-Term  Memory  (LSTM)  has  the  major 
+benefit of learning spatial and temporal data. CNN excels in extracting 
+spatial elements like edges, textures, and forms from an input. Mean-
+while,  an  LSTM  excels  in  extracting  temporal  data,  like  the  order  of 
+words in a phrase or frames in a movie. By combining the two, a model 
+
+EcologicalInformatics80(2024)1024719B. Swaminathan et al.
+
+3.1. Feature encoder 
+
+The feature encoder of the pre-trained Wav2vec model reduces the 
+dimensionality of the audio data, converting the raw waveform into a 
+sequence of feature vectors Z every 20 milliseconds. The main compo-
+nent of the feature encoder's architecture is seven layers of a 1D con-
+volutional neural network with 512 channels at each layer. The size of 
+the kernel and strides decreases as the layer progresses in the network. 
+The waveform is normalized before passing through the convolutional 
+layer, followed  by  layer  normalization and  GELU  activation function. 
+Finally,  latent  feature  vectors  represent  the  latent  feature  of  bird 
+vocalization.  Thus,  it  helps  the  model  to  identify  and  understand  the 
+sequential information in the vocalization audio of multi-bird species. 
+
+3.2. Context network
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To address data bias during preprocessing of the deep learning pipeline, several techniques can be employed. These include stratified splitting, oversampling, undersampling, and diverse data collection.
+
+Stratified splitting involves dividing the dataset into training and testing sets while maintaining the same distribution of classes within both sets. This technique ensures that the classifier does not become biased towards any specific class due to imbalanced data.
+
+Oversampling is another method used to handle data imbalance. In this approach, synthetic samples are generated from the minority class to balance the dataset. Techniques such as SMOTE (Synthetic Minority Over-sampling Technique) can be applied to create new instances based on existing ones.
+
+Undersampling, on the other hand, focuses on reducing the number of majority class examples to match the count of minority class instances. Random under-sampling or informed under-sampling methods can be utilized depending upon the nature of the problem.
+
+Lastly, collecting diverse data is crucial to ensure that the trained model performs well across various scenarios. A diversely collected dataset should contain examples representing different age groups, genders, ethnicities, etc., ensuring fairness and unbiased performance.
+
+These techniques help mitigate data bias during preprocessing and contribute significantly to building robust and reliable deep learning pipelines.

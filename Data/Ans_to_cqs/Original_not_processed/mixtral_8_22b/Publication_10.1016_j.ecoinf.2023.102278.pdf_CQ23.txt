@@ -1,0 +1,169 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 4 
+Average performance (Avg) and standard deviation (SD) for five trained models. Average precision, recall and F1-score for trained ResNet50 and EfficientNetB3 
+(EffNetB3) models modified for multitask learning (MTL) with transfer learning using pre-trained weights from ImageNet. The models are trained and validated on the 
+TLm  dataset. The models ResNet50, EfficientNetB3 are trained without MTL.  
+
+Model 
+
+Level 
+
+ResNet50MTL 
+EffNetB3MTL 
+
+ResNet50MTL 
+EffNetB3MTL 
+
+ResNet50MTL 
+EffNetB3MTL 
+
+ResNet50 
+EffNetB3 
+
+L1 Order 
+L1 Order 
+
+L2 Family 
+L2 Family 
+
+L3 Species 
+L3 Species 
+
+Species 
+Species 
+
+Avg 
+
+0.990 
+0.986 
+
+0.987 
+0.984 
+
+0.955 
+0.948 
+
+0.955 
+0.953 
+
+Precision 
+
+SD (10
+
+(cid:0) 3) 
+
+(1.0) 
+(4.4) 
+
+(0.8) 
+(3.1) 
+
+(4.3) 
+(5.2) 
+
+(3.3) 
+(2.5) 
+
+Avg 
+
+0.991 
+0.993 
+
+0.986 
+0.988 
+
+0.961 
+0.966 
+
+0.957 
+0.966 
+
+Recall 
+
+SD (10
+
+(cid:0) 3) 
+
+(1.1) 
+(0.5) 
+
+(0.9) 
+(0.7) 
+
+(9.8) 
+(5.1) 
+
+(7.3) 
+(2.5) 
+
+Avg 
+
+0.991 
+0.989 
+
+0.987 
+0.986 
+
+0.957 
+0.956 
+
+0.955 
+0.959
+
+Rl = (Wl2*σrelu(Wl1*R0 + bl1)) + bl2)
+
+(2) 
+
+Here  Wl1  and  Wl2  represent  the  weights,  and  bl1, bl2  represent  the 
+biases for the independent FC layer representation. We apply dropout 
+regularization  in  the  forward  pass  during  training  so  that  random 
+
+EcologicalInformatics77(2023)1022784K. Bjerge et al.
+
+The average and standard deviation of the precision, recall and F1- 
+score  are  shown  in  Table  4  for  the  ResNet50  and  EfficientNetB3 
+models validated  with multitask learning and  pre-trained weights. As 
+expected,  we  observe  higher  precision,  recall  and  F1-score  at  higher 
+taxonomic  ranks.  Here  we  see  an  increase  in  the  average  F1-score 
+ranging from 95.7% (L3) to 98.7% (L2) and 99.1% (L1) at the highest 
+ranks  with  ResNet50MTL.  A  resent  study  by  Ong  and  Hamid  (2022) 
+designed  to  classify  five  taxa  of  museum  insect  species  achieved  Fl- 
+scores  below  90%  with  separate  models  for  each  level  of  the 
+
+hierarchy. However, our dataset is more comprehensive with a lower 
+image resolution.
+
+Appendix C. The training of the models 
+
+The best model with transfer learning was chosen based on the minimum total loss after nine epochs, as seen in Fig. C.5. Note that we observe 
+overfitting after nine epochs, where the validation loss starts to increase, although the bias is still very low. The increase is indicated by a higher 
+difference between training and validation loss and bias is the loss evaluated on the training dataset. 
+
+Note that the largest variation is 0.6%, which is very similar to the variation of 0.8% when training with different values of α in Fig. B.4. This 
+
+indicates a minimal impact on the change of accuracy for different choices of α. 
+
+References 
+
+An, G., Akiba, M., Omodaka, K., Nakazawa, T., Yokota, H., 2021. Hierarchical deep 
+
+learning models using transfer learning for disease detection and classification based 
+on small number of medical images. Scient. Rep. 11 (1) https://doi.org/10.1038/ 
+s41598-021-83503-7.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of the deep learning model, several measures were taken. Firstly, the dataset used for training and validation was diverse, consisting of multiple classes and levels within the TLm dataset. Secondly, the use of pre-trained weights from ImageNet for transfer learning helped improve the model's ability to learn features relevant to the task. Thirdly, the models were trained and validated on the same dataset, ensuring consistency in evaluation metrics. Lastly, the choice of the best model was based on the minimum total loss after nine epochs, preventing overfitting and improving the model's generalizability. Cross-validation or stratified splitting techniques were not explicitly mentioned in the given context.

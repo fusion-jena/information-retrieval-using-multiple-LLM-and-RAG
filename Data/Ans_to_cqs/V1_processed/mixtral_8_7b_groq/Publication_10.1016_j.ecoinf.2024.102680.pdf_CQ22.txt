@@ -1,0 +1,17 @@
+The performance of the deep learning model for underwater object detection is evaluated using metrics such as precision, recall, and average precision (AP). 
+
+Precision is the number of true underwater objects predicted by the model as a proportion of the total number of detected objects. It is calculated as the number of true positives (TP) divided by the sum of true positives and false positives (FP). FP represents the number of backgrounds misclassified as objects.
+
+Recall, on the other hand, is the number of true objects predicted by the model as a proportion of all the true detected objects. It is calculated as the number of true positives divided by the sum of true positives and false negatives (FN). FN denotes the number of true objects misidentified as backgrounds.
+
+The calculation of a single object category is shown in Eq. (12), where P represents Precision and R represents Recall. Its value is the area under the Precision-Recall curve. The calculation formula for AP is shown in Eq. (13), where M represents the number of object species.
+
+When calculating FPS, the batch size needs to be set to 1.
+
+The original YOLOv8 network uses the C2f module for feature extraction, which employs a split operation on features after convolution. This operation divides the input data into two non-overlapping parts, making it difficult to obtain comprehensive and rich feature information through half of the channel's features.
+
+To improve the performance of the baseline network, the CSMB and LKSP modules were introduced. The CSMB module improved the AP50 by 1%, the AP75 by 1.6%, and the AP by 0.8%, indicating that the CSMB module effectively extracted features of underwater objects. The LKSP module perfectly replaced the SPPF module without significantly increasing the number of parameters, achieving a higher level of accuracy than the SPPF module.
+
+However, using large kernel convolutions usually leads to overwhelming computational complexity, resulting in a sharp increase in the number of network parameters and network computational load. To overcome this issue, dilated convolution and depthwise separable convolution were used to reduce computations. Dilated convolution can increase the receptive field of the convolution kernel by inserting "holes" without adding parameters or increasing the computational load.
+
+Therefore, the performance of the deep learning model for underwater object detection is evaluated using precision, recall, and average precision, while the CSMB and LKSP modules were introduced to improve the performance of the baseline network. Additionally, dilated convolution and depthwise separable convolution were used to reduce computations and overcome the issue of overwhelming computational complexity.

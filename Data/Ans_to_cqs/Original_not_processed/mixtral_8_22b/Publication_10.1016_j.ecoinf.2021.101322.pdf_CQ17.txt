@@ -1,0 +1,122 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2. Methods 
+
+2.1. CNN training data
+
+We found that the use of transfer learning when training our CNNs 
+was crucial for their performance. Transfer learning is a common tech-
+nique within deep learning, where networks trained to perform well on 
+one  task  can  be  adapted  with  some  training  towards  similar  tasks 
+(Yosinski et al., 2014). This is especially useful when datasets are sparse 
+and more narrowly distributed. Often, a significant benefit can be gained 
+by starting from a pre-trained network where the first and intermediate 
+layers in the network already have been shaped by training on a large 
+and  diverse  dataset.  EfficientNet  is  available  pretrained  on  the  large 
+benchmark dataset, ImageNet, containing around 1.4 million images in 
+1000 classes (Deng et al., 2009), more than 100 times the number of 
+labelled salmon scale images used in this study. The network's ability to 
+abstract lower level but more generally useful features has then already
+
+Performance of the CNN models were assessed using four different 
+metrics (test loss, mean squared error - MSE, mean average percentage 
+error – MAPE and accuracy - Acc). Accuracy of the regression tasks was 
+calculated  by  rounding  the  prediction  to  the  nearest  integer  age  and 
+comparing it with the ground truth. The labelling provided by human 
+readers  are  treated  as  the  ground  truth,  and  accuracy  and  other  per-
+formance metrics relates directly to this. 
+
+The CNN hyperparameters configurations used for all four networks 
+during training are shown in Table 1. During training we use minibatch 
+gradient descent. 
+
+2.4. Comparing the CNN and six expert readers using an independent 
+dataset
+
+Number of epochs without improvement in validation 
+error before training will terminate early  
+
+Table 2 
+CNN performance metrics. MSE is the mean square error, MAPE is the mean 
+average percentage error, and Acc% is the average accuracy. In addition, the 
+number of images in the dataset (set size) for each task and the weighting of 
+classes are given. The × indicates that the performance metric is not applicable 
+to the specific CNN.  
+
+Predicting 
+
+River Age 
+Sea Age 
+Spawning 
+
+Test 
+loss 
+
+0.336 
+0.157 
+0.113 
+
+MSE 
+
+MAPE 
+
+0.336 
+0.157 
+×
+
+17.34 
+8.64 
+×
+
+Acc 
+% 
+
+63.20 
+86.99 
+96.40 
+
+Set 
+size 
+
+6238 
+8286 
+9056 
+
+Farmed 
+
+0.187 
+
+×
+
+×
+
+96.70 
+
+5919 
+
+Weighting classes 
+
+– 
+– 
+
+Non-spawner: 0.5, 
+Previous 
+spawner:19 
+Farmed: 5.87, 
+Wild:0.54
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, based on the provided context, there is no explicit mention of any regularization methods such as dropout or L2 regularization being used to prevent overfitting in the deep learning pipeline. Therefore, I cannot provide information regarding which regularization methods were employed in this case. However, it is important to note that these techniques are commonly used in deep learning pipelines to avoid overfitting and improve model generalization. Dropout involves randomly dropping out neurons during training to reduce co-dependency between them, while L2 regularization adds a penalty term to the loss function to discourage large weights. Other popular regularization methods include batch normalization, early stopping, and data augmentation.

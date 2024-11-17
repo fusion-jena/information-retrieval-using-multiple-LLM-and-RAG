@@ -1,0 +1,106 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+S = ⌊ 1
+Ξ(f)
+
+⌋
+
+(25) 
+
+During  training,  the  input  tensor  comprises  three  dimensions:  the 
+batch  size,  the  number  of  model  variables,  and  the  future  prediction 
+length. The dimension concerning the number of features is segmented 
+by dynamically changing the slice sizes and strides, and the segmented 
+tensors are folded, adding a slice dimension. Finally, by merging the first 
+
+In the second stage of the attention calculation, the covariates are 
+dynamically segmented, capturing their features at different time scales 
+through multiscale attention. Specifically, for the static variables S(t), 
+the multiscale attention FMSA
+S(t)
+)
+(cid:0)
+S(t) = Softmax
+FMSA
+
+is calculated as in Formula 30: 
+
+Wf ,S⋅IS(λk)
+
+(30) 
+
+Similarly, for dynamic variables Z(t), the calculation is as in Formula 
+
+31: 
+
+(cid:0)
+Z(t) = Softmax
+FMSA
+
+)
+
+Wf ,Z⋅IZ(λk)
+
+3.4.3. Attention fusion 
+
+(31)
+
+quality prediction method based on a hybrid model. Eco. Inform. 76, 102125. 
+Zhi, W., Feng, D., Tsai, W.-P., Sterle, G., Harpold, A., Shen, C., Li, L., 2021. From 
+
+hydrometeorology to river water quality: can a deep learning model predict 
+dissolved oxygen at the continental scale? Environ. Sci. Technol. 55, 2357–2368. 
+Zhou, H., Zhang, S., Peng, J., Zhang, S., Li, J., Xiong, H., Zhang, W., 2021. Informer: 
+
+Beyond efficient transformer for long sequence time-series forecasting. In: 
+Proceedings of the AAAI Conference on Artificial Intelligence, vol. 35, 
+pp. 11106–11115. 
+
+Zhou, T., Ma, Z., Wen, Q., Wang, X., Sun, L., Jin, R., 2022. Fedformer: Frequency 
+
+enhanced decomposed transformer for long-term series forecasting. In: International 
+Conference on Machine Learning. PMLR, pp. 27268–27286. 
+
+EcologicalInformatics82(2024)10269517
+
+4.3.1. Data description
+
+◦
+
+rate of 0.05 is implemented. Throughout the training process, a learning 
+rate of 0.0001 is used, with 300 training epochs and 24 data instances 
+processed  per  batch.  To  prevent  data  snooping  bias,  the  dataset  is 
+divided chronologically: 70% for the training set, 10% for the validation 
+set, and 20% for the test set. This allocation strategy better simulates 
+real-world scenarios, ensuring that the data in the validation and test 
+sets differ from the training set data, thereby enhancing the generaliz-
+ability of the model. All the tests are run on a Windows 11 operating 
+system  using  Python  3.8,  with  specific  hardware,  including  a  laptop 
+possessing a 12th-Gen Intel Core i7-12700H GPU at 2.30 GHz and an 
+NVIDIA GeForce RTX 3060 GPU. Due to the early stopping strategy, the 
+training process converges before the last epoch, preventing overfitting 
+issues. 
+
+4.1. Model forecasting performance metrics 
+
+4.3. Case 1: DO prediction in the Shandong peninsula
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of the deep learning model, several measures were taken during its development and testing. Firstly, the dataset was divided chronologically into three parts: 70% for the training set, 10% for the validation set, and 20% for the test set. This allocation strategy helps simulate real-world scenarios where the data in the validation and test sets differ from the training set data. By doing so, it ensures that the model does not become too specialized or biased towards the training data, thus improving its ability to perform well on unseen data.
+
+Secondly, throughout the training process, a learning rate of 0.0001 was used, along with 300 training epochs and 24 data instances processed per batch. These settings help strike a balance between optimizing the model's performance and avoiding overfitting. Additionally, an early stopping strategy was employed, which allows the training process to converge before reaching the final epoch. This prevents overfitting issues and further contributes to maintaining the model's generalizability.
+
+Lastly, all tests were conducted on a Windows 11 operating system using Python 3.8, with specific hardware such as a laptop equipped with a 12th-Gen Intel Core i7-12700H GPU at 2.30 GHz and an NVIDIA GeForce RTX 3060 GPU. Using consistent software and hardware configurations across experiments also plays a role in promoting the reproducibility and reliability of the results, ultimately contributing to the overall generalizability of the deep learning model.

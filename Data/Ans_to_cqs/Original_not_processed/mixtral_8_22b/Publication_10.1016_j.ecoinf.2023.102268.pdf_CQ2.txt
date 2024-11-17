@@ -1,0 +1,73 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+These  spectrogram images  are  input  into  the  ResNet-50  deep  (50- 
+layer) convolutional neural network (CNN), which was developed and 
+pre-trained using millions of label images in over 1000 categories (He 
+et  al.,  2015).  Although  ResNet-50  was  not  explicitly  trained  on  spec-
+trograms, many studies have shown that CNNs pre-trained for one task 
+can  extract  meaningful  features  distant  from  the  original  training 
+dataset  (e.g.,  Almabdy  and  Elrefaei,  2019;  Bousetouane  and  Morris, 
+2015; Copiaco et al., 2019; Razavian et al., 2014). A suite of features is
+
+EcologicalInformatics77(2023)1022686D.R. Bohnenstiehl                                                                                                                                                                                                                               
+
+Fig.  6. Feature  extraction  and  classification  work-
+flows as applied to the same data segments in Fig. 5. 
+An  850-ms  long  data  segment  (boxes)  is  extracted 
+from the unfiltered waveform around each detection 
+to  form  a  frequency-reassigned  spectrogram  image. 
+These  images  are  fed  into  ResNet-50  CNN,  and  acti-
+vations  from  the  fully  connected  layer  (fc1000)  are 
+used as a feature vector for each detected signal. The 
+SVM  classifier  is  used  to  classify  the  candidate  de-
+tections based on the layer activations. Signals in the 
+‘other’  class  represent  false  alarms  identified  by 
+detection stage.
+
+Bohnenstiehl, D.R., Lyon, R.P., Caretti, O.N., Ricci, S.W., Eggleston, D.B., 2018. 
+
+Investigating the utility of ecoacoustic metrics in marine soundscapes. J. Ecoacoust. 
+2, 12. 
+
+Bousetouane, F., Morris, B., 2015. Off-the-shelf CNN features for fine-grained 
+classification of vessels in a maritime environment. In: 11th International 
+Symposium, ISVC 2015. Las Vegas, NV, December 14–16, 2015, pp. 379–388. 
+Boyle, R., Mensinger, A.F., Yoshida, K., Usui, S., Intravaia, A., Tricas, T., Highstein, S.M., 
+
+2001. Neural readaptation to Earth’s gravity following return from space. 
+J. Neurophysiol. 86, 2118–2122. 
+
+Campos-Cerqueira, M., Aide, T.M., 2017. Changes in the acoustic structure and 
+
+composition along a tropical elevational gradient. J. Ecoacoust. 1. #PNCO7I.  
+Caretti, O.N., Bohnenstiehl, D.R., Eggleston, D.B., 2021. Spatiotemporal variability in
+
+The detection, feature extraction and classification workflow devel-
+oped in this paper have been implemented in a set of MATLAB codes, 
+which utilize the software's parallel computing and graphical processing 
+capabilities (Bohnenstiehl, 2023b). It should be emphasized, however, 
+that the ResNet-50 network can be readily accessed within other popular 
+scripting  languages  and  that  the  approach  presented  here  is  software 
+independent.  The  work  adds  to  the  growing  body  of  literature  doc-
+umenting the utility of transfer learning in classifying acoustic signals 
+and soundscapes (e.g., Bohnenstiehl, 2023a; Munger et al., 2022; Quinn 
+et al., 2022; Waddell et al., 2021; White et al., 2022; Zhong et al., 2020). 
+As  it  is  more  straightforward  and  less  computationally  demanding  to 
+load a pre-trained CNN rather than design and train one from scratch, 
+transfer  learning  dramatically  reduces  the  technical  expertise  and
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning pipeline described in the given context uses spectrogram images as inputs for the ResNet-50 deep convolutional neural network (CNN). These spectrogram images are generated from unfiltered waveforms around each detection. Therefore, the primary data format used in this deep learning pipeline is image data. However, it is important to note that these images are derived from audio data, specifically underwater sounds or marine soundscapes. Thus, while the direct input to the CNN is image data, the underlying source of information is audio data.

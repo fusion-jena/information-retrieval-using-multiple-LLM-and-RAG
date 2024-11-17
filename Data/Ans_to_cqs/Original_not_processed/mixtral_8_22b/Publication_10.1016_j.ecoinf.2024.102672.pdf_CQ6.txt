@@ -1,0 +1,94 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Opposite to other families of ML models that have a narrow range of 
+hyperparameters  to  adjust,  ANN  are  defined  by  different  types  of 
+hyperparameters,  which  together  with  the  computational  cost  of 
+training deep ANN, restricts the options to optimize. On the one hand, 
+we have the hyperparameters that define the architecture of the ANN 
+(number of layers and number of neurons), while on the other hand we 
+have the hyperparameters that control de training process (mainly the 
+learning rate, the optimizer, the batch size and the number of epochs 
+that the training lasts). In order to avoid an exhaustive search that could 
+consume a lot of time, a small dimensional space was initially defined 
+and  explored  with  the  original variables.  The initial  hyperparameters 
+that composed this space are shown in Table 1. The number of epochs 
+was maintained in 500 as it proved to guarantee the stabilization of the
+
+The result of this process was added to the dataset as a new cate-
+gorical binary variable that stored the existence of stratification or not 
+(took the value of 0 when the reservoir was not stratified and 1 when it 
+was stratified). 
+
+2.5.3. Forecasting ML models 
+
+A classification model was designed in order to detect if there existed 
+
+Table 1 
+Initial hyperparameters space.  
+
+Initial hyperparameters space 
+
+Hyperparameters 
+
+Values 
+
+Layers 
+
+Number of neurons of the dense layer 
+Dropout rate of the dropout layer 
+Learning rate 
+Batch size 
+
+1 dense layer, 1 dense layer +1 dropout 
+layer 
+32, 64 
+0.2, 0.4 
+(cid:0) 3, 10
+10
+32, 64  
+
+(cid:0) 4
+
+loss curves during the training. As optimizer, the Adam algorithm was 
+used, which is a stochastic gradient descent method. Then, one of the 
+hyperparameters was modified iteratively following the direction that
+
+An ANN is composed of layers of neurons connected among them. 
+The  ANN  architecture  implemented  in  this  work  includes  sequential 
+dense  layers  and  dropout  layers.  Dense  layers  are  those  in  which  each 
+neuron of a layer is connected to all the neurons of the previous layer. 
+Each neuron receives a stimulus (an input) which is processed to pro-
+duce  a  response  (an  output).  This  processing  consists  of  assigning  a 
+weight to each input. Once these weights are calculated, the product of 
+each input and its associated weight (plus a bias) is added, and then an 
+activation function must be applied to obtain the output. Dropout layers 
+are used to prevent overfitting and they work by randomly setting the 
+inputs  to  0  with  a  given  frequency  rate,  which  is  another  hyper-
+parameter to tune, at each step during the training. Each dense layer has 
+an  associated  activation  function.  As  activation  function,  the  widely
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model such as an Artificial Neural Network (ANN), several preprocessing steps can be taken to improve the performance and efficiency of the model. These steps may include data cleaning, normalization, and scaling.
+
+Data cleaning involves removing any irrelevant, redundant, or incorrect information from the dataset. This might involve handling missing values, outliers, or inconsistent data points. Cleaning the data ensures that only relevant and accurate information is fed into the model for training.
+
+Normalization is a technique used to rescale the features of the dataset so that they fall within a specific range, typically between 0 and 1. Normalizing the data helps to ensure that no single feature dominates the others due to differences in their scales. It also improves the convergence speed of the optimization algorithms used during training.
+
+Scaling is similar to normalization but instead of rescaling the features to a fixed range, it transforms them to have zero mean and unit variance. Scaling the data helps to reduce the impact of large numerical ranges on the model's performance and makes it easier to compare the importance of different features.
+
+In addition to these preprocessing steps, it is important to split the dataset into training and testing sets before training the model. This allows us to evaluate the model's performance on unseen data and prevents overfitting.
+
+It should be noted that the choice of preprocessing techniques depends on the nature of the dataset and the problem being solved. For example, some datasets may require more complex preprocessing steps such as feature engineering or dimensionality reduction. However, the above-mentioned preprocessing steps are commonly used in many deep learning applications.

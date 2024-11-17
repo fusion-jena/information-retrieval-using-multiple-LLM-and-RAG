@@ -1,0 +1,100 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The results presented in this section were obtained over 100 
+epochs. Figure 9 shows the loss of the model using both the 
+test  and  validation  data  during  model  training.  The  figure 
+shows  that  there  was  no  overfitting  during  training  and  that 
+the dropout layers helped with model regularisation. Although 
+model convergence was achieved early in the training session 
+the loss shows continuing decreases throughout the specified 
+epochs. 
+
+Figure 10. Train and Validation Accuracy During the 
+Training Session. 
+
+Table 1 shows the performance metrics obtained using the 
+test data. The best performing class was the Eurasian Collard 
+Dove achieving a Sensitivity of 0.86 and a Specificity of 0.90. 
+The  worst  performing  class  was 
+the  Lesser  Spotted 
+Woodpecker  where  the  model  attained  a  Sensitivity  of  0.58 
+and a Specificity of 0.91. 
+
+Table 1. Performance Metrics for Test Set 
+
+Species 
+
+Sensitivity 
+
+Specificity
+
+III. 
+
+MATERIALS AND METHODS 
+
+In  this  section  the  dataset  used  in  the  study  is  presented 
+along with the modelling approach taken and the evaluation 
+metrics used to evaluate the trained model. The section also 
+discusses data pre-processing using the Librosa library. Keras 
+and TensorFlow 2.2 are utilised as the backend and an Nvidia 
+2070 super GPU with 8GB of memory is utilised to accelerate 
+model training. In addition, the proposed inferencing pipeline 
+is discussed along with the associated technologies. 
+A.  Data Collection and Description
+
+Figure 8. Date Pre-processing Stages 
+
+The  acquired  audio  files  are  transmitted  over  4G  using 
+SMTP. The audio file is segmented into 15 second windows. 
+Each of the sample windows are passed to the feature extractor 
+function where MFCC is used to return the extracted features 
+for the classifier. The predicted vector is processed and logged 
+to the site for review. 
+
+IV. 
+
+EVALUATION AND DISCUSSION 
+
+In this section the classification results are presented using 
+the  evaluation  metrics  outlined  previously.  The  deployment 
+and inferencing of the trained model in test environment are 
+also presented to ascertain the effectiveness of the end-to-end 
+pipeline. 
+A.  Species Classification Performance
+
+Figure 9. Train and Validation Loss 
+
+The model achieved an accuracy of 0.83 for the train split 
+and 0.74 for the test split. Figure 10 shows the accuracy for 
+both the train and validation data over 100 epochs. The results 
+illustrate that the accuracy of the model flattens towards the 
+end  of  the  training  session  and  shows  that  the  necessary 
+number  of  epochs  required  for  model  convergence  is 
+sufficient.  Increasing  the  number  of  epochs  would  achieve 
+minimal gains in accuracy and would likely lead to overfitting. 
+
+Figure 11. Sample Audio Detection from the ConservationAI 
+Platform 
+
+Each  of  the  8  classifications  returned  the  prediction  of 
+Common Wood Pigeon with an average confidence value of 
+0.71. The results from model inference match that of model 
+training. 
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on November 16,2023 at 09:46:32 UTC from IEEE Xplore.  Restrictions apply.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: The performance of the deep learning model is evaluated using two main metrics: sensitivity and specificity. Sensitivity measures the proportion of actual positives that are correctly identified by the model, while specificity measures the proportion of negatives that are correctly identified. According to the given information, the best performing class was the Eurasian Collared Dove, which achieved a sensitivity of 0.86 and a specificity of 0.90. On the other hand, the worst performing class was the Lesser Spotted Woodpecker, where the model attained a sensitivity of 0.58 and a specificity of 0.91. Additionally, the overall accuracy of the model was reported to be 0.83 for the train split and 0.74 for the test split.

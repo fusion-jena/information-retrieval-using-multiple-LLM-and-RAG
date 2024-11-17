@@ -1,0 +1,56 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Details of the parameters and settings we used for these two training 
+stages are summarized in Table 1.
+
+other class(es). The network then performs a new round of learning on 
+the  mini-batch  of  images—focusing  relatively  more  on  images  with 
+higher  loss  scores—and  updates  its  internal  parameters,  before  pro-
+ceeding to the next training iteration with a new mini-batch of images. A 
+full cycle through the entire set of training images is referred to as an 
+‘epoch’,  and  the  number  of  iterations  per  epoch  is  equal  to  the  total 
+number of training images divided by the mini-batch size.
+
+2.4.1. Background training images 
+
+To train the CNN on the large diversity of background throughout the 
+aerial survey imagery so as to minimize misclassification of background 
+features as polar bears, we randomly selected 6092 photos (~10% of the 
+full  set),  excluding  the  20  photos  known  to  contain  bears.  We  then 
+cropped  each  photo to  224  × 224  pixels  at a  random  location in the 
+photo to match the CNN's input size. We additionally randomly selected 
+and  cropped  another  1000  photos  from  the  full  set  to  serve  as  back-
+ground validation images to assess the network's classification accuracy 
+throughout training. 
+
+2.4.2. Training image manipulations and augmentations
+
+By default, ResNet-50 processes three-band (RGB) input images with 
+a size of 224 × 224 pixels. Training of the network is performed itera-
+tively on small ‘mini-batches’ of the training images. At each iteration, 
+the network is shown a new mini-batch of images and starts by classi-
+fying them based on its current internal parameters. For each image, the 
+network estimates the probability that the image represents each of the 
+different user-defined classes, with the probability scores of all classes 
+cumulatively adding up to 1. By default, the image is assigned to the 
+class with the highest probability score. The network then ascertains the 
+actual  class  of  the  training  image  as  per  the  user-provided  label,  and 
+computes a ‘loss’ score for the image based on the difference between 
+the estimated class probability scores and the actual scores, whereby the 
+image should have a score of 1 for its actual class and a score of 0 for the
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information about any specific postprocessing steps involved after the model training such as saliency maps, metrics calculation, or confusion matrix. However, generally speaking, postprocessing steps can include various techniques depending on the application and requirements. These may include generating visualizations like saliency maps to understand which parts of the input data were most important for the model's predictions, calculating performance metrics to evaluate the model's effectiveness, creating confusion matrices to analyze the types of errors made by the model, among others. But without further details regarding the specific use case or model architecture, it is impossible to determine exactly what postprocessing steps would be appropriate here.

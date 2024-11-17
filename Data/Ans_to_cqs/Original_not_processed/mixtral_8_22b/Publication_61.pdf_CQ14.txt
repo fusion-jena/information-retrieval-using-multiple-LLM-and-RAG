@@ -1,0 +1,112 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Training a neural network requires to set several hyper-parameters
+such as the learning rate, number of epochs and batch size. The learning
+rate is a special one since it deﬁnes how much the weights are ‘moved’
+to decrease the loss. A bigger one could cause the network not to learn,
+on the other hand, a smaller one could require much more steps for
+learning. To decrease this issue, we train the network with Adam op-
+timizer (Kingma and Ba, 2015), a variant of the stochastic gradient
+optimization where the learning rate is adjusted automatically. The rest
+of the parameters are set empirically, more details are presented in the
+experiments section.
+
+5. Experiments
+
+In this section, we present the experimental characterization of the
+proposed approach. The implemented network was trained with Adam
+optimizer (Kingma and Ba, 2015) on a Inter Core i7 machine with
+NVIDIA GeForce 1080 GPU. The hyperparameters were set as follows:
+learning rate 0.01, number of epochs 150, batch size 2500.
+
+LogSoftMax x
+(
+
+)
+
+i
+
+=
+
+log
+
+x
+)
+exp(
+i
+x
+exp(
+
+j
+
+⎛
+⎜ ∑
+j
+⎝
+
+⎞
+⎟
+⎠
+
+)
+
+(1)
+
+Fig. 4. Manual labeling from the aerial images. The ﬁgure display an image
+captured by the micro aerial vehicle. Red circles mark the manually identiﬁed
+cacti by a human. (For interpretation of the references to color in this ﬁgure
+legend, the reader is referred to the web version of this article.)
+
+We are using LogSoftMax because, during training, it usually shows
+a better numerical performance with respect to SoftMax given that the
+log operation can undo the exp term (Goodfellow et al., 2016).
+
+To train the network Φw, the inner parameters, w, (weights and bias)
+have to be adjusted so that the output resembles the ground truth
+output. In this training process, the dataset images, I, are introduced to
+
+134
+
+E. López-Jiménez, et al.
+
+Ecological Informatics 52 (2019) 131–138
+
+Tapia, B.P.V., 2009. Estimación y actualización de la tasa de transformación del hábitat
+de las áreas naturales protegidas sinap i y sinap ii del fanp. Tech. rep., Fondo mex-
+icano para la conservación de la naturaleza A. C.
+
+Unesco, 2019. Tehuacán-cuicatlán valley: originary habitat of mesoamerica. https://
+
+Kingma, D.P., Ba, J., 2015. Adam: A Method for Stochastic Optimization. In: Proceedings
+
+whc.unesco.org/en/list/1534 online; visited on January 30 2019.
+
+of the 3rd International Conference on Learning Representations.
+
+Krizhevsky, A., Sutskever, I., Hinton, G.E., 2012. Imagenet classiﬁcation with deep con-
+volutional neural networks. In: Advances in Neural Information Processing Systems,
+pp. 1097–1105.
+
+LeCun, Y., Bottou, L., Bengio, Y., Haﬀner, P., 1998. Gradient-based learning applied to
+
+document recognition. Proc. IEEE 86 (11), 2278–2324.
+
+given the error reported by the loss metric and the contribution of each
+parameter to that error (the contribution of each parameter is calcu-
+lated by back-propagating the error gradient).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the method used to optimize the hyperparameters of the model. However, it mentions that the hyperparameters were set empirically, which suggests that some form of trial-and-error or iterative optimization may have been employed. This could include methods such as grid search or random search, but without further specifics, it cannot be definitively stated which method was used.

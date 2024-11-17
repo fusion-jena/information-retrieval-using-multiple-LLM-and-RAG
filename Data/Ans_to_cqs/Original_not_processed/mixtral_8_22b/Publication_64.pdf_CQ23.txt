@@ -1,0 +1,132 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Finally for the ResNet50 evaluation we use random ten
+crop testing with smaller data augmentation parameters than
+those used during training.
+
+4.1 The datasets
+
+4.1.1 Google Search Image. For this dataset we select the
+3680 labels (around 60% of all labels) with more than 12
+images in our training dataset. For each one of these labels
+
+1Code is available at github.com/IgnacioHeredia/plant classification
+
+Table 1: Accuracy results of the two algorithms for
+all three test datasets.
+
+Datasets
+
+Google Image Search
+Portuguese Flora
+iNaturalist
+
+Accuracy %
+ResNet50 (paper) PlantNet (usual)
+Top1
+40
+29
+33
+
+Top5
+63
+47
+49
+
+Top1
+18
+15
+18
+
+Top5
+37
+29
+30
+
+we automatically retrieve the 10 ﬁrst images returned by the
+Google Image Search engine. As this is done in an automated
+fashion some minor mislabeled or corrupt examples might
+appear in the dataset. By choosing only the most popular
+labels and retrieving the top results, we expect to minimize
+the presence of mislabeled images.
+
+As deep learning framework we use the Lasagne [11] module
+built on top of Theano [12, 13]. We initialize the weights of
+the model with the pretrained weights on the ImageNet
+dataset provided in the Lasagne Model Zoo. We train the
+model for 100 epochs on a GTX 1080 for 6 days using Adam
+[14] as learning rule. During training we apply standard data
+augmentation (as sheer, translation, mirror, etc) so that the
+network never sees the same image. We do not apply rotation
+or upside down mirroring to the images tagged as ’habit’, as it
+does not make much sense to have a tree or a landscape upside
+down. After applying the transformations we downscale the
+image to the ResNet standard 224
+
+224 input size. 1
+
+⇥
+
+In addition we have seen that trained with the same image
+dataset, the ResNet architecture outperforms the most wide-
+spread online public plant classiﬁcation algorithm by around
+a factor of 2 in top1 and top5 accuracies. Besides our model
+does not require to enter a suggested image tag along with
+the observation.
+
+With all this information in hand we think that large-scale
+biodiversity projects like the Global Biodiversity Information
+Facility (GBIF) [17] or LifeWatch [18], the European research
+infrastructure on biodiversity, could very well beneﬁt from
+this new techniques to build a fast and reliable method to
+automatically monitor biodiversity. This tool can deﬁnitely
+open the ﬁeld to active contributions of non expert users
+including citizen scientists.
+
+In a later stage we will see how the prediction accuracy
+improves with observations containing 2 images or more. For
+that we end up with a test set of 60K observations containing
+between 2 and 33 images belonging to 2600 species present
+in our training dataset.
+
+4.2 Results and Discussion
+The ResNet50 returns a list of probabilities that each label
+is the correct label. The top1 accuracy measures how often
+the correct label is the highest probability label, while the
+top5 accuracy measures how often the correct label is among
+the ﬁve labels with highest probability. Table 1 shows the
+top1 and top5 accuracy results for all three datasets. We can
+notice that the Resnet50 achieves
+1.7 improvements
+for top1 and top5 accuracies consistently across datasets
+compared with the PlantNet tool. The overall accuracy is
+approximately constant although slightly higher in the Google
+dataset probably due to higher image quality.
+
+2 and
+
+⇥
+
+⇥
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of their deep learning model, several measures were taken. Firstly, they selected a diverse dataset consisting of 3680 labels, which represents approximately 60% of all labels in their training dataset. These labels were chosen based on having more than 12 images per label. To further increase diversity, they utilized the Google Image Search engine to automatically retrieve the first 10 images for each label. Although there may be minor mislabeled or corrupted examples in the dataset, selecting popular labels and top search results minimizes such occurrences.
+
+Secondly, they employed data augmentation techniques during both training and testing phases. Standard data augmentation methods, including sheering, translating, and mirroring, were applied during training to prevent the network from seeing identical images repeatedly. However, rotational and upside-down mirroring transformations were avoided for 'habitat' labeled images, as these modifications would not make logical sense for trees or landscapes. Additionally, smaller data augmentation parameters were used during testing compared to those implemented during training.
+
+Lastly, the authors initialized the weights of their model using pretrained weights from the ImageNet dataset, which was provided through the Lasagne Model Zoo. They then trained the model for 100 epochs on a GTX 1080 GPU utilizing the Adam optimization algorithm.
+
+While the text does not explicitly mention cross-validation or stratified splitting, the combination of employing a diverse dataset, implementing data augmentation techniques, and initializing the model with pretrained weights contributes significantly towards ensuring the generalizability of the deep learning model.

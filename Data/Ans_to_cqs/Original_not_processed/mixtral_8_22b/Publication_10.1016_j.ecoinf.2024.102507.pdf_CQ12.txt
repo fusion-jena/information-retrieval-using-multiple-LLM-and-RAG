@@ -1,0 +1,90 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+With regards to the difference between the results of the original, 
+reduced,  and  augmented  datasets  applied  to  the  deep  learning 
+model, we found that the original and augmented datasets are only 
+under  a  few  specific  numbers  of  bands  and  data  formats  (e.g., 
+VGG19 + 8band_256_8bit, VGG19 + 72band_256_8bit, ResNet50 +
+8band_256_8bit, and ResNet50 + 36band_ 256_8bit). The classifica-
+tion accuracy rate reached more than 50%, and there was no regu-
+larity in the classification accuracy. However, the sampling action of 
+reducing the data had a very obvious and consistent impact on the 
+classification  accuracy,  especially  in  the  VGG19  model,  which  is 
+more  similar  to  the  traditional  CNN  model.  This  representative 
+sampling  action  resulted  in  incomplete  and  complete  feature 
+extraction,  and  some  key  features  were  ignored.  Given  the  above 
+reasons, it is recommended that sampling actions be avoided in the
+
+VGG19 network architecture and adds a residual unit involving a short- 
+circuit  mechanism,  which  can  overcome  the  issue  of  gradient  disap-
+pearance and accuracy reduction in deep networks. 
+
+2.6. Overall study process 
+
+In summary, the complete process is illustrated in the figure below, 
+with elements in blue indicating the Python packages or modules uti-
+lized in each step. The objectives and tools used for each process below 
+are also outlined. The detailed parameter settings and outcomes for each 
+process are presented in the Results section. 
+The complete process of data processing. 
+
+EcologicalInformatics80(2024)1025076F.-C. Lin et al.                                                                                                                                                                                                                                   
+
+1.  Spectral segmentation and band selection
+
+built using the following steps:  
+
+1.  Prepare  data:  Prepare  the  above  eight  categories  of  ground  truth 
+
+images, and extract training samples.  
+
+2.  Build  the  model:  Use  Keras  to  build  mathematical  functions  in 
+
+TensorFlow.  
+
+3.  Compilation: After the model built with mathematical functions, the 
+shortest path is set in deep learning through code compilation.  
+4.  Training:  The  fitting  action  (fit)  on  the  data  and  the  model  was 
+performed  through  the  code,  and  deep  learning  parameters  were 
+automatically adjusted according to the set number of epochs. In the 
+process, the CPU and GPU were used to operate repeatedly as much 
+as possible, and finally, the answer that conformed to the shortest 
+path was found from each data.  
+
+5.  Test: After Step (4), the feature weight and optimal solution in the 
+model  were  obtained,  and  then  the  correct  rate  was  calculated 
+through model evaluation.
+
+When  the  image  units  of  bands  36  and  72  are  input  to  the  deep 
+learning model, the memory capacity may be insufficient given the large 
+dimensions. Therefore, when inputting sample images for bands 36 and 
+72, we used Python's Rasterio module to disassemble them into single- 
+band  images,  i.e.,  the  image  units  with  36  bands  were  disassembled 
+into 36 single-band images and 72-band images were disassembled into 
+72  single-band  images.  This  data  conversion  method  is  equivalent  to 
+flattening the thick convolution kernel. During testing, we found that 
+through  the  optimization  of  this  process,  the  hardware resources  and 
+computing time required for deep learning can be considerably reduced, 
+while the corresponding impact on the model's accuracy is limited. 
+
+3.2. Deep learning model and testing results 
+
+After selecting the model, the CNN model in this study was further 
+
+built using the following steps:
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning model used in the pipeline is a Convolutional Neural Network (CNN). Specifically, two types of CNN models are mentioned - VGG19 and ResNet50. These models are used for image classification tasks, where they take in multi-spectral satellite imagery and output land cover classes. The use of these models is evident in various parts of the text, such as the discussion about the performance of different datasets on these models and the description of the overall study process.

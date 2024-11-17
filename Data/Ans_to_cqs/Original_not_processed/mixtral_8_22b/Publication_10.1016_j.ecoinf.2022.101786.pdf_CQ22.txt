@@ -1,0 +1,61 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.4. Model evaluation 
+
+The testing dataset was composed of 500 manually annotated images 
+from  the  same  transect  and  was  only  used  to  calculate  performances 
+outside  the  Darknet  framework  by  comparing  CNN  predictions  with 
+manual annotations. 
+
+Predictions  come  as  a  .JSON  file  containing  the  coordinate  of  the 
+bounding box of each tentative annotation as well as a confidence score 
+ranging from 0.05 at minimum (lower confidence scores introduced too 
+much  noise  and  therefore  were  not  recorded)  to  1  at  maximum.  Pre-
+dictions made on the testing set were compared to the manual annota-
+tion of the same images.
+
+EcologicalInformatics71(2022)1017864N. Piechaud and K.L. Howell                                                                                                                                                                                                                 
+
+3. Results 
+
+3.3. Size-abundance relationship 
+
+3.1. Model evaluation and selection 
+
+The number of iterations for which the CNN was trained has a strong 
+influence on its performances as well as on the confidence it gives to its 
+predictions (Fig. 2). In general, longer model training past 1000 itera-
+tions tended to give higher recall but lower precision.
+
+Some model parameters were modified from the default configura-
+tion to balance use of resources and training speed. We retained a res-
+olution of 704 × 704, batch size 64, 32 subdivisions and trained up to 
+6000 iterations. Other parameters were kept to default or set according 
+to guidance by the developers (https://github.com/AlexeyAB/darknet). 
+Manual annotations were used to generate training, validation and 
+testing  datasets.  Biigle  annotations  (label  name,  centre  x,  center  y, 
+
+EcologicalInformatics71(2022)1017863N. Piechaud and K.L. Howell
+
+The weights that offered the best compromise between precision and 
+recall  were  used  to  make  predictions  on  the  whole  dataset of  58,148 
+images. This was also performed in the same Colab notebook. To limit 
+space taken on Cloud storage without compromising performance, they 
+were reduced in resolution to a 1224 × 1024. 
+
+2.6. Size and surface area measurement
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The performance of the deep learning model is evaluated using two main metrics: precision and recall. Precision measures the proportion of true positive predictions out of all positive predictions made by the model. Recall, on the other hand, measures the proportion of true positives out of all actual positives in the data. The number of iterations for which the CNN was trained has a significant influence on these metrics, with longer training generally resulting in higher recall but lower precision. The weights that offer the best compromise between precision and recall are selected to make predictions on the entire dataset.

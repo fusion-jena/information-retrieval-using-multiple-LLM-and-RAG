@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.5.1. Classification problem (Q1): Deep learning applied to 2D LiDAR 
+images for Forest classification 
+
+We  employed  the  fast.ai  platform  (Howard  and  Gugger,  2020)  to 
+train and validate models for the classification of 2D point cloud images, 
+utilizing  a  LOGO  (Leave-One-Group-Out)  cross-validation.  In  this 
+approach, our target classes were "Plateau", "White-sand", and "Ripar-
+ian",  designated  as  "p",  "w",  and  "r"  respectively.  In  each  iteration,  a 
+complete 450 m multitemporal transect was omitted from the training 
+process  (the  grouping  factor  giving  the  lack  of  independence  in  the 
+multi-temporal data) and subsequently tested. This approach ensured an 
+assessment  of  the  model’s  performance,  accounting  for  our  data  con-
+straints and guaranteeing that every multitemporal transect undergoes
+
+both training and testing. A critical point to highlight is that models are 
+retrained  for  each  fold,  preventing  previous  fold’s  information  from 
+being transferred. We utilized the pretrained ResNet-34 (Which consists 
+of  a  34-layer  convolutional  neural  network)  architecture  which  is  a 
+variant of the ResNet (Residual Network) family, widely used for deep 
+learning tasks, particularly in computer vision (He et al., 2016). ResNet- 
+34 was used inside the fast.ai framework (Howard and Gugger, 2020) to 
+leverage  existing  knowledge,  this  is  particularly  useful  in  our  dataset 
+since its small size. Transfer learning generally consists in using a model 
+pre-trained  on  broad  datasets,  like  ImageNet  (Deng  et  al.,  2009),  to 
+specialized tasks with more limited data. As part of the cross-validation 
+of the Leave-One-Group-Out approach, the test directory containing the 
+multitemporal transect was temporarily moved to test, and DataLoaders
+
+Contents lists available at ScienceDirect 
+
+Ecological Informatics 
+
+journal homepage: www.elsevier.com/locate/ecolinf 
+
+Revealing forest structural "fingerprints": An integration of LiDAR and deep 
+learning uncovers topographical influences on Central Amazon forests
+
+Here,  our  main  objective  is  to  test  a  novel  approach  to  analyzing 
+LiDAR  data  in  the  context  of  forest  ecology.  In  this  approach,  LiDAR 
+point clouds are transformed into images and deep learning techniques 
+are applied. We use a ground-based profiling canopy LiDAR (PCL) multi- 
+temporal dataset sourced from a small yet representative region in the 
+central Amazon. The area is characterized by a marked gradient in soil 
+texture and soil drainage along a mature hillslope or topographic profile, 
+with LiDAR surveys conducted at high, medium, and low points along 
+the topographic gradient that we refer to as Plateau (p), White-sand (w), 
+and Riparian (r), respectively. These topographical gradients are ideal 
+for  exploring  the  relationships  between  terrain  variation  and  forest 
+structure, offering unique insights into the ecological dynamics of this 
+region. We use this unique, multi-temporal LiDAR dataset to investigate
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which platform was used to deploy the deep learning model (e.g., AWS, Azure, Google Cloud platform)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not explicitly mention which specific platform was used to deploy the deep learning model. However, it mentions that the fast.ai platform was used to train and validate the models. Fast.ai is a deep learning library built on top of PyTorch, providing high-level components that can quickly and easily provide state-of-the-art results in standard deep learning domains, and provides researchers with high-level components that can be combined together in order to innovate and create new approaches. Therefore, while the deployment platform isn't specified, the development and validation process took place within the fast.ai environment.

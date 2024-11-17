@@ -1,0 +1,119 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+et al., 2023). Table 3 represents the optimal hyperparameters related to 
+the complementary models for -one and -three days ahead forecasting 
+the streamflow in Bear and Winter Rivers of PEI. The important hyper-
+parameters  for  CNN-BiGRU  are  listed  in  Table  3,  including  the  CNN 
+Layers,  BiGRU  Layers,  kernel  parameter,  Adam,  activation  function, 
+CNN  filters,  epochs,  and  learning_rate.  It  is  worth  mentioning that  to 
+prevent cumulative errors caused by the multiscale decomposition of the 
+
+decomposed signals and convergence improvement, all inputs and target 
+parameters are normalized between 0 and 1 by the following formula-
+tion (Jamei et al., 2022a): 
+
+Xnorm =
+
+X (cid:0) Xmin
+Xmax (cid:0) Xmin
+
+(37)
+
+The last step in configuring the model involves feeding in predictors 
+that  the  advanced  deep  learning  algorithm  feeds  by  the  decomposed 
+components  resulting  from  the  previous  steps.  The  primary  model  is 
+CNN-BiGRU  with  three  comparative  ML  methods  (KELM,  RVFL  and 
+CNN-BiRNN),  which  provide  four  complementary  models  including 
+MVMD-CNN-BiGRU,  MVMD-RVFL,  MVMD-KELM  and  MVMD-CNN- 
+BiRNN.  These  models  are  used  to  create  the  multi-temporal  fore-
+casting model of daily streamflow (Qflow). Setting hyperparameters and 
+their structural architecture is the most important aspect of executing 
+ML-based  predictive  models  (Jamei  et  al.,  2023b).  Based  on  recent 
+research, the main approaches to tuning parameters are algorithms of 
+metaheuristic optimization, schemes of cross-validation schemes (Nes-
+ted/rolling  basis  cross-validation)  (Huyghues-Beaufond  et  al.,  2020),
+
+(cid:0) γ
+
+)
+
+⃦
+⃦xi (cid:0) xj
+
+⃦
+⃦2
+
+(10) 
+
+Where γ is the kernel parameter. It is notable to emphasize that the 
+network training process of KELM requires the optimization of only two 
+hyper-parameters,  namely  γ  and  .  This  feature  makes  KELM  more 
+convenient  compared  to  other  neural  network  techniques,  such  as 
+BPNN,  which  entails  the  optimization  of  more  than  six  hyper- 
+parameters. Fig. 4 represents the topology of the KELM model. 
+
+2.5. Random vector functional link (RVFL) 
+
+Fig.  4  demonstrates  the  functional  structure  of  the  RVFL  model, 
+which comprises the input layer neurons that have direct connections to 
+the output layer to avoid the operation of the back-propagation process
+
+CNN Layers = 2, filters = 64, kernel_size =
+[1,4], BiGRU Layers = 1, BiGRU neurons =
+30, Optimizer: Adam, activation function =
+‘relu’, epochs = 43,batch_size = 32, 
+learning_rate = 0.000455, Dense = 100 
+CNN Layers = 2, filters = 64, kernel_size =
+[1,4], BiGRU Layers = 1, BiGRU neurons =
+30, Optimizer: Adam, activation function =
+‘relu’, epochs = 1000,batch_size = 32, 
+learning_rate = 0.0015, Dense = 100 
+num_nodes: 20, regular_para = 0.2, 
+weight_random_range = [(cid:0) 1,1], 
+bias_random_range = [0,1], 
+num_nodes: 50, regular_para = 0.9, 
+weight_random_range = [(cid:0) 1, 1], 
+bias_random_range = [0, 1], 
+Regularization_coefficient = 3E+05, 
+kernel_parameter =7000 
+Regularization_coefficient = 9E+06, 
+kernel_parameter =9E+05 
+CNN Layers = 2, filters = 64, kernel_size =
+[1,4], BiRNN Layers = 1, BiRNN neurons =
+30, Optimizer: Adam, activation function =
+‘relu’, epochs = 200,batch_size = 32, 
+learning_rate = 0.0002, Dense = 100 
+CNN Layers = 2, filters = 64, kernel_size =
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+In this study, several deep learning models were employed for forecasting streamflow in Bear and Winter Rivers of PEI. For instance, one of these models was a combination of Convolutional Neural Network (CNN) and Bidirectional Gated Recurrent Unit (BiGRU), referred to as CNN-BiGRU. The table representing the optimal hyperparameters for this model includes various components such as CNN layers, BiGRU layers, kernel size, optimizer, activation function, number of filters, epochs, batch size, learning rate, and dense units.
+
+For the CNN-BiGRU model, the specific hyperparameters include:
+
+* CNN Layers: 2
+* Filters: 64
+* Kernel Size: [1,4]
+* BiGRU Layers: 1
+* BiGRU Neurons: 30
+* Optimizer: Adam
+* Activation Function:'relu'
+* Epochs: 43 or 1000 depending on the application
+* Batch Size: 32
+* Learning Rate: 0.000455 or 0.0015 depending on the application
+* Dense Units: 100
+
+These hyperparameters play crucial roles in determining the performance of the deep learning model. For example, the learning rate controls how much the weights should be updated during each iteration, while the optimizer determines the method used to update the weights. Additionally, the choice of activation function can impact the nonlinearity introduced into the model, affecting its overall complexity and ability to learn patterns within the data.

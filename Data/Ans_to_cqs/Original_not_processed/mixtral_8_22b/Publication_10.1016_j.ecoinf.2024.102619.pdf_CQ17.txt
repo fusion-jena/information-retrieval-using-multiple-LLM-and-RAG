@@ -1,0 +1,194 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+For the CNN, The large number of hyperparameters (Table 4) and 
+high  computational  demand,  mean  that  an  exhaustive  grid-search  is 
+inappropriate.  Instead  our  preliminary  work  showed  that  common 
+default parameters, were suitable for our data. These include a batch- 
+size of 32 images and a cross-entropy loss function. We also used the 
+Adam learning rate optimizer (Kingma and Ba, 2015), which automat-
+ically adjusted our initial learning rate of 1e-03 during training in a way 
+that  improved  performance.  Adam  is  computationally  efficient  and 
+straight-forward to use. In preliminary work, each model was set to train 
+for  100  epochs  maximum.  However  for  later  time-saving  and  better 
+automation, we enabled early stopping if the validation error (loss) did 
+not reduce for 10 epochs. This identified a suitable number of epochs for 
+each dataset: 14, 14 and 23 epochs for Datasets 1, 2 and 3, respectively.
+
+Table 5 
+Classifier  training  performance:  with  tuned  hyperparameters,  mean  cross- 
+validation (CV) and final training accuracy.      
+
+illumination patterns. 
+
+3.2. Classification performance 
+
+Set 
+
+Images 
+
+Classifier 
+
+Hyperparameters 
+
+Mean CV 
+
+Train 
+
+Accuracy 
+
+1 
+
+6682 
+
+2 
+
+992 
+
+3 
+
+459 
+
+SVM:Lineard 
+SVM:Linear 
+SVM:RBFd 
+SVM:RBF 
+CNN 
+SVM:Lineard 
+SVM:Linear 
+SVM:RBFd 
+SVM:RBF 
+CNN 
+SVM:Lineard 
+SVM:Linear 
+SVM:RBFd 
+SVM:RBF 
+CNN 
+
+C = 23.0 
+
+(cid:0)
+
+– 
+
+(cid:0) 15.0 
+
+C = 23.0, γ = 2
+lr = 0.001 
+– 
+
+(cid:0) 15.0 
+
+C = 23.0 
+
+– 
+
+C = 23.75, γ = 2
+lr = 0.001 
+– 
+
+C = 23.0 
+
+– 
+
+C = 25.25, γ = 2
+lr = 0.001 
+
+(cid:0) 15.0 
+
+0.93 (± 0.003) 
+0.93 (± 0.003) 
+0.95 (± 0.003) 
+0.96 (± 0.003) 
+0.92 (± 0.023) 
+0.87 (± 0.010) 
+0.87 (± 0.010) 
+0.87 (± 0.018) 
+0.91 (± 0.016) 
+0.90 (± 0.015) 
+0.83 (± 0.021) 
+0.83 (± 0.021) 
+0.78 (± 0.016) 
+0.86 (± 0.020) 
+0.82 (± 0.020) 
+
+1.00 
+1.00 
+0.97 
+0.98 
+0.98 
+1.00 
+1.00 
+0.91 
+0.97 
+0.97 
+1.00 
+1.00 
+0.84 
+0.95 
+0.95
+
+2.2.5. Classification 
+
+Each  ML  approach  requires  hyperparameters  to  classify  imagery, 
+which when optimized during training can increase model performance, 
+see  Table  4  for  a  hyperparameter  glossary.  Given  the  computational 
+efficiency of the SVMs and the few hyperparameters required, each of 
+these can be optimized simply and relatively quickly (subject to dataset 
+size)  during  a  k-fold  (k = 5) cross-validated  fine  grid-search  on  the 
+training  data.  For  our  CNN  þ SVM  method,  we  followed  hyper-
+parameter  recommendations  by  (Hsu  et  al.,  2016),  authors  of  the 
+LIBSVM library (Chang and Lin, 2011). For our non-linear RBF SVM we 
+searched  hyperparameters  C = 23, 23.25, …, 27  and  γ = 2
+(cid:0) 13  & 
+(cid:0) 11. For the linear SVM, we used the same hyperparameter search for 
+2
+its sole parameter C. We also looked at the RBF and linear SVM with 
+
+(cid:0) 15, 2
+
+Fig. 3. A diagram of various support vector machines.
+
+Learning 
+rate 
+
+Optimizer 
+
+SVM: 
+C 
+
+γ 
+
+The number of images you send to the model in each iteration. 
+Model parameters are updated after each batch during training. 
+How many times you pass the full image dataset through the model. 
+The error metric that you wish to minimize. 
+e.g. Cross entropy loss for multi-class classification. 
+A small number (0, 1] that determines the amount to alter parameters 
+during training with respect to the loss. 
+Also known as the step size. 
+An algorithm that modifies CNN parameters according to a particular 
+strategy to minimize the loss. 
+e.g. the Adam optimizer sets the learning rate adaptively for faster and 
+more efficient training.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there is no explicit mention of specific regularization methods such as dropout or L2 regularization being used to prevent overfitting in the deep learning pipeline. However, some techniques employed in this study could help mitigate overfitting indirectly.
+
+Firstly, the use of cross-validation (specifically, k-fold cross-validation with k=5) helps ensure that the models generalize well to unseen data. By splitting the available data into multiple folds and iteratively using different subsets for training and testing, it becomes possible to evaluate how well the trained models perform on new data.
+
+Secondly, the choice of optimization algorithms like Adam can contribute to reducing overfitting. Adam automatically adjusts the learning rate during training, which can lead to more stable convergence and potentially better generalization.
+
+Lastly, the implementation of early stopping based on validation error (or loss) can also aid in preventing overfitting. Early stopping involves monitoring the performance of the model on a separate validation set during training and halting the process once the validation error stops decreasing for a certain number of epochs. This prevents the model from continuing to learn noise in the training data, thereby improving its ability to generalize to new data.

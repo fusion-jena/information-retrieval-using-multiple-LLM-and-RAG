@@ -1,0 +1,132 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The performance of a neural network is traditionally improved by 
+optimizing  its  hyperparameters,  which  influence  the  overall  model 
+performance.  Using  different  hyperparameter  combinations  (e.g., 
+combining  different  learning  rates  and  dropout  values)  will  lead  to 
+marked  differences  in  the  predictive  performance  of  a  model.  As  a 
+traditional  hyperparameter  optimization  method,  the  grid  search 
+approach is widely used to optimize a model by comparing the values of 
+evaluation  metrics  for  different  parameters  and  selecting  the  optimal 
+parameters from a large search space (Bhagat et al., 2020). This method 
+can optimize the model by comparing the values of evaluation metrics 
+for different parameters and selecting the optimal parameters from the 
+search space. In this study, the grid search method was used to optimize 
+five of the MLP model’s hyperparameters. The hyperparameter adjust-
+
+2.3. Model optimization 
+
+The model performance optimization process is broadly divided into 
+two stages, as shown in Fig. 3. The R value of the validation set is used as 
+the performance indicator during the optimization process, whereby R is 
+maximized  using  the  grid  search  method.  During  the  first  stage,  the 
+neural network structure and the number of neurons in the hidden layers 
+are  adjusted.  In  total,  60  sets  of  combinations,  including  one  to  five 
+hidden layers and neurons with a range of 64–2048 (nth  power of 2), 
+were considered. The second stage involves adjusting the percentage of 
+the dropout layers, the learning rate, and the batch size, to achieve a 
+total of 192 combinations (4*4*3*4).
+
+ment ranges were determined based on a review of existing literature 
+(Chien, 1994; Peng et al., 2022; Shen et al., 2022; Srivastava et al., 2014; 
+Wilson and Martinez, 2001; Zhang et al., 2019). The following hyper-
+parameters  were  selected  to  optimize  the  MLP  network  architecture: 
+number  of  neural  network  layers,  number  of  neurons  per  layer,  per-
+centage values of the dropout layers, learning rate, and batch size. The 
+specific tuning ranges of these hyperparameters are shown in Table 1. 
+Each  set  of  parameters  in  Table  2  was  trained  based  on  a  set  of 
+training data (80%) and verified using validation data (10%). The re-
+sults of each group of parameters represent the average of ten experi-
+ments (Tsimpouris et al., 2021), and the data were shuffled each time. 
+Because the calculations are binary, the number of neuron nodes in the 
+network architecture was set to the nth  power of 2 (Peng et al., 2022). In
+
+EcologicalInformatics81(2024)1026153M. Zhou et al.                                                                                                                                                                                                                                   
+
+Fig. 3. The performance optimization of the MLP model.  
+
+Table 1 
+Hyperparameters tuning ranges.  
+
+Hyperparameters 
+
+Type 
+
+Tuning range 
+
+The number of neural network layers 
+The number of neurons per layer 
+Dropout 
+Learning rate 
+Batch size 
+
+Integer 
+Integer 
+Float 
+Float 
+Integer 
+
+1–5 
+64, 128, 256, 512, 1024, 2048 
+0.1, 0.25, 0.35, 0.5 
+0.001, 0.0001, 0.00001 
+32, 64, 128, 256  
+
+Table 2 
+the optimal MLP architecture and parameters.  
+
+Layer type 
+
+Input 
+Dense 
+Batch normalization 
+Dropout 
+Dense 
+Batch normalization 
+Dropout 
+Dense(output) 
+Total parameters 
+
+Layer size 
+
+4200 
+2048 
+2048 
+2048 
+1024 
+1024 
+1024 
+1 
+10,715,137  
+
+Parameters 
+
+0 
+8,603,648 
+8192 
+0 
+2,098,176 
+4096 
+0 
+1025
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The text discusses the use of the grid search method to optimize the performance of a Multilayer Perceptron (MLP) model. Grid search is a traditional hyperparameter optimization technique that systematically explores a manually specified subset of a hyperparameter space of a learning algorithm. It is not explicitly mentioned whether stochastic gradient descent (SGD) or adaptive moment estimation (Adam) optimization algorithms are used in the deep learning pipeline. However, it can be inferred that some form of optimization algorithm would have been employed since they are essential components of training deep learning models.
+
+The grid search method is used to find the best combination of hyperparameters for the MLP model. These hyperparameters include the number of neural network layers, the number of neurons per layer, the percentage values of the dropout layers, the learning rate, and the batch size. The specific tuning ranges for these hyperparameters are listed in Table 1. Each set of parameters is then trained based on a set of training data (80%) and validated using validation data (10%). The results of each group of parameters represent the average of ten experiments, and the data are shuffled each time.
+
+While the text does not provide explicit information about the use of SGD or Adam optimization algorithms, it does mention the use of a learning rate hyperparameter. Learning rates are critical parameters in both SGD and Adam optimization algorithms. Therefore, it can be assumed that either SGD or Adam, or another similar optimization algorithm, has been utilized in conjunction with the grid search method to train and optimize the MLP model.

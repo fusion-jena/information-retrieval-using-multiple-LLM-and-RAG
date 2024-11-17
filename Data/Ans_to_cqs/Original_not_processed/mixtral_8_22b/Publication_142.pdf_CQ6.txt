@@ -1,0 +1,62 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+the Pl@ntNet user community (currently 1.8 million user accounts). At the time
+of writing, the CNN architecture used is the inception model49 extended with
+batch normalization.50 The network is pre-trained on the commonly used Im-
+ageNet dataset and ﬁne-tuned on Pl@ntNet data. Pl@ntNet currently covers
+30,261 species illustrated by more than 2.9 million images. The taxonomic
+coverage of our study is therefore one to three orders of magnitude larger
+than previously published studies making use of automated species identiﬁca-
+tion for ecological research. The training of Pl@ntNet CNN requires the mobi-
+lization of a high-performance computing infrastructure and expertise in deep,
+distributed, and large-scale learning. Thus, the resulting classiﬁcation tool is in
+itself a major advance in biodiversity data science.
+
+tions of the training data, and the gap between these and the test
+data on which the developed algorithms will be evaluated.28
+
+Access to the Pl@ntNet classiﬁcation tool is provided through a dedicated
+API available at my.plantnet.org. The main feature of this API is a RESTful
+JSON-based web service that can accept one to ﬁve images of a plant and re-
+turns a list of likely species. The species are associated with classiﬁcation
+scores (the softmax output of the CNN), as well as a list of matching images
+retrieved from the database. To facilitate the implementation of future studies
+based on the methodology of this paper, we have developed the ‘‘plantnet’’51
+R-package allowing users to query the Pl@ntNet API. The package is available
+online at https://github.com/BiologicalRecordsCentre/plantnet.
+
+AI naturalists, just like their human counterparts, may have
+their own biases which must be fully understood if the informa-
+tion that they generate is to be trusted and suitably utilized. For
+example, most AI systems can only detect or recognize already
+seen (or learned) objects or concepts. Benchmark datasets of
+images can be organized to precisely assess the limits of AI sys-
+tems’ ability, highlighting where human expertise is still required.
+Deep learning models (some of the most advanced AI algo-
+rithms) are developed with training datasets that allow them to
+capture discriminant visual patterns. Their performances are
+then strongly correlated to the quality and completeness of the
+datasets on which they are trained. Unbalanced, biased, or
+otherwise poor-quality training datasets will lead to underper-
+forming algorithms in real conditions.27 During the learning
+phases, particular attention must be given to any relevant limita-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the specific preprocessing steps involved before training the deep learning model used in Pl@ntNet. However, it mentions that the network is pre-trained on the ImageNet dataset and fine-tuned on Pl@ntNet data. This suggests that some form of preprocessing might have been applied to both datasets to ensure compatibility during transfer learning.
+
+Preprocessing steps typically involve various techniques such as normalization, scaling, cleaning, augmentation, etc., depending on the nature of the input data. Normalization scales pixel values to a common range (usually between 0 and 1) to maintain consistency across different images. Scaling resizes images to fit a standard size, ensuring uniform input dimensions. Cleaning involves removing noise or irrelevant features from images to improve model performance. Data augmentation generates new samples by applying transformations (rotation, flipping, zooming, etc.) to existing ones, increasing the diversity of the training set.
+
+In the case of Pl@ntNet, since it uses a convolutional neural network (CNN) based on the Inception model with batch normalization, it is reasonable to assume that image normalization was employed. Batch normalization itself is a technique used to stabilize the learning process and accelerate convergence by normalizing layer inputs within mini-batches. Additionally, considering the vast number of species covered (30,261) and the extensive image database (over 2.9 million images), data cleaning and augmentation could also have been part of the preprocessing pipeline to handle potential inconsistencies and enhance the robustness of the model.

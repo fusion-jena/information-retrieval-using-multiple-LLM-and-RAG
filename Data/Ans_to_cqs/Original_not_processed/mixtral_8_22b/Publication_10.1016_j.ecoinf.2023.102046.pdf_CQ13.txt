@@ -1,0 +1,75 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+training set. For SVC, we explored a C value in the interval [0.001, 1] 
+(see Fig. C.2 in the Appendix C. Based on that result, the hyperparameter 
+value chosen was C = 0.1. For ridge regression, we explored α values in 
+the interval [0.1, 19.6] and concluded that the performance of the model 
+is robust to the choice of the hyperparameter when it ranges from 5 to 15 
+(see Fig. C.1 in the Appendix C). Based on that result we chose to use α =
+6.0 for our experiments.
+
+EcologicalInformatics76(2023)10204610A.R. Sigurðard´ottir et al.                                                                                                                                                                                                                      
+
+Fig. B.1. Difference in predicted versus true age for European plaice when training the linear model on a training dataset of different size. Training size is shown 
+under each image. 
+
+Appendix C. Hyperparameter search 
+
+We  performed  hyperparameter  search  for  our  classification  and  regression  model  to  identify  the  right  level  of  regularization.  For  the  linear 
+regression model, we considered values of α  that determine the L2 regularization to be in the range {0.1, 0.6, 1.1, …, 19.1, 19.6}. The resulting 
+accuracy of the model is shown in Fig. C.1. We observe that the model shows stable performance for α values in the interval [5.0, 15.0]. For the
+
+ResNet-50 is a convolutional neural network model that uses skip 
+connections,  which  made  it  possible  to  get  good  performance  with 
+deeper models than was previously possible (He et al., 2015). Training 
+deep neural networks can result in exploding gradients, and skip con-
+nections  were  introduced  to  ameliorate  that  problem.  ResNet-50  was 
+chosen  for  comparison  as  it  is  a  proven  CV  classification  model.  It  is 
+commonly used and provides a well-performing baseline. 
+
+Inception-V3  is  a  convolutional  neural  network  used  for  image 
+classification, that has an auxiliary classifier that acts as a regularizer 
+(Szegedy et al., 2015b). The Inception-V3 architecture is built on pre-
+vious Inception models, with the aim of making the V3 computationally
+
+The Inception-V3 model accepts images resized to (299, 299) pixels 
+but ViT and ResNet resize to (224, 224) pixels. Dataset imbalance was 
+dealt with by including class weights in the cross-entropy loss function. 
+For the training we used AdamW optimizer for Hugging Face models, 
+which is the default optimizer in the transformers library by Hugging-
+Face. For Inception-V3, we used Adam since that was the optimizer used 
+in  previous  work  (and  AdamW  is  not  available  in  Keras).  We  used  a 
+(cid:0) 4  for 
+batch  size  of  16  examples  and  the  learning  rate  was  set  to  10
+(cid:0) 5  for  Vanilla  Inception-V3  and  ViT.  For  Deep  Otolith 
+ResNet  but  10
+(cid:0) 4 as suggested by Politikos 
+Inception we used a learning rate of 4 × 10
+et  al.  (2021).  For  every  fine-tuning  experiment,  the  model  with  the 
+
+smallest validation loss was used for evaluation on the test set. 
+
+2.3. Performance
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The authors used two types of deep learning models - ResNet-50 and Inception-V3. For both models, they dealt with dataset imbalance by including class weights in the cross-entropy loss function. They also used batch sizes of 16 examples. However, there are differences between the two models regarding their optimization methods and learning rates.
+
+For the ResNet-50 model, the authors used the AdamW optimizer, which is the default optimizer in the transformers library by Hugging Face. They set the learning rate to 10^(-4) for Vanilla Inception-V3 and ViT, while using a learning rate of 4 x 10^(-4) for Deep Otolith Inception. These learning rates were suggested by Politikos et al. (2021).
+
+On the other hand, for the Inception-V3 model, the authors used the Adam optimizer because it was the optimizer used in previous work. Unfortunately, the specific learning rate used for this model is not mentioned in the given context.
+
+Therefore, based on the information provided, the hyperparameters used in the deep learning models include the type of optimizer (Adam or AdamW), the learning rate (ranging from 10^(-4) to 4 x 10^(-4)), and the inclusion of class weights in the cross-entropy loss function to address dataset imbalance.

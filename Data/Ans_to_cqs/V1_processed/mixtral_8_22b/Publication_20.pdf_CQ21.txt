@@ -1,0 +1,9 @@
+After the model training, the authors implemented two post-processing decision rules to enhance the performance of their models. These rules aimed to address specific issues encountered during the classification process.
+
+The first decision rule (r1) was designed to mitigate the problem of certain fish species being incorrectly classified as 'environment'. This occurred due to the high confidence scores assigned by the networks trained with T2, T3, or T4 datasets. To rectify this issue, if the initial prediction of the network was 'environment' with a confidence level below 99%, the final output would be revised to reflect the fish class with the highest probability.
+
+The second decision rule (r2) was introduced to handle the presence of 'part of species' classes in the T4 dataset. Since these classes were not included in the test database but were merely a methodological choice to boost model performance, any results indicating 'part of species X' would be adjusted to simply indicate'species X'.
+
+These post-processing steps significantly improved the identification rates, increasing them from 89.5% to 94.1%. Furthermore, the application of decision rule r1 reduced errors related to confusion between fish and the environment to under 4%.
+
+In summary, the post-processing steps involved after the model training include implementing decision rules to refine the raw outputs of the models. Specifically, the authors employed two such rules: r1 to minimize misclassifications of fish species as 'environment', and r2 to manage the 'part of species' classes in the T4 dataset.

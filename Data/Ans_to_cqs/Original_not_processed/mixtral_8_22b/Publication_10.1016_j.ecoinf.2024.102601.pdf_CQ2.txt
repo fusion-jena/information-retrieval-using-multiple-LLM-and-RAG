@@ -1,0 +1,124 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+5.2. Related research 
+
+In the domain of WSM utilizing ML models, optimizing data struc-
+tures is paramount. Our study’s engagement with this challenge has led 
+to identifying efficient data structures for ML classification. This opti-
+mization focuses on the strategic selection of predictors from S2 imagery 
+and  the  integration  of  XAI  techniques.  Specifically,  we  optimize  the 
+input  matrix  X  = i  × j,  where  I  represents  the  number  of  predictors 
+(columns) and j represents the number of training points (rows). We aim 
+to select the 12 most pertinent predictors from S2 imagery to enhance
+
+gorithms, as explored by Collins et al. (2018), demonstrate significant 
+potential in accurately classifying burn areas and severity levels using 
+spectral data. Following this, Montorio et al. (2020) utilized synthetic 
+spectral  databases—created  from  linear  spectral  mixing—to  further 
+develop  RF-based classifiers and  regression models tailored  for WSM. 
+Complementing  these  efforts,  Seydi  et  al.  (2022)  demonstrated  the 
+utility  of  deep  learning  in  extracting  complex  patterns  from  high- 
+dimensional S2 satellite imagery, leading to notable improvements in 
+the  accuracy  of  severity  classifications.  Furthermore,  Morresi  et  al. 
+(2022) explored the potential of S2 imagery to map burn severity in the 
+western Italian Alps. By generating reflectance composites optimized for 
+seasonal timing, their approach aimed to overcome challenges posed by 
+cloud  coverage  and  the  temporal  requirements  for  effective  burn
+
+n_estimators 
+
+max_features 
+
+min_samples_split 
+
+max_depth 
+
+criterion 
+
+[100, 200, 300, 
+400, 500, 600, 
+700, 800, 900, 
+1000] 
+[log2, sqrt] 
+[2, 4, 6, 8, 10, 
+20, 40, 80, 
+160] 
+[2, 4, 6, 8, 10, 
+20, 40, 80, 
+160] 
+[gini, entropy, 
+log_loss] 
+
+200 
+
+[100,200,300] 
+
+100 
+
+3.4. Evaluation metrics 
+
+sqrt 
+
+sqrt 
+
+2 
+
+[1,2,3] 
+
+sqrt 
+
+1 
+
+80 
+
+[70, 80, 90] 
+
+80 
+
+gini 
+
+gini 
+
+gini  
+
+Our study leverages ML for multi-layer classification to accurately 
+identify  areas  affected  by  wildfires.  Given  the  critical  importance  of 
+precision in wildfire mapping, we evaluated our model’s performance 
+using two primary metrics, OA and Cohen’s Kappa statistic, which are 
+vital for understanding the model’s effectiveness. 
+
+OA  is  the  proportion  of  correctly  predicted  instances  (wildfire- 
+affected  and  unaffected  areas)  out  of  the  total  instances  evaluated. 
+Mathematically, it can be expressed as:
+
+For the hyperparameter optimization task, we employ two predom-
+inant models— RandomizedSearchCV and GridSearchCV—provided by 
+the  scikit-learn  library  to  meticulously  refine  the  RF  algorithm’s  per-
+formance.  The  tuning  methodology  encompasses  an  initial  broad 
+exploration of the hyperparameter space using RandomizedSearchCV, 
+followed by a focused and exhaustive search using GridSearchCV to fine- 
+tune the model. RandomizedSearchCV performs a probabilistic search 
+over  the  predefined  hyperparameter  space,  offering  a  computational 
+advantage  by  evaluating  a  user-specified  subset  of  hyperparameter 
+combinations.  This  method  aids  in  efficiently  navigating  vast  hyper-
+parameter  spaces  and  is  particularly  advantageous  when  there  is  un-
+certainty  regarding  the  optimal  values.  It  generates  a  sample  of  the 
+parameter settings based on specified distributions, allowing the incor-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not explicitly mention the specific data format used in the deep learning pipeline. However, it mentions the use of Sentinel-2 (S2) imagery, which suggests that the data format used is likely images or raster data. Additionally, the study aims to select the 12 most relevant predictors from S2 imagery, indicating that the input data might be multispectral or hyperspectral images containing various bands of information.
+
+While the text does not provide explicit details about other possible data formats such as audio, video, or CSV files, it emphasizes the focus on optimizing data structures for machine learning classification tasks using S2 imagery. Therefore, it can be inferred that the main data format used in the deep learning pipeline is primarily related to image processing and analysis.

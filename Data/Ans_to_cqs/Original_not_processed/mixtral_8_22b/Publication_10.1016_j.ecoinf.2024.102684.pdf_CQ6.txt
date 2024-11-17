@@ -1,0 +1,74 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Pre-trained  networks  offer  architectures  with  various  convolution 
+operations that allow them to extract patterns within the images effi-
+ciently.  After  the  convolutional  layers  of  pre-trained  networks,  it  is 
+necessary to add a fully connected network architecture, also known as 
+multi-layer perceptron. These layers are usually located at the end, and 
+are responsible for reproducing the predictions of the final output. We 
+compared different fully connected network architectures, exploring up 
+to  three  hidden  layers  with  8,  16,  32,  and  64  neurons  in  each  layer. 
+Consequently,  we  generated  12  models  for  each  dataset  trained  with 
+different fully connected architectures. The output layer consisted of a 
+single  neuron  with  a  sigmoid  activation  function,  producing  invasion 
+predictions between 0.0 and 1.0.
+
+We applied the  standard machine learning hyperparameter  search 
+over  two  sites  because  of  computational  cost.  In  our  research,  we 
+considered the activation function, the optimizer, and the learning rate. 
+In addition, we performed an exhaustive search for the fully connected 
+architecture for all mono-site and multi-site models. In all these cases, 
+we compare the training, validation, and testing performance to avoid 
+overfitting.  We  could  have  achieved  the  same  results  using  hyper-
+parameter search software such as Optuna and Sklearn. However, even 
+though they could save coding time, we prefer to control every aspect of 
+the process to avoid problems. The hyperparameter search involved a 
+small grid search selecting the following hyperparameters and values:  
+
+1.  Hidden activation function: ReLU, sigmoid, or elu,  
+2.  Optimizer: RMSprop or adam  
+3.  Learning rate: 0.1, 0.001, 0.0001, and 0.00001.
+
+of the models. For instance, Mil`a et al. (2022) used the Nearest Neighbor 
+Distance Matching (NNDM) LOO CV method to delineate a geographic 
+space  in  which  predictions  can  be  made.  Many  of  these  approaches 
+accurately  demonstrate  the  model's  transfer  learning  capabilities,  yet 
+they  impose  limitations  on  the  training  domain,  leading  to  reduced 
+training  heterogeneity  (Meyer  and  Pebesma,  2021).  However,  con-
+ducting large CV experiments with deep learning-based models is often 
+infeasible due to  their high computational costs. Deep  learning-based 
+models  typically  employ  simple  data  partitioning  strategies,  such  as 
+training, validation, and testing (Ocer et al., 2020). This simple scheme 
+can help to add heterogeneous information to the training procedure, 
+but may also overlook the diversity of heterogeneous spatial information 
+in remotely sensed data that is aligned with different learning domains
+
+after evaluation, we selected the following hyperparameter: rectified 
+linear  unit  activation  function  (ReLU),  RMSprop  optimizer,  and  a 
+learning rate of 0.001. 
+
+We employed mean squared error as the loss function for the training 
+process.  To  prevent  overfitting,  we  implemented  callbacks  to  stop 
+training  when  the  validation  error  diverged  from  the  training  error 
+(early stopping technique), saving the model with the best performance. 
+Furthermore,  data  augmentation  techniques  were  applied  to  increase 
+the number and variability of the training data by applying modifica-
+tions to the original images, such as rotation, horizontal flip, vertical flip, 
+width shift range, height shift range, shear range, zoom range, and brightness 
+range.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit details about specific preprocessing steps like normalization, scaling, or cleaning. However, it mentions some important aspects related to preparing the data for training a deep learning model. One crucial step mentioned is data augmentation, which involves increasing the number and variability of the training data by applying modifications to the original images. This includes operations such as rotation, flipping horizontally and vertically, shifting width and height ranges, applying shear transformations, zooming, and adjusting brightness ranges. These techniques help improve the robustness and generalizability of the model by exposing it to diverse variations of the input data during training. Additionally, the text discusses the use of a standard machine learning hyperparameter search, involving factors like the activation function, optimizer, and learning rate. It also mentions the implementation of early stopping to prevent overfitting, where training stops when the validation error diverges from the training error, thus saving the model with the best performance.

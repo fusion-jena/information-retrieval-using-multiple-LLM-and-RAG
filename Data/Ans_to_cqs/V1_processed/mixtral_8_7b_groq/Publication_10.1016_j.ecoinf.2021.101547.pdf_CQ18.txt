@@ -1,0 +1,11 @@
+The strategy implemented to monitor the model performance during training involves a process called "learning with progressive sample size increase." This approach is based on the observation that the performance of deep learning models can be significantly affected by the sample size per class.
+
+In this strategy, the model is initially trained on a small subset of the training data, and the performance is evaluated. The model then continues to train on progressively larger subsets of the training data, with the performance being evaluated after each training stage. This process allows for the monitoring of the model's performance as it learns from an increasing amount of data.
+
+The performance of the model is evaluated using metrics such as accuracy, precision, recall, and F1 score. These metrics are calculated for each class in the dataset, allowing for a detailed analysis of the model's performance across all classes.
+
+Furthermore, the model uses a technique called "focused learning" during training. In this technique, the network performs a new round of learning on a mini-batch of images, focusing relatively more on images with higher loss scores. This means that the network pays more attention to the images that it finds more challenging, allowing for a more efficient use of the training data.
+
+The mini-batch size used in this training process is adjustable and depends on the dataset. A mini-batch size that is too small may not provide sufficient image data for the network to meaningfully learn from some or all of the classes within each iteration. On the other hand, a mini-batch size that is too large may cause the network to overfit to the training images. The mini-batch size is ultimately limited by the amount of memory available to the GPU, factoring in the size of the images and the number of internal parameters in the network.
+
+Overall, the strategy implemented to monitor the model performance during training involves a careful balance of training data size, mini-batch size, and focused learning, allowing for the efficient and effective training of the deep learning model.

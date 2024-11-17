@@ -1,0 +1,13 @@
+Answer:::
+
+The strategy implemented to monitor the model performance during training involves setting up validation set accuracy and employing different learning policies for the models.
+
+For the model trained using the Caffe framework, a step learning policy is employed where the learning rate is initially set to 10−3 for all layers and then decreased by a factor of 10 every 20K iterations. The learning rate of the last fully connected layer is set to 10−2 due to the weights being trained starting from random. The validation phase combines both softmax outputs and computes the final class scores using fusion methods: average (ave) or max voting (mav).
+
+For the deconvolutional network, a fixed learning policy is used where the learning rate is set to 10−3 and then decreased by a factor of 10 when the validation set accuracy stops improving. The momentum is set to 0.9 and weight decay to 10−4.
+
+The performance of the models is also monitored by pre-training each network using its corresponding leaf data and then combining both softmax outputs during the validation phase. This approach allows for a more comprehensive evaluation of the model's performance.
+
+In addition, the quantity of images and number of categories for different datasets are provided, which can be used to further evaluate the model's performance on various datasets.
+
+Overall, the strategy for monitoring the model performance during training involves setting up validation set accuracy, employing different learning policies, pre-training the network using its corresponding leaf data, and combining both softmax outputs during the validation phase.

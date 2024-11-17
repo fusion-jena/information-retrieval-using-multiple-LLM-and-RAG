@@ -1,0 +1,208 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The deeply learned features and the different layer outputs of the
+training, validation, and test sets were extracted in advance. LRs were
+trained and optimised using the grid search tool implemented in scikit-
+learn2 on the validation set.
+
+SGR was applied at risk levels ranging from 5 to 30% and resultant
+thresholds. Coverages and bounds for the coverage were assessed to-
+gether with top-5 accuracy on the unclassified part of the dataset. SGR
+was trained on the validation set and applied to the training and test set
+with the aforementioned risk levels to assess the corresponding cov-
+erages.
+
+All architectures were implemented in Python 3.6 using the Keras3
+library and Tensorflow4 backend. All training and testing processes
+were performed on a Windows 10 workstation with 64 bits OS, 128 Gb
+RAM, 2 × NVidia GeForce GTX 1080 Ti 11 Gb memory and 12 cores
+CPU 2.9 GHz.
+
+5.2. Evaluation metrics
+
+5.2.1. Classification performances
+
+60.64
+63.82
+65.77
+66.30
+
+60.17
+63.57
+65.54
+65.94
+
+Table 3
+Performances of different ResNet architectures on validation and test sets. ResNetX-Y is written so that X indicates the network's depth and Y the input size. In bold
+the best value for each metric.
+
+Network -patch Size
+
+Batch size
+
+Validation set
+
+Test set
+
+Macro-F1
+
+Top-1 accuracy
+
+Micro-F1
+
+Macro-F1
+
+Top-1 accuracy
+
+Micro-F1
+
+ResNet152–224
+ResNet50–128
+ResNet18–128
+ResNet18–224
+Ensemble
+
+16
+128
+128
+200
+128
+
+37.45
+52.04
+51.40
+54.93
+60.56
+
+62.38
+64.07
+63.90
+66.70
+70.60
+
+60.46
+63.85
+63.88
+66.44
+70.35
+
+38.26
+52.27
+51.62
+53.93
+60.38
+
+61.71
+64.35
+63.60
+66.30
+70.54
+
+60.09
+63.89
+63.44
+65.94
+70.37
+
+Table 5
+Application of the Selection with Guaranteed Risk algorithm on the validation
+set for training and results on the test set. Top-5 uncovered = top-5 accuracy
+for the rejected part of the test set. All numbers are expressed in %.
+
+Desired risk
+
+Train-risk
+
+Train-
+coverage
+
+Test-risk
+
+Test-
+coverage
+
+Top-5
+uncovered
+
+5.00
+10.00
+15.00
+20.00
+25.00
+30.00
+
+4.25
+9.15
+14.11
+19.09
+24.08
+27.30
+
+33.98
+52.12
+67.59
+80.47
+92.97
+100.00
+
+4.20
+8.70
+14.35
+19.26
+24.24
+27.40
+
+33.72
+51.90
+67.48
+80.62
+93.17
+100.00
+
+94.16
+92.71
+91.06
+88.16
+81.75
+–
+
+“green macroalgae” (85%), “scleractinia” (87%), “sponge” (84%),
+“zoantharia” (89%) and “sludge, pavement, rubble, sand” (83%).
+
+6.4. Ecological indicators prediction
+
+Predicted sludge and bryozoans were correlated moderately well
+with the ground truth (see Fig. 9; pearson correlation: 0.54 and 0.61,
+respectively), but predicted and observed major builders showed higher
+correlation (pearson correlation: 0.82).
+
+with batch size 512 (65.54; see Table 2). These results provide a dif-
+ferent perspective than the conclusions drawn by previous studies
+(Masters and Luschi, 2018; Mishkin et al., 2016) where the use of small
+or even mini-batches enhanced performances. This could be explained
+by the high imbalance between classes and the fine-grained nature of
+the classification task. Larger batches may therefore be more re-
+presentative of the intra-class variability which in turn allows the net-
+work to focus on inter-class variance. It will be asserted that our best
+ResNet18 (ResNet18–224; 65.94 micro-F1, see Table 3) easily out-
+performed deeper network architectures, whether trained from scratch
+with a smaller batch size (ResNet50–128; micro-F1 63.89), or pre-
+trained with fine-tuned weights (ResNet152–224; 60.09 micro-F1) ac-
+cording to standard procedures (King et al., 2018). Our results support
+the findings of a recent study which advocated the use of carefully
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: The text does not explicitly state the specific criteria used to determine when training is complete. However, it can be inferred that the model uses a form of cross-validation, specifically a validation set, to train and optimize Learning Rate (LR) models using a grid search tool implemented in scikit-learn. Additionally, the application of the Selection with Guaranteed Risk (SGR) algorithm on the validation set suggests that the performance on this set is used to evaluate the model's readiness for deployment. Therefore, it can be assumed that the completion of training might be determined based on the performance of the model on the validation set, such as reaching a desired level of accuracy or minimizing the validation loss.

@@ -1,0 +1,92 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.3.1. Data description
+
+This research contributes significantly to the long-term prediction of 
+multivariate  marine  chemical  data,  confirming  the  necessity  and 
+importance  of  signal  decomposition,  reducing  feature  space  redun-
+dancy,  and  uncovering  potential  feature  correlations  in  this  field. 
+Complementarily, related machine learning and deep learning studies 
+have also made progress in predicting DO concentrations. For instance, 
+Hu  et  al.  (2024)  presented  a  hybrid  deep  learning  architecture  that 
+achieved an R2  of 0.865 in predicting river and stream water quality. 
+Feng  et  al.  (2024)  introduced  the  WTD-GWO-SVR  ensemble  method, 
+which combines wavelet threshold denoising, gray wolf optimization, 
+and support vector regression, and achieved an MAE of 0.038 and an R2 
+of  0.997.  Ikram  et  al.  (2023)  developed  an  innovative  approach  for 
+estimating the water temperature of the Bailong River in China, inte-
+
+4.2. Experimental setup 
+
+During the training phase, to accommodate multivariate input and 
+univariate output, the input and output dimensions of the encoder and 
+decoder  are set  to the  number of variables  in the  dataset. The model 
+dimensionality  is  set  to  128  to  achieve  a  balance  between  model 
+complexity  and  computational  efficiency.  Additionally,  the  model  in-
+tegrates 8 attention heads to enhance its ability to process parallel in-
+formation flows. The model architecture includes two layers of encoders 
+and one layer of decoders, which help to comprehensively capture fea-
+tures from time series data. To reduce the risk of overfitting, a dropout 
+
+4.3.2. Results for the Shandong peninsula
+
+S = ⌊ 1
+Ξ(f)
+
+⌋
+
+(25) 
+
+During  training,  the  input  tensor  comprises  three  dimensions:  the 
+batch  size,  the  number  of  model  variables,  and  the  future  prediction 
+length. The dimension concerning the number of features is segmented 
+by dynamically changing the slice sizes and strides, and the segmented 
+tensors are folded, adding a slice dimension. Finally, by merging the first 
+
+In the second stage of the attention calculation, the covariates are 
+dynamically segmented, capturing their features at different time scales 
+through multiscale attention. Specifically, for the static variables S(t), 
+the multiscale attention FMSA
+S(t)
+)
+(cid:0)
+S(t) = Softmax
+FMSA
+
+is calculated as in Formula 30: 
+
+Wf ,S⋅IS(λk)
+
+(30) 
+
+Similarly, for dynamic variables Z(t), the calculation is as in Formula 
+
+31: 
+
+(cid:0)
+Z(t) = Softmax
+FMSA
+
+)
+
+Wf ,Z⋅IZ(λk)
+
+3.4.3. Attention fusion 
+
+(31)
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What methods are utilized for collecting raw data in the deep learning pipeline (e.g., surveys, sensors, public datasets)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit information on the specific methods used for collecting raw data in the deep learning pipeline. However, it can be inferred that the study involves analyzing multivariate marine chemical data, possibly collected through various means such as sensors or surveys. Furthermore, the mention of Hu et al.'s work on predicting river and stream water quality suggests that they might have employed similar data collection techniques. Similarly, Feng et al.'s use of wavelet threshold denoising implies that their data could have been gathered using sensors or other real-time monitoring devices. Lastly, Ikram et al.'s focus on estimating water temperatures indicates that they may have relied on sensor data or publicly available datasets. In conclusion, while the exact methods for gathering raw data remain undisclosed, it is plausible that the researchers utilized sensors, surveys, or public datasets to collect the necessary information for their respective studies.

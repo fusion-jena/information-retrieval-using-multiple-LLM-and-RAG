@@ -1,0 +1,93 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Annotating  dataset  images  is  one  of  the  most  tedious  and  time- 
+consuming  parts  of  the  modelling  process.  The  size  of  the  dataset  is 
+important - a large dataset is needed for model success but it takes a lot 
+more time to label. In order to prepare a larger dataset to generalize the 
+model for the Greenland data, the model was partially trained to learn 
+the data first and then the model itself was used to annotate new data 
+before training it further.  The new  dataset annotated by the  partially 
+trained model contains 540 training images and 141 validation images. 
+The  self-annotation  dataset  was  manually  checked  and  edited  by  a 
+human. As a result, a large dataset can be prepared within a day. Since 
+the  image  quality  taken  from  the  portable  microscope  in  Kenya  was 
+much lower compared to the other two, a small dataset that only con-
+tained images from Kenya was used to fine tune the model for this data.
+
+√
+̅̅̅
+ρ
+
+Table 1 
+Benchmarks (in percentage) of our best model without post image processing. 
+Minimum detection confidence scores 0.7 is used.  
+
+Iou threshold = 0.5 
+
+Greenland 
+
+Sweden 
+
+Average precision 
+Average recall 
+
+90% 
+94% 
+
+91% 
+95% 
+
+Kenya 
+
+89% 
+96%  
+
+more the index of aggregation approaches zero. 
+
+3. Results 
+
+3.1. Bacterial abundance
+
+include  flip, rotations  and  affine  transformation. We  then  trained the 
+same dataset with ResNet-101 network with heavier augmentation for 
+500 epochs. It is worth noting that the selection of image augmentations 
+is  of  crucial  importance  to  improve  training  performance.  Multiply, 
+linear  contrast,  sharpen,  emboss,  flip  in  horizontal  and  vertical  di-
+rections,  rotations  and  affine  transformation  were  used  for  heavy 
+augmentation.
+
+Acknowledgments 
+
+The training and data handling were enabled by resources provided 
+by the National Academic Infrastructure for Supercomputing in Sweden 
+(NAISS) at Chalmers Centre for Computational Science and Engineering 
+(C3SE),  High  Performance  Computing  Center  North  (HPC2N)  and 
+Uppsala Multidisciplinary Center for Advanced Computational Science 
+(UPPMAX) partially funded by the Swedish Research Council through 
+grant  agreement  no.  2022-06725.  The  authors  wish  to  thank  Lund 
+University  research  infrastructure  Correlative  Image  Processing  and 
+Analysis for machine learning-related consultations. The work for A.S. is
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there is no explicit mention of any specific postprocessing steps involved after the model training. However, we do have some clues about potential postprocessing steps based on the information available.
+
+Firstly, the text mentions using a minimum detection confidence score of 0.7 for benchmarking their best model. This suggests that they might have employed a form of thresholding or filtering as part of their postprocessing pipeline to eliminate low-confidence predictions.
+
+Secondly, the table presented in the context provides average precision and recall values for different datasets. These metrics are typically calculated during the evaluation phase, which could indicate that these calculations were performed as part of the postprocessing step.
+
+Lastly, the context also discusses using various image augmentation techniques such as flips, rotations, and affine transformations during the training process. While not explicitly mentioned, it is possible that similar transformations may have been applied during postprocessing to enhance the robustness of the model's predictions.
+
+In conclusion, while the exact postprocessing steps are not specified in the given context, we can infer that thresholding, metric calculation, and potentially additional image transformations may have been involved in the postprocessing pipeline.

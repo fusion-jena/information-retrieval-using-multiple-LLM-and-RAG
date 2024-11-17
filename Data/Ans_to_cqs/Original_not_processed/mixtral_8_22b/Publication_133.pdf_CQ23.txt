@@ -1,0 +1,90 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+In our case, it is the proportion of expert-labeled “Glycaspis”
+(respectively “Psyllaephagus” or “Thaumastocoris”) objects that
+were also labeled “Glycaspis” (respectively “Psyllaephagus” or
+“Thaumastocoris”) by the deep learning model. Recall is deﬁned
+as the number of true positives divided by the sum of true
+positives and false negatives. Precision (Eq. 3) is the fraction
+of correctly classiﬁed objects among all classiﬁed objects. It is
+deﬁned as the number of true positives divided by the sum of true
+positives and false positives:
+
+Model Training
+Deep learning models
+iteratively: generating
+learn data
+predictions of the training set samples, evaluating them by
+
+3https://github.com/ultralytics/yolov5/tree/v4.0
+4https://cocodataset.org/#home
+
+the loss function, and modifying their parameters according
+to the loss function’s gradient. Thus,
+the loss declines in
+each training round (aka epoch), and the model’s annotation
+accuracy increases (Figure 2 and Supplementary Figure 1).
+As the number of parameters of a typical deep learning
+model
+is large, overﬁtting is a major concern. A common
+(partial) remedy is the use of validation data, which are set-
+aside while training, yet their annotations by the models are
+the training
+monitored. The validation data help to limit
+duration, thereby reducing the risk of overﬁtting. In this study
+we used 30 epochs per training task, based on our validation
+runs (Figure 2).
+The data of
+
+INTRODUCTION
+
+State of the Art: Machine Learning for
+Insect Ecoinformatics
+Ecologists strive to document and interpret the abundance
+and distribution of organisms. Field observations are a major
+means to this end, and the observational data that have
+accumulated over the decades form a solid basis for our
+view of ecosystems. In recent years, technological advances
+enabled the solidiﬁcation of observational ecology into a
+new scientiﬁc branch, ecoinformatics, which applies big-data
+methods to ecological questions (Rosenheim and Gratton, 2017).
+Ecoinformatics focuses on curating and mining large databases,
+collected over long time periods across multiple locations (see
+the GBIF Home Page1). The available data vary in format and
+reliability (Gueta and Carmel, 2016) as they originate from
+multiple sources, such as long-term ecological monitoring (Lister
+and Garcia, 2018), citizen science projects (Hallmann et al., 2017),
+or museum catalogs (Short et al., 2018).
+
+Deep Learning for Insect Ecoinformatics
+
+data points describe the performance attained by a model that
+accepts all identiﬁcations, as its Tcs is minimal (0). Such a plot
+can guide users in adjusting model parameters to their needs. If
+fewer detections are accepted (low recall), precision increases.
+
+Tables 3, 4 illustrate the types of recall (Table 3) and precision
+(Table 4) errors made by the model when the conﬁdence
+threshold was set to 0.7. The model rarely confused between our
+three focal species (gray areas in Tables 3, 4). It made some false
+positive predictions, particularly for the class “Psyllaephagus”
+(bold text in Table 4, not tagged by the expert but predicted
+by the model). Most of the missed predictions, however, were
+false negatives (bold text in Table 3, tagged by the expert but not
+identiﬁed by the model).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of the deep learning model, several measures were taken. Firstly, the model was trained using diverse datasets consisting of various insect species, including Glycaspis, Psyllaephagus, and Thaumastocoris. This diversity helped prevent the model from being biased towards any specific type of insect, thus improving its ability to generalize well to unseen data. Secondly, the concept of validation data was employed during the training process. Validation data refers to a subset of the entire dataset that is withheld from the training phase and used solely for evaluation purposes. By continuously monitoring the model's performance on the validation data, it was possible to detect signs of overfitting early on and take appropriate actions to mitigate it. Lastly, the study utilized 30 epochs per training task, which was determined through extensive validation runs. An epoch represents one complete pass through the entire dataset, allowing the model to learn from every sample. Using a sufficient number of epochs ensured that the model had enough exposure to the dataset, further enhancing its capacity to generalize effectively.

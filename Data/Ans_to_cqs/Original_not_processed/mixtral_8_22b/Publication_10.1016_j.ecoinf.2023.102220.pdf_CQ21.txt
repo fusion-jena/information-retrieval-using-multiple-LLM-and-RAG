@@ -1,0 +1,96 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+base  and α and obtain d*
+
+pred  for each row of P′
+
+association metric between xnew  and each row of P′
+
+means;  
+
+8.  If the computed association coefficient is greater than or equal to the 
+value of d*
+means, predict that a new 
+event will occur at the next time step; predict that it will not occur, 
+otherwise. 
+
+pred  associated with that row of P′
+
+(4) 
+
+A schematic diagram of this process is represented in Fig. 3. 
+
+2.2. Choosing m, d*
+
+cluster, d*
+
+base  and α via cross-validation 
+
+We propose the use of k-fold cross-validation to choose the values of 
+cluster and α, such that the accuracy of the method is optimised. Here, 
+
+m, d*
+
+EcologicalInformatics77(2023)1022203G.R. Palma et al.
+
+Table 2 shows that the PBP method is competitive with state-of-the- 
+art  machine  learning  methods,  such  as  the  commonly  used  Random 
+Forest (RF) algorithm. The criterion of a false positive rate of at most 0.2 
+provides an accuracy of 91.0%, a false positive rate of 8% and a true 
+positive  rate  of  75%.  Only  DNN  could  obtain  similar  values  of  true 
+positive rate for this case study. Moreover, our method using the criteria 
+
+EcologicalInformatics77(2023)1022206G.R. Palma et al.
+
+3.3. Analysis of case-study: Aphid data 
+
+To  predict  the  threshold  representing  an  outbreak  for  the  aphid 
+population dynamics (Fig. 6), we select x* = 200 considering the num-
+ber of species collected in the four traps of the monitoring system, which 
+was  related  to  the  10%  of  plants  infected  by  aphids  resulting  in  the 
+economic  threshold.  Applying  PBP  using  different  training  data  ob-
+tained from percentages of the initial observations of the time series of 
+aphids,  the  accuracy  values  were  higher  than  70%  regardless  of  the 
+percentage of training using the original aphid time series.
+
+With  respect  to  interpretability,  when  using  RF,  it  is  possible  to 
+obtain variable importance. However in this case, this will tell us which 
+previous  steps  were  most  important  when  predicting  outbreaks,  not 
+necessarily  how  they  relate  to  its  occurrence.  When  using  LSTM  and 
+DNN,  which  are  commonly  referred  to  as  ‘black-box’  methods  (Liang 
+et al., 2021), it is even more challenging to find explainable frameworks 
+that allow us to study the relationship between the predictors and the 
+outbreaks. However, each hyperparameter in the PBP framework pro-
+vides a clear interpretation, and we are able to create visual represen-
+tations  of  the  patterns  that  occurred  before  the  outbreak  (the  P′
+means 
+matrix).  For  instance,  Fig.  7  displays  the  three  patterns  in  P′
+means  ob-
+tained from employing PBP using the optimised hyperparameter values 
+for the aphid data using 50% of the time series for training.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, there are several postprocessing steps that can be performed depending on the specific requirements of the task. Some common postprocessing steps include:
+
+1. Model evaluation: This involves calculating various metrics such as accuracy, precision, recall, F1 score, etc. to evaluate the performance of the trained model. These metrics help in understanding the strengths and weaknesses of the model and provide insights into areas where improvements can be made.
+
+2. Visualization: Visualizing the results of the trained model can also be helpful in gaining insights into the model's behavior. Techniques such as saliency maps, activation maximization, etc. can be used to understand what features the model is focusing on while making predictions.
+
+3. Hyperparameter tuning: After evaluating the model, it may be necessary to fine-tune the hyperparameters to improve the model's performance further. Cross-validation techniques such as k-fold cross-validation can be used to choose optimal hyperparameters.
+
+4. Prediction: Once the model has been evaluated and fine-tuned, it can be used to make predictions on unseen data. Depending on the application, these predictions can be presented in various formats such as probability scores, class labels, etc.
+
+For example, in the given context, after training the PBP model, the authors perform postprocessing steps such as computing the association coefficient between the new input and each row of P', comparing it with the value of d*, and predicting whether a new event will occur based on the comparison result. They also use k-fold cross-validation to choose the optimal values of cluster and alpha. Additionally, they calculate various metrics such as accuracy, false positive rate, and true positive rate to evaluate the performance of their method.

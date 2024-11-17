@@ -1,0 +1,77 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+In this work, we resorted to purely deterministic variants of these 
+
+architectures.  The  models  were  implemented  using  the  deep  learning 
+framework PyTorch Lightning (Falcon, 2019) which is built on top of 
+PyTorch  (Paszke  et  al.,  2019)  and  enables  improved  scalability.  The 
+hyperparameters were tuned using an Optuna-based (Akiba et al., 2019) 
+hyperparameter optimization procedure.
+
+2.4. Model training 
+
+23,401  datacubes  (97.9%  of  the  original  EarthNet2021  training 
+dataset) were used for training, 500 datacubes for validation, and three 
+datacubes were discarded (see above). The model was trained using the 
+L2  loss  determined  on  the  predicted  and  observed  RGBI  channels 
+(ignoring the cloud-contaminated pixels). The EarthNetScore (described 
+in Section 2.5) is used for validation. The learning rate is set to 0.0003 
+
+and the batch size is set to 4. We decided to use the AdamW optimizer, 
+which,  unlike  the  standard  Adam  optimizer  (Kingma  and  Ba,  2014), 
+decouples the weight decay and has also shown to improve on gener-
+alization  (Loshchilov  and  Hutter,  2017).  The  SGConvLSTM  and  the 
+SGEDConvLSTM were trained for 92 and 45 epochs, respectively. For 
+completeness,  a  full  list  of  the  model  parameters  is  provided  in 
+Tables A.2 and A.3 in the Supporting Information. 
+
+2.5. Evaluation 
+
+2.5.1. EarthNetScore
+
+Convolutional LSTM network: A machine learning approach for precipitation 
+nowcasting. In: Advances in Neural Information Processing Systems, pp. 802–810. 
+Xu, K., Ba, J., Kiros, R., Cho, K., Courville, A., Salakhudinov, R., Zemel, R., Bengio, Y., 
+2015. Show, attend and tell: Neural image caption generation with visual attention. 
+In: International Conference on Machine Learning. PMLR, pp. 2048–2057. 
+Yu, X., Orth, R., Reichstein, M., Bahn, M., Klosterhalfen, A., Knohl, A., Koebsch, F., 
+
+Migliavacca, M., Mund, M., Nelson, J.A., Stocker, B.D., Walther, S., Bastos, A., 2022. 
+Contrasting drought legacy effects on gross primary productivity in a mixed versus 
+pure beech forest. Biogeosciences 19 (17), 4315–4329. 
+
+Yuan, Z., Zhou, X., Yang, T., 2018. Hetero-convlstm: A deep learning approach to traffic 
+
+accident prediction on heterogeneous spatio-temporal data. In: Proceedings of the 
+24th ACM SIGKDD International Conference on Knowledge Discovery & Data 
+Mining, pp. 984–992.
+
+Recurrent architectures are not the only means for capturing time 
+dependencies effectively. In recent years, Transformer-based architec-
+tures  (Vaswani  et  al.,  2017)  have  led  to  remarkable  successes  in 
+numerous applications - besides natural language processing (Jaderberg 
+et al., 2015; Meinhardt et al., 2022; Zhao et al., 2021), including vision 
+tasks (Dosovitskiy et al., 2021). Since transformers are not conceived in 
+a  sequential manner, they exhibit multiple advantages over  recurrent 
+architectures, including a more direct gradient flow, a higher level of 
+parallelizability  (Zeyer  et  al.,  2019)  and  allowing  for  effective  self- 
+supervised pre-training schemes (Devlin et al., 2018). In our efforts to 
+use  a  Transformer  version  for  video  prediction,  similar  to  Liu  et  al. 
+(2020),  we  encountered  significant  memory  limitations  even  after 
+decreasing the hidden channel dimension and resorting only to single
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about specific regularization methods used to prevent overfitting in the deep learning pipeline, such as dropout or L2 regularization. However, it mentions that the AdamW optimizer was used instead of the standard Adam optimizer. AdamW is an extension of Adam that decouples weight decay from the gradients, providing better generalization performance compared to Adam. This can be considered a form of regularization, as it helps prevent overfitting by controlling the complexity of the learned weights. Additionally, the hyperparameters were tuned using an Optuna-based hyperparameter optimization procedure, which could potentially include adjustments related to regularization techniques.

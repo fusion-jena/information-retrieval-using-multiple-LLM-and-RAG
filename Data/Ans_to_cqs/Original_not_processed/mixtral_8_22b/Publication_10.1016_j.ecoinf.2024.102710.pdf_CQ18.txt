@@ -1,0 +1,56 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The active learning experiments are carried out in the embedding
+space of the selected transfer learning model (BirdNet-1, see Section
+3.1). We explore a range of sampling strategies: uncertainty and di-
+versity based, myopic (greedy) and adaptive (batch mode), and com-
+binations thereof. Fig. 2 provides a schematic overview of the pure
+families of sampling strategies: Random sampling selects samples arbi-
+trarily, uncertainty sampling targets samples near the decision bound-
+ary, and diversity sampling focuses on samples that span the entire data
+space. In all cases, 5% of the samples are selected at random. Class labels
+are available for all samples used in this study, and an active learning
+scenario is emulated by hiding all labels from the classifier at first and
+incrementally revealing the ones for each batch of samples queried by
+the sampling methods. We use a batch size of 20 samples. The classifier
+heads are identical to those from the transfer learning training process.
+
+both the target modality and the domain, yields the best performance as
+a feature embedding model. Using BirdNet-1 as the embedding model,
+active learning sample selection strategies significantly reduce the
+required for annotation to achieve model
+number of
+convergence.
+
+ResNet-50 variant (no transfer learning), and the small size of their
+validation set (6.25 h, or 0.003% of the data) precludes comparing
+different active learning methods. Similarly, van Osta et al. (2023) use
+transfer learning (ResNet seemingly pre-trained on ImageNet) and an
+active learning strategy to train a classifier for a single cryptic bird
+species, but do not compare different active learning strategies.
+
+of different active learning strategies. We investigate a range of sam-
+pling strategies: uncertainty and diversity based methods, myopic
+(greedy) and adaptive (batch mode) methods, and combinations thereof.
+Finally, we evaluate the resulting learning curves through the lens of
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The strategy implemented to monitor the model performance during training involves using a combination of active learning sample selection strategies. These strategies include uncertainty and diversity based methods, myopic (greedy) and adaptive (batch mode) methods. The experiment uses BirdNet-1 as the embedding model, which has been found to yield the best performance as a feature embedding model for both the target modality and the domain.
+
+In terms of monitoring the model performance, the approach involves selecting 5% of the samples randomly initially. Then, incremental labeling is done for each batch of samples queried by the sampling methods. This allows for tracking the progress of the model's learning curve over time. The classifier heads used in this process are identical to those from the transfer learning training process.
+
+It should be noted that the validation set used in this study is relatively small compared to other studies. However, the focus here is on evaluating the effectiveness of different active learning strategies rather than direct comparison with other models. Therefore, while the specific metrics used to measure model performance are not explicitly mentioned, it can be inferred that they involve assessing the rate of convergence and accuracy of the model given the limited amount of labeled data.

@@ -1,0 +1,120 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+conv1
+conv2
+conv3
+conv4
+conv5
+maxpool
+
+Conv
+
+11 × 11
+5 × 5
+3 × 3
+3 × 3
+3 × 3
+2 × 2
+
+Kernels
+
+Stride
+
+Pad
+
+96
+256
+384
+384
+256
+Na
+
+4
+1
+1
+1
+1
+2
+
+0
+2
+1
+1
+1
+0
+
+ResNet (Deep Residual Network, [43]) is a Deep Learning architecture with many
+layers that use skip connections, as illustrated in Figure 4. These skip connections allow
+the bypassing of layers and add their activations to those of the skipped layers further
+down the sequence. The dotted arrows in Figure 4 denote skip connections through a linear
+projection to adapt to the channel depth.
+
+By skipping layers and thus shortening the back-propagation path, the problem of the
+“vanishing gradient” can be mitigated. Figure 4 represents a 34-layer ResNet architecture.
+The ﬁrst layer uses 7 × 7 convolutions, the remaining ones 3 × 3.
+
+Remote Sens. 2021, 13, 2257
+
+9 of 22
+
+Figure 4.
+architecture. The number of kernels is indicated at the bottom of each convolution layer.
+
+All architectures were trained with stochastic gradient descent using a similar protocol,
+with a momentum of 0.9 and starting from an initial learning rate of 10−2. Every 20 epochs,
+the learning rate is divided by 10 until reaching 10−6.
+
+Neural networks do not perform well when trained with unbalanced data sets [41]. In
+the case of “central-pixel labeling” architectures it is possible to make balanced data sets
+with the initial pixels selection used for the learning. In the case of “semantic labeling” the
+composition of the images makes it more difﬁcult to precisely control the number of pixels
+per class. We tried several methods, but found negligible differences in performance. All
+reported experiments use the median frequency balancing method.
+
+3.3.1. Central-Pixel Labeling
+
+40.32%
+35.97%
+46.56%
+50.21%
+38.75%
+50.40%
+48.38%
+
+For the LU detection task, all deep learning techniques except AlexNet outperformed
+XGBoost. Differences were signiﬁcant, with up to 15 percent points in OA. As in the
+previous section, the best performing “single-pixel” architecture is DenseNet and the best
+“semantic labeling” network is DeepLab. Interestingly, DenseNet reached the best PA,
+although DeepLab dominated the remaining metrics.
+
+For the remainder of this study, the best performing “single-pixel” and “semantic
+labeling” were selected. There was little difference between the architectures, so the
+architectures with the best F1-score for the LU classiﬁcation were chosen arbitrarily.
+
+4.3. Inﬂuence of Neo-Channels and Land Cover as Input on the Learning
+
+The Fully Convolutional Networks (FCNs) [48] have convolution layers instead of fully
+connected ones, preserving some degree of locality throughout. These layers include two
+parts: the ﬁrst part consisting of convolutional and max pooling to fulﬁl the function of the
+encoder, and the second part comprises an up-convolution to recover the initial dimensions
+of the image and a softmax to classify all pixels. In order to maximize recovery of all the
+information during the encoding, skip connections are included similar to [43] architecture.
+The DeepLab V3+ architecture [49] uses so-called “Atrous Convolution” in the encoder.
+This makes it possible to apply a convolution ﬁlter with “holes”, as shown in Figure 7,
+covering a larger ﬁeld of view without smoothing.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there is no explicit mention of any specific regularization methods such as dropout or L2 regularization being used in the deep learning pipeline. However, the context does provide information about other aspects of the training process. For instance, stochastic gradient descent was used with a momentum of 0.9 and an initial learning rate of 10^-2, which was then reduced every 20 epochs until reaching 10^-6. Additionally, neural networks were trained with balanced datasets to improve performance, specifically using the median frequency balancing method. While these details contribute to understanding the overall training procedure, they do not directly address the query regarding regularization methods used to prevent overfitting. Therefore, based solely on the provided context, I cannot determine what regularization methods were employed to prevent overfitting in the deep learning pipeline.

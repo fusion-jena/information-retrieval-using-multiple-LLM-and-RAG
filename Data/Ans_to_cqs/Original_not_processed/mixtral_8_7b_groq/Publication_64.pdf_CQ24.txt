@@ -1,0 +1,11 @@
+Answer:::
+
+The provided context does not explicitly mention the use of a random seed value to handle randomness in the deep learning pipeline. However, it does describe some strategies employed to introduce randomness during the training of the ResNet50 model for large-scale plant classification.
+
+One way randomness is introduced is through data augmentation. During training, various transformations such as sheering, translation, and horizontal mirroring are applied to the input images. These transformations are randomly applied to the images, so the network never sees the same image twice. However, rotation and upside-down mirroring are not applied to images tagged as 'habit' (e.g., trees or landscapes) as it does not make much sense for these types of images.
+
+Another source of randomness comes from the initialization of the model's weights. The ResNet50 model is initialized with pre-trained weights from the ImageNet dataset provided in the Lasagne Model Zoo. This initialization helps to improve the model's learning process and reduces the training time required to reach good performance.
+
+Additionally, the authors use a specific deep learning framework, Lasagne, built on top of Theano. Both Lasagne and Theano have their own ways of handling randomness, such as providing functions to generate random numbers. However, the context does not provide specific details about how these libraries are used to manage randomness.
+
+In summary, the provided context describes strategies for introducing randomness during the training phase of the ResNet50 model, mainly through data augmentation and weight initialization. However, it does not explicitly mention the use of a random seed value for handling randomness in the deep learning pipeline.

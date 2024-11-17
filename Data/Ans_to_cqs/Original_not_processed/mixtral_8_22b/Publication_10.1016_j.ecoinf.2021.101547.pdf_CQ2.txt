@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The  mini-batch  size  is  user-adjustable  (typically  in  binary-number 
+increments,  e.g.  2,  4,  8,  16,  32,  etc.)  depending  on  the  data  set.  Too 
+small  a  mini-batch  size  may  provide  insufficient  image  data  for  the 
+network  to  meaningfully  learn from  some or  all  of  the  classes  within 
+each iteration, while too large a mini-batch size may cause the network 
+to  overfit  to  the  training  images.  Because  of  the  high  computational 
+complexity  of  the  deep  learning  process,  the  mini-batch  size  is  ulti-
+mately limited by the amount of memory available to the GPU (in our 
+case 8 GB), factoring in the size of the images (in our case 224 × 224 
+pixels × 3 bands) and the number of internal parameters in the network 
+(25.6 million in the case of ResNet-50). Thus, we were limited to mini-
+
+By default, ResNet-50 processes three-band (RGB) input images with 
+a size of 224 × 224 pixels. Training of the network is performed itera-
+tively on small ‘mini-batches’ of the training images. At each iteration, 
+the network is shown a new mini-batch of images and starts by classi-
+fying them based on its current internal parameters. For each image, the 
+network estimates the probability that the image represents each of the 
+different user-defined classes, with the probability scores of all classes 
+cumulatively adding up to 1. By default, the image is assigned to the 
+class with the highest probability score. The network then ascertains the 
+actual  class  of  the  training  image  as  per  the  user-provided  label,  and 
+computes a ‘loss’ score for the image based on the difference between 
+the estimated class probability scores and the actual scores, whereby the 
+image should have a score of 1 for its actual class and a score of 0 for the
+
+The  diversity  of  considerations  and  possibilities  for  improvement 
+highlights another general challenge of using deep learning at present: 
+as a still-burgeoning technology, optimized or standardized approaches 
+for different analysis tasks are not yet well-established, so the range of 
+possibilities  can  seem  overwhelming,  especially  to  non-expert  users. 
+Even the basic training options, some of which are listed in Table 1, are 
+numerous and highly technical. A sensible approach is to initially set 
+options based on a review of published studies involving similar analysis 
+tasks,  then  attempt  to  refine  certain  settings  through  trial  and  error. 
+However,  it  should  also  be  noted  that  the  computationally  laborious 
+process of training a CNN (several hours to several days of background 
+processing) imposes a practical limit on the extent of trial and error that 
+can  be  undertaken.  Nevertheless,  deep  learning  is  now  clearly  over-
+
+batches of 64 images. Smaller mini-batches were not desirable in our 
+case  because  of  our  significantly  imbalanced  training  image  set  that 
+required both a large variety of background images and a certain min-
+imum  number  of  polar  bear  images  in  each  mini-batch  (see  section 
+2.4.3). The precise numbers of training images of various sorts that we 
+used at different stages of training our CNN were calibrated to ensure 
+that the total number of training images was divisible by 64, so that no 
+images were excluded from each training epoch. 
+
+2.3. Collection and editing of Web images of polar bears
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, the data format used in the deep learning pipeline is images. Specifically, the context mentions that ResNet-50 processes three-band (RGB) input images with a size of 224 x 224 pixels. Additionally, the context discusses the use of training images and their classification into different classes. Therefore, it can be concluded that the data format used in this particular deep learning pipeline is images.

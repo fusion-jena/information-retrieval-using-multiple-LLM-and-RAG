@@ -1,0 +1,13 @@
+Answer:::
+
+In the training phase of the deep learning model, the training data is partitioned into two subsets: training and validation. This approach differs from the typical per-image splitting method, as it aims to mitigate potentially unbalanced sets resulting from varying insect numbers in different images.
+
+To implement this alternative strategy, each image is divided vertically into halves. One portion is assigned to the training subset, and the other half is allocated to the validation set, alternating between the two subsets for each image. This division method ensures a more balanced distribution of data for training and validation.
+
+It is important to note that the data is processed in its raw form, without any pre-processing operations such as segmenting the region representing the trap from the background. This approach allows the model to learn from the images as they are naturally collected and curated.
+
+Additionally, during the training stage, square patches are randomly cropped from the images for further processing. These patches are then subjected to a simple augmentation strategy, which includes flipping them horizontally and vertically with a 50% probability. This technique aims to increase the diversity of the training data and improve the model's ability to generalize.
+
+In contrast, during the validation phase, images from the validation split are divided into regularly-spaced, overlapping patches using the same size employed during training. These patches are processed individually, and the predictions from the patches are combined to reconstruct the overall output. Metrics are then calculated over the complete image.
+
+In summary, the criteria used to split the data for deep learning model training involve dividing images into halves for training and validation subsets, randomly cropping square patches during the training stage, and processing regularly-spaced, overlapping patches during the validation phase. These methods aim to create a balanced distribution of data, increase data diversity, and improve the model's ability to generalize.

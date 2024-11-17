@@ -1,0 +1,127 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Since CNNs require a fixed input size, we studied the vocalisations 
+within the presence class for each dataset to determine the character-
+istics of the calls which would allow us to create fixed input, which we 
+refer to as segments. For example, the Hainan gibbon calls vary from 2 to 
+9 s (Dufourq et al., 2021), and thus a suitable input size was 4 s to ensure 
+that the smallest call would fit within the segment. A longer input (>4 
+seconds) would result in CNNs with more network parameters, an un-
+desirable consequence as this would increase the chances to overfit. A 
+shorter input (<4 s) would not contain enough information, especially 
+in cases where the individual pulses that make up a call are long. A short 
+input could omit parts of the call. Preliminary experiments were con-
+ducted on the different datasets to minimise the input length as much as 
+possible,  thus  minimising  network  parameters.  The  characteristics  of
+
+dataset)  with  46  softmax  units.  The  spectrograms  were  duplicated  to 
+meet  the  input  of  ResNet50  which  expects  3  channels.  Zhong  et  al. 
+(2020) compared VGG16 that was randomly initialised to a ResNet50 
+model that was  pre-trained  on ImageNet.  In both  cases, a  colour mel 
+spectrogram was input into the network. The spectrograms were resized 
+to match the network's input of 224 by 224. Their models were applied 
+to bird and amphibian vocalisations. ResNet50 pre-trained on ImageNet 
+was also used by LeBien et al. (2020) whereby the pre-trained feature 
+extractor was used and then two fully connected layers were added to 
+the CNN. Zhong et al. (2021) applied ResNet50 to a birdsong dataset 
+that contained three classes (two bird presence and one absence). The 
+CNN was  pre-trained on ImageNet and  the fully connected layer, fol-
+lowed by a dropout and an output layer was added to the CNN that was
+
+Table 4 
+Comparison of the average F1 score across the different network architectures and dataset configurations. The exponent approach was used for the spectrogram input. 
+The feature extracted was frozen. The results are averaged across 13 unique executions. The results are ordered (highest to lowed) based on the average of each 
+network architecture across all configurations. The best three performing network architectures on a particular dataset configuration is highlighted in bold.  
+
+Method 
+
+ResNet101V2 
+ResNet152V2 
+InceptionResNetV2 
+ResNet50V2 
+DenseNet169 
+DenseNet201 
+VGG16 
+DenseNet121 
+InceptionV3 
+ResNet101 
+Xception 
+MobileNetV2 
+
+G 25 
+
+95.30 
+95.18 
+94.70 
+94.97 
+94.92 
+94.84 
+97.26 
+94.58 
+92.22 
+96.17 
+93.88 
+94.62 
+
+G 50 
+
+97.40 
+96.92 
+96.75 
+97.04 
+96.95 
+96.72 
+98.09 
+96.69 
+95.42 
+97.49 
+95.79 
+96.65 
+
+G 100 
+
+96.27 
+96.58 
+96.57 
+95.13 
+95.69 
+95.86 
+94.99 
+95.00 
+95.40 
+94.23 
+95.50 
+91.65 
+
+L 25
+
+consuming step which involves exploring various neural network hyper- 
+parameters to obtain the most optimal model. When combined, these 
+three  problems  render  the  creation  and  utilisation  of  CNNs  to  solve 
+bioacoustics research questions challenging to machine learning experts 
+and non-experts alike.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+From the given context, it appears that there isn't explicit mention of specific measures taken to ensure the generalizability of the deep learning model such as using diverse datasets, cross-validation, or stratified splitting. However, some aspects related to ensuring robustness can be observed.
+
+Firstly, the study considered multiple datasets, including those containing vocalizations of Hainan gibbons, which varied in duration from 2 to 9 seconds. This suggests that the researchers aimed to include diverse data sources to improve the applicability of their findings.
+
+Secondly, the use of pre-trained networks like ResNet50, which had been trained on large image databases like ImageNet, indicates that transfer learning was employed. Transfer learning allows leveraging knowledge gained from solving one problem to another related problem, thereby improving the performance and generalization capabilities of the new model.
+
+Thirdly, the table comparing the average F1 scores across different network architectures and dataset configurations shows that the results were averaged across 13 unique executions. While this does not directly indicate cross-validation or stratified splitting, it implies that multiple runs were conducted to assess the consistency and reliability of the model's performance.
+
+Lastly, the authors acknowledge the challenges associated with creating and utilizing convolutional neural networks (CNNs) for bioacoustic research questions, including finding the most optimal model through hyperparameter tuning. Although no direct evidence of cross-validation or stratified splitting is mentioned, addressing these issues contributes to building a more robust and reliable model.

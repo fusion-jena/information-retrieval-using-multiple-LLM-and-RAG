@@ -1,0 +1,64 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+with a 50% probability of occurrence. To avoid any risk of overfitting at 
+each  training  stage,  we  selected  the  model  relative  to  the  epoch  that 
+gave the best performance on the validation set. During inference, the 
+patch  size  was  set  to  1024  × 1,024  pixels  to  accelerate  the  process. 
+Further information on the fine-tuning process is described in section 
+2.5.2.
+
+The  pre-trained  model  underwent  inference  and  fine-tuning  for  4 
+iterations using the entire SW stratum employing the SAL. This iterative 
+process served to enhance the model's performance and gather samples 
+pertaining to each key species present in the region. The training pro-
+cedure for the two first fine-tuning iterations was the one proposed in 
+the  original  paper  (Delplanque  et  al.,  2023a)  which  consisted  of  two 
+main steps: 1) training the architecture using positive patches for 200 
+epochs, and 2) collecting and including hard negative patches, which are 
+patches  containing  false  positives,  to  further  train  the  model  for  50 
+epochs in order to reduce the number of false positives. During the two 
+last fine-tuning iterations, only the second step of the training procedure 
+was used. Hard negative patches were created using false positives that 
+emerged from the thumbnail classification (step 1 of the SAL). To avoid a
+
+Alexandre Delplanque a,*, Julie Linchant a, Xavier Vincke b, Richard Lamprey c, 
+J´erˆome Th´eau d, e, C´edric Vermeulen a, Samuel Foucher d, Amara Ouattara f, Roger Kouadio f, 
+Philippe Lejeune a 
+a TERRA Teaching and Research Centre (Forest Is Life), ULi`ege, Gembloux Agro-Bio Tech, Passage des D´eport´es 2, Gembloux 5030, Belgium 
+b Aviation Sans Fronti`eres (ASF) Belgique ASBL, Rue Montoyer 1 - Bte 36, Bruxelles B-1000, Belgium 
+c Wildlife Consultant, Midleton, Co. Cork, Ireland 
+d Department of Applied Geomatics, Universit´e de Sherbrooke, 2500 Boulevard de l'Universit´e, Sherbrooke, QC J1K 2R1, Canada 
+e Quebec Centre for Biodiversity Science (QCBS), Stewart Biology, McGill University, Montr´eal, QC H3A 1B1, Canada 
+f Office Ivoirien des Parcs et R´eserves (OIPR), 936J+4F, Abidjan, Cˆote d'Ivoire   
+
+A R T I C L E  I N F O    
+
+A B S T R A C T
+
+2.5.1. Semi-automatic loop 
+
+The core component of the pipeline was the Semi-Automatic Loop 
+(SAL), which integrates both the DL model and a human-expert inter-
+preter. The SAL operated by taking aerial images as input and passing 
+them through the DL model to harvest point detections. Subsequently, it 
+conducted a 256 × 256 pixel crop, centered on each detection, gener-
+ating  thumbnails  that received a  rapid examination  during the  initial 
+human verification step. This verification step entails manually classi-
+fying each thumbnail as either False Positive (FP), True Positive (TP), or 
+uncertain object (Fig. 2).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, the postprocessing steps involve several stages. Firstly, the trained model undergoes inference and fine-tuning for four iterations using the entire SW stratum employing the SAL. This iterative process enhances the model's performance and gathers samples pertaining to each key species present in the region. The training procedure consists of two main steps: 1) training the architecture using positive patches for 200 epochs, and 2) collecting and including hard negative patches, which are patches containing false positives, to further train the model for 50 epochs in order to reduce the number of false positives. However, the text does not explicitly mention specific postprocessing techniques such as saliency maps, metrics calculation, or confusion matrices. Therefore, based on the given context, it can be inferred that these methods might not have been employed in this particular study.

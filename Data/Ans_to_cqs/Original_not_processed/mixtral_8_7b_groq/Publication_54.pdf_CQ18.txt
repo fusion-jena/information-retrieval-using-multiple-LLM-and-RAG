@@ -1,0 +1,11 @@
+Answer:::
+
+The strategy implemented to monitor the model performance during training involves several techniques. First, the model is trained and validated using different sets of data. The training set is used to fit the parameters of the classifier, while the validation set provides an unbiased evaluation of the model fit on the training set. This is done while tuning model hyperparameters, such as the network layer size, finding the optimal number of hidden units, and regularizing the model.
+
+To avoid overfitting, k-fold cross-validation is used. This is a resampling technique where the training set is generated with different combinations of k groups as the training and validation sets. The model is then fit using (k − 1) folds and evaluated using the remaining k th fold. This process is repeated until every k-fold is used as the test set.
+
+Moreover, a multistage training strategy with the training and validation datasets is adopted to better predict the test dataset and analyze the influence of various components in the framework. 
+
+To enhance the performance and decrease overfitting in the selected model, a mechanism is proposed to swap the training and validation misclassified datasets. The model is then retrained until it yields the highest accuracy possible on the validation and test datasets. 
+
+Lastly, five-fold cross-validation is employed to verify the predictive performance of the model. This strategy provides a robust method for monitoring the model's performance during training, ensuring that it does not overfit to the training data and generalizes well to unseen data.

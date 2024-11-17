@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+after the above training data preparation is as follows (Fig. 6). One of the 
+optimal  simulation  results  (72band_256_16bit_split)  was  achieved 
+through the utilization of data augmentation and flattened convolution 
+kernels, as illustrated in Fig. 7.
+
+With regards to the difference between the results of the original, 
+reduced,  and  augmented  datasets  applied  to  the  deep  learning 
+model, we found that the original and augmented datasets are only 
+under  a  few  specific  numbers  of  bands  and  data  formats  (e.g., 
+VGG19 + 8band_256_8bit, VGG19 + 72band_256_8bit, ResNet50 +
+8band_256_8bit, and ResNet50 + 36band_ 256_8bit). The classifica-
+tion accuracy rate reached more than 50%, and there was no regu-
+larity in the classification accuracy. However, the sampling action of 
+reducing the data had a very obvious and consistent impact on the 
+classification  accuracy,  especially  in  the  VGG19  model,  which  is 
+more  similar  to  the  traditional  CNN  model.  This  representative 
+sampling  action  resulted  in  incomplete  and  complete  feature 
+extraction,  and  some  key  features  were  ignored.  Given  the  above 
+reasons, it is recommended that sampling actions be avoided in the
+
+In terms of training data, as the area of each forest type classification 
+was  found  to  be  very  different  through  the  interpretation  of  aerial 
+photos  and  on-site  investigations,  an  imbalance  in  the  training  data 
+occurred, which also had a large impact on the CNN calculation results. 
+Therefore, the research team took the following actions for the dataset of 
+the  input  samples:  (a)  input  according  to  the  original  data  (i.e.,  the 
+number  of  samples  of  each  type  varied,  and  the  size  of  the  sample 
+depended on the area of each forest type); (b) data reduction (i.e., the 
+sampling method was used to force the number of samples of various 
+forest  types  to  be  limited  to  the  same,  but  there  was  a  problem  of 
+different  sampling  ratios)  (Fig.  5a);  (c)  data  augmentation  (using 
+image rotation or overlapping plots, the number of samples of the forest 
+type was standardized to the same) (Fig. 5b). The appearance of the data
+
+When  the  image  units  of  bands  36  and  72  are  input  to  the  deep 
+learning model, the memory capacity may be insufficient given the large 
+dimensions. Therefore, when inputting sample images for bands 36 and 
+72, we used Python's Rasterio module to disassemble them into single- 
+band  images,  i.e.,  the  image  units  with  36  bands  were  disassembled 
+into 36 single-band images and 72-band images were disassembled into 
+72  single-band  images.  This  data  conversion  method  is  equivalent  to 
+flattening the thick convolution kernel. During testing, we found that 
+through  the  optimization  of  this  process,  the  hardware resources  and 
+computing time required for deep learning can be considerably reduced, 
+while the corresponding impact on the model's accuracy is limited. 
+
+3.2. Deep learning model and testing results 
+
+After selecting the model, the CNN model in this study was further 
+
+built using the following steps:
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the criteria used to split the data for deep learning model training (e.g., train, test, validation). However, based on common practices in machine learning, it can be assumed that the researchers followed standard procedures such as splitting the data into training, validation, and testing sets. Typically, the training set is used to fit the model, the validation set is used to tune hyperparameters and prevent overfitting, and the testing set is used to evaluate the final performance of the model. In this case, the researchers mentioned using data augmentation techniques, which suggests they might have used part of their dataset for training and another part for validation during the model tuning phase. Nevertheless, without specific details from the provided context, it is impossible to determine the exact criteria used by the researchers for splitting their data.

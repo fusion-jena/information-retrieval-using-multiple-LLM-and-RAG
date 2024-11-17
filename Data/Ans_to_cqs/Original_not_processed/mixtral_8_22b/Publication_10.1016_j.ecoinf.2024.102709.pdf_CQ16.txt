@@ -1,0 +1,190 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To determine the ideal training–test split for our model, we used k- 
+fold  cross-validation  (k  = 5,  epochs  = 500,  imagesize  = 640).  The 
+epochs provide the number of repetitions for training, and the image size 
+is  expressed in  pixels. k-fold  cross-validation  (Rodriguez et  al., 2010) 
+was used to determine the best training test set for the model. Hereby, 
+the data are split into k different training–test sets. The model was not 
+trained on the entire dataset but on each training split. The result was an 
+investigation of the best data split. Functions of the Python library scikit- 
+learn  (scikit-learn  developers,  2023)  were  used  to  split  the  data  and 
+investigate the results of each trained model. In addition, YOLO training 
+losses and mAP50 values of each model were investigated. The split with 
+the  highest  mAP50  value  indicates  the  highest  number  of  correctly 
+predicted labels for the model trained on a specific split. We used the
+
+Table  7  depicts  the  six  models  in  greater  detail  by  comparing 
+different loss training values, which indicate how well the model learned 
+during training. The goal of training was to minimize the loss value. The 
+YOLO loss function was divided into three parts (Zafar et al., 2018). 
+
+The box loss is a regression loss that measures the error in the pre-
+dicted bounding box coordinates and dimensions relative to the ground 
+truth. When the value is lower, the bounding boxes are more accurate (Li 
+et al., 2023; Wang et al., 2023). This value is computed by YOLO using 
+Intersection  over  Union  (IoU)  (Zheng  et  al.,  2016)  and  distributional 
+focal  loss  (DFL)  (X.  Li  et  al.,  2020b).  The  IoU  measures  the  distance 
+between the ground truth and the actual box (Zheng et al., 2016). DFL
+
+10 
+10 
+3 
+500 – early stopping: 270 
+
+60,000; 10,000 
+60,000; 10,000 
+60,000; 10,000 
+376; 93 
+
+100 
+
+100 
+
+376; 93 
+
+376; 93 
+
+0.994 
+0.988 
+0.972 
+0.971 
+
+0.896 
+
+0.942 
+
+0.991 
+0.992 
+0.965 
+0.956 
+
+0.995 
+0.994 
+0.991 
+0.981 
+
+9.4 h 
+7.2 h 
+2.4 h 
+1.8 h 
+
+0.933 
+
+0.961 
+
+0.6 h 
+
+0.955 
+
+0.971 
+
+0.7 h  
+
+Table 7 
+Summary of the performance of the six models regarding box loss, cls loss, and 
+dfl loss in training and validation.  
+
+Nr 
+
+Training values  
+
+Validation 
+values  
+
+box loss 
+
+cls loss 
+
+dfl loss 
+
+box loss 
+
+cls loss 
+
+1 
+2 
+3 
+4 
+5 
+6 
+
+inf 
+0.3346 
+0.5209 
+0.3918 
+0.7618 
+0.4771 
+
+0.0530 
+0.2275 
+0.4548 
+0.3919 
+0.9560 
+0.5734 
+
+0.8959 
+0.8158 
+0.8126 
+0.9163 
+1.2541 
+0.9248 
+
+0.1955 
+0.9779 
+0.4447 
+0.4617 
+0.8336 
+0.5458 
+
+0.5018 
+0.3546 
+0.3024 
+0.3440 
+1.0063 
+0.4669 
+
+dfl loss 
+
+0.2672 
+1.1551 
+0.7954 
+0.9286 
+1.3280 
+0.9879
+
+0.2672 
+1.1551 
+0.7954 
+0.9286 
+1.3280 
+0.9879  
+
+helps  the  network  learn  the  probabilities  of  the  values  around  the 
+continuous locations of the target bounding boxes (X. Li et al., 2020b). 
+Thus, it focuses on the values near a label y, by explicitly increasing the 
+probabilities of yi and yi + 1. This metric is used for the bounding box 
+estimation. 
+
+Classification loss (cls loss) measures the error in the predicted class 
+probabilities  for  each  object  in  the  image  compared  with  the  ground 
+truth.  When it is lower, the model is more accurate in predicting the 
+class of the objects. This value was computed using a cross-entropy loss 
+function (Terven and Cordova-Esparza, 2023).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Answer: The criterion used to determine when training is complete is minimizing the loss value during training. Specifically, the goal is to reduce the YOLO loss function, which consists of three components: box loss, classification loss (cls loss), and distributional focal loss (dfl loss). Box loss measures the accuracy of the predicted bounding boxes, while cls loss evaluates the correctness of the predicted classes for each object in the image. Lastly, dfl loss helps the network learn the probabilities of the values around the continuous locations of the target bounding boxes. To achieve this, the training process involves multiple repetitions or epochs, with the aim of reducing these losses. However, there is no explicit mention of using a validation loss plateau as a criterion for determining when training is complete.

@@ -1,0 +1,126 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The overall workﬂow of preprocessing, network design, and prediction are shown in Figure 2.
+Due to the size of the orthophotos and due to memory limitations when doing computations, it is
+intuitive to process the orthophotos into relatively small labeled tiles (or rather small image cubes) and
+feed them into the CNN. Each orthophoto of size 10,000 × 10,000 pixels was divided into 1525 tiles of
+256 × 256 pixels. The data (orthophoto and corresponding labels) were then split into three datasets:
+training (80%), validation (20%), and test (two full images of 10,000 × 10,000 pixels). The training
+data were used for optimizing the neural network, while the validation dataset was used to assess the
+performance during the training process. The test dataset was used to assess the performance of the
+ﬁnal optimized neural network. The training and validation images were read into arrays with the
+
+Table 1. Hyperparameter ﬁne-tuning results.
+
+Scenario Number of Blocks Number of Filters
+
+Learning Rate Mean IoU Accuracy
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+3
+4
+5
+6
+4
+4
+4
+4
+4
+4
+
+64 , 64, 64
+64, 64, 64, 64
+64, 64, 64, 64, 64
+64, 64, 64, 64, 64, 64
+16, 32, 64, 128
+32, 64, 128, 256
+64, 128, 256, 512
+16, 32, 64, 128
+16, 32, 64, 128
+16, 32, 64, 128
+
+0.001
+0.001
+0.001
+0.001
+0.001
+0.001
+0.001
+0.01
+0.0005
+0.00001
+
+0.30
+0.38
+0.36
+0.32
+0.42
+0.38
+0.31
+0.008
+0.42
+0.39
+
+82%
+89%
+86%
+86%
+94%
+88%
+84%
+71%
+94%
+90%
+
+Scenario 5 was selected as the optimal solution as it had the best values for IoU and accuracy
+while training on fewer epochs. The resulting architecture is shown in Figure 4 and described in
+the following.
+
+2.5.1. Encoding Path
+
+2.5.1. Encoding Path
+
+The encoding path of our network was composed of three encoding blocks; each block was
+composed of a convolutional layer with a ﬁlter of size (3, 3) and a ReLU activation function [32] ,
+a dropout layer to force each neuron to learn more than only one feature, a second convolutional layer
+followed by ReLU activation, and a max pooling layer with the size (2,2), which replaced each 2 × 2
+region on the feature map by the region’s maximum value and thus decreased the size of the feature
+map by keeping only the highest values.
+
+2.5.2. Decoding Path
+
+As stated in the Introduction, there exist many different CNNs for different applications, and it is
+important to ﬁnd the appropriate solution for a speciﬁc task. Retraining existing powerful architectures
+such as VGG19 [27], ResNet, or Inception Net to solve other problems by transfer learning is one
+approach that is often used. However, this was not an option in our four-band setting and very
+particular segmentation task with features that might differ signiﬁcantly from features learned by
+networks trained on common image datasets such as ImageNet. Thus, we opted to implement a U-Net
+architecture, which is a particular implementation of a CNN ﬁrst developed by Ronneberger [19] for
+biomedical image segmentation. One major advantage of CNNs is the ability to extract spatial features
+and to detect patterns independently of their position on the input image. The U-Net architecture is
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, the given context does not provide information about the deployment process of the trained deep learning model. Therefore, I cannot provide details regarding the methodology used for model serialization, platform selection, or any other steps involved in the deployment process.

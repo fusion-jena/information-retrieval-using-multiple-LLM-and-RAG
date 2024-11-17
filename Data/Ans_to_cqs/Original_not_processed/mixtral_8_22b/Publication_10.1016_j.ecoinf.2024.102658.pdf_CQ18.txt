@@ -1,0 +1,66 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The  iterative  model  exploration  in  this  work  roughly  follows  the 
+Bayesian workflow described by Gelman et al. (Gelman et al., 2020). The 
+Bayesian and non-Bayesian model pairs are chosen so that one repre-
+sents  a  less  flexible  model  in  terms  of  possible  shapes  of  its  decision 
+boundary (Bayesian logistic regression and MLE logistic regression) and 
+one  represents  a  more  flexible  model  (Bayesian  GAM  and  random 
+forest).
+
+Our process of finding the best model roughly follows the Bayesian 
+workflow described by Gelman et al. (Gelman et al., 2020). This is an 
+iterative modeling process in which one systemically repeats the cycle of 
+inspecting the outputs of a model, analyzing the effects of the model and 
+its  configurations,  and  adjusting  the  configurations  or  switching  to 
+another model type according to the observations. The cycle is repeated 
+multiple times while recording the observations and results.
+
+, β1
+
+Fig.  1. The  training  area  and  target  prediction  area  visualized  by  grid  cell 
+centroids.  Because  a  high-resolution  grid  was  used,  centroids  are  visible  as 
+discrete points only at high latitudes, where the map projection exaggerates the 
+inter-centroid distances. 
+
+spatial database (Mechenich, 2022; Mechenich and ˇZliobait ˙e, 2023) at 
+resolution nine, a high-resolution grid in which the distance between the 
+centroids of the hexagonal cells is approximately 50 km globally. The 
+dataset is available via (Mechenich, 2022). 
+
+3.2. Climate datasets
+
+4.2.1. Baseline model: random forest 
+
+Random forest (Breiman, 2001) utilizes an ensemble of classification 
+or regression trees; each tree is grown from a bootstrap sample of the 
+training dataset, and represents a series of sequential decisions, in which 
+each node of the tree is a binary split made on a predictive feature (e.g., 
+whether  the  mean  annual  temperature  is  above  25 
+C).  Further,  a 
+random subset of features is considered when finding the optimal split at 
+each node (we use a value of sqrt(n), n being the number of potential 
+predictors, for the size of this subset). When used for classification, the 
+outputs from the component trees are put through a majority vote to 
+create a single output. This is known to be a simple but powerful method 
+of retaining the complex non-linearity of decision trees while avoiding 
+overfitting. 
+
+◦
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The strategy implemented to monitor the model performance during training is not explicitly stated in the given context. However, it can be inferred that the authors follow an iterative modeling process based on the Bayesian workflow described by Gelman et al. (Gelman et al., 2020). In this process, they repeatedly inspect the outputs of a model, analyze the effects of the model and its configurations, and adjust the configurations or switch to another model type according to their observations. This cyclical approach allows them to systematically evaluate and improve the model performance throughout the training phase.

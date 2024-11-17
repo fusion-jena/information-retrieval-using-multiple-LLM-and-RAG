@@ -1,0 +1,223 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Type
+
+Patch size / Stride
+
+Output Size
+
+Depth
+
+Params
+
+7x7/2
+3x3/2
+
+3x3/1
+3x3/2
+
+3x3/2
+
+3x3/2
+
+7x7/1
+
+convolution
+max pool
+batch norm
+LRN
+convolution
+max pool
+batch norm
+LRN
+inception (3a)
+inception (3b)
+max pool
+batch norm
+inception (4a)
+inception (4b)
+inception (4c)
+inception (4d)
+inception (4e)
+max pool
+batch norm
+inception (5a)
+inception (5b)
+avg pool
+batch norm
+linear
+softmax
+
+112x112x64
+56x56x64
+56x56x64
+56x56x64
+56x56x192
+28x28x192
+28x28x192
+28x28x192
+28x28x256
+28x28x480
+14x14x480
+14x14x480
+14x14x512
+14x14x512
+14x14x512
+14x14x528
+14x14x832
+7x7x832
+7x7x832
+7x7x832
+7x7x1024
+1x1x1024
+1x1x1024
+1x1x10000
+1x1x10000
+
+1
+0
+0
+0
+2
+0
+0
+0
+2
+2
+0
+0
+2
+2
+2
+2
+2
+0
+0
+2
+2
+0
+0
+1
+0
+
+Ops
+
+34M
+
+2.7K
+
+112K
+
+360M
+
+159K
+380K
+
+128M
+304M
+
+364K
+437K
+463K
+580K
+840K
+
+73M
+88M
+100M
+119M
+170M
+
+1072K
+1388K
+
+54M
+71M
+
+1000K
+
+1M
+
+IV. EXPERIMENTS
+
+A. Hand-crafted Feature Extraction Experiment
+
+0.2095
+0.2805
+0.3357
+0.3800
+0.4162
+
+It is also important to notice how this approach does not
+scale well as the number of species becomes higher. By
+comparing the results in [14], where only 66 species were
+used, we see an abrupt decline in accuracy. The best accuracy
+obtained here is 41.6% which is considerably lower than 90%,
+the corresponding accuracy reported in [14].
+
+B. Deep Learning Experiment
+
+Figure 4 summarizes the results of this experiment. Analo-
+gously to the ﬁrst experiment, results are considerably better
+in scenario 4 as compared to scenario 3. Thus, SSPB also
+introduces a signiﬁcant bias when this approach is used. Top-
+5 accuracy is almost a 100% with the biased dataset, while it
+drops to 51% with the unbiased dataset. Similarly, with top-1
+accuracy the difference is around 50%. Once again, the results
+show that SSPB has a signiﬁcant impact on the accuracy of
+leaf-based automated species identiﬁcation using CNNs.
+
+1) Biased Dataset: This dataset was created by randomly
+taking 70% of the data in D for training and 30% for
+testing. These are really approximate percentages because such
+distribution has to be attempted for each species in dataset D.
+How close to a 70%-30% distribution is achieved depends
+on how many photos per species there are in dataset D. For
+example, if a given species X has 20 photos, 14 randomly
+chosen photos will go to the training dataset and 6 to the
+testing dataset. However, if the number of photos for species
+X is 2, one will go to the training dataset and the other one to
+the testing dataset, resulting in a 50%-50% distribution. This
+is the approach most of previous plant identiﬁcation studies
+have followed (particularly those based on leaf-scans).
+
+2016. http://www.deeplearningbook.org.
+
+[31] C. Szegedy, W. Liu, Y. Jia, P. Sermanet, S. Reed, D. Anguelov, D. Erhan,
+V. Vanhoucke, and A. Rabinovich, “Going deeper with convolutions,”
+Proceedings of the IEEE Computer Society Conference on Computer
+Vision and Pattern Recognition, vol. 07-12-June, pp. 1–9, 2015.
+[32] S. Ioffe and C. Szegedy, “Batch normalization: Accelerating deep
+shift,” CoRR,
+
+covariate
+
+network training by reducing internal
+vol. abs/1502.03167, 2015.
+
+[33] K. He, X. Zhang, S. Ren, and J. Sun, “Delving deep into rectiﬁers:
+Surpassing human-level performance on imagenet classiﬁcation,” CoRR,
+vol. abs/1502.01852, 2015.
+
+[34] Y. Jia, E. Shelhamer, J. Donahue, S. Karayev, J. Long, R. Girshick,
+S. Guadarrama, and T. Darrell, “Caffe: Convolutional architecture for
+fast feature embedding,” in Proceedings of the 22nd ACM international
+conference on Multimedia, pp. 675–678, ACM, 2014.
+
+[35] J. Yosinski, J. Clune, Y. Bengio, and H. Lipson, “How transferable are
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The paper uses two types of evaluation metrics to assess the performance of their deep learning models: top-1 accuracy and top-5 accuracy. Top-1 accuracy measures whether the correct label is predicted as the highest probability among all possible labels. On the other hand, top-5 accuracy considers the prediction successful if the correct label appears within the top five probabilities. In the experiments conducted, the authors report both top-1 and top-5 accuracies for different scenarios. They observe that the results are significantly better in scenario 4 compared to scenario 3, indicating that the Species Selection Bias Problem (SSPB) introduces a significant bias in the accuracy of leaf-based automated species identification using Convolutional Neural Networks (CNNs). Specifically, they find that top-5 accuracy is nearly 100% with the biased dataset, but drops to 51% with the unbiased dataset. Similarly, top-1 accuracy shows a difference of about 50% between the biased and unbiased datasets.

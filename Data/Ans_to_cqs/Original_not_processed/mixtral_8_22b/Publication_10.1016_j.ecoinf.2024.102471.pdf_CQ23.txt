@@ -1,0 +1,105 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Fig. 2. Wav2Vec pre-training phase.  
+
+quantized representation for the masked latent feature representation. 
+Diversity loss shown in (2) is also added to the objective function for 
+regularization during pre-training. 
+
+(
+
+Lm = (cid:0)
+
+log
+
+sim(ct ,qt )
+e
+k
+
+/
+
+∑
+
+q′∈Qt
+
+sim(ct ,q′)
+e
+k
+
+Ld =
+
+(cid:0)
+*
+
+1
+GV
+
+) )
+
+(cid:0)
+
+pg
+
+(cid:0) H
+
+(1)  
+
+(2) 
+
+In the supervised fine-tuning phase, the labelled dataset is used in 
+training the model to predict particular words or phonemes. Fig. 3 de-
+picts the process and components in the fine-tuning phase of wav2vec. 
+Phonemes are the smallest unit of sound, usually one or two letters, in 
+the language. During fine-tuning, the quantization module is removed. 
+Instead, a linear projection layer is added to the context network. Then 
+the model is fine-tuned on connectionist temporal classification (CTC) 
+loss for the Automatic Speech Recognition task. So, the wav2vec model 
+has a general understanding of phonemes present in human speech.
+
+30  bird  species.  They  achieved  an  accuracy  of  89.61%  and  91.49%, 
+respectively, demonstrating that their model has greater generalization 
+ability.
+
+4.3. Baseline models 
+
+Hybrid  CNN-LSTM  is  an  architecture  that  combines  the  temporal 
+modelling ability of the LSTM with the CNN ability to learn invariant 
+features  (Ayadi  and  Lachiri,  2022)  (Yadav  and  Vishwakarma,  2020) 
+(Ashraf  et  al.,  2023).  The  combination  of  Convolutional  Neural  Net-
+works  (CNN)  and  Long  Short-Term  Memory  (LSTM)  has  the  major 
+benefit of learning spatial and temporal data. CNN excels in extracting 
+spatial elements like edges, textures, and forms from an input. Mean-
+while,  an  LSTM  excels  in  extracting  temporal  data,  like  the  order  of 
+words in a phrase or frames in a movie. By combining the two, a model 
+
+EcologicalInformatics80(2024)1024719B. Swaminathan et al.
+
+As machine learning continues to advance, the process of identifying 
+bird species can be automated by transferring the knowledge of experts 
+in this field to a learning model. A recent study has shown that deep 
+learning is an effective method for classifying birds based on their calls, 
+such as processing large amounts of audio data, which allows it to detect 
+subtle  differences  between  bird's  calls  (Michaud  et  al.,  2023).  Addi-
+tionally, deep learning models can be trained on a wide variety of audio 
+data,  allowing  them  to  identify  even  rare  ecological  moment  of  bird 
+species (Akbal et al., 2022). Transfer learning is an important tool in 
+machine learning, allowing models to leverage the knowledge learned 
+from  one  domain  and  apply  it  to  another.  Transfer  learning  is  very 
+helpful when there is insufficient data to fully train a model, such as 
+recognizing  uncommon  bird  species  (Huang  and  Basanta,  2021).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors of the paper have not explicitly mentioned any specific measures taken to ensure the generalizability of their deep learning model. However, they did mention using a diverse dataset consisting of 30 different bird species, which could contribute to improving the model's generalization ability. Additionally, the high accuracy rates achieved in their experiments suggest that the model may have good generalization performance. Nevertheless, without explicit information about techniques such as cross-validation or stratified splitting, we cannot definitively state what measures were taken to ensure the model's generalizability.

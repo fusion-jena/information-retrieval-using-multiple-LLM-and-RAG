@@ -1,0 +1,73 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Pre-training on the both ResNet50 (He et al., 2016) and Inception 
+(Szegedy et al., 2014) neural networks did not meaningfully improve 
+classification performance, therefore this simpler architecture, similar to 
+those implemented by (Ruff et al., 2020; Sprengel et al., 2016) was used 
+instead. 
+
+2.6. Generating prediction record
+
+2.4.1. Training database assembly 
+
+To assemble a training database, three randomly selected days from 
+each month of the calendar year (see Table 1) were selected for anno-
+tation. Select spectrogram images were manually labeled via visual in-
+spection by two trained graduate students into a set of sound categories 
+that evolved as the year progressed. On average, around 60 images could 
+be  annotated  per  minute,  which  corresponds  to  8  min  of  audio  data. 
+Therefore,  annotating  every  single  spectrogram  from  a  single  day 
+(10,800 images) would take 3 h. Assembling the training database took 
+less time in practice because only 10–15% of the spectrograms from each 
+of the selected days were actually annotated (many spectrograms which 
+contained only background noise were simply not needed). 
+
+In total, this database consists of over 40 k images of bio-, anthro- 
+and  geophonies.  The  full  contents  of  the  database  are  presented  in 
+Table 2.
+
+2.6. Generating prediction record 
+
+After  neural  network  training  and  validation,  predictions  for  the 
+entire  unvalidated  recording  period  were  generated.  Specifically,  for 
+each of the five training folds, a single prediction for every 8 s-interval 
+was made for the duration of the year. The five prediction records that 
+resulted were then averaged together to create a single prediction re-
+cord.  To  summarize  this  data  more  succinctly,  these  8  s-interval  pre-
+dictions were then aggregated into hourly prediction records, containing 
+the number of instances that each particular sound stimuli was predicted 
+per  hour.  This  record  was  normalized  by  the  number  of  8-s  intervals 
+actually recorded during that hour, to account for the possibility that 
+missing audio data would render a given prediction record artificially 
+low. 
+
+2.7. Collecting weather data
+
+Transfer learning, where a model pre-trained on one dataset is re- 
+trained  to  classify  a  similar  datset,  is  one  convenient  approach  to 
+effectively  utilize  the  power  of  CNNs.  Well-known  pre-trained  archi-
+tectures such as Inception, MobileNet, and Resnet50 have recently been 
+used with great success for the classification of birds in soundscape re-
+cordings (Florentin et al., 2020; He et al., 2016; Howard et al., 2017; 
+Incze et al., 2018; LeBien et al., 2020; Sevilla and Glotin, 2017; Szegedy 
+et  al.,  2014).  Such  networks  are  typically  pre-trained  on  large  image 
+databases such as ImageNet, which contains over one million samples 
+distributed across 1000 classes (Deng et al., 2009). However, in cases 
+where  targeting  foreground  species  is  the  main  task,  or  with  more 
+acoustically sparse soundscapes, CNN architectures with far fewer (<10) 
+convolutional layers have proven more than sufficient, and indeed, may
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: After the neural network was trained and validated using the assembled training database consisting of over 40k images of biophony, anthropophony, and geophony, predictions for the entire unvalidated recording period were generated. For each of the five training folds, a single prediction was made for every 8-second interval throughout the year. These predictions were then averaged together to form a single prediction record. To simplify the data further, these 8-second interval predictions were aggregated into hourly prediction records, indicating the number of times each specific sound stimulus was predicted per hour. This record was normalized based on the actual number of 8-second intervals recorded during that hour to account for any missing audio data that might cause an artificially low prediction record. Unfortunately, the text does not provide information about the deployment process of the trained deep learning model, including details like model serialization or platform selection.

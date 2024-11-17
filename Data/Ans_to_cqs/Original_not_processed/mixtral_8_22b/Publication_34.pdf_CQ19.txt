@@ -1,0 +1,117 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+SNN, DNN and CNN models are ﬁtted with the package mxnet: All model
+0.03, 0.03), then we
+parameters were initialized with a uniform distribution U (
+applied a stochastic gradient descent algorithm with a momentum of 0.9, a
+batch-size of 50 (batch samples are randomly chosen at each iteration), and an initial
+8. The choice of initial learning rate was critical for a good
+learning rate of 10−
+optimization behavior. A too big learning rate can lead to training loss divergence,
+
+−
+
+190
+
+C. Botella et al.
+
+whereas when it is too small, learning can be very slow. We stopped when the
+average slope of the training mean loss had an absolute difference to 0 on the last 100
+3. The learning took approximately 5 min for SNN, 10 min for
+epochs inferior to 10−
+DNN, and 5 h for CNN (independently of the version).
+
+10.3.5 Evaluation Metrics
+
+10.3.4.3 Models Optimization
+
+Our experiments were conducted using the R framework (version 3.3.2), on a
+Windows 10 machine with 2 CPUs with 2.60 GHz and 4 cores each, and one
+GPU NVIDIA Quadro M1000M. mxnet [29] is a convenient C++ library for
+learning deep NN models and is deployed as an R package. It integrates a high
+level symbolic language for quickly building customized models and loss functions,
+and automatically distributes calculations under CPUs or GPUs.
+
+We ﬁt the MAXENT model for every species of E50 with the recently released
+
+R package maxnet [17] and the vector input variables.
+
+The LGL model was ﬁtted with the package mxnet. The loss being convex, we
+used a simple gradient descent algorithm and stopped when the gradient norm was
+close to 0. The learning took around 2 min.
+
+In the NN models learning, there is still work to be done on quick automated
+procedure for tuning optimization hyper-parameters, especially the initial learning
+rate, and we are looking for a more suited stopping rule. On the other hand, in the
+case of models of species distributions, we can imagine to minimize the number of
+not null connections in the network, to make it more interpretable, and introduce an
+L1-type penalty on the network parameters. This is a potential important perspective
+of future works.
+
+10 A Deep Learning Approach to Species Distribution Modelling
+
+197
+
+.,.,j is (d.reslat,j
+
+46.
+
+64
+
+×
+
+=
+
+×
+
+×
+
+10.3.4 Detailed Models Architectures and Learning Protocol
+
+MAXENT is learned independently on every species of E50. Similarly, we ﬁt a
+classic loglinear model to give a naive reference. Then, two architectures of NN are
+tested, one with a single hidden layer (SNN), one with six hidden layers (DNN).
+Those models take a vector of environmental variables xk as input. As introduced
+previously, we want to evaluate if training a multi-response NN model, i.e. a NN
+predicting several species from a single aNh(m)
+(x, θ ), can prevent overﬁtting. One
+m
+architecture of CNN is tested, which takes as input an array Xk. Hereafter, we
+described more precisely the architecture of those models.
+
+10.3.4.1 Baseline Models
+
+• LGL Considering a site k, and its environmental variables vector xk, the output
+p is simply the
+
+function λLGL of the loglinear model parametrized by β
+exponential of a scalar product between xk and β :
+
+R
+
+∈
+
+λLGL(xk, β)
+
+exp
+
+βT xk
+
+=
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The deep learning models mentioned in the given context are built using the R framework (version 3.3.2). Specifically, the mxnet library, which is a convenient C++ library for learning deep neural networks, is used. This library is deployed as an R package and allows for easy integration into the R environment. Additionally, the maxnet package is used to fit the MAXENT model for every species of E50. However, no mention is made of popular deep learning libraries such as TensorFlow or PyTorch.

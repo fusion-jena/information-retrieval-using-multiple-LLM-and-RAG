@@ -1,0 +1,241 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+This resulted in a dataset consisting of 3643 tiles for the Scoble site 
+(758 containing Pacific oysters, 2885 without Pacific oysters) and 7571 
+tiles  for  the  Collapit  site  (879  containing  Pacific  oysters  and  6692 
+without Pacific oysters). 
+
+2.3. Validation and training datasets 
+
+To create the training and validation datasets, the tiles containing 
+Pacific oysters were split into 70% training, and 30% validation. Data 
+augmentation  was  used  to  increase  the  size  of  the  training  dataset, 
+through random variations and manipulations to the data. Augmenta-
+tions  were  applied  in  a  random  order.  The  list  of  augmentations  is 
+described in Table 1. 
+
+The training data set had five augmented images created per original 
+tile  to  create  an  additional  5735  tiles  split  between  the  two  sites. 
+
+Table 1 
+Data Augmentations applied to training data.  
+
+Augmentation 
+
+Flip 
+Crop 
+Contrast Shift 
+Translation 
+Rotation 
+
+Minimum 
+
+Maximum 
+
+–
+
+Minimum 
+
+Maximum 
+
+– 
+
+0 
+(cid:0) 25% 
+(cid:0) 20% 
+◦
+(cid:0) 90
+
+– 
+
+10% 
++50% 
+20% 
+◦
++90
+
+2.4. Deep learning models 
+
+Two  widely  used  object  detection  models  were  selected  for  com-
+parison, YOLOv5 (Jocher et al., 2021) and Faster R-CNN (FR-CNN) (Ren 
+et al., 2015). YOLO is a lightweight approach where objects are identi-
+fied directly through as single pass, whereas the FR-CNN is a multi-stage 
+network approach based on identifying potential regions and then cat-
+egorising and discarding some inappropriate regions (Ren et al., 2015). 
+For the YOLOv5 model, we also tested three variants, YOLOv5 small, 
+YOLOv5  medium  and  TPH-YOLOv5  (Zhu  et  al.,  2021b),  which  is  a 
+modified variant of YOLO with a Transformer Prediction Head (TPH) 
+(Yang et al., 2019).
+
+Model 
+
+F-score 
+
+Std Err Precision 
+
+CI_Precision Lower Limit 
+
+CI_Precision Upper Limit 
+
+Std Err Recall 
+
+CI_Recall Lower Limit 
+
+CI_Recall Upper Limit  
+
+FRCNN 
+TPH-YOLOv5 
+YOLOv5s 
+YOLOv5m 
+
+FRCNN 
+TPH-YOLOv5 
+YOLOv5s 
+YOLOv5m 
+
+FRCNN 
+TPH-YOLOv5 
+YOLOv5s 
+YOLOv5m 
+
+0.821 
+0.734 
+0.852 
+0.808 
+
+0.814 
+0.768 
+0.838 
+0.783 
+
+0.830 
+0.696 
+0.871 
+0.835 
+
+0.009 
+0.010 
+0.008 
+0.009 
+
+0.012 
+0.012 
+0.011 
+0.013 
+
+0.014 
+0.016 
+0.011 
+0.013 
+
+0.735 
+0.769 
+0.867 
+0.808 
+
+0.724 
+0.855 
+0.857 
+0.776 
+
+0.733 
+0.667 
+0.866 
+0.823 
+
+Both Sites 
+
+0.771 
+0.809 
+0.897 
+0.844 
+
+Collapit Mudflat (Site A) 
+
+0.772 
+0.901 
+0.899 
+0.826 
+
+Scoble Point Rocky Shore (Site B) 
+
+0.787 
+0.731 
+0.910 
+0.873 
+
+0.007 
+0.011 
+0.009 
+0.010 
+
+0.010 
+0.015 
+0.012 
+0.013 
+
+0.010 
+0.016 
+0.012 
+0.013 
+
+0.888 
+0.666 
+0.807 
+0.772 
+
+0.874 
+0.653 
+0.777 
+0.739 
+
+0.894 
+0.662 
+0.830 
+0.797 
+
+0.916 
+0.708 
+0.841 
+0.810  
+
+0.912 
+0.711 
+0.825 
+0.791  
+
+0.932 
+0.726 
+0.878 
+0.849
+
+As three of our models are based on the YOLO structure, we would 
+expect the results to be relatively similar, and the results demonstrate 
+the success on small training data quantities compared to larger model 
+complexity. Intuitively, it would be expected that a smaller model can 
+successfully learn from fewer data to represent less complex problems, 
+whereas larger more complex models may require more data to repre-
+sent more complexity within the object to detect. The results indicated 
+that YOLOv5s, as the smallest model, performs best in terms of preci-
+sion. The TPH-YOLOv5, which is an extension of the YOLOv5s model is a 
+slightly more complex model, and further pre-training on RPAS specific 
+imagery. The results indicated that detection of Pacific oysters does not 
+demand  the  complexity  of  the  larger  YOLOv5m  model  and  using  the 
+TPH-YOLOv5 model pre-trained with RPAS data, is not beneficial in this 
+instance.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: The dataset was divided into training and validation sets by splitting the tiles containing Pacific oysters into 70% training and 30% validation. No explicit mention was made regarding a separate testing dataset. Therefore, it appears that only training and validation datasets were utilized in this study.

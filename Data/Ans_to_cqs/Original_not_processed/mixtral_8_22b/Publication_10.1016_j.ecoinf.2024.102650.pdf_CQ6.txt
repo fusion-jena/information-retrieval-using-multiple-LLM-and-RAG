@@ -1,0 +1,66 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Machine learning methods require text preprocessing, such as word 
+segmentation and stop word removal, followed by the selection of a text 
+portion to manually annotate emotions for accuracy verification. Among 
+machine  learning  models,  the  enhanced  representation  through 
+knowledge  integration  (ERNIE)  model  achieved  significant  results  in 
+previous studies by learning prior semantic relationships and word order 
+features from massive amounts of data (Sun et al., 2019). The ERNIE 
+model  directly  models  prior  semantic  knowledge  units,  thereby 
+enhancing model semantic representation (Wang et al., 2020). Test re-
+sults for various Chinese tasks showed that the model performed better 
+than  the  bidirectional  encoder  representations  from  the  transformer 
+model proposed by Google AI (Sun et al., 2019). At the International 
+Workshop on Semantic Evaluation 2020, the ERNIE model earned first 
+place  for  a  mixed-language  emotional  analysis  task.  Detailed  de-
+
+processing instructions can be found in Text S1. The final available data 
+elements totaled 6802.
+
+Tweets are usually short texts with such characteristics as sparsity, 
+real-time nature, and irregularity. These features increase the difficulty 
+of text processing (Edwards et al., 2022; Garg and Kumar, 2018; Sun 
+et al., 2021) and require data cleaning to support subsequent analyses. 
+Data cleaning includes text filtering and Chinese text segmentation. The 
+former was used to filter out unnecessary symbols and noise, such as 
+notes, advertisements, useless numbers, punctuation marks, stop words, 
+and repeated texts on websites. User-generated text that deviated from 
+the  theme  was  also  filtered  out  through  a  manual  review.  The  latter 
+involved dividing the natural language composed of Chinese text into 
+meaningful  words,  which  is  a  key  technology  in  text  analyses  (Tian 
+et al., 2021). We used Python’s Jieba Library for Chinese text segmen-
+tation and a lexical analysis and included location, time, and organiza-
+tional nouns. 
+
+2.2. Theme perception technology
+
+In the LDA model’s text generation process, the number of topics k 
+requires presetting. We used perplexity to construct the optimal number 
+of topics; the calculation formula is shown in Eq. 1. Perplexity refers to 
+the  degree  of  uncertainty  when  using  the  LDA  model  to  classify  any 
+corpus  (Palanichamy  et  al.,  2021).  In  general,  when  the  perplexity 
+downward trend is not obvious or reaches the inflection point, k is the 
+optimal number of topics (Qin et al., 2021). We set the Dirichlet dis-
+tribution prior parameters α and β as the default values. For the posterior 
+parameters φ and θ, the LDA model does not directly perform accurate 
+calculations;  it  uses  the  variational  inference  and  approximate 
+maximum likelihood function to estimate them (Blei et al., 2003; Sun 
+and Yin, 2017). The maximum number of iterations in this study was set 
+at 50. After determining the optimal number of topics k based on the
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model, several preprocessing steps are typically involved. These may include normalization, scaling, and cleaning. Normalization involves rescaling the input features so they fall within a specific range, often between 0 and 1. This helps prevent certain features from dominating others due to their scale. Scaling is another technique used to standardize the range of independent variables or features of data. It brings all features to the same level of magnitude, ensuring no single feature overpowers the others during the learning process. Cleaning is a crucial step that involves removing irrelevant information, correcting inconsistencies, handling missing data, and eliminating duplicates. In the given context, data cleaning for tweets includes text filtering and Chinese text segmentation. Text filtering removes unnecessary symbols and noise, while Chinese text segmentation divides the natural language into meaningful words, which is essential for text analysis.

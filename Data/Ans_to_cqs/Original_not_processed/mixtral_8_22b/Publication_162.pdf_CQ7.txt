@@ -1,0 +1,96 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+32. M. Simon, E. Rodner, and J. Denzler, “Part detector
+discovery  in  deep  convolutional  neural  networks,”  in
+Asian  Conference  on  Computer  Vision  (ACCV)  (2014),
+pp. 162–177.
+
+33. Van G. Horn, O. Mac Aodha, Y. Song, Y. Cui, C. Sun,
+A.  Shepard,  H.  Adam,  P.  Perona,  and  S.  Belongie,
+“The iNaturalist Species Classification and Detection
+Dataset,” in IEEE Conference on Computer Vision and
+Pattern Recognition (CVPR) (2018), pp. 8769–8778.
+34. G. Yang and D. Ramanan, “Upgrading optical flow to
+3D scene flow through optical expansion,” in Proceed-
+ings  of  the  IEEE/CVF  Conference  on  Computer  Vision
+and Pattern Recognition (CVPR) (2020), pp. 1334–1343.
+
+PATTERN RECOGNITION AND IMAGE ANALYSIS 
+
+ Vol. 31 
+
+ No. 3 
+
+ 2021
+
+488
+
+RADIG  et  al.
+
+Detection rates in the laboratory or at test data sets
+of more than 90% can generally not be achieved in the
+field under real, constantly changing conditions. For
+this reason, a feedback mechanism is provided, which
+involves the user in the optimization of the system, but
+at  the  same  time  minimizes  the  labeling  effort  to  be
+made  manually.  This  is  known  as  active  learning.  In
+the actual application, the system will, at certain inter-
+vals, forward images to humans, and after the annota-
+tion these images will be used to train a classifier iter-
+atively. Evaluation is carried out with a retained test set
+of images annotated manually.
+
+Monitoring  devices  will  likely  also  detect  species
+that are unknown for the recognition system. There-
+fore, novelty detection is relevant [2, 3] which allows
+
+We then trained a standard deep learning classifier
+(ResNet-50 [16] pre-trained on ImageNet [30]) on the
+cropped  bounding  box  images  of  the  detected  moths
+and  achieved  an  average  accuracy  of  89.00%  on  an
+held-out test set. We also make use of additional images
+obtained  from  Internet  image  search  engines  to  aug-
+ment the training dataset. However, since this leads to
+noisy annotated images, filtering different types of label
+noise  is  required  as  proposed  by  [6].  This  can  further
+improve  the  recognition  performance  of  the  system,
+especially when the initial training set has been rather
+small with less than ten sample images per species.
+
+CONCLUSIONS
+
+results in an unchanged expected activation in the fol-
+lowing  convolutional  layers.  Furthermore,  we  nor-
+malize all input channels (red, green, blue, and depth)
+by subtracting the respective mean and dividing by the
+respective standard deviation over the whole dataset.
+We also introduce a feature fusion module to combine
+the extracted features from both backbones using one
+3 × 3 convolution per FPN scale and reduce the num-
+ber of channels from 2 × 256 to 256. This allows us to
+use weights pre-trained on the Microsoft COCO data-
+set [24] for the region proposal network (RPN) classi-
+fier and mask head. Fig. 4 illustrates the general archi-
+tecture of the resulting D-Mask R-CNN architecture.
+We  restrict  our  evaluation  of  D-Mask  R-CNN  to
+instances of deers as it is the most common species in our
+RGB-D dataset. We quantify the results of D-Mask R-
+CNN using the average precision (AP), AP50, and AP75
+metrics as defined by the Microsoft COCO dataset [24].
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The context does not provide explicit information about the specific criteria used to split the data for deep learning model training into train, test, and validation sets. However, based on typical practices in machine learning, the data could have been randomly divided into three parts: training, testing, and validation datasets. Typically, around 60-80% of the total data is allocated for training, while the remaining data is equally distributed between testing and validation. The training dataset is used to fit the parameters of the model, the validation dataset helps tune hyperparameters and prevent overfitting, and the testing dataset evaluates the final model's performance.
+
+In the given context, there are mentions of held-out test sets and retained test sets, suggesting that some form of splitting was performed. Additionally, the authors mention using a separate set of images obtained from internet search engines to augment their training dataset. They also discuss using a feedback mechanism involving human annotation to improve the classifier iteratively, indicating that they might have used a dynamic approach to updating their training and testing datasets.

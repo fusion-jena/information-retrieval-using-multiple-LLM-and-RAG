@@ -1,0 +1,84 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+CNN comes with the disadvantages of a huge number
+of labelled training samples requirement for weighting pa-
+rameters and powerful GPUs for a faster learning process.
+With limited training samples, learning too many parameters
+directly will result in overﬁtting even after using over-ﬁtting
+prevention techniques such as Dropout [7]. Overﬁtting of a
+machine learning model includes more terms and uses more
+complicated approaches than necessary [8]. To make deep
+CNN ﬁt for small datasets while keeping high accuracy is
+a challenge. To overcome this challenge, transfer learning [9]
+offers the solution, which implies reusing previously attained
+knowledge in similar tasks. Some studies analyzed the use
+of transfer learning for many deep learning algorithms. These
+evaluations [10] concluded that transfer learning improves the
+accuracy of deep learning models, which apply deep features
+and ﬁne-tuning.
+
+App Development: For tree species identiﬁcation in a remote
+area, an end-user app is essential. For the app development,
+Android Studio [39] was used. The saved models were
+converted into the TensorFlow Lite [40] version using the
+TensorFlow Lite converter. TensorFlow Lite is a set of tools
+to perform deep learning on smartphone and IoT devices. The
+architecture of the mobile app is shown in Fig. 4. The squares
+marked with dotted red will be included in future iterations.
+The size of the models based on MobileNetV3-Large and
+MobileNetV3-Small was 4.88 MB and 1.99 MB, respectively,
+which are lightweight compared to AlexNet (227.5 MB) [27].
+The app is developed using the Java programming language.
+The leaf detection module in the app contains a Tensorﬂow
+Lite interpreter for the TensorFlow Lite model.
+App Testing: For testing the application, Android studio
+comes with built-in phone emulators, or the app could be
+deployed to an actual device. From an online search, we
+
+D. Model Training
+
+Feature Extraction: The hardware to train the model included
+a Lenovo laptop equipped with an 8265U CPU at 1.80 GHz
+of Intel Core i5, 8 GB of RAM running on a Windows 10 64-
+bit system. The software tools included Annaconda3 Jupyter
+Notebook with Python 3.8, where the Tensorﬂow, OpenCV-
+python3 [37] and Keras [38] libraries were used. The dataset
+was divided in a ratio of 75:25 into a training set of 5789
+images and a test set of 1930 images. To obtain the pre-
+trained weight parameters, we built the base models from the
+MobileNetV2, MobileNetV3-Large and MobileNetV3-Small
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on August 29,2024 at 05:51:17 UTC from IEEE Xplore.  Restrictions apply.
+
+models, pre-trained on 1.4M images from 1000 classes. First,
+the intermediate layer of all the models was selected to use
+for feature extraction. For this purpose, the output of the last
+layer (bottleneck layer) is commonly used prior to the ﬂatten
+operation. The reason is that all the fully connected layers
+are specialized to the task network was trained on; thus, the
+features learned by these layers will not be useful for the new
+task. The bottleneck features are more generic. Therefore, the
+base models were frozen, loaded with weights trained on the
+ImageNet dataset and used as a feature extractor. We added
+a dropout layer with a dropout rate of 0.2 to reduce the
+overﬁtting of the model. Finally, the top classiﬁer softmax
+layer was added for predicting the class for an input image.
+The model with the base model of MobileNetV2 was compiled
+and optimized with Adam optimizer. The other with the base
+model of MobileNetV3 were optimized with Gradient descent
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Where is the data repository of the deep learning pipeline available (e.g., Zenodo, Figshare, Dryad, GBIF)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't any information provided about the specific location of the data repository for the deep learning pipeline mentioned in the given text. It does not mention whether the dataset used for training the models is publicly accessible or if it has been uploaded to platforms like Zenodo, Figshare, Dryad, or GBIF. However, the author mentions that they utilized a dataset consisting of 5789 images for training and 1930 images for testing purposes. This dataset appears to have been derived from 1.4 million images belonging to 1000 different classes. Nevertheless, without further details regarding the source of the dataset or its availability, it remains unclear where the data repository can be found.

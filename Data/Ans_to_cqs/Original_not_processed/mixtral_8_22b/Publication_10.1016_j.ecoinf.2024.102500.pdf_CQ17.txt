@@ -1,0 +1,77 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Individual machine learning models address large datasets and dy-
+namic water quality data well but are commonly overfit. Researchers 
+have employed model to address this issue. Combining weak learners 
+reduces overfitting and strengthens the prediction model (Mosavi et al., 
+2020). Adedeji et al., 2022 predicted stream water quality using SVM, 
+RF,  XGB,  ensemble  RF-XGB,  and  ANN  models.  Panahi  et  al.  (2022) 
+predicted stream flow and water quality with data pre-processing based 
+on  an  ensemble  bagging  technique  combined  with  the  SVM  model. 
+(Haghiabi et al., 2018) analyzed various aspects of water quality in the 
+Tireh River in Iran, employing models based on ANN, group method of 
+data handling (GMDH), and SVM. Among these models, the SVM model 
+utilizing  the  radial  bias  function  demonstrated  outstanding  perfor-
+mance,  highlighting  its  effectiveness  in  accurately  predicting  water
+
+3.2.2.8. LGBM  hyperparameter  tweaking. Table  2  shows  the  LGBM 
+model  hyperparameters  selected  for  nitrate  and  DO  prediction  to 
+maximize  performance.  Subsamples  reduce  overfitting  and  min_-
+child_samples  control local pattern  sensitivity. Overfitting is  prevented 
+via reg_lambda. As mentioned, n_estimators, learning_rate, max_depth, and 
+random_state were used. 
+
+3.2.2.9. GB  model  hyperparameter  tuning. As  seen  in  Table  2,  the 
+hyperparameter values for the nitrate and DO model are reported below. 
+As described in the preceding sections, each of these parameters is uti-
+lized. These hyperparameter settings were carefully chosen to enhance 
+the nitrate and DO model performances.
+
+Hyperparameter  tuning  plays  a  crucial role  in  optimizing  the  per-
+formance of a model by improving its ability to predict observed and 
+predicted ranges. The tuning process maximizes the models training and 
+testing  performance.  It  will  control  overfitting  or  underfitting  issues 
+(Elshawi et al., 2019). Though the process is complex and takes a long 
+time,  many  optimizing  methods,  such  as  Manual  Tuning,  Bayesian 
+Optimization,  and  random  grid  search  methods,  simplify  the  process 
+(Yang  and  Shami,  2020).  Nevertheless,  choosing  which  optimizing 
+method is best for specific data is challenging. Hyperparameter tuning of 
+the decision tree model are usually configured with maximum depth and 
+minimum number of samples required to split a node. For the RF model, 
+extensive  experimentation  was  conducted  using  varying  numbers  of 
+trees  for  the  optimal  fit.  The  gradient  boosting  model  is  tuned  with
+
+This evaluation helps choose hyperparameters that reduce prediction 
+errors and improve model precision. After testing many combinations, 
+the best ones were found. During model overfitting, n_estimators, max_-
+depth,  and  subsample  were  most  affected.  These  variables  govern  the 
+model’s  complexity  and  generalization  to  prevent  overfitting  the 
+training  set.  Decisions  were  based  on  whether  final  hyperparameter 
+combinations could reduce overfitting and increase model functionality. 
+Overfitting  is  common  with  boosting  models.  Hyperparameters  effec-
+tively address these  difficulties. Initial hyperparameter  values  for col-
+sample_bytree,  learning  rate,  max_depth,  and  n_estimators  were  varied. 
+Collapse_by_tree, learning rate, max_depth, and n_estimators range from 0 to 
+1, 1, 20, and 200.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not explicitly mention any regularization methods used in deep learning pipelines like dropout or L2 regularization. However, it discusses several techniques used to prevent overfitting in machine learning models, particularly ensemble methods and hyperparameter tuning.
+
+Ensemble methods combine multiple weak learners to create a strong learner, reducing overfitting and improving the overall prediction accuracy. Examples include Random Forest (RF), Extreme Gradient Boosting (XGB), and ensemble RF-XGB. These methods have been applied in studies to predict stream water quality and analyze various aspects of water quality.
+
+Hyperparameter tuning also plays a significant role in preventing overfitting. By adjusting hyperparameters such as subsamples, min_child_samples, reg_lambda, n_estimators, learning_rate, max_depth, and random_state, one can effectively control overfitting and improve the model's performance. This optimization process involves selecting the best combination of hyperparameters through manual tuning, Bayesian Optimization, or random grid search methods.
+
+In summary, while the given context does not directly address regularization methods used in deep learning pipelines, it highlights ensemble methods and hyperparameter tuning as effective strategies to prevent overfitting in machine learning models.

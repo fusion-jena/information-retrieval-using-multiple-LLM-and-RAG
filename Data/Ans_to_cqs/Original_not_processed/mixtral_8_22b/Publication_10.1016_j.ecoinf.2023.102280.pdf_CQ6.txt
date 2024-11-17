@@ -1,0 +1,80 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+training  deep  noise  reduction  techniques.  There  are  also  challenges 
+when generating training data for fine-tuning. Generally, clean data is 
+collected, and noise profiles are superimposed to provide both the input 
+data  and  a  “denoised”  ground  truth.  Collecting  clean  recordings  is 
+infeasible  in  many  cases  or  requires  the  recording  of  captive  animals 
+which  may  not  be  representative  of  the  wider  population.  Adjacent 
+fields can generate human speech or music as required but this is not an 
+option for many bioacoustics applications.
+
+be  established  (Xie  et  al.,  2021).  Deep  noise  reduction  methods 
+(Defossez et al., 2020) often use a U-net architecture which consists of an 
+encoder and decoder section. The encoder produces a compressed latent 
+space representation. The decoder then uses this latent space to recon-
+struct the denoised waveform. Recently, transformer attention mecha-
+nisms have also been applied with great success (Cao et al., 2022; Luo 
+and  Mesgarani,  2019;  Luo  and  Mesgarani,  2023;  Zhang  et  al.,  2022; 
+Zhao et al., 2022). As most deep-noise reduction methods focus on NLP 
+applications, models are optimized for bandwidths ranging from 16 to 
+22  kHz.  Bioacoustics  applications  commonly  exceed  this  bandwidth. 
+Additionally, the sparsity of vocalisations in this application and many 
+other  bioacoustics  applications  makes  the  development  of  large-scale 
+datasets  infeasible  (Stowell,  2021).  These  factors  limit  the  success  of
+
+Deep learning-based denoising methods are most commonly applied 
+to  natural  language  processing  (NLP)  such  as  a  human  speech 
+enhancement. D´efossez et al. (Defossez et al., 2020) demonstrated the 
+potential for deep noise reduction techniques to achieve state-of-the-art 
+(SOTA) performance and be applied in sub-real time on limited hard-
+ware. These methods commonly operate on audio spectrograms but in 
+recent  years  SOTA  deep  learning  methods  (Wang  et  al.,  2021)  have 
+successfully  used  raw  waveform  data  (Luo and  Mesgarani,  2019; Luo 
+and Mesgarani, 2023) for wider applications such as source separation 
+and classification. This removes errors introduced when applying a Fast 
+Fourier  Transform  (FFT)  to  generate  a  time-frequency  representation 
+and reconstruction errors due to the loss of phase information. These 
+networks tend to require more data for training as the latent space must
+
+The generation of ground-truth training data from noisy samples is a 
+practical  limitation  for  deep  learning  audio  enhancement  models.  To 
+approximate “clean” ground-truth data, we apply spectral subtraction to 
+remove noise from the signal then superimpose randomly sampled noise 
+onto  the  ground-truth  to  generate  the  noisy  input. Noise  is  randomly 
+sampled  from  a  dataset  containing  963  five-second  noise  samples 
+collated  from  field  recordings.  Samples  contain  both  stationary  back-
+ground  noise  and  non-target  transient  noise  features  including  rain, 
+wind gusts, vehicles, banging etc. Given the nature of the training data it 
+is expected that model performance converges to that of spectral sub-
+traction.  This  study  evaluates  the  performance  of  pre-trained  audio 
+enhancement  models  on  transient  features.  Given  sufficient  training 
+data, transient noise reduction is a potential benefit of audio enhance-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model, several preprocessing steps are typically involved to prepare the data for optimal learning. While the specific steps can vary depending on the type of data and the problem being addressed, some common preprocessing steps include:
+
+1. Data Cleaning: This involves removing any irrelevant, incorrect, or redundant data points from the dataset. In the case of audio data, this could involve filtering out background noise or removing silence periods.
+
+2. Normalization/Scaling: This step ensures that all features in the dataset have similar scales, preventing any single feature from dominating the learning process. For example, in audio data, amplitude values might need to be normalized to ensure they fall within a certain range.
+
+3. Feature Extraction: This involves extracting relevant features from the raw data that will help the model learn effectively. In the case of audio data, this could involve converting the raw waveform into a spectrogram or mel-spectrogram, which provides a visual representation of the frequency content over time.
+
+4. Augmentation: This involves creating new data by applying various transformations to existing data, such as adding noise, shifting pitch, or changing tempo. This helps increase the size of the dataset and improve the model's ability to generalize to unseen data.
+
+5. Labeling: Depending on the task, labels may need to be assigned to each data point indicating the desired output of the model. For example, in a sound event detection task, each audio clip would need to be labeled with the corresponding sound events present in the clip.
+
+In the given context, the authors mention collecting clean data and superimposing noise profiles to create both input data and a "denoised" ground truth. They also discuss using spectral subtraction to remove noise from the signal and randomly sampling noise from a dataset containing various types of noise features. These steps suggest that the authors are performing some form of data augmentation and labeling to prepare their data for training. However, without further details about the specific preprocessing steps taken, it is difficult to determine exactly what other steps were involved.

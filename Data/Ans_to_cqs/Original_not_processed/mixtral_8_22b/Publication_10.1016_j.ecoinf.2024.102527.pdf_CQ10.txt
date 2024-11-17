@@ -1,0 +1,66 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+When it comes to selecting update layers, we recommend selectively 
+updating the last few layers of the DCNN model to enhance its perfor-
+mance in empty image recognition. This approach can lead to a signif-
+icant  improvement  in  the  model’s  performance,  as  opposed  to  solely 
+updating  the  fully  connected  layer.  Specifically,  when  using  a  model 
+from  the  ResNext  or  ResNet  family  pre-trained  on  ImageNet  as  the 
+source model, we recommend using TLS_4 as the transfer strategy. In 
+contexts where pronounced discrepancies exist between the target and 
+source  domain  datasets,  it  could  prove  advantageous  to  augment  the 
+number of convolutional layers subject to update. For example, in the 
+case  of  ResNext  series  models,  using  TLS_3  can  further  enhance  the 
+performance of the transfer model.
+
+Regarding source model construction, we suggest that practitioners 
+with abundant computational resources should build the source model 
+with a larger number of readily available labeled samples. Doing so can 
+contribute  to  improved  transfer  learning  performance.  However,  for 
+those  with  limited  computational  resources,  it  may  be  necessary  to 
+compromise between sample size and computational resources based on 
+the potential threshold effect. 
+
+CRediT authorship contribution statement
+
+respectively.  N  represented  the  number  of  images  in  the  test  set  or 
+validation set. 
+
+2.2.6. Model training and hyper-parameters 
+
+We  trained  models  on  the  training  sets  and  tracked  the  model 
+training process on the validation set. The training process was stopped 
+when  the  loss  value  of  the  model  on  the  validation  set  no  longer 
+decreased. We then tested the model performance on the test set. Our 
+computing platform was a Dell PowerEdge C4130 rack server with two 
+Tesla  K80  GPUs  and  256  GB  of  memory.  For  the  deep  learning  envi-
+ronment,  we  utilized  the  PyTorch  1.7.1  platform.  We  employed  the 
+Stochastic Gradient Descent (SGD) optimizer with a momentum value of 
+μ  = 0.9 to train the model. Other hyper-parameter settings for model 
+training were shown in Table S.4 of the Supporting Information. 
+
+3. Results 
+
+3.1. Experiment results of transfer strategy optimization
+
+empty  images  can  achieve  high  accuracy  (Norouzzadeh  et  al.,  2021, 
+2018; Yang et al., 2021a, 2021c; Yousif et al., 2019). However, labeling 
+large-scale samples for training deep learning models is time-consuming 
+and  laborious,  posing  a  particular  challenge  for  ecological  research 
+teams  (Nazir and Kaleem, 2024; Norouzzadeh et  al., 2021; Schneider 
+et al., 2020).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the code repository link of the deep learning pipeline (e.g., Link to GitHub, GitLab, BitBucket)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: Unfortunately, there isn't any information about the code repository link of the deep learning pipeline in the given context. Therefore, I cannot provide the requested information.

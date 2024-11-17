@@ -1,0 +1,60 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.6. Input selection in active learning 
+
+Active learning enhances and facilitates the labour-intensive process 
+of data generation, important in this field given the scarcity of labelled 
+data or the need to generate training data to target certain species (Allen 
+et  al.,  2021).  It  progressively  increases  the  training  data  by  selecting 
+those  samples  most  likely  to  improve  model  performance  from  pre-
+dictions that a model generates over unlabelled data. Iteratively training 
+new models with additional labelled data selected from their predictions 
+reduces  the  extent  of  manual annotation  (Shuyang  et  al.,  2020). In  a 
+similar process as the example of Tolkova et al. (2021) discussed above, 
+our proposed method of using model embeddings and dimensionality 
+reduction to display model predictions in EV can contribute to selecting 
+the best sample candidates for manual annotation. 
+
+4.7. Closing in on rare events
+
+deployment, when a trained model is run through field recordings, we 
+can again rely on EV to select possible calls of the Coxen’s fig-parrot.
+
+We  trained  some  models  from  scratch  using  the  two  datasets 
+mentioned  above.  For  NIPS4Bplus  we  used  the  rich  labels  associated 
+with the dataset. In the case of BirdCLEF 2020 we relied on automatic 
+detailed labels generated with the noise filtering algorithm. We did not 
+use species included in the Brazil extract of BirdCLEF 2020 (these are all 
+species  that  are  not  included  in  the  classes  of  the  BirdNET-Analyzer 
+model)  in  model  training  using  only  the  “complementary  train 
+extract”  to allow comparisons of the performance of BirdNET and our 
+trained models on unseen classes. Our trained models include a SincNet 
+model from our earlier work (Bravo Sanchez et al., 2021) and residual 
+network models that we call ResNet152-architecture.
+
+4.2. Model selection 
+
+The  most  apparent  use  of  EV  is  as  an  aid  in  selecting  the  most 
+appropriate trained model for an intended bioacoustic task or selecting 
+base models for use in transfer learning. It is common practice to train 
+multiple  models  on  the  same  dataset,  but  there  is  little  else  beyond 
+manual  review  and  performance  metrics  (statistical  comparisons  be-
+tween the model predictions and known classes from a held-out part of 
+the training dataset or an unrelated labelled datasets) to guide decision 
+making. We propose to complement these metrics with the use of EV to 
+assess and compare characteristics and suitability of trained models.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text does not provide explicit information about a specific strategy implemented to monitor the model performance during training. However, it mentions that multiple models were trained on the same dataset, and decisions were made based on manual reviews and performance metrics. This suggests that monitoring model performance might involve evaluating statistical comparisons between model predictions and known classes from a held-out part of the training dataset or an unrelated labeled dataset. Additionally, the text discusses using Embedding Visualization (EV) to assess and compare characteristics and suitability of trained models, which could potentially be used as another way to monitor model performance during training.

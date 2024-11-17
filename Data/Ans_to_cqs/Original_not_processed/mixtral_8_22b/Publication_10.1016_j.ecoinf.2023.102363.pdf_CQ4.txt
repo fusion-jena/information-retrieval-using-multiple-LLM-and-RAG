@@ -1,0 +1,74 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To fine-tune the base model, we required 600 frames per class (500 
+training,  100  validation),  (Fig.  2).  Data  augmentation  is  applied  to 
+ensure sufficient frames per class from December 3rd 2019 are available. 
+Specifically,  augmentation  is  applied  only  to  the  delphinid  tonal  and 
+biological click classes for which only 497 and 163 frames were avail-
+able  respectively.  Augmentation  was  performed  by  applying  three 
+randomly selected signal transformations to the audio prior to forming 
+the spectrogram: pitch shift, time-shift and added noise, not limited to 
+one  per  category.  The  parameters  for  each  transformation  were 
+randomly selected from a pre-defined range: pitch-shift 0.5–1.5, time- 
+shift  (cid:0) 300  ms  and  300  ms  and  Gaussian  white  noise  added  with 
+powers between 1 and 2. After augmentation all frames were manually 
+reviewed to ensure the class label remained appropriate.
+
+The model is constructed using the EfficientNet B0 network (Tan and 
+Le, 2019) which had been trained for generic image classification. The 
+EfficientNet feature extraction layers are frozen (transfer learning) with 
+only the weights of the final dense classification layers updated during 
+training.  Training  was  conducted  within  the  Google  Collaboratory 
+‘Colab’  platform  (Bisong,  2019),  using  the  Tesla  K80  GPU,  accessed 
+through  cloud  computing.  An  Adam  optimizer  was  used  to  control 
+gradient descent during training (Kingma and Ba, 2014), with parame-
+ters set to: learning rate of 0.001, decay factor of 0.75 and a step size of 
+
+EcologicalInformatics78(2023)1023632E.L. White et al.
+
+(Fig.  1),  considering  its  performance  in  the  new  environment  with 
+limited re-training. Starting with a pre-trained model (EfficientNet B0, 
+Tan and Le, 2019), we freeze the networks original feature extractor. We 
+then train fully connected layers, which operate on the output of the 
+EfficientNet  B0  network,  to  classify  the  PAM  data  frames  into  the 
+specified sound source classes. Audio data is input to the network in a 
+novel  spectrogram representation (White  et  al.,  2022). Networks  pre- 
+trained on image data have been proven to perform well on classifica-
+tion  tasks  using  spectrograms  as  image  input,  transformed  from  raw 
+audio data (Allen et al., 2021; Shiu et al., 2020; Stowell, 2022). In this 
+work  we fine-tune the  parameters  of the fully connected layers  itera-
+tively  on  small  batches  of  training  data  acquired  from  a  new  region. 
+Through  an  experimental  approach  to  retraining  we  demonstrate  the
+
+way  ML  allows  the  automation  of  tasks  previously  considered  as 
+requiring  manual  processing  (Stowell,  2022).  For  instance,  marine 
+mammal  calls  have  been  classified  with  a  wealth  of  ML  algorithms 
+including  support  vector  machines  (Jarvis  et  al.,  2008;  Roch  et  al., 
+2008), generalised linear models, hidden Markov models (Brown et al., 
+2010;  Pace  et  al.,  2012;  Roch  et  al.,  2011)  and  classification  and 
+regression tree analysis (Oswald et al., 2003). These advances have led 
+to a rise in the number of published trained CNN models available for 
+researchers  to  download  and  use  as  tools.  The  performance  of  these 
+CNNs has been found to rival human performance at signal recognition 
+(LeCun et al., 2015). CNNs can learn to discriminate spectro-temporal 
+information  directly  from  a  labelled  spectrogram,  used  as  an  image 
+input. The success of CNNs within the marine bioacoustic field has been
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Data augmentation techniques applied in the deep learning pipeline include pitch shifting, time shifting, and adding Gaussian white noise. Pitch shifting involves changing the frequency of the audio signal without altering its duration or content. Time shifting involves moving the start point of the audio signal forward or backward in time. Adding Gaussian white noise involves introducing random noise to the audio signal. These techniques help increase the amount of training data available and improve the robustness of the model.
+
+Unhelpful Answer:
+I do not know what data augmentation techniques were applied in the deep learning pipeline.

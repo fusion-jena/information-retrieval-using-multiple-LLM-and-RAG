@@ -1,0 +1,83 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.5. Implementation details
+
+We have implemented our models in PyTorch (Paszke et al., 2017).
+We trained 𝑀 = 5 models with batch size 𝐵 = 64 and a base learning
+rate 𝛼 = 10−4. The learning rate is automatically reduced by a factor
+of 0.1 when the validation loss has not improved for 15 consecutive
+epochs. We apply weight decay to control the strength of the unit
+Gaussian prior, with an empirically chosen magnitude of 10−3 that
+is inversely proportional to the hyperparameter 𝜆 from Eq. (1). We
+chose 𝛽1 = 0.9, 𝛽2 = 0.999 and 𝜖 = 10−8 as hyper-parameters for the
+Adam optimizer. Each neural network was trained on a single Nvidia
+RTX2080Ti GPU for ∼14 days.
+
+5. Experimental results and discussion
+
+4.3. Loss function
+
+The loss function, which is optimized during training, measures
+the quality of a set of network parameters 𝜽 w.r.t. the training data
+ = {(𝒙𝑖, 𝒚𝑖)}𝑁
+𝑖=1, under some regularizing prior assumptions. We use a
+standard loss function (; 𝜽) whose minimization corresponds to max-
+imizing the posterior probability of the parameters given the training
+data. As it is commonly done in machine learning (see e.g. Goodfellow
+et al., 2016), we assume a zero-mean isotropic Gaussian prior over
+the network parameters (corresponding to 
+2 regularization) and a
+Gaussian likelihood function with mean ̂𝝁𝑖 ∶= ̂𝝁(𝒙𝑖; 𝜽) ∈ R5 and
+diagonal covariance matrix with logarithmic elements ̂𝒔𝑖 ∶= ̂𝒔(𝒙𝑖; 𝜽) ∈
+R5:
+
+(; 𝜽) = 𝜆 ‖𝜽‖
+
+2
+2 +
+
+∑
+
+[ ̂𝑠𝑖𝑗 + exp(− ̂𝑠𝑖𝑗 )( ̂𝜇𝑖𝑗 − 𝑦𝑖𝑗 )2]
+
+𝑖,𝑗
+
+(1)
+
+As commonly done in deep learning, we iteratively learn the model
+parameters with stochastic gradient descend, starting from a random
+initialization. In each iteration, we randomly sample a batch of 𝐵 = 64
+reference data patches of size 15 × 15 pixels, where a patch is only
+considered for training if the center pixel is forested. We consider a
+pixel forested if and only if it contains vegetation points (points with
+𝐷𝑧 > 1.3 m, see Section 3.1) and also is considered forested based on
+NIBIO’s Norway-wide timber volume map (Astrup et al., 2019). We use
+the latter as an additional precautionary measure to avoid unnecessary
+noise from non-forested areas, as we are interested in learning forest
+characteristics only. For every reference data patch, we randomly pick
+an optical image from the correct year and two SAR images (one as-
+cending and one descending orbit) with acquisition dates near the one
+of the optical image. Using SAR with both ascending and descending
+
+the Adam (Kingma and Ba, 2015) variant of stochastic gradient descent
+(SGD), which adaptively scales the magnitude of the parameter updates
+based on the statistics of previous updates to speed up convergence.
+During training, we periodically evaluate the prediction error of the
+model (i.e., the current set of parameters) on a held-out validation set
+and keep the configuration 𝜽∗ with the lowest error as the final model.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning model uses the Adam optimizer with hyperparameters 𝛽1 = 0.9, 𝛽2 = 0.999, and 𝜖 = 10^-8. The initial base learning rate is set to 𝛼 = 10^-4, which is then automatically reduced by a factor of 0.1 when the validation loss does not improve for 15 consecutive epochs. Weight decay is applied to control the strength of the unit Gaussian prior, with a magnitude of 10^-3 that is inversely proportional to the hyperparameter 𝜆 from Equation (1). The model is trained using stochastic gradient descent with a batch size of 𝐵 = 64.

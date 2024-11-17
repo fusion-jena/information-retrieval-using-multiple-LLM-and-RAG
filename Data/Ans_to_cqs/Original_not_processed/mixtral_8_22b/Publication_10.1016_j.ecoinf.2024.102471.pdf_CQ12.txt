@@ -1,0 +1,76 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.3. Baseline models 
+
+Hybrid  CNN-LSTM  is  an  architecture  that  combines  the  temporal 
+modelling ability of the LSTM with the CNN ability to learn invariant 
+features  (Ayadi  and  Lachiri,  2022)  (Yadav  and  Vishwakarma,  2020) 
+(Ashraf  et  al.,  2023).  The  combination  of  Convolutional  Neural  Net-
+works  (CNN)  and  Long  Short-Term  Memory  (LSTM)  has  the  major 
+benefit of learning spatial and temporal data. CNN excels in extracting 
+spatial elements like edges, textures, and forms from an input. Mean-
+while,  an  LSTM  excels  in  extracting  temporal  data,  like  the  order  of 
+words in a phrase or frames in a movie. By combining the two, a model 
+
+EcologicalInformatics80(2024)1024719B. Swaminathan et al.
+
+The  motivation  comes  from  success  of  transformer  in  natural  lan-
+guage processing (NLP) is the reason for evolution of advanced archi-
+tecture called vision transformer. In (Dosovitskiy et al., 2021) proposed 
+work, the attention mechanism is focused as network's core component 
+for capturing long-range relationship among complex structure of image 
+data.  The  vision  transformer  processes  each  input  image  as  patches 
+where they are treated as tokens by NLP model. Then the model pro-
+cessed the tokens to learn more about the visual representation of the 
+input. Hence, in comparison to CNN techniques, transformer-based re-
+sults  demonstrated  state-of-the-art  performance  by  processing  more 
+deep features in limited computational resources. Subsequently, vision 
+transformer is applied along with hyper-head attention mechanism for 
+bird  sound  recognition  (Tang  et  al.,  2023).  In  this  work,  author  has
+
+Wav2vec is one of the latest state-of-art models for Automatic Speech 
+Recognition  and  other  audio-related  problems  (Boigne  et  al.,  2020) 
+(Shibano et al., 2021). The architecture of the Wav2vec is based on the 
+transformer's  encoder,  with  a  training  objective  like  BERT's  masked 
+language modelling objective but adapted for speech instead of text. The 
+self-supervised  way  of  training  allows  Wav2vec  to  pre-train  on  unla-
+belled data, which is more accessible (Hendrycks et al., 2019). Later, the 
+model can be fine-tuned on a particular dataset for a specific purpose. 
+This  approach  shows  remarkable  improvement  in  the  model's  perfor-
+mance, especially if the dataset size is very small with label.
+
+4.4. Wav2Vec model description 
+
+After pre-processing, the whole dataset is splitted into training and 
+testing  of  various  ratio  including  70:30,  80:20  and  90:10  for  strong 
+performance  analysis.  As  a  part  of  training  proposed  model,  the  raw 
+audio signals of various bird species are given as input to extract 768- 
+dimensional  vector  as  features.  In  wav2vec,  after  the  transformer 
+block, there are three dense layers with ReLU activation function con-
+tains 1024, 512, and 256 hidden neurons, respectively. Followed by, one 
+classification layer with sigmoid activation function is kept to decide on 
+
+bird categories as output. For this technique, Adam is used as optimizer 
+with initial learning rate of order 10e-5 is appropriate for small weight 
+updates throughout the network while fine-tuning. Based on the manual 
+fine-tuning process, other hyper parameters such as epochs of 30 with 
+batch size 1 is chosen as optimal value. 
+
+4.5. Multi labelling framework
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The pipeline uses a hybrid model that combines Convolutional Neural Networks (CNN) and Long Short-Term Memory (LSTM), known as Hybrid CNN-LSTM. This architecture leverages the strengths of both types of networks. CNNs are excellent at extracting spatial information, such as edges, textures, and shapes, from inputs. On the other hand, LSTMs excel at handling sequential data, making them ideal for tasks involving time series or sequences, such as language translation or speech recognition. Combining these two architectures enables the model to capture both spatial and temporal patterns in the data. Additionally, the pipeline also employs a transformer-based model called Wav2Vec, which is specifically designed for automatic speech recognition and other audio-related tasks. It utilizes a self-supervised learning approach, allowing it to pre-train on unlabeled data before being fine-tuned on a specific task.

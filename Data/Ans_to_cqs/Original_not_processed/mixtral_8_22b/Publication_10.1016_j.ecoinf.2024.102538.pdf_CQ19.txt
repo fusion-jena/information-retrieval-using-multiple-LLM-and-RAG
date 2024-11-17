@@ -1,0 +1,74 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+their  convolutional  kernels  and  pooling  layers.  Regarding  this  issue, 
+Zhang  et  al.  (2019)  incorporated  a  long  short-term  memory  (LSTM) 
+network to develop a 3DCNN-LSTM model as a classifier, making the 
+network more sensitive to the temporal changes in birdsong informa-
+tion. It is important to note that the use of RNNs such as the CRNN model 
+requires  more  computing  resources  for  training,  and  performance 
+improvement is not always guaranteed. Another common approach to 
+addressing  the  limitations  of  CNNs  is  to  introduce  attention  mecha-
+nisms.  For  example,  Soundception  (Sevilla  and  Glotin,  2017)  was 
+developed  by  introducing  time  and  time-frequency  attention  mecha-
+nisms to Inception V4; the resulting model achieved first place in the 
+BirdCLEF  2017  Competition.  Fu  et  al.  (2023)  proposed  an  improved 
+ACGAN model named DR-ACGAN based on the residual structure and an
+
+EcologicalInformatics80(2024)1025384Q. Wang et al.                                                                                                                                                                                                                                   
+
+Fig. 3. Architecture of the baseline model: the data first passes through the entry flow, then through the middle flow, which is repeated eight times, and finally 
+through the exit flow. The adapted first deep separable convolutional (DSC) block in the Exit flow is shown in (a). In this block, the Position Attention module (b) 
+receives the local feature A, which is fed into convolutional layers to generate three new feature maps: B, C, and D, respectively. The output feature E is then obtained 
+through matrix multiplication and element-wise summation operations.
+
+(⋅) =
+
+(3) 
+
+3.5.2. Modified to K levels 
+
+As illustrated in Fig. 5, we divided the baseline model into two parts. 
+The trunk network comprises the Entry flow, the Middle flow, and the 
+first DSC block of the Exit flow, while the last two separable convolution 
+layers  are  merged  into  one  hierarchical  block.  We  copied  the  hierar-
+chical block K times for K-level semantic feature learning. 
+
+By  performing  an  orthogonal  decomposition  of  features,  discrimi-
+native  features  are  separated  from  fine  level  region  representations. 
+Then,  the  specific  hierarchical  feature  can  be  calculated  using  the 
+following formula: 
+
+Fh,k(x) = Sk(x) + λSorth
+
+k
+
+(x),
+
+(4)  
+
+3.5.3. Hierarchical interaction
+
+The study of bird populations is crucial for biodiversity research and conservation. Deep artificial neural net-
+works  have  revolutionized  bird  acoustic  recognition;  however,  most  methods  overlook  inherent  relationships 
+among bird populations, resulting in the loss of biological information. To address this limitation, we propose the 
+Phylogenetic  Perspective  Neural  Network  (PPNN),  which  incorporates  hierarchical  multilevel  labels  for  each 
+bird. PPNN uses a hierarchical semantic embedding framework to capture feature information at different levels. 
+Attention  mechanisms  are  employed  to  extract  and  select  common  and  distinguishing  features,  thereby 
+improving classification accuracy. We also propose a path correction strategy to rectify inconsistent predictions. 
+Experimental results on bird acoustic datasets demonstrate that PPNN outperforms current methods, achieving
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough context provided to determine which frameworks were used to build the deep learning models mentioned in the text. The authors do not explicitly state whether they used TensorFlow, PyTorch, or any other framework to construct their models. Therefore, it is impossible to provide a definitive answer to this query based solely on the given context.

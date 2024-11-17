@@ -1,0 +1,9 @@
+The deep learning model in question is used for the purpose of sequence placement in a phylogenetic tree. Specifically, it is a Convolutional Neural Network (CNN) model that is trained to map a given query sequence to a vector of distances. These distances are then used to place the query sequence onto the tree using distance-based placement.
+
+The model is trained using a supervised learning formulation, which involves using a loss function that measures the difference between the predicted distances and the true distances. The model is trained to minimize this loss function using backpropagation and stochastic gradient descent.
+
+One of the challenges of this model is that it requires a fixed embedding size, which can cause issues when adding new sequences to the tree. The model does not allow for the number of dimensions to increase after inserting a query, which can potentially lead to incorrect embeddings. However, the authors note that in practice, having one less dimension has a minimal impact.
+
+The model is evaluated on simulated data sets to test its ability to train the CNN model in reasonable times. The training process is a one-time process for each reference tree and takes around 20 minutes for a 200-taxon data set and 260 minutes for a 10,000-taxon data set. The placement of 1000 queries takes 4 seconds for the 200-taxon and 30 seconds for the 10,000-taxon data sets using a single CPU core.
+
+Overall, the deep learning model in question is specifically designed for the task of sequence placement in a phylogenetic tree, and it is trained using a supervised learning formulation to minimize a loss function that measures the difference between predicted and true distances. The authors address the challenges of fixed embedding size by noting that having one less dimension has a minimal impact in practice.

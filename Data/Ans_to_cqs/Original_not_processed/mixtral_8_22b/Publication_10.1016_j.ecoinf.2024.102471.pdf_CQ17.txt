@@ -1,0 +1,117 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Fig. 2. Wav2Vec pre-training phase.  
+
+quantized representation for the masked latent feature representation. 
+Diversity loss shown in (2) is also added to the objective function for 
+regularization during pre-training. 
+
+(
+
+Lm = (cid:0)
+
+log
+
+sim(ct ,qt )
+e
+k
+
+/
+
+∑
+
+q′∈Qt
+
+sim(ct ,q′)
+e
+k
+
+Ld =
+
+(cid:0)
+*
+
+1
+GV
+
+) )
+
+(cid:0)
+
+pg
+
+(cid:0) H
+
+(1)  
+
+(2) 
+
+In the supervised fine-tuning phase, the labelled dataset is used in 
+training the model to predict particular words or phonemes. Fig. 3 de-
+picts the process and components in the fine-tuning phase of wav2vec. 
+Phonemes are the smallest unit of sound, usually one or two letters, in 
+the language. During fine-tuning, the quantization module is removed. 
+Instead, a linear projection layer is added to the context network. Then 
+the model is fine-tuned on connectionist temporal classification (CTC) 
+loss for the Automatic Speech Recognition task. So, the wav2vec model 
+has a general understanding of phonemes present in human speech.
+
+Wav2vec is one of the latest state-of-art models for Automatic Speech 
+Recognition  and  other  audio-related  problems  (Boigne  et  al.,  2020) 
+(Shibano et al., 2021). The architecture of the Wav2vec is based on the 
+transformer's  encoder,  with  a  training  objective  like  BERT's  masked 
+language modelling objective but adapted for speech instead of text. The 
+self-supervised  way  of  training  allows  Wav2vec  to  pre-train  on  unla-
+belled data, which is more accessible (Hendrycks et al., 2019). Later, the 
+model can be fine-tuned on a particular dataset for a specific purpose. 
+This  approach  shows  remarkable  improvement  in  the  model's  perfor-
+mance, especially if the dataset size is very small with label.
+
+3.1. Feature encoder 
+
+The feature encoder of the pre-trained Wav2vec model reduces the 
+dimensionality of the audio data, converting the raw waveform into a 
+sequence of feature vectors Z every 20 milliseconds. The main compo-
+nent of the feature encoder's architecture is seven layers of a 1D con-
+volutional neural network with 512 channels at each layer. The size of 
+the kernel and strides decreases as the layer progresses in the network. 
+The waveform is normalized before passing through the convolutional 
+layer, followed  by  layer  normalization and  GELU  activation function. 
+Finally,  latent  feature  vectors  represent  the  latent  feature  of  bird 
+vocalization.  Thus,  it  helps  the  model  to  identify  and  understand  the 
+sequential information in the vocalization audio of multi-bird species. 
+
+3.2. Context network
+
+Attention-based  hybrid  CNN-LSTM  is  a  deep  learning-based  archi-
+tecture that hybridizes CNN and LSTM with an attention mechanism for 
+the classification of audio recordings (Hamdi et al., 2022) (Zhang et al., 
+2021).  The  main  advantage  of  an  Attention-based  CNN-LSTM  over  a 
+simple CNN-LSTM is that it can focus on the most important parts of the 
+input  data  when  making  predictions.  An  Attention-based  model  can 
+learn to assign higher weights to the most important parts of the input 
+data and lower weights to the less important parts. It can lead to better 
+performance, as the model can focus on the most relevant parts of the 
+data  instead  of  being  distracted  by  irrelevant  parts.  Furthermore, 
+attention-based models can lead to higher interpretability because the 
+model  is  more  explicit  about  which  input  data  elements  has  to  pay 
+attention.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Regarding the regularization methods used to prevent overfitting in the deep learning pipeline, the given context mentions diversity loss as a method used in the pre-training phase of the Wav2Vec model. Diversity loss is not a standard regularization technique such as dropout or L2 regularization, but rather a custom loss term introduced specifically for this model. This loss term encourages the model to produce diverse representations for different inputs, thus preventing overfitting and improving its ability to generalize to new data. However, the context does not provide details on how exactly this diversity loss is calculated or applied within the model.
+
+As for standard regularization techniques, while the context does not explicitly mention them, they could still be employed in various stages of the deep learning pipeline. For instance, dropout could be used during both pre-training and fine-tuning phases to randomly ignore some neurons during training, effectively creating an ensemble of simpler networks and reducing overfitting. Similarly, L2 regularization, also known as weight decay, could be applied to penalize large weights and encourage smaller, more generalizable ones. These techniques would help improve the model's performance and robustness, even though they are not mentioned in the provided context.

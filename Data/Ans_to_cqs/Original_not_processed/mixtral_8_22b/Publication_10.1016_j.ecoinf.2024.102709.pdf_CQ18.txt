@@ -1,0 +1,73 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To determine the ideal training–test split for our model, we used k- 
+fold  cross-validation  (k  = 5,  epochs  = 500,  imagesize  = 640).  The 
+epochs provide the number of repetitions for training, and the image size 
+is  expressed in  pixels. k-fold  cross-validation  (Rodriguez et  al., 2010) 
+was used to determine the best training test set for the model. Hereby, 
+the data are split into k different training–test sets. The model was not 
+trained on the entire dataset but on each training split. The result was an 
+investigation of the best data split. Functions of the Python library scikit- 
+learn  (scikit-learn  developers,  2023)  were  used  to  split  the  data  and 
+investigate the results of each trained model. In addition, YOLO training 
+losses and mAP50 values of each model were investigated. The split with 
+the  highest  mAP50  value  indicates  the  highest  number  of  correctly 
+predicted labels for the model trained on a specific split. We used the
+
+Table  7  depicts  the  six  models  in  greater  detail  by  comparing 
+different loss training values, which indicate how well the model learned 
+during training. The goal of training was to minimize the loss value. The 
+YOLO loss function was divided into three parts (Zafar et al., 2018). 
+
+The box loss is a regression loss that measures the error in the pre-
+dicted bounding box coordinates and dimensions relative to the ground 
+truth. When the value is lower, the bounding boxes are more accurate (Li 
+et al., 2023; Wang et al., 2023). This value is computed by YOLO using 
+Intersection  over  Union  (IoU)  (Zheng  et  al.,  2016)  and  distributional 
+focal  loss  (DFL)  (X.  Li  et  al.,  2020b).  The  IoU  measures  the  distance 
+between the ground truth and the actual box (Zheng et al., 2016). DFL
+
+scikit-learn developers, 2023. scikit-learn 1.3.2 [WWW Document], 3.1. Cross-validation: 
+evaluating estimator performance. URL https://scikit-learn.org/stable/modules/cro 
+ss_validation.html (accessed 10.24.23).  
+
+Serrano-Ramírez, E., Valdez-Lazalde, J.R., de los Santos-Posadas, H.M., Mora- 
+
+´
+Guti´errez, R.A., 
+Angeles-P´erez, G., 2021. A forest management optimization model 
+based on functional zoning: a comparative analysis of six heuristic techniques. Ecol 
+Inform 61, 101234. https://doi.org/10.1016/j.ecoinf.2021.101234. 
+
+Sheikh, Md.A.A., Kole, A., Maity, T., 2016. Traffic sign detection and classification using 
+colour feature and neural network. In: 2016 International Conference on Intelligent 
+Control Power and Instrumentation (ICICPI), pp. 307–311. https://doi.org/10.1109/ 
+ICICPI.2016.7859723. 
+
+Smith, A.R., 1978. Color gamut transform Paris. SIGGRAPH Comput. Graph. 12, 12–19. 
+
+https://doi.org/10.1145/965139.807361.
+
+Three models (Models 4, 5, and 6) were trained using our own data 
+(clusters of extracted numbers), as described above, as input for training, 
+whereas the other three models (Models 1, 2, and 3) were trained with 
+the modified National Institute of Standards and Technology (MNIST) 
+dataset of handwritten digits, which can be used to train classification 
+models (Deng, 2012).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The strategy implemented to monitor the model performance during training involves the use of k-fold cross-validation, specifically with k set to 5. This method splits the data into five different training-test sets, allowing the model to be trained on each split separately. The goal is to find the best data split, which is determined by investigating the mean Average Precision (mAP50) values of each model. The higher the mAP50 value, the better the model performs in terms of predicting correct labels. Additionally, the training losses, including the YOLO loss function, are monitored throughout the process. The YOLO loss function consists of three components: box loss, objectness loss, and class loss. Box loss is a regression loss measuring the error in predicted bounding box coordinates and dimensions compared to the ground truth. Objectness loss evaluates whether or not there is an object present within the bounding box, while class loss assesses the accuracy of the detected objects' classes. By monitoring these metrics, researchers can ensure optimal model performance during training.

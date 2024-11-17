@@ -1,0 +1,9 @@
+Answer:
+
+The raw dataset was partitioned into training, validation, and test sets with a ratio of 8:1:1. The training set was used to learn the model's parameters, the validation set was used to evaluate the model's performance and tune its hyperparameters, and the test set was used to evaluate the final model's performance and generalizability. The random partition was repeated ten times to reduce the influence of random splitting and ensure converged performance.
+
+During the training process, the model performance was monitored using the R value of the validation set as the performance indicator. The model performance optimization process was divided into two stages. In the first stage, the neural network structure and the number of neurons in the hidden layers were adjusted, considering 60 sets of combinations, including one to five hidden layers and neurons with a range of 64-2048 (nth power of 2). In the second stage, the percentage of dropout layers, the learning rate, and the batch size were adjusted, considering a total of 192 combinations (4*4*3*4).
+
+The optimal model was obtained with an R value of 0.76, which was achieved by tuning the hyperparameters of the MLP model, including the number of neural network layers, the number of neurons per layer, dropout, learning rate, and batch size. The hyperparameters tuning ranges were as follows: the number of neural network layers (1-5), the number of neurons per layer (64, 128, 256, 512, 1024, 2048), dropout (0.1, 0.25, 0.35, 0.5), learning rate (0.001, 0.0001, 0.00001), and batch size (32, 64, 128, 256).
+
+Therefore, the strategy implemented to monitor the model performance during training involved using the R value of the validation set as the performance indicator and adjusting the hyperparameters of the MLP model in two stages to optimize the model's performance.

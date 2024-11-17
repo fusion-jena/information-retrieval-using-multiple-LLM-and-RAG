@@ -1,0 +1,164 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We trained IUC-NN on all species with an IUCN RL as-
+sessment and available occurrence records. Prior to the
+training, we randomly split the data set into a training
+set (90% of the entries) and a test set (10%). We used
+20% of the training set for validation. Because the size
+of the data set was comparatively small, we performed
+cross-validation by shifting the validation set 5 times to
+quantify the average validation cross-entropy loss and ac-
+curacy. We then used the neural network with the lowest
+cross-entropy loss across a range of models with differ-
+ent numbers of hidden layers and subsets of features to
+predict the conservation status of all orchid species at
+2 levels: binary (possibly threatened vs. not threatened)
+and detailed (CR, EN, VU, NT, and LC). See Supporting
+Information for details on the network architecture and
+training. We combined the IUC-NN assessments with dis-
+tribution data from WCSP to show the number and pro-
+
+We implemented a deep neural network algorithm
+(Goodfellow et al. 2016)—IUC-NN—as an R package
+(IUCNN, available at https://github.com/azizka/IUCNN)
+based on the Python (version 3.7) TensorFlow (https://
+www.tensorflow.org) library to predict the conservation
+status of unevaluated orchid species. We based the pre-
+dictions on 4 groups of features, derivable from digitally
+available occurrence records: geographic (mean latitude
+and longitude, longitudinal and latitudinal range, extent
+of occurrence [EOO], area of occupancy [AOO], number
+of locations [sensu IUCN], and occurrence records); cli-
+matic (mean of 19 bioclim variables [Karger et al. 2017]);
+biome (presence in 14 biomes [Olson et al. 2001]); and
+
+anthropogenic (mean Human Footprint Index [Wildlife
+Conservation Society & International Earth Science In-
+formation Network 2005]).
+
+Including data on species trade, land use, or life his-
+tory, once they are available, may help increase the ac-
+curacy of IUC-NN and overcome dependency on threat
+category (Supporting Information). Additionally, combin-
+ing the binary and detailed model, the results of which
+were contradictory in some cases (Supporting Informa-
+tion), may increase the performance of IUC-NN. We sug-
+gest that labeling species where the binary and detailed
+model disagree as data deficient might reduce the num-
+ber of false predictions. Future developments of IUC-NN
+will quantify the estimation of threat as a continuous pa-
+rameter to increase the accuracy for intermediate threat
+levels and will implement Bayesian neural networks to
+quantify uncertainties in the prediction (Silvestro & An-
+dermann 2020).
+
+IUC-NN all features
+not threatened
+possibly threatened
+
+Spatial
+cleaning
+
+full
+full
+medium
+medium
+raw
+raw
+
+full
+full
+
+full
+full
+
+full
+full
+
+full
+full
+
+IUCN designation
+
+not
+threatened
+
+possibly
+threatened
+
+Method type∗
+
+75.1
+38.8
+75.1
+36.4
+73.8
+35.3
+
+68.3
+32.5
+
+68.5
+32.4
+
+78.9
+11.8
+
+81.6
+29.4
+
+24.9
+61.2
+24.9
+63.6
+26.2
+64.7
+
+31.7
+67.5
+
+31.5
+67.6
+
+21.1
+88.2
+
+18.4
+70.6
+
+index
+index
+index
+index
+index
+index
+
+index
+index
+
+index
+index
+
+prediction
+prediction
+
+prediction
+prediction
+
+∗For index-based methods, the results are for all species with digitally available occurrence records (n = 866). For prediction-based methods
+(IUC-NN), results are from the test data set (n = 89).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text does not provide explicit information about the deployment process of the trained deep learning model, such as model serialization or platform selection. However, it is mentioned that the authors developed an R package called 'IUCNN', which is based on the Python TensorFlow library, to predict the conservation status of unevaluated orchid species. This suggests that the trained model could be integrated within this R package for practical applications. Furthermore, the availability of the source code on GitHub implies that users can access and utilize the model through this repository. Nevertheless, specific details regarding the exact steps taken to deploy the trained model are not explicitly stated in the given context.

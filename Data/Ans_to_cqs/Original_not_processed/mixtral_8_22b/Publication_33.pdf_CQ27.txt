@@ -1,0 +1,70 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+training datasets.
+
+•  In the first phase, a classification model is built by training a CNN on a given database T0 (Fig. 2a)
+•  Then, the second phase consists of tuning a risk threshold τi specific to each class (i.e. each species in our 
+
+case), noted i, with i ∈ {1, ..., n} , using a second and independent database noted T1 (Fig. 2b).
+
+In terms of classification, it means we transform the 2 classification options (correct, wrong) in 3 options 
+
+(Fig. 3) by applying Eqs. (15, 16).
+
+Computing the confidence thresholds.  After the phase 1 (model training phase), for an image X of the 
+threshold tuning dataset processed by the classifier, we obtain an output {C(X), S(X)} , where C(X) is the class 
+(i.e. species, belonging to the trained set of species) with the highest classification score S(X). For this image, we 
+know the ground truth Y in {1, .., n} belonging to the same set of species classes.
+
+https ://arXiv .org/1712.04621 .
+
+ 42.  Goodfellow, I., Bengio, Y., Courville, A. & Bengio, Y. Deep Learning (MIT Press, Cambridge, 2016).
+ 43.  Abadi, M. et al. Tensorflow: A system for large-scale machine learning. OSDI 16, 265–283 (2016).
+ 44.  He, K., Zhang, X., Ren, S., & Sun, J. Deep residual learning for image recognition. In Proceedings of the IEEE Conference on Computer 
+
+Vision and Pattern Recognition 770–778 (2016).
+
+ 45.  Sarle, W. S. Stopped training and other remedies for overfitting. Computing Science and Statistics, 352–360 (1996).
+ 46.  Hintze, J. L. & Nelson, R. D. Violin plots: A box plot-density trace synergism. Am. Stat. 52(2), 181–184 (1998).
+ 47.  Catford, J. A., Bode, M. & Tilman, D. Introduced species that overcome life history tradeoffs can cause native extinctions. Nat. 
+
+Commun. 9(1), 2131 (2018).
+
+Whatever the goal, our framework is highly flexible and can be adapted by tuning the species thresholds 
+regulating the trade-off between classification robustness and coverage in an attempt to monitor biodiversity 
+through big datasets where species are unidentified. To unclog the bottleneck of information extraction about 
+organism forms, behaviors and sounds from massive digital data, machine learning algorithms, and particularly 
+the last generation of deep learning algorithms, offer immense promises. Here we propose to help the users to 
+control their error rates in ecology. This is a valuable addition to the ecologist’s toolkit towards a routine and 
+robust analysis of big data and real-time biodiversity monitoring from remote sensors. With this control of error 
+rate in the hands of users, Deep Learning Algorithms can be used for real applications, with acceptable and 
+
+Scientific RepoRtS  |        (2020) 10:10972  | 
+
+https://doi.org/10.1038/s41598-020-67573-7
+
+11
+
+Vol:.(1234567890)www.nature.com/scientificreports/Figure 2.   Overview of the 3 parts of our framework: 2 consecutive steps for the learning phase, followed by 
+the applicative testing step. (a) We trained a CNN model with a training dataset (T0) composed of images 
+and a label for each image, in our case, the species corresponding to each fish individual. (b) Then, for each 
+species i, we processed an independent dataset T1, with our model. For each image, we obtained the species j 
+attributed by the CNN to the image and a classification score Sj . We have the ground truth and the result of the 
+classification (correct/incorrect), so we can define a threshold according to the user goal. This goal is a trade-off 
+between the accuracy of the result and the proportion of images fully processed. (c) We then used this threshold 
+to post-process outputs of the CNN model. More precisely, for a given image, the classifier of the CNN returns
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text does not provide explicit details regarding the deployment process of the trained deep learning model. However, based on common practices in machine learning projects, after completing the training and validation phases, the next step would typically involve saving or serializing the trained model into a format suitable for use in production environments. This could include formats such as ONNX, TensorFlow SavedModel, PyTorch TorchScript, or others depending on the chosen deep learning library. Once serialized, the model can be deployed onto various platforms like cloud services (AWS, Google Cloud, Azure), edge devices, mobile apps, etc., again depending on the project requirements. Unfortunately, without more specific information, I cannot provide a detailed description of the exact process followed in this particular case.

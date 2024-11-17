@@ -1,0 +1,85 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+hyperparameters for model architectures.  
+
+2.  Partial training: Models are partially trained (on a small fraction of 
+the data) to quickly eliminate underperforming configurations.  
+3.  Successive Halving: The remaining configurations are grouped into 
+sets of different sizes, and the associated models are trained further. 
+The best-performing configurations in each set are promoted to the 
+next  stage,  while 
+the  under-performing  configurations  are 
+eliminated. 
+
+4. Repeat: Steps 2 and 3 are repeated until only one configuration re-
+mains, which is then considered the best configuration found.
+
+described in the next section. 
+
+During the training of the model, the data is then standardized. In 
+section 4, one of the three datasets will be defined as a training base, on 
+which the standardizaion parameters will be calculated and applied to 
+the  other  two  datasets  considered  as  test  base.  The  best  result  of  the 
+optimisation will allow us to determine the base that will be used for 
+training. 
+
+4. Model optimization: Determination hyperparameters and 
+parameter training 
+
+4.1. Optimisation algorithm and experimental design
+
+the role of training base and test base of each system is swapped. The 
+Hyperband algorithm is applied to each database to determine the best 
+model (hyperparameters + parameters). This first treatment will allow 
+us to identify the most suitable database to be the training base.
+
+For these studies, it is proposed to use the MAE (mean absolute error) 
+metric  and  the  NSE  (Nash-Sutcliffe  efficiency)  score  for  the  training 
+phase: 
+
+NSE = 1 (cid:0)
+
+∑T
+∑T
+
+t=1(yt (cid:0) ̂yt)2
+t=1(yt (cid:0) yt)2
+
+et MAE =
+
+∑T
+
+t=1(|yt (cid:0) ̂yt|)
+T 
+
+Two elements will be determined here:  
+
+1.  The best training base between Rhˆone-Vallabregues, Loire-Ouzouer 
+
+and Loire-Muides  
+
+2.  The optimal size of the selected training base 
+
+4.1.1.
+
+Influence of the training base 
+
+The influence of the training base on the results is seen by swapping 
+
+EcologicalInformatics80(2024)1024637K. Pel´e et al.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: The strategy implemented to monitor the model performance during training involves partial training, successive halving, and repetition. Initially, models are partially trained on a small fraction of the data to quickly eliminate underperforming configurations. Then, the remaining configurations are grouped into sets of different sizes, and the associated models are trained further. The best-performing configurations in each set are promoted to the next stage, while the underperforming configurations are eliminated. These steps are repeated until only one configuration remains, which is then considered the best configuration found. During this process, the mean absolute error (MAE) metric and Nash-Sutcliffe efficiency (NSE) score are used to evaluate the model performance.

@@ -1,0 +1,17 @@
+In the field of deep learning, various optimization techniques are employed to improve the performance of models during training. Two commonly used optimization algorithms are Stochastic Gradient Descent (SGD) and Adaptive Moment Estimation (Adam).
+
+SGD is a simple yet powerful optimization technique widely used in machine learning and deep learning applications. It updates the parameters of the model by computing the gradient of the loss function with respect to each parameter using a subset of the training data called mini-batch. The update rule for SGD can be expressed as:
+
+w = w - η * ∇L(w)
+
+where w represents the weights or parameters of the model, η denotes the learning rate, and ∇L(w) is the gradient of the loss function L with respect to the weights w.
+
+On the other hand, Adam is another popular optimization algorithm that combines the advantages of two other methods: Root Mean Square Propagation (RMSProp) and momentum. Adam maintains a moving average of both the gradients and their squares, which allows it to adapt the learning rate for each weight individually. This results in faster convergence compared to traditional SGD. The update rules for Adam can be written as:
+
+m_t = β1 * m_{t-1} + (1 - β1) * g_t
+v_t = β2 * v_{t-1} + (1 - β2) * g_t^2
+w_t = w_{t-1} - η * m_t / (sqrt(v_t) + ε)
+
+where m_t and v_t denote the first and second moments of the gradients, respectively, β1 and β2 are hyperparameters controlling the decay rates of these moments, g_t is the current gradient, and ε is a small constant added for numerical stability.
+
+Both SGD and Adam have been successfully applied in various deep learning pipelines, including convolutional neural networks (CNNs), recurrent neural networks (RNNs), and transformers. However, choosing the right optimization technique depends on factors such as the complexity of the problem, the size of the dataset, and the desired trade-off between speed and accuracy.

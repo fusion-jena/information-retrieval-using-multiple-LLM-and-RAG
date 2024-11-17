@@ -1,0 +1,248 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Type
+
+Patch size / Stride
+
+Output Size
+
+Depth
+
+Params
+
+7x7/2
+3x3/2
+
+3x3/1
+3x3/2
+
+3x3/2
+
+3x3/2
+
+7x7/1
+
+convolution
+max pool
+batch norm
+LRN
+convolution
+max pool
+batch norm
+LRN
+inception (3a)
+inception (3b)
+max pool
+batch norm
+inception (4a)
+inception (4b)
+inception (4c)
+inception (4d)
+inception (4e)
+max pool
+batch norm
+inception (5a)
+inception (5b)
+avg pool
+batch norm
+linear
+softmax
+
+112x112x64
+56x56x64
+56x56x64
+56x56x64
+56x56x192
+28x28x192
+28x28x192
+28x28x192
+28x28x256
+28x28x480
+14x14x480
+14x14x480
+14x14x512
+14x14x512
+14x14x512
+14x14x528
+14x14x832
+7x7x832
+7x7x832
+7x7x832
+7x7x1024
+1x1x1024
+1x1x1024
+1x1x10000
+1x1x10000
+
+1
+0
+0
+0
+2
+0
+0
+0
+2
+2
+0
+0
+2
+2
+2
+2
+2
+0
+0
+2
+2
+0
+0
+1
+0
+
+Ops
+
+34M
+
+2.7K
+
+112K
+
+360M
+
+159K
+380K
+
+128M
+304M
+
+364K
+437K
+463K
+580K
+840K
+
+73M
+88M
+100M
+119M
+170M
+
+1072K
+1388K
+
+54M
+71M
+
+1000K
+
+1M
+
+IV. EXPERIMENTS
+
+A. Hand-crafted Feature Extraction Experiment
+
+2016. http://www.deeplearningbook.org.
+
+[31] C. Szegedy, W. Liu, Y. Jia, P. Sermanet, S. Reed, D. Anguelov, D. Erhan,
+V. Vanhoucke, and A. Rabinovich, “Going deeper with convolutions,”
+Proceedings of the IEEE Computer Society Conference on Computer
+Vision and Pattern Recognition, vol. 07-12-June, pp. 1–9, 2015.
+[32] S. Ioffe and C. Szegedy, “Batch normalization: Accelerating deep
+shift,” CoRR,
+
+covariate
+
+network training by reducing internal
+vol. abs/1502.03167, 2015.
+
+[33] K. He, X. Zhang, S. Ren, and J. Sun, “Delving deep into rectiﬁers:
+Surpassing human-level performance on imagenet classiﬁcation,” CoRR,
+vol. abs/1502.01852, 2015.
+
+[34] Y. Jia, E. Shelhamer, J. Donahue, S. Karayev, J. Long, R. Girshick,
+S. Guadarrama, and T. Darrell, “Caffe: Convolutional architecture for
+fast feature embedding,” in Proceedings of the 22nd ACM international
+conference on Multimedia, pp. 675–678, ACM, 2014.
+
+[35] J. Yosinski, J. Clune, Y. Bengio, and H. Lipson, “How transferable are
+
+features in deep neural networks?,” CoRR, vol. abs/1411.1792, 2014.
+
+[36] J. Carranza-Rojas, H. Goeau, P. Bonnet, E. Mata-Montero, and A. Joly,
+“Going deeper in the automated identiﬁcation of herbarium specimens,”
+BMC Evolutionary Biology, vol. 17, p. 181, Aug 2017.
+
+[9] S. Wu, F. Bao, E. Xu, Y.-X. Wang, Y.-F. Chang, and Q.-L. Xiang, “A leaf
+recognition algorithm for plant classiﬁcation using probabilistic neural
+network,” in Signal Processing and Information Technology, 2007 IEEE
+International Symposium on, pp. 11–16, Dec 2007.
+
+[10] D. Wijesingha and F. Marikar, “Automatic detection system for the
+identiﬁcation of plants using herbarium specimen images,” Tropical
+Agricultural Research, vol. 23, no. 1, 2012.
+
+[11] C. H. Arun, W. R. S. Emmanuel, and D. C. Durairaj, “Texture feature
+extraction for identiﬁcation of medicinal plants and comparison of
+different classiﬁers,” International Journal of Computer Applications,
+vol. 62, January 2013.
+
+B. Deep Learning Experiment
+
+The second experiment is similar to the ﬁrst one but it uses
+deep learning CNNs to determine if the SSPB introduces a
+signiﬁcant bias. It corresponds to the second row in Figure I.
+There is no segmentation applied to the data, only a resize to
+224x224 pixels before running the network on the data.
+
+V. RESULTS
+
+A. Hand-crafted Feature Extraction Experiment
+
+Table III shows the results related to the hand-crafted feature
+extraction approach experiment. The accuracy obtained is
+always considerably better when the biased dataset is used,
+with a 26.4% difference when top-5 is used. This clearly shows
+that SSPB introduces a signiﬁcant bias.
+
+Table III: Unbiased and Biased Top-5 Accuracy with LBPU.
+
+k
+
+1
+2
+3
+4
+5
+
+Unbiased Accuracy
+
+Biased Accuracy
+
+0.0669
+0.0963
+0.1200
+0.1383
+0.1513
+
+0.2095
+0.2805
+0.3357
+0.3800
+0.4162
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there is no explicit mention of specific optimization techniques such as Stochastic Gradient Descent (SGD), Adam, or others being applied in the deep learning pipeline. However, the context does reference batch normalization [32], which can be considered an optimization technique used during model training to improve convergence and stability. Additionally, the paper references the use of Caffe [34], a popular deep learning framework that supports various optimization algorithms including SGD, Adam, and others. Therefore, while not explicitly stated, it can be inferred that some form of optimization technique was likely employed in the deep learning pipeline described in the context.

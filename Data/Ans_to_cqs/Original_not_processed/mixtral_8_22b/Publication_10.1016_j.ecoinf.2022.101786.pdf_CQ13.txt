@@ -1,0 +1,67 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Some model parameters were modified from the default configura-
+tion to balance use of resources and training speed. We retained a res-
+olution of 704 × 704, batch size 64, 32 subdivisions and trained up to 
+6000 iterations. Other parameters were kept to default or set according 
+to guidance by the developers (https://github.com/AlexeyAB/darknet). 
+Manual annotations were used to generate training, validation and 
+testing  datasets.  Biigle  annotations  (label  name,  centre  x,  center  y, 
+
+EcologicalInformatics71(2022)1017863N. Piechaud and K.L. Howell
+
+2.4. Model evaluation 
+
+The testing dataset was composed of 500 manually annotated images 
+from  the  same  transect  and  was  only  used  to  calculate  performances 
+outside  the  Darknet  framework  by  comparing  CNN  predictions  with 
+manual annotations. 
+
+Predictions  come  as  a  .JSON  file  containing  the  coordinate  of  the 
+bounding box of each tentative annotation as well as a confidence score 
+ranging from 0.05 at minimum (lower confidence scores introduced too 
+much  noise  and  therefore  were  not  recorded)  to  1  at  maximum.  Pre-
+dictions made on the testing set were compared to the manual annota-
+tion of the same images.
+
+2.5. Model selection 
+
+CNNs are sensitive to overfitting (Domingos, 2012). Throughout the 
+training process, the algorithm goes through cycles of training on the 
+training set - evaluating performance on the validation set – adjusting 
+CNN node weights – before repeating the entire cycle. These cycles are 
+referred to as epochs or iterations when the training dataset is too large 
+to  be  processed  in  one  stroke  and  needs  to  be  subdivided  in  several 
+smaller batches as is the case in this study. There is an optimum number 
+of iterations before the performance on the validation and training sets 
+(independent data that the CNN has not seen) start to diverge as the CNN 
+overfits  and  becomes  more  specialized  at  predicting  the  training  set 
+while becoming less able to predict the validation set (generalization).
+
+This optimum point for best performances was sought by interrupting 
+the CNN training before it loses capacity to generalize, or early stopping 
+(Ying, 2019). Performances were calculated for CNNs trained with 1000, 
+2000, 3000, 4000, 5000 and 6000 iterations in order to detect the point 
+where performance was best and thus avoid overfitting. During testing, 
+every object detected with a confidence value >0.05 were recorded so 
+that  higher  thresholds  could  later  be  applied.  Performances  were 
+calculated with confidence thresholds of 0.05, 0.3 (the default), 0.5 and 
+0.9 and compared to select the threshold that maximized the TP while 
+keeping FP to a reasonable level.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The text does not provide explicit information about all the hyperparameters used in the deep learning model, such as the learning rate and optimizer. However, some details regarding other hyperparameters can be found. The resolution used was 704 × 704, the batch size was 64, and there were 32 subdivisions. The model was trained for up to 6000 iterations. Additionally, during prediction, a confidence score ranging from 0.05 to 1 was assigned to each bounding box. To prevent overfitting, the optimal number of iterations was determined using early stopping, where models trained with different numbers of iterations (1000, 2000, 3000, 4000, 5000, and 6000) were evaluated to find the point where performance was best. Confidence thresholds of 0.05, 0.3, 0.5, and 0.9 were also tested to determine which threshold maximized true positives while keeping false positives to a reasonable level.

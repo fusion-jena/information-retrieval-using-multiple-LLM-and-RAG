@@ -1,0 +1,74 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+In the NN models learning, there is still work to be done on quick automated
+procedure for tuning optimization hyper-parameters, especially the initial learning
+rate, and we are looking for a more suited stopping rule. On the other hand, in the
+case of models of species distributions, we can imagine to minimize the number of
+not null connections in the network, to make it more interpretable, and introduce an
+L1-type penalty on the network parameters. This is a potential important perspective
+of future works.
+
+10 A Deep Learning Approach to Species Distribution Modelling
+
+197
+
+SNN, DNN and CNN models are ﬁtted with the package mxnet: All model
+0.03, 0.03), then we
+parameters were initialized with a uniform distribution U (
+applied a stochastic gradient descent algorithm with a momentum of 0.9, a
+batch-size of 50 (batch samples are randomly chosen at each iteration), and an initial
+8. The choice of initial learning rate was critical for a good
+learning rate of 10−
+optimization behavior. A too big learning rate can lead to training loss divergence,
+
+−
+
+190
+
+C. Botella et al.
+
+whereas when it is too small, learning can be very slow. We stopped when the
+average slope of the training mean loss had an absolute difference to 0 on the last 100
+3. The learning took approximately 5 min for SNN, 10 min for
+epochs inferior to 10−
+DNN, and 5 h for CNN (independently of the version).
+
+10.3.5 Evaluation Metrics
+
+m (x, θ )
+
+j )T al
+
+:=
+
+1,.
+
+Learning of model parameters is done through optimization (minimization
+by convention) of an objective function that depends on the prediction goal.
+Optimization method for NN parameters θ is based on stochastic gradient descent
+algorithms, however, the loss function gradient is approximated by the back-
+propagation algorithm [18].
+
+shift and help to regularize our model as well. It consists of a parameterized
+centering and reduction of pre-activations. This facilitates optimization and enables
+to raise the learning rate leading to a quicker convergence. At the same time, it has
+a regularization effect because the centering and reduction of a neuron activation
+is linked to the mini-batch statistics. The mini-batch selection being stochastic at
+every iteration, a neuron activation is stochastic itself, and the model will not rely
+on it when it has no good effect on prediction.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning approach uses Stochastic Gradient Descent (SGD) as the optimizer with a momentum of 0.9. The batch size is set to 50, where samples are randomly selected at each iteration. The initial learning rate is crucial for optimal performance and is set to 10^-8. However, if the learning rate is too high, it may cause the training loss to diverge, while a low learning rate might result in slower learning. The learning process stops when the average slope of the training mean loss has an absolute difference from zero over the past 100 epochs. Additionally, Batch Normalization is employed to shift and center activations, which helps in regularizing the model and allows for faster convergence.

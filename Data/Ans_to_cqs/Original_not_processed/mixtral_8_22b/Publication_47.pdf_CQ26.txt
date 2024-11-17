@@ -1,0 +1,80 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Keywords: biodiversity, data quality, IUC-NN, IUCN Red List, machine learning, Orchidaceae, sampling bias
+
+Evaluación Automatizada de la Conservación de la Familia Orchidaceae mediante Aprendizaje Profundo
+
+We implemented a deep neural network algorithm
+(Goodfellow et al. 2016)—IUC-NN—as an R package
+(IUCNN, available at https://github.com/azizka/IUCNN)
+based on the Python (version 3.7) TensorFlow (https://
+www.tensorflow.org) library to predict the conservation
+status of unevaluated orchid species. We based the pre-
+dictions on 4 groups of features, derivable from digitally
+available occurrence records: geographic (mean latitude
+and longitude, longitudinal and latitudinal range, extent
+of occurrence [EOO], area of occupancy [AOO], number
+of locations [sensu IUCN], and occurrence records); cli-
+matic (mean of 19 bioclim variables [Karger et al. 2017]);
+biome (presence in 14 biomes [Olson et al. 2001]); and
+
+anthropogenic (mean Human Footprint Index [Wildlife
+Conservation Society & International Earth Science In-
+formation Network 2005]).
+
+chids using the IUCN Red List. Ambio 47:307–317.
+
+Zizka A, et al. 2019. Coordinatecleaner: standardized cleaning of oc-
+currence records from biological collection databases. Methods in
+Ecology and Evolution 10:744–751.
+
+Zizka A, Antonelli A, Silvestro D. 2020a. Sampbias, a method for quanti-
+fying geographic sampling biases in species distribution data. Ecog-
+raphy 43:1–7.
+
+Zizka A, Azevedo J, Leme E, Neves B, Ferreira A, Caceres D, Zizka
+G. 2020b. Biogeography and conservation status of the pineap-
+ple family (Bromeliaceae). Diveristy and Distributions 26:183–
+195.
+
+Zizka A, et al. 2020c. No one-size-fits-all solution to clean GBIF.
+
+https://doi.org/10.1101/2020.03.12.974543.
+
+We trained IUC-NN on all species with an IUCN RL as-
+sessment and available occurrence records. Prior to the
+training, we randomly split the data set into a training
+set (90% of the entries) and a test set (10%). We used
+20% of the training set for validation. Because the size
+of the data set was comparatively small, we performed
+cross-validation by shifting the validation set 5 times to
+quantify the average validation cross-entropy loss and ac-
+curacy. We then used the neural network with the lowest
+cross-entropy loss across a range of models with differ-
+ent numbers of hidden layers and subsets of features to
+predict the conservation status of all orchid species at
+2 levels: binary (possibly threatened vs. not threatened)
+and detailed (CR, EN, VU, NT, and LC). See Supporting
+Information for details on the network architecture and
+training. We combined the IUC-NN assessments with dis-
+tribution data from WCSP to show the number and pro-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors have addressed data bias through various methods during the preprocessing stage of their deep learning pipeline. They utilized stratified splitting to divide their dataset into training and testing sets, ensuring that both sets maintain the same proportion of samples belonging to each class. This approach helps prevent any imbalance between classes in the training and testing datasets.
+
+To further tackle potential issues related to data imbalance, they employed cross-validation by shifting the validation set five times. Cross-validation is a technique used to estimate the skill of machine learning models and reduce overfitting. By repeating this process multiple times, it allows for more robust evaluation of model performance.
+
+Additionally, the authors mentioned using different subsets of features and varying the number of hidden layers in their neural networks. These strategies can help improve model generalization and mitigate the impact of any inherent biases within the dataset. However, there is no explicit mention of oversampling, undersampling, or diverse data collection techniques being applied in this study.

@@ -1,0 +1,45 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+In this phase, we adapted DeepLabv3+ architecture, which follows the same encoder-
+decoder architecture. This was based on the performance of the DeepLabv3+ model on
+our previous work related to the segmentation of the whole herbarium specimen [7]. The
+model has also being widely adapted for herbarium-related studies [36]. Apart from that,
+DeepLabv3+ has been the state-of-the-art in different benchmarking datasets for semantic
+segmentation tasks [37]. Deeplabv3+ follows the same encoder-decoder architecture. In
+the encoder phase, DeepLabv3+ uses pre-trained CNNs that have been trained for image
+classiﬁcation tasks such as ResNet or VGG16. DeepLab families uses spatial pyramid
+pooling to process input images at multiple scales in order to capture multi-scale features
+and later fuse the output to produce a feature map [38]. To improve its efﬁciency, an Atrous
+convolution operation was introduced. This operation enables the window size of the
+
+is an improvement in the previous version by adding an effec-tive decoder module to improve the boundaries of the segmentation results [41]. Further-more, apart from ResNet-101, an Xception model can be used as a feature extractor while applying a depth-wise separable convolution to both ASPP and the decoder module, hence improving the speed and robustness of the encoder-decoder network.  Figure 2. A schematic diagram of a fully convolution neural network for semantic segmentation. The network consists of an encoder part where the model extracts potential useful features and the decoder part, which up-samples the extracted feature map to produce the final segmentation results. 3.2. Phase 2: Leaf Extraction Using Connected Component A classic connected component algorithm was first introduced by Azriel and John in 1966 [42]. Since then, numerous different implementations have been proposed for im-proving existing ones [43]. In image processing, connected components analysis helps to
+
+Herbarium sheet images are usually of high resolution to capture the ﬁne-grain details
+of the specimens. As a standard procedure for training deep learning models, all input
+images together with their annotation were resized to a 512 × 512 resolution to reduce
+the computational cost during training. Rotation, ﬂipping, and brightness adjustments
+were applied as augmentation techniques for better network generalization. We used
+DeepLabv3+ as the segmentation model with ResNet-101 as the feature extractor. This
+model was pre-trained on the ImageNet dataset and ﬁne-tuned on the dataset. This is
+useful as earlier layers of the network tend to learn generic features and therefore become
+useful for other computer vision tasks [49]. We applied an Adam optimizer with a learning
+rate of 1 × 10−4 and a batch size of 3. The model was trained for 100 epochs with a binary
+cross-entropy loss function as we had a binary class problem (leaf or background).
+
+classification that has the same size as an input image.  In this phase, we adapted DeepLabv3+ architecture, which follows the same encoder-decoder architecture. This was based on the performance of the DeepLabv3+ model on our previous work related to the segmentation of the whole herbarium specimen [7]. The model has also being widely adapted for herbarium-related studies [36]. Apart from that, DeepLabv3+ has been the state-of-the-art in different benchmarking datasets for semantic segmentation tasks [37]. Deeplabv3+ follows the same encoder-decoder architecture. In the encoder phase, DeepLabv3+ uses pre-trained CNNs that have been trained for image classification tasks such as ResNet or VGG16. DeepLab families uses spatial pyramid pooling to process input images at multiple scales in order to capture multi-scale features Sensors 2021, 21, 4549
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Where is the code repository of the deep learning pipeline available (e.g., GitHub, GitLab, BitBucket)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide information about the location of the code repository for the deep learning pipeline. It only discusses the use of DeepLabv3+ architecture for semantic segmentation tasks, specifically for herbarium specimen segmentation. The authors mention using ResNet-101 as a feature extractor and fine-tuning the model on their dataset but do not specify where the code for this implementation can be found. Therefore, I cannot determine where the code repository of the deep learning pipeline is available.

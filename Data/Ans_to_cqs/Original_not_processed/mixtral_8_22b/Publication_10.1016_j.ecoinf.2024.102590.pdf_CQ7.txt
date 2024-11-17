@@ -1,0 +1,82 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The supervised learning workflow adheres to the steps outlined in 
+Sections 2.3.1–2.3.5. However, as detailed in Section 2.3.2, we deviated 
+by not generating 400 random points over the entire boundary. Instead, 
+we used the vegetation types described by Gertenbach (1983) to guide 
+the placement of our sampling plots, from which we then collected the 
+training and validation points (Fig. A.2). The creation of several small 
+sampling plots within each vegetation type, instead of using one large 
+area, also helped speed up the sampling process. Performing the data 
+collection  within  the  sampling  plots  ensured  that  we  had  training/ 
+validation  points  that  were  representative  of  the  diverse  vegetation 
+within each boundary. To determine the size of the sampling plots, we 
+first calculated 5% of the total area covered by the boundary, divided 
+that area by the number of vegetation types intersecting the boundary
+
+2.3.4. Woody cover classification 
+
+To  obtain  the  woody  cover  classification  we  chose  the  Random 
+Forest classifier, which is a supervised learning algorithm that produces 
+multiple decision trees using a randomly selected subset of training data 
+and  independent  variables  (Breiman,  2001).  It  has  received  much 
+attention in the last few years due to its excellent classification results, 
+fast-processing  speed,  ease  in  handling  different  types  of  data,  e.g., 
+
+shape  and  texture,  and  no  requirement  for  normally  distributed  data 
+(Belgiu and Dr˘agut¸, 2016; Rodriguez-Galiano et al., 2012; Vogels et al., 
+2017).  Another  advantage  of  the  Random  Forest  is  that  it  is  able  to 
+compute  variable  importance  measures  that  allow  us  to  identify  the 
+variables that exerted a substantial influence on the classification pro-
+cess (Rodriguez-Galiano et al., 2012).
+
+based Landsat 8 data classification in Google earth engine using random Forest: the 
+case study of Maiella National Park. Remote Sens. 13, 2299. https://doi.org/ 
+10.3390/rs13122299. 
+
+Trabucco, A., Zomer, R., 2014. Influence of Aridity on Vegetation [WWW Document]. 
+
+https://doi.org/10.2499/9780896298460_23. 
+
+United Nations Convention to Combat Desertification, 2022. Global Land Outlook, 2nd 
+
+edition. UNCCD, Bonn.  
+
+Urban, M., Heckel, K., Berger, C., Schratz, P., Smit, I.P.J., Strydom, T., Baade, J., 
+
+Schmullius, C., 2020. Woody cover mapping in the savanna ecosystem of the Kruger 
+National Park using Sentinel-1 C-band time series data. Koedoe 62, 1–6. https://doi. 
+org/10.4102/koedoe.v62i1.1621. 
+
+Verburg, P.H., Neumann, K., Nol, L., 2011. Challenges in using land use and land cover 
+data for global change studies. Glob. Chang. Biol. 17, 974–989. https://doi.org/ 
+10.1111/j.1365-2486.2010.02307.x.
+
+2.3.1. Data upload and script preparation 
+
+To perform a land cover (LC) classification, GEE requires two initial 
+inputs:  an  aerial  image  and  the  boundary  of  the  area  of  interest.  We 
+uploaded the subplot boundary and the aerial images of each subplot as 
+GEE  assets.  Once  the  assets  were  imported  into  our  JavaScript-based 
+program,  the  training/validation  datasets  could  be  created.  Since  we 
+were interested in extracting the woody cover, we divided our training 
+point features into two cover classes: ‘non-woody’ (LC property = 1) and 
+‘woody’  (LC  property  = 2).  Woody  cover  was  considered  to  be  all 
+vegetation  with  woody  stems  (i.e.,  excluding  grasses  and  forbs), 
+including  trees  that  were  shrubby  (i.e.,  multi-stemmed)  and  short  in
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In this case, the authors did not explicitly mention the specific criteria used to split their dataset for training, testing, or validation purposes. However, they mentioned that they used the vegetation types described by Gertenbach (1983) to guide the placement of their sampling plots, from which they collected training and validation points. They also stated that they divided their training point features into two cover classes: 'non-woody' (LC property = 1) and 'woody' (LC property = 2). Therefore, it can be inferred that the authors likely used these vegetation types and cover classes as criteria to split their dataset for training and validation purposes. Additionally, since they used a supervised learning approach, it is reasonable to assume that they reserved some portion of their dataset for testing purposes as well. However, without more explicit information about the exact proportions or methods used to split the dataset, it is difficult to provide a definitive answer.

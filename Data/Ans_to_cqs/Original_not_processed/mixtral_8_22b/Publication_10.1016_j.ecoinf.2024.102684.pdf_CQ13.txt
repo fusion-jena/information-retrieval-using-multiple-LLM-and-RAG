@@ -1,0 +1,85 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We applied the  standard machine learning hyperparameter  search 
+over  two  sites  because  of  computational  cost.  In  our  research,  we 
+considered the activation function, the optimizer, and the learning rate. 
+In addition, we performed an exhaustive search for the fully connected 
+architecture for all mono-site and multi-site models. In all these cases, 
+we compare the training, validation, and testing performance to avoid 
+overfitting.  We  could  have  achieved  the  same  results  using  hyper-
+parameter search software such as Optuna and Sklearn. However, even 
+though they could save coding time, we prefer to control every aspect of 
+the process to avoid problems. The hyperparameter search involved a 
+small grid search selecting the following hyperparameters and values:  
+
+1.  Hidden activation function: ReLU, sigmoid, or elu,  
+2.  Optimizer: RMSprop or adam  
+3.  Learning rate: 0.1, 0.001, 0.0001, and 0.00001.
+
+The dataset was divided into training (60%), validation (20%), and 
+testing (20%) subsets for model evaluation and hyperparameter search 
+(Fig. 3 (b)). This approach was chosen to obtain an unbiased estimation 
+of  error.  Data  augmentation  was  only  applied  to  the  training  data  to 
+avoid overlapping the same data in different partitions. To evaluate the 
+models we used the coefficients of determination (R2  - calculated as the 
+squared  Pearson's  correlation  coefficient),  which  measures  the  per-
+centage of variation in the response variable explained by the model. 
+Additionally,  we  used  the  root  mean  squared  error  (RMSE)  metric, 
+where  RMSE =
+,  with  Yi = the  actual  values  pine 
+̂
+Y i = the predicted pine cove values. In our work, RMSE 
+cover values and 
+values ranged from 0.0 to 1.0, with values closer to 0 indicating better 
+model  predictions.  The  overfitting  was  assessed  by  comparing  model
+
+after evaluation, we selected the following hyperparameter: rectified 
+linear  unit  activation  function  (ReLU),  RMSprop  optimizer,  and  a 
+learning rate of 0.001. 
+
+We employed mean squared error as the loss function for the training 
+process.  To  prevent  overfitting,  we  implemented  callbacks  to  stop 
+training  when  the  validation  error  diverged  from  the  training  error 
+(early stopping technique), saving the model with the best performance. 
+Furthermore,  data  augmentation  techniques  were  applied  to  increase 
+the number and variability of the training data by applying modifica-
+tions to the original images, such as rotation, horizontal flip, vertical flip, 
+width shift range, height shift range, shear range, zoom range, and brightness 
+range.
+
+of the models. For instance, Mil`a et al. (2022) used the Nearest Neighbor 
+Distance Matching (NNDM) LOO CV method to delineate a geographic 
+space  in  which  predictions  can  be  made.  Many  of  these  approaches 
+accurately  demonstrate  the  model's  transfer  learning  capabilities,  yet 
+they  impose  limitations  on  the  training  domain,  leading  to  reduced 
+training  heterogeneity  (Meyer  and  Pebesma,  2021).  However,  con-
+ducting large CV experiments with deep learning-based models is often 
+infeasible due to  their high computational costs. Deep  learning-based 
+models  typically  employ  simple  data  partitioning  strategies,  such  as 
+training, validation, and testing (Ocer et al., 2020). This simple scheme 
+can help to add heterogeneous information to the training procedure, 
+but may also overlook the diversity of heterogeneous spatial information 
+in remotely sensed data that is aligned with different learning domains
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The deep learning model utilized a small grid search to select specific hyperparameters and their corresponding values. These included:
+
+1. Hidden Activation Function: Three options were considered - ReLU, sigmoid, and elu.
+2. Optimizer: Two choices were available - RMSprop and Adam.
+3. Learning Rate: Four possible values were tested - 0.1, 0.001, 0.0001, and 0.00001.
+
+After evaluating the models, the following hyperparameters were selected: Rectified Linear Unit (ReLU) activation function, RMSprop optimizer, and a learning rate of 0.001.

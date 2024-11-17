@@ -1,0 +1,87 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+A. Transfer Learning from Pre-trained Models
+
+When data used to train deep learning networks is not
+enough, and it is expensive to create labelled data, transfer
+learning, a promising paradigm,
+is applied to acquire the
+knowledge learned in previous settings. The most common
+strategies of transfer learning are feature extraction and ﬁne-
+tuning. For feature extraction, input data is provided to the
+pre-trained model, and activation values of many layers are
+stored to use as features. For ﬁne-tuning, the initial layers
+of the model are ﬁxed, and the ﬁnal layers of the model
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on August 29,2024 at 05:51:17 UTC from IEEE Xplore.  Restrictions apply. 
+
+Fig. 1. Transfer Learning of MobileNet-based Model for Leaf Classiﬁcation.
+
+CNN comes with the disadvantages of a huge number
+of labelled training samples requirement for weighting pa-
+rameters and powerful GPUs for a faster learning process.
+With limited training samples, learning too many parameters
+directly will result in overﬁtting even after using over-ﬁtting
+prevention techniques such as Dropout [7]. Overﬁtting of a
+machine learning model includes more terms and uses more
+complicated approaches than necessary [8]. To make deep
+CNN ﬁt for small datasets while keeping high accuracy is
+a challenge. To overcome this challenge, transfer learning [9]
+offers the solution, which implies reusing previously attained
+knowledge in similar tasks. Some studies analyzed the use
+of transfer learning for many deep learning algorithms. These
+evaluations [10] concluded that transfer learning improves the
+accuracy of deep learning models, which apply deep features
+and ﬁne-tuning.
+
+models, pre-trained on 1.4M images from 1000 classes. First,
+the intermediate layer of all the models was selected to use
+for feature extraction. For this purpose, the output of the last
+layer (bottleneck layer) is commonly used prior to the ﬂatten
+operation. The reason is that all the fully connected layers
+are specialized to the task network was trained on; thus, the
+features learned by these layers will not be useful for the new
+task. The bottleneck features are more generic. Therefore, the
+base models were frozen, loaded with weights trained on the
+ImageNet dataset and used as a feature extractor. We added
+a dropout layer with a dropout rate of 0.2 to reduce the
+overﬁtting of the model. Finally, the top classiﬁer softmax
+layer was added for predicting the class for an input image.
+The model with the base model of MobileNetV2 was compiled
+and optimized with Adam optimizer. The other with the base
+model of MobileNetV3 were optimized with Gradient descent
+
+learn the characteristics of the new dataset. This way, the
+deep learning model is trained for a new similar task. The
+weights of the model are updated according to the new
+dataset. Transfer learning is faster than training a new network
+because all the parameters are not estimated from scratch.
+In an analysis of transfer learning methods [10], the authors
+compared deep learning models such as CNN, AlexNet, VGG-
+16, RNN for plant classiﬁcation and concluded that transfer
+learning improves the efﬁciency of deep learning models, in
+particular those that apply deep features and ﬁne-tuning as
+compared to other transfer learning techniques such as those
+based on feature spaces and domain given by [32].
+
+B. Feature Extraction Model
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't any information about specific data augmentation techniques applied in the deep learning pipeline within the provided context. However, based on general knowledge, some common data augmentation techniques include flipping, rotation, scaling, cropping, zooming, shearing, and brightness adjustment. These techniques help increase the amount of training data available and improve the robustness of the model.
+
+Answer:::
+
+Based on the provided context, there is no direct mention of the specific data augmentation techniques applied in the deep learning pipeline. However, generally speaking, some common data augmentation techniques used in deep learning pipelines include flipping, rotation, scaling, cropping, zooming, shearing, and brightness adjustment. These techniques can help increase the amount of training data available and improve the robustness of the model. It should be noted that the choice of data augmentation technique depends on the nature of the problem being solved and the type of data being used.

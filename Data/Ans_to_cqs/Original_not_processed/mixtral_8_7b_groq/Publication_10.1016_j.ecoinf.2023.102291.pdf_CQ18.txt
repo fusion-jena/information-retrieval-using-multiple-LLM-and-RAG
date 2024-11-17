@@ -1,0 +1,13 @@
+Answer:::
+
+The strategy implemented to monitor the model performance during training involves the use of validation accuracy and precision as key performance indicators. The best validation accuracy, which is the proportion of all correct predictions, and precision, which is the number of true positives divided by true positives and false positives, are used to determine the most suitable architecture for the model.
+
+During the training process, multiple segments were created across the entire testing file using a sliding window approach. The same window size used in training was applied, and the window was moved by one second in the moored recording. These testing segments were then converted into spectrograms, which were used as input for subsequent model prediction.
+
+The spectrogram images were created as 5 × 5 in. but varied in their dpi configuration, ranging from 200 × 200 (40 dpi) to 500 × 500 (100 dpi) samples. The number of images used per class was constrained by computational resources, and the largest dataset built comprised 80,000 images when combining a three-second window size and 40 dpi.
+
+The CNNs were implemented using TensorFlow and Python 3 on the Ubuntu 20.04 operating system, which was obtained via the Ubuntu 20.04 Data Science Virtual Machine on Microsoft Azure. The algorithm scripts are available in Supporting Information B.
+
+The model training and prediction procedures were executed on Microsoft Azure using instance NV12s v3 with 12 vCPUs and 112 GB RAM. The most suitable architecture was chosen based on the best validation accuracy and precision obtained during training.
+
+Therefore, the strategy to monitor the model performance during training involves the use of validation accuracy and precision as key performance indicators, and the most suitable architecture is chosen based on these indicators.

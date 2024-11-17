@@ -1,0 +1,137 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+ing model, such as a neural network, and try to improve that model by 
+
+alization algorithms like t-SNE (van der Maaten & Hinton, 2008), can 
+
+selecting training samples. Active learning algorithms typically start 
+
+be regarded as embedding functions.
+
+training the underlying model on a small, randomly selected labelled 
+
+Deep  neural  networks  are  frequently  used  for  dimension-
+
+set of data samples. After training the initial model, various criteria 
+
+ality  reduction:  the  input  to  a  deep  network  often  has  many 
+
+can  be  employed  to  select  the  most  informative  unlabelled  sam-
+
+values, but layers typically get smaller throughout the network, 
+
+ples to be passed to the oracle for labelling (Settles, 2009). Among 
+
+and the output of a layer can be viewed as a reduced represen-
+
+the  most  popular  query  selection  strategies  for  active  learning  are 
+
+tation  of  the  network's  input.  In  this  paper,  we  use  two  com-
+
+ticular dataset or task, but they are general to different datasets 
+
+pseudocode.
+
+and  tasks.  Subsequent  layers  detect  more  complex  patterns  and 
+
+those that are more specific to the dataset the network is trained 
+
+on. Eventually, there is a transition from general features to data-
+
+set-specific features, and from simple to complex patterns within 
+
+the  layers  of  the  network  (Yosinski  et  al.,  2014).  With  transfer 
+
+learning, the general features that deep neural networks learn on 
+
+a  large  dataset  are  reused  to  learn  a  smaller  dataset  better  and 
+
+more efficiently.
+
+Transfer  learning  is  highly  beneficial  when  we  have  a  limited 
+
+number of labelled samples to learn a new task (e.g. species classifi-
+
+cation in camera trap images when the new project has few labelled 
+
+images), but we have a large amount of labelled data for learning a 
+
+different, relevant task (e.g. general-purpose image classification). In
+
+|  159
+
+because eventually both methods have sufficient constraints to learn 
+
+active  learning  pipeline  on  the  crops  produced  from  running  the 
+
+a good embedding.
+
+3.3.2 | Active learning strategies
+
+MegaDetector  model  over  the  NACTI  dataset.  We  employed  mar-
+
+gin-based active learning. After the first 30,000 active queries, the 
+
+classifier  achieves  93.2%  overall  accuracy  which  further  confirms 
+
+the usefulness of the suggested pipeline. More detailed results are 
+
+available in Table S3.
+
+Different strategies can be employed to select samples to be labelled 
+
+by the oracle. The most naive strategy is selecting queries at random. 
+
+Here  we  try  five  different  query  selection  strategies  and  compare 
+
+4 |  D I S CU S S I O N
+
+them against a control of selecting samples at random. In particular, 
+
+we try model uncertainty criteria (confidence, margin, entropy; Lewis 
+
+This  paper  demonstrates  the  potential  to  significantly  reduce
+
+3 |  R E S U LT S
+
+retaining  speed.  Before  processing  the  crops  from  a  target  dataset, 
+
+we learn an embedding model (a deep neural network) on a large data-
+
+As  explained  above,  our  suggested  pipeline  consists  of  three 
+
+set, and use this model to embed the crops from our target dataset 
+
+steps: (a) running a pre-trained detector model on images, (b) em-
+
+into  a  256-dimensional  feature  space.  We  chose  256  features  after 
+
+bedding the obtained crops into a lower-dimensional space and (c) 
+
+preliminary experimentation showed it performed better than 64 and 
+
+running an active learning procedure. In this section, we report the 
+
+128. Choosing more than 256 features slows down the active learning 
+
+results of our pipeline and analyse the contribution of these steps 
+
+procedure. The embedding model turns each image into a 256-dimen-
+
+to  the  overall  results.  For  these  results,  the  eMammal  Machine
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given text does not provide information about any specific data augmentation techniques applied in the deep learning pipeline. However, common data augmentation techniques include flipping, rotating, scaling, cropping, and color jittering. These techniques help increase the diversity of the training set without collecting additional data.

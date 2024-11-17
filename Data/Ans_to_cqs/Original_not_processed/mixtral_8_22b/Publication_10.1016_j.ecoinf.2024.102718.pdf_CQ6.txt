@@ -1,0 +1,81 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+In the BEiT model architecture, our initial steps involve loading the
+BEiT model and strategically freezing a substantial portion of its layers
+approximately 7 of the total layers. By doing so, the model freezes the
+weights in these layers, focusing the training process on fine-tuning the
+remaining layers. The model is then derived by isolating the output of a
+specific layer (‘out_ln’) from the BEiT architecture. To enhance training
+
+such as Reduc-
+the model, various callbacks
+eLROnPlateau, ModelCheckpoint, and EarlyStopping are included.
+These callbacks dynamically modify the learning rate while preserving
+the optimal model
+iteration according to the validation accuracy.
+Throughout the training phase, spanning 35 epochs with a batch size of
+16, that is meticulously recorded using metrics such as accuracy, pre-
+cision, recall, F1-score, AUC, model size, and analysis time providing a
+
+dataset is being used to obtain the pretraining weights for our proposed
+model. After augmenting the dataset, the number of images increased to
+185,431 with 38 classes.
+
+3.3. Dhan-Shomadhan dataset
+
+Gaussian Noise
+Speckle Noise
+To Tensor
+Normalize
+
+Parameters
+
+Size: (224, 224)
+None
+None
+Degree: 30
+Brightness: 0.4
+Contrast: 0.4
+Saturation: 0.4
+Hue: 0.1
+Standard Deviation: 25
+Variance: 25
+None
+Mean: [0.485, 0.456, 0.406]
+Std: [0.229, 0.224, 0.225]
+
+transformer architecture in vision tasks, and Xception (Chollet, 2017)
+for its depthwise separable convolutions that enhance model perfor-
+mance and efficiency. Therefore, we employed our BEiT model to
+leverage transformer capabilities with these existing models. This
+combination ensures effective and complementary strengths for our
+purpose. Furthermore, we add the LIME explainable technique to
+enhance the interpretability of our model’s decision-making process
+which mainly
+broader
+transparency
+understanding.
+
+promotes
+
+ensures
+
+and
+
+3.1. Data acquisition
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text provides information about several preprocessing steps applied to the data before training the deep learning model. These include image augmentation techniques like Gaussian noise, speckle noise, rotation, brightness adjustment, contrast adjustment, saturation adjustment, hue adjustment, and tensor transformation. Additionally, normalization is performed using mean values of [0.485, 0.456, 0.406] and standard deviation values of [0.229, 0.224, 0.225]. Image resizing is also mentioned, with all images being resized to dimensions of (224, 224). However, it should be noted that the specific order or sequence of applying these preprocessing steps is not explicitly stated in the given context.

@@ -1,0 +1,88 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+segmentation. IEEE Trans. Pattern Anal. Mach. Intell. 39 (4), 640–651. https://doi. 
+org/10.1109/tpami.2016.2572683. URL 10.1109/TPAMI.2016.2572683. 
+
+Taghanaki, S.A., Abhishek, K., Cohen, J.P., Cohen-Adad, J., Hamarneh, G., 2021. Deep 
+semantic segmentation of natural and medical images: a review. Artif. Intell. Rev. 54 
+(1), 137–178. 
+
+EcologicalInformatics70(2022)10175715L. Martinez-Sanchez et al.                                                                                                                                                                                                                    
+
+Tang, J., Gong, C., Guo, F., Yang, Z., Wu, Z., 2022a. Geo-localization based on cnn 
+
+Ulku, I., Akagündüz, E., 2022. A survey on deep learning-based architectures for 
+
+feature matching. Optoelectron. Lett. 18 (5), 300–306. 
+
+semantic segmentation on 2d images. Appl. Artif. Intell. 1–45.
+
+tion deep learning-based methods (Ulku and Akagündüz, 2022). Such 
+semantic  segmentation  or  pixel-wise  classification  was  used  to  locate 
+and  delineate  artificial  and  natural  objects  in  photos  it  a  study  by 
+Aghanaki, T. (Taghanaki et al., 2021). This operation was enabled by the 
+availability of open image datasets which have pushed the evolution of
+
+the weights were obtained from an already trained implementation of 
+DeeplabV3+ (https://github.com/zllrunning/deeplab-pytorch-crf) with 
+the COCO dataset. COCO is a dataset that has 121,408 images and a total 
+of 883,331 object annotations divided in 184 classes. COCO is a widely 
+used  dataset  to  train  computer  vision  models  and  sets  a  baseline  to 
+benchmark their performance. Since we want to derive common objects 
+below the skyline, we inference without training the model directly on 
+the landscape photos. A typical example of the masks obtained with such 
+a semantic segmentation is provided in Fig. 3.
+
+To extract meaningful information for the purpose of our study, the 
+delineation  of  the  skyline  has  to  be  highly  detailed.  The  detection  of 
+edges or object boundaries in semantic segmentation tends to be blurry 
+as the loss of effective spatial resolution associated with the learning of 
+contextual  information  by  the  net  diminishes  high-frequency  details 
+(Hariharan et al., 2015; Shelhamer et al., 2017). We address this prob-
+lem by applying a Conditional Random Fields (CRF) (Kr¨ahenbühl and 
+Koltun,  2011).  The  ability  to  capture  fine  details  with  a  CRF 
+
+compensates the limited performance of these kind of nets to generate 
+precisely delineated objects. 
+
+To  measure  the  increase  in  detail  of  the  skyline  using  CRF,  we 
+calculated the length of the signals extracted with and without CRF and 
+evaluated the gain length as: 
+
+gCRF =
+
+(cid:0)
+
+len
+(
+
+)
+
+ysky[x]
+
+len
+
+ynoCRF
+sky
+
+[x]
+
+) (cid:0) 1
+
+(1)
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit information about the specific data annotation techniques used in the deep learning pipeline. However, it can be inferred that semantic segmentation, also known as pixel-wise classification, was employed to locate and delineate artificial and natural objects in photos. Semantic segmentation involves assigning each pixel in an image to a class label, thus providing more precise localization compared to other annotation techniques like bounding boxes. In addition, the use of open image datasets, specifically the COCO dataset, suggests that various annotation techniques might have been utilized during its creation, including bounding box annotation and instance segmentation. The COCO dataset contains over 120,000 images and includes multiple instances per image, making it suitable for tasks requiring both object detection and segmentation. Therefore, while the exact data annotation techniques used in the deep learning pipeline are not explicitly mentioned, it can be assumed that they include semantic segmentation, bounding box annotation, and instance segmentation.

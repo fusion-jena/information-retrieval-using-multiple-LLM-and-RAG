@@ -1,0 +1,166 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+input into the model network for training.
+
+2.2.6. Experimental design 
+
+In this paper, a sequence of 10 ablation experiments are conducted 
+and labelled to evaluate the enhancements made to various components 
+of the network architecture. These experiments use 10 different network 
+models,  of  which  the  model  of  Experiment  1  is  the  original  YOLOv8 
+model, and the remaining nine models are models with different struc-
+tures modified on the basis of YOLOv8. 
+
+The experimental training parameter settings are as follows: a batch 
+size of 16 is selected, the input image resolution is set at 640 × 640, and 
+the number of epochs is specified as 150. The learning rate is set to 0.01, 
+and the optimizer is Adam. Additionally, the depth_scale parameter is 
+assigned a value of 0.33, while the width_scale parameter is set to 0.25. 
+
+3. Results 
+
+3.1. Evaluation indices 
+
+Deletion mode 
+
+Delete Area 1 
+
+Delete Area 2 
+
+A 
+B 
+
+√ 
+√ 
+
+×
+√
+
+denotes the average accuracy for all classes at an IoU threshold of 0.5. 
+The  mAP50–95  represents  the  average  accuracy  across  all  classes  at 
+different  IoU  thresholds,  spanning  from  0.5  to  0.95  in  increments  of 
+0.05.  The  time  metric  is  calculated  by  summing  the  runtimes  for  the 
+preprocessing  (Preprocess),  network  inference  (Inference),  and  post-
+processing (NMS) stages. The corresponding formulas are as follows: 
+
+∫ 1
+
+AP =
+
+P(r)dr
+
+0
+
+mAP =
+
+∑N
+
+k=1APk
+N
+
+(10)  
+
+(11) 
+
+P =
+
+TP
+TP + FP
+
+R =
+
+TP
+TP + FN
+
+(8)  
+
+(9)
+
+3.4. Benchmark experiments 
+
+To  further  explore  the  performance  of  YOLO_MRC  in  multiclass 
+
+EcologicalInformatics79(2024)1024459M. Wei and W. Zhan                                                                                                                                                                                                                          
+
+Fig. 11. Convergence of P, R, and mAP50 during training and loss of cls_loss during validation for the four experimental models (Experiments 1,2,7, and 10).  
+
+Table 4 
+Comparative Experiment 1.  
+
+Models 
+
+Time (ms) 
+
+YOLOv5s-ECA 
+Faster-RCNN(Mobilenetv2) 
+YOLOv5Ghost 
+YOLOv7Tiny 
+YOLO_MRC 
+
+6.6 
+65 
+9.5 
+11.8 
+5.6 
+
+R (%) 
+
+99.4 
+69.0 
+99.5 
+97.2 
+99.5 
+
+mAP@0.5 
+
+mAP@0.5:0.95 
+
+Model size (MB) 
+
+99.6 
+97.7 
+99.3 
+98.8 
+99.3 
+
+71.5 
+63.4 
+72.5 
+66.1 
+73.4 
+
+14.4 
+628.5 
+7.8 
+12.3 
+2.4  
+
+Table 5 
+Comparison Experiment 2.  
+
+Models 
+
+Video1 
+
+Video2 
+
+Video3 
+
+Average accuracy 
+(%)
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it appears that the criteria used to determine when training is complete are not explicitly mentioned. However, we can infer that the authors might have considered factors such as convergence of precision (P), recall (R), and mean Average Precision (mAP50) during training, as well as the loss of classification loss (cls\_loss) during validation. This information is presented in Figure 11, where the convergence of these metrics is shown for four experimental models (Experiments 1, 2, 7, and 10). It is also worth noting that the number of epochs was specified as 150 in the experimental training parameter settings. Therefore, one possible criterion could be reaching the maximum number of epochs. Nevertheless, without explicit mention of the stopping criteria, it remains uncertain what specific conditions were used to decide when training should be terminated.

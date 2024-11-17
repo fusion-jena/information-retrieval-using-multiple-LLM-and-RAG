@@ -1,0 +1,53 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Vol.:(0123456789)www.nature.com/scientificreports/Training  process  and  hyperparameters. 
+In  order  to  build  upon  a  pre-existing  knowledge  base,  we 
+employed  ’transfer  learning’  by  using  pre-trained  layer  weights  (the  storage  of  the  model’s  knowledge)  from 
+a classification task on a dataset on www. image- net. org38 for all CNN models used in this study. The regressor 
+following the basic CNN consisted of a global average pooling layer followed by two dense layers with 512 and 1 
+output units. The latter forces the CNN to output exactly one prediction (trait) value. In case of the mixed data 
+model (setups (3) and (4)), the CNN consisted of parallel branches to incorporate the different input data types. 
+The branch processing the bioclimatic data consisted of three dense layers with 64, 32 and 4 output units, and 
+the last layer of the CNN regressor contained 4 output units. After concatenating the two branches (image and
+
+For the training process, a batch size of 20 images and an RMSprop optimiser with a learning rate of 0.001 and 
+a learning rate decay of 0.0001 was used. The chosen loss function was mean squared error, while the prediction 
+accuracy was quantified by the MAE of the respective dataset. The MAE of the validation dataset was computed 
+after each epoch. Models were trained until the validation MAE did not further improve compared to the preced-
+ing epochs and diverged from the training MAE (’overfit’). The trained model was then applied to the test dataset.
+All CNN were implemented using the Keras API version (2.3.0.0)54 and the TensorFlow backend (version 
+2.2.0)55 in R (version 3.6.3)23. Model training was undergone on a workstation with two CUDA-compatible 
+NVIDIA GPUs (GeForce RTX 2080 Ti, CUDA version 11.0).
+
+extracted a random sample of 10% of the dataset of each trait before model training. This ‘test dataset’ was not 
+involved in the training process and exclusively served for the independent evaluation of the trained models. 
+The remaining data was split into ’training dataset’ and ’validation dataset’ by a ratio of 4:1 (Table 1). The train-
+ing dataset was employed to train the weights of the CNN model, whereas the validation dataset indicated the 
+training progress after each full training cycle (’epoch’).
+
+Vol.:(0123456789)www.nature.com/scientificreports/Discussion
+Our results suggest that certain plant functional traits can be retrieved from simple RGB photographs. The key 
+for this trait retrieval are deep learning-based Convolutional Neural Networks in concert with Big Data derived 
+from open and citizen science projects. Although these models are subject to some noise, there is a wealth of 
+applications for this approach, such as global trait maps, monitoring of trait shifts in time and the identification 
+of large-scale ecological gradients. This way, the problem of limited data that still impedes us to picture global 
+ gradients7 could be alleviated by harnessing the exponentially growing iNaturalist  database16. The performance 
+of the CNN models across traits varied strongly, but revealed a clear trend: As expected, the more a trait referred 
+to morphological features, the more accurate the predictions were. The models of the Baseline setup explained a
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Answer: The hyperparameters used in the deep learning model include a batch size of 20 images, an RMSprop optimizer with a learning rate of 0.001, and a learning rate decay of 0.0001. The chosen loss function was mean squared error, while the prediction accuracy was quantified by the MAE of the respective dataset. The models were trained until the validation MAE did not further improve compared to the preceding epochs and diverged from the training MAE ('overfit'). All CNNs were implemented using the Keras API version (2.3.0.0) and the TensorFlow backend (version 2.2.0) in R (version 3.6.3). Model training was undergone on a workstation with two CUDA-compatible NVIDIA GPUs (GeForce RTX 2080 Ti, CUDA version 11.0).

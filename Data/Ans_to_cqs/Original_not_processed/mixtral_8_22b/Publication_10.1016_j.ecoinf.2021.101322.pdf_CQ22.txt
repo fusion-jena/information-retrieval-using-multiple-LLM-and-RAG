@@ -1,0 +1,130 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Number of epochs without improvement in validation 
+error before training will terminate early  
+
+Table 2 
+CNN performance metrics. MSE is the mean square error, MAPE is the mean 
+average percentage error, and Acc% is the average accuracy. In addition, the 
+number of images in the dataset (set size) for each task and the weighting of 
+classes are given. The × indicates that the performance metric is not applicable 
+to the specific CNN.  
+
+Predicting 
+
+River Age 
+Sea Age 
+Spawning 
+
+Test 
+loss 
+
+0.336 
+0.157 
+0.113 
+
+MSE 
+
+MAPE 
+
+0.336 
+0.157 
+×
+
+17.34 
+8.64 
+×
+
+Acc 
+% 
+
+63.20 
+86.99 
+96.40 
+
+Set 
+size 
+
+6238 
+8286 
+9056 
+
+Farmed 
+
+0.187 
+
+×
+
+×
+
+96.70 
+
+5919 
+
+Weighting classes 
+
+– 
+– 
+
+Non-spawner: 0.5, 
+Previous 
+spawner:19 
+Farmed: 5.87, 
+Wild:0.54
+
+Performance of the CNN models were assessed using four different 
+metrics (test loss, mean squared error - MSE, mean average percentage 
+error – MAPE and accuracy - Acc). Accuracy of the regression tasks was 
+calculated  by  rounding  the  prediction  to  the  nearest  integer  age  and 
+comparing it with the ground truth. The labelling provided by human 
+readers  are  treated  as  the  ground  truth,  and  accuracy  and  other  per-
+formance metrics relates directly to this. 
+
+The CNN hyperparameters configurations used for all four networks 
+during training are shown in Table 1. During training we use minibatch 
+gradient descent. 
+
+2.4. Comparing the CNN and six expert readers using an independent 
+dataset
+
+2. Methods 
+
+2.1. CNN training data
+
+2.3. Implementation and training 
+
+The  CNN  was  implemented  using  the  Keras  (Chollet,  2015)  and 
+TensorFlow  (Abadi  et  al.,  2016)  software  packages  implemented  in 
+Python, and computation was performed using CUDA version 9.1 and 
+CuDNN  with  Nvidia  (Nvidia  Corp.,  Santa  Clara,  California)  P100 
+accelerator cards with 12 GB of GPU memory. We used a Keras imple-
+mentation of EfficientNet–B4 called EfficientNet V1.1.0 (https://github. 
+com/qubvel/efficientnet).  The  pre-trained  weights  used  for  transfer 
+learning were available through this API.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The performance of the Convolutional Neural Network (CNN) models is evaluated using four different metrics: test loss, mean squared error (MSE), mean average percentage error (MAPE), and accuracy (Acc). For regression tasks, such as predicting River Age, Sea Age, and Spawning, accuracy is calculated by rounding the prediction to the nearest integer age and comparing it with the ground truth. The labels provided by human readers are considered the ground truth, and accuracy and other performance metrics relate directly to these labels.
+
+In summary, the evaluation metrics used for the deep learning model include:
+
+1. Test Loss: A measure of how well the model performs on unseen data during testing. Lower values indicate better performance.
+
+2. Mean Squared Error (MSE): This measures the average squared difference between the predicted and actual values. Lower values suggest better performance.
+
+3. Mean Average Percentage Error (MAPE): This provides the average absolute percent error between predictions and actual values. Lower values indicate better performance.
+
+4. Accuracy (Acc): For classification tasks, this represents the proportion of correct classifications out of total instances. For regression tasks, it is calculated by rounding the prediction to the nearest integer age and comparing it with the ground truth.

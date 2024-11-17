@@ -1,0 +1,152 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+EcologicalInformatics79(2024)10240510Input:: Training input sequences, : Training target labels, : Validation input sequences, : Validation target labels, : Attention weight vector,,, ,,, ℎ,ℎ,ℎ, (ℎ,), , ℎ, ℎOutput:Trained AODEGRUmodel1.Initialize the AODEGRUmodel with the given parameters.2.Define the loss function andthe optimizer.3.Initialize empty lists to store the training loss and accuracy for each epoch.4.Start the training loop:5.For each epoch in the range (ℎ):6.Initialize the total loss and total correct predictions to 0.7.Randomly shuffle the training data.8.Split the shuffled training data into mini batchesof size ℎ.9.For each mini batch(ℎ,ℎ):10.Zero the gradients of the model parameters.11.For each time step t in the input sequence ℎ:12.Calculate the reset gate:13.={,,,ℎ−1,}(Theorem-2)14.Calculate the update gate:15.={,,,ℎ−1,}(Theorem-1)16.Calculate the new memory content:17.ℎ′={ℎ,,ℎ,,ℎ−1,ℎ}(Theorem-3)18.Calculate the hidden state
+
+82.71 
+81.93 
+80.98 
+81.56 
+0.163 
+93.43 
+91.27 
+91.28 
+76.03 
+0.086 
+55.8 
+51.85 
+55.8 
+43.81 
+0.202 
+92.39 
+91.78 
+92.30 
+91.50 
+0.101 
+90.13 
+91.72 
+90.30 
+90.50 
+0.121 
+98.69 
+98.5 
+97.33 
+98.01 
+0.036  
+
+Table 6 
+10-fold cross validation on AODEGRU with state-of-art models on a real-time 
+dataset.  
+
+Models 
+
+Models-Real Time Dataset 
+
+Fold 
+
+2 
+
+4 
+
+6 
+
+8 
+
+10 
+
+DWT-POA (Nagaraju 
+
+et al., 2023) 
+
+TFT (Metin et al., 
+
+2023) 
+
+Dual-input fuzzy 
+logic (Li et al., 
+2023) 
+
+Bi-LSTM (Shreesha 
+
+et al., 2023) 
+
+Neuro fuzzy (Manzar 
+
+et al., 2022) 
+
+Proposed AODEGRU 
+
+Accuracy 
+Precession 
+Recall 
+F-Score 
+Loss 
+Accuracy 
+Precession 
+Recall 
+F-Score 
+Loss 
+Accuracy 
+Precession 
+Recall 
+F-Score 
+Loss 
+Accuracy 
+Precession 
+Recall 
+F-Score 
+Loss 
+Accuracy 
+Precession 
+Recall 
+F-Score 
+Loss 
+Accuracy 
+Precession 
+Recall 
+F-Score 
+Loss
+
+the hidden state update:19.ℎ={(1−),ℎ−1,,ℎ′}(Theorem-4)20.Calculate the attention scores:21.={(,ℎ)}(Theorem-4)22.Calculate the weighted attention.23.={(,ℎ)}(Theorem-5)24.Calculate the predicted labels for the current mini batchusing c.25.Calculate the loss between the predicted labels and the true labels ℎ.26.Backpropagate the gradients and update the model parameters using the optimizer.27.Update the total loss and total correct predictions.P.G. Arepalli and K.J. Naik
+
+Badrzadeh, N., Samani, J.M.V., Mazaheri, M., Kuriqi, A., 2022. Evaluation of 
+
+management practices on agricultural nonpoint source pollution discharges into the 
+rivers under climate change effects. Sci. Total Environ. 838, 156643. 
+
+Barzegar, R., Aalami, M.T., Adamowski, J., 2020. Short-term water quality variable 
+
+prediction using a hybrid CNN–LSTM deep learning model. Stoch. Env. Res. Risk A. 
+34 (2), 415–433. 
+
+Bisht, A.K., Singh, R., Bhatt, A., Bhutiani, R., 2017. Development of an automated water 
+quality classification model for the river ganga. In: International Conference on Next 
+
+EcologicalInformatics79(2024)10240515P.G. Arepalli and K.J. Naik                                                                                                                                                                                                                  
+
+Generation Computing Technologies. Springer, Singapore, pp. 190–198. https://doi. 
+org/10.1007/978-981-10-8657-1_15.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+When splitting data for deep learning model training, there are several common approaches based on different criteria. The most popular methods include random sampling, stratified sampling, and temporal or sequential splitting.
+
+1. Random sampling: This method involves randomly dividing the dataset into three subsets - training set, validation set, and testing set. Typically, the ratio is 60:20:20 or 70:15:15, but it can vary depending on the specific use case. Random sampling ensures that all classes have equal representation across datasets. However, this approach may not be suitable when dealing with imbalanced datasets.
+
+2. Stratified sampling: Similar to random sampling, stratified sampling also divides the dataset into three subsets. However, instead of purely random selection, stratified sampling maintains the same distribution of classes within each subset. This means that if a class has fewer samples compared to others, they will still maintain their proportion in each subset. Stratified sampling is particularly useful when working with imbalanced datasets.
+
+3. Temporal or sequential splitting: When dealing with time series data, such as stock prices or weather forecasts, it is essential to preserve the chronology of events during data partitioning. Therefore, one should avoid random or stratified sampling techniques. Instead, the dataset should be divided by selecting consecutive observations from the beginning until the desired number of instances is reached for each subset. For example, the first 60% of the data could be allocated for training, followed by 20% for validation, and the remaining 20% for testing.
+
+In summary, the choice of data splitting criterion depends on the nature of the problem being addressed and the characteristics of the available dataset. It is crucial to ensure that the chosen method accurately reflects the underlying patterns and relationships present in the data while avoiding any potential biases or misrepresentations.

@@ -1,0 +1,9 @@
+The criteria used to split the data for deep learning model training involve a method called spatial block cross-validation, which is used to create an effective validation set with presence-only data. This method is employed due to the challenges of evaluating model performance with presence-only data, as it may lead to choosing a model that makes biased predictions.
+
+In this approach, the presence observations are spatially split into training and validation sets, which makes it difficult for the model to perform well on the validation set. This, in turn, favors models capable of generalizing to unseen areas, which is particularly important for diverse datasets that include issues such as class imbalance and sampling bias.
+
+To implement this, the region of interest is divided into 5 × 5 geospatial blocks and assigned to k distinct folds, such that each fold contains approximately the same number of presence observations. Specifically, k is chosen as 5, resulting in the model being trained on 80% of the presences and validated on the remaining 20% for each partition. This procedure is equivalent to the spatial blocks based on rows and columns of Valavi et al. (2018).
+
+The model is then evaluated on each fold, and the results are averaged. The model with the best performance, determined here by the mean AUC (Area Under the receiver operating characteristic Curve) over all the species, is selected. The target-group background points are used as pseudo-absences to compute the AUC on the validation set, similarly to Valavi et al. (2023).
+
+In summary, the deep learning model training data split is based on a spatial block cross-validation approach, where the presence-only data is split into training and validation sets within geospatial blocks. The best model is selected based on the mean AUC over all species, computed with target-group background points as pseudo-absences.

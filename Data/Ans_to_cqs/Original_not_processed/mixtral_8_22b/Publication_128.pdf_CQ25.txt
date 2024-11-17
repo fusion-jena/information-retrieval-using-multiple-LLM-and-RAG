@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.5. Model training 
+
+  To ensure the accuracy of the experimental results and obtain the best classification, the exact 
+parameters  and  functions  as  well  as  classifier  built-in  the  six  neural  network  models  are 
+designed as follows: 
+
+  The resolution of input data is 224×224 with Red Green Blue (RGB) format, and the inputs 
+
+are batch normalized before training; 
+
+  Batch size is applied which is set to 30 when training, but images are tested one by one; 
+  An  optimized  rectified  linear  activation,  Leaky  ReLU,  was  introduced  into  models  after 
+
+convolution or concatenate layer; 
+
+In MobileNet, width multiplier is 1.2, resolution multiplier is 1; 
+
+  Learning rate and dropout rate adopt same value 0.001, bias value is 0;  
+ 
+  For the neural networks with lower depth, the higher training epochs are, the higher probability 
+of over fitting is. Therefor models in which less than 100 layers adhibit raw data 60 epochs, 
+otherwise executed 80 epochs;
+
+AlexNet: In 2012, Krizhevsky et al.[28] constructed a model with more convolutional layers than 
+LeNet for better high-dimensional feature extraction, and then three fully connected layers are used after 
+flatten layer to pool channel information. This model employed rectified linear activation (ReLU) as 
+activation  function  to  speed  up  training  process,  which  partially  solved  the  vanishing  gradient  and 
+exploding problem. Features of each layer in AlexNet were depicted in Figure 2. Feature visualization 
+of  AlexNet  layer  by  layer.  The  annotations  above  are  defined  as  Name𝑑@k×k,  and  the  annotations 
+below  are  denominated  in  form  of  Operation𝑑@r×r.  Where d , k and r is  feature  depth,  convolution 
+kernel and image resolution, respectively..
+
+  A fully connected layer with softmax activation has 28 nodes, which is regarded as classifier 
+
+while training but removed when inference. 
+
+2.6. Computational resources and environment 
+In this study, the operation system is CentOS Linux release 7.7.1908 (Core) with 32 CPUs and each 
+CPU has 64 processors. The develop environment built-up is Python(version 3.6.2) packaged by Conda-
+forge which compiled with GCC (version4.8.2,20140120). Tool packages used in virtual environment 
+are the TensorFlow (version 1.12.0) and the Numpy (version 1.19.2).
+
+Nowadays,  deep  learning  (DL)  becomes  the  most  popular  and  efficient  way  for  large  dataset 
+classification. The convolutional neural network (CNN) is the major framework in DL, which describes 
+the hidden neural network layers by convolutional kernels. And convolutional kernels are turned out to 
+dropout some irrelevant information and capture more essential details[7]. Singh et al.[15] employed a 
+multi-layer CNN to identify the disease type of infected Mango leaves’ images; Bayr et al.[16] adopted 
+a  AlexNet  type  CNN  for  woody  images  classification;  Nagasubramanian  et  al.[17]  constructed  a  3-
+dimension CNN to classify multi-spectral soybean images situation of disease affected. Wäldchen et 
+al.[18]  reviewed  current  deep  learning  approaches  in  plant  image  classification.  All  these  models 
+achieved classification accuracy over 95% in the spectrum region of plant health. Various of feature
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the purpose of the deep learning model (e.g., classification, segmentation, detection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The purpose of the deep learning model in this case is not explicitly stated in the given context. However, based on the description of the model architecture and its application in various studies mentioned in the text, it can be inferred that the primary purpose of the deep learning model is for image classification tasks. Specifically, the model uses Convolutional Neural Networks (CNN), which are commonly used for image recognition and classification tasks. The model is designed to extract features from input images using multiple convolutional layers and then use those features to classify the images into different categories. The context mentions several examples where similar models have been used for plant image classification tasks, achieving high levels of accuracy. Therefore, it can be assumed that the purpose of the deep learning model described here is also for image classification, possibly for identifying specific types of diseases in plants based on their leaf images.

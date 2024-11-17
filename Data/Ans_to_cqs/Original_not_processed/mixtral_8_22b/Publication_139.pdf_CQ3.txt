@@ -1,0 +1,71 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.4.1. Training database assembly 
+
+To assemble a training database, three randomly selected days from 
+each month of the calendar year (see Table 1) were selected for anno-
+tation. Select spectrogram images were manually labeled via visual in-
+spection by two trained graduate students into a set of sound categories 
+that evolved as the year progressed. On average, around 60 images could 
+be  annotated  per  minute,  which  corresponds  to  8  min  of  audio  data. 
+Therefore,  annotating  every  single  spectrogram  from  a  single  day 
+(10,800 images) would take 3 h. Assembling the training database took 
+less time in practice because only 10–15% of the spectrograms from each 
+of the selected days were actually annotated (many spectrograms which 
+contained only background noise were simply not needed). 
+
+In total, this database consists of over 40 k images of bio-, anthro- 
+and  geophonies.  The  full  contents  of  the  database  are  presented  in 
+Table 2.
+
+Further, existing labeled datasets, crowd-sourced or otherwise, can 
+be used to perform initial data labeling on new recording sites in nearby 
+geographic  regions.  Generating  an  initial  prediction  record  using  a 
+model trained on a similar dataset is a viable starting point for manually 
+annotating a new dataset efficiently –  correct labels can remain while 
+false  labels  can  be  amended.  In  addition  to  such  cross-training  ap-
+proaches, semi-supervised learning techniques can reduce the amount of 
+time needed to annotate new or growing datasets (Zhong et al., 2020). 
+Though it was not a significant issue for the dataset involved in this 
+study due to the sparse nature of the soundscape (as demonstrated by the 
+validation dataset performance) neural networks will inevitably fail to 
+classify acoustic events that do not compose one of the training target 
+species.  A  possible  solution  involves  implementing  clustering-based
+
+Pre-training on the both ResNet50 (He et al., 2016) and Inception 
+(Szegedy et al., 2014) neural networks did not meaningfully improve 
+classification performance, therefore this simpler architecture, similar to 
+those implemented by (Ruff et al., 2020; Sprengel et al., 2016) was used 
+instead. 
+
+2.6. Generating prediction record
+
+Transfer learning, where a model pre-trained on one dataset is re- 
+trained  to  classify  a  similar  datset,  is  one  convenient  approach  to 
+effectively  utilize  the  power  of  CNNs.  Well-known  pre-trained  archi-
+tectures such as Inception, MobileNet, and Resnet50 have recently been 
+used with great success for the classification of birds in soundscape re-
+cordings (Florentin et al., 2020; He et al., 2016; Howard et al., 2017; 
+Incze et al., 2018; LeBien et al., 2020; Sevilla and Glotin, 2017; Szegedy 
+et  al.,  2014).  Such  networks  are  typically  pre-trained  on  large  image 
+databases such as ImageNet, which contains over one million samples 
+distributed across 1000 classes (Deng et al., 2009). However, in cases 
+where  targeting  foreground  species  is  the  main  task,  or  with  more 
+acoustically sparse soundscapes, CNN architectures with far fewer (<10) 
+convolutional layers have proven more than sufficient, and indeed, may
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about specific data annotation techniques like bounding box annotation or instance segmentation. However, it mentions that manual labeling was performed through visual inspection by trained graduate students. This process likely involved categorizing sounds based on their appearance in spectrogram images. The annotation technique appears to involve selecting relevant spectrograms containing useful information and assigning them to appropriate sound categories. It is also mentioned that only 10-15% of the spectrograms from each selected day were annotated, suggesting that the focus was primarily on identifying meaningful sounds rather than exhaustively labeling all available data. Additionally, the use of transfer learning and pre-trained models indicates that the team leveraged existing knowledge and resources to enhance their own dataset and improve classification performance.

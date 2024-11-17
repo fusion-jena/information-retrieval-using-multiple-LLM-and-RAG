@@ -1,0 +1,149 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Gaussian Noise
+Speckle Noise
+To Tensor
+Normalize
+
+Parameters
+
+Size: (224, 224)
+None
+None
+Degree: 30
+Brightness: 0.4
+Contrast: 0.4
+Saturation: 0.4
+Hue: 0.1
+Standard Deviation: 25
+Variance: 25
+None
+Mean: [0.485, 0.456, 0.406]
+Std: [0.229, 0.224, 0.225]
+
+transformer architecture in vision tasks, and Xception (Chollet, 2017)
+for its depthwise separable convolutions that enhance model perfor-
+mance and efficiency. Therefore, we employed our BEiT model to
+leverage transformer capabilities with these existing models. This
+combination ensures effective and complementary strengths for our
+purpose. Furthermore, we add the LIME explainable technique to
+enhance the interpretability of our model’s decision-making process
+which mainly
+broader
+transparency
+understanding.
+
+promotes
+
+ensures
+
+and
+
+3.1. Data acquisition
+
+Refers to the size of the trained model, usually measured in terms of parameters or memory
+footprint.
+Measures the time taken by the model to process a single input and generate an output
+prediction.
+Represents the number of arithmetic operations performed by the model during inference or
+training.
+Measures the time taken by the model to process a given dataset or perform a specific task.
+
+CK = po (cid:0) pe
+1 (cid:0) pe
+
+where po is the observed agreement and pe is
+
+the expected agreement.
+
+Precision =
+
+True Positives
+True Positives + False Positives
+
+True Positives
+True Positives + False Negatives
+
+Recall =
+F1 = 2 × Precision × Recall
+Precision + Recall
+–
+
+–
+
+–
+
+–
+
+EcologicalInformatics82(2024)1027188A. Chakrabarty et al.
+
+Table 6
+Leaf Disease Classification Performance for PlantVillage Dataset (With Noise Added).
+
+Model
+
+ViT
+Xception
+Inception V3
+DenseNet 169
+VGG 16
+ResNet 50
+Proposed BEiT (12 M)
+
+Acc
+
+90.33
+88.69
+89.33
+91.26
+90.33
+92.82
+97.33
+
+Loss
+
+For our research reproducibility in Algorithm 1, the definitions
+include T and ℰ, denoting the paths to the training and testing dataset
+directories, respectively. The functions Dtrain and Dtest represent data
+generators for training and testing datasets, where parameters such as α,
+β, γ, and δ control aspects like rescaling and augmentation. The batch
+size for training and testing is denoted by B, while Gtrain and Gtest
+represent the respective data generators. The class weights computed for
+addressing class imbalance are denoted by wc, and M stands for our
+proposed model, encompassing its architecture and compilation pa-
+rameters. The number of training epochs is represented by n, and P and
+Q denote the steps per epoch for training and validation, respectively.
+Predicted outputs and their class labels from the model are represented
+by ̂y and ̂yc, while ytrue signifies the true class labels from the testing
+dataset. In our model reproducibility in the testing phase in Algorithm 2,
+
+Initially, we assess our modified BEiT model’s performance against
+existing deep learning and base ViT models under both noise-added and
+noise-free situations. The results obtained from the PlantVillage are
+presented dataset in Tables 6 and 7, The results reveal that the proposed
+BEiT (12 M) achieves an outstanding accuracy of 97.33% with the least
+loss. It outperforms in AUC, CK, precision, recall, and F1 scores in both
+noisy and noiseless conditions. Similarly, the Dhan-Shomadhan dataset
+in Tables 8 and 9, the low parameterized BEiT (12 M) model maintains
+its lead he highest accuracy (96.22% and 97.50%) and least loss (0.131
+and 0.121). It achieves reliable metrics in AUC (0.962), CK (0.88),
+precision (0.97), recall (0.96), and F1 score (0.96). Other models also
+perform well but continually fall below BEiT (12 M)’s specifications
+across both noisy and noiseless situations. These results underline BEiT
+(12 M)’s better performance and reliability in leaf disease classification
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors have not explicitly mentioned any specific techniques used to ensure the generalizability of their deep learning model. However, they did use two different datasets - the PlantVillage dataset and the Dhan-Shomadhan dataset - which can be considered diverse datasets. They evaluated their proposed BEiT (12 M) model on both datasets and presented the results separately. Additionally, they compared their proposed model with other existing deep learning and base ViT models using both noise-added and noise-free situations. By doing so, they demonstrated the robustness and adaptability of their model across various scenarios. Although it cannot be confirmed without explicit mention, one could infer that some form of cross-validation might have been implemented due to the nature of the experiments conducted. Nevertheless, further details regarding stratified splitting or other specific methods to ensure generalizability are not available within the provided context.

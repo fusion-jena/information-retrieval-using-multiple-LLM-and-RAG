@@ -1,0 +1,10 @@
+Answer:::
+To ensure the generalizability of the deep learning model, several measures were taken. 
+
+Firstly, data augmentation was used with the fastai get_transforms function. This included allowing for vertical flipping of images ("flip_vert = TRUE"), limiting overly exposing the images ("max_lighting = 0.02"), disabling the zooming augmentation ("max_zoom = 1"), and reducing the memory load on the graphical processing unit (GPU) ("to_fp16 = TRUE"). 
+
+Secondly, an 80-20% split was applied for training and validation datasets, respectively. This split helps to evaluate the model's performance on unseen data and prevents overfitting.
+
+Lastly, transfer learning was utilized by initializing an ImageNet pre-trained ResNet34 model. This approach allows the model to leverage the knowledge gained from a large and diverse dataset (ImageNet) and adapt it to the specific task of detecting farm dams.
+
+There is no mention of cross-validation or stratified splitting in the provided context.

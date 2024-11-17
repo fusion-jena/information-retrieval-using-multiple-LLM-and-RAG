@@ -1,0 +1,9 @@
+The strategy implemented to monitor the model's performance during training involves several techniques. First, the model's performance is evaluated based on its ability to classify 984 bird species and three non-event classes, using a training dataset of approximately 1.5 million spectrograms. Each spectrogram contains up to 3500 samples, and oversampling of underrepresented classes is applied to reduce class imbalance.
+
+To further evaluate the model's performance, cost-sensitive learning methods such as class weights and focal loss are tested, although none of them improve the overall model performance. Mixup training is employed to simulate simultaneously vocalizing bird species by randomly combining up to three spectrograms into one sample. This method helps diversify the training data and prevent overfitting.
+
+The ADAM optimizer is used with an initial learning rate of 0.001 and a batch size of 32. The learning rate is reduced by a factor of 0.5 according to a step-wise schedule, which allows for fine-tuning of the model's performance during training.
+
+Additionally, the model's architecture follows the Wide ResNet approach, consisting of 157 layers, of which 36 are weighted. The model includes pre-processing, ResStacks, downsampling blocks, and a classification block. The 3-second window length of the spectrograms enables the implementation of the data augmentation method using a 3-s window length.
+
+Finally, global log-mean-exponential pooling is used to preserve scores across multiple intervals, and a sigmoid activation function is applied in the classification block. These techniques help ensure the model's performance is accurately monitored during training.

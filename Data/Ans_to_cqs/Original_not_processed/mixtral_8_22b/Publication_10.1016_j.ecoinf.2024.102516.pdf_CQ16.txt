@@ -1,0 +1,53 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+information usable as annotations for network training.
+
+therefore also easily usable as training data. Therefore, this amount of 
+well-annotated  data  is  an  optimal  supplement  to  the  already  existing 
+plant cover annotation data. 
+
+While we have the option to pre-train our network for classification 
+and apply it on plant cover data afterward, we have shown in K¨orschens 
+et al. (2021b) that training a network for classification only often leads 
+to the network focussing on a small number of discriminative parts of the 
+plants instead of all visible parts. This can be especially detrimental in 
+plant  cover  prediction,  where  often  only  the  leaves  of  the  plants  are 
+visible, while the network focuses on the blossoms of the plants during 
+pre-training, as they are usually the most discriminative parts.
+
+In this phase the network is trained with the mean scaled absolute 
+error as regression loss, using a batch size of 1, an input image resolution 
+(cid:0) 5. Moreover, we utilize 
+of 1536 × 768 pixels, and a learning rate of 10
+only horizontal flipping for data augmentation in this phase. 
+
+2.5. Baseline comparison 
+
+To also have a comparison of our method with a simpler approach, 
+we compare our results with the ones from a ResNet50 that was pre- 
+trained  on  the  ImageNet  classification  dataset  (Russakovsky  et  al., 
+2015) with added FPN, later also referred to at ImageNet baseline model. 
+As the ImageNet dataset is a normal classification dataset that does not 
+contain the plant species from our dataset, this network cannot be uti-
+lized  for  zero-shot  cover  prediction.  Hence,  we  only  evaluate  this 
+network after training it on our dedicated plant cover data.
+
+extract  plant  cover  information  without  training  on  actual  annotated 
+plant cover data. 
+
+2.3.1. Base network
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text does not provide explicit information about the specific criteria used to determine when training is complete. However, based on common machine learning practices, some possible criteria could include reaching a certain number of epochs or iterations, achieving a desired level of performance on a validation set, observing a plateau or decrease in validation loss, or meeting other user-defined stopping conditions. In this case, since the text mentions training a network with a mean scaled absolute error as regression loss, it might indicate that the training process continues until the validation loss reaches a satisfactory level or stops improving further. Nevertheless, without more detailed information, it would be speculative to definitively state the exact criteria used to determine when training is complete in this particular scenario.

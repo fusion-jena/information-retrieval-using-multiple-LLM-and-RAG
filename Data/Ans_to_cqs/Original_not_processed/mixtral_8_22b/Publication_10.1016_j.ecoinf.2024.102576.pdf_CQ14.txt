@@ -1,0 +1,57 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To generate training data for the PCF, 16,660 grid cells with a res-
+olution  of  2560  m  were  created  in  South  Korea.  This  resolution  was 
+selected because the training unit of the U-Net model was 256 pixels, 
+and 2560 m contains 256 pixels of Sentinel-2 with a 10 m resolution. 
+Fig. 6a and b show the extracted results, where 8330 cells (half of the 
+total) were randomly extracted as a mask for training data in Fig. 6a, and 
+3,332 cells (20% of the total) were randomly extracted as a mask for 
+validation data in Fig. 6b. The PSI was extracted from Fig. 6a and b to 
+prepare input data for model training. The sub-class land-cover map of 
+South Korea can be transformed into a macro-class land-cover map by 
+converting all sub-class items into macro-class items (Fig. 4). This con-
+version  process  resulted  in  the  production  of  a  completely  converted 
+sub-class  land-cover  map  of  South  Korea,  as  shown  in  Fig.  6c.  Addi-
+
+The PCF consists of three sequential parts: PSI generation, labeling, 
+and classification. The PSI generation part produces satellite imagery to 
+train  the  model,  which  reflects  the  phenological  characteristics  of 
+vegetation on the land surface. PSI data are defined as satellite imagery 
+with appropriate intervals that have had cloud cover removed to accu-
+rately reflect these characteristics. The length of the appropriate interval 
+may vary depending on the temporal resolution or observation width of 
+
+Fig.  2. Graphical representation  of  the concept  of  phenology  based on  satel-
+lite imagery.
+
+the satellite. The labeling part determines the labeling methodology for 
+training  the  deep  learning  model.  In  the  classification  part,  a  deep 
+learning model was trained based on the results of previous steps. The 
+target PSI, which has the same format as the trained PSI, can be classi-
+fied using the trained model. Here, the format refers to the spatial res-
+olution and spectral band used, interval in PSI, and chronological order 
+of  each  band.  If  satellite  imagery  accumulates  owing  to  continuous 
+satellite observations, the PSI can also be continuously generated, and 
+classification can be continued using the model. This enables PCF land 
+monitoring.
+
+one year. As a result, phenological characteristics are reflected in the PSI 
+that is collected at specific intervals throughout the year based on the 
+temporal resolution of the satellite.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough information available in the given context to determine how the hyperparameters of the model were optimized. The text does not mention any methods such as grid search, random search, Bayesian optimization, or other techniques typically used for hyperparameter tuning. Therefore, it is not possible to provide a definitive answer to this query based solely on the provided context.

@@ -1,0 +1,195 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The  model’s  performance  was  assessed  using  the  mean  reciprocal 
+rank  (MRR),  accuracy  (ACC),  and  hierarchical  distance  of  a  mistake 
+(HDM) as metrics. The MRR (Go¨eau et al., 2018), an official evaluation 
+metric of the BirdCLEF2018 competition, was employed to assess pro-
+cesses that generate a list of potential responses to a sample of queries 
+which are ranked by their likelihood of correctness. Accuracy was used 
+to determine the proportion of correctly classified items, and an average 
+accuracy across all class hierarchies (avg_ACC) was calculated to eval-
+uate the efficacy of the hierarchical classification. The HDM (Bertinetto 
+et al., 2020) was used to quantify the degree of misclassification when 
+only  a  single  class  could  be  predicted.  For  example,  misclassifying 
+Garrulax canorus as  Leiothrix lutea may not incur the same penalty as 
+misclassifying Garrulax canorus as Caprimulgus jotaka. The mean height
+
+The model was trained over 200 epochs using the Adam optimizer 
+(cid:0) 5. The batch size 
+(Kingma and Ba, 2015), with a weight decay of 1 × 10
+was fixed at 16, and the loss function was updated as per Eq. (6). The 
+learning rate was initially set at 0.001 and was subsequently reduced by 
+a  factor  of  0.1  in  a  step-wise  manner  whenever  the  validation  loss 
+remained  constant  for  five  epochs.  The  minimum  learning  rate  was 
+(cid:0) 5. The hyper-parameter λ in Eq. (4) was set to 0.8, 
+established at 1 × 10
+Mk  in Eq. (5) was defined as 2k+1(k = 1, 2, …K), and β in Eq. (6) was set 
+to 0.4.
+
+their  convolutional  kernels  and  pooling  layers.  Regarding  this  issue, 
+Zhang  et  al.  (2019)  incorporated  a  long  short-term  memory  (LSTM) 
+network to develop a 3DCNN-LSTM model as a classifier, making the 
+network more sensitive to the temporal changes in birdsong informa-
+tion. It is important to note that the use of RNNs such as the CRNN model 
+requires  more  computing  resources  for  training,  and  performance 
+improvement is not always guaranteed. Another common approach to 
+addressing  the  limitations  of  CNNs  is  to  introduce  attention  mecha-
+nisms.  For  example,  Soundception  (Sevilla  and  Glotin,  2017)  was 
+developed  by  introducing  time  and  time-frequency  attention  mecha-
+nisms to Inception V4; the resulting model achieved first place in the 
+BirdCLEF  2017  Competition.  Fu  et  al.  (2023)  proposed  an  improved 
+ACGAN model named DR-ACGAN based on the residual structure and an
+
+Hier 
+
+MRR(↑) 
+
+ACC(↑) 
+
+avg_ACC(↑) 
+
+HDM(↓) 
+
+CS-CLDNN (Xie et al., 2022a) 
+Soundception (Sevilla and Glotin, 2017) 
+BirdNet (Kahl et al., 2021b) 
+AMResNet (Xiao et al., 2022b) 
+LHT+
+
+PPNN (ours) 
+
+32.11 
+22.55 
+51.13 
+21.38 
+87.79 
+
+52.95 
+
+×
+×
+×
+×
+
+√ 
+
+√ 
+
+85.087 
+90.581 
+90.192 
+90.095 
+
+92.098 
+94.125 
+
+Order 
+
+Family 
+
+Genus 
+
+Species 
+
+92.857 
+96.104 
+96.104 
+96.104 
+
+96.753 
+98.701 
+
+83.117 
+88.961 
+88.312 
+88.312 
+
+91.234 
+92.532 
+
+81.818 
+87.987 
+87.013 
+86.688 
+
+89.935 
+91.883 
+
+80.519 
+86.688 
+86.688 
+86.688 
+
+89.610 
+91.883 
+
+84.578 
+89.935 
+89.529 
+89.448 
+
+91.883 
+93.750 
+
+0.15422 
+0.10065 
+0.10471 
+0.10552 
+
+0.08117 
+0.06205  
+
+Table 5 
+Comparison of various model structures tested on the BC-L dataset. The top two performers (best and second-best) are highlighted in bold and underlined, respectively.  
+
+Model 
+
+Param(M) 
+
+Hier 
+
+MRR(↑) 
+
+CS-CLDNN 
+Soundception 
+
+BirdNet 
+
+AMResNet 
+PPNN (ours) 
+
+32.29 
+23.54 
+
+51.84 
+
+21.56 
+59.39 
+
+×
+×
+
+×
+
+×
+
+√ 
+
+78.521
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The performance of the deep learning model was evaluated using several metrics. These include the Mean Reciprocal Rank (MRR), which measures the quality of ranking results, and was also used in the BirdCLEF2018 competition. Additionally, accuracy (ACC) was used to calculate the proportion of correctly classified items. An average accuracy across all class hierarchies (avg_ACC) was computed to evaluate the effectiveness of the hierarchical classification. Furthermore, the Hierarchical Distance of a Mistake (HDM) was utilized to measure the severity of misclassifications when only one class could be predicted. This metric takes into account the taxonomic hierarchy between classes, meaning that misclassifying a species within the same genus might result in a lower penalty compared to misclassifying it as a completely different family or order.

@@ -1,0 +1,135 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+①  A text-topic polynomial distribution θ is generated via sampling 
+
+from the Dirichlet prior distribution parameter α.  
+
+②  A topic Z corresponding to the Nth word of text M is generated via 
+
+sampling from the text-topic polynomial distribution θ.  
+
+③  A topic-word polynomial distribution φ is generated via sampling 
+
+from the Dirichlet prior distribution parameter β.  
+
+④  An Nth word of text M is generated via sampling from the topic- 
+
+word polynomial distribution φ.  
+
+⑤  The stochastic process of ①–④ is repeated until all M texts are 
+
+generated.
+
+⎛
+
+P(D) = exp
+
+⎜
+⎜
+⎜
+⎝
+
+∑M
+
+d=1
+
+(cid:0)
+
+⎞
+
+⎟
+⎟
+⎟
+⎠
+
+logDp(wd)
+
+∑M
+
+d=1
+
+Nd
+
+∑M
+
+d=1
+
+p(θkd)
+
+M
+
+Sk =
+
+(1)  
+
+(2)  
+
+where P(D) represents perplexity, D represents the test set in the corpus, 
+M represents the number of texts, Nd  represents the number of words in 
+text  d,  wd  represents  the  words  in  text  d,  and  p(wd) represents  the 
+probability of the occurrence of the word wd  in text d. Sk  represents the 
+intensity of the kth topic, and p(θkd) represents the probability of topic k 
+appearing in text d. We used Python’s pyLDAvis Library to cluster and 
+visualize  topics  in  tweets  involving  contaminated  sites.  The  pyLDAvis 
+interface  displays  the  ranking  of  keywords  related  to  each  topic,  for 
+which relevance was determined by λ  and could be adjusted between 
+0 and 1. The setting λ = 1 indicates ranking themes by frequency, and 
+the setting λ = 0 indicates ranking themes based on uniqueness. 
+
+2.2.2. Social network analysis
+
+2.2. Theme perception technology 
+
+2.2.1. Latent Dirichlet allocation 
+
+LDA—  proposed  by  Blei  et  al.  (2003)—is  a  topic  model  for  text 
+generation based on natural language processing. The basic idea is that 
+any text (in this study, microblog tweets) is composed of multiple topics 
+with a polynomial distribution and each topic is composed of multiple 
+words  with  a  polynomial  distribution.  By  analyzing  the  polynomial 
+distribution of words for each topic, similar topics are aggregated into a 
+topic category, and topic classification of the text is achieved (Tautorat 
+et al., 2023). The advantage of LDA is its unsupervised nature, which 
+means that the input corpus does not require labeled data, making it an 
+ideal technique for topic modeling when labeled topics are not available 
+and the quantity of input texts is large (Palanichamy et al., 2021; Sun 
+and Yin, 2017).
+
+thicker  the  line,  the  more  instances  of  co-occurrence  between  theme 
+words  and  vice  versa.  As  relatively  low-frequency  keywords  are 
+considered  ineffective  in  topic  detection,  previous  studies  (Dai  et  al., 
+2020;  Liu  et  al.,  2023b)  typically  set  word  frequency  thresholds  to 
+reduce network complexity and improve computational efficiency. Our 
+study followed this approach. In word co-occurrence networks, closely 
+connected  topic  words  can  be  viewed  as  communities  related  to 
+contaminated sites. Modularity is a metric used to evaluate community 
+division  quality  (Garg  and  Kumar,  2018);  its  calculation  formula  is 
+shown in Eq. 3:
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The provided context does not directly address the query about handling randomness in the deep learning pipeline. However, I can provide some general strategies often employed to manage randomness in such scenarios.
+
+Randomness in deep learning pipelines often arises due to factors like random initialization of weights, shuffling of training data, or using dropout layers for regularization. To ensure reproducibility and consistency across experiments, several strategies can be adopted:
+
+1. Fixed Random Seeds: One common strategy is to fix the random seed values for various libraries involved in the pipeline, including NumPy, TensorFlow, PyTorch, etc. This ensures that the same sequence of pseudo-random numbers is generated every time the code runs, leading to consistent results.
+
+2. Deterministic Algorithms: Some algorithms have deterministic versions that do not rely on randomness. For instance, certain implementations of convolutional neural networks (CNNs) use deterministic weight initialization methods instead of random ones. Using these alternatives can help reduce variability in outcomes.
+
+3. Data Shuffle Control: Controlling the way data is shuffled before being fed into the model can also impact the final results. Enforcing a specific order or disabling shuffling altogether might be necessary depending on the application requirements.
+
+4. Model Architecture Choices: Selecting models without inherently random components, such as avoiding dropout layers or batch normalization, can further minimize randomness in the pipeline.
+
+5. Repeat Experiments: Running multiple trials with different seeds and averaging the results can provide insights into the overall performance and robustness of the model.

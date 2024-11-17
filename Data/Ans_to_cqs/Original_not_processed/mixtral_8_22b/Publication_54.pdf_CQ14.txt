@@ -1,0 +1,91 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The model is then iteratively trained and validated on these
+different sets. The training set is used to ﬁt the parameters of
+the classiﬁer, whereas the validation set provides an unbiased
+evaluation of the model ﬁt on the training set while tuning
+model hyperparameters, such as the network layer size, ﬁnd-
+ing the optimal number of hidden units, and regularizing the
+model. Models with few hyperparameters are easy to validate
+and tune, but if the model has many hyperparameters, a larger
+validation dataset is required. In some cases, the evaluation
+is biased when a validation dataset is not incorporated into
+the model conﬁguration because the model may perfectly ﬁt
+the training data with high accuracy but may fail to ﬁt the
+test or validation data. In such cases, k-fold cross-validation,
+which is a resampling technique, is used to avoid overﬁtting;
+the training set is generated with different combinations of k
+groups (say 5 or 10, depending on the size of the dataset) as
+
+of 0.9.
+
+• Exponential decay rate of second-moment estimation
+of 0.999, and a positive scalar value for epsilon of 1e-08.
+Furthermore, to avoid overﬁtting, ﬁvefold cross-validation
+and early stopping were employed for efﬁcient hyperparam-
+eter optimization. The early stopping criterion was based on
+the model performance when the model stops improving on
+
+VOLUME 9, 2021
+
+102979
+
+Y.-P. Huang, H. Basanta: Recognition of Endemic Bird Species Using Deep Learning Models
+
+TABLE 1. Performance Comparison Between Models with and Without
+Swapping of the Misclassified Data with the Training and Validation
+Datasets.
+
+precision, recall, and F1-score.
+
+Precision =
+
+Recall =
+
+TP
+TP + FP
+TP
+TP + FN
+
+F1 − score = 2 ∗
+
+Recall ∗ Precision
+Recall + Precision
+
+(3)
+
+(4)
+
+(5)
+
+TABLE 2. Performance Before and After Swapping the Misclassified Data
+with the Training and Validation Datasets.
+
+the training and validation sets. Then, the model is ﬁt by using
+(k − 1) folds and evaluated using the remaining k th fold. The
+process is repeated until every k-fold is used as the test set.
+However, this may produce varying results. Thus, to improve
+the model and analyze the inﬂuence of various components
+in the framework, we adopted multistage training with the
+training and validation datasets (Fig. 4) to better predict test
+dataset.
+
+the stability of the model. A comparison of the performance
+of the two models with the various datasets is presented
+in Table 1.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, it is mentioned that the model uses fivefold cross-validation and early stopping for efficient hyperparameter optimization. However, the specific method for selecting the values of the hyperparameters is not explicitly stated. Grid search and random search are common methods for hyperparameter optimization, but they are not mentioned in the provided context. Therefore, I cannot provide a definitive answer to how the hyperparameters of the model are optimized.

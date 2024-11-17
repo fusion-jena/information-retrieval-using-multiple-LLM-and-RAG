@@ -1,0 +1,58 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Fig.  3. Considered  data  augmentation  techniques.  (a)  Original  image;  (b)  Contrast  transformation;  (c)  Additive  Gaussian  noise  transformation;  (d)  Pixel  sum 
+transformation; (e) Hue and saturation transformation; (f) Affine transformations. 
+
+EcologicalInformatics75(2023)1020364N. G´omez-Vargas et al.                                                                                                                                                                                                                        
+
+Fig. 4. Learning paradigm of siamese networks in two steps. (a) Verification model, which gives the probability that a particular pair belongs to the same class; (b) 
+One-shot task, which evaluates a new test sample in a pairwise manner against one input per possible class, choosing the one with the highest score. 
+
+Fig. 5. Siamese network defined for our model.
+
+An  interesting  question  that  arises  at  this  point  is  whether  data 
+augmentation should be done before or after splitting the sample into 
+the training, validation, and test sets. It could be thought that if the data 
+is increased before dividing the sample, there would be a high proba-
+bility of passing practically the same image (just adding some noise) to 
+the training and evaluation sets, thus falling into overfitting. However, 
+even though the original pictures were provided with some diversity, by 
+augmenting  with  such  multiple  combinations  in  the  transformations 
+before  splitting,  what  we  are  doing  is  encouraging  the  variability  of 
+images of the same individual. Therefore, we are actually helping the 
+model to learn and to fine-tune the parameters of the algorithm. 
+
+2.4.2. Network architecture
+
+standard  for  most  research  teams  which  are  becoming  familiar  with 
+deep learning approaches.
+
+The most common approach to deal with a dataset of insufficient size 
+is implementing a data augmentation process. The data augmentation 
+techniques must be carefully selected so as not to generate images that 
+could never actually be found. For instance, mirror flipping would be a 
+wrong selection for studying the pattern in the skin of individuals of the 
+undulate skate since this technique would change it completely, inva-
+lidating the generated image. Therefore, the selected data augmentation 
+techniques were: i) affine transformations (scaling, translation, rotation, 
+and  shear);  ii)  pixel  sum  transformation;  iii)  hue,  saturation,  and 
+contrast modifications; and iv) adding Gaussian noise to images. Fig. 3 
+shows  an  original  photo  and  an  example  of  the  resulting  output  of 
+applying each selected data augmentation technique. The next step is to 
+define a sequence of transformations where a new augmented photo will
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: The data augmentation techniques applied in the deep learning pipeline include: i) affine transformations (scaling, translation, rotation, and shear); ii) pixel sum transformation; iii) hue, saturation, and contrast modifications; and iv) adding Gaussian noise to images. These techniques help increase the amount of available data and encourage variability within the same class, thereby improving the model's ability to generalize and avoid overfitting.

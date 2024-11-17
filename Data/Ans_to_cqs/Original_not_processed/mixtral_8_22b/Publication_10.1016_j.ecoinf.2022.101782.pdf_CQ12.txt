@@ -1,0 +1,83 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+950 (4%) 
+1110 (4%) 
+
+Total 
+
+24,675 
+32,986  
+
+passes over the entire training set) and a batch size of 64, with an ADAM 
+(cid:0) 5. Image augmentation was applied 
+optimiser and a learning rate of 10
+in the form of horizontal flip, 0.2 degree counter clock wise shear and a 
+random zoom between 0 and 0.2 - all leading to 224 × 244 pixel RGB 
+input tensors. Data was normalised to ImageNet mean values, and the 
+pixels values were rescaled in the range of [0, 1]. Model training took 
+roughly 4 days. The best model was selected based on minimal valida-
+tion loss that occurred at epoch 448. This model showed a training loss 
+of 0.256, a training accuracy of 0.899, a validation loss of 0.298 and 
+validation accuracy of 0.891. We evaluated the red kite model perfor-
+mance based on an independent test set of 2060 images (as described in 
+3.3). 950 of these images were true positive red kites images and the
+
+The two CNNs differ in size and complexity. The ResNet101 object 
+detection model has double the amount of layers (101) but was used off 
+the  shelf,  whereas  the  ResNet50  red  kite  model  was  trained  using 
+transfer-learning on the citizen science data described in Table 2. These 
+differences are important when interpreting the performance of the in-
+dividual models within the workflow, since more layers are associated 
+with higher precision at the cost of longer inference times and higher 
+computational demand. 
+
+The custom red kite model was trained using the Google Colab Pro 
+infrastructure3  which  allows  Jupyter  notebooks  to  be  run  in  a  GPU 
+enabled  runtime  environment  which  is  an  affordable  alternative  to 
+acquiring  the  hardware  needed  for  model  training.  The  model  was 
+trained with a NVIDIA TESLA T4® graphic card for 500 epochs (i.e. 500 
+
+1  https://inaturalist.org/pages/apireference, accessed: 14.06.2021
+
+Since our workflow is designed to be generic, take advantage of the 
+text and image data and combine records from citizen science reports 
+with social media data, it uses a combination of a simple rule based- 
+approach, existing pre-trained models and a model trained specifically 
+for our target species (Fig. 2). Our approach is designed to take advan-
+tage  of  what  we  assume  to  be  high  quality  data  collected  by  citizen 
+scientists with an interest in ornithology, use off-the-shelf models where 
+possible, and reduce the initial number of social media posts in a given 
+region to a manageable size for manual verification. Our workflow thus: 
+
+EcologicalInformatics71(2022)1017823M.C. Hartmann et al.
+
+Our true positive dataset thus consisted of citizen science records of 
+red kites sourced from eBird and iNaturalist, manually filtered for poor 
+
+In our workflow (Fig. 2) two convolutional neural networks (CNNs) 
+were used. The first was the bird object detection model, more specif-
+ically a ResNet101 downloaded from the TensorFlow 2 Detection Model 
+Zoo.2 We initialised our ResNet101 object detection model, which uses 
+640  × 640  pixel  input  images,  with  pretrained  COCO  weights.  This 
+implies  that  the  model  was  already  able  to  detect  80  generic  object 
+classes such as ‘truck‘, ‘chair’, ‘apple’ and most importantly ‘bird’ with a 
+mean average precision across all classes of 0.318 and an inference time 
+of 55 ms (Martín Abadi et al., 2015). Being able to successfully detect the 
+class  ‘bird’  as  a  filtering  step  before  running  our  red  kite  model  was 
+central to our procedure.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Two types of Convolutional Neural Networks (CNNs) are used in the pipeline. The first one is a ResNet101 object detection model, which is initialized with pretrained COCO weights and can detect 80 generic object classes including 'bird'. The second one is a ResNet50 red kite model, which is trained using transfer-learning on the citizen science data. Both models have different sizes and complexities due to their layer differences; ResNet101 has double the amount of layers compared to ResNet50.

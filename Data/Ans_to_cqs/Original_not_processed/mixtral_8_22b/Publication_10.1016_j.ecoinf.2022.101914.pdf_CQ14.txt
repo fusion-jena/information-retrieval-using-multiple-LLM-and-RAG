@@ -1,0 +1,47 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.2. Ensemble models
+
+by  its  relatively  constant  performance  regardless  of  the  number  of 
+background  points  used  to  train  component  models.  As  with  many 
+ecological  problems, the  decisions made during  the modeling process 
+demand careful consideration in the full context of the question at hand, 
+since different questions often differ in their requirements from a model.
+
+We  built  four  ensemble  models,  each  built  using  an  averaging 
+approach with a different combination of component models. For the 
+optimized  ensemble  model,  we  included  the  best  performing  models 
+based on AUC: GLM (10×), GAM (1×), MARS (10 K), MaxEnt (10×), RF 
+(1×), and ANN (1×). Of the four ensemble models, the best performing 
+model was the optimized ensemble with an AUC value of 0.835, which 
+was  an  AUC  0.024  higher  than  the  worst-  performing  model,  the 
+Ensemble  10  K (Table  S3, Fig. 4). However,  when  comparing  models 
+using  TSS,  the  10  K  ensemble  performed  best  with  a  TSS  of  0.492 
+(threshold = 0.395), with the optimized ensemble performing slightly 
+worse with a TSS of 0.472 (threshold = 0.330). When comparing models 
+using TSS, the worst performing ensemble model was the 1× ensemble 
+with a TSS of 0.452 (threshold = 0.340). 
+
+4. Discussion
+
+Fig. 2. Diagram showing the procedure used to build models. (a) Obtain presences (red circles) and generate background points (black triangles). (b) Separate data 
+into folds. (c) Set aside one fold to use as an external evaluation dataset and keep the remaining folds as training data. (d) Perform scale optimization for envi-
+ronmental covariates: calculate focal statistics for each covariate using a moving window of radius equal to each scale to be tested, then compare scales using t-tests. 
+(e) Subsample background points in the training data to create three datasets: one with the number of background points equal to the number of presences (1×), one 
+with a number of background points equal to 10 times the number of presences (10×), and 10,000 background points (10K). Keep the number of presences the same. 
+(f) Train component models separately using each background point subsample. (g) Evaluate component models using the evaluation dataset (using AUC and TSS).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text does not provide explicit information about how the hyperparameters of the models were optimized, such as through methods like grid search or random search. However, it mentions that they built four ensemble models, each using an averaging approach with a different combination of component models. They also mention including the best-performing models based on AUC for the optimized ensemble model. This suggests that some form of hyperparameter tuning might have been done to select the best-performing models, but the specific method is not mentioned.

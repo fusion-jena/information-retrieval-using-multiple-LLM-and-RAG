@@ -1,0 +1,84 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Machine learning, and particularly deep learning, has evolved into
+the most commonly used approaches for the automatic classiﬁcation of
+digital images (LeCun et al., 2015). The major advantage of deep
+learning is that the time-consuming and complex step of previous fea-
+ture extraction becomes unnecessary. Instead, the model learns and
+extracts the relevant features itself during the training process. The
+major drawback of deep learning is that large amounts of labeled
+training data are required (Kamilaris and Prenafeta-Boldú, 2018).
+Among the deep learning architectures, convolutional neural networks
+(CNN) are particularly suitable for image analysis due to their ability to
+extract spatial features. CNNs have proven to be quite powerful in
+performing diﬀerent tasks such as object detection (Everingham et al.,
+2010; Tompson et al., 2014), classiﬁcation (Traore et al., 2018, Xu
+et al., 2017, Amara et al., 2017, Lu et al., 2017, Han et al., 2018) and
+
+CNNs are composed of three main components: convolutional
+
+223
+
+U. Bayr and O. Puschmann
+
+Ecological Informatics 50 (2019) 220–233
+
+Fig. 4. Illustration of the CNN architecture and the classiﬁcation process. The network was trained with manually labeled samples with a tile size of 50 × 50 pixel.
+The trained classiﬁer was then applied on whole repeat photographs, which were also split into 50 × 50 pixel tiles. The classiﬁer predicts the output for each single
+tile and reassembles them to the original image size.
+
+The second set of photographs was used for testing the model per-
+formance on new and more realistic data. When whole images needs to
+be classiﬁed with CNN, there arise two problems. First, classical CNNs
+assign only a single category on the input data and do not provide a
+classiﬁcation with distinct boundaries. Second, the CNN takes only a
+
+Fig. 3. Examples of the 50 × 50 pixel sample tiles for training. Woody vege-
+tation is used as positive class (a), the negative class (b) contains grass, open
+soil, buildings, human, animals, sky, water, stone and asphalt. Note that many
+tiles of grassy and herbaceous plants look very similar to tiles of woody plants.
+
+ﬁxed input size. To overcome these limitations, we split each photo-
+graph into 50 × 50 pixel tiles to match the size of the training samples.
+Before splitting, all photographs were resized to a maximum width of
+2500 pixels to reduce computing time.
+
+2.4. Convolutional neural network setup and training
+
+2.5. Binary classiﬁcation of whole photographs
+
+In the next step, we tested how the trained CNN performs on new
+and more realistic data. For this purpose, we applied the classiﬁer on
+the second set of photographs, containing 34 repeat photographs split
+into tiles. All 50 × 50 pixel tiles of the photographs are predicted by the
+trained classiﬁer in a ﬁxed order and then reassembled into a raster grid
+of the original size showing the classiﬁcation result (compare Fig. 4).
+This grid-based approach is not only more suitable for the CNN, which
+requires identical input sizes during training and prediction, it is also
+more robust against slight diﬀerences between the image pairs, which
+may have occurred due to camera distortion.
+
+For evaluation purpose, the seventeen image pairs were also clas-
+siﬁed manually. This has been done by overlaying each photograph in
+
+224
+
+U. Bayr and O. Puschmann
+
+Ecological Informatics 50 (2019) 220–233
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, the data format used in the deep learning pipeline is digital images. Specifically, the study uses photographs for training and testing the performance of a Convolutional Neural Network (CNN) for binary classification. The photographs are first split into 50 x 50 pixel tiles to match the size of the training samples. Before splitting, all photographs are resized to a maximum width of 2500 pixels to reduce computing time. Therefore, the data format used in this deep learning pipeline is digital images.

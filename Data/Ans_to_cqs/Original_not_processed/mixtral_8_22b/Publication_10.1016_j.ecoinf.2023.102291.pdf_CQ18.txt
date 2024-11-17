@@ -1,0 +1,110 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.2. Training dataset and testing dataset
+
+To test the efficacy of our models, we created several segments by 
+using  the  same  sliding  window  approach.  Namely,  we used  the  same 
+window size that was used in training, and thus multiple segments were 
+created  across  the  entire  testing  file  by  moving  the  window  by  one 
+second  in  the  moored  recording.  We  converted  each  of  these  testing 
+segments into spectrograms (FFT length = 1024; hop size = 128; Hann 
+window) which were used as input for subsequent model prediction. All 
+generated spectrogram images were created as 5 × 5 in. but varied in 
+their dpi configuration, ranging from 200 × 200 (40 dpi) to 500 × 500 
+(100 dpi) samples. The number of images used per class was constrained 
+by our computational resources, and we used the maximum number of 
+images possible in each case. We attempted a number of experiments 
+and varied the number of classes. The largest dataset built comprised 
+80,000 images when combining three seconds window size and 40 dpi
+
+d
+e
+s
+i
+
+m
+o
+t
+s
+u
+C
+
+g
+n
+i
+n
+r
+a
+e
+L
+
+r
+e
+f
+s
+n
+a
+r
+T
+
+1
+≥
+R
+N
+S
+
+y
+r
+a
+r
+b
+i
+L
+
+i
+p
+d
+
+e
+z
+i
+s
+w
+o
+d
+n
+i
+W
+
+size of 32. The most suitable architecture was chosen based on the best 
+validation accuracy (proportion of all correct predictions) and precision 
+(number of true positives divided by true positives and false positives) 
+obtained during training. The model training and prediction procedures 
+were  executed  on  Microsoft  Azure  using  instance  NV12s  v3  with  12 
+vCPUs and 112 GB RAM. The CNNs were implemented using Tensor-
+Flow (Abadi et al., 2016) and Python 3. The Ubuntu 20.04 operating 
+system was used and obtained via the Ubuntu 20.04 Data Science Virtual 
+Machine  on  Microsoft  Azure.  The  algorithm  scripts  are  available  in 
+Supporting Information B. 
+
+2.5. Inference and post-processing
+
+2. Material and methods 
+
+2.1. Data collection
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The strategy implemented to monitor the model performance during training involved evaluating validation accuracy and precision. Validation accuracy refers to the proportion of all correct predictions made by the model during training, while precision measures the number of true positives divided by the sum of true positives and false positives. By monitoring these metrics, the researchers could determine the most suitable architecture for their convolutional neural networks (CNNs). The model training and prediction processes were carried out on Microsoft Azure using specific instances with designated CPUs and memory. The CNNs were implemented using TensorFlow and Python 3, running on the Ubuntu 20.04 operating system.

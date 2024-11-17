@@ -1,0 +1,71 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.4. Statistical Analyses
+
+We used Python [35] and fastai [30] for developing the deep learning CNN. We used
+R [36] for all statistical analyses, using packages sf [37] and raster [38] for data manipulation;
+ggplot2 [39], rasterVis [40] and cowplot [41] for plotting. We also used R for designing
+the website AusDams.org, using Shiny [42], Leaﬂet [43], Plotly [44] and using Joe Cheng’s
+Superzip template (https://shiny.rstudio.com/gallery/superzip-example.html).
+
+3. Results
+3.1. Reported Farm Dams
+
+There were 1,694,675 farm dams reported by regional and Federal authorities in
+Australia. The majority of farm dams were in New South Wales (37%), Victoria (26%),
+Queensland (17%) and Western Australia (10%; Table S1). Around three-quarters of Aus-
+tralia recorded at least one dam per 2000 km2, but the typical density near urban centres
+was 2–5 farm dams per km2 (Figure 2). The average size of a dam was ca. 1000 m2, ranging
+from 100 m2 to >105 m2 (Figure 3).
+
+3.2. Data Veriﬁcation
+
+Abstract: Farm dams are a ubiquitous limnological feature of agricultural landscapes worldwide.
+While their primary function is to capture and store water, they also have disproportionally large
+effects on biodiversity and biogeochemical cycling, with important relevance to several Sustainable
+Development Goals (SDGs). However, the abundance and distribution of farm dams is unknown
+in most parts of the world. Therefore, we used artiﬁcial intelligence and remote sensing data to
+address this critical global information gap. Speciﬁcally, we trained a deep learning convolutional
+neural network (CNN) on high-deﬁnition satellite images to detect farm dams and carry out the
+ﬁrst continental-scale assessment on density, distribution and historical trends. We found that in
+Australia there are 1.765 million farm dams that occupy an area larger than Rhode Island (4678 km2)
+and store over 20 times more water than Sydney Harbour (10,990 GL). The State of New South Wales
+
+Supplementary Materials: The following items are available online at https://www.mdpi.com/20
+72-4292/13/2/319/s1. Figure S1: Confusion matrix for farm dam detection with our deep learning
+CNN. Figure S2: The surface area of unreported dams used to estimate their median water capacity.
+Figure S3: Examples of undocumented farm dams that were identiﬁed with our deep learning CNN.
+Figure S4: Step-by-step graphical diagram for the methods to calculate the absolute and relative
+rates in the construction of Australian farm dams. Figure S5: Predicted probability for a successful
+veriﬁcation (true positive) for each dam in our dataset. Figure S6: Estimated rates of annual increase
+in dam densities between the years 1988 and 2015 in each State and Territory of Australia. Figure S7:
+Historical trends in farm dam size with year of construction for each State and Territory. Table S1:
+Summary table for all farm dam datasets used in this study.
+
+To avoid manual labelling of all 7362 downloaded images, we took a random subsam-
+ple of 400 images and labelled them into “dam” or “not dam” and we trained a classiﬁcation
+model on the labelled data. We utilised transfer learning by initialising an ImageNet pre-
+trained ResNet34 model [30]. We applied an 80–20% split for training and validation
+datasets, respectively. To help generalise the model, we used data augmentation with the
+fastai get_transforms function [30] and the following arguments: “ﬂip_vert = TRUE” to
+allow for vertical ﬂipping of images, “max_lighting = 0.02” to limit overly exposing the
+images, “max_zoom = 1” to disable the zooming augmentation, and “to_fp16 = TRUE” to
+reduce the memory load on the graphical processing unit (GPU). We set the batch size to
+300 images and trained the model with a learning rate of 10−3 for ten epochs. At epoch 5,
+we achieved an error rate of 0.1538 (15.38%) a validation loss of 0.4211 and a training loss
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the data repository link of the deep learning pipeline (e.g., Link to Zenodo, Figshare, Dryad, GBIF)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide any specific information about the data repository link of the deep learning pipeline used in the research. It only mentions that Python and fastai were used for developing the deep learning CNN, while R was used for statistical analyses and designing the website AusDams.org. There is no mention of any links to repositories such as Zenodo, Figshare, Dryad, or GBIF where the code or data related to the deep learning pipeline might be stored.

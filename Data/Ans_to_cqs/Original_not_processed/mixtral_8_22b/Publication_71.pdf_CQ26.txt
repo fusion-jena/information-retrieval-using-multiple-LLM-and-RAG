@@ -1,0 +1,102 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+One other challenge with deep learning methods is when the dataset is imbalanced. With heavily
+imbalanced datasets, the error from the overrepresented classes contributes much more to the loss
+value than the error contribution from the underrepresented classes. This makes the deep learning
+method’s loss function to be biased toward the overrepresented classes resulting in poor classiﬁcation
+performance for the underrepresented classes [50]. One should also pay attention when applying deep
+learning methods to new applications because one requirement for deep learning is the availability of
+a vast amount of training data. Moreover, the training data needs to have similar characteristics as the
+testing data. Otherwise, deep learning methods may not yield good performance. Augmenting the
+training dataset using diﬀerent brightness levels, adding vertically and horizontally ﬂipped versions,
+shifting, rotating, or adding noisy versions of the training images could be potential strategies to
+
+Table 1. Training parameters used in DeepLabV3+.
+
+Training Parameter
+
+Value
+
+Learning policy
+Base learning rate
+Learning rate decay factor
+Learning rate decay step
+Learning power
+Training number of steps
+Momentum
+Train batch size
+Weight decay
+Train crop size
+Last layer gradient multiplier
+Upsample logits
+Drop path keep prob
+tf_initial_checkpoint
+initialize_last_layer
+last_layers_contain_logits_only
+slow_start_step
+slow_start_learning_rate
+ﬁne_tune_batch_norm
+min_scale_factor
+max_scale_factor
+scale_factor_step_size
+atrous_rates
+output_stride
+
+Poly
+0.0001
+0.1
+2000
+0.9
+≥100,000
+0.9
+2
+0.00004
+‘513,513’
+1
+True
+1
+deeplabv3_pascal_train_aug
+False
+True
+0
+1 × 10
+False
+0.5
+2
+0.25
+[6,12,18]
+16
+
+−4
+
+makes the deep learning method’s loss function to be biased toward the overrepresented classes resulting in poor classification performance for the underrepresented classes [50]. One should also pay attention when applying deep learning methods to new applications because one requirement for deep learning is the availability of a vast amount of training data. Moreover, the training data needs to have similar characteristics as the testing data. Otherwise, deep learning methods may not yield good performance. Augmenting the training dataset using different brightness levels, adding vertically and horizontally flipped versions, shifting, rotating, or adding noisy versions of the training images could be potential strategies to mitigate the issues when test data characteristics differ from the training data. 5. Conclusions In this paper, we investigated the performance of three methods for vegetation detection. Two of these methods are based on deep learning and another one is an
+
+mitigate the issues when test data characteristics diﬀer from the training data.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+When dealing with imbalanced datasets in deep learning, several techniques can be employed to address data bias during preprocessing. These include stratified splitting, oversampling, undersampling, and diverse data collection.
+
+Stratified splitting involves dividing the dataset into training and validation sets while maintaining the same distribution of classes in both sets. This ensures that the model learns from a representative sample of each class, reducing the risk of bias towards overrepresented classes.
+
+Oversampling is a technique where synthetic samples are generated from the minority class to balance the dataset. This can be done by duplicating existing samples or creating new ones through interpolation or extrapolation. Oversampling helps increase the representation of the minority class, making it easier for the model to learn its features.
+
+Undersampling, on the other hand, involves removing samples from the majority class to achieve a balanced dataset. While this reduces the overall size of the dataset, it can help prevent the model from being overwhelmed by the majority class. Undersampling should be used carefully, however, as it can lead to information loss if too many samples are removed.
+
+Diverse data collection is another approach to addressing data bias. By collecting data from various sources and environments, it becomes possible to capture a wider range of variations within each class. This can improve the generalizability of the model and reduce the impact of any inherent biases in individual datasets.
+
+In addition to these techniques, augmenting the training dataset using different brightness levels, adding vertically and horizontally flipped versions, shifting, rotating, or adding noisy versions of the training images can also help mitigate the issues when test data characteristics differ from the training data.
+
+Overall, there are several techniques available to address data bias during preprocessing of the deep learning pipeline. The choice of which technique(s) to use will depend on factors such as the nature of the dataset, the specific application, and the resources available.

@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Given unlabelled input data consisting of N samples with F features, 
+x ∈ ℝN×F,  the  probabilistic  encoder  of  a  VAE  maps  the  input  to  the 
+posterior density p(z|x) over the latent variable, z ∈ ℝN×L. In practice, 
+L << N and the encoder neural network approximates the true posterior 
+density, p(z|x), with a multivariate Gaussian, qθ(z|x) ∼ 𝒩 (μθ, σ2
+θ ). The 
+decoder of a VAE reconstructs the input data from the latent variable 
+and is given by the density function pφ(x|z). The encoder and decoder 
+neural networks are parameterised by θ  and φ, respectively. The opti-
+mization objective of a VAE consists of two competing terms and it can 
+be shown to be (Kingma and Welling, 2014)  
+
+ℒVAE = (cid:0) Eqθ [logpφ(x|z)] + KL[qθ(z|x)||p(z)]
+ℒVAE≜ℒrec + ℒreg
+
+(1) 
+
+(2)
+
+dataset  recorded  at  a  different  location  and  was  gradually  expanded 
+until  reconstructions  were  sufficiently  good.  In  order  to  visualize  the 
+latent  representation,  the  size  of  the  bottleneck  of  the  model  (latent 
+dimension) was limited to two. Details of the network architecture are 
+reported in Table 1.
+
+In order to reduce the parameter space while retaining the necessary 
+information,  various  algorithms  for  extracting  the  WBF  and  other 
+physical properties from insect recordings have been proposed and used 
+(Kirkeby et al., 2021; Gebru et al., 2018; Qi et al., 2015; Jansson et al., 
+2018;  Li  et  al.,  2020).  Machine  learning  based  methods  for  feature 
+extraction, such as auto-encoders (AE), have also been used to extract 
+additional  features  (Qi  et  al.,  2015),  and  very  recently,  to  cluster 
+acoustically recorded bird songs (Rowe et al., 2021). While an AE is able 
+to generate high quality features for classification, a known behaviour of 
+AE is the irregularity of the latent feature space where two similar data 
+inputs  might  end  up  with  very  different  latent  representations.  This 
+makes the extracted features from an auto-encoder unsuitable for clus-
+tering recordings of similar insect species and quantifying the diversity
+
+(1) 
+
+(2)  
+
+The  quality  of  the  auto-encoded  reconstructions  is  controlled  by  the 
+reconstruction loss ℒrec, which is the first term in Eq. (1). The encoder 
+density is regularized to match the prior over the latent variable, p(z) ∼
+𝒩 (0bf,I), enforced by the regularization loss, ℒreg, which is the Kullback- 
+Leibler divergence (KLD) term in Eq. (1). At a high level, the regulari-
+zation term controls the smoothness or the regularity of the latent space. 
+Well structured and smooth latent spaces can yield useful representa-
+tions of the input data.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: Based on the provided context, it is not explicitly stated what type of data format is being used in the deep learning pipeline. However, there are some hints that suggest the data could potentially be audio recordings. For instance, the mention of "insect recordings" and "acoustically recorded bird songs" suggests that the data could be related to audio signals. Additionally, the use of Variational AutoEncoders (VAEs) and AutoEncoders (AEs) for feature extraction and reconstruction further supports this idea, as these models are commonly used for processing sequential data like audio signals. Therefore, it can be inferred that the data format used in the deep learning pipeline is likely audio recordings.

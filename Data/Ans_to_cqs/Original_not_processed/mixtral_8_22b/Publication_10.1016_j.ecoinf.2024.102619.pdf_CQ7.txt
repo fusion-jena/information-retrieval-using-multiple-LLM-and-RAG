@@ -1,0 +1,169 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+As with SVM training, we conducted the CNN training protocol using 5- 
+fold  cross-validation  of  the  training  set;  the  same  k-folds  as  the  SVM 
+training.
+
+2.2.5. Classification 
+
+Each  ML  approach  requires  hyperparameters  to  classify  imagery, 
+which when optimized during training can increase model performance, 
+see  Table  4  for  a  hyperparameter  glossary.  Given  the  computational 
+efficiency of the SVMs and the few hyperparameters required, each of 
+these can be optimized simply and relatively quickly (subject to dataset 
+size)  during  a  k-fold  (k = 5) cross-validated  fine  grid-search  on  the 
+training  data.  For  our  CNN  þ SVM  method,  we  followed  hyper-
+parameter  recommendations  by  (Hsu  et  al.,  2016),  authors  of  the 
+LIBSVM library (Chang and Lin, 2011). For our non-linear RBF SVM we 
+searched  hyperparameters  C = 23, 23.25, …, 27  and  γ = 2
+(cid:0) 13  & 
+(cid:0) 11. For the linear SVM, we used the same hyperparameter search for 
+2
+its sole parameter C. We also looked at the RBF and linear SVM with 
+
+(cid:0) 15, 2
+
+Fig. 3. A diagram of various support vector machines.
+
+Table 5 
+Classifier  training  performance:  with  tuned  hyperparameters,  mean  cross- 
+validation (CV) and final training accuracy.      
+
+illumination patterns. 
+
+3.2. Classification performance 
+
+Set 
+
+Images 
+
+Classifier 
+
+Hyperparameters 
+
+Mean CV 
+
+Train 
+
+Accuracy 
+
+1 
+
+6682 
+
+2 
+
+992 
+
+3 
+
+459 
+
+SVM:Lineard 
+SVM:Linear 
+SVM:RBFd 
+SVM:RBF 
+CNN 
+SVM:Lineard 
+SVM:Linear 
+SVM:RBFd 
+SVM:RBF 
+CNN 
+SVM:Lineard 
+SVM:Linear 
+SVM:RBFd 
+SVM:RBF 
+CNN 
+
+C = 23.0 
+
+(cid:0)
+
+– 
+
+(cid:0) 15.0 
+
+C = 23.0, γ = 2
+lr = 0.001 
+– 
+
+(cid:0) 15.0 
+
+C = 23.0 
+
+– 
+
+C = 23.75, γ = 2
+lr = 0.001 
+– 
+
+C = 23.0 
+
+– 
+
+C = 25.25, γ = 2
+lr = 0.001 
+
+(cid:0) 15.0 
+
+0.93 (± 0.003) 
+0.93 (± 0.003) 
+0.95 (± 0.003) 
+0.96 (± 0.003) 
+0.92 (± 0.023) 
+0.87 (± 0.010) 
+0.87 (± 0.010) 
+0.87 (± 0.018) 
+0.91 (± 0.016) 
+0.90 (± 0.015) 
+0.83 (± 0.021) 
+0.83 (± 0.021) 
+0.78 (± 0.016) 
+0.86 (± 0.020) 
+0.82 (± 0.020) 
+
+1.00 
+1.00 
+0.97 
+0.98 
+0.98 
+1.00 
+1.00 
+0.91 
+0.97 
+0.97 
+1.00 
+1.00 
+0.84 
+0.95 
+0.95
+
+From a coding perspective, training an SVM is extremely straight-
+forward, with training, optimisation and testing executed within only a 
+few simple lines of code. The relative complexity with the CNN þ SVM 
+approach,  and  by  extension  the  CNN  approach,  rather  lies  in  data 
+management and feature extraction. The complexity of these steps is not 
+so  much  related to the  actions required, but navigating  the extensive 
+literature and knowing “where to start”. As one of the contributions of 
+this paper we hope to better guide the user with clear and detailed de-
+scriptions  of  these  steps,  that  are  applicable  across  ML  frameworks 
+(Table 3). Aside from these preparations, training the CNN classifier is 
+further complicated since an optimal is not automatically found. Instead 
+performance  metrics  must  be  monitored  across  epochs  and  decisions 
+made on when to stop training - typically the point at which training and
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about how the data was split for deep learning model training. However, it mentions that both Support Vector Machines (SVM) and Convolutional Neural Networks (CNN) were trained using 5-fold cross-validation. This means that the original dataset was divided into five equal or nearly equal parts, called folds. Four out of five folds were used for training the models, while the remaining fold was used for validation. This process was repeated five times, ensuring that each fold served once as the validation set. After this, the entire dataset was likely used for training the final model before evaluating its performance on unseen test data.

@@ -1,0 +1,11 @@
+Based on the provided context, the text does not explicitly mention the criteria used to split the data for deep learning model training (e.g., train, test, validation). However, it does provide information about how the data is processed and prepared for use in ecological models.
+
+The first step in data processing is data filtering, where the Environmental Orthorectified Satellite (EOS) data catalog is retrieved from the Google Earth Engine (GEE) online repository using the ee.ImageCollection() constructor. The filterDate argument limits the collection to a selected period, and the clip function cuts it within a specific study area extent. This step ensures that only the relevant data is used for further processing.
+
+After data filtering, the identified public image series may undergo preprocessing and masking processes based on Quality Assurance (QA) bands for each satellite. While this step does not directly mention data splitting, it is a crucial part of the data preparation process.
+
+The final step in data processing is data scaling, which involves gap filling and data matching levels required by the user. The approach conforms to a "pre-modelling scaling" protocol, where sequential processes are implemented within GEE for scaling up environmental time series from one spatial and/or temporal scale to another during data extraction.
+
+In the context of deep learning model training, data splitting is an essential step to ensure the model's generalization and prevent overfitting. Common criteria for splitting the data include random sampling, stratified sampling, or temporal splitting. Random sampling involves randomly selecting a portion of the data for training, testing, and validation. Stratified sampling ensures that each subset has a similar distribution of classes or labels. Temporal splitting involves using earlier time periods for training and later time periods for testing and validation.
+
+Therefore, while the provided context does not explicitly mention the criteria used to split the data for deep learning model training, it is a standard practice in data preparation and modeling that should be implemented based on the specific research question and data characteristics.

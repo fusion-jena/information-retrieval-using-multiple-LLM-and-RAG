@@ -1,0 +1,77 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Staiano, 2019). Training data augmentation, which extends the existing 
+training  data,  enhances  the  generalization  capabilities  (Lik´o  et  al., 
+2023). Post-classification, generally segmentation, and filtering gener-
+ally  provide  better  maps  with  a  lower  rate  of  salt-and-pepper  errors 
+(Ahmed et al., 2017). We can also deal with the characteristics of the 
+geometry of the training data, excluding outliers, refining the training 
+samples, or changing the proportion of the training and test data. These 
+strategies collectively improve classification accuracy, enabling better 
+modelling of the environment.
+
+We  classified  all  the  input  dataset combinations  (10  variable  sets; 
+Table  2)  with  each  classifier  (RF,  SVM,  MARS)  and  with  two  sets  of 
+classes (7C and 13C); thus, we had 60 models as a result of the classi-
+fications. Classifications and hyperparameter tuning were conducted in 
+R  4.2  (R  Core  Team,  2023)  with  the  caret  package  (Kuhnaut  et  al., 
+2022). 
+
+2.4. Accuracy assessment
+
+The  reference  dataset  was  split  into  training  and  testing  sets  at  a 
+70:30 ratio, and we applied two types of accuracy assessments. (i) In the 
+model  building  phase,  using  the  training  dataset,  we  applied  10-fold 
+cross-validation  with  three  repetitions.  The  training  dataset  was 
+randomly split into 10 folds; 9 folds were used for model training and 1 
+for testing, and this procedure ended when all folds were testing data. 
+The whole sequence was repeated using two new random splits (Abriha 
+et al., 2023; Molinaro et al., 2005). This type of accuracy assessment, 
+with  hyperparameter  tuning,  helps  to  find  the  best  models  with  the 
+largest  overall  accuracy  (OA),  and  also  reflects  the  resulting  30  OAs 
+distribution  models  with  minimums,  maximums,  quartiles,  and  me-
+dians. The smaller the range of possible model outcomes (OAs), the more 
+reliable the prediction. (ii) Based on the testing dataset, we predicted the
+
+EcologicalInformatics81(2024)1026244L. Szab´o et al.                                                                                                                                                                                                                                   
+
+Table 1 
+Hyperparameters in the grid search.  
+
+Algorithm 
+
+Hyperparameter ranges 
+
+RF 
+SVM 
+
+MARS 
+
+mtry: 1–20 with increments of 1 
+gamma: 0.01–0.1 with increments of 0.01 
+C: 2–16 with increments of 2 
+degree: 1–3 
+nprune: 2 to 100 with increments of 10  
+
+(Conrad et al., 2015). The optimal segment size was chosen based on the 
+extent of the patches, without losing any elements of the species pattern. 
+The mean values of the segments were used for classification. Segments 
+are  optimal  to  avoid  spatial  autocorrelation  when  using  k-fold  cross- 
+validation  (KCV)  in  the  model-building  and/or  accuracy  assessment 
+phase.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of their deep learning model, several measures were implemented. Firstly, they employed diverse datasets by combining various input datasets (10 variable sets) and applying different classifiers (RF, SVM, MARS) with two sets of classes (7C and 13C). As a result, they obtained 60 models from these classifications. Secondly, they utilized a 10-fold cross-validation technique during the model-building phase. This involved randomly splitting the training dataset into 10 folds, where nine folds were used for model training and one fold for testing. This process continued until all folds served as testing data. To further enhance reliability, the entire sequence was repeated twice using new random splits. Lastly, they performed stratified splitting by dividing the reference dataset into training and testing sets at a 70:30 ratio.

@@ -1,0 +1,128 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 2 
+Average  evaluation  measures  over  ten  independent  executions  for  the  four 
+different  methods.  Incorporating  geographical  information  into  the  CNN  im-
+proves the model performance. The best result for each metric is highlighted in 
+bold.   
+
+Case I: 
+Baseline 
+
+Case II: One- 
+hot encoding 
+
+Case III: 
+Embeddings 
+
+Accuracy 
+
+Sensitivity 
+
+Specificity 
+
+Precision 
+
+F1-score 
+
+97.62% 
+(±0.02) 
+61.34% 
+(±0.30) 
+98.72% 
+(±0.02) 
+70.21% 
+(±0.29) 
+61.02% 
+(±0.27) 
+
+98.52% 
+(±0.01) 
+84.31% 
+(±0.14) 
+99.23% 
+(±0.01) 
+80.20% 
+(±0.23) 
+78.77% 
+(±0.18) 
+
+98.43% 
+(±0.01) 
+81.81% 
+(±0.17) 
+99.17% 
+(±0.01) 
+78.69% 
+(±0.24) 
+76.87% 
+(±0.19) 
+
+Case IV: 
+Geographical 
+prior 
+
+99.19% (±0.01) 
+
+86.96% (±0.13) 
+
+99.57% (±0.01) 
+
+91.06% (±0.10) 
+
+87.78% (±0.08)  
+
+training and implementation details were similar as described in Section 
+3.4. 
+
+4. Results 
+
+4.1. Adding location information to the bird song classifier
+
+The baseline model comprised a simple CNN architecture that had 
+two  convolutional layers (8  filters of  size 16 × 16,  with ReLU activa-
+tions), followed by max pooling (4 × 4), a flattening operation, and two 
+fully-connected layers (32 ReLU and 22 softmax units respectively) (see 
+Fig. 2). Given only a spectrogram input, the baseline model produced a 
+probability for each of the 22 species. 
+
+3.3.2. Case II: One-hot encoding 
+
+Different methods were explored and tested to enhance the neural 
+network with contextual information. One straightforward approach to 
+incorporate additional information into a deep learning classifier, while 
+maintaining  model  simplicity,  is  to  utilize  a  multi-branch  CNN.  As  a 
+result, we investigate this approach as the initial method to integrate
+
+Fig. 2. Architecture of the model for Case IV; the baseline model (top) and the geographical prior (bottom) trained separately. The numbers indicate the size of each 
+layer. From the probabilities obtained for the 8,836 species (represented in green), only the 22 species involved in our study (represented in yellow) are kept and 
+multiplied with the corresponding outputs of the baseline model (represented in red). 
+
+the network is trained on a relatively small number of examples, which 
+is often the case in ecology datasets. We conducted preliminary exper-
+iments  on  enhancing  deep  learning  with  metadata  using  the  Hainan 
+gibbon case study and the network developed by Dufourq et al. (2021). 
+Our findings revealed that this architecture, applied to the bird classi-
+fication  task,  resulted  in  good  results  and  thus  we  adopted  this 
+straightforward approach. The proposed methodology can be adapted to 
+other CNN architectures.
+
+ment while enabling a simple CNN to be improved whilst also keeping 
+the number of network parameters low (Case I: 27 654 parameters, Case
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The performance of the deep learning models was evaluated using several metrics such as Accuracy, Sensitivity, Specificity, Precision, and F1-score. These metrics provide insights into different aspects of the model's performance. For instance, Accuracy indicates the overall correctness of the model, while Sensitivity (also known as Recall) shows how well the model identifies true positives. On the other hand, Specificity reveals the model's ability to correctly identify true negatives. Furthermore, Precision demonstrates the proportion of true positive predictions out of all positive predictions made by the model. Lastly, the F1-score provides a single score that balances both Precision and Recall, offering a more comprehensive view of the model's performance.

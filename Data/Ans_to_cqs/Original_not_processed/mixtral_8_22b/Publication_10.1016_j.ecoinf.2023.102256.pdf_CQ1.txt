@@ -1,0 +1,64 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The baseline model comprised a simple CNN architecture that had 
+two  convolutional layers (8  filters of  size 16 × 16,  with ReLU activa-
+tions), followed by max pooling (4 × 4), a flattening operation, and two 
+fully-connected layers (32 ReLU and 22 softmax units respectively) (see 
+Fig. 2). Given only a spectrogram input, the baseline model produced a 
+probability for each of the 22 species. 
+
+3.3.2. Case II: One-hot encoding 
+
+Different methods were explored and tested to enhance the neural 
+network with contextual information. One straightforward approach to 
+incorporate additional information into a deep learning classifier, while 
+maintaining  model  simplicity,  is  to  utilize  a  multi-branch  CNN.  As  a 
+result, we investigate this approach as the initial method to integrate
+
+Over  the  past  few  years,  deep  learning  has  revolutionized  several 
+research  fields  such  as  bioinformatics  (Li  et  al.,  2020)  and  medicine 
+(Piccialli et al., 2021) by enabling automated processing of large and 
+complex  datasets.  Considered  a  branch  of  machine  learning,  deep 
+learning refers to algorithms, commonly called deep neural networks, 
+able  to  automatically  detect  very  complex  and  highly  discriminating 
+patterns  in  data  (Chollet,  2018).  The  succession  of  processing  layers 
+performing  linear  and  non-linear  transformations  allows  the  neural 
+networks  to  learn  representations  of  data  with  multiple  levels  of 
+abstraction  (LeCun  et  al.,  2015).  This  ability  makes  deep  learning 
+particularly  relevant  for  solving  complex  problems  such  as  speech 
+recognition, object detection, computer vision, and many other domains 
+(Taigman et al., 2014; Hinton et al., 2012). Naturally, these practices
+
+3. Materials and methods 
+
+3.1. Data collection
+
+contextual information into a deep learning classifier. Therefore, in Case 
+II,  we  tested  a  two-branch  CNN  that  receives  two  inputs,  namely  a 
+spectrogram and the associated metadata as second input (Fig. 3). We 
+had  to  encode  the  metadata  in  a  manner  that  would  enable  it  to  be 
+processed  by  the  CNN.  Thus,  we  assigned  a  unique  number  to  each 
+country used in this study (n = 28) and converted the number into a 
+one-hot encoded vector. This encoding signifies a binary vector repre-
+sentation of categorical variables, in which the position of the number 1 
+in the vector corresponds to the index of the associated variable, and the 
+remaining values are assigned to 0. We used the same architecture from 
+Case I for the main CNN branch which takes spectrogram input. For the 
+second metadata input branch, we concatenated the one-hot encoded 
+vectors  with  the  flattened  output  of  the  convolution  layers  from  the
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What methods are utilized for collecting raw data in the deep learning pipeline (e.g., surveys, sensors, public datasets)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, the given context does not provide specific details on the methods used for collecting raw data in the deep learning pipeline. However, based on general practice, common methods for gathering raw data include using sensors or devices to capture real-time data, conducting surveys or experiments to gather human responses, or utilizing publicly available datasets. In some cases, researchers may also use web scraping techniques to extract data from websites or APIs. Without more specific information about the research being conducted, it is difficult to determine exactly how the data was collected in this case.

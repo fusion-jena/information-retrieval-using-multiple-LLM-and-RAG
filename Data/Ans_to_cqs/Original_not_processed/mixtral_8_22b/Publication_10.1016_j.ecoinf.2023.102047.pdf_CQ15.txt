@@ -1,0 +1,63 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Recently,  attention  has  focused  on  machine  learning  and  deep- 
+learning algorithms to achieve these goals. Deep learning is a branch 
+of machine learning and uses algorithms inspired by the function and 
+structure of neural networks in the human brain (LeCun et al., 2015). An 
+important  part  of  machine  learning  is  feature  engineering,  which  in-
+creases  accuracy  and  requires  expertise  in  the  specific  domain  of  the 
+problem. The deep learning approaches can perform feature engineering 
+independently  by  itself  (Goodfellow  et  al.,  2016;  Jalali  et  al.,  2022). 
+Deep-learning are providing state-of-the-art performances of computer 
+vision tasks such as classification, detection or segmentation (Kamilaris 
+and Prenafeta-Boldu, 2018; Pouyanfar et al., 2018).
+
+image,  and  the  produced  feature  maps  are  cropped  upon  the  object 
+proposal. An RoI pooling layer is applied to extract a fixed length vector. 
+This  feature  vector  is  processed  through  fully  connected  networks  to 
+predict class probabilities and refine the bounding boxes. Faster R-CNN 
+(Ren et al., 2015) is the most popular object detection algorithm. In the 
+Faster R-CNN model, the input images are fed into a CNN, which pro-
+duces feature maps from the input images. A different neural network, 
+RPN, is applied to predict the candidate bounding boxes. RoI pooling 
+layers are applied to reshape the inputs. These properties render these 
+two-stage  detectors  superior  to  one-stage  detectors.  Among  the  two- 
+stage  detector,  EfficientDet  (Tan  et  al.,  2020)  architecture  is  gaining 
+popularity owing to its excellent detection performance as  well as its 
+relatively lower FLOPS (floating point operations per second) than in 
+other object detection models.
+
+0.3464  on  the  ECUHO-1  and  ECUHO-2  datasets  respectively.  More 
+recently, Noman et al. (Noman et al., 2021b) proposed using Faster R- 
+CNN with the NASNet model and achieved the highest mAP of 0.291 and 
+0.412 on these H. ovalis datasets respectively.
+
+Our proposed detector-2 was based on EfficientDet-B7. EfficientDet 
+frameworks are well optimised with the input image sizes of 512, 640, 
+768,  896,  1024,  1280,  1280,  and  1536  for  the  family  network 
+EfficientDet-D0 to EfficientDetD7, respectively. These optimised image 
+sizes achieved the highest accuracy on the ImageNet dataset. We set up 
+the model config file with a class number 1, image size of 1536 × 1536, 
+batch size of 16, initial learning rate of 2e3, momentum optimiser value 
+of 0.5 and step number of 400,000. We also monitored the validation 
+loss  using  early  stopping  during  training  for  every  epoch.  We 
+consciously monitored the validation accuracy to stop overfitting and 
+overtraining  with  a  patience  of  20.  We  have  used  TensorFlow  object 
+detection  API.  First,  we  downloaded  the  pre-trained  EfficientDet-D7 
+model weight from the TensorFlow-2 object detection model zoo page.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not explicitly mention any specific optimization technique like Stochastic Gradient Descent (SGD), Adam, etc. However, it does indicate that a momentum optimizer was used with a value of 0.5. This suggests that some form of gradient descent optimization was employed, possibly a variant of SGD with momentum. Additionally, the use of early stopping and monitoring validation loss/accuracy implies strategies to prevent overfitting and improve generalization. But without explicit mention, we cannot definitively say what exact optimization techniques were used beyond the mentioned momentum optimizer.

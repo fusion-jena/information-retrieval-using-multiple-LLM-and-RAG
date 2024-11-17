@@ -1,0 +1,63 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.1. Data filtering
+
+using 
+
+The  first  step  (data  filtering)  involves  data  acquisition  and  masks 
+application  (Fig.  1).  From  the  EECE,  users  can  retrieve  the  EOS  data 
+catalogue  from  the  GEE  online  repository  (https://developers.google. 
+com/earth-engine/datasets/), 
+ee.ImageCollection() 
+constructor. Constructor arguments must also be included, such as fil-
+terDate, which limits the collection to a selected period, and the inner 
+clip function that cuts it within a specific study area extent. The identi-
+fied  public  image  series  (time  series)  may  be  preprocessed,  but  also 
+undergo the previously mentioned QA bands-based masking processes 
+for each satellite, through optionally implementable masking functions 
+(in yellow as depicted below). 
+
+the
+
+Diversely, temporal scaling relies on information extraction of met-
+rics time series from ground-based observations (the ‘pts’ object previ-
+ously  defined)  (Fig.  1).  Within  the  ExtractedData  function  depicted 
+below,  users  may  first  configure  the  size  of  the  temporal  window 
+through a data interval score (e.g. 3) and a time unit (e.g. days, months, 
+etc.), and then define an aggregation formula (e.g. mean). Specifically, 
+the  timestamps  of  the  observations  are  recorded  and  a  date  range  is 
+associated  with  each  observation.  These  date  ranges  are  then  used 
+repeatedly to filter and aggregate portions of the time series, allowing 
+the  ground-data  vector  to  extract  pixel  statistics,  by  using  the 
+constructor reduceRegion(). 
+
+2.7. Worfklow applicability
+
+under study. Also, data scaling may be particularly useful for gap-filling 
+operations,  offering  opportunities  to  avoid  missing  information  within 
+extracted  data.  Briefly,  by  increasing  the  spatio-temporal  scale  around 
+ground  observations,  users  may  ensure  higher  chances  of  avoiding 
+missing  data,  through  the  aggregation  of  spatio-temporal  information 
+within moving windows (Fig. 1). However, this implies also a decrease in 
+data-matching  accuracy  (Fig.  1).  Key  decisions  and  trade-offs  must  be 
+therefore made when extracting spatio-temporal multiscale data, possibly 
+involving  particular  strategic  decisions  to  overcome  eventual  imple-
+mentation constraints (see the Supplementary information S1.2 section). 
+
+2.4. Worfklow replicability
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough context provided to accurately answer the query about what criteria are used to determine when training is complete. In machine learning, common criteria include reaching a certain number of epochs or iterations, achieving a desired level of performance on a validation set, or observing a plateau in the validation loss. However, without more specific details about the workflow or model being trained, I cannot provide a definitive answer.

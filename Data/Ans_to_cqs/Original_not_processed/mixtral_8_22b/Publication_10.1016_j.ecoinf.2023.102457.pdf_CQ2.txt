@@ -1,0 +1,65 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We used three different deep-learning architectures to extract em-
+beddings from the female calls. The first that we used, VGGish, is a CNN 
+based upon Configuration A of the VGG image classification model with 
+11 weight layers (Simonyan, 2015). VGGish was trained by Google to 
+perform  general-purpose  audio  classification  using  a  preliminary 
+version of the YouTube-8 M dataset (Abu-El-Haija et al., 2016). Once 
+trained,  the  final  classification  layer  was  removed  from  the  network, 
+leaving  a  128-dimensional  acoustic  feature  embedding  as  the  CNN 
+output. To input the sound files into the VGGish model, we converted 
+the  waveforms  to  Mel-spectrograms  (Rabiner  and  Schafer,  2010),  a 
+signal representation derived from the spectrogram that substitutes the 
+normal frequency scale with the nonlinear Mel scale, taken from 20th- 
+century  psychoacoustics  studies  that  explored  the  relationship  be-
+
+We expected higher performance of the embeddings, but a possible 
+limitation to our study may be the use of pre-trained CNNs. This may 
+have limited the potential performance of using embedding from neural 
+networks.  Interestingly,  higher  classification  accuracy was  seen  when 
+using  BirdNET,  a  CNN  trained  on  audio  data  of  bird  vocalizations  in 
+comparison  with  VGGish  and  Wav2Vec  2.0,  two  models  trained 
+respectively on a vast Youtube audio dataset and a human speech audio 
+dataset. This suggests that training a model with data input of gibbon 
+vocalizations might result in an even better performance of neural net-
+works for individual gibbon discrimination. However, such data training 
+requires a large dataset and is very computationally costly, hence why 
+we chose to test pre-trained CNNs.
+
+contribute  to  larger  data  input  for  future  training  of  deep  learning 
+models (Best  et  al., 2023).  Accordingly, the  rapid growth of  artificial 
+intelligence  and  deep  learning  methods  could  bring  about  important 
+innovations related to feature extraction and classification with the aim 
+of overcoming the current challenges halting the use of PAM for indi-
+vidual acoustic discrimination and succeeding in a sustained and non- 
+invasive monitoring of animal populations.
+
+tween  frequency  and  human  perceived  pitch  change  (Cheng  et  al., 
+2012). This method is different from MFCCs because a Fourier transform 
+is used, unlike MFCCs which are calculated using the Discrete Cosine 
+transform. Each audio sample was first downsampled to 16 kHz and was 
+then passed through a CNN from Google’s AudioSet project (Gemmeke 
+et al., 2019, Hershey et al., 2017) to generate 128 embeddings per 1-s of 
+audio.  We  calculated  the  mean  and  standard  deviation  for  each 
+embedding over the entire duration of the great call which resulted in a 
+256-length feature vector for each call. Feature extraction was done in 
+Python  3.10  following  installation  instructions  presented  in:  https 
+://github.com/tensorflow/models/blob/master/research/audioset/ 
+vggish/README.md.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning pipeline described in the given context uses audio data. Specifically, it converts the waveforms of the sounds into Mel-spectrograms, which is a signal representation derived from the spectrogram that substitutes the normal frequency scale with the nonlinear Mel scale. This conversion allows the audio data to be processed by the VGGish model, a convolutional neural network (CNN) based on Configuration A of the VGG image classification model. Additionally, the pipeline also mentions using a CNN from Google’s AudioSet project to generate embeddings per second of audio. Therefore, the data format used in this deep learning pipeline is primarily audio data.

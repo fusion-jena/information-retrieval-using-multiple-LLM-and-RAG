@@ -1,0 +1,96 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.2.2. Transfer learning based on YAMNet 
+
+The second algorithm exploits the representation extracted from a 
+deep neural network, i.e. YAMNet, which is pre-trained on data coming 
+from 521 classes. Interestingly, YAMNet follows the MobileV1 convo-
+lution architecture and is trained on the AudioSet-YouTube corpus (Shor 
+et  al.,  2020).  Towards  using  YAMNet,  the  audio  data  is  processed  as 
+follows:  
+
+1.  The audio is converted to a monophonic channel and resampled at 
+
+16 kHz.  
+
+2.  The spectrogram is extracted and created using STFT magnitudes of 
+
+25 ms overlapped by 15 ms.  
+
+3.  The Mel spectrogram is calculated by mapping to 64 bins of the Mel 
+
+scale within the range of 125–7500 Hz.  
+
+4.  Finally, the algorithm is applied and its outcome is passed to YAMNet 
+
+model for extracting the embeddings.
+
+model for extracting the embeddings. 
+
+These are pulled from YAMNet and then fed as input to a sequential 
+and  a  reduce  mean  layer  mapping  to  the  classes  mentioned  above 
+(Ntalampiras et al., 2021). At this point, the final layers of the network 
+map the YAMNet embeddings to the available labels as shown in Fig. 5. 
+
+3.3. Results on goat vocalization detection 
+
+The  dataset  presented  in  Section  3.2  was  divided  into  70%  for 
+training, 10% for validation, and 20% for testing purposes. The division 
+was  kept  the  same  when  experimenting  with  RF  and  YAMNet-based 
+
+3  The 
+
+librosa  python  package  available  at  https://librosa. 
+
+org/doc/latest/index.html was employed at this stage 
+
+Fig. 3. A close-up picture of a Sensortile.
+
+Since  the  available  files  are  of  different  lengths,  we  employed  a 
+sliding window with an overlap of 50% so that it was possible to divide 
+the available audio into fragments of the same size during both training 
+and testing. The overlap was required in order not to lose potentially 
+important information existing on the edges of the window. On top of 
+that, there are a plethora of cases where more than one classes exist in a 
+single file as outputted by the AAD algorithm. The highest performance 
+was obtained with a sliding window lasting 2 s. As regards the RF, the 
+number of trees was set equal to 500 after an optimization phase con-
+sisting  of  a  grid  search  within  the  set  {5,10,25,50,100,500,1000}. 
+Interestingly, the algorithm’s predictions are used to count the number 
+of bleatings existing in a specific audio file towards characterizing their 
+activities. 
+
+3.2.2. Transfer learning based on YAMNet
+
+Fig. 3. A close-up picture of a Sensortile.  
+
+only  bleats  so  that  the  detection  algorithm  elaborates  on  the  specific 
+audio structure alone. After constructing the initial dataset, we devel-
+oped  two  solutions  for  detecting  goat  vocalizations:  a)  one  based  on 
+handcrafted features and a traditional machine learning algorithm, and 
+b)  one  relying  on  the  deep  network  YAMNet  designed  to  facilitate 
+generalized sound recognition applications. 
+
+3.2.1. Traditional machine learning 
+
+In the first algorithm, the detection of goat vocalizations is based on a 
+wide  variety  of  temporal  and  spectral  audio  features  (Mel-Frequency 
+Cepstral  Coefficients,  Root  Mean  Square,  Spectral  Centroid,  Spectral 
+Bandwidth, Spectral Rolloff, and Zero crossing rate (Alas et al., 2016; 
+Ntalampiras  et  al.,  2020))  which,  after  early  experimentations,  have
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, no explicit mention of any optimization technique such as Stochastic Gradient Descent (SGD), Adam, or others is made in relation to the deep learning pipeline. However, it does state that the number of trees in Random Forest (RF) was optimized through a grid search within a specified set. This indicates that some form of hyperparameter tuning was performed, but it doesn't provide details about the optimization techniques used specifically for the deep learning model. Therefore, without additional context, I cannot definitively determine what optimization techniques were applied in the deep learning pipeline.

@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Remote Sens. 2021, 13, 3284
+
+9 of 17
+
+A Convolutional Neural Network (CNN) is a type of deep learning-based model for
+processing multidimensional data that follows a grid pattern [60]. The model is developed
+in such a way that the algorithm learns and adapts to the spatial hierarchies of features by
+itself from the lower to the higher levels of the pattern. Mathematically, it is composed of
+three layers or building blocks: convolution, pooling, and fully connected layers. Feature
+extraction is conducted using the ﬁrst two layers and mapping the extracted features to the
+output is conducted by the third layer.
+
+Convolution is used for feature extraction, in which a kernel is applied to an input
+tensor. A feature map is thus obtained through the product of kernel elements and tensor
+input. The procedure is then repeated on multiple kernels to obtain random feature maps
+that represent different feature extractors. The hyperparameters involved in convolution
+operations are the size and number of kernels. The size could be anything from 3 × 3 to
+5 × 5 to 7 × 7, and the kernel could be chosen randomly.
+
+Network (CNN) architecture is proposed, designed, and tested, which eventually gave much better
+accuracy than the BIOCLIM model. Both of the models were given 16 input parameters, including
+ecological and atmospheric variables, which were statistically resampled and were then utilized
+in establishing the linear and nonlinear relationship to better ﬁt the occurrence scenarios of the
+species. The input parameters were mostly acquired from the recent satellite missions, including
+MODIS, Sentinel-2, Sentinel-5p, the Shuttle Radar Topography Mission (SRTM), and ECOSTRESS.
+The performance across all the thresholds was evaluated using the value of the Area Under Curve
+(AUC) evaluation metrics. The AUC value was found to be 0.917 with CNN, whereas it was 0.68
+with BIOCLIM, respectively. The performance evaluation metrics indicate the superiority of CNN for
+species distribution over BIOCLIM.
+
+A pooling layer offers downsampling functionality that decreases the dimensionality
+of the feature maps to achieve translation invariance to the alterations and the biases
+incorporated and thus helps in reducing the number of learnable parameters. There are
+two types of pooling operations, namely Max Pooling and Global Average Pooling [64].
+The ﬁrst one extracts speckles from the input feature maps and offers maximum values
+in each of the speckles and leaves the remaining values unattended. The second one
+downsamples a feature map with a size equaling product of height and width into an array
+of a one cross one by averaging the elements of each feature map by retaining the depth of
+the feature map. The advantage of Global Average Pooling lies in reducing the number of
+learnable parameters along with offering the CNN with variable sized input.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Unfortunately, the provided context does not explicitly mention the criteria used to split the data for deep learning model training, such as splitting the data into training, testing, and validation sets. However, I can provide some general information about this topic.
+
+In machine learning and deep learning, it is common practice to divide the available dataset into three subsets: training set, validation set, and test set. This division allows us to evaluate the performance of our model more accurately and prevent overfitting. Here are some commonly used criteria for splitting the data:
+
+1. Random sampling: In this method, we randomly select samples from the entire dataset to create the training, validation, and test sets. This ensures that each subset has a similar distribution of classes or labels.
+
+2. Stratified sampling: When dealing with imbalanced datasets, where certain classes have significantly fewer examples compared to others, stratified sampling can help maintain class proportions in each subset. This involves dividing the data based on the proportion of each class present in the original dataset.
+
+3. Time series split: For time-dependent data, such as stock prices or weather forecasting, it is essential to preserve temporal dependencies when creating the subsets. One approach is to use a sliding window technique, where the initial window contains only training data, followed by windows containing both training and validation data, and finally, a window containing only test data.
+
+4. Cross-validation: To ensure robustness and reduce bias, cross-validation techniques like K-fold cross-validation can be employed. In this method, the dataset is divided into 'K' folds, and the model is trained and validated 'K' times, each time using a different fold as the validation set while keeping the rest as the training set. The average performance across all iterations provides a reliable estimate of the model's true performance.

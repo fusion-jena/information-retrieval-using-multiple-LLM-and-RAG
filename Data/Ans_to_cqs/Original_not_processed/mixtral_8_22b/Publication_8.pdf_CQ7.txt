@@ -1,0 +1,97 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+This   rising   number   of   digitised   herbarium   sheets   provides   an   opportunity   to   employ
+computer-based   image   processing   techniques,   such   as   deep   learning,   to   automatically
+identify species and higher taxa (Carranza-Rojas et al. 2017, Younis et al. 2018, Carranza-
+Rojas   et   al.   2018)   or   to   extract   other   useful   information   from   the   images,   such   as   the
+presence   of   pathogens   (as   done   for   live   plant   photos   by   Mohanty   et   al.   2016).   Deep
+learning is a subset of machine learning methods for learning data representation. Deep
+learning   techniques   require   huge   amounts   of   training   data   to   learn   the   features   and
+representation of those data for the specified task by fine tuning parameters of hundreds or
+thousands of neural networks, arranged in multiple layers. Learning the value of these
+parameters can take vast computer and time resources, especially on huge datasets.
+
+Due to the large image size and additional parameters of Faster R-CNN, a minibatch size
+of four images per GPU (TITAN Xp) was selected for training the model. The model was
+trained   twice,   once   with   a   training   subset   of   498   images   on   a   single   GPU   for   9000
+iterations and performance evaluated on the test subset of 155 images, also on a single
+GPU   and   then   trained   again   on   all   653   annotated   images   on   three   GPUs   for   18000
+iterations   for   predicting   plant   organs   on   another   un-annotated   independent   dataset   to
+evaluate   our   method.   This   dataset   consists   of   708   full   scale   herbarium   scans,   with   an
+average  size of  ca. 9600  by  6500  pixels,   from  the   Herbarium  Senckenbergianum  (FR)
+(Otte et al. 2011) with a different set of species (Fig. 2) and geographical origins, which is
+also available at GBIF (Senckenberg 2020). The Python code and the trained model have
+
+3942
+
+1343
+
+10
+
+4284
+
+138
+
+19654
+
+Figure 2. 
+
+Number of taxa of different rank for the three datasets with overlaps at family, genus and
+species level. P(Tr), P(Te): MNHN Paris Herbarium training and test datasets, FR: Herbarium
+Senckenbergianum dataset.
+
+ 
+ 
+ 
+6
+
+Younis S et al
+
+Figure 3. 
+
+A column chart showing the number of annotated bounding boxes for each organ. Red: Test
+subset, Blue: Training subset.
+
+Figure 4. 
+
+Families of labelled specimens (ordered by number of specimens) with number of labelled
+plant organs. The share of the plant organs differs between families, which may be due to
+factors depending on the plant itself and collecting habits (season, selection of identifiable
+specimens).
+
+ 
+ 
+ 
+ 
+ 
+ 
+Detection and annotation of plant organs from digitised herbarium scans ...
+
+7
+
+The most common type of deep learning network architecture being used for extracting
+image   features   is   the   Convolutional   Neural   Network   (CNN)   (LeCun   and   Bengio   1995).
+A convolutional neural network extracts the features of an image by passing through a
+series of convolutional, non-linear, pooling (image downsampling) layers and passes them
+to a fully connected layer to obtain the desired output. Each convolutional layer extracts the
+visual features of the image by applying convolution operations to the image with kernels,
+using a local receptive field, to produce feature maps and passing it as input to the next
+layer. The initial layers in the network compute primitive features on the image, such as
+corners   and   edges,   the   deeper   layers   use   these   features   to   compute   more   complex
+features consisting  of curves and  basic  shapes  and  the   deepest   layers  combine  these
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, the data was split into two subsets for training and testing purposes. For the first round of training, a subset of 498 images was used for training the model on a single GPU for 9000 iterations. Afterward, the performance of the model was evaluated using a separate test subset containing 155 images, also performed on a single GPU. In the second round of training, all 653 annotated images were utilized to train the model on three GPUs for 18000 iterations. However, the specific criteria used to divide the data into these subsets are not explicitly mentioned in the provided context. Typically, when splitting data for deep learning models, one might consider factors like ensuring a balanced distribution of classes across both sets, maintaining a certain ratio between the sizes of the training and test sets, and avoiding any overlap between the samples used for training and testing.

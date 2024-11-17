@@ -1,0 +1,97 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The last step in configuring the model involves feeding in predictors 
+that  the  advanced  deep  learning  algorithm  feeds  by  the  decomposed 
+components  resulting  from  the  previous  steps.  The  primary  model  is 
+CNN-BiGRU  with  three  comparative  ML  methods  (KELM,  RVFL  and 
+CNN-BiRNN),  which  provide  four  complementary  models  including 
+MVMD-CNN-BiGRU,  MVMD-RVFL,  MVMD-KELM  and  MVMD-CNN- 
+BiRNN.  These  models  are  used  to  create  the  multi-temporal  fore-
+casting model of daily streamflow (Qflow). Setting hyperparameters and 
+their structural architecture is the most important aspect of executing 
+ML-based  predictive  models  (Jamei  et  al.,  2023b).  Based  on  recent 
+research, the main approaches to tuning parameters are algorithms of 
+metaheuristic optimization, schemes of cross-validation schemes (Nes-
+ted/rolling  basis  cross-validation)  (Huyghues-Beaufond  et  al.,  2020),
+
+Fig. 5 depicts the basic framework of the CNN, which consists of an 
+input layer, multiple convolution layers, multiple pooling layers, a fully 
+connected  layer,  and  an  output  layer,  with  the  convolutional  and 
+pooling layers alternately connected. The CNN feature extraction mod-
+ule  is  comprised of  the  input  layer,  the  convolutional layers,  and  the 
+pooling layers. The output module comprises the connected and output 
+layers (Guo et al., 2023). 
+
+CNN’s  core  consists  of  the  convolutional  layer,  in  which  the  con-
+volutional kernel Cj  is utilized to extract features. The precise calcula-
+tion formula is depicted in Eq. (12). 
+
+Cj = act
+
+)
+
+Ai⨂wi + bi
+
+(
+
+∑N
+
+i=1
+
+(14) 
+where Ai  is the input of the convolutional layer; ⨂ is the convolu-
+tional  operation;  act  is  the  activation  function,  and  the  activation 
+function  is  chosen  as  a  Rectified  linear  unit  (Relu);  wi  is  the  weight 
+matrix and bi  is the bias deviation.
+
+et al., 2023). Table 3 represents the optimal hyperparameters related to 
+the complementary models for -one and -three days ahead forecasting 
+the streamflow in Bear and Winter Rivers of PEI. The important hyper-
+parameters  for  CNN-BiGRU  are  listed  in  Table  3,  including  the  CNN 
+Layers,  BiGRU  Layers,  kernel  parameter,  Adam,  activation  function, 
+CNN  filters,  epochs,  and  learning_rate.  It  is  worth  mentioning that  to 
+prevent cumulative errors caused by the multiscale decomposition of the 
+
+decomposed signals and convergence improvement, all inputs and target 
+parameters are normalized between 0 and 1 by the following formula-
+tion (Jamei et al., 2022a): 
+
+Xnorm =
+
+X (cid:0) Xmin
+Xmax (cid:0) Xmin
+
+(37)
+
+A critical characteristic of the Convolutional Neural Network (CNN) 
+model is its training phase’s simplicity, which can be achieved by using a 
+smaller amount of weights compared to the fully connected architecture. 
+In addition, it allows the extraction of key features (Guo et al., 2023). 
+
+2.6.2. Bidirectional Gated Recurrent Unit (Bi-GRU) 
+
+The  Gated  Recurrent  Unit  (GRU)  was  a  sort  of  RNN  that  worked 
+analogously to that of the Long Short-Term Memory (LSTM) network. To 
+control gradient disappearance and gradient explosion in conventional 
+RNN  models, GRU  was  first implemented  in  2014  (Cho  et  al., 2014). 
+GRU  can  mitigate  the  gradient  vanishing  issue  in  RNN,  decrease  the 
+number of LSTM parameters, and reduce the training period (Niu et al., 
+2022). The GRU algorithm may be described as follows: The memory 
+cell  of  GRU  primarily  consists  of  two  types  of  gates:  reset  gates  and 
+update gates. The linkage relationship formulas are:
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, there isn't any explicit mention of specific data formats such as images, audio, video, or CSV files being used in the deep learning pipeline. However, we do see that the primary model used is CNN-BiGRU, which suggests that the data might be in a format suitable for processing through Convolutional Neural Networks (CNNs). Typically, CNNs are employed for tasks involving grid-like topology data, like time series analysis, image recognition, and natural language processing. Therefore, it could be inferred that the data used in this case might be either time series data or image data. Nonetheless, without further details about the nature of the problem or the dataset, it would not be possible to definitively state what type of data format is being used in the deep learning pipeline.

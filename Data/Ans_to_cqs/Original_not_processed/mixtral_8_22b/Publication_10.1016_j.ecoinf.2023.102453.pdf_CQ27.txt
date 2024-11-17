@@ -1,0 +1,71 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.2. Process flow 
+
+This study has two perspectives, model training and development on 
+a high-end computer, and the model deployment to an edge device, as 
+shown in Fig. 3. The training dataset could be pre-processed, such as 
+denoising,  contrast  enhancement,  and  image  resizing.  We  only  used 
+image re-sizing to make the images suitable for the input image reso-
+lution required for the selected models. 
+
+After a model has been trained, it needs to be validated and tested to 
+confirm that it has achieved the desired performance. The performance 
+might  be  measured  using  different  metrics,  such  as  classification 
+
+Table 2 
+The class distribution in the Extinction dataset.  
+
+Class 
+
+Number of images
+
+Neural architecture search (NAS) was used for developing the Effi-
+cientNetV2B0 model, and for the optimization of parameter efficiency 
+and  training  speed  (Tan  and  Le,  2021).  The  model  performance  was 
+improved  using  progressive  learning  to  adapt  regularization  to  the 
+image size (Tan and Le, 2021). EfficientNetV2 is a family of models (B0 
+to B7), and B0 is the smallest variant in the family (Keras, n.d), with the 
+other  models  progressively  increasing  in  performance  going  up  to 
+EfficientNetV2B7.
+
+3.5. Hyperparameter optimization 
+
+The model training process determines the values for the trainable 
+parameters  of  a  model,  e.g.,  Table  4 shows  the  size  of  the  model pa-
+rameters. In addition, a DNN model also has other parameters that need 
+to be selected, e.g., batch size, that determines the model performance. 
+The  model  parameters  define  the  model  and  are  termed  as  hyper-
+parameters. Each hyperparameter has a range of values, from which an 
+optimum  selection  can  improve  the  model  performance.  The  model 
+hyperparameters could be in hundreds, presenting a very large search 
+space, but these differ in their relative importance. The common ones for 
+a DNN are learning rate, batch size, and dropout.
+
+For model deployment to an edge device, e.g., RPi, the model needs 
+to be converted to the TensorFlow Lite format, which although reduces 
+its size, but also reduces the model’s accuracy. The model can then be 
+used on an edge device for classification of as yet unseen images. The 
+TensorFlow or TensorFlow Lite model may also optionally be optimized 
+for size, or latency depending on the application requirements and the 
+edge device specifications. The RPi or similar edge devices can also be 
+used to  run XAI  techniques such as  Grad-CAM  for generating  visuali-
+zations through heatmaps. 
+
+3.3. Transfer learning approaches for image classification
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To deploy the trained deep learning model, the first step involves converting the model into the TensorFlow Lite format. This conversion is necessary because it allows the model to be compatible with edge devices like the Raspberry Pi (RPi). However, this conversion might lead to a reduction in the model's size and potentially its accuracy. Once the model is converted, it can be utilized on an edge device for classifying new, previously unseen images. Additionally, there is an optional step where the TensorFlow or TensorFlow Lite model can be further optimized based on the specific requirements of the application and the capabilities of the edge device. This optimization can focus on either reducing the size of the model or improving its latency. Furthermore, edge devices such as the RPi can also be employed to execute Explainable AI (XAI) techniques, such as Grad-CAM, to generate visualizations via heatmaps.

@@ -1,0 +1,121 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Experiments and results
+All experiments measured the top-1 and top-5 accu-
+racy of the trained deep learning model under different
+circumstances, i.e., herbarium specimens classification
+(“Herbarium specimen classification” section, Table 3),
+transfer learning across herbarium data from differ-
+ent regions (“Cross-Herbaria transfer learning” section,
+Table 4), and transfer learning from herbarium data to
+non-dried plant images (“Transfer learning from herbar-
+ium to non-dried plant images” section, Table 5).
+
+For each of these experiments, table columns are
+
+defined as follows:
+
+very beginning the weights of ImageNet were used.
+For example, H1KI.PC.PC means the transfer
+learning was progressive, done from ImageNet, to
+Herbarium1K, to PlantCLEF, and tested with
+PlantCLEF data.
+
+• Initialization: weights used to initialize the model.
+• Training: training set used (e.g., Herbarium255
+
+training set, PlantCLEF training set, etc.)
+
+• Testing: test set used (e.g., Herbarium255 test set,
+
+PlantCLEF test set, etc.)
+
+• Top-1/Top-5: accuracy achieved with top-1 and
+
+top-5 best predictions, respectively.
+
+no collector was shared by the training and testing sets
+to avoid bias in the data. The following four experiments
+were conducted:
+
+• R.H255.H255: The neural network was initialized
+
+randomly, trained on the Herbarium255 training set
+(70%), and tested on the Herbarium255 test set (30%).
+
+Vanhoucke V, Rabinovich A. Going deeper with convolutions. In: 2015
+IEEE Conference on Computer Vision and Pattern Recognition (CVPR).
+Boston: IEEE Conference; 2015. p. 1–9. doi:10.1109/CVPR.2015.7298594.
+Ioffe S, Szegedy C. Batch normalization: Accelerating deep network
+training by reducing internal covariate shift. CoRR. 2015. abs/1502.03167.
+[Online]. Available http://arxiv.org/abs/1502.03167.
+
+35.
+
+37.
+
+36. He K, Zhang X, Ren S, Sun J. Delving deep into rectifiers: Surpassing
+human-level performance on imagenet classification. CoRR. 2015.
+abs/1502.01852. [Online]. Available http://arxiv.org/abs/1502.01852.
+Jia Y, Shelhamer E, Donahue J, Karayev S, Long J, Girshick R,
+Guadarrama S, Darrell T. Caffe: Convolutional architecture for fast feature
+embedding. In: Proceedings of the 22Nd ACM International Conference
+on Multimedia. New York: ACM; 2014. p. 675–8.
+doi:10.1145/2647868.2654889.
+
+38. Mata-Montero E, Carranza-Rojas J. Automated plant species
+
+119M
+
+170M
+
+1072K
+
+54M
+
+1388K
+
+71M
+
+1000K
+
+1M
+
+the network. Therefore, a common practice is to initialize
+the network by pre-training it on a big available dataset
+and then fine-tune it on the scarcer domain-specific data.
+Concretely, the methodology we used in our experiment
+for transferring knowledge from dataset A to dataset B is
+the following:
+
+1. The network is first trained from scratch on dataset
+A by using a multinomial logistic regression on top
+of the SOFTMAX layer and the linear classification
+layer.
+
+2. The linear classification layer used for dataset A is
+then replaced by a new one aimed at classifying the
+classes in B. It is initialized with random weights.
+
+3. The other layers are kept unchanged so as to
+
+initialize the learning of dataset B with the weights
+learned from A.
+
+4. The network is trained on the images in B.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information about the specific hardware resources used for training the deep learning models. However, based on general practices in deep learning research, it can be assumed that GPU acceleration would have been utilized due to its efficiency in handling large datasets and complex computations involved in training deep learning models. Additionally, the use of libraries such as Caffe mentioned in the references also suggests the possibility of GPU usage since Caffe supports GPU computation. Nevertheless, without explicit mention or details regarding the hardware resources used, this remains an assumption.

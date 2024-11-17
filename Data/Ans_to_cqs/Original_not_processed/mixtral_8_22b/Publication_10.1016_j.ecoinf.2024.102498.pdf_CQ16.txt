@@ -1,0 +1,83 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+5.3.6. Classification accuracy assessments
+
+dictions to the total number of positive predictions. This metric indicates 
+the  proportion  of  positive  predictions  correctly  classified  as  positive. 
+Recall  shows  the  proportion  of  truly  positive  cases  that  the  model 
+correctly identified among all the actual positive cases. The F1 score is a 
+geometric mean of both precision and recall criteria. This metric offers a 
+more robust evaluation, mainly when there is an imbalance in the data 
+distribution  among  classes.  Each  metric  mentioned  above  provides 
+unique insights into the model's performance. Consequently, conducting 
+a comprehensive review of these metrics contributes to a more precise 
+evaluation of the overall performance of the model.
+
+Due to processing limitations in GEE, it is impossible to utilize many 
+samples and automate hyperparameter tuning. To fill this gap and avoid 
+overfitting,  the  validation  data  were  employed  for  tuning  the  key 
+hyperparameters for each model. Table 3 presents the hyperparameters 
+set for each model during training and validation. 
+
+5.3.2. Pixel-based approach 
+
+The  pixel-based  classification  approach  relies  on  the  spectral 
+
+Table 3 
+Hyperparameters were set for each machine learning technique within the GEE 
+platform.  
+
+Model 
+
+CART   
+
+RF   
+
+GTB   
+
+SVM   
+
+Hyperparameters 
+
+• Max nodes: No limit  
+• Min leaf population: 1 
+
+• Number of trees: 264  
+• Bag fraction: 0.5  
+• Variables per split: Root of the number of variables 
+
+• Number of trees: 20  
+• Shrinkage: 0.005  
+• Sampling rate: 0.7  
+• Loss: Least absolute deviation 
+
+• Kernel type: RBF  
+• SVM type: C_SVC  
+• Decision procedure: Voting
+
+5.3.1. Classification algorithms in GEE 
+
+In this study, 33,209 samples were collected using a stratified sam-
+pling  approach.  Of  these,  70%  were  allocated  for  training,  and  the 
+remaining 30% were employed for testing. Hyperparameter tuning for 
+ML models was performed using validation data (10% of training data). 
+This  research  utilized  CART,  RF,  GTB,  and  SVM  models  as  classifiers 
+within GEE. 
+
+EcologicalInformatics80(2024)1024989M. Ganjirad and H. Bagheri
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, the specific criteria used to determine when training is complete, such as a validation loss plateau, are not explicitly stated. However, the text does mention that validation data were employed for tuning the key hyperparameters for each model. This suggests that some form of monitoring or assessment of the model's performance on the validation dataset occurred during the training process. Additionally, the table presenting the hyperparameters set for each model implies that certain parameters related to the structure and complexity of the models were predefined before training began. Therefore, while the exact stopping criterion for training is not specified, it can be inferred that the models were trained with consideration for their performance on the validation dataset and according to preset hyperparameters.

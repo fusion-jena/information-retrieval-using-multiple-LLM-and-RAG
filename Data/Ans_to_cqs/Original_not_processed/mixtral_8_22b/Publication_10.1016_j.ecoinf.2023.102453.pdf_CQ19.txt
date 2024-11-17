@@ -1,0 +1,67 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Neural architecture search (NAS) was used for developing the Effi-
+cientNetV2B0 model, and for the optimization of parameter efficiency 
+and  training  speed  (Tan  and  Le,  2021).  The  model  performance  was 
+improved  using  progressive  learning  to  adapt  regularization  to  the 
+image size (Tan and Le, 2021). EfficientNetV2 is a family of models (B0 
+to B7), and B0 is the smallest variant in the family (Keras, n.d), with the 
+other  models  progressively  increasing  in  performance  going  up  to 
+EfficientNetV2B7.
+
+The running of ResNet-18 (224 × 224) with TensorFlow Lite on RPi 3 
+was shown to take 4.03 s (Mathur and Khattar, 2019). TensorFlow Lite 
+with optimizations on latency and size of the trained model can provide 
+benefits, however, for RPi based implementations, it is useful to utilize 
+smaller models, such as MobileNet. This will have some loss in accuracy 
+compared to the larger models, such as ResNet-50 (Mathur and Khattar, 
+2019), but the benefit is a smaller model size and faster inferences on the 
+edge  device.  Similarly,  the  model  weights  can  be  quantized  for  the 
+models to have a significant reduction in memory usage compared to the 
+floating-point models (Cunha et al., 2021), however, this would also be 
+accompanied by some loss in the model's accuracy. 
+
+A  camera  trap  with  energy  harvesting  could  be  always  on  for 
+continuous  video  monitoring  to  determine  real-time  events,  with  an
+
+For model deployment to an edge device, e.g., RPi, the model needs 
+to be converted to the TensorFlow Lite format, which although reduces 
+its size, but also reduces the model’s accuracy. The model can then be 
+used on an edge device for classification of as yet unseen images. The 
+TensorFlow or TensorFlow Lite model may also optionally be optimized 
+for size, or latency depending on the application requirements and the 
+edge device specifications. The RPi or similar edge devices can also be 
+used to  run XAI  techniques such as  Grad-CAM  for generating  visuali-
+zations through heatmaps. 
+
+3.3. Transfer learning approaches for image classification
+
+3.5. Hyperparameter optimization 
+
+The model training process determines the values for the trainable 
+parameters  of  a  model,  e.g.,  Table  4 shows  the  size  of  the  model pa-
+rameters. In addition, a DNN model also has other parameters that need 
+to be selected, e.g., batch size, that determines the model performance. 
+The  model  parameters  define  the  model  and  are  termed  as  hyper-
+parameters. Each hyperparameter has a range of values, from which an 
+optimum  selection  can  improve  the  model  performance.  The  model 
+hyperparameters could be in hundreds, presenting a very large search 
+space, but these differ in their relative importance. The common ones for 
+a DNN are learning rate, batch size, and dropout.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The text does not explicitly mention which framework was used to build the deep learning model. However, there are several references to TensorFlow throughout the text. For instance, it mentions that the model can be converted to TensorFlow Lite format for deployment on an edge device like Raspberry Pi. It also discusses how TensorFlow Lite can be optimized for latency and size of the trained model. Additionally, it notes that TensorFlow or TensorFlow Lite models can be used to run explainability techniques such as Grad-CAM. Therefore, while it cannot be definitively stated without more information, it appears likely that TensorFlow was used to build the deep learning model.

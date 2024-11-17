@@ -1,0 +1,92 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1. Training parameters used in DeepLabV3+.
+
+Training Parameter
+
+Value
+
+Learning policy
+Base learning rate
+Learning rate decay factor
+Learning rate decay step
+Learning power
+Training number of steps
+Momentum
+Train batch size
+Weight decay
+Train crop size
+Last layer gradient multiplier
+Upsample logits
+Drop path keep prob
+tf_initial_checkpoint
+initialize_last_layer
+last_layers_contain_logits_only
+slow_start_step
+slow_start_learning_rate
+ﬁne_tune_batch_norm
+min_scale_factor
+max_scale_factor
+scale_factor_step_size
+atrous_rates
+output_stride
+
+Poly
+0.0001
+0.1
+2000
+0.9
+≥100,000
+0.9
+2
+0.00004
+‘513,513’
+1
+True
+1
+deeplabv3_pascal_train_aug
+False
+True
+0
+1 × 10
+False
+0.5
+2
+0.25
+[6,12,18]
+16
+
+−4
+
+are input to the CNN model. For the case when RGB image bands are used, N is 3 and when the NIR band is included, N becomes 4. The CNN model has four convolutional layers and a fully connected layer with 100 hidden units. The CNN model structure is shown in Figure 5. The 3D convolution filters in the convolutional layers are set to 3 × 3 × N in the first convolutional layer, 3 × 3 × 20 in the second and third layers and to 1 × 1 × 100 in the fourth layer. The naming convention used for the convolutional layers in Figure 5 indicates the number of filters and the filter size. As an example, 20 @ 3 × 3 × N, in the first layer indicates 20 convolutional filters with a size of 3 × 3 × N. The stride in all four convolution layers is set to 1 (shown as 1 × 1 × 1) meaning the convolution filter is moved one pixel at a time in each dimension. When we designed the network, we tried different configurations for the number of layers and the size of each layer and selected the one that provided
+
+14 of 23
+
+including a NIR band in addition to the RGB bands. This is because in order to build a satisfactory
+model, not only a lot of training data are needed that include the NIR band in addition to RGB color
+images but also signiﬁcant GPU power that can conduct a proper training with batch sizes larger than 16.
+This is because, for eﬃcient model training, larger batch sizes are recommended in DeepLabV3+ [49].
+Moreover, the DeepLabV3+ architecture, which is originally designed for three input channels, RGB,
+needs to be adjusted accordingly to accommodate four-channel input images. With four-channel input
+images, the existing pre-trained models, which are for RGB, cannot be used directly and there is a need
+for training a model from scratch or at least modifying the DeepLabV3+ architecture such that only the
+weights for the newly added image bands can be learned and the weights of RGB input channels can
+be initialized by pre-trained model weights via transfer learning [41].
+
+work can be seen in Table 1. Table 1. Training parameters used in DeepLabV3+. Training Parameter Value Learning policy Poly Base learning rate 0.0001 Learning rate decay factor 0.1 Learning rate decay step 2000 Learning power 0.9 Training number of steps ≥100,000 Momentum 0.9 Train batch size 2 Weight decay 0.00004 Train crop size ‘513,513′ Last layer gradient multiplier 1 Upsample logits True Drop path keep prob 1 tf_initial_checkpoint deeplabv3_pascal_train_aug initialize_last_layer False last_layers_contain_logits_only True slow_start_step 0 slow_start_learning_rate 1e-4 fine_tune_batch_norm False min_scale_factor 0.5 max_scale_factor 2 scale_factor_step_size 0.25 atrous_rates [6,12,18] output_stride 16   Remote Sens. 2020, 12, 2502
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The paper uses a Convolutional Neural Network (CNN) model called DeepLabV3+. The CNN model has four convolutional layers and a fully connected layer with 100 hidden units. The 3D convolution filters in the convolutional layers have specific dimensions mentioned in the text. The naming convention used for the convolutional layers indicates the number of filters and the filter size. The stride in all four convolution layers is set to 1. The table provided shows various training parameters used in DeepLabV3+, including the base learning rate, learning rate decay factor, momentum, train batch size, weight decay, and others.

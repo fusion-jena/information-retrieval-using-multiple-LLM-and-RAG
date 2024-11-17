@@ -1,0 +1,70 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.5. Hyperparameter optimization 
+
+The model training process determines the values for the trainable 
+parameters  of  a  model,  e.g.,  Table  4 shows  the  size  of  the  model pa-
+rameters. In addition, a DNN model also has other parameters that need 
+to be selected, e.g., batch size, that determines the model performance. 
+The  model  parameters  define  the  model  and  are  termed  as  hyper-
+parameters. Each hyperparameter has a range of values, from which an 
+optimum  selection  can  improve  the  model  performance.  The  model 
+hyperparameters could be in hundreds, presenting a very large search 
+space, but these differ in their relative importance. The common ones for 
+a DNN are learning rate, batch size, and dropout.
+
+Hyperparameter  optimization  was  illustrated  with  only  a  single 
+dataset  and  one  hyperparameter.  Such  limited  explorations  could  be 
+useful unless the aim is to optimize a single model by considering all the 
+important model hyperparameters (Kuncheva et al., 2023). The hyper-
+parameter  tuning  was  shown  to  improve  the  model  performance 
+(Fig. 13) for the selected models. Only a single hyperparameter, that is, 
+the learning rate was optimized with hyperband and Bayesian Optimi-
+zation techniques. In actual practice, more hyperparameters would need 
+to  be  considered  to  design  an  optimized  model.  Another  factor  to 
+consider  is  that  different  models  have  different  number  and  types  of 
+hyperparameters,  and  trying  to  fully  optimize  each  will  require 
+considerable compute resources and time as the hyperparameter search 
+space would be large.
+
+5.3. Study uncertainties and limitations 
+
+The model evaluation was performed on two datasets which are in 
+comparison  much  smaller  to  the  ImageNet  dataset  used  for  the  pre- 
+trained  models.  Hence  the  proposed  techniques  of  fine  tuning  have 
+not been applied to the large datasets. However, the general rules pro-
+vided  in  section  3.3  for  selecting  a  particular  transfer  learning  (just 
+replacing the classification head vs. fine-tuning by training few or all 
+layers) can guide the implementation choice. The selection of an opti-
+mum model however  would  also  be governed by  experimentation, to 
+resolve uncertainty in the process.
+
+Neural architecture search (NAS) was used for developing the Effi-
+cientNetV2B0 model, and for the optimization of parameter efficiency 
+and  training  speed  (Tan  and  Le,  2021).  The  model  performance  was 
+improved  using  progressive  learning  to  adapt  regularization  to  the 
+image size (Tan and Le, 2021). EfficientNetV2 is a family of models (B0 
+to B7), and B0 is the smallest variant in the family (Keras, n.d), with the 
+other  models  progressively  increasing  in  performance  going  up  to 
+EfficientNetV2B7.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The context does not provide explicit information about the criteria used to split the data for deep learning model training into sets such as train, test, and validation. However, it is important to note that splitting the data is crucial for evaluating the performance of the model accurately. Commonly, the data is divided into three subsets: training set, validation set, and testing set.
+
+The training set is used to fit the model, i.e., adjust its weights and biases during the learning phase. The validation set is employed to tune the model's hyperparameters and prevent overfitting. Lastly, the testing set is utilized to evaluate the final performance of the trained model.
+
+Typically, the data is randomly split into these subsets, maintaining the same distribution across them. A commonly used ratio is 60/20/20 for the training, validation, and testing sets, respectively. However, this may vary depending on the specific requirements and constraints of the problem at hand. For instance, if there is a class imbalance in the data, stratified sampling might be preferred to ensure that each subset maintains the original class proportions.

@@ -1,0 +1,82 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+• Aperture: F/10  
+• ISO: 160  
+• Shutter speed: 1/15 s  
+• Focal Length: 55 mm  
+• White balance: “Incandescent” 
+
+2.3. Data splitting and image tiling
+
+ofmineervlieg/. Accessed: 1 June 2022.  
+
+Wang, R.J., et al., 2017. A crop pests image classification algorithm based on deep 
+
+convolutional neural network. Telkomnika (Telecommun. Comput. Electron. Contr.) 
+15 (3), 1239–1246. Available at: 10.12928/TELKOMNIKA.v15i3.5382. 
+
+Wang, C.Y., et al., 2020a. CSPNet: A new backbone that can enhance learning capability 
+of CNN. In: IEEE Computer Society Conference on Computer Vision and Pattern 
+Recognition Workshops, 2020-June, pp. 1571–1580. Available at: https://doi.org/ 
+10.1109/CVPRW50498.2020.00203. 
+
+Wang, J., et al., 2020b. Common pests image recognition based on deep convolutional 
+
+neural network. Comput. Electron. Agric. 179 (June), 105834. Available at: https 
+://doi.org/10.1016/j.compag.2020.105834.
+
+detection  and  classification  accuracy  in  the  popular  object  detection 
+benchmarking dataset, known as COCO (Lin et al., 2015), on which it 
+was originally trained. In this version of the model, a Cross Stage Partial 
+Network (CSPNet) (Wang et al., 2020a) with a Spatial Pyramid Pooling 
+(SPP)  layer  is  used  as  the  model  back-bone  and  a  path  aggregation 
+network (PANet) as neck to boost information flow. The head in YOLOv5 
+achieves multi scale prediction by generating different output feature 
+maps. 
+
+2.5. Training, inference and evaluation 
+
+The  insect  detection  model  was  trained  and  tested  using  Ubuntu 
+20.04.4 LTS on an HP® Zbook 17 G6 with an Intel®Xeon® E-2286M (16 
+
+EcologicalInformatics75(2023)1020374I. Kalfas et al.
+
+until they fit in memory. Unfortunately, this method throws away in-
+formation that could be crucial for the classifier. To tackle this issue, we 
+sliced our images in smaller tiles of a fixed size (512x512 pixels) which 
+were  then fed  to the  model for  training and  validation.  This  way, all 
+insect  images  maintained  their  original  pixel  dimensions  which  is 
+especially important for detecting small insects. To achieve this, we used 
+the implementation of the Python library “impy” (Lucero, 2018) where 
+the tiles are designed to fulfill two requirements: 1) have a user-defined 
+size of 512x512 pixels and 2) contain the maximum number of complete 
+bounding  boxes.  This  way,  image  regions  that  did  not  contain  any 
+bounding box were not included in the data. The resulting tiles made up
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model, several preprocessing steps may be involved depending on the specific application and data. These steps aim to prepare the input data so that the model can learn effectively from it. Some common preprocessing techniques include:
+
+1. Normalization: This involves rescaling the input features or pixel values to a standard range, typically between 0 and 1 or -1 and 1. Normalization helps ensure that each feature contributes equally to the learning process and prevents any single feature from dominating the others due to its larger numerical value.
+
+2. Scaling: Similar to normalization, scaling adjusts the range of input features but does not necessarily rescale them to a specific range. For example, one might use min-max scaling to map the minimum and maximum values of a feature to 0 and 1, respectively. Scaling can help improve the convergence rate during optimization and prevent issues related to vanishing or exploding gradients.
+
+3. Cleaning: This step involves removing noise, outliers, or irrelevant data points from the input data. Cleaning ensures that the model focuses only on relevant patterns and reduces the risk of overfitting or poor generalization performance.
+
+4. Augmentation: Image augmentation techniques such as rotation, flipping, cropping, or zooming can be applied to increase the diversity of the training data and improve the robustness of the learned models.
+
+5. Tiling: When dealing with large images or datasets, it may be necessary to split the images into smaller tiles or patches to reduce computational complexity and memory usage. This approach allows the model to focus on local patterns within the images while still capturing global context.
+
+Based on the given context, the authors sliced their images into smaller tiles of a fixed size (512x512 pixels) using the Python library "impy" (Lucero, 2018). This preprocessing step aimed to maintain the original pixel dimensions of the insect images, especially important for detecting small insects. By designing the tiles to contain the maximum number of complete bounding boxes, the authors ensured that no unnecessary background information was included in the data.

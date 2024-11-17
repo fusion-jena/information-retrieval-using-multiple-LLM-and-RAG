@@ -1,0 +1,51 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+the U-Net model is the labeling of each pixel in the training data. Abundant data are needed
+for training deep neural networks of at least 1000 image samples. In such cases, a pretrained
+network can reduce the amount of training data needed [47]. The U-Net implemented
+within arcgis.learn had a ResNet-50 backbone that was pretrained on ImageNet.
+
+a batch normalization layer after hidden layer 2 increased the testing accuracy of the model. These additional layers—dropout and batch normalization—reduce the over-fitting of the model on the training data and increase generalization on testing data. The hyperparameters in this network—the learning rate, number of epochs, and batch size—were further tuned such that the testing accuracy and the kappa were the best among all models. The optimized hyperparameter values for learning rate and batch size were 0.007 and 48, respectively.  Figure 4. Network architecture implemented for the Deep Neural Network (DNN) model along with the number of neurons that were optimized for each hidden layer. The output layer contains 11 neurons, corresponding to the number of classes to be classified. 2.7. Accuracy Assessment To compare the accuracy of various models independent testing data, i.e., same for all models, is used for model evaluation. The confusion/error matrix and subsequent met-rics are
+
+The FCNN U-Net model produced an overall accuracy of 90.9%, outperforming the
+other pixel-based models studied here. Similarly, U-Net has outperformed other pixel-
+based models in other studies [40]. The improvement in accuracy can be attributed to the
+architecture, which is common within all FCNN encoder–decoder type models. Firstly, the
+2D kernels within convolutional layers consider spatial information. The convolutional
+layers extract hierarchical features, and therefore, raw WV-3 imagery input alone is able
+to produce >90% accuracies [17]. Finally, the fully convolutional nature can segment and
+classify each pixel in the input image resulting in an end-to-end classiﬁcation map [26,30,40].
+Thus, semantic segmentation at the pixel level along with the extraction of features through
+convolutional layers and the inclusion of spatial information results in the higher accuracy
+of the FCNN-based U-Net over other pixel-based models. However, one disadvantage of
+
+7 of 29
+
+The quantity of training data derived from ground data collection in 2018 was limited.
+A U-Net implemented with Keras produced a low training and testing accuracy with
+segmentation results on testing data differing between repetitions. Implementing a U-Net
+model within the arcgis.learn module of the ArcGIS API for Python [39] removed the
+requirement for a quantitatively massive dataset. Additionally, the U-Net implemented
+through argis.learn is pretrained on ImageNet to further improve classiﬁcation accuracies.
+This reduces the time and resources spent on ground truth data collection. Hyperparameter
+tuning was done to select the best U-Net model [31,34,40]. Based on hyperparameter
+optimization, it was found that the best model uses an input patch size of 64 × 64 pixels
+and a ResNet-50 backbone [31,34,40].
+
+2.4. Support Vector Machine (SVM)
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, the data format used in the deep learning pipeline is images. Specifically, the U-Net model implemented within arcgis.learn had a ResNet-50 backbone that was pretrained on ImageNet, indicating that the input data consists of images. Furthermore, the context mentions that the U-Net model produces an overall accuracy of 90.9% when applied to WorldView-3 imagery, confirming that the input data is indeed images. Therefore, we can conclude that the data format used in the deep learning pipeline is images.

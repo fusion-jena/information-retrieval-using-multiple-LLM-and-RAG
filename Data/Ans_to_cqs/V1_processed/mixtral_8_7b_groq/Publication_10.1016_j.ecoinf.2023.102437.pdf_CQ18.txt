@@ -1,0 +1,11 @@
+The strategy implemented to monitor the model performance during training involves conducting training and forecasts progressively by changing the starting time of the forecast, without using information that is not accessible at the start of the prediction period. This approach ensures that each forecast is a fair cross-validation.
+
+In this strategy, the weight wm is obtained using the training dataset Dm, which depends on the starting time tm. The prediction from time tm using the signature xm yields the value ŷm+ma, which is compared with the validation data ym+ma. The prediction error is obtained by calculating ŷm+ma - ym+ma at different starting times.
+
+The model's performance is monitored by observing the prediction error over time. If the prediction error is consistently low, it indicates that the model is performing well. However, if the prediction error is high or increases over time, it may indicate that the model is overfitting or underfitting the training data.
+
+Additionally, the strategy involves using a long time series to learn the predictive model, as the amount of input data can have a non-negligible influence on predictive performance. However, pre-selection of data lowers the accuracy of the results, indicating a loss of information in the database transformed using the signature method.
+
+The strategy also includes using a climate time series composed of 12 indices, and the NINO3.4 index ym+ma at time τ = tm+ma as the object variable for supervised learning. The explanatory variables xm for a time period include the signature for the segment of time series X in [tm-mb+1,tm].
+
+Overall, the strategy implemented to monitor the model performance during training involves progressive training and forecasts, changing the starting time of the forecast, observing the prediction error, using a long time series, and using the NINO3.4 index and signature method for supervised learning.

@@ -1,0 +1,15 @@
+Answer:::
+
+The deep learning pipeline in the given context utilizes two optimization techniques: Stochastic Gradient Descent (SGD) with learning rate of 0.1 and the Adam optimizer. 
+
+Stochastic Gradient Descent (SGD) is a first-order optimization algorithm used for training machine learning models. It updates the parameters of the model by computing the gradient of the loss function with respect to each parameter for a single training example, or a small batch of examples, at each step. In this case, SGD was used with a learning rate of 0.1, weight decay of 1.0⋅10, and momentum of 1.0⋅10. However, it achieved a 1%-2% decrease in accuracy compared to using the Adam optimizer.
+
+The Adam optimizer, on the other hand, is a more sophisticated optimization algorithm that combines the ideas of momentum and adaptive learning rates. It computes the exponential moving averages of the gradients and the squares of the gradients, and uses these moving averages to update the parameters. This allows Adam to adapt the learning rate for each parameter individually, making it more effective for many machine learning models. In this pipeline, the Adam optimizer was used with a fixed learning rate of 1.0⋅10.
+
+In addition to these optimizers, data augmentation was also used as a technique to mitigate overfitting and increase the diversity of the training data. Data augmentation includes image scaling, horizontal and vertical flip, perspective distortion, and adding color jitter for brightness, contrast, and saturation.
+
+These techniques were applied in the context of training a modified ResNet50 architecture with transfer learning using pre-trained weights from ImageNet. The models trained with transfer learning outperformed models trained with random weights, with an increase of 4% in the F1-score at the species level.
+
+Another model, EfficientNetB3, was also evaluated with pre-trained weights from ImageNet, and transfer learning was used to train ResNet50MTL and EfficientNetB3MTL models for multitask learning.
+
+In summary, the deep learning pipeline in this context uses Stochastic Gradient Descent (SGD) and the Adam optimizer for optimizing the model parameters, and data augmentation for increasing the diversity of the training data. These techniques were applied in the context of transfer learning and multitask learning, resulting in improved performance at the species level.

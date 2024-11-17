@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+L). Overall, the performance of RF and GBDT was weaker than that of 
+CatBoost. However, in our experiment, the training and hyperparameter 
+optimisation times for CatBoost were significantly longer than those of 
+the  other  models,  which  may  be  due  to  the  complex  internal  feature 
+processing  of  the  model  and  the  fact  that  we  did  not  use  a  GPU  for 
+training. For Nansi Lake, XGBoost demonstrated the highest robustness 
+for estimating the water Chla concentration and turbidity.
+
+4.3. Model performance 
+
+All algorithms were evaluated using the same dataset, and five EL 
+models were established for both the Chla concentration and turbidity: 
+RF,  GBDT,  LightGBM,  XGBoost,  and  CatBoost.  Before  tuning  each 
+model, we established a benchmark model with default parameters to 
+evaluate  whether  parameter  adjustments  had  a  beneficial  impact  on 
+model performance. Hyperparameter optimisation was performed using 
+
+both the random grid search and Bayesian optimisation methods, which 
+were  implemented  using  GridSearchCV  from  Scikit-learn  and  the 
+Hyperopt  library (version 0.2.7).  We selected the best  parameters  for 
+each model and compared the results.
+
+In recent years, machine learning (ML) has been applied in various 
+fields  due  to  its  powerful  ability  to  handle  non-linear  relationships 
+(Mohammadi et al., 2023), according to previous surveys, an increasing 
+number of studies are attempting to use ML methods to estimate WQP. Li 
+et al. established a Support Vector Machine (SVM) model to estimate 
+Chla concentrations in 45 typical lakes in China based on measured data 
+from 2017 to 2019; the results indicated that this model is suitable for 
+lakes  with  medium  to  low  Chla  concentrations  (Li  et  al.,  2021). 
+Muhammad et al. developed a neural network model called the Ocean 
+Color  Network  (OGN)  to  estimate  Chla  concentrations  in  the  Barents 
+Sea,  in  comparison  to  Gaussian  Process  Regression,  this  network 
+demonstrated  a  5.2%  reduction  in  mean  absolute  error  (Asim  et  al., 
+2021). Ensemble learning (EL) is one of the key technologies in the field
+
+The results for the five models are shown in Fig. 8, the graph within 
+the  graph  represents  a  comparison  of  the  measured  and  predicted 
+values. First, using 20 spectral bands (Table 2) as training features and 
+the Chla concentration as the target, LightGBM and XGBoost achieved 
+the best performance. LightGBM achieved the highest R2  (0.8390) and 
+Slope (0.8126), while XGBoost had the lowest RMSE (5.0617 μg/L) and 
+MAE (3.9776 μg/L), this indicates that the models had the smallest er-
+rors  between  their  predicted  values  and  the  measured  values.  Next, 
+using 17 spectral bands (Table 2) as training features and turbidity as the 
+target, XGBoost achieved the best theoretical generalisation ability in 
+five-fold cross-validation (R2 = 0.7927, RMSE = 2.1747 μg/L, Slope =
+0.7791, MAE = 1.6791 μg/L). This was slightly better than LightGBM 
+(R2 = 0.7915, RMSE = 2.1816 μg/L, Slope = 0.7812, MAE = 1.7091 μg/
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text does not provide explicit information about the specific hardware resources used for training the deep learning models. However, it mentions that a GPU was not used for training the CatBoost model, suggesting that the authors might have used CPUs instead. Nevertheless, without further details, it cannot be definitively stated what hardware resources were employed for training the other models.
+
+Based on the given context, the author mentioned that they didn't use a GPU for training the CatBoost model. However, there is no clear mention of any other hardware resource being used for training the deep learning models such as GPUs or TPUs. Therefore, it can only be speculated that perhaps CPUs were utilized for training these models.

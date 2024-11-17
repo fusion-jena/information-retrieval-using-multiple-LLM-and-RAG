@@ -1,0 +1,9 @@
+Based on the provided context, there is no explicit information about postprocessing steps such as saliency maps, metrics calculation, or confusion matrix. However, the context does provide information about the active learning pipeline and the different strategies used for selecting samples to be labeled by the oracle.
+
+The pipeline involves running a pre-trained object detection model on the images, followed by a pre-trained embedding model on the crops produced by the object detection model. Then, 1,000 random images are selected and labeled by the human oracle. The embedding model is then run on the labeled set to produce feature vectors, which are used to train the classification model.
+
+The active learning selection strategy is then used to select 100 images from the unlabelled set, which are passed to the human oracle for labeling. This process is repeated, and the classification model is fine-tuned on the entire labeled set of the target dataset after every 2,000 active queries. If the number of active queries is a multiple of 2,000, the embedding model is also fine-tuned on the entire labeled set.
+
+The different query selection strategies compared include selecting queries at random, as well as model uncertainty criteria such as confidence, margin, entropy, and variance. The results show that the margin-based active learning strategy performs the best, achieving 93.2% overall accuracy after the first 30,000 active queries.
+
+Therefore, while there is no direct information about postprocessing steps such as saliency maps, metrics calculation, or confusion matrix, the context does provide detailed information about the active learning pipeline and the different strategies used for selecting samples to be labeled by the oracle.

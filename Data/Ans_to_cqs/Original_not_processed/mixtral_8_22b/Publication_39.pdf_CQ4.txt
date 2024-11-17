@@ -1,0 +1,79 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We  utilize  different  data  augmentation  techniques  during  the 
+training process to prevent overfitting and to generalize better. We use 
+the python library imgaug (Jung et al. (2020)) for the data augmentation 
+of  our  images  and  videos.  For  Mask  R-CNN  and  FGFA  the  same 
+augmentation  technique  with  identical  parameters  is  applied  to  each 
+frame of the video. We use the augmentation techniques horizontal flip, 
+
+add / subtract intensity, Guassian blur and additive Gaussian noise. All the 
+mentioned augmentation techniques are used simultaneously. A further 
+special augmentation function from imgaug we use, is Fog. This complex 
+technique simulates fog in the video. Since it is a very strong augmen-
+tation,  we  combine  it  only  with  the  random  horizontal  flip.  The  Fog 
+augmentation is performed with a probability of 10%. The other com-
+bined  augmentation  techniques  described  above  are  applied  with 
+probability of 90%.
+
+4.4.1. Data augmentation for action recognition 
+
+For training, we use common data augmentation techniques for ac-
+tion  recognition  as explained in  Tran et  al.  (2018) and  Feichtenhofer 
+et  al.  (2019)  to  augment  our  action  recognition  dataset.  Three 
+augmentation  techniques  are  used  simultaneously:  temporal  jittering, 
+spatial  crops  and  horizontal  flips.  For  temporal  jittering  the  starting 
+point of the 16 frames in the input video is chosen randomly (with the 
+constraint that there are 16 frames after the starting point in the video). 
+Our videos in the action recognition dataset are between 3 and 9 s long, 
+consisting of 24 to 72 frames.
+
+One block consists of two consecutive convolutional layers and ReLU 
+activation  functions  after  each  layer.  The  function  F  comprises  these 
+steps for an input with the weights θi. All ResNet-18 variations consist of 
+5 blocks following  each  other, where  the first block is  a special stem 
+block containing only one convolutional layer instead of two and not 
+using a residual connection. A stem and a convolutional residual block 
+are depicted in Fig. 5. A global average pooling over the spatiotemporal 
+volume follows after the last layer. After reshaping, a 512-dimensional 
+feature  vector  remains.  This  vector  is  the  input  to  a  fully  connected 
+layer for the classification. An action proposal can be extracted with a 
+following softmax function and taking the action with the highest value. 
+Using simple 2D convolution blocks does not incorporate temporal 
+structure. For a 2D convolution the input is reshaped as 3T × H × W. The
+
+All programs use Python 3 and PyTorch (Paszke et al. (2019)) for 
+building  and  training  the  networks.  The  Mask  R-CNN  model  is  built 
+around  the  PyTorch  detection  model  of  Mask  R-CNN.  For  the  imple-
+mentation of FGFA we use the PyTorch models for the backbone, the 
+RPN and the head of the implementation of Mask R-CNN model. The 
+three ResNet variations are also based on PyTorch detection models. We 
+always use the pretrained versions of the detection models. The Mask R- 
+CNN  is  pretrained  on  COCO  2017train  dataset.  The  ResNets  are  pre-
+trained on Kinetics-400 dataset. We use these PyTorch models because 
+they allow more flexibility than other implementations. They are better 
+adjusted  to  the  PyTorch  training  functions  and  are  well-arranged. 
+Moreover,  the  PyTorch  detection  models  do  not  have  other  de-
+pendencies (e.g. special libraries) unlike other implementations. 
+
+4.3. Object detection
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning pipeline employs various data augmentation techniques to enhance the performance of its models. These techniques include horizontal flip, adding or subtracting intensity, Gaussian blur, additive Gaussian noise, and Fog simulation. The mentioned augmentation techniques are all applied simultaneously except for Fog, which is combined solely with the random horizontal flip due to its strong impact. The Fog augmentation is carried out with a probability of 10%, while the other combined augmentation techniques are executed with a probability of 90%.
+
+In addition to these techniques, three specific augmentation methods are utilized for action recognition: temporal jittering, spatial crops, and horizontal flips. Temporal jittering involves selecting the starting point of the 16 frames in the input video randomly, ensuring that there are still 16 frames available after this point within the video. Spatial crops involve cropping the image spatially, while horizontal flips entail horizontally flipping the image.
+
+These data augmentation techniques contribute significantly to improving the robustness and accuracy of the deep learning models by increasing the diversity of the training data without acquiring new examples.

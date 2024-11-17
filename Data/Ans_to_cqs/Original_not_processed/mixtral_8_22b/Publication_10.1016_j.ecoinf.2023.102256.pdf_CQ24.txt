@@ -1,0 +1,75 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Fig. 2. Architecture of the model for Case IV; the baseline model (top) and the geographical prior (bottom) trained separately. The numbers indicate the size of each 
+layer. From the probabilities obtained for the 8,836 species (represented in green), only the 22 species involved in our study (represented in yellow) are kept and 
+multiplied with the corresponding outputs of the baseline model (represented in red). 
+
+the network is trained on a relatively small number of examples, which 
+is often the case in ecology datasets. We conducted preliminary exper-
+iments  on  enhancing  deep  learning  with  metadata  using  the  Hainan 
+gibbon case study and the network developed by Dufourq et al. (2021). 
+Our findings revealed that this architecture, applied to the bird classi-
+fication  task,  resulted  in  good  results  and  thus  we  adopted  this 
+straightforward approach. The proposed methodology can be adapted to 
+other CNN architectures.
+
+The baseline model comprised a simple CNN architecture that had 
+two  convolutional layers (8  filters of  size 16 × 16,  with ReLU activa-
+tions), followed by max pooling (4 × 4), a flattening operation, and two 
+fully-connected layers (32 ReLU and 22 softmax units respectively) (see 
+Fig. 2). Given only a spectrogram input, the baseline model produced a 
+probability for each of the 22 species. 
+
+3.3.2. Case II: One-hot encoding 
+
+Different methods were explored and tested to enhance the neural 
+network with contextual information. One straightforward approach to 
+incorporate additional information into a deep learning classifier, while 
+maintaining  model  simplicity,  is  to  utilize  a  multi-branch  CNN.  As  a 
+result, we investigate this approach as the initial method to integrate
+
+Go¨eau, H., Glotin, H., Vellinga, W.P., Planqu´e, R., Joly, A., 2016, September. LifeCLEF 
+Bird Identification Task 2016: The arrival of Deep learning. In: CLEF: Conference and 
+Labs of the Evaluation Forum, vol. CEUR Workshop Proceedings. ´Evora, Portugal, 
+pp. 440–449. 
+
+Go¨eau, H., Glotin, H., Vellinga, W.P., Planqu´e, R., Rauber, A., Joly, A., 2014. LifeCLEF 
+Bird Identification Task 2014. In: CLEF: Conference and Labs of the Evaluation 
+Forum, vol. CEUR Workshop Proceedings. Sheffield, United Kingdom, pp. 585-597. 
+
+Grill, T., Schlüter, J., 2017. Two convolutional neural networks for bird detection in 
+
+audio signals. In: 2017 25th european signal processing conference (eusipco), pp. 
+1764–1768. doi: 10.23919/EUSIPCO.2017.8081512. 
+
+Hassan, N., Ramli, D.A., Jaafar, H., 2017. Deep neural network approach to frog species 
+recognition. In: 2017 ieee 13th international colloquium on signal processing & its 
+applications (cspa), pp. 173–178. doi: 10.1109/CSPA.2017.8064946.
+
+embedding space between words throughout the training phase.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, none of the given contexts directly address the issue of handling randomness in the deep learning pipeline, such as managing the effects of different random seed values. However, I can provide some general strategies used to manage randomness in deep learning models:
+
+1. Fixed Random Seeds: To ensure reproducibility, one common strategy is to set fixed random seeds before running experiments or training models. This ensures that any random processes within the code will produce consistent results across multiple runs.
+
+2. Multiple Runs: Another way to account for randomness is to perform multiple runs of the same experiment with different random seeds. By averaging the performance metrics from these runs, it is possible to get a more robust estimate of the model's true performance.
+
+3. Cross-Validation: Using cross-validation techniques like k-fold cross-validation can help reduce the impact of randomness by ensuring that the entire dataset is utilized during both training and testing phases.
+
+4. Regularization Techniques: Applying regularization techniques such as dropout, weight decay, or early stopping can also help mitigate the effects of randomness by preventing overfitting and improving the model's ability to generalize.
+
+5. Ensemble Methods: Combining multiple models trained with different random seeds through ensemble methods can further improve the overall performance and stability of the final prediction.

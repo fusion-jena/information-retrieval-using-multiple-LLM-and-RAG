@@ -1,0 +1,65 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.5.1. Model selection and parametrization 
+
+For  the  classification  task,  before  the  implementation  of  deep 
+learning models, all images were resized to the same resolution (227×
+197  pixels)  by  considering  the  mean  dimensions  of  the  set,  and  then 
+normalized to the [0,1] range (Na and Fox, 2020). Then, six open source 
+CNNs  were  selected:  VGG16  (Simonyan  and  Zisserman,  2015), 
+ResNet50,  ResNet101  (He  et  al.,  2016),  Inception-v3  (Szegedy  et  al., 
+2016), DenseNet201 (Huang et al., 2017) and EfficientNetB0 (Tan and 
+Le,  2019).  These  algorithms  were  selected  because  of  their  ease  for 
+transfer  learning and  high  performance  on  similar classification  tasks 
+(Arun  and  Viknesh,  2022;  Vallabhajosyula  et  al.,  2022).  For  model 
+optimization, we used the Adam optimizer algorithm (Kingma and Ba, 
+2015), a batch size of 10 and 100 epochs. The learning rates were chosen 
+(cid:0) 6 showing 
+from empirical trials over 100 epochs, with and 10
+
+EcologicalInformatics81(2024)1026029Faster R-CNN ResNet101 iNaturalistFaster R-CNN ResNet101 MS COCOFaster R-CNN ResNet50 iNaturalistFaster R-CNN ResNet50 MS COCOFaster R-CNN Inception-v2 MS COCOAverage inference time per image (ms)3951063668958mAP@0.50IOU76.8579.2374.9380.8081.71Total loss2.241.142.241.201.08A.S. Cardoso et al.                                                                                                                                                                                                                              
+
+with other plant species. Moreover, there are no other plant species in 
+Portugal (our study area) with the same features as C. selloana. Both of 
+these particularities may be the source of the high results observed in 
+this study. 
+
+4.4. Monitoring the invasive alien Cortaderia selloana from online digital 
+images
+
+A.1b),  with  high  performances  (e.g.,  f1-score  values  above  93.09%; 
+Table  4).  Unlike  the  training  task,  the  best  results  were  obtained  by 
+(cid:0) 4,  in  terms  of  accuracy 
+EfficientNetB0  with  a  learning  rate  of  10
+(97.50%),  sensitivity  (96.00%)  and  f1-score  (97.46%),  followed  by 
+(cid:0) 4),  which  also  showed 
+Inception-v3  with  the  same  learning  rate  (10
+high accuracy (96.88%), sensitivity (94.00%), specificity (99.75%) and 
+f1-score (96.78%). In the case of the EfficientNetB0 model, only 4% of 
+the  images  displaying  the  Cortaderia  selloana  were  confused  by  the 
+model as showing no C. selloana (false negatives; Fig. A.1c). Likewise, 
+from  the  images  showing  no  C.  selloana,  in  1%  of  the  cases  Effi-
+cientNetB0  incorrectly  predicted  the  class  “With  Cortaderia  selloana” 
+(false  positives;  Fig.  A.1d).  A  similar  pattern  was  verified  for  the 
+remaining CNNs (see confusion matrices in Tables A.6 and A.7).
+
+From the different models considered in our study, the classification 
+(cid:0) 4)  and  the  object 
+model  DesenNet201  (with  a  learning  rate  of  10
+detection mode Faster R-CNN ResNet50 (pre-trained on the MS COCO
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The pipeline uses Convolutional Neural Networks (CNNs) as its primary deep learning model. Specifically, it employs six pre-existing open-source CNN architectures: VGG16, ResNet50, ResNet101, Inception-v3, DenseNet201, and EfficientNetB0. These networks have been chosen due to their proven effectiveness in transfer learning and high performance in comparable classification tasks. Additionally, the pipeline utilizes the Faster R-CNN ResNet50 architecture for object detection purposes.

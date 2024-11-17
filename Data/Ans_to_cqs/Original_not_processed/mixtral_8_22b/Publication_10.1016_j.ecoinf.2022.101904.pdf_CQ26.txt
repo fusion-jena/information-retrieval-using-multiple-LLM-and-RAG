@@ -1,0 +1,181 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.4. Impact of data split 
+
+This  section  illustrates  the  impact  of  the  data  split  (i.e.,  test  and 
+training data ratio) on the final accuracy of wetland mapping. By eval-
+uating  the  classification  results  of  the  proposed  model  with  different 
+training data, we will better understand the required amount of data to 
+reach  an  acceptable  wetland  accuracy  level.  This  is  significant  when 
+there is a limited number of reference data in a project. We utilized a 
+
+different ratio of training data from reference data. The training ratio 
+started from 10% to 90%, increasing by 10%. Based on the results, as the 
+amount of data gradually increased, the classification accuracy of our 
+method was improved. This improvement was substantial for increasing 
+the  training  ratio  from  10%  to  30%  (average  accuracy  improved  by 
+17.47%).  However,  average  accuracy  just  increased  by  7.01%  by 
+increasing the training ratio from 30% to 90% (see Fig. 10).
+
+Many  ecosystems,  particularly  wetlands,  are  significantly  degraded  or  lost  as  a  result  of  climate  change  and 
+anthropogenic  activities.  Simultaneously,  developments  in  machine  learning,  particularly  deep  learning 
+methods, have greatly improved wetland mapping, which is a critical step in ecosystem monitoring. Yet, present 
+deep  and  very deep  models necessitate  a greater  number  of  training data, which  are costly,  logistically  chal-
+lenging,  and  time-consuming  to  acquire.  Thus,  we  explore  and  address  the  potential  and  possible  limitations 
+caused  by  the  availability  of  limited  ground-truth  data  for  large-scale  wetland  mapping.  To  overcome  this 
+persistent  problem  for  remote  sensing  data  classification  using  deep  learning  models,  we  propose  3D  UNet 
+Generative Adversarial Network Swin Transformer (3DUNetGSFormer) to adaptively synthesize wetland training
+
+The objective function and expected function are denoted by U(D, G) 
+and E. D and G presents the discriminator and generator networks. D(x) 
+calculates the likelihood that x is the true data (i.e., real data) that is 
+based  on  training  reference  samples.  In  the  3D  GAN  network,  we 
+employed a conditional map unit to produce synthetic samples from a 
+random  noise  vector,  like  the  Generative  Adversarial  Minority  Over-
+sampling (GAMO) (Subhra Mullick et al., 2019) and 3D-HyperGAMO (S. 
+K.  Roy  et  al.,  2021),  only  for  classes  with  a  low  number  of  training 
+samples.  The  benefit  of  such  a  methodology  is  that  it  eliminates  the 
+problem of imbalanced data, which is typical in wetland mapping. In 
+particular, in the 3D GAN model, the 3D patch generator uses seven (c (cid:0)
+1, c presents the number of classes) units, one unit for each of the classes 
+g samples (see 
+with minor ground-truth data. Thus, the unit Ui generates γi
+Eq. 2). 
+γg
+
+EcologicalInformatics72(2022)1019047A. Jamali et al.                                                                                                                                                                                                                                  
+
+Table 5 
+Results  of  the  proposed  deep  model  (ViT  = Vision  Transformer,  ST  = Swin 
+Transformer, KI=Kappa index, AA = Average accuracy, OA = Overall accuracy).  
+
+Class 
+
+ViT 
+
+ST 
+
+CoAtNet 
+
+CNN 
++ ST 
+(ours) 
+
+GAN 
++ ST 
+(ours) 
+
+3DUNetGSFormer 
+(ours) 
+
+Bog 
+Fen 
+Marsh 
+Swamp 
+Shallow 
+water 
+
+Urban 
+Deep 
+
+water 
+Upland 
+KI (%) 
+OA (%) 
+AA (%) 
+Time (h) 
+
+0.59 
+0 
+0.46 
+0 
+0.83 
+
+0.97 
+0.93 
+
+0.86 
+0.79 
+0.88 
+0.76 
+0.92 
+
+0.99 
+0.97 
+
+0.91 
+0.86 
+0.94 
+0.82 
+0.98 
+
+0.99 
+1 
+
+0.87 
+71.31 
+75.62 
+62.96 
+2.2 
+
+0.96 
+90.66 
+91.99 
+88.67 
+1.5 
+
+0.97 
+94.67 
+95.43 
+93.21 
+5 
+
+0.82 
+0.76 
+0.95 
+0.89 
+0.91 
+
+0.98 
+1 
+
+0.98 
+92.84 
+93.87 
+90.16 
+1.5 
+
+0.89 
+0.83 
+0.88 
+0.9 
+0.96 
+
+0.99 
+0.99
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To address data bias during preprocessing of the deep learning pipeline, several techniques can be employed. These include stratified splitting, oversampling, undersampling, and diverse data collection.
+
+Stratified splitting involves dividing the dataset into subsets while maintaining the same proportions of class labels across all subsets. This ensures that the distribution of target variables remains consistent throughout the entire dataset.
+
+Oversampling is a technique used to increase the representation of minority classes within the dataset. It does so by duplicating examples from these classes until they reach a desired proportion relative to other classes. Alternatively, new instances can also be generated through interpolation between existing ones.
+
+Undersampling, conversely, reduces the size of majority classes to balance their representation against minority classes. This approach may lead to loss of information but can still improve overall performance if applied judiciously.
+
+Lastly, collecting diverse datasets helps mitigate biases inherent in any single source of data. By incorporating multiple perspectives and sources, the resulting model becomes more robust and generalizable across various scenarios.
+
+In summary, addressing data bias during preprocessing of the deep learning pipeline requires careful consideration of available options such as stratified splitting, oversampling, undersampling, and diverse data collection. Each method has its strengths and weaknesses; hence, selecting the most appropriate strategy depends largely on specific requirements and constraints of individual projects.

@@ -1,0 +1,80 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.6. Generating prediction record 
+
+After  neural  network  training  and  validation,  predictions  for  the 
+entire  unvalidated  recording  period  were  generated.  Specifically,  for 
+each of the five training folds, a single prediction for every 8 s-interval 
+was made for the duration of the year. The five prediction records that 
+resulted were then averaged together to create a single prediction re-
+cord.  To  summarize  this  data  more  succinctly,  these  8  s-interval  pre-
+dictions were then aggregated into hourly prediction records, containing 
+the number of instances that each particular sound stimuli was predicted 
+per  hour.  This  record  was  normalized  by  the  number  of  8-s  intervals 
+actually recorded during that hour, to account for the possibility that 
+missing audio data would render a given prediction record artificially 
+low. 
+
+2.7. Collecting weather data
+
+2.4.1. Training database assembly 
+
+To assemble a training database, three randomly selected days from 
+each month of the calendar year (see Table 1) were selected for anno-
+tation. Select spectrogram images were manually labeled via visual in-
+spection by two trained graduate students into a set of sound categories 
+that evolved as the year progressed. On average, around 60 images could 
+be  annotated  per  minute,  which  corresponds  to  8  min  of  audio  data. 
+Therefore,  annotating  every  single  spectrogram  from  a  single  day 
+(10,800 images) would take 3 h. Assembling the training database took 
+less time in practice because only 10–15% of the spectrograms from each 
+of the selected days were actually annotated (many spectrograms which 
+contained only background noise were simply not needed). 
+
+In total, this database consists of over 40 k images of bio-, anthro- 
+and  geophonies.  The  full  contents  of  the  database  are  presented  in 
+Table 2.
+
+Pre-training on the both ResNet50 (He et al., 2016) and Inception 
+(Szegedy et al., 2014) neural networks did not meaningfully improve 
+classification performance, therefore this simpler architecture, similar to 
+those implemented by (Ruff et al., 2020; Sprengel et al., 2016) was used 
+instead. 
+
+2.6. Generating prediction record
+
+3. Results 
+
+3.1. Training database performance 
+
+The average unweighted and category-weighted training classifica-
+tion  accuracies  are  98.9%  and  97.4%,  respectively.  For  the  sake  of 
+brevity,  the  training  confusion  matrix  is  not  produced,  but  the  test 
+confusion matrix for all 19 sound classes is shown in Table 4. For the test 
+data, the average unweighted and weighted accuracies are 94.7% and 
+88.8%. The F1-scores for the training and testing datasets, respectively, 
+are.980 and.907 (Chinchor, 1992). 
+
+Slightly  lower  testing  accuracy  scores  are  seen  in  categories  like 
+background noise, which potentially contain a very faint sound occur-
+ring in one of the other categories that is not readily detected by the 
+human eye, or other such class ambiguities. Additionally, lower scores 
+are seen for smaller classes with a fewer number of training examples, 
+like the squirrel “kuk” and the white-breasted nuthatch call.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the provided context, it appears that the data was divided using a technique called cross-validation, specifically five-fold cross-validation. This method involves splitting the dataset into five equal parts or 'folds'. Four of these folds are used for training the model, while the remaining fold is used for validation. This process is repeated five times, ensuring that each fold serves as the validation set once. After training and validation, predictions for the entire unvalidated recording period were generated. Each of the five training folds was used to make a single prediction for every 8-second interval for the duration of the year. These five prediction records were then averaged together to create a single prediction record. However, the exact criteria used to divide the data into the initial five folds are not explicitly mentioned in the provided context.

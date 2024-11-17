@@ -1,0 +1,74 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+SDM 
+
+Training setup 
+
+Modeling package 
+
+threshold values from 0 to 1. Table 5 summarizes the evaluation criteria 
+for the AUC and TSS metrics for the objective comparison of the per-
+formances of the SDMs. 
+
+Elapid (Anderson, 2023) 
+
+3. Results 
+
+SRE 
+
+GLM 
+
+GAM 
+
+MaxEnt 
+
+RF 
+
+GBM 
+
+XGB 
+
+LGBM 
+
+ANN 
+
+SDP- 
+
+EPL
+
+within the study area for MaxEnt and set up the hyperparameters as in 
+Bean et al. (2012). The training settings and hyperparameters used for 
+each SDM are described in Table 3.
+
+In particular, we construct an ensemble teacher model by grouping 
+the ANN, RF, GBM, XGB, and LGBM models, and a student model using 
+ANNs that are commonly used in PL approaches (Ali et al., 2022; Asghar 
+et al., 2020). We train our SDP-EPL model for up to 400 epochs, incre-
+mentally  generating  PL  presence  data  and  PL  absence  data  using  the 
+teacher model with K = 200 every 100 epochs. K was selected empiri-
+cally based on the AUC of SDP-EPL on the validation set.
+
+EcologicalInformatics79(2024)1024078E. Kim et al.                                                                                                                                                                                                                                     
+
+ranged from 50 to 400, showing higher values than ANN, but at K = 800, 
+AUC  decreased  significantly.  When  K  = 200,  the  AUC  gradually 
+improved  as  the  number  of  training  epochs  increased,  achieving  the 
+highest score overall. 
+
+4. Discussion
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors use the Area Under Curve (AUC) metric to evaluate the performance of their Species Distribution Model (SDM), specifically the SDP-EPL model. They incrementally generate pseudo-absence data using a teacher model consisting of ANN, RF, GBM, XGB, and LGBM models. The value of K, which determines the amount of pseudo-absence data generated, is chosen empirically based on the AUC of SDP-EPL on the validation set. In this case, they found that when K=200, the AUC improved as the number of training epochs increased, reaching its highest score overall. Therefore, it can be inferred that the authors consider training complete when the AUC reaches its peak or starts to decrease after increasing for some time. However, the exact threshold for determining when training should stop is not explicitly stated in the given context.

@@ -1,0 +1,98 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+For our experimental setup of training the BEiT model, we employed
+an NVIDIA RTX 3060 Ti GPU coupled with an AMD Ryzen 9 5900X CPU
+and 32 GB of RAM to ensure robust processing capabilities necessary for
+handling large datasets and complex model architectures. Our model is
+developed using TensorFlow within a Jupyter Notebook environment,
+facilitating an interactive setup that supports real-time adjustments and
+visual feedback. Each image is standardized to 224 × 224 pixels for
+training and subjected to various data augmentation techniques like
+random rotations and color adjustments to enhance model robustness.
+The training parameters mainly consist of using the Adam optimizer
+(cid:0) 5 and adopting categorical cross-entropy
+with a learning rate of 1 × 10
+as the loss function, specifically designed for optimizing multi-class
+classification tasks. To improve the effectiveness of training and the
+performance of
+such as Reduc-
+the model, various callbacks
+
+Gaussian Noise
+Speckle Noise
+To Tensor
+Normalize
+
+Parameters
+
+Size: (224, 224)
+None
+None
+Degree: 30
+Brightness: 0.4
+Contrast: 0.4
+Saturation: 0.4
+Hue: 0.1
+Standard Deviation: 25
+Variance: 25
+None
+Mean: [0.485, 0.456, 0.406]
+Std: [0.229, 0.224, 0.225]
+
+transformer architecture in vision tasks, and Xception (Chollet, 2017)
+for its depthwise separable convolutions that enhance model perfor-
+mance and efficiency. Therefore, we employed our BEiT model to
+leverage transformer capabilities with these existing models. This
+combination ensures effective and complementary strengths for our
+purpose. Furthermore, we add the LIME explainable technique to
+enhance the interpretability of our model’s decision-making process
+which mainly
+broader
+transparency
+understanding.
+
+promotes
+
+ensures
+
+and
+
+3.1. Data acquisition
+
+Initially, we assess our modified BEiT model’s performance against
+existing deep learning and base ViT models under both noise-added and
+noise-free situations. The results obtained from the PlantVillage are
+presented dataset in Tables 6 and 7, The results reveal that the proposed
+BEiT (12 M) achieves an outstanding accuracy of 97.33% with the least
+loss. It outperforms in AUC, CK, precision, recall, and F1 scores in both
+noisy and noiseless conditions. Similarly, the Dhan-Shomadhan dataset
+in Tables 8 and 9, the low parameterized BEiT (12 M) model maintains
+its lead he highest accuracy (96.22% and 97.50%) and least loss (0.131
+and 0.121). It achieves reliable metrics in AUC (0.962), CK (0.88),
+precision (0.97), recall (0.96), and F1 score (0.96). Other models also
+perform well but continually fall below BEiT (12 M)’s specifications
+across both noisy and noiseless situations. These results underline BEiT
+(12 M)’s better performance and reliability in leaf disease classification
+
+In the BEiT model architecture, our initial steps involve loading the
+BEiT model and strategically freezing a substantial portion of its layers
+approximately 7 of the total layers. By doing so, the model freezes the
+weights in these layers, focusing the training process on fine-tuning the
+remaining layers. The model is then derived by isolating the output of a
+specific layer (‘out_ln’) from the BEiT architecture. To enhance training
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning model mentioned in the given context is built using TensorFlow. The model development takes place within a Jupyter Notebook environment, which facilitates an interactive setup supporting real-time adjustments and visual feedback.

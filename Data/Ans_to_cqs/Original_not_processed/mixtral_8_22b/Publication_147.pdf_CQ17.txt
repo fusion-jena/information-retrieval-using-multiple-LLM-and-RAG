@@ -1,0 +1,70 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Keywords: wetlands; Sentinel-1; Sentinel-2; Google Earth Engine; remote sensing; Alberta;
+segmentation convolutional neural nets; XGBoost; land cover; SAR; machine learning
+
+1. Introduction
+
+Machine learning—a method where a computer discovers rules to execute a data processing
+task, given training examples—can generally be divided into two categories: Shallow learning and
+deep learning methods [1]. Deep learning uses many successive layered representations of data
+(i.e., hundreds of convolutions/ﬁlters), while shallow learning typically uses one or two layered
+representations of the data [1]. Deep learning has shown great promise for tackling many tasks such as
+image recognition, natural language processing, speech recognition, superhuman Go playing, and
+autonomous driving [1–3].
+
+Remote Sens. 2020, 12, 2; doi:10.3390/rs12010002
+
+www.mdpi.com/journal/remotesensing
+
+5. Conclusions
+
+The goal of this study was to compare shallow learning (XGB) and deep learning (CNN) methods
+for the production of a large-scale spatial wetland classiﬁcation. We encourage readers to view both
+products via this link: https://abmigc.users.earthengine.app/view/cnn-xgb, and one of the products
+can be downloaded via this link: https://bit.ly/2X3Ao6N. A comparison of the two products to
+photo-interpreted validation data showed that CNN products outperform the shallow learning (XGB)
+product in terms of accuracy by about 5–8%. The CNN product achieved an average overall accuracy
+of 80.8% with a mean F1-score of 0.58. When compared to a small data set (n = 22) of ﬁeld data, the
+results were inconclusive and both data sets showed little ability to distinguish between fen and bogs.
+This ﬁnding could just be due to the small, spatially constrained data or it could highlight the mismatch
+between on the ground conditions and large-scale landcover classiﬁcations.
+
+CNNs 140 trained on a patch-level learn low- and high-level features from the remote sensing data. For example, 141 waterline edges which delineate marshes and open water may only need simple edge detection 142 convolution filters, while fens and bogs may be differentiated by subtle variations in texture or color 143 (i.e., visible flow lines in fens). Within the last couple of years, a number of studies have attempted to 144 use deep learning for wetland mapping in Canada over small areas and have achieved promising 145 results when compared to alternative shallow learning methods [20,51,52]. 146 With the current status of machine learning and the history of Canadian wetland mapping in 147 mind, we propose a simple goal for this study: To compare deep learning (CNN) classifications with 148 shallow learning (XGBoost) classifications for wetland class mapping over a large region of Alberta, 149 Canada (397,958 km2) using the most up-to-date, open source, fusion of data sources from
+
+predictions. Furthermore, having a smaller input patch means there will be some overlap in the inputs
+between adjacent patches, which helps combat patch boundary side eﬀects. Since the error does vary
+with architecture, we chose a reasonable inner patch size for the entire model exercise, although the
+optimized patch size was not iteratively tested. The output activations for the CNN were sigmoid
+units. The model was trained using the Keras Nadam optimizer (Nesterov Adam optimizer [82]) with
+a combination of binary crossentropy (a common loss used to train neural networks representing
+the entropy between two probability distributions) and dice coeﬃcient loss (a statistic used to gauge
+the similarity of two samples) for the objective loss function. Candidate training patch indexes were
+created using a simple moving window with a stride of 10 and simple label counts were generated.
+During training, patches were randomly selected from the patch list and randomly rotated left or
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, there is no explicit mention of specific regularization methods used to prevent overfitting in the deep learning pipeline. However, based on general practices in deep learning, several techniques can be employed to mitigate overfitting. These include:
+
+1. Dropout: This technique involves temporarily removing a random selection of neurons during training, forcing the network to rely more heavily on other neurons and preventing any single neuron from becoming too influential.
+
+2. L2 Regularization: Also known as weight decay, this method adds a penalty term to the loss function proportional to the sum of squared weights. This encourages smaller weights, making the model simpler and reducing its tendency to overfit.
+
+3. Early Stopping: In this approach, the training process is halted once performance on a validation dataset stops improving, even if the training loss continues to decrease. This prevents the model from fitting noise in the training data.
+
+4. Data Augmentation: By artificially increasing the amount of available training data through transformations like rotation, scaling, or flipping, models become less sensitive to individual data points and thus less prone to overfitting.
+
+While these methods are commonly used to address overfitting in deep learning pipelines, the exact choice depends on factors such as the nature of the problem, the complexity of the model, and the characteristics of the dataset.

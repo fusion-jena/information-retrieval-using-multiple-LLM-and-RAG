@@ -1,0 +1,77 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The data of a certain year are used as the test set, and the remaining data are the training and
+validation set. The training and validation set ia divided into ten parts using the 10-fold cross-validation
+method, in which nine of the parts are used as a training set and one is used for the validation set.
+The percentage of the training, validation, and testing sets is 5.4:0.6:1. The training set is the data
+sample used for model ﬁtting. The validation set is a set of samples set aside separately during the
+model training. It can be used to adjust the hyperparameters of the model and to conduct a preliminary
+evaluation of the model’s capabilities. The testing set is used to evaluate the generalization ability of
+the ﬁnal model. However, it cannot be used as a basis for algorithm-related selection such as parameter
+tuning and selection of features. The mean value of the ten results is used to estimate the accuracy of
+
+σ(x) =
+
+1
+1 + e−x
+
+(1)
+
+Input Data
+
+In this paper, the input data are 40-dimensional data. Due to the large time span and large land
+area in the training data, there are large diﬀerences in the distribution between diﬀerent batches of
+training data in the training stage, and there is a certain distribution diﬀerence between the training set
+and the test set. Therefore, batch normalization is performed on the input data, where the speciﬁc
+calculation/transformation of BatchNorm (Algorithm 1) is shown below. First, the mean of each
+channel in the current batch is calculated, and then, the variance of each channel in the current batch is
+calculated. The mean is subtracted from the input, and the result is divided by the standard deviation
+to obtain the normalized output ˆχ
+i is multiplied by the scale parameter γ, and the shift
+parameter β is added to obtain the ﬁnal output yi:
+
+i; then, ˆχ
+
+Because there are diﬀerent numbers of samples of the ﬁve types of LU suitability samples in the
+training data, with a ratio of 7:14:1:5:7, there is an imbalance in the categorical data. In the training
+process, a relatively large weight is generated for the categories that have fewer samples, and a
+small weight is generated for the categories that have more samples, which solves the problem of the
+performance of the model being poor for the categories that have small sample sizes.
+
+2.4. Reconstruction Procedure
+
+In the following, the LUCC reconstruction of Zhenlai County in 2000 is used as an example to
+present the DLURM reconstruction process (the data of the year 2000 should be removed from the
+training set).
+
+(3) Training set: grid with neighborhood features of six years (1986, 2005, 2008, 2010, and 2013).
+The features include the LU type, soil, topography, elevation, slope, aspect, distance to settlements,
+distance to roads, distance to rivers in this grid unit, and the 4 neighborhood grid units.
+
+(4) Constraint Factors: The statistical data and the quantity simulated by the backtracking of the
+Markov model are combined, and the numbers of diﬀerent LU types in 2000 after modiﬁcation by
+the simulation numbers are as follows (Table 1):
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, several postprocessing steps can be taken to analyze and evaluate the performance of the trained model. These may include generating saliency maps, calculating metrics, creating confusion matrices, among others.
+
+Saliency maps help visualize the importance of different regions in the input image towards making a decision. They highlight areas that contribute most significantly to the final prediction made by the model. This can provide insights into how the model is interpreting the input data.
+
+Calculating various evaluation metrics like precision, recall, F1 score, etc., helps quantify the performance of the model. Precision measures the proportion of true positive predictions out of all positive predictions made by the model. Recall measures the proportion of true positives out of all actual positives. The F1 score provides a single metric combining both precision and recall.
+
+A confusion matrix is another useful tool for evaluating classification models. It summarizes the number of correct and incorrect predictions made by the classifier, broken down by each class. This allows us to see not only the overall accuracy but also the specific errors made by the model.
+
+However, based on the given context, no explicit information about these postprocessing steps has been mentioned. Therefore, while these are common practices, we cannot confirm if they were applied specifically in this case without further details.

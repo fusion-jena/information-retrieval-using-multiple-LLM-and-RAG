@@ -1,0 +1,60 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+as a feature [13]. As the study showed, they require a large training sample to maintain a
+good performance of their approach.
+
+kernel to expand without increasing the number of parameters [39]. This expansion of the
+window is controlled by the dilation rate and it enables the network to capture information
+from a larger receptive ﬁeld of view with the same parameters and computational complex-
+ity as the normal convolution. The combination of spatial pyramid pooling with Atrous
+convolutions resulted in an efﬁcient multi-scale processing module called Atrous spatial
+pyramid pooling (ASPP). In the earlier version (DeepLabV3) [40], the last ResNet block of
+the modiﬁed ResNet-101 uses different Atrous convolutions with different dilation rates.
+ASPP, together with bilinear up sampling, is also used on top of the modiﬁed ResNet block.
+DeepLabv3+ is an improvement in the previous version by adding an effective decoder
+module to improve the boundaries of the segmentation results [41]. Furthermore, apart
+from ResNet-101, an Xception model can be used as a feature extractor while applying a
+
+Herbarium sheet images are usually of high resolution to capture the ﬁne-grain details
+of the specimens. As a standard procedure for training deep learning models, all input
+images together with their annotation were resized to a 512 × 512 resolution to reduce
+the computational cost during training. Rotation, ﬂipping, and brightness adjustments
+were applied as augmentation techniques for better network generalization. We used
+DeepLabv3+ as the segmentation model with ResNet-101 as the feature extractor. This
+model was pre-trained on the ImageNet dataset and ﬁne-tuned on the dataset. This is
+useful as earlier layers of the network tend to learn generic features and therefore become
+useful for other computer vision tasks [49]. We applied an Adam optimizer with a learning
+rate of 1 × 10−4 and a batch size of 3. The model was trained for 100 epochs with a binary
+cross-entropy loss function as we had a binary class problem (leaf or background).
+
+Recent results on deep learning methods have started to show promising results for
+the segmentation process. Studies such as [13] attempted to automate the extraction of
+leaf features using an ensemble of models. The study trained a deep learning semantic
+segmentation model based on DeepLabv3+ and used a set of selected intact leaves to train
+a SVM classiﬁer to ﬁlter out candidate leaves from the remaining leaves based on leaf
+length and width. The study involved more than 400 specimen images collected from
+different herbaria. Furthermore, the authors used a sliding window technique to improve
+the training sample size and use it as a remedy to downscale the images for training the
+CNN model while using leaf measurements such as leaf length and width to train a SVM
+classiﬁer. The study reported an average IoU of 55.2% for the leaf segmentation model on
+74 test sets while achieving a recall of 0.98 for detecting at least a single intact leaf from a
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit information about handling randomness in the deep learning pipeline, such as managing random seed values. However, some strategies commonly employed to manage randomness include setting fixed seeds for reproducibility, using deterministic algorithms where possible, and employing techniques like cross-validation and ensembling to mitigate the impact of random initializations.
+
+In this context, the authors mention using data augmentation techniques like rotation, flipping, and brightness adjustments to improve network generalization. These techniques introduce variability into the training data, which can help the model perform well even when faced with new, unseen data. Additionally, the authors fine-tune their model on the specific dataset after pretraining it on ImageNet, which helps adapt the model to the unique characteristics of the target dataset.
+
+While these strategies do not directly address managing randomness due to factors like random seed values, they contribute to building robust and reliable deep learning pipelines. To specifically tackle randomness related to seed values, one could set a fixed seed before running experiments to ensure consistent and reproducible results across multiple runs.

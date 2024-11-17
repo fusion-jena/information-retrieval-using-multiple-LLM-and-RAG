@@ -1,0 +1,9 @@
+Answer:::
+
+To monitor the model's performance during training and prevent overfitting, a validation set was created for each training stage, consisting of 20% of the current dataset's images. This validation set was designed to maintain a similar distribution of species and ensure independence by keeping images from the same transect grouped together. This strategy helped avoid performance bias related to the natural imbalance of species and spatial bias related to the overlap of images.
+
+The model's performance was evaluated using a patch size of 1024 × 1,024 pixels during inference to accelerate the process. For each iteration of fine-tuning, the pre-trained model underwent inference and fine-tuning for four iterations using the entire SW stratum employing the SAL. This iterative process aimed to enhance the model's performance and gather samples pertaining to each key species present in the region.
+
+During the first two fine-tuning iterations, the training procedure consisted of two main steps: 1) training the architecture using positive patches for 200 epochs, and 2) collecting and including hard negative patches, which are patches containing false positives, to further train the model for 50 epochs in order to reduce the number of false positives. However, during the last two fine-tuning iterations, only the second step of the training procedure was used. Hard negative patches were created using false positives that emerged from the thumbnail classification (step 1 of the SAL).
+
+In summary, the strategy implemented to monitor the model performance during training involved creating a validation set for each training stage, evaluating the model's performance using a specific patch size during inference, and employing an iterative fine-tuning process with hard negative patch creation to enhance the model's performance and reduce false positives.

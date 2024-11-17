@@ -1,0 +1,158 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Given unlabelled input data consisting of N samples with F features, 
+x ∈ ℝN×F,  the  probabilistic  encoder  of  a  VAE  maps  the  input  to  the 
+posterior density p(z|x) over the latent variable, z ∈ ℝN×L. In practice, 
+L << N and the encoder neural network approximates the true posterior 
+density, p(z|x), with a multivariate Gaussian, qθ(z|x) ∼ 𝒩 (μθ, σ2
+θ ). The 
+decoder of a VAE reconstructs the input data from the latent variable 
+and is given by the density function pφ(x|z). The encoder and decoder 
+neural networks are parameterised by θ  and φ, respectively. The opti-
+mization objective of a VAE consists of two competing terms and it can 
+be shown to be (Kingma and Welling, 2014)  
+
+ℒVAE = (cid:0) Eqθ [logpφ(x|z)] + KL[qθ(z|x)||p(z)]
+ℒVAE≜ℒrec + ℒreg
+
+(1) 
+
+(2)
+
+dataset  recorded  at  a  different  location  and  was  gradually  expanded 
+until  reconstructions  were  sufficiently  good.  In  order  to  visualize  the 
+latent  representation,  the  size  of  the  bottleneck  of  the  model  (latent 
+dimension) was limited to two. Details of the network architecture are 
+reported in Table 1.
+
+3.2. Semi-supervised clustering 
+
+Using a small subset of labelled data that optimizes a relevant loss 
+could steer learning of representations that are more expressive for the 
+downstream tasks under consideration. One approach to achieve this is 
+to introduce auxiliary tasks  based on the labelled data, resulting  in a 
+semi-supervised learning setup (Figueroa and Rivera, 2017). 
+
+β(t) = β(t(cid:0) 1)
+
+(cid:0)
+
+1 (cid:0) ψ
+
+[
+
+Δreg
+
+] )
+
+(1 + ψ[Δrec] + Δℒrec )
+
+(1 (cid:0) ψ[Δrec] )
+
+(cid:0)
+
+1 + ψ
+
+]
+
+[
+
+Δreg
+
+(cid:0) Δℒrec
+
+)
+
+(cid:0)
+
+b
+4
+a
++
+4
+
+where  
+
+Δrec = ℒ(t)
+
+rec (cid:0) w1min
+
+(cid:0)
+
+Δreg = ℒ(t)
+
+reg (cid:0) w2min
+
+)
+
+)
+
+ℒ(:t(cid:0) 1)
+rec
+(
+ℒ(:t(cid:0) 1)
+reg
+
+(5)  
+
+(6) 
+
+(7) 
+
+1  The signum function, ψ[x] returns the sign of any real number s ∈ ℝ 
+
+⎧
+⎨
+
+ψ[s] =
+
+⎩
+
++1
+0
+(cid:0) 1
+
+s > 0
+s = 0
+s < 0
+
+Stat. Assoc. 66 (336), 846–850. 
+
+Rousseeuw, P.J., 1987. Silhouettes: a graphical aid to the interpretation and validation of 
+
+cluster analysis. J. Comput. Appl. Math. 20, 53–65. 
+
+Rowe, B., Eichinski, P., Zhang, J., Roe, P., 2021. Acoustic auto-encoders for biodiversity 
+
+assessment. Ecol. Inform. 62, 101237. 
+
+Shao, H., Lin, H., Yang, Q., Yao, S., Abdelzaher, T., 2020. Dynamicvae: Decoupling 
+
+reconstruction error and disentangled representation learning arXiv preprint arXiv: 
+2009.06795.  
+
+Shao, H., Yao, S., Sun, D., Zhang, A., Liu, S., Liu, D., Wang, J., Abdelzaher, T., 2020. 
+Controlvae: controllable variational autoencoder. In: International Conference on 
+Machine Learning. PMLR, pp. 8655–8664. 
+
+Shaw, J.A., Seldomridge, N.L., Dunkle, D.L., Nugent, P.W., Spangler, L.H., 
+
+Bromenshenk, J.J., Henderson, C.B., Churnside, J.H., Wilson, J.J., 2005. Polarization 
+lidar measurements of honey bees in flight for locating land mines. Opt. Express 13 
+(15), 5853–5863.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What methods are utilized for collecting raw data in the deep learning pipeline (e.g., surveys, sensors, public datasets)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The provided context does not explicitly mention the specific methods used for collecting raw data in the deep learning pipeline. However, it does discuss the use of Variational AutoEncoders (VAEs) for processing and analyzing data. It also mentions the use of a dataset recorded at a different location, which suggests that the data could have been collected using various methods such as sensors or surveys. Additionally, the context refers to a study that uses polarization lidar measurements of honey bees in flight for locating land mines, indicating that sensor data may have been used in that particular case. Overall, while the exact method of data collection is not specified in the provided context, it implies that various methods such as sensors, surveys, or public datasets could potentially be used depending on the application.

@@ -1,0 +1,143 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The  global  average  pooling  is  used  in  the  squeeze  step  to  lower  the 
+spatial  dimension  of  the  input  feature  maps,  which  results  in  a  com-
+pressed  representation of those maps. Once again, during the  time of 
+excitation, channel-wise dependencies are represented by modelling the 
+interdependencies  among the  compressed feature maps  that were ob-
+tained from the squeezing step. The term “excitation layer” refers to the 
+two layers that are completely coupled to one another. The channel-wise 
+attention  weights  are  produced  once  the  excitation  block  has  been 
+processed. When everything is done, scaling and rescaling are accom-
+plished by multiplying the attention weight by the initial feature maps. 
+This reduces the weight of the channels that are not important while 
+increasing the weight of the channels that are significant. As a result of 
+this,  the  model’s  performance  can  be  improved  by  increasing  the
+
+In  order  to  determine  more  accurate  training  results  and  also  to 
+explore the effect of epoch upon training result, apart from 150 epochs, 
+the model with attention layer is trained with epoch values 100, 200, 
+and  250  under  a  uniform  training  environment  and  with  the  same 
+dataset.  The  training  summary  for  each  of  these  epochs  is  shown  in 
+Tables 5, 6 and 7 for epochs 100, 200, and 250, respectively. The trends 
+of mAP values with increasing epochs are shown in Figs. 14 and Fig. 15. 
+The size of the dataset used for custom training is sufficiently large. 
+Further, the DL model used in this work is tuned with optimized hyper 
+parameters  for  which  overfitting  and  under  fitting  situations  are  pre-
+vented from occurring. As mentioned above, the effort to over-train the 
+model has been avoided and graded MSE convergence (Figs. 7 to 11) has 
+been  adopted  to  fine-tune  the  model.  Results  obtained  for  different
+
+In recent years, it has been observed that deep learning methods can 
+be trained with close to zero training error efficiently. The number of 
+convolutional and dense layers directly affects the runtime of the model 
+(Bienstock et al., 2023). The running time of a DL model increases in 
+polynomial-terms with the increased number of associated layers. But 
+with the effort of achieving zero error, there are possibilities of over-
+training and biased training. To avoid these situations, a restrictive and 
+gradually increasing training cycle and accuracy calculation approach 
+has  been  adopted.  Based  on  mean  square  error  (MSE),  the  optimal 
+training state for the model has been obtained. 
+
+4.1. Performance metrics used to evaluate the model
+
+Fig.  4. SENet  attention  mechanism.  Different  blocks  of  the  attention  mecha-
+nism with sizes are shown. 
+
+Table 2 
+Hyper  parameters and their values used in  training the  proposed model. The 
+hyper parameters are based on the optimized values for YOLOv5 COCO training 
+from scratch.  
+
+Parameter Name 
+
+lr0 
+Lrf 
+momentum 
+weight_decay 
+warmup_epochs 
+warmup_momentum 
+warmup_bias_lr 
+box 
+cls 
+cls_pw 
+obj 
+obj_pw 
+iou_t 
+anchor_t 
+
+Value 
+
+0.01 
+0.01 
+0.937 
+0.0005 
+3.0 
+0.8 
+0.1 
+0.05 
+0.5 
+1.0 
+1.0 
+1.0 
+0.2 
+4.0 
+
+Parameter Name 
+
+fl_gamma 
+hsv_h 
+hsv_s 
+hsv_v 
+degrees 
+translate 
+scale 
+shear 
+Perspective 
+flipud 
+fliplr 
+mosaic 
+mixup 
+copy_paste 
+
+Value 
+
+0.0 
+0.015 
+0.7 
+0.4 
+0.0 
+0.1 
+0.5 
+0.0 
+0.0 
+0.0 
+0.5 
+1.0 
+0.0 
+0.0
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the given context, it appears that the focus is primarily on the architecture and performance of the deep learning model rather than addressing specific strategies for handling randomness in the deep learning pipeline. However, we can infer some potential strategies from the information provided.
+
+Firstly, the use of a uniform training environment and the same dataset across different epochs suggests consistency in the data used for training. This could help mitigate the impact of randomness introduced by varying datasets or inconsistent training environments.
+
+Secondly, the mention of optimized hyperparameters and avoiding overfitting and underfitting indicates careful tuning of the model. While this does not directly address randomness due to factors like random seed values, it shows an attempt to control other sources of variability in the model's performance.
+
+Lastly, the adoption of a gradually increasing training cycle and accuracy calculation approach based on mean square error (MSE) implies a systematic and controlled methodology for training the model. This could potentially reduce the influence of randomness in the training process.
+
+However, without explicit mention of strategies such as fixing the random seed value, using deterministic algorithms, or employing techniques like k-fold cross-validation, it is difficult to definitively state what strategies are used to handle randomness in the deep learning pipeline. Therefore, based on the provided context, I cannot provide a conclusive answer to this query.

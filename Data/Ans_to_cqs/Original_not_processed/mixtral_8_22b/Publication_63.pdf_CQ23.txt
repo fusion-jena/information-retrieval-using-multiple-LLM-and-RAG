@@ -1,0 +1,57 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+extracted a random sample of 10% of the dataset of each trait before model training. This ‘test dataset’ was not 
+involved in the training process and exclusively served for the independent evaluation of the trained models. 
+The remaining data was split into ’training dataset’ and ’validation dataset’ by a ratio of 4:1 (Table 1). The train-
+ing dataset was employed to train the weights of the CNN model, whereas the validation dataset indicated the 
+training progress after each full training cycle (’epoch’).
+
+(3)  As a contextual constraint, bioclimatic data (see above) was fed into the CNN with the same model and 
+data configuration including Plasticity in a mixed data approach (‘Worldclim’ in Fig. 2, setup 3 in Fig. 1). 
+4) We tested an Ensemble approach, in which two more state-of-the-art model architectures, namely 
+ Xception51 and MobileNetV2, the latter with halved number of trainable  parameters52, were trained on the 
+configuration of setup 3, and their predictions were subsequently averaged (’Ensemble’ in Fig. 2, setup 4 in 
+Fig. 1). These models differed strongly in their number of trainable weights, resulting in a different depth. 
+The final model performance was assessed using a 3-fold cross-validation, with three different training, 
+validation and test splits. To enable a comparison of model performance across traits, the resulting mean 
+absolute error (MAE) was normalised by division over the range of the target values of the respective test
+
+Vol.:(0123456789)www.nature.com/scientificreports/Training  process  and  hyperparameters. 
+In  order  to  build  upon  a  pre-existing  knowledge  base,  we 
+employed  ’transfer  learning’  by  using  pre-trained  layer  weights  (the  storage  of  the  model’s  knowledge)  from 
+a classification task on a dataset on www. image- net. org38 for all CNN models used in this study. The regressor 
+following the basic CNN consisted of a global average pooling layer followed by two dense layers with 512 and 1 
+output units. The latter forces the CNN to output exactly one prediction (trait) value. In case of the mixed data 
+model (setups (3) and (4)), the CNN consisted of parallel branches to incorporate the different input data types. 
+The branch processing the bioclimatic data consisted of three dense layers with 64, 32 and 4 output units, and 
+the last layer of the CNN regressor contained 4 output units. After concatenating the two branches (image and
+
+Baseline
+
+Plasticity Worldclim Ensemble
+
+Figure 2.   Results of the four model setups. Normalised mean absolute error (a) and R2 (b) for the basic CNN 
+model setup (’Baseline’), the setup including trait variability (’Plasticity’), the setup including bioclimatic data 
+(’Worldclim’) and the ensemble setup (’Ensemble’). Mean absolute error was normalised by the respective 
+test dataset’s range to enable a comparison between the predictive performance of the six traits. R2 shows the 
+explained variance of the linear fit of test predictions versus test targets. 23. LA, leaf area; GH, growth height; 
+SLA, specific leaf area; LNC, leaf nitrogen concentration; SM, seed mass; SSD, stem specific density.
+
+sampling design (each species being a stratum) allowing up to eight images per species to acquire a sufficient 
+amount of training data  while balancing the taxonomic evenness (Table 1).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of the deep learning model, several measures were taken. Firstly, a diverse dataset was used, consisting of various plant traits such as leaf area, growth height, specific leaf area, leaf nitrogen concentration, seed mass, and stem specific density. Secondly, a random sample of 10% of the dataset of each trait was extracted before model training, serving as a 'test dataset'. This test dataset was not involved in the training process and was exclusively used for the independent evaluation of the trained models. Thirdly, the remaining data was split into 'training dataset' and 'validation dataset' by a ratio of 4:1. The training dataset was employed to train the weights of the CNN model, whereas the validation dataset indicated the training progress after each full training cycle ('epoch'). Fourthly, a contextual constraint was applied by feeding bioclimatic data into the CNN with the same model and data configuration. Lastly, a 3-fold cross-validation was performed, with three different training, validation, and test splits. This enabled a comparison of model performance across traits, and the resulting mean absolute error (MAE) was normalized by division over the range of the target values of the respective test dataset.

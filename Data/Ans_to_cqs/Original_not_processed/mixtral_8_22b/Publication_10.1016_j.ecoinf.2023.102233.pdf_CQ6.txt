@@ -1,0 +1,81 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Active  learning  iterations  used  a  batch  size  of  64,  ten  epochs  and 
+learning rate of 0.001. We used a grid search technique (Mohri et al., 
+2018) to tune hyperparameters of the final model including the number 
+of epochs, batch size and learning rate. 
+
+2.3.3. Active learning framework 
+
+We  applied  an  active  learning  approach  to  iteratively  train  and 
+improve  the  CNN  model.  The  active  learning  approach  is  depicted 
+within Fig. 3 and described below.
+
+Sankupellay, M., Konovalov, D., 2018. Bird call recognition using deep convolutional 
+
+neural network, ResNet-50. In: Proceedings of Acoustics. 
+
+Sekercioglu, C.H., et al., 2008. Climate change, elevational range shifts, and bird 
+
+extinctions. Conserv. Biol. 22 (1), 140–150. 
+
+Settles, B., Craven, M., 2008. An analysis of active learning strategies for sequence 
+
+labeling tasks. In: Proceedings of the 2008 Conference on Empirical Methods in 
+Natural Language Processing, pp. 1070–1079. 
+
+Teixeira, D., et al., 2022. Fledge or fail: Nest monitoring of endangered black-cockatoos 
+using bioacoustics and open-source call recognition. Ecol. Inform. 69, 101656. 
+Thakur, A., Thapar, D., Rajan, P., Nigam, A., 2019. Deep metric learning for bioacoustic 
+
+classification: Overcoming training data scarcity using dynamic triplet loss. 
+J. Acoust. Soc. Am. 146 (1), 534–547. 
+
+Threatened Species Scientific Committee (TSSC), 2005. Commonwealth Listing Advice
+
+3.1. CNN model development with active learning 
+
+The CNN model performance stabilised within five active learning 
+iterations (Fig. 4). The majority of model performance improvement was 
+achieved within the first two iterations, with a 34.3% decrease in macro- 
+averaged MAE between iterations one and three, compared to a 12.1% 
+decrease in macro-averaged MAE between iterations three and the final 
+model (Fig. 4). Most of the training data added between iterations one 
+and  three  consisted  of  non-target  calls  (Table  1),  which  led  to  rapid 
+improvements in the model’s ability to differentiate non-target sounds, 
+resulting in a reduction in false positives.
+
+validation  (Section  2.3)  and  test  datasets  (Section  2.4)  prior  to  the 
+commencement of CNN development. The training/validation dataset 
+comprised  6363  h  of  audio  from  ten  independent  sites  (five  solar- 
+powered bioacoustic recorders and five Audiomoth recorders) and the 
+test dataset comprised 2735 h of audio from nine independent sites (four 
+solar-powered bioacoustic recorders and five Audiomoth recorders) that 
+were different from the training/validation dataset. All audio data were 
+unlabelled at the commencement of the study. 
+
+All recorders were set to record 10-min files continuously between 6 
+am and 6 pm daily, which reflected the diurnal activity patterns of SBTF. 
+We stored audio data as FLAC files at a sampling rate of 44.1 kHz for the 
+solar-powered bioacoustic recorders and WAV files at a 32 kHz sampling 
+rate for the Audiomoth recorders. 
+
+2.3. CNN development 
+
+2.3.1. Data pre-processing
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't explicit information about specific preprocessing steps taken before training the deep learning model. However, it does mention that all audio data were unlabelled at the commencement of the study. This implies that some form of labeling or annotation process might have been performed as part of the preprocessing step. Additionally, the context mentions that the recorders captured audio data as FLAC files at a sampling rate of 44.1 kHz for the solar-powered bioacoustic recorders and WAV files at a 32 kHz sampling rate for the Audiomoth recorders. Therefore, it can be assumed that the raw audio data might have undergone format conversion and resampling to ensure consistency across the dataset. Furthermore, common practices in audio processing include noise reduction, silence removal, and feature extraction techniques such as Mel-frequency cepstral coefficients (MFCCs) or spectrogram generation. Although these methods aren't explicitly mentioned in the context, they could potentially be included in the preprocessing pipeline based on standard procedures in audio signal processing and machine learning applications.

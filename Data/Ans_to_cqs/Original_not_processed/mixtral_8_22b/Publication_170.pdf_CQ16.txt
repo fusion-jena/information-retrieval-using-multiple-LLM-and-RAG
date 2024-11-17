@@ -1,0 +1,157 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Model Evaluation
+Model performance evaluation included both errors and
+time costs evaluation. The iteration termination condition
+of the model was the same in each round training (i.e., the
+loss rate of the model was less than a preset threshold ɛ
+−4]). We used the same test set (Test) to
+[here ɛ = 1.0 × 10
+evaluate the performance of models in diﬀerent training
+phases. The model error evaluation used three metrics that
+included overall error, commission error, and omission
+error, which were deﬁned by equations (2), (3) and (4).
+
+Table 2. Main conﬁguration parameters of the two platforms used.
+
+)
+
+(2)
+
+(3)
+
+(4)
+
+Commission error
+
+=
+
+/(
+FP TP
+
++
+
+FP
+
+)
+
+Omission error
+
+=
+
+/(
+FN TP
+
++
+
+FN
+
+)
+
+232
+
+Wildlife Society Bulletin (cid:129) 45(2)
+
+ 23285540, 2021, 2, Downloaded from https://wildlife.onlinelibrary.wiley.com/doi/10.1002/wsb.1176 by Vamsi Krishna Kommineni - Friedrich-Schiller-Universität , Wiley Online Library on [29/08/2024]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons LicenseTable 1. Incremental training sets sequence. There were 36,490 images in
+BMXSM dataset.
+
+Overall error
+
+= (
+
+FN FP TP
+
+)/(
+
++
+
++
+
+TN FN FP
+
++
+
++
+
+Training sets(i)a
+
+Number of
+images(n)
+
+n/N (%)
+
+Empty images
+rateb (%)
+
+1
+2
+3
+4
+5
+6
+7
+
+7,298
+10,947
+14,596
+18,245
+21,894
+25,543
+29,192
+
+20
+30
+40
+50
+60
+70
+80
+
+80.36
+80.52
+80.50
+80.35
+80.53
+80.48
+80.47
+
+a i represented serial number of training set Traini, i = 1, 2, …, 7. Here
+Train1 was initial training set and Traini (i = 2, 3, …, 7) was in-
+cremental training set.
+
+Figure 3. The x‐axis represented the percentage of training samples in the BMXSM data set, corresponding to diﬀerent training sets Traini (i = 1, 2, …, 7).
+GPU_I represented the model that was trained by incremental training mode on a GPU server using diﬀerent training sets. GPU_Z represented the model
+that was trained by zero‐start training model on the GPU server using diﬀerent training sets. PC_I represented the model that was trained by incremental
+training mode on a desktop PC using diﬀerent training sets. Within each panel, error values that did not share a letter code were diﬀerent signiﬁcantly
+(p < 0.05, proportion test)
+
+234
+
+Wildlife Society Bulletin (cid:129) 45(2)
+
+was the same, and the errors of models decreased as the
+sample size increased (Fig. 3). Using only 7,298 images
+(20% of the BMXSM dataset), the overall error, omission
+error, and commission error of our method were 5.21%,
+14.86%, and 11.37%, respectively (Fig. 3c). When using
+29,192 images (80% of the BMXSM dataset), the three
+errors were 2.69%, 6.45%, and 6.82%, respectively (Fig. 3c).
+Training time costs of models varied greatly when using
+diﬀerent training modes on the same computing platform
+(Fig. 4). In the zero‐start training mode, the training time
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The iteration termination condition of the model was the same in each round of training. Training would be completed when the loss rate of the model was less than a preset threshold of 1.0 × 10^-4. This means that the training process would continue until the model's loss rate dropped below this threshold, indicating that the model had learned sufficiently from the training data.

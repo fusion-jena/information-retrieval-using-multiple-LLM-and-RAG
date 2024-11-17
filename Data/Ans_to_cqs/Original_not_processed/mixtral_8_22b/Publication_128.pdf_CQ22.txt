@@ -1,0 +1,112 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.5. Model training 
+
+  To ensure the accuracy of the experimental results and obtain the best classification, the exact 
+parameters  and  functions  as  well  as  classifier  built-in  the  six  neural  network  models  are 
+designed as follows: 
+
+  The resolution of input data is 224×224 with Red Green Blue (RGB) format, and the inputs 
+
+are batch normalized before training; 
+
+  Batch size is applied which is set to 30 when training, but images are tested one by one; 
+  An  optimized  rectified  linear  activation,  Leaky  ReLU,  was  introduced  into  models  after 
+
+convolution or concatenate layer; 
+
+In MobileNet, width multiplier is 1.2, resolution multiplier is 1; 
+
+  Learning rate and dropout rate adopt same value 0.001, bias value is 0;  
+ 
+  For the neural networks with lower depth, the higher training epochs are, the higher probability 
+of over fitting is. Therefor models in which less than 100 layers adhibit raw data 60 epochs, 
+otherwise executed 80 epochs;
+
+4
+
+ 
+ 
+ 
+ 
+ IWECAI 2021
+Journal of Physics: Conference Series
+
+1873 (2021) 012002
+
+IOP Publishing
+doi:10.1088/1742-6596/1873/1/012002
+
+metrics. The highest score indicates the highest rank in a array which single sample inferred to n given 
+classes, and prediction label is the index of the highest score.  
+
+Model  loss  is  computed  by  compound  loss  which  is  added  by  softmax  cross-entropy  and 
+regularization  loss,  which  expresses  the  distance  between  two  distributions.  Lower  cross  entropy  is, 
+mutual  closer  are.  Regularization  loss  is  inserted  to  reduce  overfitting,  which  balances  model 
+performance and model complexity. On purpose of normalizing losses, softmax is introduced to map 
+true loss value to between zero to one. 
+
+2.5. Model training
+
+2.4. Deep learning approaches for plant image classification 
+In  our  experiments,  the  prediction  accuracy  was  evaluated  by  commonly  used  mean  average  (MA) 
+methods[33].  The  MA  average  top-1  accuracy  measures  the  distance  between  predicting  labels  and 
+labeled classes. Multiple samples are fed into the test model, and their inference labels according to the 
+highest score are exported as their prediction labels. At last accuracy is calculated by averaging these 
+outcomes.  For  example,  there  are  n  images  belong  to  m  classes,  and  they  are  fed  into  a  model,  the 
+average accuracy in this case can be described as formula: 
+
+Average= 
+
+1
+
+n
+
+n
+i=1
+
+∑ ∑ L(F(cid:4666)xi(cid:4667)=yi)
+
+m
+j=1
+
+(1) 
+
+Where L(.) is a logic function to verify if argmax index equals to instance label, which means that 
+L(.) is 1 if F(xi) = yi otherwise L(.) is 0. Function F(.) means to find the highest score of classify output 
+
+4
+
+  A fully connected layer with softmax activation has 28 nodes, which is regarded as classifier 
+
+while training but removed when inference. 
+
+2.6. Computational resources and environment 
+In this study, the operation system is CentOS Linux release 7.7.1908 (Core) with 32 CPUs and each 
+CPU has 64 processors. The develop environment built-up is Python(version 3.6.2) packaged by Conda-
+forge which compiled with GCC (version4.8.2,20140120). Tool packages used in virtual environment 
+are the TensorFlow (version 1.12.0) and the Numpy (version 1.19.2).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The performance of the deep learning model is evaluated using the mean average (MA) methods, specifically the MA average top-1 accuracy. This metric measures the distance between predicted labels and labeled classes. It involves feeding multiple samples into the test model and obtaining their inference labels based on the highest score, which are then considered as their prediction labels. Finally, the accuracy is calculated by averaging these outcomes.
+
+For example, if there are 'n' images belonging to'm' classes, and they are fed into a model, the average accuracy can be represented by the formula:
+
+Average = 1/n * Σ [Σ L(F(x_i) = y_i)]
+
+where L(.) is a logical function that verifies whether the argument max index matches the instance label. In other words, L(.) returns 1 if F(x\_i) = y\_i, else it returns 0. Function F(.) finds the highest score from the classified outputs.
+
+Additionally, the model loss is determined by computing the compound loss, which combines the softmax cross-entropy and regularization loss. Softmax cross-entropy represents the distance between two distributions, while regularization loss helps minimize overfitting by striking a balance between model performance and complexity. Normalization of losses is achieved through introducing softmax, which maps true loss values within the range of zero to one.

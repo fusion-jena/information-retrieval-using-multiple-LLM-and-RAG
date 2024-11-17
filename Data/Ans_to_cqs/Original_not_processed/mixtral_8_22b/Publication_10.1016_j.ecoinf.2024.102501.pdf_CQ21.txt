@@ -1,0 +1,189 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.1. Data and test environment 
+
+In this experiment, the data from the first eight days were used as the 
+training set, and the data from the last two days were used as the vali-
+dation set. The four water quality parameters, Ec, Tem, Tur, and H, were 
+used as inputs of the model to predict the DO concentration after 10 min. 
+The test environment consisted of an Intel I5–5200U processor with 
+CPU clock speed of 2.2 GHz and memory of 8 GB. The operating system 
+was Windows 10 (64-bit). The programming language was Python 3.7 
+(64-bit), and the integrated development environment was Anaconda 3, 
+with Anaconda's sklearn package used for support vector regression and 
+PyWavelets used for the wavelet transform. 
+
+Fig. 3. Flowchart of the proposed WTD-GWO-SVR method for predicting DO concentration levels.
+
+search algorithms such as the genetic algorithm (GA) and particle swarm 
+optimization (PSO) are often used to solve model parameter problems, 
+for instance, the number of neurons in neural networks, error penalty 
+factor in SVM, etc. For example, Yan used GA and PSO to optimize a BP 
+neural network to build a DO estimation model of Beijing Lake in Beijing 
+(Yan et al., 2019). Compared with the GA algorithm, PSO is used more in 
+DO  modeling  in  combination  with  BPNN,  GRU,  LSTM,  SVM,  support 
+vector regression (SVR), and other algorithms (Wu et al., 2018; Huan 
+et al., 2020; Zhu et al., 2021; Huang et al., 2021; Cao et al., 2021b; Liu 
+et al., 2014, exhibiting high efficiency and good robustness with mini-
+mal calculation. Other optimization algorithms, such as the multi-verse 
+optimizer,  have  also  been  adopted  for  parameter  optimization  (Yang 
+et al., 2021).
+
+EcologicalInformatics80(2024)1025019D. Feng et al.                                                                                                                                                                                                                                    
+
+Table 6 
+Performances of different models.  
+
+Models 
+
+Training 
+
+Validation 
+
+SVR1 
+SVR2 
+SVR3 
+WTD-SVR1 
+WTD-SVR2 
+WTD-SVR3 
+WTD-GWO- 
+SVR1 
+WTD-GWO- 
+SVR2 
+
+WTD-GWO- 
+SVR3 
+LSTM1 
+LSTM2 
+LSTM3 
+BPNN1 
+BPNN2 
+BPNN3 
+
+R2 
+
+MSE 
+
+MAE 
+
+R2 
+
+MSE 
+
+MAE 
+
+0.7264 
+0.7772 
+0.8575 
+0.7273 
+0.7783 
+0.8548 
+
+0.5873 
+0.4157 
+0.2657 
+0.5802 
+0.4134 
+0.2708 
+
+0.3834 
+0.3032 
+0.217 
+0.3712 
+0.3015 
+0.2247 
+
+0.7352 
+0.8254 
+0.8838 
+0.7348 
+0.8271 
+0.8935 
+
+0.3833 
+0.2527 
+0.1681 
+0.384 
+0.2502 
+0.1541 
+
+0.3669 
+0.2631 
+0.211 
+0.7021 
+0.2551 
+0.2107 
+
+0.9393 
+
+0.1131 
+
+0.1135 
+
+0.9729 
+
+0.0392 
+
+0.1221 
+
+0.9920 
+
+0.0148 
+
+0.0471 
+
+0.996 
+
+0.0057 
+
+0.0422 
+
+0.9966 
+
+0.0061 
+
+0.0404 
+
+0.9973 
+
+0.0038 
+
+0.0381
+
+The bold values in Table 6 represent the best evaluation results for 
+each algorithm. For these five algorithms, the third input combination, 
+that is, Tem, Ec, Tur, and H, was selected as prediction inputs, achieving 
+the highest R2 as well as the lowest MSE and MAE in both the training 
+and  validation  phases.  Thus,  it  can  be  inferred  that  these  four  moni-
+toring variables  all contribute positively to the prediction of DO con-
+centration. In addition, the results in Table 6 show that compared with 
+the  single  SVR model, the  MSE  and MAE of  the WTD-SVR model are 
+reduced  by  8.33%  and  0.14%,  respectively,  indicating  that  the  SVR
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training process, several postprocessing steps may be involved depending on the specific application and requirements. Some common postprocessing steps include:
+
+1. Model Evaluation: This involves calculating various metrics like accuracy, precision, recall, F1 score, ROC AUC, etc., to evaluate the performance of the trained model. These metrics help in understanding how well the model has learned from the given dataset and its ability to generalize to unseen data.
+
+2. Confusion Matrix: It is a table layout that allows visualizing the performance of an algorithm. Each row of the matrix represents the instances in an actual class while each column represents the instances in a predicted class. It provides detailed information about true positive, false positive, true negative, and false negative predictions made by the model.
+
+3. Saliency Maps: They are visualizations of the parts of an image that are most responsible for the output of a convolutional neural network. They highlight the pixels or regions of interest in the input image that contributed significantly towards the final decision made by the model.
+
+4. Hyperparameter Tuning: After evaluating the initial model, hyperparameters might need adjustment to improve the model's performance further. Techniques like Grid Search, Random Search, Bayesian Optimization, etc., can be employed for tuning hyperparameters.
+
+5. Model Interpretability: Postprocessing steps might involve explaining the decisions made by the model using techniques like LIME, SHAP, etc. These methods provide insights into which features had the most impact on the model's predictions.
+
+However, based on the provided context, there isn't any explicit mention of the postprocessing steps followed after the model training. Therefore, one cannot definitively state what postprocessing steps were taken in this particular case.

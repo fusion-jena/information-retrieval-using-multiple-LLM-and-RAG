@@ -1,0 +1,9 @@
+To monitor the model's performance during training, the bird song dataset was divided into a training, validation, and testing dataset. The training dataset consisted of 70% of the recordings for each species and country, while the testing dataset contained the remaining 30%. This division allowed for the evaluation of the model's performance on unseen data.
+
+Data augmentation was applied only to the training dataset, and the segments obtained were randomly distributed between the training and validation sets with a ratio of 0.8/0.2. This approach provided a means to assess the model's ability to generalize to new data, as the validation set served as a proxy for unseen data during the training process.
+
+The model was trained for 40 epochs with a batch size of 8 segments and a learning rate of 0.001 using the Adam optimizer. Training the model multiple times, specifically ten times, accounted for the effect of random weight initialization in neural networks. This strategy provided a more reliable assessment of the model's performance, as it reduced the impact of the random initialization on the training outcome.
+
+In each execution, the model was applied to the testing dataset, and the confusion matrix, number of True Positives (TP), False Positives (FP), True Negatives (TN), and False Negatives (FN) were recorded. These metrics allowed for the monitoring of the model's performance during training, as they provided insights into the model's ability to correctly classify data points.
+
+Overall, the strategy implemented to monitor the model performance during training involved dividing the dataset into training, validation, and testing sets, training the model multiple times, and recording relevant metrics during the testing phase. This approach provided a comprehensive assessment of the model's performance, allowing for adjustments and improvements to be made as needed.

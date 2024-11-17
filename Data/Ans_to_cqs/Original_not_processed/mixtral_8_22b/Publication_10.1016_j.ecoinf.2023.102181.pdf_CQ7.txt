@@ -1,0 +1,72 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+autocorrelation. Ideally, an independent sample is collected to validate 
+map predictions using an appropriate probability sample design (Brus 
+et al., 2011; de Gruijter et al., 2006), but this is often not feasible given 
+logistical  constraints,  or  when  utilizing  legacy  data  that  have  been 
+collected  over  multiple  scientific  campaigns,  potentially  for  different 
+purposes. Cross-validation may be used instead by setting aside some 
+portion of the sample data during model training to test the accuracy of 
+model predictions (Snee, 1977). Such a validation may be configured in 
+multiple ways, and one common approach is to partition the data into k 
+different subsets, or “folds”, each of which is held out in turn as test data 
+while  the  model  is  trained  using  the  other  k (cid:0) 1.  Where  a  suitable 
+probability sample of the response has been acquired, such randomized 
+cross-validation  is  expected  to  produce  an  unbiased  estimate  of  map
+
+training  (i.e.,  bagging),  then  to  obtain  unbiased  estimates  of  model 
+performance  without  omitting  portions  of  the  feature  space  during 
+validation. An important note is that the latter procedure also enables 
+leveraging of spatial autocorrelation information for model prediction. 
+Bagging normally proceeds by drawing many bootstrap samples of 
+the data and training models on each, which are aggregated to form an 
+ensemble predictor (Breiman, 1996). Individual data points each have 
+probability P(si) = 1
+n  of being selected during a single draw of a single 
+bootstrap sample, where si  is one of n data points distributed over the 
+study  area.  Non-independent  data  observations  can  be  considered  as 
+partial replication of some information in the modelling dataset. In an 
+extreme example, consider two data points at the same location with 
+exactly the same environmental measurements. We could conceptualize
+
+Wiener, 2002) with default hyperparameters (number of trees ntree =
+500; minimum number of observations in a terminal node nodesize = 5; 
+number of variables tried at each split mtry = ⌊Nβ
+⌋ = 1, where Nβ = 5 is 
+3
+the number of predictors). The out-of-bag residuals were obtained by
+
+Ways  in  which  to  minimize  biased  training  of  machine  learning 
+models  with  clustered  data  is  an  outstanding  challenge  (e.g.,  Meyer 
+et al., 2018, 2019). We hypothesize that the improvements to predictive 
+performance observed here using covariance-weighted bagging may be 
+a  result  of  reduced  bias  during  model  training  from  down-weighting 
+over-sampled  information,  but  this  was  not  tested  explicitly.  A  suit-
+able experiment to explore this topic could simulate a surface from a pre- 
+defined combination of response functions to environmental variables, 
+and  test  for  the  capacity  to  recover  the  responses  using  covariance 
+weighted bagging under various clustering scenarios. Simultaneously, it 
+would be informative to observe the automatic variable selection and 
+regularization behaviour of the bagging model. 
+
+5. Conclusions
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit criteria for splitting data for deep learning model training. However, it mentions cross-validation as a method for validating map predictions. Cross-validation involves partitioning the data into 'k' different subsets or folds, each of which is held out in turn as test data while the model is trained using the other 'k - 1' folds. This process is repeated 'k' times, with each fold serving as the test set once. The results are averaged across all runs to give an overall measure of model performance.
+
+Additionally, the text discusses bagging, a technique used to reduce variance and improve the stability of machine learning algorithms. Bagging works by creating multiple subsets of the original data, fitting a model to each subset, and combining their predictions. Each subset is created by randomly sampling the original data with replacement, meaning some observations may appear more than once in any given subset.
+
+While these methods do involve splitting the data, they do not directly address the specific criteria for dividing data into training, testing, and validation sets. Typically, these splits are made based on the size and nature of the dataset, as well as the requirements of the specific problem being addressed. For instance, a common practice is to use 70% of the data for training, 20% for testing, and 10% for validation. However, these proportions can vary depending on factors such as the total amount of available data and the desired balance between bias and variance in the final model.

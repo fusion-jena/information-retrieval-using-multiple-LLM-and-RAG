@@ -1,0 +1,181 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Training Run-Time
+
+Prediction Run-Time
+
+VGG16
+Xception
+ResNet50
+DenseNet121
+The proposed model
+
+22 min 27 s
+21 min 26 s
+30 min 8 s
+18 min 34 s
+16 min 43 s
+
+0.803 s
+0.827 s
+1.835 s
+4.134 s
+0.976 s
+
+5.5. Discussion
+
+Recent years have seen increasing concerns about protecting the privacy of conﬁdential
+information when processing data using models. This leads to the need for cryptographic
+techniques to solve privacy concerns in data-driven models. Several PPDL techniques have
+been proposed in the literature to solve these concerns. This research is, to the best of our
+knowledge, the ﬁrst work that investigates PPDL for satellite image classiﬁcation.
+
+Author Contributions: Conceptualization, M.A., W.B. and J.A.; methodology, M.A. and W.B.; soft-
+ware, M.A. and W.B.; validation, M.A., W.B. and J.A.; formal analysis, M.A., W.B. and A.K.; in-
+vestigation, M.A. and M.D.; resources, M.A., W.B. and J.A.; data curation, W.B.; writing—original
+draft preparation, M.A. and W.B.; writing—review and editing, M.A., W.B., J.A., A.K. and M.D.;
+visualization, M.A.; supervision, W.B.; funding acquisition, A.K. All authors have read and agreed to
+the published version of the manuscript.
+
+Funding: This research received no external funding.
+
+Institutional Review Board Statement: Not applicable.
+
+Informed Consent Statement: Not applicable.
+
+Data Availability Statement: Data will be available upon request to the corresponding author.
+
+9730
+8440
+9124
+10,480
+
+The considered dataset is further divided into three datasets, resulting in 22,666 images
+for training the model (training set), 7554 images for validating the trained model (valida-
+tion set), and 7554 images for assessing the model performance (testing set).
+
+To obtain this dataset, a semantic segmentation is conducted using our previous
+works [51–53]. The four classes—namely, urban, bare soil, vegetation and road—are
+extracted from the satellite images, meaning that the resulting images each contain both
+the real value of pixels of the extracted class and zero for the values of the other classes.
+Then, each image containing a given class is divided into non-overlapping blocks of
+256 × 256 pixels and saved into folders, each with the name of the corresponding class. A
+sample of this dataset is depicted in Figure 4, wherein the white represents a given land
+cover class and the black represents the values of other classes.
+
+5.2. Experimental Set-Up
+
+Table 3. CNN Architecture.
+
+No.
+
+Layers
+
+Output Shape
+
+Parameters
+
+Dropout Rate
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+
+Input
+Convolutional
+Activation (ReLu)
+MaxPooling
+Convolutional
+Activation (ReLu)
+MaxPooling
+Convolutional
+Activation (ReLu)
+MaxPooling
+Dropout
+Flatten
+Fully Connected
+Activation (ReLu)
+Fully Connected
+Activation (softmax)
+
+128 × 128 × 3
+128 × 128 × 32
+—
+64 × 64 × 32
+64 × 64 × 32
+—
+32 × 32 × 32
+32 × 32 × 64
+—
+16 × 16 × 64
+16 × 16 × 64
+16,384
+64
+—
+4
+—
+
+—
+896
+—
+—
+9248
+—
+—
+18,496
+—
+—
+—
+—
+1,048,640
+—
+—
+260
+
+—
+—
+—
+—
+—
+—
+—
+—
+—
+—
+0.4
+—
+—
+—
+—
+—
+
+4.2.1. Data Augmentation
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the provided information, there isn't any explicit mention of the specific criteria used to determine when training is complete. However, it can be inferred that the researchers might use common machine learning practices such as monitoring the validation loss or accuracy over epochs and stopping the training process once the validation loss plateaus or the validation accuracy stops improving significantly. Additionally, they could also employ early stopping mechanisms to prevent overfitting by halting the training process if the validation loss starts to increase while the training loss continues to decrease. Nevertheless, without more detailed information regarding their exact training procedure, we cannot provide a definitive answer.

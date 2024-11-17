@@ -1,0 +1,11 @@
+The strategy implemented to monitor the model performance during training involves the use of various evaluation metrics, including accuracy, true positive rate (TP), true negative rate (TN), false positive rate (FP), and false negative rate (FN). These metrics are determined using the classification rate formula, where TP and TN represent correct classifications, while FP and FN represent incorrect classifications.
+
+To ensure fair evaluation, the classifier results are assessed using species-averaged accuracy. This method first calculates the accuracy per species, then averages the results across all species. This approach prevents dominant classes in an unbalanced dataset from skewing the overall performance measure.
+
+Additionally, the F-measure, which is the harmonic mean of precision and recall, is used to evaluate the model's performance. Higher values of per-channel accuracy and F-measure indicate better performance.
+
+The learning rate of the model was initially set at 0.001 and was exponentially decayed every 3 epochs with a factor of 0.94. This learning rate strategy helps in fine-tuning the model and preventing overfitting.
+
+The model was trained on images of one of the two bright-field channels (channels 1 and 9), as well as a combination of one brightfield channel (channel 9) and two fluorescence channels (channels 2 and 7). The model performed best with a species-averaged accuracy of 96% and an F-measure of 0.96 when trained on a combination of channel 9 and channels 2 and 7.
+
+In summary, the strategy to monitor the model performance during training involves the use of various evaluation metrics, species-averaged accuracy, F-measure, and a dynamic learning rate. These methods ensure that the model's performance is accurately evaluated and fine-tuned during the training process.

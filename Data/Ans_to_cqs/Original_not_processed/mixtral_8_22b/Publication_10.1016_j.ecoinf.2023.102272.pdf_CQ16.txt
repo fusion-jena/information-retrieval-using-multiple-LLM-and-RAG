@@ -1,0 +1,219 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The data used for model training and selection were randomly par-
+titioned into: data for training candidate models (25% of the data; At); 
+
+data for validating candidate models (50%; Av); data for training the 
+selected  candidate  model  (75%;  Bt  = At  + Av);  validation  data  to 
+determine the optimal number of epochs to train the selected candidate 
+model (25%; Bv). Data partition was performed in R with package dismo 
+(Hijmans et al., 2017; R Core Team, 2022). 
+
+2.5. Model selection procedure
+
+After  full  training  and  identification  of  the  optimal  number  of 
+training  epochs,  this  model  delivered  an  excellent  average  predictive 
+performance for all years (mean AUC = 0.92 ± 0.05 sd) used as testing 
+sets. Only  in  a  few cases the  performance went  below this  threshold, 
+namely for class “increase >50%” where performance was fair (i.e., AUC 
+from 0.7 to 0.8) for years 2013 and 2016, and good (AUC 0.8 to 0.9) for 
+the  remaining  years,  and  for  class  “increase  25–50%”  for  year  2017, 
+where the model performance was good (AUC = 0.88) (Table 2). 
+
+Concerning the importance of variables, AUC decreased most noto-
+riously when the predictor ‘number of eggs’  was randomized, a result 
+observed for all test years (Fig. 3). Slight decreases in performance are 
+also  apparent  when  temperature  was  randomized  (either  mean, 
+maximum or minimum) for most test years. 
+
+3.3. Classical machine learning model accuracy and predictive 
+performance
+
+Table 3 
+Parameters tested and values for each classical machine learning model used and each test year. xgbTree = extreme gradient boosting tree, RF = random forest, NNET =
+neural network, DNN = deep neural network.  
+
+Model 
+
+xgbTree 
+
+RF 
+NNET 
+
+DNN 
+
+Parameter 
+
+2013 
+
+2014 
+
+2015 
+
+2016 
+
+2017 
+
+2018 
+
+2019 
+
+Nrounds 
+max_depth 
+Eta 
+Gamma 
+colsample_bytree 
+min_child_weight 
+Subsample 
+Mtry 
+Size 
+Decay 
+layer1 
+layer2 
+layer3 
+hidden_dropout 
+visible_dropout 
+
+150 
+3 
+0.4 
+0 
+0.8 
+1 
+1 
+2 
+5 
+0.1 
+1 
+0 
+0 
+0 
+0 
+
+150 
+3 
+0.4 
+0 
+0.6 
+1 
+1 
+2 
+5 
+0.1 
+1 
+0 
+0 
+0 
+0 
+
+150 
+3 
+0.4 
+0 
+0.6 
+1 
+1 
+2 
+5 
+0.1 
+1 
+0 
+0 
+0 
+0 
+
+150 
+3 
+0.4 
+0 
+0.6 
+1 
+1 
+2 
+5 
+0.1 
+1 
+0 
+0 
+0 
+0 
+
+150 
+3 
+0.4 
+0 
+0.8 
+1 
+1 
+2 
+3 
+0.1 
+1 
+0 
+0 
+0 
+0 
+
+150 
+3 
+0.4 
+0 
+0.6 
+1 
+1 
+2 
+5 
+0.1 
+1 
+0 
+0 
+0 
+0 
+
+150  
+3  
+0.3  
+0  
+0.6  
+1  
+1 
+2 
+5  
+0.1 
+1  
+0  
+0  
+0  
+0
+
+2.5. Model selection procedure 
+
+The model selection procedure was performed as follows (Capinha 
+et  al.,  2021;  Van  Kuppevelt  et  al.,  2020):  we  randomly  generated  5 
+models for each of the four available deep-ANN architecture types (20 
+models in total) and trained each one with a small subset of the training 
+data  (data  partition  At)  for  4  epochs  (an  “epoch”  corresponds  to  the 
+complete training dataset being passed forward and backward across the 
+network  one  time;  Capinha  et  al.,  2021).  The  accuracy  of  candidate 
+models,  as  provided  by  mcfly  (i.e.,  the  “proportion  of  cases  correctly 
+classified”), was then compared using a left-out validation data set (data 
+partition Av) and the model with the highest performance was selected 
+for training on the full training data (data partition Bt; Bt = At + Av) for 
+up to 30 epochs.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Answer: The text does not explicitly state the specific criteria used to determine when training is complete. However, it mentions that the optimal number of training epochs is identified after full training. This suggests that some form of monitoring is done during training to identify the point at which further training would not significantly improve the model's performance. Additionally, the use of a separate validation dataset (Bv) implies that validation loss could be monitored to detect overfitting and determine the optimal number of epochs. Therefore, while not explicitly stated, it can be inferred that criteria such as validation loss plateau or lack of significant improvement in validation performance might have been used to decide when training should be stopped.

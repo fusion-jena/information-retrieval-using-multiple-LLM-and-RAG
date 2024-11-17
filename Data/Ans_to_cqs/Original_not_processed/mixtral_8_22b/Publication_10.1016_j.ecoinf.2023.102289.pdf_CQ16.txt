@@ -1,0 +1,150 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+A.1.2. Loading the pre-trained module 
+
+By default, LaDeco employs the deeplabv3 þ resnet269 model. The deeplabv3 part is a semantic segmentation algorithm developed by Google 
+(Chen et al., 2018), and Resnet269 is a 269-layer Resnet neural network (Zhang et al., 2020). Users can switch to other pre-trained models as needed 
+(Please refer to https://cv.gluon.ai/api/model_zoo.html#). 
+
+A.1.3. Setting the threshold 
+
+The primary function of LaDeco is to calculate the pixel percentage of each landscape element in the image. Users can set a threshold to filter out 
+
+negligible values; for example, values below 1% can be rounded to zero. This threshold is customizable. 
+
+A.1.4. Output format
+
+Jahani, A., Rayegani, B., 2020. Forest landscape visual quality evaluation using artificial 
+intelligence techniques as a decision support system. Stoch. Env. Res. Risk A. 34 
+(10), 1473–1486. https://doi.org/10.1007/s00477-020-01832-x. 
+
+Jahani, A., Saffariha, M., 2020. Aesthetic preference and mental restoration prediction in 
+urban parks: an application of environmental modeling approach. Urban For. Urban 
+Green. 54, 126775 https://doi.org/10.1016/j.ufug.2020.126775. 
+
+Jeon, J., Woo, A., 2023. Deep learning analysis of street panorama images to evaluate the 
+
+street-scape walkability of neighborhoods for subsidized families in Seoul, Korea. 
+Landsc. Urban Plan. 230, 104631 https://doi.org/10.1016/j. 
+landurbplan.2022.104631. 
+
+Kaplan, S., 1995. The restorative benefits of nature: toward an integrative framework. 
+
+J. Environ. Psychol. 15 (3), 169–182. 
+
+Kaplan, R., Kaplan, S., 1989. The Experience of Nature: A Psychological Perspective. 
+
+Cambridge University Press, New York.
+
+An  AI  platform  operates  on  a  Central  Processing  Unit  (CPU)  or 
+Graphics Processing Unit (GPU). It uses MXNet to provide the essential 
+modules and functions required for the program operation. 
+
+The  programming  platform  encompasses  four  primary  computa-
+
+tional functions:  
+
+(1)  Analysis  Module:  Responsible  for  conducting  core  analytical 
+
+tasks.  
+
+(2)  Data Filtering Module: Filters irrelevant data.  
+
+(1)  The computer initially read the images and forwarded them to the 
+
+SS model.  
+
+(2)  The SS model produced a pixel count for 150 objects.  
+(3)  Any data that fell below a certain threshold were assigned a value 
+
+of zero.  
+
+(4)  Finally,  the  percentages  of  each  element  and  category  were 
+calculated based on a visual landscape classification framework. 
+The  results  were  then  exported  in  Comma-Separated  Values 
+(CSV) format.
+
+A.1.4. Output format 
+
+For easier integration with other datasets or further statistical analysis, the output was provided in CSV format. Table A.1 shows the output 
+template. The first column lists the names of the images. The subsequent columns show the percentages of various landscape elements categorized into 
+Levels L-1, L-2, L-3, and L-4. The table concludes with the NFI. All data are presented as percentages. For instance, if L1_Nature = 0.996 for an image 
+named 1.jpg, this indicates that 99.6% of the image pixels are natural elements.  
+
+Table A.1 
+Output data example.  
+
+fid 
+
+1.jpg 
+2.jpg 
+3.jpg 
+4.jpg 
+5.jpg 
+6.jpg 
+7.jpg 
+8.jpg 
+9.jpg 
+10.jpg 
+11.jpg 
+12.jpg 
+13.jpg 
+14.jpg 
+15.jpg 
+16.jpg 
+
+L1_Nature 
+
+L1_man-made 
+
+L2_landform 
+
+0.996 
+0.995 
+0.587 
+0.937 
+0.011 
+0 
+0.717 
+0.674 
+0.663 
+0.999 
+0.696 
+0.726 
+0.352 
+0.988 
+0.876 
+0 
+
+0.005 
+0.003 
+0.408 
+0.064 
+0.723 
+0.996 
+0.148 
+0.324 
+0.338 
+0 
+0.303 
+0.113 
+0.647 
+0.012 
+0.124 
+0.923
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't any information about the specific criteria used to determine when training is complete. However, common practices include monitoring metrics such as validation loss, accuracy, or performance on a separate test dataset. When these metrics reach a satisfactory level or stop improving significantly over several epochs, it may indicate that training has converged and can be stopped. Please consult additional resources or documentation related to the specific AI platform being used for more detailed guidance.

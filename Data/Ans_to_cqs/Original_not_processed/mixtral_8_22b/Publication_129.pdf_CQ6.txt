@@ -1,0 +1,121 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+[34]. Second,
+
+from the input image (see Fig. 2). It can be a pre-trained
+CNN architecture such as Inception [32], Residual Neural Net-
+work (Resnet) [33], and Dense Convolutional Network (Den-
+senet)
+the RPN module proposes object
+locations of the feature maps. Third, a regressor and classiﬁer
+are trained using the loss function L in (1) for the CNN detec-
+tion network to adjust these proposed locations and to predict
+single or multi-object classes with the corresponding bounding
+box area in the resulted image, as shown in Fig. 2.
+
+Lð pif g;
+
+tif gÞ ¼
+
+1
+Ncls
+
+X
+
+i
+
+Lclsðpi
+
+i Þ þ k 1
+; p(cid:3)
+Nreg
+
+X
+
+i
+
+i Lregðti; t(cid:3)
+p(cid:3)
+
+i Þ: ð1Þ
+
+IoU ¼
+
+A \ B
+A [ B
+
+ð2Þ
+
+Next, the Region of Interest (RoI) pooling layer takes the
+region corresponding to a proposal from the backbone feature
+map and dividing it into sub-windows. The maximum pooling
+is performed over these sub-windows to give the output of RoI
+pooling layer, which has a size of (N, 7, 7, 512), and N is the
+number of generated region proposals by the RPN mechanism,
+as shown in Fig. 2. After passing through two fully connected
+layers (FCs), the features are fed into the classiﬁer and regres-
+sor branches as follow. The classiﬁcation layer calculates the
+probability of the region proposal contains an object such that
+the probability Pi of each element in the feature map i contains
+the target object using softmax function. The regions with the
+top score of 300 Pi in the total rankings present the detected
+target object. In addition, the regressor provides the IoU index
+
+A new mobile application of agricultural pests recognition
+
+4427
+
+Fig. 3
+
+performance utilization of
+the RPN module with the
+bounding box regression, as depicted in Fig. 2. Moreover,
+the computational time of this deep learning approach is not
+a problem in this study, because the detection and classiﬁca-
+tion procedures of agricultural insect pests can be executed
+in a few seconds in the cloud computing system, saving all
+required hardware resources.
+
+[32] C. Szegedy, S. Ioffe, V. Vanhoucke, A.A. Alemi, Inception-v4,
+inception-ResNet and the impact of residual connections on
+learning, Proceedings of the Thirty-First AAAI Conference on
+Artiﬁcial Intelligence, AAAI Press, San Francisco, California,
+USA, 2017, pp. 4278–4284.
+
+[33] K. He, X. Zhang, S. Ren, J. Sun, Deep residual learning for image
+in: Proceedings of the IEEE Computer Society
+recognition,
+Conference on Computer Vision and Pattern Recognition, 2016,
+pp. 770–778.
+
+[34] G. Huang, Z. Liu, L. Van Der Maaten, K.Q. Weinberger,
+Densely connected convolutional networks, Proceedings - 30th
+IEEE Conference on Computer Vision and Pattern Recognition,
+CVPR 2017, Institute of Electrical and Electronics Engineers
+Inc., 2017, pp. 2261–2269.
+
+[35] I. Vasilev, Advanced Deep Learning with Python: Design and
+solutions using
+
+implement advanced next-generation AI
+TensorFlow and PyTorch, Packt Publishing, 2019.
+
+[36] J.M. Wargo, Apache Cordova 4 Programming, Pearson
+
+Education, 2015.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The context does not provide explicit information about specific preprocessing steps used before training a deep learning model. However, common preprocessing techniques include data normalization, scaling, cleaning, augmentation, and label encoding. Data normalization involves rescaling numeric columns to have a mean value of zero and a standard deviation of one. Scaling ensures that all features contribute equally to the final result. Cleaning removes noise and outliers from the dataset. Augmentation generates additional training samples by applying transformations like rotation, zooming, flipping, etc. Label encoding converts categorical variables into numerical values. These preprocessing steps help improve the performance and accuracy of deep learning models.

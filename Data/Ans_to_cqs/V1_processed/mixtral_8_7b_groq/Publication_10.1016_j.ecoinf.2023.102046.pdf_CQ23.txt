@@ -1,0 +1,11 @@
+The generalizability of the deep learning model was ensured through several measures. Firstly, the models were fine-tuned using the HuggingFace implementations of ViT and ResNet, and the Keras implementation of Inception-V3, all of which had been pre-trained on the ImageNet dataset. This provided a strong foundation for the models to learn from, as the models had already been exposed to a diverse range of images.
+
+Secondly, the classifier head was replaced on all models, which received the output of the models along with additional parameters, quarters, and length. This allowed the models to learn more complex relationships between the input features and the target variable. Additionally, for the Inception-V3 model, additional dropout and dense layers were added at the end, similar to the DeepOtolith model. This further increased the model's ability to learn complex relationships.
+
+Thirdly, to deal with dataset imbalance, class weights were included in the cross-entropy loss function. This ensured that the models paid equal attention to all classes, regardless of their frequency in the dataset.
+
+Fourthly, for every fine-tuning experiment, the model with the smallest validation loss was used for evaluation on the test set. This ensured that the final model was not overfitting to the training data and could generalize well to unseen data.
+
+Lastly, although not explicitly mentioned, it can be inferred that some form of cross-validation or stratified splitting was used during the hyperparameter search for the classification and regression model. This is because the hyperparameter search involved training multiple models with different levels of regularization and selecting the best model based on its accuracy.
+
+Therefore, based on the provided context, it can be concluded that several measures were taken to ensure the generalizability of the deep learning model, including using pre-trained models, replacing the classifier head, dealing with dataset imbalance, selecting the best model based on validation loss, and possibly using cross-validation or stratified splitting during hyperparameter search.

@@ -1,0 +1,133 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The network takes images with dimensions of 256 × 256 pixels and 
+three  color  channels  as  input.  It  follows  a  fully  convolutional  design, 
+with  each  layer  applying  2D  convolutions  using  4  × 4  filters.  Batch 
+Normalization and Leaky-ReLU activation functions are used after each 
+convolution  layer  to  facilitate  network  training  and  stability.  The 
+encoder consists of 5 blocks, which progressively reduce the spatial di-
+mensions and learn features. It starts with a convolutional layer with 32 
+output channels and strides of 2, followed by a residual block. The re-
+sidual block comprises a Conv-ReLU-Conv structure, where a convolu-
+tional layer is followed by a Rectified Linear Unit (ReLU) activation and 
+another convolutional layer. This configuration is designed to effectively 
+capture  and  enhance  image  features,  serving  as  a  critical  component 
+within the network's architecture. The residual block output is then fed
+
+structures with an increasing number of output channels, encouraging 
+the network to learn complex representations. To enhance the network's 
+capacity  for  capturing  fine-grained  features  and  context,  Spatial  and 
+Channel Attention (SCA) modules are integrated into the architecture. 
+These modules act as mechanisms for focusing on relevant spatial re-
+gions  and  channel-wise  information,  respectively.  These  attention 
+mechanisms are integrated at multiple stages in the network to enrich 
+the feature representations. The decoder upscales the feature maps and 
+fuses  information  from  the  encoder  using  skip  connections.  Each 
+decoder block consists of a transposed convolutional layer to increase 
+spatial  resolution,  followed  by  batch  normalization  and  ReLU  activa-
+tion.  The  final  stage  of  the  network  involves  upsampling  the  feature 
+maps, followed by a convolutional layer with 4 × 4 filters to produce the
+
+Table 4 
+Quantitative  comparison  on  UCCS  dataset  using  UIQM,  UCIQE,  and  NIQE 
+metrics.   
+
+UIQM↑ 
+
+UCIQE↑ 
+
+NIQE↓ 
+
+Raw_Images 
+Fusion 
+IBLA 
+U-Transformer 
+Funie-GAN 
+Water-Net 
+UWCNN 
+Ours 
+
+2.29 
+2.99 
+2.36 
+3.02 
+3.05 
+3.13 
+2.78 
+3.17 
+
+0.410 
+0.476 
+0.480 
+0.539 
+0.558 
+0.550 
+0.455 
+0.568 
+
+4.57 
+4.38 
+4.29 
+3.96 
+4.37 
+4.07 
+4.12 
+4.03  
+
+A quantitative analysis of this dataset is given in Table 5, confirming 
+our  model's  effectiveness.  Our  method  has  achieved  a  UIQM  score  of 
+3.26 and an NIQE score of 5.39, followed by the Funie-GAN in terms of 
+UIQM with a score of 3.21 and Fusion in terms of NIQE with a score of 
+5.40. While measuring the UCIQE score, IBLA achieved a score of 0.626, 
+although their resultant images are just color deviations from the orig-
+inal images. However, since UCIQE measures a linear combination of 
+chroma, saturation, and contrast, a higher value can be expected just by 
+having a change in colors (even if they are not desirable).
+
+̂
+nel of a feature map, denoted as 
+F, is treated as a feature detector. The 
+primary objective of channel attention is to identify and emphasize the 
+most meaningful information within an input image. A two-step process 
+is proposed to compute channel attention efficiently. As given in eq.1, a 
+“squeeze”  operation  is  applied  to  the  input  feature  map  using  global 
+average  pooling,  capturing  global  context  information.  The  resulting 
+feature  descriptor,  DCA,  is  a  tensor  with  dimensions  ℝ1×1×C,  where  C 
+̂
+represents  the  number  of  channels  in  the  feature  map 
+F  with  spatial 
+dimensions  H × W.  This  feature  descriptor  encapsulates  important 
+channel-wise  information.  The  global  average  pooling  can  be  repre-
+sented as: 
+
+DCA = 1
+
+H × W
+
+∑H
+
+∑W
+
+i=1
+
+j=1
+
+̂F(i, j, c)
+
+(1)
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't any explicit mention of the specific hardware resources used for training the deep learning model in the provided context. Typically, deep learning models require significant computational power, often utilizing Graphics Processing Units (GPUs), Tensor Processing Units (TPUs), or other specialized hardware for efficient processing. However, without further details about the implementation, it's impossible to provide a definitive answer regarding the exact hardware resources employed for training this particular model.

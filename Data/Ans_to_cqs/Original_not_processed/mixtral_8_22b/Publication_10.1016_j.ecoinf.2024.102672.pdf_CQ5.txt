@@ -1,0 +1,118 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Data-driven models are an alternative type of models, among which 
+machine learning and deep learning (ML and DL) models stand out in 
+recent years. According to Lee et al. (2023) data-driven models applied 
+to freshwater ecosystems have been mainly focused on phytoplankton, 
+while there is a lack of research in modelling future changes, such as 
+climate change and subsequent changes in habitat conditions. A good 
+example of a data-driven model focused on algal blooms prediction is 
+that  presented  by  Miura  et  al.  (2023).  Nonetheless,  there  are  several 
+examples in the scientific literature about ML or DL models designed to 
+predict the temperature profile in water masses. Liu and Chen (2012) 
+developed ML models based on Artificial Neural Networks (ANN) using 
+as inputs meteorological conditions to predict the temperature in the 3 
+
+Fig. 1. Map of the study site. Made with QGIS, data by OpenStreetMap.
+
+Opposite to other families of ML models that have a narrow range of 
+hyperparameters  to  adjust,  ANN  are  defined  by  different  types  of 
+hyperparameters,  which  together  with  the  computational  cost  of 
+training deep ANN, restricts the options to optimize. On the one hand, 
+we have the hyperparameters that define the architecture of the ANN 
+(number of layers and number of neurons), while on the other hand we 
+have the hyperparameters that control de training process (mainly the 
+learning rate, the optimizer, the batch size and the number of epochs 
+that the training lasts). In order to avoid an exhaustive search that could 
+consume a lot of time, a small dimensional space was initially defined 
+and  explored  with  the  original variables.  The initial  hyperparameters 
+that composed this space are shown in Table 1. The number of epochs 
+was maintained in 500 as it proved to guarantee the stabilization of the
+
+2.3. Data analysis framework 
+
+Data  analysis  was  performed  using  open  source  libraries  and 
+frameworks for the Python 3 programming language. The main libraries 
+that  were  used  and  their  versions  are:  NumPy  1.23.5,  SciPy  1.9.1, 
+Pandas  1.4.4,  Scikit-Learn  1.02,  Keras  2.12.0  and  Shap  0.42.1.  The 
+specific  functions  used  are  indicated  in  the  text  where  relevant.  This 
+Python-based environment was chosen due to its growing usage trend 
+for data analytics, being also suitable as a general-purpose programming 
+language (Nguyen et al., 2019). 
+
+2.4. Data pre-processing 
+
+The first step consisted of a preliminary screening of the data in order 
+to  check  the  general  quality,  which  was  appropriate  enough  for  this 
+work  as  the  data  are  supervised  by  the  CHE  before  their  publication 
+though the SAICA and the SAIH. It is worth mentioning that the data 
+from April 2020 were not available, presumably due to the lockdown
+
+67.6 
+66.9 
+70.4 
+70.3 
+70.0 
+70.6 
+
+P50 
+
+1.47 
+1.66 
+1.26 
+1.18 
+1.04 
+1.11 
+
+Testing 
+
+MAE 
+
+2.47 
+2.63 
+2.28 
+1.99 
+1.99 
+2.10 
+
+Percentile 
+
+65.5 
+66.7 
+70.8 
+67.3 
+67.3 
+67.9 
+
+P50 
+
+1.54 
+1.55 
+1.23 
+0.98 
+0.93 
+1.25  
+
+* The number of neurons in successive dense layers is separated by a comma, with the dropout rate in parentheses if a dropout layer existed after a dense layer. 
+
+lagged variables were added this improvement only took place for the 
+test set. Therefore, in order to reach a balance between the train and test 
+fractions, the optimal model to classify the days as presenting thermal 
+stratification or not was the model with up to 4 days-lagged variables. 
+This model presents a testing accuracy of 96.0% and AUC of 0.99.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, the given context does not provide information regarding the specific datasets used in the deep learning pipeline. However, it mentions that the data used in the work was supervised by the CHE before its publication through the SAICA and the SAIH. Additionally, it states that the data from April 2020 were not available, possibly due to the lockdown. Without further details, I cannot determine the exact datasets utilized in the deep learning pipeline.

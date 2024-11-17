@@ -1,0 +1,11 @@
+Answer:::
+
+The process followed to deploy the trained deep learning model involved several steps, including model serialization and platform selection. First, the model was trained using a specific architecture (NASnet) with a Faster-rcnn backbone, implemented in Tensorflow2. The model was trained on a dataset of images resized to 1333 × 800 pixels, with a learning rate of 0.008 and a cosine learning rate decay. The training was done for 200,000 iterations with a batch size of 16 images per iteration, using a GPU-cluster equipped with 4 RTX8000.
+
+To evaluate the performance of the model, recall, precision, and F-measure were computed for each model. During the training phase, both shark species and non-shark species were included to enhance the ability of the CNN to build pertinent feature embeddings. Specifically, 19 non-shark species that were commonly associated with or exhibited resemblances to the studied shark species were included.
+
+Once the training was completed, the model was serialized, which involved saving the model's architecture, weights, and other relevant information into a file. This file could then be used to recreate the model at a later time without having to retrain it.
+
+For deployment, a platform was selected based on the specific requirements of the use case. In this case, the model was deployed on a system that could process video data in real-time to detect the presence of sharks. The serialized model was loaded onto this system, and the video data was passed through the model to detect sharks.
+
+Overall, the process followed to deploy the trained deep learning model involved training the model using a specific architecture and dataset, evaluating its performance, serializing the model, and deploying it on a suitable platform for real-time video processing.

@@ -1,0 +1,109 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+19. Atkinson, P.M., Tatnall, A.R.L.: Introduction neural networks in remote sensing.
+
+Int. J. Remote Sens. 18(4), 699–709 (1997)
+
+20. Schmidhuber, J.: Deep learning in neural networks: an overview. Neural Netw. 61,
+
+85–117 (2015)
+
+21. Lecun, Y., Bottou, L., Bengio, Y., et al.: Gradient-based learning applied to doc-
+
+ument recognition. Proc. IEEE 86(11), 2278–2324 (1998)
+
+22. Szegedy, C., Liu, W., Jia, Y.: Going deeper with convolutions. In: Proceedings of
+the IEEE Conference on Computer Vision and Pattern Recognition, pp. 1–9 (2015)
+23. Joly, A., et al.: LifeCLEF 2015: multimedia life species identiﬁcation challenges.
+In: Mothe, J., Savoy, J., Kamps, J., Pinel-Sauvagnat, K., Jones, G.J.F., SanJuan,
+E., Cappellato, L., Ferro, N. (eds.) CLEF 2015. LNCS, vol. 9283, pp. 462–483.
+Springer, Heidelberg (2015). doi:10.1007/978-3-319-24027-5 46
+
+Deep Learning. The architecture of our network follows the GoogLeNet’s
+with 27 layers, 9 inception layers, and a soft-max classiﬁer. Once we have a list
+of cropped thumbnails and their labels, we send them to our network. We use
+inception layers (Fig. 4) based on GoogLeNet architecture [22]. The inceptions
+here allows us to reduce the dimension of the picture to one pixel, and therefore
+not to be dependent of the dimensional impact. We adapted some parameters
+such as the size of the strides and the ﬁrst convolutions adapted to the size of our
+thumbnails, which allowed us to achieve better results than a classic architecture
+(e.g. [18]).
+
+3.3 Post-processing and Bounding Box Fusion
+
+For each sliding window, we deﬁne a motion score by computing the average
+absolute diﬀerence with the window at the same position in the previous frame.
+Based on the hypothesis that most of the ﬁshes are moving, we use this score
+for the ﬁnal detection decision.
+
+3.1 Data Preprocessing
+
+The choice of learning data is a crucial point. We worked with biology experts
+of the MARBEC laboratory to label many videos. We cropped some frames of
+the videos and created a training database composed of 13000 ﬁsh thumbnails.
+The thumbnail size varies from a minimum of 20 × 40 pixels to a maximum of
+150 × 200 pixels. Each thumbnail contains only one labeled-ﬁsh as shown on
+Fig. 2.
+
+We decided to keep only the species with more than 450 thumbnails. We also
+widen the database by applying rotations and symmetries in order to capture
+all the possible position of the ﬁshes. Table 1 lists the retained species.
+
+Due to the highly textured natural background, we also added a class for the
+background. This class is constituted with random thumbnails of the background
+which were randomly selected in frames and speciﬁc background thumbnails
+which were taken around the ﬁsh thumbnails.
+
+164
+
+S. Villon et al.
+
+Fig. 2. Some training thumbnails from the MARBEC database
+
+Finally, in order to improve the localization accuracy, we decided to create
+another class called part of ﬁsh, to ensure that the network does not focus on
+a distinctive part of a ﬁsh as a stripe, a ﬁn, the head, but processes the ﬁsh
+as a whole. We also created a class ﬁsh which contains some unknown ﬁshes to
+make the method able to recognize any ﬁsh even though it is not in the learning
+database. However, this class must contain less samples in order to be sure that
+a ﬁsh will most likely be labeled by its speciﬁc class rather than the generic class
+ﬁsh. Finally, we added 3 classes to our initial thumbnail database as listed in
+Table 2.
+
+Table 2. Classes added to the species database
+
+Class Label
+
+Samples
+
+Random/speciﬁc background 116,820/91,247
+
+Part of Fish
+
+Fish
+
+55,848
+
+970
+
+Coral Reef Fish Detection and Recognition in Underwater Videos
+
+165
+
+3.2 Detection/Recognition Pipeline
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the data repository link of the deep learning pipeline (e.g., Link to Zenodo, Figshare, Dryad, GBIF)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough information available to provide a direct link to the data repository used in the deep learning pipeline mentioned in the given context. It appears that the authors worked with biology experts from the MARBEC laboratory to label many videos and create a training database consisting of 13,000 fish thumbnails. However, no specific details about the location or accessibility of this dataset are provided. Therefore, without additional information, it is impossible to determine if the dataset has been made publicly accessible through platforms such as Zenodo, Figshare, Dryad, or GBIF.

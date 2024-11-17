@@ -1,0 +1,140 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+TABLE II.  
+
+HYPERPARAMETERS DETERMINED USING GRID SEARCH 
+
+Model Name 
+
+Inception-V3 
+MobileNet-V2 
+ResNet-18 
+DenseNet-121 
+
+Batch 
+Size 
+48 
+32 
+32 
+16 
+
+Learning 
+Rate 
+0.05 
+0.01 
+0.005 
+0.001 
+
+Parameters 
+# of 
+Epochs 
+75 
+100 
+150 
+100 
+
+Input Image Size 
+
+299 (cid:3400) 299 (cid:3400) 3 
+224 (cid:3400) 224 (cid:3400) 3 
+224 (cid:3400) 224 (cid:3400) 3 
+224 (cid:3400) 224 (cid:3400) 3 
+
+C.  Results 
+
+  As  Table  III  show  all  models  performed  reasonably  well 
+with macro-F1 averages above 91%. Because the models are to 
+be deployed on IoT edge devices, the size of each model is an 
+important  consideration.  As  Table  III  shows 
+the  best 
+performing model was Inception-V3 with a macro Average F1 
+score of 0.93, and the smallest size of 175 MB.   
+
+TABLE III.  
+
+BEST RESULTS FOR EACH NN ARCHITECTURE 
+
+Model 
+
+InceptionV3 
+DenseNet-121 
+ResNet-18 
+MobileNetV2 
+
+Model Size 
+(MB) 
+175 
+446 
+480 
+507 
+
+Accuracy 
+
+94% 
+93% 
+92% 
+93%
+
+%
+40.15 
+28.28 
+17.07 
+5.77 
+5.20 
+3.48 
+100 
+
+Inception-V3,  MobileNet-V2,  ResNet-18,  and  DenseNet-
+121, were all trained on this data. All architectures were pre-
+initialized  to  ImageNet  weights.  Initially,  the  models  were 
+trained by freezing the feature extraction layers and training the 
+classification layers only. However, better results where the F1-
+score  improved  by  about  20-30%,  were  obtained  when  both 
+feature extraction and classifier layers of each architecture were 
+configured to be trainable. Stochastic Gradient Descent (SGD) 
+was  used  as  the  optimizer  for  all  four  models.  Other  hyper-
+parameters like batch size, learning rate, and number of epochs 
+were  obtained  using  the  grid  search.    The  models  were 
+implemented  using  Keras  (https://keras.io/).  The  resulting 
+hyperparameters for each model are shown in Table II.
+
+Keywords—deep  learning,  transfer  learning,  convolutional 
+neural  networks,  animal  classification,  camera  trap,  wildlife 
+monitoring, edge computing, TensorFlow lite, raspberry pi, IoT 
+
+I.  INTRODUCTION
+
+results.  
+   This 
+However, a number of issues need to be addressed further.  First 
+the data is highly unbalanced, and therefore, using SMOTE [23] 
+or  similar  data  balancing  techniques  may  help  improve  the 
+results further.  Secondly, recent architectures like EfficientNet 
+[19]  that  performed  well  in  creating  smaller  networks  can  be 
+explored  further.  In  fact,  our  initial  investigations  show  that 
+EfficientNetB1 produced performance similar to Inception-V3 
+(F1-score  macro  average  =  0.94)  on  this  data  set  as  well  but 
+with a much smaller model size (~ 54 MB).  
+   This  paper  showed  that  potentially  significant  gains  can  be 
+achieved in reducing both the time to reporting, and the effort 
+required 
+traps.  
+Consequently,  using  deep  learning  technologies  on  the  edge 
+with  an  IoT  infrastructure  can  potentially  revolutionize  the 
+camera  trap  value-chain.  Finally,  since  the  inference  is  being
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text mentions that Stochastic Gradient Descent (SGD) was used as the optimizer for all four models. No other optimization techniques are explicitly mentioned in the given context. Therefore, based on the information available, it appears that SGD was the primary optimization technique employed in the deep learning pipeline.

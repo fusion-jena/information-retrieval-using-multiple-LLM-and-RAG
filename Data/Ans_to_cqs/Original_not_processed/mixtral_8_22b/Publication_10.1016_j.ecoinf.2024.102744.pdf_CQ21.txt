@@ -1,0 +1,289 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+feature  images  while  retaining  crucial  features.  The  Dropout  layer  is  integrated  to  mitigate 
+
+overfitting. Additionally, the Global Average Pooling layer summarizes features, generating input 
+
+for the fully connected layer. This layer also facilitates the visualization of regions relied upon by 
+
+the network for predictions. The subsequent three fully connected layers generate the predicted 
+
+class for the original image 
+
+Table 1: Main parameters of the classification network 
+
+[
+
+Input size 
+
+Output size 
+
+Journal Pre-proof
+
+[
+
+[
+
+[
+
+Parameters 
+
+  conv, strides 1] 
+
+  conv, strides 1] 
+
+  max pool 
+
+  conv, strides 1] 
+
+  conv, strides 1] 
+
+Probability 0.5 
+
+  max pool 
+
+[
+
+  conv, strides 1] 
+
+Layers 
+
+Convolution 
+
+Convolution 
+
+Pooling 
+
+Convolution 
+
+Convolution 
+
+Dropout 
+
+Pooling 
+
+Convolution 
+
+Global Average Pooling 
+
+Dense 
+
+Dense 
+
+Classification layer (Dense) 
+
+128 
+
+128 
+
+128 
+
+128 
+
+128 
+
+128 
+
+1 
+
+- 
+
+- 
+
+- 
+
+-
+
+image for each model in our experiments are computed and shown in Table 6. 
+
+Table 6: Comparison of the number of parameters, GFLOPs, and inference time of models in our 
+
+experiments. 
+
+Method 
+
+Evaluation metrics 
+
+ 
+ 
+Journal Pre-proof
+
+Parameters (M)  GFLOPs  Time (ms) 
+
+Baseline methods 
+
+Yolov5 [39] 
+
+86.18 
+
+203.8 
+
+Faster RCNN [40] 
+
+41.20 
+
+446.7 
+
+52.9 
+
+60.0 
+
+Other state-of-the-art methods 
+
+EfficientDet [43] 
+
+6.55 
+
+2.8 
+
+322.0 
+
+698.0 
+
+79.4 
+
+22.0 
+
+52.3 
+
+110.0 
+
+Yolov5 + classification 
+
+RetinaNet [41] 
+
+DETR [44] 
+
+Yolov5 + focal loss 
+
+Faster RCNN 
+
++ Overlap Sampler 
+
+47.8 
+
+97.1 
+
+86.35 
+
+41.30 
+
+204.2 
+
+86.18 
+
+37.96 
+
+203.8 
+
+Our proposed methods 
+
+Journal Pre-proof
+
+1097.9 
+
+41.30 
+
+5.4. Application to the problem of counting pollen-bearing bees 
+
+Counting the number of pollen-bearing bees entering the hive enables beekeepers to monitor the 
+
+hive’s food status and promptly replenish it if necessary. Recognizing this benefit, we integrated
+
+the objects of interest. Conversely, weights are reduced for simpler samples. 
+
+Consequently, focal loss diminishes the impact of straightforward samples on training loss 
+
+while  amplifying  the  significance  of  challenging  ones.  The  focal  loss  function  is  calculated  as 
+
+Journal Pre-proof
+
+  is the probability of belonging to the class 
+
+  represents  the  ratio  of  generated  boxes  containing  background  and  foreground 
+
+information, aiding in balancing the disparity between background and foreground when 
+
+generating boxes. 
+
+ 
+
+  represents the “concentration” of indistinguishable regions; the larger 
+
+, the smaller 
+
+the error values in the distinguishable regions, and the lower the contribution to the total 
+
+loss of the model. 
+
+follows: 
+
+where: 
+
+ 
+
+ 
+
+(6) 
+
+()=(1)()ttttFLpplogptpt 
+ 
+ 
+ 
+ 
+Journal Pre-proof
+
+4.5. Third improvement: Two class Faster RCNN + Overlap Sampler technique
+
+5.1. Setup 
+
+Journal Pre-proof
+
+In  our  experiments,  we  used  the  Python  3.10  programming  environment  along  with  popular 
+
+libraries  such  as  PyTorch,  TensorFlow,  and  OpenCV.  The  detection  models  were  trained  on  a 
+
+server equipped with an Intel® Core™ i7-8700 CPU @ 3.20GHz (32GB DDR4-2666 memory) 
+
+and an NVIDIA GeForce RTX 3070 GPU (8GB GDDR6 memory). 
+
+The  methods  utilizing  YOLOv5  will  undergo  training  for  300  epochs,  whereas  the 
+
+classification network in method 1 will undergo training for 200 epochs. Here, one epoch signifies 
+
+training the model on all data once. For YOLOv5 training, fundamental parameters such as the 
+
+learning  rate  will  be  set  to  0.02,  with  weight  decay  and  momentum  values  of  0.001  and  0.9, 
+
+respectively.  In  contrast,  methods  employing  Faster  RCNN  will  be  trained  with  90  thousand 
+
+ 
+Journal Pre-proof
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training process, several postprocessing steps can be performed depending on the specific requirements of the task or application. Some common postprocessing steps include:
+
+1. Model evaluation: Evaluating the performance of the trained model using various evaluation metrics such as accuracy, precision, recall, F1 score, ROC curves, etc. These metrics help assess how well the model has learned from the training data and its ability to generalize to unseen data.
+
+2. Visualizations: Generating visual representations of the model's output, such as saliency maps, heatmaps, or activation maps, which highlight important features or areas in the input data that contribute significantly to the model's decision-making process. These visualizations aid in understanding the inner workings of the model and identifying potential biases or weaknesses.
+
+3. Confusion matrices: Creating confusion matrices to analyze the model's performance across different classes or categories. A confusion matrix provides insights into the types of errors made by the model, such as false positives or false negatives, and helps identify any imbalances in the dataset.
+
+4. Threshold tuning: Adjusting the threshold value used to determine whether a prediction belongs to a particular class or not. By fine-tuning the threshold, one can optimize the trade-off between sensitivity and specificity based on the desired application or use case.
+
+5. Ensemble learning: Combining multiple trained models to improve overall performance through techniques like bagging, boosting, or stacking. Ensemble learning leverages the strengths of individual models to achieve better results than any single model alone.
+
+6. Model interpretation: Exploring the relationships between input features and their corresponding outputs using techniques such as SHAP (SHapley Additive exPlanations), LIME (Local Interpretable Model-agnostic Explanations), or feature importance analysis. Understanding these relationships can provide valuable insights into the underlying mechanisms driving the model's decisions.

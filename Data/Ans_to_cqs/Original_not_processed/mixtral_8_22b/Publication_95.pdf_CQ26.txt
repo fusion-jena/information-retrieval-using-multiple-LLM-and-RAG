@@ -1,0 +1,55 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+When training a deep convolutional neural network, it is important to split the data
+into a training set, a validation set, and a test set. The training set is used for optimizing the
+parameters of the network, while the validation set is used for monitoring the performance
+of the network during training and for comparing the performance of different networks
+with, for example, different hyperparameters or network structures. The test set acts as a
+ﬁnal evaluation of a network. To ensure a proper evaluation on both the validation set and
+the test set, samples in each set must be independent and have similar class distributions.
+The full data set can be split in various ways. The naïve approach is to randomly
+sample images from the full data set. However, due to the images being captured in
+close proximity and potentially having overlapping ﬁelds of views, information may leak
+between the data sets when using the naïve approach. Another approach would be to
+
+the collected data. Finally, the deep learning algorithms are evaluated and the challenges
+of monitoring IAPS are discussed.
+
+The following three-step data augmentation procedure was applied to the images dur-
+ing training before being processed by the network: (1) randomly ﬂip image horizontally,
+(2) scale the contrast of each image channel by a random factor between 0.8 and 1.2, and (3)
+randomly crop the image to a square with side lengths equal to the image height.
+
+MobileNetV2 initialized with weights pre-trained on ImageNet and average pooling
+performed better than the other three weight and pooling combinations at all image sizes,
+except 1536 × 2048 px, where the network failed to distinguish images with no invasive
+species from images with invasive species. When using randomly initialized weights, there
+was little difference in accuracy when using average or max pooling. Using the weights
+pre-trained on ImageNet with max pooling generally resulted in the worst performance. It
+is not surprising that average pooling performed better than max pooling when using the
+ImageNet pre-trained weights, as the pre-training was performed using average pooling.
+ResNet50V2 showed much less variation between the choice of weights and pooling;
+however, at larger image sizes (768 × 1024 px and 1536 × 2048 px), the models based on
+max pooling outperformed the models based on average pooling. The ResNet50V2 models
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To address data bias during preprocessing of the deep learning pipeline, several techniques can be employed. One such technique mentioned in the given context is stratified splitting. This method ensures that the distribution of classes remains consistent across the training, validation, and test datasets. By maintaining this balance, the model can learn more effectively without any skewed representation towards certain classes.
+
+Another technique that could help mitigate data bias is diverse data collection. In the case of invasive alien plant species detection, collecting data from multiple locations and under varying conditions can improve the robustness of the model. A diverse dataset will enable the model to generalize well and perform accurately even when presented with new, unseen data.
+
+Oversampling and undersampling are also useful techniques to handle imbalanced datasets. Oversampling involves duplicating examples from the minority class, while undersampling removes instances from the majority class. These methods aim to create a balanced dataset, which can lead to improved model performance.
+
+Data augmentation is another strategy mentioned in the context to tackle data bias. Data augmentation techniques like horizontal flipping, scaling contrast, and cropping images can increase the diversity of the dataset and prevent overfitting. By applying these transformations, the model becomes exposed to a wider range of variations within the same class, making it more resilient against biases.

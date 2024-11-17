@@ -1,0 +1,111 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Recordings were analyzed using a previously developed CNN model 
+(Nolan  et  al., 2022)  trained on covey call  spectrogram data collected 
+separately to this study from Di-Lane and other sites around Georgia and 
+Alabama,  USA.  Our  covey  call  acoustic  CNN  is  trained  to  detect  and 
+localize all covey calls per ARU during the recording period and note 
+their associated time and peak power (dB). We chose to use a relatively 
+conservative  score  threshold  echoing  that  of  other  similar  studies 
+ˇ
+Sirovi´c, 2021; Ruff et al., 2020), where only calls that 
+(Rasmussen and 
+received a score of 0.95 or higher were officially classified as a positive 
+bobwhite detection. All CNN detections at a 0.95 score threshold from a 
+random sample of five one-hour files from each year were then manually 
+reviewed to evaluate model accuracy and to calculate a false positive 
+rate “i.e. how many calls were incorrectly labelled as bobwhite”. Across
+
+Table 2 
+Parameter estimates from a point count and an automated recording unit (ARU) 
+distance sampling (DS) model (using data analyzed using a convolutional neural 
+network (CNN) with a score detection threshold of 0.95) fit to data collected on a 
+population  of  northern  bobwhite  (Colinus  virginianus)  on  Di-Lane  Plantation 
+WMA,  Burke  County,  Georgia  during  autumn  2016–2018.  Posterior  median 
+(0.50) and lower (0.025) and upper (0.975) limits of 95% credible intervals are 
+reported.  
+
+Point count DS model  
+
+Parameter 
+
+Description 
+
+0.025 
+
+0.50 
+
+0.975 
+
+D2016 
+D2017 
+D2018 
+
+p 
+
+σ 
+ARU DS model  
+Parameter 
+D2016 
+D2017 
+
+a0 
+
+a1 
+
+pDet 
+
+σ 
+psi2016 
+psi2017 
+
+Density (birds/ha) in 2016 
+Density (birds/ha) in 2017 
+Density (birds/ha) in 2018 
+Total detection probability within a 
+point count location 
+Scale parameter of the detection 
+function (m)
+
+Our ARU DS model was slightly more complex, and consisted of four 
+sub-models:  1)  detection  probability  as  a  function  of  peak  power,  2) 
+peak power as a function of the distance between calls and ARUs, 3) the 
+number of calls for each covey, and 4) the number of coveys. We used 
+the linear relationship between peak power and distance (eq. 9) to first 
+convert  peak  powers  obtained  from  our  CNN  to  distances  for  each 
+detected  or  simulated  covey  call  j.  We  used  a  half  normal  detection 
+function to estimate the scale parameter for the ARU data (σARU) and 
+model  the probability  of detecting  each  call at  each  ARU using  these 
+estimated  distances.  We  used  informative  priors  based  on  the  values 
+from Wilhite et al. (2020) (mean, precision) for these parameters:: ao ~ 
+Normal (76.45, 10), a1 ~ Normal ((cid:0) 0.147, 1e6), tauj  ~ Exponential (1/ 
+5) where ∈j  = pow(tauj, (cid:0) 2) and σ ~ Normal (96, 10).
+
+distance sampling to improve estimates of national population sizes for common and 
+widespread breeding birds in the UK. J. Appl. Ecol. 45, 1330–1338. 
+
+Nolan, V., Scott, C., Yeiser, J., Wilhite, N., Howell, P.E., Ingram, D., Martin, J.A., 2022. 
+The development of a convolutional neural network for the automatic detection of 
+Northern Bobwhite Colinus virginianus covey calls. J. Remote Sens. Ecol. 9, 46–61. 
+Patterson, B.R., Murray, D.L., 2008. Flawed population viability analysis can result in 
+misleading population assessment: a case study for wolves in Algonquin park, 
+Canada. Biol. Conserv. 141, 669–680. 
+
+Perez-Arteaga, A., Jackson, S.F., Carrera, E., 2005. Priority sites for wildfowl 
+
+conservation in Mexico. Animal Cons. 8, 41–50.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text does not explicitly mention specific metrics such as accuracy, precision, or recall to evaluate the performance of the deep learning model. However, it does indicate that a conservative score threshold of 0.95 was chosen for classifying positive bobwhite detections, which suggests that some form of classification evaluation metric was employed. Furthermore, the manual review of CNN detections from a random sample of five one-hour files from each year aimed to evaluate model accuracy and calculate a false positive rate. This implies that the authors considered both correct and incorrect classifications when assessing the model's performance. Therefore, while the exact metrics may not be specified, we can infer that the authors evaluated the model's performance by considering its ability to correctly identify true positives and minimize false positives.

@@ -1,0 +1,61 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.3. Network architecture 
+
+The architecture used was a heavily modified version of that used in 
+“Unsupervised Deep Learning with Pytorch” by github user “eelxpeng” 
+(eelxpeng, 2018). As the size of our audio spectrograms has been con-
+strained to 128 × 128 pixel RGB images with values repeated in each 
+color channel to produce a greyscale image. For this initial experiment 
+testing  the feasibility of using an auto-encoder-generated feature rep-
+resentation for ecoacoustic analysis, we chose a basic auto-encoder ar-
+chitecture  to  minimise  the  complications  that  may  be  introduced  by 
+more advanced architectures. A rectified linear unit (ReLU) based acti-
+vation function was be used, to help mitigate the vanishing/exploding 
+gradient  problem  (Xu  et  al.,  2015).  Networks  using  implicit  pooling 
+(determined using pytorch) and explicit max-pooling were used.
+
+The autoencoder based on explicit max-pooling consists of a 128x128x3 
+input layer, and 4 convolutional layers using 3 × 3 pixel kernels, stride 
+of 1 pixels and zero padding of 1 pixel on each but the first layer, and 4 
+max-pooling layers using 4 × 4 pixel kernels, stride of 2 pixels and zero 
+padding of 1 pixel. The encoder’s output is then flattened to produce a 
+384x1x1  feature  vector.  The  decoder  network  accepts  the  384x1x1 
+feature vector produced by the encoder network as its input, and consists 
+of 4 convolutional layers with a 3 × 3 kernel, stride of 1 pixel and zero 
+padding of 1 pixel on each layer except the last, and 4 max-unpooling 
+layers using 4 × 4 pixel kernels, stride of 2 pixels and zero padding of 
+1 pixel, which produces a 128x128x3 output.
+
+At this timescale we found that our auto-encoders with smaller feature 
+representations were outperformed by MFCC. Our testing on data that 
+the model has not seen before, suggests that once it is likely to be able to 
+be  reused,  with  minimal  (or  without)  retraining.  Once  trained,  it  is 
+possible  to use our auto-encoder to  generate features on a  mid range 
+laptop. Computation times to generate acoustic indices, mfcc and our 
+feature representation can be seen in Table 4.
+
+The  autoencoder  based  on  implicit  pooling  consists  of  a  128x128x3 
+input layer, and 4 convolutional layers using 4 × 4 pixel kernels, stride 
+of 2 pixels and zero padding of 1 pixel on each but the first layer. The 
+encoder’s output is a 384x1x1 feature vector. The decoder network ac-
+cepts the 384x1x1 feature vector produced by the encoder network as its 
+input, and consists of 4 convolutional layers with a 4 × 4 kernel, stride of 
+2 pixels and zero padding of 1 pixel on each layer except the last, which 
+produces a 128x128x3 output.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning model mentioned in the given context uses the PyTorch framework. This is evident from the statement where it says, "Networks using implicit pooling (determined using pytorch)" indicating that PyTorch is being used to determine the type of pooling in the neural network. Furthermore, there is no mention of any other deep learning framework such as TensorFlow or Keras, strengthening the conclusion that PyTorch is the primary framework used in building the deep learning model.

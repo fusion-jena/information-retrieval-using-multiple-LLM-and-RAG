@@ -1,0 +1,11 @@
+To deploy the trained deep learning model, the following process was followed:
+
+Firstly, the deeplabv3+resnet269 model was employed as the default pre-trained model. However, users had the option to switch to other pre-trained models if necessary. These models could be found at <https://cv.gluon.ai/api/model_zoo.html#>.
+
+Secondly, the threshold was set to filter out negligible values. For instance, any values below 1% were rounded off to zero. This threshold was customizable according to user requirements.
+
+Thirdly, the output format was determined. The AI platform operated on either a CPU or GPU and utilized MXNet to provide the necessary modules and functions for the program operation. The platform consisted of four main computational functions: the analysis module responsible for carrying out core analytical tasks, the data filtering module for filtering irrelevant data, and two additional unnamed functions.
+
+Lastly, the deployment process involved reading the images and sending them to the Semantic Segmentation (SS) model. The SS model generated a pixel count for 150 objects. Any data falling below a specific threshold was assigned a value of zero. Ultimately, the percentages of each element and category were calculated based on a visual landscape classification framework. The final results were exported in CSV format.
+
+It should also be noted that MXNet, an open-source AI platform, served as the central computational module. When combined with GluonCV, GluonNLP, and GluonTS, it formed a robust development system. Specifically, GluonCV offered a set of 25 segmentation models, ten of which were trained on the ADE20K dataset, making them suitable for landscape applications. In this study, 55 outdoor visual landscape elements from the ADE20K dataset were used.

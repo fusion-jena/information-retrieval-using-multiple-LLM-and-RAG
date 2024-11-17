@@ -1,0 +1,128 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1. Hyperparameter ﬁne-tuning results.
+
+Scenario Number of Blocks Number of Filters
+
+Learning Rate Mean IoU Accuracy
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+3
+4
+5
+6
+4
+4
+4
+4
+4
+4
+
+64 , 64, 64
+64, 64, 64, 64
+64, 64, 64, 64, 64
+64, 64, 64, 64, 64, 64
+16, 32, 64, 128
+32, 64, 128, 256
+64, 128, 256, 512
+16, 32, 64, 128
+16, 32, 64, 128
+16, 32, 64, 128
+
+0.001
+0.001
+0.001
+0.001
+0.001
+0.001
+0.001
+0.01
+0.0005
+0.00001
+
+0.30
+0.38
+0.36
+0.32
+0.42
+0.38
+0.31
+0.008
+0.42
+0.39
+
+82%
+89%
+86%
+86%
+94%
+88%
+84%
+71%
+94%
+90%
+
+Scenario 5 was selected as the optimal solution as it had the best values for IoU and accuracy
+while training on fewer epochs. The resulting architecture is shown in Figure 4 and described in
+the following.
+
+2.5.1. Encoding Path
+
+The overall workﬂow of preprocessing, network design, and prediction are shown in Figure 2.
+Due to the size of the orthophotos and due to memory limitations when doing computations, it is
+intuitive to process the orthophotos into relatively small labeled tiles (or rather small image cubes) and
+feed them into the CNN. Each orthophoto of size 10,000 × 10,000 pixels was divided into 1525 tiles of
+256 × 256 pixels. The data (orthophoto and corresponding labels) were then split into three datasets:
+training (80%), validation (20%), and test (two full images of 10,000 × 10,000 pixels). The training
+data were used for optimizing the neural network, while the validation dataset was used to assess the
+performance during the training process. The test dataset was used to assess the performance of the
+ﬁnal optimized neural network. The training and validation images were read into arrays with the
+
+Remote Sens. 2019, 11, 1976
+
+12 of 14
+
+greater than 0.5 ha. As these results also required choosing optimal parameters, the transferability of
+the method was somewhat more complex compared to the pretrained U-Net architecture, which can be
+applied without tuning additional parameters speciﬁc to the area of interest. An in-depth investigation
+of the performance of the proposed architecture on further datasets would be an interesting future
+project, especially with respect to the power of generalization, which can be increased by different data
+augmentation techniques.
+
+4.2. Limitations of This Study
+
+In general, the limitations of deep learning in comparison to other machine learning methods
+are the requirement of large and high-quality training data, as well as hardware limitations related to
+GPU computing power. The most notable advantage of deep learning is the grade of automatization
+and a high potential to generalize when using large amounts of representative training data, which
+might, however, not always be available; especially with respect to ground-truth labels that might be
+scarce or not exist at all.. Furthermore, the black-box nature makes these algorithms a good choice for
+classiﬁcation as suggested in this study, but a challenge for modeling physical properties, as is often
+the case in forestry. This case study relied on high-resolution orthophotos with 20-cm spatial resolution
+obtained from an aerial survey. The great advantage of these data is that many details can be detected.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't explicit information about specific techniques used to address data bias during preprocessing of the deep learning pipeline such as stratified splitting, oversampling, undersampling, or diverse data collection. However, some aspects of the preprocessing steps mentioned could potentially help mitigate data bias. For instance, dividing each orthophoto into smaller tiles and creating separate datasets for training, validation, and testing may contribute to reducing bias if done appropriately. Additionally, the use of a larger amount of representative training data could improve the model's ability to generalize, thus indirectly addressing any potential biases in the data. Nonetheless, without concrete evidence from the provided context, one cannot definitively state what techniques are employed to tackle data bias during preprocessing.

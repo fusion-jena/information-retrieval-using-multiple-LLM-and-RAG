@@ -1,0 +1,116 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.7. Training configuration 
+
+The calculations were performed on an ASUS laptop with an Intel i7- 
+11370H CPU (4 cores, 3.30 GHz), 16 GB DDR4 memory, and an NVIDIA 
+GeForce RTX 3050 graphics card (4 GB). The dataset for each period was 
+divided into training, testing, and validation sets in a ratio of 70:20:10, 
+respectively. 
+
+2.8. Classification accuracy 
+
+The accuracy calculation was performed for each model trained on 
+the corresponding period and was computed using the sklearn library for 
+
+Table 2 
+List of spectral indices used in the study.  
+
+Name 
+
+Normalized Difference Vegetation 
+
+Index (NDVI) 
+
+Normalized Difference Built-up 
+
+Index (NDBI) 
+
+Green-Red Vegetation Index (GRVI) 
+
+Built-up Index (BU) 
+
+Normalized Difference Water Index 
+
+(NDWI) 
+
+Calculation 
+Formula 
+
+Nir (cid:0) Red
+Nir + Red 
+SWIR (cid:0) Nir
+SWIR (cid:0) Nir 
+Green (cid:0) Red
+Green + Red 
+NDBI (cid:0) NDVI 
+
+Green (cid:0) Nir
+Green + Nir  
+
+Reference 
+
+(Huang et al., 2021) 
+
+(Zha et al., 2003)
+
+4. Discussion
+
+(
+
+∑n
+
+zi = f
+
+wjxj + bi
+
+(2)  
+
+j=1
+
+where  zi  is  the  output  value  of  the  i-th  neuron,  wj  is  the  convolution 
+weight for input value xj, bi  is the bias, and f is the activation function. 
+The  Pooling  Layer  performs  data  downsampling,  reducing  dimen-
+sionality and extracting essential features. The most common pooling 
+method is max pooling, which selects the maximum value from a region 
+of  input  data.  Pooling  helps  reduce  the  number  of  parameters  and 
+computations,  enhances  invariance  to  small  shifts  and  scale  changes, 
+and improves the model's generalization ability.
+
+The Fully Connected Layer represents a classic multi-layer percep-
+tron  and  performs  matrix  multiplication  between  input  data  and 
+weights. It enables the model to capture more complex nonlinear de-
+pendencies  and  generalize  information  from  previous  layers.  Each 
+neuron in the fully connected layer receives input data from all neurons 
+in the previous layer and applies an activation function to obtain the 
+output value. 
+
+The Output Layer is the final layer of the neural network, generating 
+LULC  classification  predictions.  Typically,  an  activation  function  like 
+Softmax is used to obtain probability estimates for each LULC class. 
+
+The LULC Map is the ultimate result of classification, representing a 
+spatial  map  of  land  use  and  land  cover.  Each  pixel  in  the  LULC  map 
+depicts the class to which it belongs, based on the model's predictions.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: After the model has been trained, there are several postprocessing steps that can be taken to evaluate its performance and understand its decision-making process. Some examples include:
+
+* Calculating metrics such as accuracy, precision, recall, and F1 score to quantify how well the model is performing. This can help identify any issues or areas where the model may need improvement. In this case, the accuracy calculation was performed for each model trained on the corresponding period and was computed using the sklearn library.
+* Creating confusion matrices to visualize the model's performance across different classes. A confusion matrix shows the true positive, false positive, true negative, and false negative rates for each class, providing insight into where the model is making mistakes.
+* Generating saliency maps to highlight the parts of the input image that had the greatest impact on the model's prediction. This can provide valuable insights into what features the model is focusing on when making decisions.
+* Visualizing the model's weights and activations to gain a better understanding of how it is processing the input data. This can help identify any potential issues or biases in the model.
+
+Overall, these postprocessing steps can provide valuable insights into the model's performance and decision-making process, helping to improve its accuracy and reliability.

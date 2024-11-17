@@ -1,0 +1,286 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 2
+Overview of our augmentation strategies, their IDs, and related information. For DenseNet-161 and ViT-B/16, their training times are provided in minutes per epoch
+for the different augmentation methods. For IDs 5 and 6, we added noise of the bird audio detection data set from the DCASE challenge (Berger et al., 2018; Himawan
+et al., 2018; Liaqat et al., 2018), which is abbreviated as BAD.
+
+Data augmentation
+
+Time domain
+
+Frequency domain
+
+Spectrogram
+
+Training time [min. / epoch]
+
+DenseNet-161
+
+ViT-B/16
+
+Gaussian noise
+Pink noise (background)
+Primary background noise soundscapes
+Secondary background noise soundscapes
+Primary background noise (BAD)
+Secondary background noise (BAD)
+Background noise (e.g., wind, thunder, or aircrafts)
+Mixed up random bird species
+Horizontal roll
+Vertical roll
+Pitch shift
+Time mask
+Frequency mask
+Gain
+Loudness normalization
+Horizontal flip
+Vertical flip
+Time stretch
+tanh-based distortion
+
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+
+✓
+
+✓
+✓
+
+✓
+
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+
+✓
+
+✓
+✓
+
+✓
+
+15
+15
+13
+13
+13
+13
+13
+26
+15
+15
+40
+29
+16
+13
+13
+15
+15
+16
+10
+
+24
+24
+30
+30
+30
+30
+30
+45
+26
+26
+60
+45
+40
+30
+30
+30
+30
+35
+20
+
+✓
+✓
+✓
+
+✓
+
+✓
+✓
+
+✓
+
+✓
+
+ID
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+
+Table 3
+Summarized DNN layer configuration for the backbone models DenseNet-161 and ResNet-50 as well as ViT-S/16, ViT-B/16, and ViT-L/16. S, B, and L denote the ViT
+models’ small, base, and large variants.
+
+Model
+
+DenseNet-161
+
+ResNet-50
+
+ViT-S/16
+
+ViT-B/16
+
+ViT-L/16
+
+Layers
+
+161
+
+50
+
+8
+
+12
+
+24
+
+Hidden size
+
+MLP size
+
+Params [m.]
+
+Training time [min. / epoch]
+
+Testing time [sec. / sample]
+
+48
+
+64
+
+786
+
+786
+
+1024
+
+397
+
+397
+
+2 358
+
+3 072
+
+4 096
+
+28.5
+
+25.6
+
+48.6
+
+86.8
+
+304.6
+
+15
+
+15
+
+20
+
+35
+
+45
+
+7
+
+7
+
+22
+
+27
+
+36
+
+ʹ(t) = tanh(γ⋅x(t) ),
+x
+
+(13)
+
+samples.
+
+ʹ(t) is the distorted audio signal,
+where x(t) is the original audio signal, x
+and γ is the pre-gain applied to the signal before distortion, which
+controls its intensity.
+
+For the ViT models, we adapted the approach of pretraining deep
+bidirectional transformers for language understanding (BERT) by Devlin
+et al. (2018) for birdsong classification. Table 3 provides an overview of
+the investigated ViT models with their respective parameterizations.
+ViT-S/16, for example, denotes a ViT variant of reduced complexity with
+an input patch size of 16 × 16. The sequence length of the transformer
+models is inversely proportional to the square of the provided patch size.
+In the following, ViT-B/16 is further investigated as it strikes a balance
+between general model complexity and classification performance.
+
+In ecology, changes in environmental conditions are often closely linked to shifts in species diversity. This
+relationship can be investigated by analyzing avian vocalizations, which are robust indicators of trends in
+biodiversity. Within this contribution, we explored various data augmentation techniques and deep learning
+strategies for the classification of birdsong within natural soundscapes. For this purpose, we employed three
+fundamental deep neural network architectures, such as vision transformers, to classify 397 different bird spe-
+cies. To improve both the accuracy and generalizability of our models, we incorporated up to 19 well-established
+data augmentation techniques commonly used in audio classification. This included an iterative selection process
+where only augmentations that enhanced classification performance were selected. The primary augmentation
+technique involved the integration of various noise samples and non-bird audio elements, which significantly
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the code repository link of the deep learning pipeline (e.g., Link to GitHub, GitLab, BitBucket)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough context provided to determine the exact code repository link of the deep learning pipeline. However, based on the given information, I can suggest looking into popular repositories containing implementations of Vision Transformers (ViT) and other deep learning models mentioned in the text, such as DenseNet-161 and ResNet-50. Some possible starting points could include:
+
+1. Official TensorFlow implementation of Vision Transformer (ViT): <https://github.com/tensorflow/models/tree/master/official/vision/transformer>
+2. Hugging Face's Transformers library, which includes several pretrained ViT models: <https://github.com/huggingface/transformers>
+3. TorchVision's official implementation of DenseNet-161: <https://pytorch.org/vision/stable/models.html#densenet>
+4. PyTorch's official implementation of ResNet-50: <https://pytorch.org/vision/stable/models.html#resnet>

@@ -1,0 +1,109 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+72 
+72 
+128 
+64 
+
+DN-3 
+72 
+72 
+256 
+64 
+
+36 
+36 
+256 
+128 
+
+DN-4 
+36 
+36 
+512 
+128 
+
+18 
+18 
+512 
+256 
+
+DN-5  
+18  
+18  
+1024  
+256   
+
+9 
+9 
+512 
+256         
+
+networks often fail in extracting global information from shallow layers 
+because of the small receptive fields (Liu et al., 2019b; Liu et al., 2021). 
+For  creating  feature  maps  with  much  global  information,  multiple 
+dilated convolutions are used for shallow layers (Zhao et al., 2020)— 
+which, however, entail more computation resources. U2-Net defines a 
+two-level  nested  model  (i.e.,  a  stack  of  nested  encoder-decoder)  to 
+capture the contextual information in different scales at a moderate level 
+of computation cost.
+
+2.3. Model training 
+
+Our study can be categorized as a binary classification. We supervise 
+TrunkNet’s training with the Binary Cross-Entropy (BCE) loss function, 
+which  is  a  commonly  employed  loss  function  in  supervised  deep 
+learning (Zhao et al., 2019b). The BCE loss function measures the dif-
+ference between the predicted probability and the actual value. Mini-
+mizing this difference indicates a better training effect. Specifically, the 
+BCE loss function in use is expressed with 
+
+L BCE = (cid:0)
+
+∑H
+
+∑W
+
+x=1
+
+y=1
+
+G(x, y)logSpre(x, y) + (1 (cid:0) G(x, y))log(1 (cid:0) Spre(x, y)),
+
+(3)  
+
+where (x,y) is the pixel coordinate, H and W are the height and width of 
+the image, respectively, G is the ground-truth, and Spre  is the final pre-
+dicted saliency map.
+
+of dilated convolution with various dilated rates to enlarge the receptive 
+field, which not only extracts richer global information but also saves 
+significant time and memory resources.
+
+We  also  conduct  a  comparative  analysis  of  total  training  time, 
+average  inference  time,  model parameters,  and  FLOPs  between  Trun-
+kNet and the other 10 SOTAs, aiming to evaluate the time and compu-
+tational performance. The experimental results are presented in Table 5. 
+Noticeably, TrunkNet is built entirely on the proposed MIF block that 
+
+needs to be trained from scratch, so necessitates a longer training time in 
+comparison to models built on pre-trained backbones. Since TrunkNet 
+prioritizes competitive performance, there may be a limitation in terms 
+of  time  efficiency.  However,  TrunkNet  achieves  an  average  inference 
+time of only 58.41 ms per image, that is 17.12 frames per second (FPS), 
+which  is  still  above  average.  Furthermore,  TrunkNet  showcases
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit details about the deployment process of the trained deep learning model, such as model serialization or platform selection. Therefore, it is not possible to determine the exact steps taken to deploy the model based solely on the given information.

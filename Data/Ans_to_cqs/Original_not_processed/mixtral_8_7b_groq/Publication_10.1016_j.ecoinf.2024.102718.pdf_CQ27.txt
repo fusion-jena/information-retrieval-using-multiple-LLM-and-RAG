@@ -1,0 +1,15 @@
+The process followed to deploy the trained deep learning model, referred to as the BEiT model, involves several steps that include model serialization and platform selection. 
+
+Firstly, the BEiT model is trained using an NVIDIA RTX 3060 Ti GPU and an AMD Ryzen 9 5900X CPU with 32 GB of RAM. The training is carried out in a Jupyter Notebook environment using TensorFlow, a popular open-source machine learning framework. The training process spans 35 epochs with a batch size of 16, and the model's performance is monitored using metrics such as accuracy, precision, recall, F1-score, AUC, model size, and analysis time. 
+
+To ensure the model's robustness and generalization, each image is standardized to 224 × 224 pixels and subjected to various data augmentation techniques like random rotations and color adjustments. The training parameters consist of using the Adam optimizer and adopting categorical cross-entropy with a learning rate of 1 × 10 as the loss function. 
+
+To enhance the model's performance, various callbacks such as ReduceLROnPlateau, ModelCheckpoint, and EarlyStopping are employed. These callbacks dynamically modify the learning rate while preserving the optimal model based on the validation accuracy.
+
+Once the training phase is complete, the next step is to serialize the model. Model serialization is the process of saving the trained model's architecture, weights, and other relevant information into a file. This file can be later used to make predictions on new data without the need for retraining the model. In TensorFlow, model serialization is achieved using the `save()` method, which saves the model in a format that can be later loaded using the `load_model()` method.
+
+The serialized model can then be deployed on a suitable platform based on the intended application. For instance, if the model is to be used in a web application, it can be deployed on a web server using a suitable web framework. Alternatively, if the model is to be used in an IoT device, it can be deployed on the device using a suitable machine learning library that supports the target hardware.
+
+In the case of the BEiT model, it achieves competitive efficiency with a training time of 1 min and 10 s for the PlantVillage Dataset. This makes it a suitable option for real-world applications in smart agriculture, particularly in handling the complexities of plant disease classification.
+
+In summary, the process followed to deploy the trained BEiT model involves training the model using an NVIDIA RTX 3060 Ti GPU and an AMD Ryzen 9 5900X CPU with 32 GB of RAM, monitoring its performance using various metrics, serialize the model using TensorFlow's `save()` method, and deploying it on a suitable platform based on the intended application.

@@ -1,0 +1,86 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Annotating  dataset  images  is  one  of  the  most  tedious  and  time- 
+consuming  parts  of  the  modelling  process.  The  size  of  the  dataset  is 
+important - a large dataset is needed for model success but it takes a lot 
+more time to label. In order to prepare a larger dataset to generalize the 
+model for the Greenland data, the model was partially trained to learn 
+the data first and then the model itself was used to annotate new data 
+before training it further.  The new  dataset annotated by the  partially 
+trained model contains 540 training images and 141 validation images. 
+The  self-annotation  dataset  was  manually  checked  and  edited  by  a 
+human. As a result, a large dataset can be prepared within a day. Since 
+the  image  quality  taken  from  the  portable  microscope  in  Kenya  was 
+much lower compared to the other two, a small dataset that only con-
+tained images from Kenya was used to fine tune the model for this data.
+
+√
+̅̅̅
+ρ
+
+Table 1 
+Benchmarks (in percentage) of our best model without post image processing. 
+Minimum detection confidence scores 0.7 is used.  
+
+Iou threshold = 0.5 
+
+Greenland 
+
+Sweden 
+
+Average precision 
+Average recall 
+
+90% 
+94% 
+
+91% 
+95% 
+
+Kenya 
+
+89% 
+96%  
+
+more the index of aggregation approaches zero. 
+
+3. Results 
+
+3.1. Bacterial abundance
+
+filled  chips  first  at  low  room  temperature  condition  for  a  week,  and 
+C and 80% 
+then moved to a phytotron (adaptis by CONVIRON) at 5 
+humidity for the run or the experiment (88 days).
+
+include  flip, rotations  and  affine  transformation. We  then  trained the 
+same dataset with ResNet-101 network with heavier augmentation for 
+500 epochs. It is worth noting that the selection of image augmentations 
+is  of  crucial  importance  to  improve  training  performance.  Multiply, 
+linear  contrast,  sharpen,  emboss,  flip  in  horizontal  and  vertical  di-
+rections,  rotations  and  affine  transformation  were  used  for  heavy 
+augmentation.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, there isn't any explicit mention of specific criteria used to determine when training is complete. However, we can infer some possible methods based on common practices in machine learning.
+
+One common method is monitoring the validation loss during training. When the validation loss stops decreasing significantly or starts increasing, it might indicate overfitting, suggesting that the training should stop. This is often referred to as a 'validation loss plateau'.
+
+Another approach could involve setting a fixed number of training iterations or epochs. Once the model has been trained for the specified number of iterations, the training would be considered complete.
+
+Additionally, early stopping is another technique where training is halted if the validation error fails to decrease for a certain number of epochs. This helps prevent overfitting and saves computational resources.
+
+In the case of this study, since no specific criteria are mentioned, it's likely that they used a combination of these techniques, such as training for a set number of epochs while also monitoring the validation loss to ensure it doesn't start increasing.

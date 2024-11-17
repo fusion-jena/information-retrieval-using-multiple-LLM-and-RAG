@@ -1,0 +1,11 @@
+The provided context describes several preprocessing steps taken before training a deep learning model for red kite detection.
+
+First, image augmentation was applied to increase data diversity and prevent overfitting. This involved horizontal flips, 0.2-degree counter-clockwise shear, and random zoom between 0 and 0.2, resulting in 224 × 244 pixel RGB input tensors. These augmentations help the model generalize better to unseen data.
+
+Second, data normalization was performed using ImageNet mean values. This step is crucial for many deep learning algorithms to converge during training. Neural networks are sensitive to the scale of input features, and normalization helps ensure that all input features contribute equally to the learning process.
+
+Third, pixel values were rescaled in the range of [0, 1]. This step is another form of data normalization, ensuring that all input values fall within a consistent range.
+
+Lastly, the authors used a pre-trained ResNet50 model and only trained the newly added layers. This technique, known as transfer learning, takes advantage of the knowledge gained from pre-training on a large dataset (ImageNet), and adapts it to a specific task (red kite detection). This approach reduces the need for extensive training data and computational resources while maintaining high accuracy.
+
+In summary, the preprocessing steps involved before training the deep learning model for red kite detection include image augmentation, data normalization to ImageNet mean values, rescaling pixel values, and transfer learning using a pre-trained ResNet50 model.

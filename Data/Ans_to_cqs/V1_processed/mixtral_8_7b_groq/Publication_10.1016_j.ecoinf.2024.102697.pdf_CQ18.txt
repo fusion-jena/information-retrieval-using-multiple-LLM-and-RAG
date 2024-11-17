@@ -1,0 +1,15 @@
+The strategy implemented to monitor model performance during training involves a repeated nested k-fold cross-validation approach. This method is employed to ensure the accuracy and reliability of results for all machine learning (ML) models developed in the study.
+
+In the outer 10 k-fold cross-validation, the data is initially divided into holdout data and data for model development. This division allows for the evaluation of the model's performance on unseen data, thereby monitoring the model's ability to generalize.
+
+Following this, an inner 5 k-fold cross-validation is used to minimize the bias caused by tuning of hyperparameters on training results. Hyperparameters are parameters whose values are set before the learning process begins. They determine the structure of the model or the learning algorithm. By using an inner cross-validation, the model's performance can be assessed while adjusting these hyperparameters, preventing overfitting and ensuring the model's ability to perform well on new data.
+
+The training performance is calculated based on the inner cross-validated ensemble. This means that the performance of the model is averaged over multiple iterations of the inner cross-validation, providing a more robust estimate of the model's performance during the training phase.
+
+The testing performance is determined by selecting the optimal set of hyperparameters from the entire training set to predict on the holdout data. This step provides an estimate of the model's performance on new, unseen data, thereby monitoring the model's ability to generalize.
+
+This process is repeated 15 times for each unique model. This repetition reduces the potential bias and variance related to random sampling, providing a more reliable estimate of the model's performance.
+
+In addition, feature selection is performed prior to model development to reduce training costs and decrease the likelihood of overfitting. This further contributes to monitoring the model's performance by ensuring that only relevant features are included in the model.
+
+Therefore, the strategy implemented to monitor model performance during training involves a robust cross-validation approach, hyperparameter tuning, repeated model training, and feature selection, all of which aim to ensure the model's accuracy, reliability, and ability to generalize.

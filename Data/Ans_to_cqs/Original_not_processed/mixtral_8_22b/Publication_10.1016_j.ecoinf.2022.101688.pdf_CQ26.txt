@@ -1,0 +1,114 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1 
+Pre-processing hyper-parameters for each dataset and the number of testing files 
+used.   
+
+Lemurs 
+
+Alethe 
+
+Gibbons 
+
+Whydah 
+
+Low pass filter cut off 
+Downsampling rate 
+Nyquist rate 
+Segment duration 
+Number of testing files 
+Testing time (min) 
+
+4000 
+9600 
+4800 
+4 
+46 
+1840 
+
+3100 
+6400 
+3200 
+2 
+27 
+810 
+
+2000 
+4800 
+2400 
+4 
+22 
+1300 
+
+9000 
+18400 
+9200 
+3 
+78 
+1560
+
+The fourth experiment holds the input representation and architec-
+ture  constant  at  the  best  values  found  in  experiment  1  and  2  respec-
+tively. This experiment was conducted to determine the performance on 
+the  four  datasets  when  using  25,  50,  100  and  200  samples.  Due  to 
+computational restrictions we only used three datasets in the first three 
+experiments. For each dataset and input size configuration we compared 
+the performance of the CNNs when the feature extractor was frozen and 
+when fine-tuned. This was done to determine which approach is most 
+suitable for bioacoustic problems for which there are data scarcity is-
+sues. The results were collected over 15 unique executions.
+
+We  used  four  experiments  to  investigate  the  effects  of  transfer 
+learning,  especially  within  the  context  of  data  scarcity.  More  specif-
+ically, we attempt to answer the question “can a CNN be successfully 
+trained on very few verified calls?”. By answering this, this would enable 
+bioacoustics researchers to spend less effort in manually labelling calls 
+prior to training CNNs. Typically, a researcher would need to manually 
+label a large quantity of data – a labour intensive and time consuming 
+task. We randomly selected a subset of 25, 50, 100, and 200 spectro-
+grams within the presence class. In order to overcome class imbalance 
+issues we randomly augmented the presence spectrograms by applying a 
+time-shift  operation  to  generate  enough  synthetic  spectrograms  such 
+that the number of spectrograms in both classes were equal. The time- 
+shifting  operation  involved  taking  the  starting  time  of  a  spectrogram
+
+this case a CNN – will consistently perform well across all applications 
+and datasets. Table 4 shows that, VGG16 for example, obtained the best 
+results on three configurations, but also did not achieve equally as good 
+results  on  other  configurations.  ResNet101V2  and  ResNet152V2  on 
+average  performed  well  across  nearly  all  configurations  and  we  thus 
+recommend that either of these architectures are used as a starting point 
+for  researchers  wanting  to  use  pre-trained  CNNs  for  bioacoustics 
+research. 
+
+The experiments presented in Fig. 6 reveal that if very little data is 
+available – in our case 25 examples – that pre-trained ResNet152V2 with 
+the feature extractor frozen can yield good performance (up to 82% F1 
+score  on  the  lemurs,  77%  on  the  gibbons  and  75%  on  the  whydah 
+dataset).  This  suggests  that  when  conducting  an  acoustic  survey,  a
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To address data bias during preprocessing of the deep learning pipeline, several techniques can be employed. These include stratified splitting, oversampling, undersampling, and diverse data collection.
+
+Stratified splitting involves dividing the dataset into subsets or strata based on specific criteria, ensuring that each subset maintains the same distribution of target variables as the original dataset. This technique helps prevent any skewed representations of the target variable in the training and validation sets.
+
+Oversampling is another method used to balance the dataset by increasing the number of instances from the minority class. This can be achieved through various methods like random oversampling, SMOTE (Synthetic Minority Overpopulation Technique), and ADASYN (Adaptive Synthetic Sampling). Random oversampling duplicates existing instances from the minority class, while SMOTE and ADASYN create new synthetic instances based on the features of the minority class.
+
+Undersampling aims to reduce the number of instances from the majority class to match the count of the minority class. Common undersampling techniques include random undersampling, NearMiss, and Tomek links. Random undersampling removes instances from the majority class randomly, whereas NearMiss selects instances from the majority class that are closest to the minority class. Tomek links remove instances from the majority class that form Tomek link pairs with instances from the minority class.
+
+Diverse data collection focuses on gathering more representative data from underrepresented groups or classes. This can involve collecting additional data points or sourcing data from different locations, environments, or devices. By diversifying the data sources, it becomes possible to mitigate biases introduced due to limited or unbalanced data availability.
+
+In the given context, the authors mention addressing class imbalance issues by randomly augmenting the presence spectrograms using a time-shift operation to generate synthetic spectrograms. This approach aligns with the concept of oversampling, where synthetic instances are created to balance the dataset. However, the text does not explicitly discuss other techniques like stratified splitting, undersampling, or diverse data collection.

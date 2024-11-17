@@ -1,0 +1,84 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+obvious solution (Hurlbert, 1984; Morrisey et al., 1992). This requires a 
+larger than necessary dataset from which the right sample size to get 
+statically robust results can be extracted. This can be impractical or even 
+wasteful of the annotators time if not all the images they analyse are use. 
+On  the other hand, once  a CNN is  trained, analysing 5000 or  50,000 
+images makes little difference for the annotators as, although the com-
+puter will need more time (a matter of hours), the inference requires no 
+supervision.  Gathering  a  larger  than  necessary  dataset  can  thus  be 
+achieved at no extra cost if the images have been collected in sufficient 
+number, which is often the case with AUV sampling (Morris et al., 2014; 
+Pizarro et al., 2013).
+
+Krizhevsky, A., Sutskever, I., Hinton, G.E., 2012. ‘Imagenet classification with deep 
+convolutional neural networks’, in. Adv. Neural Inf. Proces. Syst. 1097–1105. 
+Langenk¨amper, D., et al., 2017. BIIGLE 2.0 - browsing and annotating large marine 
+
+image collections. Front. Mar. Sci. 4 (83) https://doi.org/10.3389/ 
+fmars.2017.00083. 
+
+LeCun, Y., Bengio, Y., Hinton, G., 2015. Deep learning. nature 521 (7553), 436. 
+Levin, L.A., 1991. Interaction between metazoans and large, agglutinating protozoans: 
+implications for the community structure of deep-sea benthos. Am. Zool. 31, 
+886–900. 
+
+Levin, L.A., Gooday, A.J., 1992. Possible roles for Xenophyophores in deep-sea carbon 
+cycling. In: Rowe, G.T., Pariente, V. (Eds.), Deep-Sea Food Chains and the Global 
+Carbon Cycle. Kluwer, Netherlands, pp. 93–104. 
+
+Levin, L.A., et al., 2019. Global observing needs in the Deep Ocean. Front. Mar. Sci. 6 
+
+(241) https://doi.org/10.3389/fmars.2019.00241.
+
+2.4. Model evaluation 
+
+The testing dataset was composed of 500 manually annotated images 
+from  the  same  transect  and  was  only  used  to  calculate  performances 
+outside  the  Darknet  framework  by  comparing  CNN  predictions  with 
+manual annotations. 
+
+Predictions  come  as  a  .JSON  file  containing  the  coordinate  of  the 
+bounding box of each tentative annotation as well as a confidence score 
+ranging from 0.05 at minimum (lower confidence scores introduced too 
+much  noise  and  therefore  were  not  recorded)  to  1  at  maximum.  Pre-
+dictions made on the testing set were compared to the manual annota-
+tion of the same images.
+
+In this exercise, a tentative annotation was considered a true positive 
+if its centre was within a 30 pixel distance from a manual annotation 
+centre in the same image. We used a custom R script to spatially match 
+CNN  predictions and  manual annotations  so that the  number of  True 
+Positives (TP), False Positives (FP) and False Negatives (FN) could be 
+counted  in each image in the testing set. Hence, a true positive is  an 
+automatic annotation that falls within 30 pixels of a manual one. The 30 
+pixel  distance  allowed  some  leeway  in  matching  annotations  as  the 
+YOLO  bounding  boxes were  rarely  centred exactly  where  the  manual 
+annotations were centred. This distance is also small enough to avoid a 
+single automated annotation to match multiple manual annotation since 
+different individual S. fragilissima are never so closely packed. A false 
+positive is an automated detection that does not fall within 30 pixels of a
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The text provides information about the use of Convolutional Neural Networks (CNNs) for image analysis but does not explicitly mention specific data annotation techniques used in the deep learning pipeline. However, it can be inferred that bounding box annotation was employed based on the description of how the model evaluations were conducted.
+
+In the model evaluation section, it is mentioned that the testing dataset consisted of 500 manually annotated images. These manual annotations were then compared with the CNN predictions. Predictions came as a JSON file containing the coordinates of the bounding box of each tentative annotation along with a confidence score.
+
+To evaluate the performance of the CNN, a custom R script was used to spatially match CNN predictions and manual annotations. A tentative annotation was considered a true positive if its center was within a 30-pixel distance from a manual annotation center in the same image. This indicates that bounding box annotation was utilized during the data annotation process.
+
+While the text does not provide explicit details regarding other data annotation techniques such as instance segmentation, semantic segmentation, or polygon annotation, it focuses primarily on the application of CNNs for image analysis and the evaluation of their performance using bounding box annotations.

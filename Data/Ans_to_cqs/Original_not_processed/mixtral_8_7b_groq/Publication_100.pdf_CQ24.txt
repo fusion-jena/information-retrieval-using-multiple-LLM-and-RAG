@@ -1,0 +1,13 @@
+Answer:::
+
+In deep learning, randomness is handled and leveraged in several ways throughout the training pipeline. This includes the use of random initialization of model parameters, random sampling of training data batches, and the use of random seed values.
+
+Firstly, model parameters are typically initialized with random values. This is done because, for non-convex optimization problems (which are common in deep learning), there may be multiple local minima in the loss landscape. By initializing the parameters randomly, the model has a chance of converging to different local minima, thereby increasing the chances of finding a good solution.
+
+Secondly, during training, data is randomly sampled in batches. This is known as stochastic gradient descent (SGD). By randomly sampling data, the model is exposed to different parts of the training data in each iteration, which helps in reducing overfitting and improving generalization.
+
+Furthermore, randomness is also used in the form of a random seed value. A seed value is a starting point for the random number generator. By setting a seed value, the sequence of random numbers generated can be reproduced. This is useful for debugging and reproducibility purposes. If the same seed value is used, the same sequence of random numbers will be generated, leading to the same initialization of parameters and the same sequence of random data samples. This ensures that the training process is reproducible, allowing researchers to compare results and build upon each other's work.
+
+In the context provided, a deep ensemble is used, which is a method specifically developed for deep neural networks that can be understood to perform approximate Bayesian inference. An ensemble of M independent models is trained on the same data, each initialized with a different set of random weights. The randomness inherent in the weight initialization, as well as random sampling of training batches, causes each model to converge to a different local minimum in the solution space. The resulting weights can be interpreted as samples from an approximate posterior distribution. This approach allows for better predictive performance and reliability of the produced uncertainties.
+
+In summary, randomness is an essential component of the deep learning pipeline. It is used in the form of random initialization of model parameters, random sampling of training data batches, and random seed values. These strategies help in reducing overfitting, improving generalization, and enabling reproducibility. Furthermore, in the context of approximate Bayesian inference, randomness is used to train an ensemble of models, each converging to a different local minimum, providing better predictive performance and reliability.

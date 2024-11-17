@@ -1,0 +1,66 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+F1 =
+
+TP
+(FP + FN)
+
+TP + 1
+2
+
+This metric is the harmonic mean between precision and recall and is 
+a commonly used (e.g., Peng et al., 2020; Roy et al., 2023), conservative 
+measure of performance that balances both missing predictions (FN) and 
+not predicting too many instances (FP). When F1 takes its highest value 
+of 1.0, it indicates excellent precision and recall; when precision or recall 
+are zero, the value of F1 is 0. 
+
+3.4. Computational requirements
+
+2.4. Training data
+
+We used F1 scores to evaluate model performance, and in all cases 
+found that the models were able to predict counts with high accuracy. 
+The  performance  of  object  detection  models  is  often  measured  by  a 
+standard metric of mean average precision (often referred to as mAP or 
+mAP[0.5:0.95]) (see Eikelboom et al., 2019; Moreni et al., 2023). We 
+present such an evaluation of the model in the supplement (see Table 
+S3), but due to its focus on the exact overlap between the ground truth 
+and predicted bounding boxes, we do not believe this metric is infor-
+mative for the current study. For example, one of the lowest mAP values 
+(0.36) was achieved on Unnamed Island B, for which all the nests were 
+identified and no false positives were produced by the model (see Fig. 5). 
+This is because while the model learned to exactly highlight the area of 
+the nests, the ground truth used for the assessment of the model was
+
+4. Results 
+
+4.1. Model performance 
+
+The model achieved F1 scores above 0.991 on all the training and 
+0.934 on all validation data (Table 2). For the testing data, it generalised 
+exceptionally  well  over  time  at  all  locations  (“test-over_time”)  with 
+scores above 0.934. Moreover, a nearly perfect F1 score was also ob-
+tained  at  locations  it  had  never  seen  before  (“test-over_location”) 
+reaching F1 scores of 0.985, 1, and 1 (see an example in Fig. 5). In Table 
+S2, we report the F1 scores as well as the number of actual nests, TP, FP 
+and FN for each individual orthomosaic. Notably, the three orthomo-
+saics  in  test-over_location  contained  48  nests.  The  model  correctly 
+
+EcologicalInformatics82(2024)1027074A. Cusick et al.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors use F1 scores to evaluate the performance of their deep learning model. F1 score is a measure of a test's accuracy and is calculated from the precision and recall of the test. Precision measures the proportion of true positive results against all positive results returned by the classifier, while recall measures the proportion of true positive results against all actual positive samples available during classification. The F1 score is the harmonic mean of precision and recall, providing a single metric that balances both properties. It ranges from 0 to 1, where 1 represents perfect precision and recall. Additionally, the authors mention using mean average precision (mAP) as another standard metric for evaluating object detection models. However, they argue that mAP may not be informative for their specific study since it focuses on the exact overlap between the ground truth and predicted bounding boxes. Instead, they rely primarily on F1 scores to assess their model's performance.

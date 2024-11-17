@@ -1,0 +1,64 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.4. Segmentation and classiﬁcation
+
+4.2. Opportunities of the modeling approach
+
+Segmentation and classiﬁcation strategies in eCognition are still
+rapidly evolving; methods and rule sets for automatically selecting
+segmentation parameters are under development (Dragut et al.,
+2010, 2014; Martha et al., 2012), but there is not yet consensus on
+best practices. Better classiﬁcations, which could then better capture
+the process of interest, may be possible as these tools develop fur-
+ther. Machine learning techniques are being brought together with
+
+M.V. Eitzel et al. / Ecological Informatics 31 (2016) 100–111
+
+109
+
+segmentation to more automatically classify images (Nancy Thomas,
+personal communication). This set of approaches with historical im-
+agery could become more powerful as new methods are developed.
+We do caution that even with machine learning, some supervision
+and validation using aerial photo interpretation techniques or
+other data sources are still necessary (Sexton et al., 2015).
+
+(Mixed GAM Computation Vehicle; Wood, 2006). The GAM was ideal
+for these data for two reasons: 1) a Markovian random ﬁeld (MRF)
+basis was available for the smoothing function, which is designed for
+use with polygons with potentially irregular sizes (which some of the
+cells have after applying the forest-only analysis mask); and 2) mgcv
+had extensions for non-normal response variables. The quasi-binomial
+family was an appropriate choice, as it allowed for overdispersion. The
+response variable was then framed as a number of 1-m by 1-m cells
+within the 20-m by 20-m cell of the DEM which were classiﬁed as
+‘woody cover’ as binomial successes, and those classiﬁed as ‘herbaceous
+cover’ as binomial failures.
+
+the histogram of values for the band in question for breakpoints
+in order to choose thresholds. Different bands were helpful for
+segmenting and classifying different images. For 2009 NAIP images,
+NDVI as well as mean values of different bands (e.g., green, infra-red),
+or overall image brightness were often helpful (and for one site, Bald
+Hills, per-pixel texture variables calculated for the red band in addition
+to the image bands and NDVI were needed in order to discriminate
+between classes); for historical imagery the image brightness value
+worked well, in addition to contrast, homogeneity, dissimilarity and
+second moment (see Supplementary data for example eCognition rule
+sets).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The provided context does not explicitly mention the criteria used to split the data for deep learning model training (e.g., train, test, validation). However, based on general best practices in machine learning, common criteria include splitting the dataset into three parts: training, testing, and validation datasets. Typically, the training dataset is used to fit the model, while the testing dataset is used to evaluate its performance during the training phase. Finally, the validation dataset is used to assess the final model's ability to generalize to unseen data. The proportion of each split can vary depending on the specific application and size of the dataset, but a commonly used ratio is 70/15/15 or 80/10/10 for training, validation, and testing respectively.

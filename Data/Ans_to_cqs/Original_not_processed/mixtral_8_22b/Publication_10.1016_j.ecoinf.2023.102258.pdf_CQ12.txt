@@ -1,0 +1,222 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Baselines 
+
+Prototypical 
+
+Mel +PCEN 
+
+Systems submitted 
+to the public 
+challenge 
+
+Template matching 
+
+Yang et al. (2021) 
+
+Lin 
+
+Mel 
+
+Tang et al. (2021) 
+
+Lin + PCEN 
+
+Du_NERCSLIP 
+
+Mel +PCEN 
+
+Liu_Surrey 
+
+Mel +PCEN & 
+delta-MFCC 
+
+CNN 
+
+n/a 
+
+CNN 
+
+CNN 
+
+CNN 
+framewise 
+
+CNN 
+
+n/a 
+
+x-ent 
+
+Proto 
+
+x-ent 
+
+Proto 
+(modifed) 
+
+Wu_SHNU (+Wu 
+2023 ICASSP) DFSL 
+Moummad_IMT 
+
+Other 
+
+Wolters 2021 arxiv 
+Perceiver 
+
+You et al. (2023) 
+(ICASSP 2023) 
+
+Mel 
+
+Mel 
+
+Mel 
+
+Mel +PCEN 
+
+CNN (ResNet) 
+
+x-ent 
+
+DFSL attentive 
+
+No 
+
+Pseudo-pos 
+
+– 
+
+Proto 
+
+Dist:Proto 
+
+TI, Retrain 
+
+5 
+
+Between-the-5 +
+Pseudo-neg 
+(SpecSim) 
+Pseudo-neg 
+
+CNN (ResNet) 
+
+SCL 
+
+CNN + CRNN 
++Perceiver 
+
+Proto +RPN 
+(R-CRNN) 
+
+Posterior 
+
+Finetune 
+
+Between-the-5 
+
+Dist:Proto 
+
+No 
+
+n/a 
+
+5 
+
+5 
+
+AST 
+
+Proto 
+
+Proto 
+
+Dist:Proto 
+
+Finetune, TI 
+
+Between-the-5 
+
+5 + aug 
+
+New 
+templates 
+Retrain (new 
+pos + neg) 
+Proto 
+
+Finetune last 
+layer 
+
+DFSL 
+attentive 
+Finetune last 
+layer 
+Proto
+
+Many machine learning systems have pragmatic design constraints 
+that  limit  the  range  of  durations  they  can  consider.  Our  template- 
+matching method uses ranges directly inherited from the 5 annotated 
+events, although there remain practical limits on very large templates, 
+such as computer memory. In deep learning, long audio files are usually 
+divided into shorter chunks (with fixed durations of e.g. 3 or 10 s), so 
+that a whole batch can fit inside the limited memory of GPUs. To detect 
+long  events,  detections  that  span  these  chunks  are  joined  together  in 
+post-processing. This as well as other considerations meant that post- 
+processing  of  outputs  was  an  important  aspect  of  all  strongly- 
+performing systems.
+
+Such fragmentation hinders the practical usability of deep learning 
+in bioacoustics, and thus in the life sciences at large. Indeed to date, the 
+success of deep neural networks in the supervised regime depends on the 
+availability of a massive corpus of audio examples for the sound events 
+of interest, paired with human annotations. Yet, temporally-precise and 
+fine-grained annotation of audio demands expertise, and is thus costly 
+and time-consuming. In many cases, the obstacle is not only to acquire 
+annotations, but also the audio examples themselves: e.g. for rare spe-
+cies,  remote  locations,  or  costly  equipment.  Furthermore,  these 
+numerous small-data scenarios remain outside the scope of digital bio-
+acoustic archives, such as Xeno-Canto and the Macaulay Library.
+
+A prototype in this method is a coordinate in some vector represen-
+tation,  which  is  calculated  as  a  simple  centroid  (mean)  of  the  co-
+ordinates  for  each  of  the  k  examples.  The  training  data  consist  of  a 
+support set S consisting of k labelled samples from each class, with the 
+remaining  samples  comprising  the  query  set  Q.  Prototypical  networks 
+compute a class prototype cn  through an embedding function fϕ : ℝD→ 
+ℝM  with learnable parameters ϕ. In our baseline system D = 128 and 
+M = 64,  and  fϕ  is  a  neural  network.  The  prototype  for  class  n  is 
+computed as the mean of the embedded support points belonging to that 
+class: 
+
+cn =
+
+1
+k
+
+∑
+
+(xi)∈Sn
+
+fϕ(xi)
+
+(1)  
+
+where Sn  represents the subset of S from class n.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the specific type of deep learning model used in the pipeline. However, it mentions that several systems use Convolutional Neural Networks (CNN). For instance, Liu\_Surrey, Du\_NERCSLIP, and Yang et al. (2021) employ Mel +PCEN features with CNN models. Additionally, You et al. (2023) utilize a CNN (ResNet) architecture. Other systems mentioned include CNN framewise, CNN + CRNN + Perceiver, and AST. Therefore, based on the given context, various types of deep learning models are employed, including CNN architectures.

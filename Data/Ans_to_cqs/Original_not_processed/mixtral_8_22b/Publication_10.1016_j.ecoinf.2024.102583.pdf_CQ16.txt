@@ -1,0 +1,228 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+loss function, effectively preventing overfitting and promoting simpler 
+models,  utilization  of  a  more  advanced  optimization  approach  that 
+combines  first-order  gradients  (loss  function  gradient)  with  second- 
+order  gradients  (loss  function  curvature)  which  makes  it  faster  than 
+some other models, ability to handle missing data during tree building 
+by  employing  weighted  quantile  sketch,  built-in  cross-validation  sup-
+port  that  aids  the  model  evaluation  and  hyperparameter  tuning,  and 
+imbalanced  data  handling.  Thanks  to  its  exceptional  efficiency  and 
+performance and its availability in various programming languages like 
+Python, R, and Java, XGBoost has found widespread adoption in land-
+slide risk assessment (Akinci et al., 2021; Badola et al., 2023; Can et al., 
+2021; Hussain et al., 2022b). 
+
+{(cid:0)
+
+Given  a 
+)}(cid:0)
+xi, yi
+
+set  with  n 
+|D|= n, xi ∈ Rm, yi ∈ R
+
+Precision 
+(0 to 1) 
+
+Recall/Sensitivity/True 
+
+Positive Rate 
+0 to 1 
+F1-Score 
+(0 to 1) 
+
+Overall Accuracy 
+
+(0 to 1) 
+
+AUC-ROC curve 
+
+(0 to 1) 
+Kappa Score 
+((cid:0) 1 to 1) 
+
+TP
+(TP + FP)
+TP
+(TP + FN)
+
+2 × Precison × Recall
+(Precision + Recall)
+
+TP + TN
+(TP + TN + FP + FN)
+Sensitivity = Recall 
+1 (cid:0) Specificity = 1 (cid:0)
+P0 (cid:0) Pe
+1 (cid:0) Pe 
+Where: 
+P0 = TP + TN
+And 
+
+N 
+
+(TN/((TN + FP)) )
+
+Pe =
+(TP + FN).(TP + FP) + (FP + TN).(FN + TN)
+N2  
+
+This quantifies the correct % of predicted landslide pixels among all the predicted landslide-prone 
+pixels. 
+This quantifies the correct % of predicted landslide pixels among all the true landslide-prone pixels.
+
+FR = F/E 
+
+Soil 
+
+Distance to 
+stream 
+
+Land Cover 
+
+Lithology 
+
+Distance to road 
+
+Inceptisols 
+Ultisols 
+Bodies of Water 
+Alfisols 
+Entisols 
+
+0–50 
+50–100 
+100–150 
+150–250 
+250–360 
+Forest 
+Grassland 
+Wetland 
+Cropland 
+Barrenland 
+Urban 
+Water body 
+Mica-schist 
+Henderson-Gneiss 
+Garnet-mica-schist 
+Biotite-gneiss and schist 
+Migmatitic-granitic-gneiss 
+Amphibolite and biotite- 
+gneiss 
+Granite-gneiss 
+Porphyroblastic-gneiss 
+Caesars-Head Granitic-Gniess 
+<200 
+200–400 
+400–600 
+600–800 
+>800 
+
+124,464 
+438,856 
+6717 
+343 
+11,028 
+
+305,134 
+190,058 
+71,058 
+14,915 
+243 
+439,207 
+10,914 
+815 
+50,952 
+447 
+73,274 
+5799 
+9949 
+104,512 
+44,510 
+178,276 
+70,962 
+
+11,509 
+39,400 
+116,161 
+6129 
+1,60,092 
+104,592 
+72,603 
+51,114 
+193,007 
+581,408    
+
+357 
+809 
+0 
+0 
+49 
+
+631 
+419 
+129 
+36 
+0 
+1072 
+20 
+0 
+0 
+1 
+122 
+0 
+11 
+123 
+11 
+510 
+376 
+
+6 
+13 
+165 
+0 
+302 
+148 
+107 
+81 
+577 
+
+21% 
+75% 
+1% 
+0.1% 
+2%
+
+2.3. Assessing prediction performance 
+
+The  validation  was  carried  out  using  the  test  dataset  which  was 
+unseen by the models. The test dataset contains 20% of the landslide 
+inventory data, that is 243 landslides and 243 non-landslide records. To 
+assess  the  performance  of  our  models,  four  assessment  metrics  were 
+employed  on  the  test  dataset,  including  AUC-ROC  (Area  Under  the 
+Receiver  Operating  Characteristic  Curve),  overall  accuracy,  Kappa 
+Score,  and  F1-Score.  These  metrics  are  briefly  explained  in  Table  2 
+below. Here, TP stands for True Positive (correctly identified landslides 
+pixel), FP -False Positive (wrongly identified landslide pixels), TN-True 
+Negative (correctly identified non-landslide pixels), FN-False Negative 
+(wrongly  identified  non-landslide  pixels),  and  N  stands  for  total 
+instances. 
+
+2.4. Landslide susceptibility maps consistency analysis
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't explicit information about the specific criteria used to determine when training is complete for the XGBoost models. However, generally speaking, common criteria used to determine when training is complete include reaching a certain number of epochs or iterations, achieving a desired level of performance on a validation set, or observing a plateau in the validation loss. In this case, since the context mentions the use of a test dataset for validation, it can be inferred that the training process might have been stopped once a satisfactory level of performance was achieved on the validation set. This could mean that the training was halted when the validation loss reached a minimum value or stopped decreasing significantly, indicating that further training would not improve the model's performance.

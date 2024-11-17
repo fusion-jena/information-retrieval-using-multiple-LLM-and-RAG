@@ -1,0 +1,14 @@
+The provided context discusses the training process of a specific deep learning model, DeepLabV3+, for semantic segmentation of remote sensing images. However, it does not explicitly mention common preprocessing steps such as normalization, scaling, or cleaning. Instead, it focuses on the cropping, data augmentation, and model-specific configurations used during the training process.
+
+Cropping: To handle large-size images and prevent memory overflow, the authors cropped the images and their corresponding semantic labels into regular image blocks of size 32 × 32 pixels with a redundancy rate of 0.5. This approach maximized the sample size and maintained consistency with the cropping method used during model prediction.
+
+Data Augmentation: The authors employed data augmentation techniques to enhance the training set and improve the model's performance. These techniques included:
+
+1. Flipping the images and labels along the X or Y axis.
+2. Exchanging between multiple image channels while keeping the labels unchanged.
+3. Randomly rotating the images and labels by 90 degrees.
+4. Randomly adding noise to the images while preserving the labels.
+
+Model-specific Configurations: The DeepLabV3+ algorithm was developed using PyTorch (1.12.1) and Python (3.9). The authors chose Xception as the backbone network and employed dilated convolutions with different dilation rates for feature extraction. The Cross-EntropyLoss function was used with an initial learning rate of 0.001, a batch size of 4, and epochs of 150. The authors compared SGD and Adam algorithms and experimented with various learning rate adjustment strategies, ultimately choosing Adam in combination with ReduceLROnPlateau to accelerate the convergence rate and reduce overfitting risk.
+
+In summary, the provided context focuses on the cropping strategy, data augmentation techniques, and model-specific configurations used during the training process of a DeepLabV3+ model for remote sensing image segmentation. It does not explicitly mention common preprocessing steps such as normalization, scaling, or cleaning.

@@ -1,0 +1,181 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.2.2. Data preparation 
+
+Pre-trained CNNs are designed to expect images in a certain format 
+before feature extraction (or classification). For VGG16 (and other net-
+works trained on ImageNet (He et al., 2016; Howard et al., 2017; Rus-
+sakovsky  et  al.,  2015)),  RGB  images  must  be  224 × 224  pixels.  We 
+therefore resize images to 224 pixels along the x-axis, preserving their 
+aspect ratio. We then crop the center of images such that they are square. 
+Following standard practice, RGB values were also normalized (centered 
+and scaled) to the training dataset (ImageNet), see Table 3. The images 
+in  each  dataset  were  split  into  80%  training  (including  5-fold  cross- 
+validation) and 20% testing subsets. Splits were stratified to preserve 
+the class-ratio. 
+
+2.2.3. Model preparation
+
+From a coding perspective, training an SVM is extremely straight-
+forward, with training, optimisation and testing executed within only a 
+few simple lines of code. The relative complexity with the CNN þ SVM 
+approach,  and  by  extension  the  CNN  approach,  rather  lies  in  data 
+management and feature extraction. The complexity of these steps is not 
+so  much  related to the  actions required, but navigating  the extensive 
+literature and knowing “where to start”. As one of the contributions of 
+this paper we hope to better guide the user with clear and detailed de-
+scriptions  of  these  steps,  that  are  applicable  across  ML  frameworks 
+(Table 3). Aside from these preparations, training the CNN classifier is 
+further complicated since an optimal is not automatically found. Instead 
+performance  metrics  must  be  monitored  across  epochs  and  decisions 
+made on when to stop training - typically the point at which training and
+
+Pytorch (Paszke et al., 2019) ML framework for deep learning (CNNs). 
+These libraries also include tools for data pre-processing, model selec-
+tion and evaluation. To keep our model training and analysis pipelines 
+comparable, we use skorch, a scikit-learn compatible neural network li-
+brary that wraps PyTorch. This allows the same scikit-learn training and 
+evaluation procedure to be used for both models. Skorch is also helpful 
+for end-users in CNN training, as it has a clear and simple interface. It 
+only requires end-users to add the prepared datasets, model and specify 
+the associated hyperparameters (Table 4). Documentation for the entire 
+machine learning pipeline can be found at (PyTorch, 2023) for Pytorch 
+(Paszke  et  al.,  2019;  scikit-learn,  2023)  for  scikit-learn  and  (skorch, 
+2022)  for  skorch.  Commercial  restrictions  apply  to  the  availability  of 
+data  used  in  this  work.  However,  links  to  public  code  examples  of
+
+Table 5 
+Classifier  training  performance:  with  tuned  hyperparameters,  mean  cross- 
+validation (CV) and final training accuracy.      
+
+illumination patterns. 
+
+3.2. Classification performance 
+
+Set 
+
+Images 
+
+Classifier 
+
+Hyperparameters 
+
+Mean CV 
+
+Train 
+
+Accuracy 
+
+1 
+
+6682 
+
+2 
+
+992 
+
+3 
+
+459 
+
+SVM:Lineard 
+SVM:Linear 
+SVM:RBFd 
+SVM:RBF 
+CNN 
+SVM:Lineard 
+SVM:Linear 
+SVM:RBFd 
+SVM:RBF 
+CNN 
+SVM:Lineard 
+SVM:Linear 
+SVM:RBFd 
+SVM:RBF 
+CNN 
+
+C = 23.0 
+
+(cid:0)
+
+– 
+
+(cid:0) 15.0 
+
+C = 23.0, γ = 2
+lr = 0.001 
+– 
+
+(cid:0) 15.0 
+
+C = 23.0 
+
+– 
+
+C = 23.75, γ = 2
+lr = 0.001 
+– 
+
+C = 23.0 
+
+– 
+
+C = 25.25, γ = 2
+lr = 0.001 
+
+(cid:0) 15.0 
+
+0.93 (± 0.003) 
+0.93 (± 0.003) 
+0.95 (± 0.003) 
+0.96 (± 0.003) 
+0.92 (± 0.023) 
+0.87 (± 0.010) 
+0.87 (± 0.010) 
+0.87 (± 0.018) 
+0.91 (± 0.016) 
+0.90 (± 0.015) 
+0.83 (± 0.021) 
+0.83 (± 0.021) 
+0.78 (± 0.016) 
+0.86 (± 0.020) 
+0.82 (± 0.020) 
+
+1.00 
+1.00 
+0.97 
+0.98 
+0.98 
+1.00 
+1.00 
+0.91 
+0.97 
+0.97 
+1.00 
+1.00 
+0.84 
+0.95 
+0.95
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: Before training a deep learning model, several preprocessing steps are often involved. These steps help prepare the data for efficient and accurate processing by the model. In the given context, the preprocessing steps for training a Convolutional Neural Network (CNN) like VGG16 involve image resizing, cropping, and normalization.
+
+Firstly, the input images need to be resized to match the expected dimensions of the pre-trained CNN. In this case, the images should be resized to 224x224 pixels while maintaining their aspect ratio. This step ensures that all images have consistent dimensions, making it easier for the model to process them.
+
+Secondly, after resizing, the images are cropped to create square images. Cropping helps maintain the focus on the main subject or object in the image, removing any unnecessary background information. This step further contributes to preparing uniform inputs for the model.
+
+Lastly, the RGB values of the images are normalized using centering and scaling techniques. Normalization scales the pixel intensity values to a common range, usually between 0 and 1 or -1 and 1. This step helps reduce the impact of varying lighting conditions and color intensities in different images, ensuring that the model focuses more on relevant features instead of being influenced by absolute pixel values.
+
+In summary, the preprocessing steps involved before training a deep learning model like VGG16 include resizing images to a specific dimension, cropping them to create square images, and normalizing the RGB values through centering and scaling. These steps ensure that the input data is properly formatted and ready for efficient processing by the model.

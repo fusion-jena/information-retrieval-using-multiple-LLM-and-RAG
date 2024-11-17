@@ -1,0 +1,58 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.2. Ensemble models
+
+To separate data into training and testing datasets, we used a spatial 
+blocking technique, in which we divided our study area into 25 equally 
+sized  blocks,  each  approximately  41  km  × 41  km  in  size,  using  the 
+blockCV package in the R programming language (Valavi et al., 2019). 
+We determined the size of our spatial blocks using the spatialAutoRange 
+function in the blockCV package, which returns a block size equal to the 
+median  range  of  spatial  autocorrelation  in  independent  covariates 
+(Valavi  et  al.,  2019).  This  attempts  to  ensure  data  within  a  block  is 
+relatively independent of data outside of that block. We then divided 
+these blocks among five folds in which the numbers of presences and 
+background points were roughly equal. We used five folds because, due 
+to the spatial arrangement of our presence data, using more would cause 
+folds to have drastically differing numbers of presences and background
+
+2.8. Training individual models 
+
+To train the component models for the ultimate ensemble models, we 
+used  six  modeling  approaches,  categorized  into  regression-based  and 
+machine  learning models. Regression-based  models included General-
+ized Linear Models (GLMs), Generalized Additive Models (GAMs), and 
+Multivariate  Adaptive  Regression  Splines  (MARS).  Machine  learning 
+models included Random Forest (RF), Artificial Neural Networks (ANN), 
+and Maximum Entropy software (MaxEnt). We built all models using the 
+biomod2 package in R (Thuiller et al., 2021).
+
+2.7. Subsetting background points 
+
+We  made  three  random  selections  of  background  points  from  the 
+training dataset for use during model construction. First, we made the 
+“1×” selection, which selected the same number of background points as 
+presences in the training dataset. Second, we made the “10×” selection, 
+which selected a number of background points equal to ten times the 
+number of presences in the training dataset. Third, we made the “10 K” 
+selection, which selected 10,000 background points from the training 
+dataset.  We  used  this  approach  to  maintain  consistency  across  back-
+ground  points  used  to  train  each  model  so  there  was  no  variation  in 
+model results due to variation in the response variable. 
+
+2.8. Training individual models
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The given context does not provide information on the specific data annotation techniques used in the deep learning pipeline. However, it discusses the methods employed for separating data into training and testing datasets, subsetting background points, and training individual models for ensemble models. These processes involve dividing the study area into blocks, selecting background points, and utilizing various modeling approaches such as GLMs, GAMs, MARS, RF, ANN, and MaxEnt. Therefore, based on the provided context, I cannot determine the exact data annotation techniques used in their deep learning pipeline.

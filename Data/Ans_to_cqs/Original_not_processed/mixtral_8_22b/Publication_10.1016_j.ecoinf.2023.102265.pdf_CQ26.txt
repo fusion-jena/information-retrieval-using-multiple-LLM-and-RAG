@@ -1,0 +1,58 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The  next step  was  to  gather  standard  visual  information  and  low- 
+level  image  features  from  the  datasets  that  include  traits  such  as 
+colour, texture, shape, etc. (Shih et al., 2001). These features can be used 
+by classifiers or deep learning models for image segmentation, image 
+classification  and  object  detection.  There  are  various  techniques  for 
+conducting  image  feature  extraction.  With  advancements  in  machine 
+learning,  specifically  deep  learning  and  convolution  neural  networks 
+(CNNs), feature extraction from images can be performed automatically 
+to obtain high levels of classification accuracy (Acharya and Khoshel-
+ham, 2020). Therefore, we used a deep-learning model to extract fea-
+tures  of  our  image  backgrounds  for  training  a  classifier  model.  We 
+adopted  a  ResNet-50  model  (He  et  al.,  2016)  for  extracting  image 
+background features for classification. ResNets (Residual Networks) are
+
+easy to train with reduced complexity, even though they have deeper 
+layers than CNN models, because of the presence of skip connections 
+between the input and output of each block (He et al., 2016). ResNet has 
+different variants with a variety of convolution layers. We trialled three 
+depths, ResNet-18, (cid:0) 50 and (cid:0) 101, and compared their training times 
+and validation accuracies. They behaved similarly but ResNet-50 had a 
+marginally  higher  validation  accuracy  (Section  3.1.1)  leading  us  to 
+choose it for feature extraction.
+
+performance  compared  to  features  extracted  from  shallower  layers 
+(Zeiler and Fergus, 2014). These deeper layers more effectively capture 
+class-specific attributes  like  shape, texture,  and colour.  Therefore,  we 
+extracted  features  from  the  21st  layer  of  the  CNN,  last  layer,  a  fully 
+
+EcologicalInformatics77(2023)1022655(a)(b)S. Singha Roy et al.
+
+ran in approximately 1.2 min for our experiments on the CPU, whilst 
+softmax  took  12  min  on  the  GPU  to  complete  the  same  task.  So, 
+although, softmax can accomplish our classification task, our proposed 
+method has advantages.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To address data bias during preprocessing of the deep learning pipeline, several techniques can be employed. One common approach is stratified splitting, which involves dividing the dataset into training and testing sets while maintaining the original class distribution. This ensures that both sets contain representative samples from all classes, reducing the risk of overfitting or underfitting due to imbalanced data.
+
+Oversampling and undersampling are also popular methods for handling class imbalance. Oversampling involves duplicating examples from the minority class until its size matches that of the majority class. Undersampling, on the other hand, entails removing instances from the majority class until it reaches parity with the minority class. Both strategies aim to create balanced datasets that improve model performance by mitigating biases towards dominant classes.
+
+Diverse data collection is another technique used to tackle data bias. By gathering diverse sources of data, including different demographics, geographical locations, and time periods, researchers can build more robust models capable of generalizing well across various scenarios. Additionally, augmenting existing datasets through synthetic generation or transformations can further enhance diversity and reduce potential biases stemming from limited sample sizes or skewed distributions.
+
+In summary, addressing data bias during preprocessing of the deep learning pipeline often requires employing multiple techniques such as stratified splitting, oversampling, undersampling, and diverse data collection. Each method serves a unique purpose in ensuring fair representation of all classes within the dataset, ultimately contributing to improved model accuracy and reliability.

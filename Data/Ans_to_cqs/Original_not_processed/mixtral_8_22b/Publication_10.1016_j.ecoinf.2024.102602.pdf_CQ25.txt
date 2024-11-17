@@ -1,0 +1,64 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.5.1. Model selection and parametrization 
+
+For  the  classification  task,  before  the  implementation  of  deep 
+learning models, all images were resized to the same resolution (227×
+197  pixels)  by  considering  the  mean  dimensions  of  the  set,  and  then 
+normalized to the [0,1] range (Na and Fox, 2020). Then, six open source 
+CNNs  were  selected:  VGG16  (Simonyan  and  Zisserman,  2015), 
+ResNet50,  ResNet101  (He  et  al.,  2016),  Inception-v3  (Szegedy  et  al., 
+2016), DenseNet201 (Huang et al., 2017) and EfficientNetB0 (Tan and 
+Le,  2019).  These  algorithms  were  selected  because  of  their  ease  for 
+transfer  learning and  high  performance  on  similar classification  tasks 
+(Arun  and  Viknesh,  2022;  Vallabhajosyula  et  al.,  2022).  For  model 
+optimization, we used the Adam optimizer algorithm (Kingma and Ba, 
+2015), a batch size of 10 and 100 epochs. The learning rates were chosen 
+(cid:0) 6 showing 
+from empirical trials over 100 epochs, with and 10
+
+A.1b),  with  high  performances  (e.g.,  f1-score  values  above  93.09%; 
+Table  4).  Unlike  the  training  task,  the  best  results  were  obtained  by 
+(cid:0) 4,  in  terms  of  accuracy 
+EfficientNetB0  with  a  learning  rate  of  10
+(97.50%),  sensitivity  (96.00%)  and  f1-score  (97.46%),  followed  by 
+(cid:0) 4),  which  also  showed 
+Inception-v3  with  the  same  learning  rate  (10
+high accuracy (96.88%), sensitivity (94.00%), specificity (99.75%) and 
+f1-score (96.78%). In the case of the EfficientNetB0 model, only 4% of 
+the  images  displaying  the  Cortaderia  selloana  were  confused  by  the 
+model as showing no C. selloana (false negatives; Fig. A.1c). Likewise, 
+from  the  images  showing  no  C.  selloana,  in  1%  of  the  cases  Effi-
+cientNetB0  incorrectly  predicted  the  class  “With  Cortaderia  selloana” 
+(false  positives;  Fig.  A.1d).  A  similar  pattern  was  verified  for  the 
+remaining CNNs (see confusion matrices in Tables A.6 and A.7).
+
+tionally efficient the model). The total loss is usually computed as the 
+sum of the classification (loss of the classifier that determines the type of 
+target object) and localization losses (loss of the regressor that generates 
+a rectangular box to locate the target object), while the average infer-
+ence time per image corresponds to the amount of time taken by the 
+models to process a new image and make a prediction. Details on both 
+classification  and  detection  CNNs  description,  parameterization  and 
+implementation can be found in the Supplementary Material.
+
+From the different models considered in our study, the classification 
+(cid:0) 4)  and  the  object 
+model  DesenNet201  (with  a  learning  rate  of  10
+detection mode Faster R-CNN ResNet50 (pre-trained on the MS COCO
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the purpose of the deep learning model (e.g., classification, segmentation, detection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The purpose of the deep learning models mentioned in this context is primarily for classification tasks. Six pre-trained convolutional neural networks (CNNs) - VGG16, ResNet50, ResNet101, Inception-v3, DenseNet201, and EfficientNetB0 - were selected due to their proven effectiveness in transfer learning and high performance on similar classification tasks. These models were trained using the Adam optimizer algorithm, a batch size of 10, and 100 epochs. The learning rates were determined through empirical trials. The goal of these models was to accurately classify images based on whether they contained Cortaderia selloana or not. Additionally, one of the models, DenseNet201, was also used in object detection mode with Faster R-CNN ResNet50, pre-trained on the MS COCO dataset. However, the main focus of the study appears to be on image classification rather than object detection or other tasks such as segmentation.

@@ -1,0 +1,62 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+EcologicalInformatics78(2023)1023032High-dynamicand HighlyTurbid WatersEfficientNetVision TransformerTransfer Learnt94%AccuracyQuicklyand IdlyLabeledFramesDecision TreeEnsemble of The TwoIndependentModelsContrastive Learning ModelMore than22×ShorterTurnaroundTimeFishInTurbidWaterDatasetVideoFramesSemi-supervisedDNN ModelWeakly-supervisedDNN ModelM. Jahanbakht et al.
+
+Fig. 2. FishInTurbidWater image samples, which includes (a) waiting onboard for deployment, (b) overwater port viewing, (c) seabed turbidity increasing by port 
+activities, (d) wharf encountering, (e-f) seafloor visiting, and (g-i) lots of fish exhibiting. 
+
+EcologicalInformatics78(2023)1023033M. Jahanbakht et al.                                                                                                                                                                                                                           
+
+Fig. 4. The proposed semi-supervised ResNet-based contrastive learning structure with two orderly training phases. The model trains from no labeled data during the 
+self-supervised first phase and then fine-tunes with a small 20% subset of weakly labeled FishInTurbidWater data during the second phase. 
+
+fine-tuning stage (Saleh et al., 2022b). 
+
+case are weakly labeled.
+
+case are weakly labeled. 
+
+Implemented using the Keras APIs under the TensorFlow framework, 
+the first self-supervised contrastive learning phase composes of a train-
+able encoder, followed by a trainable projection head. The encoder takes 
+a  batch  of  input  images  and  augments  them  with  random  horizontal 
+flipping, random ±7o rotation, and random ±40% brightness.
+
+After the successful completion of the first self-supervised phase, the 
+model enters its second phase to undergo fully-supervised incremental 
+learning. In this phase, the encoder’s mode changes into non-trainable, 
+the projection head switches off, and a new trainable decoder is attached 
+to the encoder tail (see Fig. 4). The decoder’s job is to map the encoded 
+vector  into  a  binary  fish/no-fish  answer.  This  fully-supervised  setting 
+allows  very  efficient  use  of  limited  label  information  (Khosla  et  al., 
+2020). In other words, the compact decoder with only 129 neurons can 
+be  easily trained by  a  fraction as  small  as 20%  of the  whole training 
+dataset. 
+
+2.3. Weakly-supervised DNN ensemble
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The paper does not provide explicit details about the postprocessing steps involved after the model training. However, based on common practices in machine learning projects, we can infer some possible postprocessing steps. These may include:
+
+1. Evaluation metrics: After training the models, it is essential to evaluate their performance using appropriate evaluation metrics such as accuracy, precision, recall, F1 score, etc. These metrics help assess how well the models have learned to classify or predict the target variable.
+
+2. Confusion Matrix: A confusion matrix is often used to visualize the performance of classification models. It provides insights into the number of correct and incorrect predictions made by the model.
+
+3. Saliency Maps: Saliency maps highlight the regions in the input image that contribute most significantly to the output prediction. They can be useful for understanding what features the model has learned to focus on while making decisions.
+
+4. Hyperparameter tuning: Postprocessing might also involve optimizing hyperparameters like learning rate, batch size, epochs, etc., to improve the model's performance further.
+
+5. Ensembling: As mentioned in the paper, they use an ensemble of two independent models - EfficientNet Vision Transformer Transfer Learned and Decision Tree. Therefore, postprocessing could also involve combining these models' outputs to generate final predictions.

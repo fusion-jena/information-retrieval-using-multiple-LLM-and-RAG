@@ -1,0 +1,11 @@
+Answer:::
+
+The criteria used to determine when training is complete is not explicitly stated in the provided context. However, it can be inferred that the training process is monitored using the macro-averaged F1-score on the validation set. This score gives equal importance to all classes regardless of the number of data points in each one. 
+
+In the context, it is mentioned that "The macro-averaged f1-score on the validation set aided in monitoring the model convergence." This suggests that the training process could be stopped when the validation set's macro-averaged F1-score plateaus or stops improving significantly. 
+
+Additionally, the training process is further managed by using a cosine decay scheduler for the learning rate. This strategy gradually decreases the learning rate as the training progresses, which can help the model converge to a better minimum and prevent overfitting. 
+
+It is also worth noting that the first five seconds of the validation recordings were used for monitoring the models during training. This strategy was chosen because the labeled species are usually present during the first few seconds of the recordings from Xeno-Canto. This approach might have been taken to reduce computation time while still ensuring valid results. 
+
+Therefore, while the exact criteria for determining training completion are not specified, it can be inferred that the macro-averaged F1-score on the validation set, in conjunction with the cosine decay scheduler for the learning rate, is used to monitor the model's convergence and prevent overfitting.

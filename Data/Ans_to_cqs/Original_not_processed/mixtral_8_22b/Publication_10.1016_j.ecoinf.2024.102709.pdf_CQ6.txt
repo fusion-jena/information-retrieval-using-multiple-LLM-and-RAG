@@ -1,0 +1,73 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Image preprocessing was conducted using Python with the OpenCV 
+library (Python Software Foundation, 2023b). The last step was image 
+inversion, in which white pixels (representing markings) were switched 
+to black pixels, and the black pixels (representing the background) were 
+switched to white pixels. 
+
+The  YOLOv8-framework,  an  end-to-end  neural  network  (Jocher 
+et al., 2023), was used for model-building training, and a Python (Py-
+thon Software Foundation, 2023a) script was used to convert all labels 
+into the required format. These labels were annotated to the original via 
+Labelbox (Labelbox, 2023) and consisted of the numbers that each image 
+was  supposed  to  show.  A  separate  script  downloaded  all  scatterplot 
+images,  including  labels  created  through  Labelbox.  Moreover,  the 
+required data structure was automatically created, and images and la-
+bels were moved to the corresponding folders for training, testing, and 
+validation.
+
+Three models (Models 4, 5, and 6) were trained using our own data 
+(clusters of extracted numbers), as described above, as input for training, 
+whereas the other three models (Models 1, 2, and 3) were trained with 
+the modified National Institute of Standards and Technology (MNIST) 
+dataset of handwritten digits, which can be used to train classification 
+models (Deng, 2012).
+
+To determine the ideal training–test split for our model, we used k- 
+fold  cross-validation  (k  = 5,  epochs  = 500,  imagesize  = 640).  The 
+epochs provide the number of repetitions for training, and the image size 
+is  expressed in  pixels. k-fold  cross-validation  (Rodriguez et  al., 2010) 
+was used to determine the best training test set for the model. Hereby, 
+the data are split into k different training–test sets. The model was not 
+trained on the entire dataset but on each training split. The result was an 
+investigation of the best data split. Functions of the Python library scikit- 
+learn  (scikit-learn  developers,  2023)  were  used  to  split  the  data  and 
+investigate the results of each trained model. In addition, YOLO training 
+losses and mAP50 values of each model were investigated. The split with 
+the  highest  mAP50  value  indicates  the  highest  number  of  correctly 
+predicted labels for the model trained on a specific split. We used the
+
+4.2. Number classification 
+
+When  the  YOLOv8n  model  was  trained  exclusively  on  MNIST,  it 
+failed to accurately predict or recognize the clusters. To enhance image 
+recognition, preprocessing techniques, such as inpainting or thickening 
+points to generate lines, can be employed. 
+
+However, if the model was trained on our data and MNIST, the model 
+was overfitted to the MNIST data and seemed to ignore the parameters 
+learned  from  our  dataset.  Overfitting  occurred  because  of  the  high 
+number  of  training  examples  in  the  MNIST  dataset  compared  to  our 
+small test set (Table 6). Thus, Model 4, which was trained solely on our 
+data,  performed  the  best  in  the  current  scenario  (Tables  6  and  7). 
+Although this model performs with high precision during training, it can 
+
+still be observed that there are many numbers that cannot be recognized 
+when testing the preprocessed images (Table 8).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model like YOLOv8, several preprocessing steps are typically involved. In this case, the preprocessing was conducted using Python with the OpenCV library. One crucial step mentioned is image inversion, where white pixels representing markings were switched to black pixels, and vice versa for black pixels representing the background. This step likely helps improve contrast and clarity for better recognition by the model. Additionally, label preparation is another essential preprocessing task. All labels were converted into the required format using a Python script, and these labels were then annotated to the original images via Labelbox. Furthermore, a separate script was used to download all scatterplot images along with their respective labels. Automatically creating the necessary data structures and moving images and labels to appropriate folders for training, testing, and validation also contribute to the overall preprocessing pipeline. However, details about other common preprocessing tasks like normalization, scaling, or cleaning are not explicitly mentioned in the given context.

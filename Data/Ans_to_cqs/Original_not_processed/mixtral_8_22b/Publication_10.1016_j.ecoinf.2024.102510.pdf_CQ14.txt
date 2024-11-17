@@ -1,0 +1,135 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Hyperparameters  play  a  crucial  role  in  ensuring  that  the  model 
+learns  effectively  and  makes  accurate  predictions  (Mantovani  et  al., 
+2015). HPO refers to selecting the most suitable hyperparameter values 
+for optimizing model performance (Li and Talwalkar, 2020). Some of the 
+HPO  techniques  are  manual  search  (Chang,  2018),  grid  search  (Frie-
+drichs and Igel, 2005), random search (Bergstra and Bengio, 2012), and 
+Bayesian search (Eggensperger et al., 2013). These  techniques aim to 
+optimize the performance of the models. However, each method carries 
+certain  benefits  and  has  some  limitations  (Yang  and  Shami,  2020). 
+Manual  search  requires  thorough  prior  knowledge  and  experience.  A 
+major  limitation  of  Random  search  is  the  random  evaluation  of  each 
+iteration, resulting in wasted time evaluating suboptimal areas within 
+the  search  space.  Grid  search  is  expensive  and  impractical  for  large
+
+This study follows a hyperparameter optimization approach known 
+as  the  Hybrid  Hyperparameter  Optimization  Scheme  (HHOS),  which 
+combines  manual  and  random  search  methods  sequentially.  The  first 
+step is manual search, which aims to identify optimal hyperparameter 
+values  and  reduce  the  search  space.  This  is  achieved  by  selecting 
+frequently used hyperparameter configurations that show effectiveness 
+in  related  studies,  after  understanding  the  problem  at  hand.  Next, 
+random  search  iteratively  samples  various  combinations  of  hyper-
+parameter values identified in the manual search, trains the models with 
+each set and identifies the hyperparameter configuration that yields the 
+highest accuracy. 
+
+The current study contributes to the field by:  
+
+• Effectively utilizing transfer learning as a feature extractor and fine- 
+
+tuner to train multiple classifiers
+
+Although HHOS used in this study effectively combines manual and 
+random searches, but it has some limitations. The manual search relies 
+on domain expertise, and the effectiveness of this process heavily de-
+pends on the knowledge and insights provided by experts. In some cases, 
+experts may not be able to fully explore the vast hyperparameter space, 
+leading to suboptimal results. Also, further investigations are necessary 
+to  identify  more  appropriate  hyperparameters  and  optimal  hyper-
+parameter values in manual search, as the selection of hyperparameters 
+significantly  impacts  the  performance  of  the  selected  models.  The 
+random search approach employed in HHOS may require a large num-
+ber  of  iterations  to  achieve  satisfactory  results,  which  can  increase 
+computational time and complexity.
+
+• Limited exploration of 
+hyperparameter space  
+
+• May not find global 
+
+optima due to 
+subjectivity 
+
+• Less control over 
+
+exploration compared 
+to manual search  
+• Results can be variable 
+due to randomness  
+
+• May require more 
+iterations for 
+convergence  
+• Risk of missing 
+
+optimal configurations 
+
+• Offers benefits of both 
+manual and random 
+search  
+
+• Still requires manual 
+
+down the search space  
+
+effort for initial tuning  
+
+• Improves upon the 
+
+limitations of 
+individual methods  
+• Offers adaptability to 
+diverse problem 
+domains  
+
+• Enhances chances of 
+finding optimal 
+hyperparameters  
+
+• Exploration may not 
+be as broad as a pure 
+random search  
+• Time and resource 
+
+requirements depend 
+on iterations  
+• Requires effective 
+
+coordination of both 
+methods 
+
+Table 5 
+HHOS algorithm.  
+
+Input  
+
+• Set of all hyperparameters, H  
+• Set of frequently used hyperparameter configurations, M  
+• Dataset for model evaluation, D
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In this study, the authors employ a hybrid hyperparameter optimization scheme (HHOS) to optimize the hyperparameters of their models. HHOS is a combination of two popular hyperparameter optimization techniques - manual search and random search.
+
+Firstly, the manual search technique is applied to narrow down the search space by identifying commonly used hyperparameter configurations from previous research relevant to the problem at hand. This step involves leveraging expert knowledge and experience to select hyperparameters that have shown promising results in similar tasks or domains.
+
+Once the search space has been reduced through manual search, the next step is to apply the random search technique. Random search works by randomly sampling different combinations of hyperparameter values from the previously defined search space. Each sampled combination is then used to train a new instance of the model, and its performance is evaluated using the dataset for model evaluation (D). This process continues until the best performing hyperparameter configuration is found.
+
+By combining these two approaches, HHOS offers several advantages. It allows for a more efficient exploration of the hyperparameter space while still maintaining a level of control over the search process. Additionally, HHOS improves upon the limitations of individual methods such as manual search, which can be subjective and limited by human expertise, and random search, which can be computationally intensive and prone to variability due to its inherent randomness.
+
+However, there are also potential drawbacks associated with HHOS. For example, the success of the manual search component depends largely on the availability and quality of expert knowledge. Furthermore, the random search component may require a significant number of iterations before converging on an optimal solution, leading to increased computational costs and time requirements. Nonetheless, when properly implemented, HHOS provides a powerful tool for optimizing hyperparameters across diverse problem domains.

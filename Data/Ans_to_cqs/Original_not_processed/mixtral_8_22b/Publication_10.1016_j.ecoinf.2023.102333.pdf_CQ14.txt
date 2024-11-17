@@ -1,0 +1,101 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.6.1. Random search 
+
+Random Search (RS) is an optimization method widely used in ML 
+and artificial intelligence (AI) applications. It is a simple and effective 
+optimization  approach  that  is  often  used  as  a  baseline  for  comparing 
+other optimization methods. A set of hyperparameters is selected and 
+evaluated randomly to find the set with the best accuracy for a random 
+search optimization. This method suits ill-structured global optimization 
+problems  where  the  objective  function  may  be  non-convex  and  non- 
+differentiable  (Zabinsky,  2009).  RS  can  outperform  grid  search  and 
+compete  with  Bayesian  optimization  for  a  classification  problem  on 
+
+Table 1 
+Configuration of tested hyperparameters.  
+
+Hyperparameters 
+
+Configuration 
+
+Min value  Max value 
+
+Step 
+
+of neurons 
+of hidden layers 
+
+◦
+N
+◦
+N
+Dropout 
+Activation functions 
+
+Optimizer 
+
+512 
+128 
+0.5 
+
+2 
+2 
+0.05
+
+adjustable parameters that control network architecture, optimization 
+procedure,  and  regularization.  Common  hyperparameters  include 
+number of layers and nodes, learning rate, dropout rate, etc. However, 
+optimizing  model hyperparameters  remains imperative  for leveraging
+
+Our  study  employed  three  popular  hyperparameter  optimization 
+approaches:  Random  Search,  Hyperband,  and  Bayesian  Optimization. 
+Each  method  has  its  own  strengths  and  weaknesses.  For  instance, 
+although Hyperband improved our classification accuracy, it involved 
+making  several  assumptions  about  resource  allocation  that  may  only 
+hold  in  some  scenarios.  Moreover,  although  Bayesian  Optimization 
+provided a systematic approach towards hyperparameters tuning, it can 
+be  computationally  expensive  and  may  not  always  converge  to  the 
+global optimum (Snoek et al., 2012). Several studies that combine these 
+
+EcologicalInformatics78(2023)10233313A. Azedou et al.
+
+Results from our comparison showed that each method produced its 
+unique architecture for the MLP model. RS provided the largest archi-
+tecture with 34 hidden layers; however, randomly identifying the best 
+hyperparameter  combination  required  additional  time.  While  this 
+method  removed  the  dropout  layer,  Hyperband  and  Bayesian  optimi-
+zation methods included a dropout layer with dropout rates of 0.05 and 
+0.15, respectively. The two main differences between the models were 
+the number of hidden layers and the activation function. The Hyperband 
+method proved to be the most efficient, having the lowest computation 
+time compared to the other methods. A schematic representation of the 
+architecture for each model is depicted in Fig. 5. 
+
+Overall  accuracy  and  computation  time  results  for  the  Random 
+Search, Hyperband, and Bayesian optimization methods are illustrated 
+in Fig. 6.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The hyperparameters of the model are optimized using various approaches such as Grid Search, Random Search, Hyperband, and Bayesian Optimization. In this particular study, three popular hyperparameter optimization approaches were employed: Random Search, Hyperband, and Bayesian Optimization. Each method has its own strengths and weaknesses.
+
+Random Search (RS) is a simple and effective optimization approach that selects and evaluates a set of hyperparameters randomly to find the set with the best accuracy. Although RS can provide the largest architecture with many hidden layers, it requires additional time to randomly identify the best hyperparameter combination.
+
+Hyperband is another optimization method that improves classification accuracy but involves making several assumptions about resource allocation that may only hold in certain scenarios. In this study, Hyperband was found to be the most efficient method, having the lowest computation time compared to the other methods.
+
+Bayesian Optimization provides a systematic approach towards hyperparameters tuning by modeling the relationship between hyperparameters and performance metrics. However, it can be computationally expensive and may not always converge to the global optimum.
+
+In summary, the hyperparameters of the model are optimized using different approaches depending on the specific requirements and constraints of the application. Random Search, Hyperband, and Bayesian Optimization are all popular methods for hyperparameter optimization, each with their own advantages and disadvantages.

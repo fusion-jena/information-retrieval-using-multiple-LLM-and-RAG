@@ -1,0 +1,51 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+5.2.2. Training
+
+The official, MS-COCO pre-trained, version of this architecture has 
+then  been  further  trained,  a  technique  known  as  transfer-learning, 
+using the WCS dataset and its recommended data split, giving a cred-
+ible mean average precision mAP50 score of 0.75. The mAP metric, used 
+to  evaluate  the  PASCAL  VOC  challenge  dataset  (Everingham  et  al., 
+2010),  takes  the  mean  over  all  considered  species  of  their  respective, 
+species-specific  average  precision  as  defined  below.  The  subscript  50 
+refers  to  the  requirement  that  the  area  of  the  intersection  of  ground 
+truth  bounding  box  and  predicted  bounding  box  needs  to  be  at  least 
+50%  of  the  area  of  the  union  of  both  for  an  otherwise  true  species 
+identification to be considered correct. The network does not output a 
+binary  value  for  species  identification  but  instead  a  belief  b  ∈ [0, 1] 
+that  a  particular  species  has  been  identified.  Thresholding  these
+
+6.2. Benchmarking setup 
+
+There are two ways in which the metric can be applied to test the 
+system. Firstly, as a comparison with existing camera traps. Secondly, to 
+evaluate the pipeline with respect to the underlying neural network. As 
+there is no dataset available that contains full videos with corresponding 
+PIR sensor information, such data would need to be manually produced. 
+This was done at a small scale to inform development, but it was not 
+feasible  to  scale  this  up  for  a  robust  test  set.  We  instead  focus  on 
+benchmarking different system configurations compared to existing ML 
+approaches. 
+
+6.2.1. Data
+
+1. Introduction 
+
+under an hour.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there is no explicit mention of the specific criteria used to determine when training is completed. However, typically, in machine learning models like the one mentioned here, common criteria to determine when training is complete include reaching a certain number of epochs or iterations, achieving a desired level of performance on a validation set, observing a plateau in the validation loss, or meeting other predefined stopping conditions. In this case, since the model uses transfer learning from a pre-trained model and achieves a credible mean average precision (mAP50) score of 0.75, it can be assumed that the training process was stopped based on achieving satisfactory performance on the validation set.

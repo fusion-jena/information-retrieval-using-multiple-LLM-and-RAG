@@ -1,0 +1,103 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+tuning dataset is excluded from the training process. The model is then 
+developed using the remaining dataset (i.e. the training dataset), and its 
+performance is evaluated using the tuning dataset. The average perfor-
+mance of the k models developed on the validation groups represents the 
+performance of the machine learning technique for the selected hyper-
+parameters (Velasco Hererra et al., 2022). For this study, a value of 5 is 
+assumed  for  k.  Grid  search  is  employed  to  evaluate  the  data-driven 
+model’s  performance  using  each  combination  of  predefined  hyper-
+parameters and identify the best hyperparameters. The maximum depth 
+of the tree, the number of trees in the ensemble model, and the learning 
+rate (which shows how fast the model learns) are tuned in this study as 
+the influential hyperparameters (Cakiroglu et al., 2022).
+
+Data-driven models depend on a number of parameters, known as 
+hyperparameters,  which  are  employed  to  enhance  and  regulate  the 
+learning  procedure.  Optimal  hyperparameter  selection 
+leads  to 
+improved model accuracy and enhanced prediction performance (Aze-
+dou et al., 2023). To fine-tune hyperparameters in data-driven models, 
+the development dataset (comprising all data records except the evalu-
+ation data records) is divided into two categories: the training dataset 
+and the tuning dataset. Given the size constrains of the dataset used in 
+the  analysis  and  the  need  to  utilize  all  development  data  records  in 
+training  to  enhance  the  model’s  generalization  ability,  k-fold  cross- 
+validation  was  chosen  as  the  preferred  approach  for  hyperparameter 
+tuning (Saha et al., 2022). In this technique, the development dataset is 
+evenly divided into k groups. During each iteration, one group called the
+
+The results showed the issue of overfitting in ML modelling, namely 
+when the learning dataset used is relatively small. Some recent studies 
+have  evaluated  model  performance  against  the  data  used  in  model 
+fitting  and  tuning  (e.g.  Kucuk  and  Sevinc  (2023).  This  may  fail  to 
+identify the true fit and behaviour of ML models, because ML models aim 
+to  maximize  accuracy  against  the  model  development  (training  and 
+tuning) dataset. Our model evaluation against an independent dataset 
+revealed  true  model  fit,  which  in  our  case  was  10%  lower  than  that 
+obtained against the model development dataset) in the best performing 
+models and about 30% lower in the worst performing ones. Analysis of 
+model behaviour also showed flawed behaviour in some models, such as 
+non-monotonic trends that result from overfitting. The overfitting (i.e. 
+where the model captures not only the trend but also the noise in the
+
+(t(cid:0) 1) + ft(xi)
+
+)
+
++ Ω(ft)
+
+(4)  
+
+EcologicalInformatics82(2024)1027113S. Khanmohammadi et al.                                                                                                                                                                                                                    
+
+∑
+
+where l is the loss function or error quantification; t is the number of 
+iterations; Ω is the penalty for complicated models; yi is the output of the 
+model; 
+is  associated  with  the  summation  of 
+current  and  previous  loss.  By  optimizing  the  loss  function,  the  most 
+accurate XGBoost model can be developed based on the input dataset. 
+
+(t(cid:0) 1) + ft(xi)
+
+yi, ̂yi
+
+n
+i=1l
+
+)
+
+(cid:0)
+
+(3)  The OOF predictions are averaged over the n number of rounds to 
+
+reduce variance.  
+
+(4)  The averaged OOF predictions are stacked and used as features to 
+
+train a 2nd layer of models.  
+
+(5)  Steps 2–4 are repeated for L stacking layers to create a powerful
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To monitor the model performance during training, the authors have implemented a strategy involving k-fold cross-validation and out-of-fold (OOF) predictions. They divide the development dataset evenly into k groups and use each group as a tuning dataset while developing the model on the remaining datasets. This process is repeated k times, ensuring that every subset serves once as the tuning dataset. The average performance of these k models represents the overall performance of the machine learning technique for the selected hyperparameters.
+
+Grid search is utilized to evaluate the data-driven model's performance using different combinations of predefined hyperparameters and determine the optimal set. In this study, the maximum depth of the tree, the number of trees in the ensemble model, and the learning rate are considered as the crucial hyperparameters.
+
+Furthermore, the authors employ XGBoost, a gradient boosting framework, to develop accurate models by minimizing the loss function. Out-of-fold (OOF) predictions are generated for each round of the k-fold cross-validation, and these predictions are averaged across all rounds to reduce variance. These averaged OOF predictions are then stacked and used as features to train a second layer of models. This layered approach helps improve the overall predictive power of the final model.

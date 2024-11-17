@@ -1,0 +1,94 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+In order to find the optimal combination of hyperparameters while 
+avoiding the risk of over-fitting the models, we performed k-fold cross- 
+validation. In this method the training set is split into k fractions, each 
+one being used iteratively as a validation set, while the remaining k-1 
+fractions  are  used as  training set. Therefore,  the validation  process  is 
+performed k folds or times, with a different validation set each time. In 
+all the models the first 4 years (2018-2021) were used as training set 
+while the last year (2022) was used as test set, thus meaning a propor-
+tion of approximately 80–20%, which is a common rule in ML. Given 
+this data structure, it was found to be consistent to choose a value of k 
+equal to 4, so that each validation fraction corresponds approximately to 
+one year.
+
+Table 2 contains the best set of hyperparameters found for each set of 
+variables,  together  with  the  results  from  the  training  on  the  whole 
+training data set and test on unseen data. During the cross-validation 
+process,  there  were  no  discrepancies  among  the  three  metrics  used. 
+Generally, the best model for each set of variables was optimal regarding 
+the three metrics or the differences were <1%. In case of these small 
+discrepancies, the model with the highest AUC was chosen. The first row 
+in Table 2, represented as t in the column of variables, contains the re-
+sults of the model with only variables that are contemporaneous with 
+the target. The row represented as + t-1 contains the variables in t and 
+the 1-day lagged variables, and so on in the following rows. The number 
+of epochs was adjusted to the minimum number of epochs that guar-
+anteed the stabilization of the loss curve in the four folds of the cross- 
+validation.
+
+Opposite to other families of ML models that have a narrow range of 
+hyperparameters  to  adjust,  ANN  are  defined  by  different  types  of 
+hyperparameters,  which  together  with  the  computational  cost  of 
+training deep ANN, restricts the options to optimize. On the one hand, 
+we have the hyperparameters that define the architecture of the ANN 
+(number of layers and number of neurons), while on the other hand we 
+have the hyperparameters that control de training process (mainly the 
+learning rate, the optimizer, the batch size and the number of epochs 
+that the training lasts). In order to avoid an exhaustive search that could 
+consume a lot of time, a small dimensional space was initially defined 
+and  explored  with  the  original variables.  The initial  hyperparameters 
+that composed this space are shown in Table 1. The number of epochs 
+was maintained in 500 as it proved to guarantee the stabilization of the
+
+The result of this process was added to the dataset as a new cate-
+gorical binary variable that stored the existence of stratification or not 
+(took the value of 0 when the reservoir was not stratified and 1 when it 
+was stratified). 
+
+2.5.3. Forecasting ML models 
+
+A classification model was designed in order to detect if there existed 
+
+Table 1 
+Initial hyperparameters space.  
+
+Initial hyperparameters space 
+
+Hyperparameters 
+
+Values 
+
+Layers 
+
+Number of neurons of the dense layer 
+Dropout rate of the dropout layer 
+Learning rate 
+Batch size 
+
+1 dense layer, 1 dense layer +1 dropout 
+layer 
+32, 64 
+0.2, 0.4 
+(cid:0) 3, 10
+10
+32, 64  
+
+(cid:0) 4
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To split the data for deep learning model training, the authors employed k-fold cross-validation. This method involves dividing the training set into 'k' fractions, where each fraction serves as a validation set iteratively, while the remaining 'k-1' fractions form the training set. Consequently, the validation process occurs 'k' times, using a distinct validation set each time. For all models, the first four years (2018-2021) were utilized as the training set, whereas the final year (2022) functioned as the test set. This resulted in an approximate proportion of 80-20%, a typical ratio in machine learning applications. Considering the data structure, choosing a value of 'k' equal to 4 was deemed appropriate, ensuring that each validation fraction corresponded roughly to one year.

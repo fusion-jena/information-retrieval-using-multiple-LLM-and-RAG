@@ -1,0 +1,158 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Then we get the model architecture. For the sake of illustration, we use a resnet18 here, but we used
+a resnet50 to get the full results presented in the main text.
+
+learn <- cnn_learner(dls = dls,
+
+arch = resnet18(),
+metrics = list(accuracy, error_rate))
+
+Now we are ready to train our model. Again, for the sake of illustration, we use only 2 epochs here,
+but used 20 epochs to get the full results presented in the main text. With all pictures and a resnet50,
+it took 75 minutes per epoch approximatively on a Mac with a 2.4Ghz processor and 64Go memory,
+and less than half an hour on a machine with GPU. On this reduced dataset, it took a bit more than
+a minute per epoch on the same Mac. Note that we save the model after each epoch for later use.
+
+one_cycle <- learn %>%
+
+fit_one_cycle(2, cbs = SaveModelCallback(every_epoch = TRUE,
+
+fname = 'model'))
+
+0.00%
+
+train_loss
+
+epoch
+------ -----------
+Epoch
+1/2
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+
+valid_loss
+-----------
+:
+[0/36
+:
+[1/36
+:
+[2/36
+:
+[3/36
+
+2
+
+Here, we showcase a full why-what-how workflow in R using a case study on the structure of an
+ecological community (a set of co-occurring species) composed of the Eurasian lynx (Lynx lynx)
+and its two main preys. First, we introduce the case study and motivate the need for deep learning.
+Second we illustrate deep learning for the identification of animal species in large amounts of images,
+including model training and validation with a dataset of labelled images, and prediction with a
+new dataset of unlabelled images. Last, we proceed with the quantification of spatial co-occurrence
+using statistical models.
+
+2 Collecting images with camera traps
+
+}
+# delete pictures in valid/ directory for which we did not train the model
+to_be_deleted <- setdiff(levels(fct_drop(pix_valid$Keywords)), levels(fct_drop(pix_train$Keywords)))
+if (!is_empty(to_be_deleted)) {
+
+for (i in 1:length(to_be_deleted)){
+
+unlink(paste0('pix/valid/', to_be_deleted[i]))
+
+}
+
+}
+
+What is the sample size of these two datasets?
+
+bind_rows("training" = pix_train, "validation" = pix_valid, .id = "dataset") %>%
+
+group_by(dataset) %>%
+count(Keywords) %>%
+rename(category = Keywords) %>%
+kable() %>%
+kable_styling()
+
+15
+
+Table 5: Sample size (n) for the training and validation datasets.
+
+dataset
+training
+training
+training
+training
+training
+training
+training
+training
+training
+training
+training
+training
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+validation
+
+# validation dataset
+pix_valid <- labels %>%
+
+group_by(Keywords) %>%
+filter(between(row_number(), floor(n()*80/100) + 1, n()))
+
+Eventually, we store these images in two distinct directories named train and valid.
+
+# create dir train/ and copy pix there, organised by categories
+dir.create('pix/train') # create training directory
+for (i in levels(fct_drop(pix_train$Keywords))) dir.create(paste0('pix/train/',i)) # create dir for labels
+for (i in 1:nrow(pix_train)){
+
+file.copy(as.character(pix_train$SourceFile[i]),
+
+paste0('pix/train/', as.character(pix_train$Keywords[i]))) # copy pix in corresp dir
+
+}
+# create dir valid/ and copy pix there, organised by categories.
+dir.create('pix/valid') # create validation dir
+for (i in levels(fct_drop(pix_train$Keywords))) dir.create(paste0('pix/valid/',i)) # create dir for labels
+for (i in 1:nrow(pix_valid)){
+
+file.copy(as.character(pix_valid$SourceFile[i]),
+
+paste0('pix/valid/', as.character(pix_valid$Keywords[i]))) # copy pix in corresp dir
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The code snippets provided do not explicitly state the criteria used to split the data into training and validation sets. However, based on the given information, we can infer that the data was divided randomly into two parts - one for training and another for validation. This is evident from the line where the `pix_valid` dataset is created using the `labels` dataset, grouped by keywords, and filtered to include rows between 80% and 100%. This suggests that approximately 80% of the data was allocated for training purposes, while the remaining 20% was reserved for validation. The exact method of randomization or stratification is not specified in the provided context.

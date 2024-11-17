@@ -1,0 +1,156 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+by class sample size. We used the SGD (stochastic gradient descent) optimizer with an initial learning rate of 
+0.01 for all models except MansNet, which was initially set at 0.1. The learning rate was reduced by a factor of 
+10 after steps of 30 epochs. We used batch normalization and models were trained for 150 epochs using Nvidia 
+Tesla K80 or P100 GPUs.
+
+Scientific Reports |         (2021) 11:7580  | 
+
+https://doi.org/10.1038/s41598-021-87210-1
+
+4
+
+Vol:.(1234567890)www.nature.com/scientificreports/Model
+
+#Params 
+(million)
+
+Model speed 
+(ms)
+
+Top-1 accuracy Top-2 accuracy Top-3 accuracy Top-4 accuracy Top-5 accuracy Macro recall
+
+Wide-ResNet101 124.9
+
+InceptionV3
+
+ResNet101
+
+MnasNet-A1
+
+24.0
+
+42.6
+
+1.0
+
+5.46
+
+3.34
+
+3.33
+
+3.28
+
+0.9171
+
+0.9162
+
+0.9133
+
+0.8579
+
+0.9627
+
+0.9610
+
+0.9633
+
+0.9335
+
+0.9782
+
+0.9767
+
+0.9787
+
+0.9609
+
+0.9850
+
+0.9834
+
+0.9852
+
+0.9730
+
+0.9897
+
+0.9882
+
+0.9892
+
+0.9814
+
+0.8552
+
+0.8519
+
+0.8499
+
+0.7689
+
+Macro 
+precision
+
+0.8831
+
+0.8881
+
+0.8740
+
+0.8250
+
+Model training.  To speed up the training process, we used models pre-trained on the ImagNet  database32 
+and then retrained them for bumble bee species classification using our image data set. We divided our full data 
+set into training (80%) and test (20%) groups. After randomly shuffling images in each class (species) we split 
+the images within species along the 80:20 ratio to maintain their proportional representations in the training 
+and test groups. For each model, cropped images were resampled to a standard size for model input. Following 
+the original implementation of these models, we used images of 224 × 224 pixels for ResNet, Wide-Resnet, and 
+MnasNet, and 299 × 299 pixels for InceptionV3. We used an image augmentation strategy that included random 
+rotation (≤ 100°), crop (≤ 10%), sheer (≤ 30%) and horizontal flip to help reduce overfitting and improve the 
+generality of our  models33. To help account for the class imbalance in our data set, predictions were weighted
+
+Macro 
+precision
+
+0.8831
+
+0.8881
+
+0.8740
+
+0.8250
+
+Table 1.   Comparison of model size, speed, and performance, ordered by top-1 accuracy. Text in bold indicates 
+the best value in each category. Wide-ResNet101 has the highest top-1 accuracy and macro precision but 
+was substantially slower than the other models. MnasNet-A1 was the fastest model but had relatively poor 
+performance. InceptionV3 was relatively fast while maintaining good model performance with the highest 
+precision and second highest accuracy and recall.
+
+Table 2.   InceptionV3 confusion matrix showing the number of test images for each prediction.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, several postprocessing steps can be performed depending on the specific requirements of the project. Based on the given context, some possible postprocessing steps include:
+
+1. Model evaluation metrics: The table titled "Comparison of model size, speed, and performance" presents various evaluation metrics such as top-1 accuracy, top-2 accuracy, top-3 accuracy, top-4 accuracy, top-5 accuracy, macro recall, and macro precision. These metrics provide insights into the overall performance of the models.
+
+2. Confusion Matrix: Table 2 shows the confusion matrix for the InceptionV3 model, displaying the number of test images for each prediction. A confusion matrix is a useful tool for visualizing the performance of a classification algorithm, providing detailed information about correct and incorrect predictions.
+
+3. Image Augmentation: Although not strictly a postprocessing step, it is worth mentioning that the authors employed an image augmentation strategy during the training phase. This technique involves applying transformations like rotation, cropping, shearing, and flipping to increase the diversity of the dataset and prevent overfitting.
+
+The context does not explicitly mention saliency maps; however, they could also be considered as part of the postprocessing steps. Saliency maps highlight important regions in an image that contribute significantly to the final output of a deep learning model. They can be generated using techniques like GradCAM or Layerwise Relevance Propagation (LRP).

@@ -1,0 +1,227 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1. 
+
+Constitutive layers and tensor/vector shapes for the unstained/stained CNN.
+
+Layer
+
+Input
+
+ConvolutionLayer
+
+BatchNormalizationLayer
+
+Ramp (ReLU)
+
+PoolingLayer
+
+ConvolutionLayer
+
+BatchNormalizationLayer
+
+Ramp (ReLU)
+
+PoolingLayer
+
+ConvolutionLayer
+
+BatchNormalizationLayer
+
+Ramp (ReLU)
+
+PoolingLayer
+
+Type
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+Shape
+
+3×256×256
+
+16×252×252
+
+16×252×252
+
+16×252×252
+
+16×126×126
+
+32×122×122
+
+32×122×122
+
+32×122×122
+
+32×61×61
+
+64×57×57
+
+64×57×57
+
+64×57×57
+
+64×28×28
+
+Applications of deep convolutional neural networks to digitized natural ...
+
+5
+
+ConvolutionLayer
+
+BatchNormalizationLayer
+
+Ramp (ReLU)
+
+PoolingLayer
+
+FlattenLayer
+
+DropoutLayer
+
+LinearLayer
+
+Ramp (ReLU)
+
+LinearLayer
+
+SoftmaxLayer
+
+Output
+
+Table 2. 
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+3-tensor
+
+vector
+
+vector
+
+vector
+
+vector
+
+vector
+
+vector
+
+class
+
+48×26×26
+
+48×26×26
+
+48×26×26
+
+48×13×13
+
+8112
+
+8112
+
+Supplementary materials
+
+Suppl. material 1: Notebook used to deﬁne and train the unstained/stained CNN.
+
+Authors:  Paul B. Frandsen, Abel Brown
+Data type:  Mathematica notebook
+Filename: stained_unstained_RGB256.nb - Download ﬁle (16.96 MB) 
+
+Suppl. material 2: Annotated notebook used to deﬁne and train the unstained/stained
+CNN.
+
+Authors:  Paul B. Frandsen, Abel Brown
+Data type:  PDF
+Filename: stained_unstained_RGB256.pdf - Download ﬁle (6.24 MB) 
+
+Suppl. material 3: Notebook used to deﬁne and train the clubmoss/spikemoss CNN.
+
+Authors:  Paul B. Frandsen, Abel Brown
+Data type:  Mathematica notebook
+Filename: clubmoss_spikemoss_RGB256.nb - Download ﬁle (5.81 MB) 
+
+ 
+ 
+ 
+ 
+ 
+ 
+Applications of deep convolutional neural networks to digitized natural ...
+
+9
+
+Suppl. material 4: Annotated notebook used to deﬁne and train the clubmoss/
+spikemoss CNN
+
+Authors:  Paul B. Frandsen, Abel Brown
+Data type:  PDF
+Filename: clubmoss_spikemoss_RGB256.pdf - Download ﬁle (2.68 MB)
+
+CNNs   were   built   in   Mathematica   version   11.1   (Wolfram   Research   Inc.)   and   trained   on
+NVIDIA   K80   GPUs.   For   each   dataset   (stained/unstained   and   clubmoss/spikemoss),   we
+randomly partitioned the images into three non-overlapping sets each time before training
+the network: 70% were used for training the model; 20% were used for validation; and 10%
+were reserved as our test dataset (i.e., the images used to train the CNNs were not used to
+assess   their   accuracy).   We   resized   the   color   images   to   256×256   pixels,   creating   a
+3×256×256 tensor for our input layer (the ﬁrst dimension separated by RGB values), and
+explored the performance of a variety of CNNs for each dataset. For the stained/unstained
+dataset, the best CNN included four convolutional and four pooling layers (Table 1; https://
+doi.org/10.6084/m9.ﬁgshare.5501743). For the clubmoss/spikemoss dataset, the best CNN
+
+Deep learning can greatly surpass conventional machine learning by incorporating multi-
+layered neural networks capable of processing natural data in their raw form (LeCun et al.
+2015).   Deep   convolutional   neural   networks   (CNNs)   are   especially   well   suited   to   image
+classiﬁcation and may even achieve superhuman performance (He et al. 2015). Already,
+CNNs are playing important roles in healthcare, speech recognition, and driverless cars.
+Natural history collections (NHCs) also beneﬁt society in numerous ways, most notably
+supporting   public   health,   safety,   and   agriculture   (Suarez   and   Tsutsui   2004).   NHCs   are
+likewise fundamental to understanding biodiversity and they underlie studies of evolution,
+habitat loss, biological invasion, and climate change. The billions of specimens in NHCs
+could   undoubtedly   provide   even   greater   social   and   scientiﬁc   insight,   but   their   data   are
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The paper does not explicitly mention which specific evaluation metrics were used to assess the performance of the deep learning models. However, it is common practice in deep learning applications, particularly in image classification tasks like this one, to use metrics such as accuracy, precision, recall, F1 score, and area under the receiver operating characteristic curve (AUROC). These metrics help quantify the ability of the model to correctly classify images into their respective categories. Accuracy measures the proportion of correct predictions out of all predictions made. Precision indicates the proportion of true positive predictions out of all positive predictions. Recall shows the proportion of true positives identified out of all actual positives. The F1 score combines both precision and recall into a single metric using harmonic mean. Lastly, AUROC provides a measure of how well the model distinguishes between different classes. Without explicit information from the paper, these are likely candidates for evaluating the performance of the deep learning models presented.

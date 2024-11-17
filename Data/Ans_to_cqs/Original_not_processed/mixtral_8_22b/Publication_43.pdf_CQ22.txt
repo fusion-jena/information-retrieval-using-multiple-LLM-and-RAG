@@ -1,0 +1,226 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+,
+
+recall =
+
+True Positives
+True Positives + False Negatives
+
+,
+
+F1 measure = 2 ×
+
+precision × recall
+precision + recall
+
+and
+
+5.1. Finding the Best CNN-Based Detector
+
+For the experiments with GoogLeNet and ResNet-based models, we have used the open source
+software library Tensorﬂow ([18]). For training CNNs, the image patches are resized from 80 × 80-pixels
+to 299 × 299 by GoogLeNet and to 224 × 224 by ResNet. Such rescaling is due to the fact that the
+architecture of all the layers of GoogLeNet and ResNet are adapted according to these input sizes,
+independently from the original resolution of the input images.
+
+5.1.1. CNN Training With Fine-Tuning and Data-Augumentation
+
+To improve the accuracy and reduce overfitting we (i) used fine-tuning by initializing the evaluated
+models with the pre-trained weights of ImageNet, and (ii) applied data augmentation techniques to
+increase the size of the dataset from 100 to 6000 images. In particular, for data-augmentation we applied:
+
+•
+•
+•
+•
+
+Deep CNNs, such as ResNet and GoogLeNet, are generally trained based on the prediction loss
+minimization. Let x and y be the input images and corresponding output class labels, the objective of
+the training is to iteratively minimize the average loss deﬁned as
+
+J(w) =
+
+1
+N
+
+N
+∑
+i=1
+
+L( f (w; xi), yi) + λR(w)
+
+(1)
+
+This loss function measures how different is the output of the ﬁnal layer from the ground truth.
+N is the number of data instances (mini-batch) in every iteration, L is the loss function, f is the
+predicted output of the network depending on the current weights w, and R is the weight decay with
+the Lagrange multiplier λ. It is worth mentioning that in the case of GoogLeNet, the losses of the
+
+Remote Sens. 2017, 9, 1220
+
+6 of 22
+
+two auxiliary classiﬁers are weighted by 0.3 and added to the total loss of each training iteration.
+The Stochastic Gradient Descent (SGD) is commonly used to update the weights.
+
+wt+1 = µwt − α∆J(wt)
+
+(2)
+
+Table 3. CNN-detection results in Test-zone-1 at different sliding window sizes. Accuracies are
+expressed in terms of true positives (TP), false positives (FP), and false negatives (FN), precision, recall,
+F1-measure, and execution time of the detection process.
+
+Win. Size Total # of
+
+(Pixels)
+
+Win.
+
+TP
+
+FP
+
+FN
+
+385×385
+194×194
+129×129
+97× 97
+77×77
+64×64
+55×55
+48×48
+42×42
+38× 38
+
+196
+961
+2209
+4096
+5929
+9506
+13,340
+17,292
+22,200
+27,888
+
+31
+34
+42
+59
+59
+65
+65
+68
+70
+71
+
+18
+7
+6
+6
+5
+7
+12
+16
+17
+39
+
+41
+38
+30
+13
+13
+7
+7
+4
+2
+1
+
+Precis. Recall
+
+F1-
+
+(%)
+
+63.27
+82.93
+87.50
+90.77
+92.19
+90.28
+84.42
+80.95
+80.46
+64.55
+
+(%) Meas. (%)
+
+43.06
+47.22
+58.33
+81.94
+81.94
+90.28
+90.28
+94.44
+97.22
+98.61
+
+51.24
+60.18
+70.00
+86.13
+86.76
+90.28
+87.25
+87.18
+88.05
+78.02
+
+Time
+(min)
+
+6.0
+29.4
+67.6
+125.4
+181.5
+291.0
+408.4
+529.3
+679.6
+853.7
+
+Remote Sens. 2017, 9, 1220
+
+13 of 22
+
+In this work, we considered the two most accurate CNNs, ResNet ([42]) and GoogLeNet ([43]).
+ResNet won the ﬁrst place on the 2015 ILSVRC (ImageNet Large Scale Visual Recognition Competition
+(ILSVRC)) and is currently the most accurate and deepest CNN available. It has 152 layers and
+25.5 million parameters. Its main characteristic with respect to the previous CNNs is that ResNet
+creates multiple paths through the network within each residual module. GoogLeNet won the ﬁrst
+place of the 2014 ILSVRC. GoogLeNet is based on inception v3 and has 23.2 million parameters and
+22 layers with learnable weights organized in four parts: (i) the initial segment, made up of three
+convolutional layers, (ii) nine inception v3 modules, where each module is a set of convolutional and
+pooling layers at different scales performed in parallel then concatenated together, (iii) two auxiliary
+classiﬁers, where each classiﬁer is actually a smaller convolutional network put on the top of the
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: The performance of the deep learning model is evaluated using several metrics, including True Positives (TP), False Positives (FP), False Negatives (FN), Precision, Recall, and F1-Measure. TP represents the correctly identified positive cases, while FP and FN represent incorrectly identified negative and positive cases, respectively. Precision is calculated as TP/(TP+FP), which indicates the proportion of correct positive identifications among all positive predictions. Recall is calculated as TP/(TP+FN), representing the proportion of correct positive identifications among all actual positive cases. F1-Measure combines both Precision and Recall into a single metric, providing a more balanced evaluation of the model's performance. Additionally, the table presented in the context shows the results of CNN-detection in Test-zone-1 at different sliding window sizes, displaying the values of TP, FP, FN, Precision, Recall, F1-Measure, and Execution Time for each window size.

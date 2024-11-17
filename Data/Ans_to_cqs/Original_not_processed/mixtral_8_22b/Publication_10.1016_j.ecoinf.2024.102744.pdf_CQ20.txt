@@ -1,0 +1,191 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+5.1. Setup 
+
+Journal Pre-proof
+
+In  our  experiments,  we  used  the  Python  3.10  programming  environment  along  with  popular 
+
+libraries  such  as  PyTorch,  TensorFlow,  and  OpenCV.  The  detection  models  were  trained  on  a 
+
+server equipped with an Intel® Core™ i7-8700 CPU @ 3.20GHz (32GB DDR4-2666 memory) 
+
+and an NVIDIA GeForce RTX 3070 GPU (8GB GDDR6 memory). 
+
+The  methods  utilizing  YOLOv5  will  undergo  training  for  300  epochs,  whereas  the 
+
+classification network in method 1 will undergo training for 200 epochs. Here, one epoch signifies 
+
+training the model on all data once. For YOLOv5 training, fundamental parameters such as the 
+
+learning  rate  will  be  set  to  0.02,  with  weight  decay  and  momentum  values  of  0.001  and  0.9, 
+
+respectively.  In  contrast,  methods  employing  Faster  RCNN  will  be  trained  with  90  thousand 
+
+ 
+Journal Pre-proof
+
+Journal Pre-proof
+
+iterations.  Each  iteration  involves  training  the  model  on  a  batch  of  images.  The  fundamental 
+
+parameters for Faster RCNN training mirror those of YOLOv5. 
+
+For evaluating the performance of the object detection models, we used a server equipped 
+
+with  an  Intel(R)  Xeon(R)  CPU  E5-2620  v2  @  2.10GHz  (16GB  DDR3-1066  memory)  and  an 
+
+NVIDIA GeForce GTX 1080 Ti GPU (11GB GDDR5X memory). The Intersection over Union 
+
+(IoU) threshold was set to 0.5, and the confidence threshold was also set to 0.5. 
+
+5.2. Ablation study 
+
+As detailed in the Related Work section, the PollenDataset was initially introduced in [18]. The 
+
+images comprising this dataset were captured at the entrance of a bee colony in June 2017 at the 
+
+Bee facility of the Gurabo Agricultural Experimental Station of the University of Puerto Rico. This 
+
+dataset encompasses 714 honey bee bounding boxes, consisting of 369 bee images with pollen
+
+feature  images  while  retaining  crucial  features.  The  Dropout  layer  is  integrated  to  mitigate 
+
+overfitting. Additionally, the Global Average Pooling layer summarizes features, generating input 
+
+for the fully connected layer. This layer also facilitates the visualization of regions relied upon by 
+
+the network for predictions. The subsequent three fully connected layers generate the predicted 
+
+class for the original image 
+
+Table 1: Main parameters of the classification network 
+
+[
+
+Input size 
+
+Output size 
+
+Journal Pre-proof
+
+[
+
+[
+
+[
+
+Parameters 
+
+  conv, strides 1] 
+
+  conv, strides 1] 
+
+  max pool 
+
+  conv, strides 1] 
+
+  conv, strides 1] 
+
+Probability 0.5 
+
+  max pool 
+
+[
+
+  conv, strides 1] 
+
+Layers 
+
+Convolution 
+
+Convolution 
+
+Pooling 
+
+Convolution 
+
+Convolution 
+
+Dropout 
+
+Pooling 
+
+Convolution 
+
+Global Average Pooling 
+
+Dense 
+
+Dense 
+
+Classification layer (Dense) 
+
+128 
+
+128 
+
+128 
+
+128 
+
+128 
+
+128 
+
+1 
+
+- 
+
+- 
+
+- 
+
+-
+
+techniques, Sensors 21 (2021) 2764. doi:10.3390/s21082764. 
+
+[39]  G. Jocher, A. Chaurasia, A. Stoken, J. Borovec, Y. Kwon, J. Fang, K. Michael, D. Montes, 
+
+J.  Nadar,  P.  Skalski,  et  al.,  ultralytics/yolov5:  v6.  1-tensorrt,  tensorflow  edge  tpu  and 
+
+openvino export and inference, Zenodo (2022). 
+
+[40]  S. Ren, K. He, R. B. Girshick, J. Sun, Faster r-cnn: Towards real-time object detection with 
+
+region proposal networks., in: Neural Information Processing Systems (NIPS), 2015, pp. 
+
+Journal Pre-proof
+
+91–99. 
+
+2980–2988. 
+
+, 2020, pp. 756–764. 
+
+[41]  T.-Y. Lin, P. Goyal, R. Girshick, K. He, P. Dollár, Focal loss for dense object detection, in: 
+
+Proceedings  of  the  IEEE  international  conference  on  computer  vision,  2017,  pp. 
+
+[42] 
+
+J.  Chen,  B.  Luo,  Q.  Wu,  J.  Chen,  X.  Peng,  Overlap  sampler  for  region-based  object 
+
+detection, in: EEE/CVF Winter Conference on Applications of Computer Vision (WACV)
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The deep learning models in these experiments were trained using a server equipped with an Intel® Core™ i7-8700 CPU @ 3.20GHz (32GB DDR4-2666 memory) and an NVIDIA GeForce RTX 3070 GPU (8GB GDDR6 memory). Specifically, the methods utilizing YOLOv5 were trained for 300 epochs, while the classification network in method 1 was trained for 200 epochs. During YOLOv5 training, the learning rate was set to 0.02, with weight decay and momentum values of 0.001 and 0.9, respectively. On the other hand, methods employing Faster RCNN were trained with 90 thousand iterations, each involving training the model on a batch of images. The fundamental parameters for Faster RCNN training mirrored those of YOLOv5.

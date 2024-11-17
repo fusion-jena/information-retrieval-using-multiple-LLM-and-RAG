@@ -1,0 +1,63 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.3. Network architecture 
+
+The architecture used was a heavily modified version of that used in 
+“Unsupervised Deep Learning with Pytorch” by github user “eelxpeng” 
+(eelxpeng, 2018). As the size of our audio spectrograms has been con-
+strained to 128 × 128 pixel RGB images with values repeated in each 
+color channel to produce a greyscale image. For this initial experiment 
+testing  the feasibility of using an auto-encoder-generated feature rep-
+resentation for ecoacoustic analysis, we chose a basic auto-encoder ar-
+chitecture  to  minimise  the  complications  that  may  be  introduced  by 
+more advanced architectures. A rectified linear unit (ReLU) based acti-
+vation function was be used, to help mitigate the vanishing/exploding 
+gradient  problem  (Xu  et  al.,  2015).  Networks  using  implicit  pooling 
+(determined using pytorch) and explicit max-pooling were used.
+
+Fig. 1. The structure of an auto-encoder.  
+
+EcologicalInformatics62(2021)1012372B. Rowe et al.                                                                                                                                                                                                                                    
+
+proportion of non-silent audio clips. The research design is outlined in 
+Fig. 2 
+
+3.4. Training 
+
+3.2. Data pre-processing
+
+has been highly annotated and used in previous studies. The extensive 
+annotation of the dataset allowed the feature representation produced 
+by the auto-encoder to be easily evaluated and to be trained on a higher
+
+At this timescale we found that our auto-encoders with smaller feature 
+representations were outperformed by MFCC. Our testing on data that 
+the model has not seen before, suggests that once it is likely to be able to 
+be  reused,  with  minimal  (or  without)  retraining.  Once  trained,  it  is 
+possible  to use our auto-encoder to  generate features on a  mid range 
+laptop. Computation times to generate acoustic indices, mfcc and our 
+feature representation can be seen in Table 4.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't specific information about the exact preprocessing steps taken before training the deep learning model. However, some general preprocessing steps often applied when working with audio data include:
+
+1. Converting raw audio files into a suitable format such as WAV or MP3.
+2. Normalizing the audio signals to ensure consistent volume levels across all samples.
+3. Scaling the amplitude of the audio signal to fit within a certain range, typically between -1 and 1.
+4. Cleaning the audio data by removing any unwanted noise or artifacts.
+5. Extracting relevant features from the audio data, such as Mel Frequency Cepstral Coefficients (MFCC), spectral features, or chroma features.
+
+In this case, the authors mention constraining the size of their audio spectrograms to 128 x 128 pixel RGB images with repeated values in each color channel to create a grayscale image. This could indicate that they have performed some form of feature extraction and rescaling prior to feeding the data into the deep learning model. However, without further details, it is difficult to provide a more precise answer regarding the specific preprocessing steps involved.

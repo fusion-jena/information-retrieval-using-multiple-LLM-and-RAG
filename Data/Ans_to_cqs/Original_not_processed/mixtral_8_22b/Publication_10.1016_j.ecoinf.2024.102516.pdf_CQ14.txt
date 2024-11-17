@@ -1,0 +1,108 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.4. Network setup for investigations 
+
+For extracting plant species cover information for our investigations, 
+we  use  the  same  setup  as  described  in  K¨orschens  et  al.  (2021b)  with 
+slight differences. During all three phases, we use a ResNet50 (He et al., 
+2016),  which  is  initialized  with  ImageNet  (Russakovsky  et  al.,  2015) 
+weights from Keras (Chollet et al., 2015) before phase 1 and phase 2, as 
+well as the AdamW optimizer (Kingma and Ba, 2014; Loshchilov and 
+Hutter, 2017). During each phase, we use the ResNet in conjunction with 
+a  Feature  Pyramid  Network  (FPN)  (Lin  et  al.,  2017)  to  increase  the 
+network output resolution. Phase-specific parameters are listed in the 
+
+EcologicalInformatics80(2024)1025167M. K¨orschens et al.
+
+To measure, how well our employed models can predict the species 
+compositions, we utilize several metrics to shed light on different aspects 
+of the models’ predictions. For the analysis of the size of the species-wise 
+error, we utilize the mean scaled absolute error with standard deviation 
+as scale value (MSAEσ), which we define as 
+
+MSAEσ(t, p) =
+
+⃒
+∑n
+⃒
+⃒
+⃒
+
+i=1
+
+ti
+σi
+
+(cid:0)
+
+1
+n
+
+⃒
+⃒
+⃒
+⃒,
+
+pi
+σi
+
+(1)  
+
+where t and p are the vectors of true and predicted values, respectively, 
+and σ represents the species-wise standard deviations over the complete 
+dataset. Due to the large imbalance in the plant cover values, even in 
+single images, this metric relativizes the disproportions by relating the 
+values  to  the  respective  species-wise  standard  deviations.  In  the 
+following, for simplicity, this metric will be referred to as MSAE.
+
+the standard softmax cross entropy loss (Goodfellow et al., 2016).
+
+We utilize these metrics to compare the different model setups and 
+
+EcologicalInformatics80(2024)1025168M. K¨orschens et al.                                                                                                                                                                                                                             
+
+Table 1 
+The investigation results on the two datasets. “FPN PX N” denotes the usage of a Feature Pyramid Network with layer X and N features. Abbreviations: MSAE - Mean 
+Scaled Absolute Error, IoU (Plants) - the intersection over union averaged over all plant species, DPC - DCA-Procrustes-Correlation. Top results are marked in bold font. 
+All results are averaged over three repetitions.  
+
+Network Configuration 
+
+Pre-Training Dataset 
+
+No Cover Training (Zero-Shot) 
+
+Cover Training   
+
+FPN P0 128 
+FPN P1 256 
+FPN P2 512 
+FPN P0 128 
+FPN P1 256 
+FPN P2 512 
+FPN P0 128 
+FPN P1 256 
+FPN P2 512 
+
+ImageNet 
+
+GBIF Natural 
+
+GBIF Preserved 
+
+MSAE
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text does not provide explicit information about the optimization method used for tuning the hyperparameters of the model. Therefore, it cannot be determined whether methods such as grid search or random search were utilized.

@@ -1,0 +1,70 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+This   rising   number   of   digitised   herbarium   sheets   provides   an   opportunity   to   employ
+computer-based   image   processing   techniques,   such   as   deep   learning,   to   automatically
+identify species and higher taxa (Carranza-Rojas et al. 2017, Younis et al. 2018, Carranza-
+Rojas   et   al.   2018)   or   to   extract   other   useful   information   from   the   images,   such   as   the
+presence   of   pathogens   (as   done   for   live   plant   photos   by   Mohanty   et   al.   2016).   Deep
+learning is a subset of machine learning methods for learning data representation. Deep
+learning   techniques   require   huge   amounts   of   training   data   to   learn   the   features   and
+representation of those data for the specified task by fine tuning parameters of hundreds or
+thousands of neural networks, arranged in multiple layers. Learning the value of these
+parameters can take vast computer and time resources, especially on huge datasets.
+
+Figure 5. 
+
+An illustration of Feature Pyramid Network, where feature maps are indicated by blue outlines
+and thicker outlines denote semantically stronger features (Lin et al. 2017).
+
+ 
+ 
+ 
+8
+
+Younis S et al
+
+In order to reduce the training time and, more importantly, because of the small size of the
+training dataset, transfer learning (Yosinski et al. 2014) was implemented to initialise the
+model weights pre-trained on the ImageNet dataset (Deng et al. 2009). Since the initial
+layers of a CNN usually learn very generic features that can also be used in new contexts,
+pre-trained   weights   can   initialise   the   weights   for   these   layers.   For   the   deeper   layers,
+transfer learning is used to initialise the parameter weights pre-trained on the ImageNet
+dataset and then fine-tuned during training, using the annotated herbarium scan dataset
+until convergence.
+
+The most common type of deep learning network architecture being used for extracting
+image   features   is   the   Convolutional   Neural   Network   (CNN)   (LeCun   and   Bengio   1995).
+A convolutional neural network extracts the features of an image by passing through a
+series of convolutional, non-linear, pooling (image downsampling) layers and passes them
+to a fully connected layer to obtain the desired output. Each convolutional layer extracts the
+visual features of the image by applying convolution operations to the image with kernels,
+using a local receptive field, to produce feature maps and passing it as input to the next
+layer. The initial layers in the network compute primitive features on the image, such as
+corners   and   edges,   the   deeper   layers   use   these   features   to   compute   more   complex
+features consisting  of curves and  basic  shapes  and  the   deepest   layers  combine  these
+
+Results
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there is no direct mention of specific techniques used to address data bias during preprocessing of the deep learning pipeline. However, some general principles and practices related to this topic can still be discussed.
+
+Data bias can occur due to various reasons like class imbalance, skewed distribution, or lack of diversity in the dataset. To mitigate these issues, several strategies can be employed during preprocessing. One popular method is stratified sampling, which ensures that each class is proportionally represented in both the training and validation sets. This helps maintain the balance between classes and prevents any single class from dominating the model's predictions.
+
+Another technique to handle class imbalance is resampling, which involves either oversampling the minority class or undersampling the majority class. Oversampling increases the instances of the underrepresented class by duplicating existing samples or generating synthetic ones using techniques like SMOTE (Synthetic Minority Over-sampling Technique). On the other hand, undersampling reduces the instances of the overrepresented class by randomly removing samples or selecting only the most informative ones. Both approaches aim to achieve a balanced distribution across classes.
+
+Lastly, collecting diverse data is crucial to ensure that the trained models generalize well to unseen examples. A diverse dataset should ideally cover different variations within each class, including edge cases and rare scenarios. This not only improves the robustness of the model but also minimizes potential biases introduced by limited or homogeneous data sources.
+
+While the context does not explicitly discuss these techniques, they are commonly applied in practice when dealing with data bias during preprocessing of deep learning pipelines.

@@ -1,0 +1,143 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+During our study, we tested different hyperparameters to ﬁnd an optimal setting for our problem.
+The different parts of our ﬁnal architecture, as well as the tested hyperparameter settings are described
+in the following.
+
+Table 1. Hyperparameter ﬁne-tuning results.
+
+Scenario Number of Blocks Number of Filters
+
+Learning Rate Mean IoU Accuracy
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+3
+4
+5
+6
+4
+4
+4
+4
+4
+4
+
+64 , 64, 64
+64, 64, 64, 64
+64, 64, 64, 64, 64
+64, 64, 64, 64, 64, 64
+16, 32, 64, 128
+32, 64, 128, 256
+64, 128, 256, 512
+16, 32, 64, 128
+16, 32, 64, 128
+16, 32, 64, 128
+
+0.001
+0.001
+0.001
+0.001
+0.001
+0.001
+0.001
+0.01
+0.0005
+0.00001
+
+0.30
+0.38
+0.36
+0.32
+0.42
+0.38
+0.31
+0.008
+0.42
+0.39
+
+82%
+89%
+86%
+86%
+94%
+88%
+84%
+71%
+94%
+90%
+
+Scenario 5 was selected as the optimal solution as it had the best values for IoU and accuracy
+while training on fewer epochs. The resulting architecture is shown in Figure 4 and described in
+the following.
+
+2.5.1. Encoding Path
+
+Figure 4. U-net architecture (experimental setup with 3 encoding blocks).
+
+Remote Sens. 2019, 11, 1976
+
+6 of 14
+
+Figure 5. Loss function of the model (training and validation).
+
+2.4. Evaluation Metrics
+
+To assess the performance of the neural network, several evaluation metrics were used. Evaluation
+metrics were computed during the forward pass, and were not subject to maximization, but were
+rather used as a performance indicator. This helped to optimize the hyperparameters of the model.
+In this study, we used a custom implementation of the intersection over union metric. It computes the
+intersection of the reference dataset and the predicted classiﬁcation and divides it by the union of the
+two (Equation (1)). In addition, we calculated the overall accuracy of the model (Equation (2)).
+
+IoU =
+
+TP
+TP + FP + FN
+
+Accuracy =
+
+TP + TN
+TP + FN + FP + TN
+
+(1)
+
+(2)
+
+where TP, TN, FP, and FN are true positive, true negative, false positive, and false negative.
+
+The implemented U-Net model with the optimized weights was used for the prediction on the
+test dataset (two test images of 10,000 × 10,000 pixels) directly in ArcGIS Pro. This was achieved by
+importing the saved model ﬁle into a toolbox. This process required an .emd ﬁle with speciﬁcations
+about the model and a raster function to update the pixels. However, once this was done, the tool could
+be applied on more scenes directly within the ArcGIS software and thus provide an efﬁcient workﬂow
+for forest departments after future storm events. Figure 6 shows the prediction results obtained from
+the neural network on one test image. The probability of the class (damaged forest area) was assigned
+to each pixel. This probability was represented as the brightness of the pixel (a probability of zero
+corresponds to a black pixel and a probability of one to a white pixel), and a threshold needs to be
+chosen to delineate the damaged areas.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, it appears that the hyperparameters of the model were optimized through a fine-tuning process. The researchers tested different hyperparameter settings, including the number of blocks, number of filters, and learning rate, to find an optimal setting for their problem. They evaluated the performance of these settings using evaluation metrics such as mean Intersection over Union (IoU) and accuracy. After testing various scenarios, they selected Scenario 5 as the optimal solution due to its high IoU and accuracy while requiring fewer training epochs. Therefore, it can be inferred that the optimization method used was a form of manual tuning or trial-and-error approach rather than automated methods like grid search or random search.

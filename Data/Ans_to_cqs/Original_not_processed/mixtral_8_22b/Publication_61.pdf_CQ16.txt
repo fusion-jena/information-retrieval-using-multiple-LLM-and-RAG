@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+given the error reported by the loss metric and the contribution of each
+parameter to that error (the contribution of each parameter is calcu-
+lated by back-propagating the error gradient).
+
+5.2. Accuracy analysis
+
+As we have shown in the previous section, the best accuracy on the
+validation set was obtained using data augmentation, 0.98 and 0.95 for
+train and validation sets respectively. It is important to realize that the
+classes are imbalanced, cactus class has almost twice number of ex-
+amples. Observing the non-normalized confusion matrix (Fig. 11), we
+note that the false positives for the cactus class are almost twice the
+false positive for the non-cactus class, this eﬀect is due to the im-
+balanced classes. However, taking into account the normalized confu-
+sion matrix (Fig. 12) where false positives for both classes have the
+same value, we conclude that the errors are equally distributed among
+the classes.
+
+5.3. Learned features
+
+Training a neural network requires to set several hyper-parameters
+such as the learning rate, number of epochs and batch size. The learning
+rate is a special one since it deﬁnes how much the weights are ‘moved’
+to decrease the loss. A bigger one could cause the network not to learn,
+on the other hand, a smaller one could require much more steps for
+learning. To decrease this issue, we train the network with Adam op-
+timizer (Kingma and Ba, 2015), a variant of the stochastic gradient
+optimization where the learning rate is adjusted automatically. The rest
+of the parameters are set empirically, more details are presented in the
+experiments section.
+
+5. Experiments
+
+In this section, we present the experimental characterization of the
+proposed approach. The implemented network was trained with Adam
+optimizer (Kingma and Ba, 2015) on a Inter Core i7 machine with
+NVIDIA GeForce 1080 GPU. The hyperparameters were set as follows:
+learning rate 0.01, number of epochs 150, batch size 2500.
+
+The comparison is summarized in Figs. 8, 9 and 10. We can observe
+that using data augmentation the loss decreases faster and the accuracy
+overcomes the accuracy of the no augmentation strategy for train and
+validation sets. In the validation test, the accuracy is very similar for
+both variations, however, at the end of the training, the use of vertical
+and horizontal ﬂip overcomes the precision of no data augmentation. A
+peculiarity of this dataset is that in the ﬁrst epochs of training (less than
+20), even though the loss is decreasing the accuracy is not increasing,
+we believe that this phenomena is due to the random initial weights,
+which require several updates before having impact on the accuracy.
+
+5.2. Accuracy analysis
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: Based on the given context, there isn't explicit information about the specific criteria used to determine when training is complete. However, some clues can be derived from the text. For instance, the model uses the Adam optimizer, which adjusts the learning rate automatically during training. This suggests that the optimization process might play a role in determining when training should stop. Additionally, the context mentions that the accuracy on the validation set was observed after training, implying that validation performance could also serve as a criterion for deciding when to halt training. Furthermore, the discussion of the peculiar behavior of the dataset in the first few epochs indicates that monitoring the relationship between loss and accuracy throughout training may provide insights into when to cease training. Nevertheless, without further information or explicit statements regarding stopping criteria, these assumptions remain speculative.

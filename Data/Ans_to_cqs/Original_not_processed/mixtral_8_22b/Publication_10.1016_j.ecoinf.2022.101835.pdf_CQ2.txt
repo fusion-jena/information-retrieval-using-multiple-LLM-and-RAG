@@ -1,0 +1,204 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+et al., 2016), and LightGBM 3.2.1 (Ke et al., 2017) libraries. In building a 
+machine  learning  model,  the  structure  and  hyperparameters  of  the 
+model must be determined, such as the number of decision trees and the 
+depth of trees for RF models and the number of intermediate layers and 
+nodes for ANN models. We optimized the structure and hyperparameters 
+of the RF and ANN models using Optuna 2.10.0 (Akiba et al., 2019) with 
+the  parameters  and  ranges  shown  in  Table  1  as  candidates.  For  the 
+LightGBM models, we used Optuna's LightGBM Tuner (optuna.integra-
+tion.lightgbm)  for hyperparameter  fitting.  The  performance of  the  al-
+gorithms was evaluated by comparing the loss function (mean squared 
+error (MSE)) of the optimized models. In addition, the mean absolute 
+error (MAE) and the coefficient of determination (R2) were calculated 
+for reference.
+
+bagging_freq 
+min_child_samples 
+
+int, 1 to 20 
+int, 0 to 5  
+int, 10, 20, … 
+100  
+int, 10, 20, … 
+100  
+ReLu or 
+linear  
+Adam or 
+RMSprop 
+
+Maximum depth of the tree 
+Number of middle layers 
+Number of nodes in the 
+input layer 
+Number of nodes in the 
+middle layers 
+Activation function in the 
+input and middle layers 
+Optimizer 
+
+Maximum tree leaves for 
+base learners   
+L1 regularization   
+L2 regularization   
+A subset of features on each 
+iteration (tree)   
+Randomly select a part of 
+data without resampling   
+Frequency for bagging   
+Minimal number of data in 
+one leaf   
+
+AA SHAPj =
+
+1
+ni
+
+∑
+⃒
+⃒SHAPi,j
+
+⃒
+⃒
+
+i
+
+(1)  
+
+where AA_SHAPj  is the average of the absolute SHAP values for input 
+variable j (i.e., the daily average temperature on day j), ni is the number 
+of response values (4844 for the first flowering date models and 4814 for 
+the full blossom date models), and SHAPi,j is the SHAP value for the jth 
+input parameter of the ith response value.
+
+n_estimators = 92, 
+max_depth = 15 
+num_layer = 0, 
+units (initial layer) = 90, 
+units (middle layers) = 60, 
+activation = ReLu, 
+optimizer = Adam 
+num_leaves = 31, 
+lambda_l1 = 0 
+lambda_l2 = 0 
+feature_fraction = 0.5 
+bagging_fraction = 0.573 
+bagging_freq = 7 
+min_child_samples = 20 
+
+0.0530 
+
+0.175 
+
+0.942 
+
+0.0429 
+
+0.156 
+
+0.958 
+
+0.0381 
+
+0.148 
+
+0.964  
+
+0.0586 
+
+0.175 
+
+0.940 
+
+0.0485 
+
+0.170 
+
+0.951 
+
+0.0424 
+
+0.158 
+
+0.955  
+
+EcologicalInformatics71(2022)1018353Y. Masago and M. Lian                                                                                                                                                                                                                       
+
+0.965,  respectively),  followed  by  the  ANN  and  RF  models,  while  the 
+differences  were  not  significant.  The  optimized  ANN  models  did  not 
+have any intermediate layers, and the model with the input layer fol-
+lowed by the output layer was determined to be the best.
+
+We optimized the three machine learning algorithms (RF, ANN, and 
+GBDT) using Optuna. Table 2 shows the optimal model parameters and 
+their performance (MSE, MAE, and R2). For both the first flowering date 
+and the full blossom date, the GBDT models showed the best accuracy 
+(MSE = 0.0381 and 0.0424, MAE = 0.148 and 0.158, R2  = 0.964 and 
+
+Table 2 
+The best-fit parameters and the performance of the optimized models.  
+
+Algorithm 
+
+Best parameters 
+
+MSE 
+
+MAE 
+
+R2 
+
+First flowering date 
+Random forest 
+
+ANN 
+
+GBDT 
+
+Full blossom date 
+Random forest 
+
+ANN 
+
+GBDT 
+
+n_estimators = 71, 
+max_depth = 16 
+n_layers = 0, 
+units (initial layer) = 90, 
+units (middle layers) = 70, 
+activation = ReLu, 
+optimizer = Adam 
+num_leaves = 31, 
+lambda_l1 = 0.000192 
+lambda_l2 = 0.0215 
+feature_fraction = 1.0 
+bagging_fraction = 0.506 
+bagging_freq = 3 
+min_child_samples = 20
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it does not provide information about the specific data format used in the deep learning pipeline. However, since the study focuses on predicting the first flowering date and full blossom date based on meteorological factors, it can be assumed that the data format used is likely to be structured data, such as CSV files containing numerical data like temperature, precipitation, etc. Nevertheless, this cannot be confirmed without additional information.
+
+Answer:::
+
+Unhelpful Answer:
+The data format used in the deep learning pipeline could be images, videos, audios, or even CSV files. Without further information, it is impossible to determine which data format was used in this particular case.
+
+Answer:::
+
+Answer: Based on the given context, it does not explicitly state what data format is used in the deep learning pipeline. However, considering the nature of the problem being solved - predicting the first flowering date and full blossom date based on meteorological factors - it can be inferred that the data format used is most likely structured data, possibly in the form of CSV files containing numerical data such as temperature, precipitation, etc. Nonetheless, this cannot be definitively confirmed without more detailed information regarding the dataset used.

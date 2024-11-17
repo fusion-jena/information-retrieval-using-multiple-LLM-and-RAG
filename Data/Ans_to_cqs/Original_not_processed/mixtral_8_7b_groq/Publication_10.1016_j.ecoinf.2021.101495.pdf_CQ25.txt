@@ -1,0 +1,11 @@
+Answer:::
+
+The deep learning model in question is used for two main purposes: fish segmentation and fish classification by species.
+
+For fish segmentation, the model is trained to identify and separate individual fishes from a given set of Yellowfin Tuna (YFT) images. This is evident in Fig. 3, which shows the individual fishes once the segmentation process is complete. The segmentation model underwent training with a search space of 1000 epochs, a batch size ranging from 500 to 5000, a learning rate between 0.0001 and 0.01, and softmax activation. The train/test split was set at 0.9/0.1. The segmentation model was trained on an Nvidia Tesla V100 (16GB) GPU for 4 hours, 6 minutes, and 24 seconds before reaching its best assignment.
+
+For fish classification by species, the deep learning model is a residual neural network (ResNet50V2) that has been pre-trained with the ImageNet dataset. This model is capable of skipping some of its layers, as described by He et al. (2016). The classification model was trained with a batch size of 256, a learning rate of 0.0001, softmax activation, and a train/test split of 0.8/0.2. The model was trained on an Nvidia Tesla V100 (16GB) GPU for 9 hours, 22 minutes, and 34 seconds, achieving the best assignment during this time.
+
+Additionally, data augmentation was used to improve the classification model's learning process and accuracy, as shown in Fig. 7. The classification model processed a total of 86,208 segments during its training.
+
+In summary, the deep learning model serves two main purposes: fish segmentation and fish classification by species. The segmentation model separates individual fishes from a set of YFT images, while the classification model identifies fish species using a ResNet50V2 architecture. Both models were trained on an Nvidia Tesla V100 (16GB) GPU, with the segmentation model undergoing manual tuning and the classification model utilizing data augmentation for better accuracy.

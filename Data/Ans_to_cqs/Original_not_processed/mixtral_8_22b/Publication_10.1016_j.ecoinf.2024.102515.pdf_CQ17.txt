@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+(INDITIC Consortium, 2023). This kind of initiatives would benefit of 
+the implementation of the current methodology to reduce human effort. 
+Although the usefulness of this methodology has been proven, there 
+are still certain limitations that cannot be ignored. The main one cor-
+responds to the nature of the tweets themselves, with a low number of 
+words  accompanying  the  messages,  not  always  well  written,  which 
+makes  it  difficult  to  obtain  useful  information.  This  leads  to  a  high 
+number of tweets being lost in the filtering process. Furthermore, using 
+exclusively textual information from tweets to obtain a training dataset 
+would  only  lead  to  the  creation  of  a  deficient  model.  In  addition, 
+biodiversity observations only make sense when accompanied by their 
+location, allowing, among other applications, to alert about the presence 
+of  invasive  species  or  reuse  the  information  in  species  distribution
+
+The  information  retrieved  from  this  social  network,  as  a  general 
+characteristic to big data, are defined by a large volume of data and a 
+large heterogeneity that requires cleaning and filtering processes that 
+allow  focusing  on  relevant  data  (Poorthuis  and  Zook,  2017).  Fig.  1 
+shows  a  flowchart  of  the  data  acquisition  and  processing  in  order  to 
+reduce  invalid  tweets.  After  the  acquisition  of  original  tweets  (not 
+retweets), a first filter consists in eliminating those tweets that contain 
+images in GIF format and that in most cases corresponds to memes (http 
+
+Fig. 1. Simplified flowchart of the tweet detection algorithm.  
+
+EcologicalInformatics80(2024)1025153P. Otero et al.
+
+In this study we have used the ‘Full-archive search endpoint’ to ac-
+cess  the  entire  dataset  published  on  Twitter  from  its  beginning  in 
+2006–2007 until the end of 2022. To handle the data in JSON format 
+returned  by  the  Twitter  API,  we  used  the  twarc2  library  (https:// 
+twarc-project.readthedocs.io/).  This  library  simplifies  the  handling  of 
+the quota limits imposed by the Twitter API, as well as the pagination 
+resulting from a single query. 
+
+The API works by searching for words, hashtags or combinations of 
+both  in  the  text  of  tweets,  much  like  the  Twitter  Advanced  Search 
+interface  (https://twitter.com/search-advanced?).  To  find  out  how  to 
+run the search, in an initial phase of the study, some public tweets with 
+observations  were  provided  by  the  social  media  manager  of  the
+
+Due  to  the  existence  of  inappropriate  images  in  some  tweets,  a 
+filtering is performed using the Google Cloud Vision API SafeSearch tool 
+(https://cloud.google.com/vision).  In  this  case,  content  classified  as 
+adult or spoof, with a ‘likey’ or ‘very likey’ likelihood is discarded; this 
+bucketized representation of likelihood, intends to give  clients highly 
+stable results across model upgrades. This filtering is done near the end 
+of  the  process  and  not  before  in  order  to  reduce  the  number  of  API 
+connections.  Finally,  those  tweets  located  further  than  20  km  of  the 
+coastline are also discarded.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there is no specific mention of any regularization methods used to prevent overfitting in the deep learning pipeline such as dropout or L2 regularization. However, the context does discuss various steps taken during the data acquisition and processing stages to ensure the quality and relevance of the data used for analysis. These include filtering out irrelevant tweets containing memes, removing inappropriate images, and discarding tweets located more than 20km away from the coastline. While these measures do not directly address overfitting in the machine learning models, they contribute towards improving the overall performance and accuracy of the models by ensuring the use of clean and relevant data.

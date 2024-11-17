@@ -1,0 +1,90 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Since BERT can only accept a maximum of 512 tokens as input, we 
+used smaller subsections of the longer web articles as classifier input, an 
+approach previously applied to long document classification (Fiok et al., 
+2021; Sun et al., 2019). To identify the sections of text most likely to be 
+relevant to the classification decision, documents were split into chunks 
+of 300 tokens using the NLTK word-tokenizer. Chunks that contained 
+any  of  our  original  query  terms  (i.e.  any  bat-related  or  exploitation- 
+related  term)  were  retained.  If  more  than  one  chunk  contained  key-
+words,  the  first  such  chunk  of  the  document  was  retained  for  use  in 
+model training and evaluation. Before being fed into the BERT model, 
+texts are tokenized using the BERT tokenizer. Here, we set the maximum 
+number of tokens as 400 for social media posts, as most were very short, 
+and 512 for web articles, meaning some texts would have been further 
+truncated at this step.
+
+For each classification task, after experiments had been conducted, 
+the best performing classifier was used to classify the whole dataset. The 
+
+relevant texts from these predictions were then used as data from which 
+training, development and testing sets were selected for the next clas-
+sification task. 
+
+2.3. Classification models 
+
+2.3.1. Comparator models
+
+Examination of our initial dataset indicated that results relating to 
+COVID-19 were over-represented compared to other topics. To investi-
+gate how the over-representation of particular topics in the training data 
+influence classifier performance, we trained classification tasks 2 and 3 
+using both a randomly selected sample and a balanced stratified sample. 
+For the balanced stratified sample, data were grouped according to their 
+initial  exploitation-related  query  term (stemmed). This  resulted  in  19 
+groups,  from  each  of  which  110  texts  for  labelling  were  randomly 
+selected,  such  that  each  query  group  was  equally  represented  in  the 
+data.  Since  some query  terms  were more likely  to  be  associated  with 
+COVID-19  related  texts,  such  as  ‘market’  or  ‘trade’,  this  approach 
+effectively  under-sampled  these  texts,  allowing  the  classifier  to  be 
+trained with the full breadth of topics within the dataset.
+
+Fig. 5. The relationship between the number of texts in training data, when data was selected randomly or using active learning. Classifiers were initialised with a 
+random sample of 50 texts, after which point, different selection strategies (Bert K-means, Least Confidence or random selection) were used to select the next 50 texts 
+to include in the training set. The classification tasks and the dataset from which training and testing data are derived, are also compared. 
+
+Table 2 
+The performance of classification task 2 (BERT) when trained and tested with either stratified or non-stratified social media dataset.  
+
+Classification Task 
+
+Dataset 
+
+Training data 
+
+Testing data 
+
+2 
+2 
+2 
+2 
+2 
+2 
+2 
+2 
+3 
+3 
+3 
+3 
+3 
+3 
+3 
+3
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Answer: The data was split based on several criteria depending on the classification task. For the initial dataset, the relevant texts from the predictions made by the best performing classifier were used as data from which training, development, and testing sets were selected for the next classification task. In another case, a balanced stratified sample was used where data were grouped according to their initial exploitation-related query term (stemmed), resulting in 19 groups. From each group, 110 texts for labeling were randomly selected, ensuring each query group was equally represented in the data. This approach effectively undersampled certain texts, allowing the classifier to be trained with the full breadth of topics within the dataset. Additionally, for each classification task, after experiments had been conducted, the best performing classifier was used to classify the entire dataset.

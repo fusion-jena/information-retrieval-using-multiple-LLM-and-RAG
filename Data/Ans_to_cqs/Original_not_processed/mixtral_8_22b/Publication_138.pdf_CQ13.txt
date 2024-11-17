@@ -1,0 +1,192 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We also see that, the more the number of the layers of networks, the larger the min-batch size is. 
+But  the  VGG-19  is  just  the  opposite  due  to  its  too  much  layers.  The  inception  module  induces  the 
+number  of  parameters  and  computing  cost  of  the  GoogLeNet  and  ICSNet,  and  remains  more  high 
+identifying ability. 
+
+Mathematical Biosciences and Engineering 
+
+Volume 18, Issue 2, 1121–1135. 
+
+ 
+1130 
+
+Table 1. The results of six algorithms. 
+
+Algorithms 
+
+Accuracy 
+(%) 
+
+Precision 
+(%) 
+
+Recall 
+(%) 
+
+F1 
+(%) 
+
+AUC 
+
+Min-batch 
+size 
+
+Time(s) 
+
+The number of 
+Layers 
+
+ICSNet 
+
+ICSNet_n 
+
+LeNet 
+
+AlexNet 
+
+VGG-19 
+
+GoogLeNet 
+
+ResNet-18 
+
+ResNet-50 
+
+ResNet152 
+
+93.00 
+
+80.50 
+
+80.50 
+
+85.00 
+
+91.00 
+
+92.50 
+
+91.10 
+
+92.15 
+
+93.00 
+
+93.20 
+
+81.60 
+
+81.42 
+
+84.35 
+
+92.30 
+
+92.64 
+
+92.42 
+
+92.50 
+
+93.45 
+
+93.30 
+
+80.50 
+
+80.64 
+
+84.41 
+
+92.00 
+
+92.50 
+
+92.15 
+
+92.15 
+
+93.30 
+
+93.00 
+
+80.50 
+
+80.50 
+
+84.38 
+
+92.15 
+
+93.00 
+
+92.24 
+
+92.50 
+
+93.00 
+
+94.00 
+
+81.44
+
+The size of output result is 17,280. 
+
+Eleventh layer: This layer is the full connected layer with 100 neurons. 
+Twelfth layer: This layer is the Softmax activation function layer with 2 neurons. 
+In  our  ICSNet,  we  adopt  the  inception  module  from  GoogLeNet,  but  only  three  inception 
+modules  are  built  in  ICSNet.  And  we  also  add  more  convolution  layers  than  AlextNet,  but  the 
+number of convolution layers is less than VGGNet and ResNet. Consequently, the tradeoff between 
+accuracy and time consuming can be achieved by our ICSNet. This is basic idea of our work. 
+
+Mathematical Biosciences and Engineering 
+
+Volume 18, Issue 2, 1121–1135. 
+
+ 
+1127 
+
+3.  Experiments 
+
+3.1.  Data description
+
+After first inception modules, second and third inception modules are set in turn. The output is the 
+data with the size of 28 × 28 × 480. Then, the pooling and LRN are performed, the data with the size of 
+14 × 14 × 480 is output. 
+
+Ninth  layer: It  is a convolution layer with  480  3  ×  3  filters  and  their stride  is  1. The ReLU is 
+selected as the activation function. The result of this layer is the data with the size of 14 × 14 × 480. 
+After convolution, the data is performed by LRN. Then, the maximum pooling with a 3 × 3 window 
+and 2 strides is used. The output result is the data with the size of 6 × 6 × 480. 
+
+Tenth layer: This layer is dropout layer which is used to improve the generalization capability. 
+
+The size of output result is 17,280.
+
+The pooling operator is connected after this layer for extracting the main features of a certain area, 
+reducing the number of parameters, and preventing the model from over fitting. The maximum pooling 
+with a 2 × 2 window and 2 strides is used in this layer. The pooling result is the data with the size of 56 
+× 56 × 64.  
+
+After pooling, the LRN (Local Response Normalization) is used to normalize the local response. 
+The LRN enhances the larger response value and reduce the smaller response value. Thus, the LRN 
+also can improve the generalization of the model. The output result of the LRN is the data with the size 
+of 56 × 56 × 64.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, based on the given context, there is no information about the specific hyperparameters such as learning rate or optimizer used in the deep learning models mentioned (ICSNet, LeNet, AlexNet, VGG-19, GoogLeNet, ResNet-18, ResNet-50, and ResNet152). However, it does provide some details about other aspects of these models. For instance, it mentions the use of inception modules in ICSNet and GoogLeNet, the addition of more convolutional layers in ICSNet compared to AlexNet, and the varying number of layers across different models. Additionally, it provides information about the accuracy, precision, recall, F1 score, AUC, min-batch size, and time taken by each algorithm. But without explicit mention of the learning rate, optimizer, or any other hyperparameters, it is not possible to determine what values were used for them.

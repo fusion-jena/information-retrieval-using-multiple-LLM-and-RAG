@@ -1,0 +1,138 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+by class sample size. We used the SGD (stochastic gradient descent) optimizer with an initial learning rate of 
+0.01 for all models except MansNet, which was initially set at 0.1. The learning rate was reduced by a factor of 
+10 after steps of 30 epochs. We used batch normalization and models were trained for 150 epochs using Nvidia 
+Tesla K80 or P100 GPUs.
+
+information passes through the end of the network. (1) ResNet-10128 was proposed to address this problem by 
+using skip connections that allow useful layer output to pass over groups of layers (or residual blocks) and thus 
+penetrate much further into deep networks. (2) Wide-ResNet-10129, on the other hand, is wider but shallower 
+than ResNet-101. This difference in architecture allows information to more easily pass through the network 
+while providing a greater number of channels to maintain performance. (3)  InceptionV330 has fewer layers but 
+achieves  greater  computational  efficiency  by,  for  example,  using  factorized  convolution,  which  breaks  down 
+channels into simpler linear sequences while maintaining spatial context within the image. (4) MnasNet-A131 
+was designed to be faster for mobile devices and thus has the fewest layers of the models compared here. The
+
+Scientific Reports |         (2021) 11:7580  | 
+
+https://doi.org/10.1038/s41598-021-87210-1
+
+4
+
+Vol:.(1234567890)www.nature.com/scientificreports/Model
+
+#Params 
+(million)
+
+Model speed 
+(ms)
+
+Top-1 accuracy Top-2 accuracy Top-3 accuracy Top-4 accuracy Top-5 accuracy Macro recall
+
+Wide-ResNet101 124.9
+
+InceptionV3
+
+ResNet101
+
+MnasNet-A1
+
+24.0
+
+42.6
+
+1.0
+
+5.46
+
+3.34
+
+3.33
+
+3.28
+
+0.9171
+
+0.9162
+
+0.9133
+
+0.8579
+
+0.9627
+
+0.9610
+
+0.9633
+
+0.9335
+
+0.9782
+
+0.9767
+
+0.9787
+
+0.9609
+
+0.9850
+
+0.9834
+
+0.9852
+
+0.9730
+
+0.9897
+
+0.9882
+
+0.9892
+
+0.9814
+
+0.8552
+
+0.8519
+
+0.8499
+
+0.7689
+
+Macro 
+precision
+
+0.8831
+
+0.8881
+
+0.8740
+
+0.8250
+
+Model training.  To speed up the training process, we used models pre-trained on the ImagNet  database32 
+and then retrained them for bumble bee species classification using our image data set. We divided our full data 
+set into training (80%) and test (20%) groups. After randomly shuffling images in each class (species) we split 
+the images within species along the 80:20 ratio to maintain their proportional representations in the training 
+and test groups. For each model, cropped images were resampled to a standard size for model input. Following 
+the original implementation of these models, we used images of 224 × 224 pixels for ResNet, Wide-Resnet, and 
+MnasNet, and 299 × 299 pixels for InceptionV3. We used an image augmentation strategy that included random 
+rotation (≤ 100°), crop (≤ 10%), sheer (≤ 30%) and horizontal flip to help reduce overfitting and improve the 
+generality of our  models33. To help account for the class imbalance in our data set, predictions were weighted
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The data was split into two main categories: training and testing. The training group contained 80% of the total dataset, while the remaining 20% formed the test group. Within each category, the images were further divided based on the species they represented. This division followed an 80:20 ratio to ensure that the proportionate representation of each species was maintained in both the training and test groups. Before being fed into the models, the images were also rescaled to a uniform size. Additionally, an image augmentation strategy involving rotation, cropping, shearing, and flipping was employed to prevent overfitting and enhance the generalizability of the models. Furthermore, to tackle the issue of class imbalance in the dataset, the predictions were weighted accordingly.

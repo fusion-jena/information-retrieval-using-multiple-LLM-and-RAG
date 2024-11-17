@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.2. Model fine-tuning 
+
+To  fine-tune  the  base  model  with  Gulf  of  Mexico  data  the  feature 
+extractor remains frozen. Models are trained with the same parameters 
+as the base model but we use a cyclical learning rate of 0.0004 and is set 
+to run for 50 epochs, with early stopping set to deploy if the validation 
+loss does not improve within 10 epochs. A dropout rate of 0.2 is used 
+during  fine-tuning,  and  DropConnect  is  employed.  Drop  out  layers 
+randomly  discard  the  output  of  the  hidden  nodes  during  training, 
+DropConnect randomly discards the input of the hidden layer (Sun et al., 
+2022). 
+
+2.2.1. Data acquisition
+
+2.1.1. Experimental design 
+
+To evaluate the effect of local training data on model performance 
+we  fine-tune  a  base  model  with  randomly  pooled  training  sets  of 
+increasing size (sets of 50, 100, 200, 300 and 500- frames) from the Gulf 
+of Mexico acoustic data collected December 3rd 2019 (Fig. 3). An extra 
+training set is considered consisting of 500 frames of randomly sampled 
+ambient noise from December 3rd 2019. 
+
+The models are validated during training by combining the original 
+base model validation set (Table 1) with 100 frames per class from the 
+labelled December 3rd 2019 training set, randomly pooled per experi-
+ment. In this way the model’s performance is assessed across both en-
+vironments simultaneously(Fig. 4). 
+
+2.2. Model fine-tuning
+
+Fig. 7. Exemplar model classifications, illustrated with GradCAM. GradCAM extracts the activation map of the final convolutional layer of each model, highlighting 
+regions of importance within the spectrogram to the model’s classification prediction for a) vessel noise, b) low SNR delphinid whistle, c) delphinid clicks within 
+vessel noise and d) delphinid harmonic burst pulse. Each GradCAM plot displays the predicted class label and score by the model, coloured in red if the label is 
+incorrect and green if the label is correct. Darker green indicates a more confident prediction. (For interpretation of the references to colour in this figure legend, the 
+reader is referred to the web version of this article.)
+
+◦
+
+◦
+
+◦
+
+◦
+
+To enhance the robustness of the base model to seasonal variation 
+within the local soundscape, evaluation data used during model devel-
+opment has been used to re-train the model on a larger pool of local data. 
+The final training set is made up of 46,749 training frames and 4673 
+validation  frames  (Table  1).  Classes  are  imbalanced,  reflecting  their 
+presence within the local soundscape during manual annotation.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The provided context does not explicitly mention any specific postprocessing steps taken after the model training. However, it can be inferred that some form of visualization or analysis was performed based on Figure 7, which shows exemplar model classifications using GradCAM. This suggests that saliency maps were generated to understand the regions of importance within the spectrogram for the model's classification predictions. Additionally, since the models are evaluated during training and validation, it can also be assumed that metrics such as accuracy, precision, recall, F1-score, etc., would have been calculated to measure the performance of the models. Furthermore, considering the classes are imbalanced, it might be possible that a confusion matrix was created to better understand the misclassification errors between different classes.

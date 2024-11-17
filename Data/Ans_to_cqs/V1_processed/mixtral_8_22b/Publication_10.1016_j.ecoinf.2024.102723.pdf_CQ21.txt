@@ -1,0 +1,13 @@
+After the model training, there are several postprocessing steps involved depending on the specific requirements of the task. However, based on the provided context, the following postprocessing steps can be identified:
+
+1. Standardization: Before using the BBCH\_res values during the training phase, standardization is applied. This step involves transforming the data such that its distribution approximates a normal distribution with mean=0 and variance=1.
+
+2. Output Conversion: After obtaining the output from the trained model, it needs to be converted to the BBCH scale through a dictionary. This requires applying the rounding function on the output before conversion.
+
+3. Correction for Dictionary Consistency: To ensure consistency with the keys of the dictionary used for output conversion, negative values are forced to zero, and values exceeding the upper bound of the keys are forced to 91. These corrections are applied even when they may not be strictly necessary for the first method.
+
+4. Evaluation Metric Calculation: The Mean Squared Error (MSE) is used as the reference metric to evaluate the performance of the models. A reliable estimate of the MSE on the test set is obtained by performing a 10-fold cross validation. Additionally, each evaluation predicts the output per test point through 1000 runs due to the probabilistic nature of the models.
+
+5. Uncertainty Range Comparison: The uncertainty range of the Monte Carlo Dropout (MCD) approach is compared with that of the Variational Bayesian Inference (VBI) approach. This comparison helps assess the confidence intervals and precision levels of the predictions.
+
+These postprocessing steps contribute to ensuring accurate reconstruction of the predicted output distribution, providing a robust estimation process with a 95% confidence interval and a precision level of 5%.

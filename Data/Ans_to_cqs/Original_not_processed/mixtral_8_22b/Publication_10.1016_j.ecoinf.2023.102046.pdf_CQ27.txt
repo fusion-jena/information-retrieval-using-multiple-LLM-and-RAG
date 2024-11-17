@@ -1,0 +1,75 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+ResNet-50 is a convolutional neural network model that uses skip 
+connections,  which  made  it  possible  to  get  good  performance  with 
+deeper models than was previously possible (He et al., 2015). Training 
+deep neural networks can result in exploding gradients, and skip con-
+nections  were  introduced  to  ameliorate  that  problem.  ResNet-50  was 
+chosen  for  comparison  as  it  is  a  proven  CV  classification  model.  It  is 
+commonly used and provides a well-performing baseline. 
+
+Inception-V3  is  a  convolutional  neural  network  used  for  image 
+classification, that has an auxiliary classifier that acts as a regularizer 
+(Szegedy et al., 2015b). The Inception-V3 architecture is built on pre-
+vious Inception models, with the aim of making the V3 computationally
+
+The Inception-V3 model accepts images resized to (299, 299) pixels 
+but ViT and ResNet resize to (224, 224) pixels. Dataset imbalance was 
+dealt with by including class weights in the cross-entropy loss function. 
+For the training we used AdamW optimizer for Hugging Face models, 
+which is the default optimizer in the transformers library by Hugging-
+Face. For Inception-V3, we used Adam since that was the optimizer used 
+in  previous  work  (and  AdamW  is  not  available  in  Keras).  We  used  a 
+(cid:0) 4  for 
+batch  size  of  16  examples  and  the  learning  rate  was  set  to  10
+(cid:0) 5  for  Vanilla  Inception-V3  and  ViT.  For  Deep  Otolith 
+ResNet  but  10
+(cid:0) 4 as suggested by Politikos 
+Inception we used a learning rate of 4 × 10
+et  al.  (2021).  For  every  fine-tuning  experiment,  the  model  with  the 
+
+smallest validation loss was used for evaluation on the test set. 
+
+2.3. Performance
+
+For fine-tuning, we used the HuggingFace implementations of ViT 
+(“google/vit-hugepatch14–224-in21k”) and ResNet (“microsoft/resnet- 
+50”)  but  the  Keras  implementation  of  Inception-V3.  All  fine-tuning 
+models  had  been  pre-trained  on  the  ImageNet  (Deng  et  al.,  2009) 
+dataset. 
+
+We replaced the classifier head on all models so that it received the 
+output of the models along with the additional parameters, quarters and 
+length. We also tried adding additional dropout and dense layers at the 
+end of the Inception model as for the DeepOtolith model Politikos et al. 
+(2021). To differentiate we use Deep Otolith Inception-V3 for the model 
+
+EcologicalInformatics76(2023)1020463A.R. Sigurðard´ottir et al.
+
+training.  The  classification  accuracy  of  the  CLIP  regression  model 
+rapidly  increased  until  the  training  dataset  size  reached  200  images. 
+When  the training dataset size increased  further, the  accuracy slowly 
+increased.  When  the  training  dataset  size  reached  650  images,  it 
+appeared that the model was still learning as the classification accuracy 
+was still increasing. When fine-tuning the ViT model the classification 
+accuracy rapidly increased until the size of the training dataset reached 
+300 images. With increased training dataset size after 300, the accuracy 
+did not grow as rapidly as before. Using 100 training samples the CLIP 
+regression  model  surpassed  the  Inception  models  trained  on  a  full 
+training set. Figs. D.1–D.3, in Appendix D, show the learning curves for
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough information provided about the deployment process of the trained deep learning models mentioned in the given text. Therefore, I cannot provide specific details regarding the process followed to deploy these models, such as model serialization or platform selection. However, typically, once a deep learning model is trained, it needs to be saved or serialized into a format that can be loaded later for prediction tasks. This could involve using libraries like TensorFlow's SavedModel or PyTorch's torch.save() functions. After saving the model, it would then need to be deployed onto a suitable platform, depending on its intended application. This might include cloud platforms like AWS, Google Cloud, or Azure, or edge devices for real-time predictions. Again, without more specific information, this general explanation is the best I can offer.

@@ -1,0 +1,143 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+size of 256*256 pixels were converted to 64*64 pixels to save training
+time and reduce high memory graphics use. The size-reduced images
+packaged into two datasets: training dataset with 85% of images
+(111,244/130,858) and validation dataset with 15% (19,614/130,858)
+using a Python script Making_dataset.py in Waveman. To balance the
+image number for all the species, we provided an upper limit for when a
+species had too much data (Supplementary information 1, S1). We also
+developed a method to increase the number of images for the rare
+species (S2), in which signals were rescaled exponentially, and we
+shifted the window slightly either side of the call to change background
+noise. Both these measures ensure rare species with small image num-
+bers will not be under-represented and under-classified relative to
+common species (S1), as though we cannot incorporate the same level
+as call variation as in common species this measure rebalances the
+
+Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., et al., 2011.
+Scikit-learn: machine learning in python. J. Mach. Learn. Res. 12, 2825–2830.
+Pennell, M.W., Eastman, J.M., Slater, G.J., Brown, J.W., Uyeda, J.C., FitzJohn, R.G., et al.,
+2014. Geiger v2. 0: an expanded suite of methods for fitting macroevolutionary
+models to phylogenetic trees. Bioinformatics 30, 2216–2218.
+
+Proença, V., Martin, L.J., Pereira, H.M., Fernandez, M., McRae, L., Belnap, J., et al., 2017.
+Global biodiversity monitoring: from data sources to essential biodiversity variables.
+Biol. Conserv. 213, 256–263.
+
+Rich, L.N., Davis, C.L., Farris, Z.J., Miller, D.A., Tucker, J.M., Hamel, S., et al., 2017.
+Assessing global patterns in mammalian carnivore occupancy and richness by in-
+tegrating local camera trap surveys. Glob. Ecol. Biogeogr. 26, 918–929.
+
+Russo, D., Jones, G., 2002. Identification of twenty-two bat species (Mammalia: chir-
+
+3,709
+3068(376)
+4,910
+1,959(1453)
+1802(552)
+4,281
+1,547(1047)
+3,500
+2,035(1040)
+2,189
+2,482(1167)
+3010(808)
+1,816(1169)
+2,172
+4,790
+3,491
+2,596(1236)
+2,820(766)
+2,026(1291)
+5,553
+4,350
+4,248
+1,933(1405)
+2,289(1053)
+1447(844)
+1,715(801)
+2,054(953)
+5,738
+355(328)
+3,771
+2,549(382)
+4,384
+3,448
+2,436
+5,302
+1,920(1189)
+12,537
+10,535
+
+China, Thailand
+China, Thailand
+Thailand
+China
+Thailand, Malysia
+China, Thailand, Malysia
+Thailand
+China, Thailand
+Thailand
+China, Thailand
+Malysia
+China, Thailand, Malysia
+Thailand
+Thailand
+China, Thailand
+China, Thailand
+Thailand
+China
+Thailand
+China
+China
+China, Thailand
+Thailand
+China
+China, Thailand
+China
+China
+China, Thailand
+Thailand
+China, Thailand
+China
+China
+China, Thailand
+China
+China, Thailand
+Thailand
+
+rate equaled 1e-3 (only a network called ResNet_v2 was set to 1e-5). We
+trained a model using the training dataset (incl. 111,244 images) for
+50–60 times using Graphic Processing Unit (GPU, Nvidia 1080ti, US)
+for two hours and 10 min. After training the model contained refined
+parameters and a graph which were saved for the downstream analysis.
+
+2.2. Testing and further refinements of Waveman
+
+We used filtered data (i.e., validation dataset in which 19,614
+images were selected) to test different model and taxon bias. Then we
+collected audio-files from a corridor for the 15 species to test how to
+lower the misidentification and false positives. Finally, we optimized
+the BatNet and collected audio from different human and natural
+conditions to test the generalization of the model by recording the same
+species under different conditions these audio-files are unfiltered and
+were directly imported into Waveman.
+
+2.2.1. Comparison of BatNet and other three networks
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information on the specific criteria used to determine when training is complete. However, it mentions that the model was trained using the training dataset for 50-60 times using GPU for two hours and ten minutes. This suggests that the duration or number of iterations might have been used as stopping criteria for the training process. Unfortunately, without more detailed information about the training procedure, such as whether early stopping based on validation performance was employed, it is difficult to definitively state what criteria were used to determine when training was complete.

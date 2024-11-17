@@ -1,0 +1,72 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+(cid:0) 4 and a decay of 1×10
+
+The  optimizer  Adam  was  selected  with  an  initial  learning  rate  of 
+(cid:0) 7 and early stopping was used to prevent 
+1×10
+overfitting  (Kingma  and  Ba,  2014).  Typically,  the  model  trained  be-
+tween 10 and 15 epochs before training ceased, where each epoch took 
+roughly 1 min on an NVIDIA GeForce RTX 2080 Ti GPU. In addition to 
+the conventional accuracy metric, the area under the curve, as computed 
+by  a  Riemann  sum,  was  also  used  for  training.  From  the  assembled 
+database of annotated clips, in each of the five cross-validation folds, 
+10% of the data was reserved for comparing the training and validation 
+loss/accuracy  after  each  epoch,  and  a  further  10%  was  reserved  for 
+performance testing after all training had ceased. All results reported are 
+the average after five-fold cross-validation.
+
+Pre-training on the both ResNet50 (He et al., 2016) and Inception 
+(Szegedy et al., 2014) neural networks did not meaningfully improve 
+classification performance, therefore this simpler architecture, similar to 
+those implemented by (Ruff et al., 2020; Sprengel et al., 2016) was used 
+instead. 
+
+2.6. Generating prediction record
+
+Transfer learning, where a model pre-trained on one dataset is re- 
+trained  to  classify  a  similar  datset,  is  one  convenient  approach  to 
+effectively  utilize  the  power  of  CNNs.  Well-known  pre-trained  archi-
+tectures such as Inception, MobileNet, and Resnet50 have recently been 
+used with great success for the classification of birds in soundscape re-
+cordings (Florentin et al., 2020; He et al., 2016; Howard et al., 2017; 
+Incze et al., 2018; LeBien et al., 2020; Sevilla and Glotin, 2017; Szegedy 
+et  al.,  2014).  Such  networks  are  typically  pre-trained  on  large  image 
+databases such as ImageNet, which contains over one million samples 
+distributed across 1000 classes (Deng et al., 2009). However, in cases 
+where  targeting  foreground  species  is  the  main  task,  or  with  more 
+acoustically sparse soundscapes, CNN architectures with far fewer (<10) 
+convolutional layers have proven more than sufficient, and indeed, may
+
+2.6. Generating prediction record 
+
+After  neural  network  training  and  validation,  predictions  for  the 
+entire  unvalidated  recording  period  were  generated.  Specifically,  for 
+each of the five training folds, a single prediction for every 8 s-interval 
+was made for the duration of the year. The five prediction records that 
+resulted were then averaged together to create a single prediction re-
+cord.  To  summarize  this  data  more  succinctly,  these  8  s-interval  pre-
+dictions were then aggregated into hourly prediction records, containing 
+the number of instances that each particular sound stimuli was predicted 
+per  hour.  This  record  was  normalized  by  the  number  of  8-s  intervals 
+actually recorded during that hour, to account for the possibility that 
+missing audio data would render a given prediction record artificially 
+low. 
+
+2.7. Collecting weather data
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Adam optimization technique is applied in the deep learning pipeline. It was chosen with an initial learning rate of 7. Early stopping was also employed to avoid overfitting. The model usually trained between 10 and 15 epochs before training stopped. Each epoch took approximately 1 minute on an NVIDIA GeForce RTX 2080 Ti GPU. Apart from the standard accuracy metric, the area under the curve was calculated using a Riemann sum for training purposes.

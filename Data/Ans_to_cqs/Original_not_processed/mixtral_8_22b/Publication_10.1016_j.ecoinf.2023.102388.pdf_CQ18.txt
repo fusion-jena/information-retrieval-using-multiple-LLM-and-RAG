@@ -1,0 +1,67 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Evaluation 
+
+set 
+
+ID1,3 
+
+120 
+180 
+254  
+
+pictures for each id. First, the target training set is then used to train the 
+target model while the validation and target test sets are respectively 
+used to validate the hyper-parameters and assess the classification ac-
+curacy of the target model. Second, the attack set contains examples of 
+non-members that are required to be able to train the attack model. In 
+addition, pictures of the target validation are used as representatives of 
+members.  Finally,  the  evaluation  set  contains  non-members  whose 
+identities are different from the one used to built the attack model.
+
+The traditional way of training machine learning models normally 
+aims at avoiding the overfitting phenomenon (Ravoor and T.S.B., 2020; 
+Santos and Papa, 2022). Indeed, the main concern about overfitting is 
+that it occurs when the model performs well on the training data but 
+generalizes  poorly  on  unseen  samples  (i.e.,  test  set).  In  the  privacy 
+domain,  overfitting  has  also  been  shown  to  make  the  model  more 
+vulnerable to privacy attacks as it results in the model memorizing more 
+information  about  the  training  set  (Shokri  et  al.,  2017;  Song  et  al., 
+2019).
+
+3.2.1.1. Training process. Dtrain  is the training dataset, which is used for 
+training the target model using the learning algorithm A. In contrast, DS 
+functions as the attack dataset, completely separate from the training 
+dataset  Dtrain,  and  consists  of  data  points  drawn  from  the  same  data 
+distribution as the training samples in Dtrain. The adversary first trains 
+the attack model using the attack training dataset DS  and the learning 
+algorithm A, in such as way that the attack model mimics the behavior of 
+the target model. T is the attack test dataset that is assumed to be both 
+disjoint  from  Ds  and  Dtrain,  in  the  sense  that  it  is  composed  by  non- 
+member  individuals  never  seen  before  by  Ds  and  Dtrain.  Once  the 
+training of the attack model is finished, the adversary proceeds to query 
+the  attack  model  using  both  the  attack  training  and  test  datasets, 
+extracting  the  resulting  prediction  vectors  for  each  data  point.  More
+
+in  this  setting  usually  achieve  better  performances  since  they  can  be 
+adapted to specific models and also have access to more information at 
+inference time.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+In order to monitor the model performance during training, a strategy involving multiple datasets is employed. This includes the use of a target training set, a validation set, and a target test set. The target training set is utilized to train the target model, while the validation set is used to validate the hyperparameters. Meanwhile, the target test set serves to evaluate the classification accuracy of the target model. Additionally, there exists an attack set containing non-members, which is necessary for training the attack model. Furthermore, images from the target validation set serve as representations of members. Lastly, the evaluation set encompasses non-members with identities distinct from those used to construct the attack model.
+
+This approach ensures that the model does not suffer from overfitting, which is a common issue in machine learning where the model performs exceptionally well on the training data but fails to generalize effectively on new, unseen data. Overfitting is particularly problematic in the domain of privacy, as it renders the model susceptible to privacy breaches due to its excessive retention of training set information. By employing these various datasets, the model's performance can be closely monitored throughout the training phase, thereby mitigating the risk of overfitting and enhancing overall model robustness.

@@ -1,0 +1,13 @@
+Based on the provided context, the process followed to deploy the trained deep learning model involves several steps, including model serialization and platform selection.
+
+Firstly, the hyperparameters for each model were determined using grid search, as shown in Table II. These hyperparameters include the batch size, learning rate, number of epochs, and input image size for each model. After training the models, the best-performing model was found to be Inception-V3, with a macro average F1 score of 0.93 and a size of 175 MB.
+
+To deploy the model, the first step is to serialize the model, which involves saving the model architecture and weights to a file. This can be done using the model.save() method in Keras, which saves the model in a format that can be loaded later.
+
+Once the model is serialized, the next step is to select a platform for deployment. In this case, the platform selected for deployment is a Raspberry Pi (RPi), which is an edge computing device. The RPi is used to directly capture images from a commercial camera trap, perform inference on the edge, and send the results to scientists in a timely manner.
+
+To deploy the model on the RPi, TensorFlow Lite is used, which is a lightweight version of TensorFlow that is optimized for mobile and embedded devices. The serialized model is converted to a TensorFlow Lite format using the TensorFlow Lite converter. The conversion process involves optimizing the model for size and performance, which is important for deployment on resource-constrained devices like the RPi.
+
+Once the model is converted to TensorFlow Lite format, it can be loaded onto the RPi and used for inference. The RPi captures images from the camera trap and performs inference on the edge using the deployed model. The results of the inference are then sent to scientists for further analysis.
+
+In summary, the process followed to deploy the trained deep learning model involves serializing the model, selecting a platform for deployment (in this case, a Raspberry Pi), converting the model to TensorFlow Lite format, and deploying it on the RPi for inference on the edge.

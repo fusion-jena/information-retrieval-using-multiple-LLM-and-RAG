@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.2. ResNet 
+
+Residual Networks (ResNet), introduced by He et al. (2016), aimed at 
+improving convergence issues during the training of very deep network 
+architectures. ResNet is a deep learning model that aims to alleviate two 
+main  problems  in  training  neural  networks.  The  first  problem  is  the 
+vanishing  gradient,  which  makes  it  difficult  to  optimize  the  model 
+during training. The second is the degradation problem, which occurs 
+when  adding  more  layers  to  a  deep  neural  network  leads  to  greater 
+training errors. ResNet solved those problems by using residual learning 
+blocks between layers of the network, allowing for better optimization 
+and higher training accuracy.
+
+The  experimental  results  suggest  that  there  might  be  room  to 
+improve the generalization capacity of the deep learning classifiers. That 
+could  be  achieved  by  better  exploiting  the  training  data,  e.g.,  with 
+additional data augmentation techniques, using recent advances in un-
+supervised learning techniques, such as self-supervised methods, or by 
+just simplifying the classifiers in terms of the number of parameters, thus 
+reducing the risk of overfitting. 
+
+Another direction for continuing this research is to exploit the clas-
+sification uncertainty further in an active learning context. The uncer-
+tainty measure could be used in interactively training the deep learning 
+models,  selecting  high-uncertainty  samples  in  the  datasets,  and 
+increasing their importance in the computation of the loss function. 
+
+CRediT authorship contribution statement
+
+The batch size was 32, and the early stopping procedure was used to 
+avoid over-fitting. The patience parameter, which controls the number 
+of epochs without improvements in the validation loss, was set to 10. 
+Each network, with a particular architecture and considering a specific 
+substratum characterization, was trained and executed three times, each 
+time with a different (random) initialization of the trainable parameters 
+and with a different data fold. As already mentioned, the results shown 
+in  the  next  section  are  averages  of  those  three  executions.  Data 
+augmentation was applied to all extracted patches: a 90∘  rotation and 
+vertical and horizontal flips. 
+
+4.4. Performance metrics
+
+Each rectangle indicates the operations performed at a block of layers. Conv and SConv stand for regular convolution and depth-wise separable 
+convolution, respectively. The values that follow such operations indicate the number of filters, filter size, stride, and dilation rate. Regarding the 
+maxpooling operation, the values correspond to the kernel dimension and stride. Dropout refers to the number of neurons randomly turned off during 
+each training inference. The number of neurons in the dense layer of the classifier module corresponds to the number of classes in the dataset. 
+
+All architectures were modified mainly in the block of fully connected layers, where we opted to use just the output layer after the feature extractor 
+instead of two fully connected layers. Additionally, residual blocks were used at the architectures’ stems rather than in the full feature extractor. All 
+those modifications were experimentally determined.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, one regularization method used to prevent overfitting in the deep learning pipeline is dropout. This technique involves turning off a certain percentage of neurons during each training iteration, effectively reducing the complexity of the model and preventing co-adaptations among neurons. In the context, it is stated that "Dropout refers to the number of neurons randomly turned off during each training inference." However, no explicit mention of other regularization methods like L2 regularization is made in the provided text.

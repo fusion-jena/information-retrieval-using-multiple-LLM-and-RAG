@@ -1,0 +1,13 @@
+Answer:::
+
+In the study, two strategies were implemented to monitor the model performance during training: Recursive Feature Elimination (RFE) and Variable Selection Using Random Forests (VSURF). 
+
+Recursive Feature Elimination (RFE) is a method where the user defines a termination condition for model performance, and the algorithm iteratively removes one variable at a time while evaluating its impact on the model’s performance. This process continues until the algorithm reaches the best predefined level of model performance. In this study, Root Mean Square Error (RMSE) was used as the termination condition. RFE retained all variables whose removal led to a deterioration in the best RMSE value. 
+
+VSURF, on the other hand, follows a three-step process. First, it ranks the variables according to their importance. Then, it selects the top-ranked variables and grows a random forest with them. Lastly, it evaluates the performance of the random forest and compares it with the performance of a random forest grown with all the variables. If the performance is not significantly different, it repeats the process with the second-ranked variables and so on. 
+
+These methods were used to prevent potential performance degradation of the model, avoid overfitting, and ensure the ability to make good extrapolations to unseen regions. By monitoring the model performance during training, the researchers could ensure that the model was not overfitting to the training data and was able to generalize well to new data. 
+
+Moreover, the study also mentions the creation of a mask to delineate the “area of applicability” for the trained model. This strategy would further help in monitoring the model performance by filtering out regions lacking training data and where predictor variables have values outside the training data range. 
+
+In summary, the study implemented Recursive Feature Elimination (RFE) and Variable Selection Using Random Forests (VSURF) to monitor the model performance during training. These methods helped prevent overfitting, ensure good extrapolations to unseen regions, and filter out regions lacking training data.

@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+EcologicalInformatics81(2024)1026193C.A. Game et al.                                                                                                                                                                                                                                
+
+Table 3 
+Required steps in our ML workflows. 
+
+aNote that the order of steps may vary with ML frameworks (i.e. pytorch, 
+tensorflow) or may be achievable simultaneously. 
+bGrey shading denotes model-specific steps.
+
+2.2.3. Model preparation 
+
+The VGG16 network was sourced from the torch library and all layers 
+frozen, preventing any further training (updates to model parameters), 
+see Table 3. We then duplicated this network to provide a foundation for 
+each modelling approach. For our CNN þ SVM modelling approach we 
+kept the architecture up to the first FC layer (FC1), creating a feature 
+extractor (Fig. 2). We then paired it with an SVM, sourced from the scikit- 
+learn library. We evaluate two types of SVM: a linear SVM and a non- 
+linear SVM, known as a Radial Basis Function (RBF) (Fig. 3). An RBF 
+SVM is a good default choice, as it can find both a linear and non-linear 
+hyperplanes at high dimensions. 
+
+For  the  CNN  approach  however,  we  use  the  full  VGG16  network, 
+leaving the feature extractor and classifier intact. In its frozen state the
+
+Pytorch (Paszke et al., 2019) ML framework for deep learning (CNNs). 
+These libraries also include tools for data pre-processing, model selec-
+tion and evaluation. To keep our model training and analysis pipelines 
+comparable, we use skorch, a scikit-learn compatible neural network li-
+brary that wraps PyTorch. This allows the same scikit-learn training and 
+evaluation procedure to be used for both models. Skorch is also helpful 
+for end-users in CNN training, as it has a clear and simple interface. It 
+only requires end-users to add the prepared datasets, model and specify 
+the associated hyperparameters (Table 4). Documentation for the entire 
+machine learning pipeline can be found at (PyTorch, 2023) for Pytorch 
+(Paszke  et  al.,  2019;  scikit-learn,  2023)  for  scikit-learn  and  (skorch, 
+2022)  for  skorch.  Commercial  restrictions  apply  to  the  availability  of 
+data  used  in  this  work.  However,  links  to  public  code  examples  of
+
+EcologicalInformatics81(2024)1026194C.A. Game et al.                                                                                                                                                                                                                                
+
+Fig. 2. Infographic of the ML workflows (CNN & CNN þ SVM) used in this study.  
+
+VGG16 network cannot be trained, we therefore unfroze (replaced) the 
+final  FC  layers  (FC2  &  FC3)  to  re-initialize  the  weights  for  training. 
+Training only these FC layers enables comparison to the CNN þ SVM 
+approach in which they have been replaced with an SVM classifier. We 
+also reduced the number of output nodes in FC3 from 1000 (number of 
+ImageNet  classes)  to  3,  to  prepare  the  CNN  to  classify  the  3  habitat 
+classes. 
+
+2.2.4. Feature extraction & visualisation
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The provided context does not contain information on the deployment process of the trained deep learning model. Therefore, I do not know what process was followed to deploy the trained deep learning model.

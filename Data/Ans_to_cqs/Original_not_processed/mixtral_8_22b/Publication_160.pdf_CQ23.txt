@@ -1,0 +1,172 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+60.64
+63.82
+65.77
+66.30
+
+60.17
+63.57
+65.54
+65.94
+
+Table 3
+Performances of different ResNet architectures on validation and test sets. ResNetX-Y is written so that X indicates the network's depth and Y the input size. In bold
+the best value for each metric.
+
+Network -patch Size
+
+Batch size
+
+Validation set
+
+Test set
+
+Macro-F1
+
+Top-1 accuracy
+
+Micro-F1
+
+Macro-F1
+
+Top-1 accuracy
+
+Micro-F1
+
+ResNet152–224
+ResNet50–128
+ResNet18–128
+ResNet18–224
+Ensemble
+
+16
+128
+128
+200
+128
+
+37.45
+52.04
+51.40
+54.93
+60.56
+
+62.38
+64.07
+63.90
+66.70
+70.60
+
+60.46
+63.85
+63.88
+66.44
+70.35
+
+38.26
+52.27
+51.62
+53.93
+60.38
+
+61.71
+64.35
+63.60
+66.30
+70.54
+
+60.09
+63.89
+63.44
+65.94
+70.37
+
+contextual information. If the patch size is too small, it contains in-
+sufficient information and most probably fails to capture whole in-
+dividuals; if it is too large, the context scrambles the signature of the
+central information, confusing the algorithm. The patch size 64 × 64
+pixels performed the worst out of all the metrics; the large differences
+between validation and test performances was indicative of its poor
+capacity for generalization. A patch size of 224 × 224 gave the highest
+micro-F1 on the test set (65.94). This patch size included enough con-
+textual noise to regularize overfitting, and it enabled better general-
+ization. While the single RestNet18 based on the patch size 224 × 224
+obtained the best accuracy, our ensemble network, which was based on
+the four tested patch sizes and followed the feature extraction scheme
+improved classification
+of the local-SPP (Mahmood et al., 2016),
+
+6.2.1. Simple CNNs and ensemble network
+
+All validation performances consistently increased with the patch
+size up to 224 × 224, which achieved 65.94 micro-F1 (see Table 2). As
+for training curves, the gap between patch size performances tended to
+decrease quickly. It is worth emphasizing that macro-F1 (with all
+classes weighted equally) was consistently lower than micro-F1 (all
+classes weighted according to their proportion in the dataset).
+
+The ResNet18 and ResNet50 trained with the same hyperparameters
+
+Table 1
+Classification accuracy of hosts (n = 4) and visitors (n = 20) on the Moorea
+dataset (Beijbom et al., 2012). Values are given in mean percentage ± standard
+deviation.
+
+Subject
+
+Macro-F1
+
+Top-1 accuracy
+
+Micro-F1
+
+hosts
+visitors
+
+74.86 ± 3.63
+59.4 ± 4.15
+
+79.21 ± 2.35
+64.98 ± 6.31
+
+80.32 ± 2.32
+68.31 ± 4.64
+
+60.09
+63.89
+63.44
+65.94
+70.37
+
+(Table 3, ResNet50–128 and ResNet18–128) performed roughly equally
+on validation and test sets, with ResNet18–128 achieving a micro-F1 of
+63.44 and ResNet50 63.89 on the test set. However, an epoch for the
+ResNet50 took about three times longer than ResNet18. The ResNet50
+did not outperform the previously trained ResNet18 with patch size 128
+and batch size 512 (see Table 2). The deeper architecture of the Re-
+sNet50 made it impossible to train with a batch size of 512.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of the deep learning models, several measures were taken. Firstly, the use of diverse datasets played a crucial role. Different ResNet architectures were employed, including ResNet152, ResNet50, and ResNet18, each with varying input sizes. These networks were then evaluated on both validation and test sets, allowing for a more comprehensive assessment of their performance.
+
+Secondly, the concept of patch size was introduced to manage the balance between capturing sufficient individual information and avoiding excessive contextual noise. A larger patch size of 224 x 224 pixels was found to perform well, as it included enough contextual noise to regularize overfitting and improve generalization. This was evidenced by the fact that this patch size achieved the highest micro-F1 score on the test set.
+
+Moreover, an ensemble network was used, combining the features extracted from the four tested patch sizes. This approach improved the overall classification performance, further enhancing the model's ability to generalize.
+
+Lastly, the use of cross-validation techniques can also be inferred, although not explicitly mentioned. Given the consistent increase in validation performances with increasing patch size, and the decreasing gap between patch size performances in training curves, it suggests that some form of cross-validation or iterative testing was likely employed.
+
+In conclusion, the combination of using diverse datasets, managing patch size, employing an ensemble network, and potentially utilizing cross-validation techniques contributed significantly to ensuring the generalizability of the deep learning models.

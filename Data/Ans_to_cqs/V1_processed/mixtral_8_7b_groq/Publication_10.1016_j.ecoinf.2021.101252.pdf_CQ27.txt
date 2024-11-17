@@ -1,0 +1,11 @@
+The process followed to deploy the trained deep learning model involved model training, evaluation, and serialization, as well as platform selection for deployment.
+
+During the model training phase, a set of candidate models with different architectures and hyperparameters were generated using an AutoML procedure. The architectures included ResNet, InceptionTime, LSTM, and CNN. The hyperparameters were selected at random from a prespecified range of values. Each candidate model was trained using a small subset of the data during a small number of epochs. After training, the performance of the candidate models was compared using a left-out validation data set. The selected candidate model (usually the best performing among candidates) was then trained on the full training data. The time taken from the onset of candidate model training to the 72nd training epoch of the selected model was 26 minutes on a desktop PC and 3 minutes on a high-end workstation.
+
+The predictive performance of the selected models was measured using the area under the receiver operating characteristic curve (AUC). In Case Study 1, the AUC of the selected model was 0.91, and in Case Study 2, it was 0.95.
+
+Once the model training and evaluation phase was complete, the next step was model serialization. Model serialization involves saving the trained model to a file in a format that can be loaded and used for making predictions on new data. The serialized model can be deployed on a platform suitable for the application.
+
+The platform selection for deployment depends on the application requirements, such as the need for real-time predictions, the volume of data to be processed, and the available resources. The platform could be a local machine, a cloud-based service, or an edge device.
+
+In summary, the process followed to deploy the trained deep learning model involved model training, evaluation, and serialization, as well as platform selection for deployment. The model training phase involved generating a set of candidate models, training them using a small subset of the data, and selecting the best performing model. The predictive performance of the selected model was evaluated using the AUC. Once the model was trained and evaluated, it was serialized and deployed on a suitable platform.

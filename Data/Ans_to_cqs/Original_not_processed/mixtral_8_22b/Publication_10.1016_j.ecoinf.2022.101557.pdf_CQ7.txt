@@ -1,0 +1,67 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+overfitting. These samples are selected randomly from all areas that are 
+used in the training set, and are never used to fit the model. The model is 
+trained for 150 epochs and with a batch size of 128. Dropout (Srivastava 
+et al., 2014) with a rate of 0.3 is used during the training to make it more 
+stable. Furthermore, ADAM optimisation (Kingma and Ba, 2014) with a 
+learning  rate  of  0.0001  is  used  to  find  optimal  weights  in  the  neural 
+network in order to minimise the cross entropy loss between the net-
+work’s predictions and the pre-labelled data.
+
+2.4. Data pre-processing 
+
+2.2. Convolutional neural networks 
+
+The  idea  behind  convolutional  neural  networks  (CNNs)  was  first 
+
+As mentioned in the previous sections, the data is first split up into 
+several  larger  blocks,  depending  on  coordinates,  with  the  purpose  to 
+cross validate the model. These blocks are then split into many smaller 
+areas of 80 × 80 pixels, due to limitations in the available amount of 
+
+EcologicalInformatics68(2022)1015572N. Ståhl and L. Weimann
+
+A 10-fold cross validation is performed in order for the result to be 
+generalizable for the remaining maps, to which the CNN is also applied. 
+To create the 10 different sets for the cross validation, we split the map 
+by placing a 3 × 3 grid over the map. The region that is studies is not 
+shaped  as  a  square,  and  the  central  cell  contains  more  area  than  the 
+other 8. This cell is, therefore, split into two cells making it 10 sets in 
+total. The division of the different sets are shown in Fig. 2. During the 
+training of the CNN 9 of these sets are used for the training and the final 
+one is used for evaluation. A challenge to the CNN is that the terrain 
+differs in the different areas, as well as the style of the maps, and thus 
+splitting the dataset in this way would give a good hint on the capability 
+of  the  CNN  to  generalise.  Among  the  samples  that  are  used  for  the 
+training  20%  is  used  as  a  validation  set  to  prevent  the  method  from
+
+Since the collection and annotation of data for the training of models, 
+as  the  one  in  this  paper,  is  a  labour-intensive  process,  it  would  be 
+valuable  to  perform  such  profound  investigations  and  quantify  the 
+amount of data that may be needed. Another way forward, which avoids 
+the labour intense labelling, would be to look for already annotated data 
+that have been used for other purposes and then use that data to build AI 
+models. One technique, which needs to be further investigated, in order 
+to facilitate the collected data better, is to generate additional synthet-
+ical  samples  from the  annotated  dataset, using  generative  adversarial 
+models,  such  as  in  the  presented  work  by  Fang  et  al.  (2019)  and  Li 
+(2019). In such approaches, several new samples are created in a real-
+istic  way,  adding  more  variation  and  more  samples  to  the  original 
+dataset. Hence, a small dataset can be extended with samples that are
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The data is first split up into several larger blocks based on their coordinates to enable cross-validation of the model. These blocks are then divided into smaller areas of 80 x 80 pixels due to limitations in computational resources. For the 10-fold cross-validation, a 3x3 grid is placed over the map, resulting in ten sets. Nine of these sets are used for training, while the tenth set is used for evaluation. To ensure the model does not overfit, 20% of the training samples are reserved as a validation set. Additionally, dropout regularization is employed during training to improve stability. The model is trained for 150 epochs with a batch size of 128, and the ADAM optimization algorithm is utilized with a learning rate of 0.0001 to minimize the cross-entropy loss between the network's predictions and the labeled data.

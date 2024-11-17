@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.4. Action recognition 
+
+The three ResNet variants are trained for 40 epochs starting with an 
+initial learning rate of 0.001. The learning rate is decreased every 10 
+epochs by multiplying it with a γ = 0.1. For optimization we utilize the 
+Stochastic  Gradient  Descent  (SGD)  with  a  momentum  of  0.9  and  a 
+
+EcologicalInformatics61(2021)1012158F. Schindler and V. Steinhage
+
+Stochastic Gradient Descent (SGD) is used as optimization technique. 
+We start with a learning rate of 0.0005, a momentum of 0.9 and weight 
+decay of 0.0005. Different settings of momentum and weight decay are 
+checked but show no improvements. In the training process, we decrease 
+the learning rate every 10 epochs by multiplying it with γ = 0.1. In the 
+first  epoch  we  use  warmup  iterations  for  the  learning  rate  with  a 
+warmup factor of 1/1000. These parameters gave the best results in our 
+evaluations. We train our models for 30 epochs.
+
+The SlowFast architecture is trained in 40 epochs with an initial base 
+learning rate of 0.1. We use 5 warmup epochs with a warmup learning 
+rate of 0.001. Momentum is set to 0.9 and the weight decay parameter is 
+(cid:0) 4.  The  learning  rate  is  decreased  with  a  cosine  strategy.  The 
+1  ⋅  10
+optimization technique is SGD and the loss function is the cross entropy 
+loss. In this parameter selection we follow Feichtenhofer et al. (2019). 
+We set the temporal length of the input to 16 frames. We set the sam-
+pling rate to 4 and α = 2. The parameter β is set to 1/8 as proposed by 
+
+EcologicalInformatics61(2021)1012159F. Schindler and V. Steinhage
+
+All programs use Python 3 and PyTorch (Paszke et al. (2019)) for 
+building  and  training  the  networks.  The  Mask  R-CNN  model  is  built 
+around  the  PyTorch  detection  model  of  Mask  R-CNN.  For  the  imple-
+mentation of FGFA we use the PyTorch models for the backbone, the 
+RPN and the head of the implementation of Mask R-CNN model. The 
+three ResNet variations are also based on PyTorch detection models. We 
+always use the pretrained versions of the detection models. The Mask R- 
+CNN  is  pretrained  on  COCO  2017train  dataset.  The  ResNets  are  pre-
+trained on Kinetics-400 dataset. We use these PyTorch models because 
+they allow more flexibility than other implementations. They are better 
+adjusted  to  the  PyTorch  training  functions  and  are  well-arranged. 
+Moreover,  the  PyTorch  detection  models  do  not  have  other  de-
+pendencies (e.g. special libraries) unlike other implementations. 
+
+4.3. Object detection
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+For object detection using Mask R-CNN, the Stochastic Gradient Descent (SGD) optimizer was utilized with a learning rate of 0.0005, a momentum of 0.9, and a weight decay of 0.0005. The learning rate was reduced every 10 epochs by multiplying it with gamma (γ) equal to 0.1. Warmup iterations were employed during the first epoch with a warmup factor of 1/1000. The model was trained for 30 epochs.
+
+For action recognition using the three ResNet variants, they were trained for 40 epochs with an initial learning rate of 0.001. The learning rate was decreased every 10 epochs by multiplying it with gamma (γ) equal to 0.1. Similarly, the Stochastic Gradient Descent (SGD) optimizer was used with a momentum of 0.9.
+
+Lastly, for action recognition using the SlowFast architecture, it was trained for 40 epochs with an initial base learning rate of 0.1. Five warmup epochs were applied with a warmup learning rate of 0.001. The momentum was set to 0.9, and the weight decay parameter was 4 × 10^-4. The learning rate was decreased using a cosine strategy. The optimization technique used was SGD, and the loss function was the cross-entropy loss.

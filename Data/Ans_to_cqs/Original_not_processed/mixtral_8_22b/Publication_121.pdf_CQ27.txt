@@ -1,0 +1,92 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+models, pre-trained on 1.4M images from 1000 classes. First,
+the intermediate layer of all the models was selected to use
+for feature extraction. For this purpose, the output of the last
+layer (bottleneck layer) is commonly used prior to the ﬂatten
+operation. The reason is that all the fully connected layers
+are specialized to the task network was trained on; thus, the
+features learned by these layers will not be useful for the new
+task. The bottleneck features are more generic. Therefore, the
+base models were frozen, loaded with weights trained on the
+ImageNet dataset and used as a feature extractor. We added
+a dropout layer with a dropout rate of 0.2 to reduce the
+overﬁtting of the model. Finally, the top classiﬁer softmax
+layer was added for predicting the class for an input image.
+The model with the base model of MobileNetV2 was compiled
+and optimized with Adam optimizer. The other with the base
+model of MobileNetV3 were optimized with Gradient descent
+
+D. Model Training
+
+Feature Extraction: The hardware to train the model included
+a Lenovo laptop equipped with an 8265U CPU at 1.80 GHz
+of Intel Core i5, 8 GB of RAM running on a Windows 10 64-
+bit system. The software tools included Annaconda3 Jupyter
+Notebook with Python 3.8, where the Tensorﬂow, OpenCV-
+python3 [37] and Keras [38] libraries were used. The dataset
+was divided in a ratio of 75:25 into a training set of 5789
+images and a test set of 1930 images. To obtain the pre-
+trained weight parameters, we built the base models from the
+MobileNetV2, MobileNetV3-Large and MobileNetV3-Small
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on August 29,2024 at 05:51:17 UTC from IEEE Xplore.  Restrictions apply.
+
+A. Transfer Learning from Pre-trained Models
+
+When data used to train deep learning networks is not
+enough, and it is expensive to create labelled data, transfer
+learning, a promising paradigm,
+is applied to acquire the
+knowledge learned in previous settings. The most common
+strategies of transfer learning are feature extraction and ﬁne-
+tuning. For feature extraction, input data is provided to the
+pre-trained model, and activation values of many layers are
+stored to use as features. For ﬁne-tuning, the initial layers
+of the model are ﬁxed, and the ﬁnal layers of the model
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on August 29,2024 at 05:51:17 UTC from IEEE Xplore.  Restrictions apply. 
+
+Fig. 1. Transfer Learning of MobileNet-based Model for Leaf Classiﬁcation.
+
+App Development: For tree species identiﬁcation in a remote
+area, an end-user app is essential. For the app development,
+Android Studio [39] was used. The saved models were
+converted into the TensorFlow Lite [40] version using the
+TensorFlow Lite converter. TensorFlow Lite is a set of tools
+to perform deep learning on smartphone and IoT devices. The
+architecture of the mobile app is shown in Fig. 4. The squares
+marked with dotted red will be included in future iterations.
+The size of the models based on MobileNetV3-Large and
+MobileNetV3-Small was 4.88 MB and 1.99 MB, respectively,
+which are lightweight compared to AlexNet (227.5 MB) [27].
+The app is developed using the Java programming language.
+The leaf detection module in the app contains a Tensorﬂow
+Lite interpreter for the TensorFlow Lite model.
+App Testing: For testing the application, Android studio
+comes with built-in phone emulators, or the app could be
+deployed to an actual device. From an online search, we
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To deploy the trained deep learning model, the following process was followed:
+
+Firstly, the trained models were converted into the TensorFlow Lite version using the TensorFlow Lite converter. This step was necessary because TensorFlow Lite is a set of tools designed to perform deep learning on smartphones and Internet of Things (IoT) devices.
+
+After conversion, the models were integrated into a mobile application developed using Android Studio. The architecture of the mobile app is depicted in Figure 4. The app includes a TensorFlow Lite interpreter for the TensorFlow Lite model, which enables the app to utilize the trained model for making predictions.
+
+For testing the application, two options were available. One option was to use the built-in phone emulators provided by Android Studio. Alternatively, the app could be deployed to an actual device. In either case, the goal was to ensure that the app functioned correctly and provided accurate predictions when presented with real-world data.
+
+In summary, the process involved converting the trained models to TensorFlow Lite format, integrating them into a mobile application, and then testing the application using either built-in phone emulators or an actual device.

@@ -1,0 +1,55 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+of 0.8287. We used the trained model to automatise the classiﬁcation of 500 more images
+from the unlabelled training dataset, and we manually ﬁxed any mistakes. We repeated
+this process of training, classiﬁcation and checking until all of the 7362 downloaded images
+were labelled.
+
+Supplementary Materials: The following items are available online at https://www.mdpi.com/20
+72-4292/13/2/319/s1. Figure S1: Confusion matrix for farm dam detection with our deep learning
+CNN. Figure S2: The surface area of unreported dams used to estimate their median water capacity.
+Figure S3: Examples of undocumented farm dams that were identiﬁed with our deep learning CNN.
+Figure S4: Step-by-step graphical diagram for the methods to calculate the absolute and relative
+rates in the construction of Australian farm dams. Figure S5: Predicted probability for a successful
+veriﬁcation (true positive) for each dam in our dataset. Figure S6: Estimated rates of annual increase
+in dam densities between the years 1988 and 2015 in each State and Territory of Australia. Figure S7:
+Historical trends in farm dam size with year of construction for each State and Territory. Table S1:
+Summary table for all farm dam datasets used in this study.
+
+To avoid manual labelling of all 7362 downloaded images, we took a random subsam-
+ple of 400 images and labelled them into “dam” or “not dam” and we trained a classiﬁcation
+model on the labelled data. We utilised transfer learning by initialising an ImageNet pre-
+trained ResNet34 model [30]. We applied an 80–20% split for training and validation
+datasets, respectively. To help generalise the model, we used data augmentation with the
+fastai get_transforms function [30] and the following arguments: “ﬂip_vert = TRUE” to
+allow for vertical ﬂipping of images, “max_lighting = 0.02” to limit overly exposing the
+images, “max_zoom = 1” to disable the zooming augmentation, and “to_fp16 = TRUE” to
+reduce the memory load on the graphical processing unit (GPU). We set the batch size to
+300 images and trained the model with a learning rate of 10−3 for ten epochs. At epoch 5,
+we achieved an error rate of 0.1538 (15.38%) a validation loss of 0.4211 and a training loss
+
+https://www.mdpi.com/journal/remotesensing
+
+remote sensing  (cid:1)(cid:2)(cid:3)(cid:1)(cid:4)(cid:5)(cid:6)(cid:7)(cid:8)(cid:1)(cid:1)(cid:2)(cid:3)(cid:4)(cid:5)(cid:6)(cid:7)Remote Sens. 2021, 13, 319
+
+2 of 15
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, several postprocessing steps can be performed depending on the specific requirements of the project. In the given context, it appears that the authors have utilized a confusion matrix for evaluating the performance of their deep learning Convolutional Neural Network (CNN) for farm dam detection. A confusion matrix is a table layout that allows visualization of the performance of an algorithm. Each row of the matrix represents the instances in an actual class while each column represents the instances in a predicted class. This helps in calculating various metrics such as accuracy, precision, recall, and F1 score.
+
+In addition to the confusion matrix, the authors also mention using a step-by-step graphical diagram for calculating absolute and relative rates in the construction of Australian farm dams. This suggests that they might have employed additional postprocessing techniques like data analysis and interpretation to derive meaningful insights from their results. However, without further information, it cannot be confirmed if other common postprocessing techniques like saliency maps or GradCAM were used.
+
+Therefore, based on the provided context, the postprocessing steps involved after the model training include creating a confusion matrix for evaluation, utilizing a step-by-step graphical diagram for calculations, and possibly employing data analysis and interpretation techniques.

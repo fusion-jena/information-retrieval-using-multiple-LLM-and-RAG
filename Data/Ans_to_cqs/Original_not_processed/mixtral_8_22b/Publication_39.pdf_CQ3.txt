@@ -1,0 +1,92 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Feichtenhofer et al. (2019). This parameter combination achieved the 
+best  results  in  our  experiments.  The  Slow  and  Fast  pathways  are 
+implemented by a ResNet-101. 
+
+We  split  the  annotated  dataset  AnnotationsActions  (cf.  Section  2.2) 
+randomly (but fixed for all experiments and all networks) into a train set, 
+validation set and test set. The test set includes 20% of the video clips of 
+each class. Of the remaining clips, again 20% of the clips in each class 
+form the validation set. The remaining clips are the training set. 
+
+4.4.1. Data augmentation for action recognition
+
+2.1. Annotation for object detection 
+
+For  training  and  evaluation  of  the  object  detection,  40  clips  con-
+taining 2434 usable frames in total are used yielding the subset Anno-
+tationsDetect. Table 2 shows the frequencies of the four occurring animal 
+classes. Since the  overall data is not balanced with respect to the  oc-
+currences  of  these  four  classes  (e.g.,  there  are  only  8  clips  showing 
+foxes), the selection shows a compromise between the burden of anno-
+tation and almost balanced occurrence frequencies. 
+
+The VGG Image Annotator (VIA) Version 2.0.8 (Dutta and Zisserman 
+(2019)) is used for the annotation of the segmentation dataset. For each 
+occurring animal in a frame of the training set, a polygonal segmentation 
+mask depicting the visible silhouette, a bounding box and a class label, i. 
+
+Table 1 
+Frequencies of occurrence of deer, boar, fox and hare videos in the dataset.   
+
+Number of videos 
+Percentage of the dataset 
+
+Deer 
+
+477 
+90.2% 
+
+Boar
+
+We use a pretrained backbone for FGFA. The backbone is extracted 
+from  a  Mask  R-CNN  network  trained  on  the  segmentation  dataset. 
+During the training process FGFA trains only the head and the RPN. We 
+implement  the  flow  network  in  the  FGFA  architecture  with  a  SPyNet 
+(Ranjan and Black (2017)). Other popular choices are FlowNet (Doso-
+vitskiy et al. (2015)) and FlowNet 2.0 (Ilg et al. (2017)). SPyNet is more 
+lightweight than the FlowNets. It uses 96% less parameters than Flow-
+Net. Therefore it is more efficient in an embedded environment like our 
+FGFA architecture. Moreover, the results of SPyNet are more accurate 
+than the results of the FlowNets. 
+
+4.3.1. Data augmentation for segmentation and detection
+
+4.3. Object detection 
+
+Two approaches to object detection via instance segmentation are 
+evaluated. Mask R-CNN is trained on video clips, i.e., the video frames 
+are presented in the temporal sequence given in each clip. This Mask R- 
+CNN approach is then compared with the Flow-Guided Feature Aggre-
+gation (FGFA). 
+
+For  training  and  evaluation  of  the  object  detection,  40  clips  con-
+taining 2434 usable frames in total are used yielding the subset Anno-
+tationsDetect  (cf.  Section  2.1).  This  subset  is  split  again  into  a  training 
+subset and test subset. This split is the same for all experiments. The test 
+set contains 8 clips, two of each animal class. We select such clips that 
+show quite normal scenarios but also clips showing more challenging 
+scenarios (e.g. with rain or fog). The training set contains accordingly 32 
+clips.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+In this study, several data annotation techniques were employed for different tasks within their deep learning pipeline. For object detection, they utilized both bounding boxes and instance segmentation. Specifically, for each occurring animal in a frame of the training set, a polygonal segmentation mask was created to depict the visible silhouette, along with a corresponding bounding box and class label. These annotations were carried out using the VGG Image Annotator (VIA) version 2.0.8.
+
+Moreover, the researchers evaluated two approaches to object detection via instance segmentation. They trained Mask R-CNN on video clips, presenting the video frames in their original temporal sequence within each clip. Subsequently, they compared this Mask R-CNN approach with the Flow-Guided Feature Aggregation (FGFA).
+
+To summarize, the primary data annotation techniques used in this deep learning pipeline include bounding box annotation and instance segmentation. Both methods were applied to facilitate object detection tasks, with Mask R-CNN and FGFA being the chosen models for comparison.

@@ -1,0 +1,79 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+model.  A  model  trained  too  few  epochs  will  not  capture  all  relevant 
+patterns in the data, reducing predictive performance. A model trained 
+for an excessive number of epochs might overfit, reducing its generality 
+and ability to classify new data. There is no definitive way to identify an 
+optimal  number  of  training  epochs,  but  one  practical  approach  is 
+through  monitoring  the  model’s  validation  performance  (i.e.,  using 
+holdout  data  partition  Bv;  Fig.  2).  The  ‘optimal’  number  of  training 
+epochs is the one that provides the best validation performance. Finally, 
+the performance of the model having an ‘optimal’  number of training 
+epochs is evaluated using a ‘final’ test data set (T; Fig. 2), providing the 
+best estimate of the predictive performance of the model.
+
+hyperparameters  (i.e.,  ‘AutoML’;  He  et  al.,  2021).  This  represents  an 
+important  advantage  for  non-experts  in  deep  learning,  as  it  does  not 
+require  the  manual  assembly  of  the  models  and  definition  of  their 
+hyperparameters. The AutoML procedure starts by generating a set of 
+candidate models with architectures and hyperparameters (e.g. number 
+of layers; learning rate) selected at random from a prespecified range of 
+values (see Fig. 2). Each candidate model is trained using a small subset 
+of the data (data partition At; Fig. 2) during a small number of epochs. 
+After  training,  the  performance  of  the  candidate  models  is  compared 
+using a left-out validation data set (Av; Fig. 2). The selected candidate 
+model (usually the best performing among candidates) is then trained on 
+the full training data (Bt; Fig. 2). In this step it is required to identify an 
+optimal number of training epochs, to avoid under- or overfitting of the
+
+2.4. Residual networks 
+
+Residual networks (ResNet) are recently proposed in the context of 
+image recognition (He et al., 2016). Basically, these networks introduce 
+a  new  type  of  component,  the  ‘Residual  Block’,  to  CNN-type  models 
+(Fig.  1d).  The  aim  of  these  blocks  is  to  allow  the  training  of  deeper 
+models  (i.e.,  having  more  hidden  layers).  In  theory,  deeper  models 
+should improve classification performances, as they allow higher levels 
+of  data  abstraction.  However,  in  practice  the  performances  may  not 
+improve,  among  other  things,  due  to  the  vanishing  gradient  problem 
+(see  above).  The  use  of  residual  blocks  aims  to  address  this  by  for-
+warding the output of layers directly into layers that are several levels 
+deeper (e.g. 2–3 layers ahead; Fig. 1d). Recently, this architecture has 
+been  applied  for  time  series  classification  (Wang  et  al.,  2017),  often 
+performing very well (Fawaz et al., 2019).
+
+The  training  and  internal  validation  of  deep  learning  models  are 
+sensitive to strong class imbalance (i.e., when one or several classes have 
+a  much  higher  number  of  samples).  Strong  class  imbalance  can  bias 
+models towards the prediction of majority classes (Menardi and Torelli, 
+2014) and reduces the reliability of performance metrics such as accu-
+racy sensu stricto (i.e., the proportion of correct predictions to the total 
+number  of  samples),  which  is  used  for  the  automated  selection  of 
+candidate models in mcfly (van Kuppevelt et al., 2020). Accordingly, we 
+balanced  our  data  by  randomly  duplicating  presence  records  and  de-
+leting absence records until a balance of ~50:50 is obtained, which was 
+executed using the ROSE package (Lunardon et al., 2014) for R (R Core 
+Team, 2020). This was done for the data sets that mcfly uses for internal 
+assessment of accuracy s.s. (At, Av and Bt, Fig. 2). Data partitioning was
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Regularization methods are techniques used to prevent overfitting in machine learning and deep learning models. Overfitting occurs when a model learns the noise in the training data instead of generalizing patterns, leading to poor performance on unseen data. Two common regularization methods mentioned in the given context are dropout and L2 regularization.
+
+Dropout is a technique where randomly selected neurons are ignored during training, which helps prevent complex co-adaptations between neurons. By ignoring some neurons, the network becomes less sensitive to specific weights in the network and thus generalizes better. Dropout can be implemented by setting a probability value (e.g., 0.5) indicating the fraction of input units to ignore during each update.
+
+L2 regularization, also known as weight decay, adds a penalty term to the loss function based on the sum of squares of all the model parameters. This encourages smaller parameter values, making the model simpler and less likely to overfit. The strength of the regularization can be controlled by adjusting the regularization coefficient (λ), which determines how much emphasis is placed on minimizing the size of the coefficients versus fitting the training data.
+
+In summary, both dropout and L2 regularization are effective techniques for preventing overfitting in deep learning pipelines. Dropout achieves this by ignoring certain neurons during training, while L2 regularization penalizes large parameter values, encouraging simpler models.

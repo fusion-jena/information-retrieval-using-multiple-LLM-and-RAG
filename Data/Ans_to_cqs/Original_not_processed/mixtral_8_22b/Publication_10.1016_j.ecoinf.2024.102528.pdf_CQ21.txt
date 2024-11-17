@@ -1,0 +1,55 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.4. The monitoring framework 
+
+The first step in our pipeline was to divide the acoustic signals from 
+the long recordings (typically of 30 min each) into 3-s segments, with no 
+overlap. For each segment, we used the BirdNET-Analyzer (https://gith 
+ub.com/kahst/BirdNET-Analyzer)  to  identify  the  species  present, 
+extracting the top three species with the highest confidence scores. We 
+applied threshold values of fixed 0.35, 0.25 and 0.15 for the first, second 
+and third species in the list, respectively, to filter out predictions with 
+lower  confidence  scores,  as  they  might  be  erroneous.  Usually,  in  our 
+dataset, BirdNET identification confidence scores lower than 0.15 are 
+false  positives. In  addition, we used  a species  specific  thresholds (see 
+above). Next, we summed the number of vocalizations for each species
+
+2.3. Pre- and post-validation of BirdNET-Analyzer
+
+3.3. Average diel activity
+
+3.1. BirdNET performance for different species 
+
+In this analysis we used the annotated calls of 23 species, recorded in 
+the Agmon Hula Lake Park between November 2020 and August 2022. 
+For each species, we randomly selected 200 segments of 1 s of vocali-
+zation  each,  annotated  by  an  expert  birder.  The  recall  and  precision 
+results of applying BirdNET-Analyzer to this dataset, which contained a 
+total  of  4600  vocalizations,  are  summarized  in  Table  1.  The  average 
+recall was 29.7% ± 3.9 SE, and the average precision was 80.9% ± 3.8 
+SE. Although the recall is relatively low (above 30% only for 12 out of 23 
+species),  for  most  species  the  precision  is  consistently  above  70% 
+(Table 1), indicating reliable species detections for subsequent analysis. 
+We used a fixed confidence threshold of 0.35 for all species (see P´erez- 
+Granados, 2023), which is a good compromise between false positives 
+and missed detections for the preliminary analysis.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training process, several postprocessing steps can be taken to evaluate and interpret the results. These may include generating saliency maps, calculating metrics, and creating confusion matrices. However, based on the given context, it appears that the focus is primarily on using the trained model (BirdNET-Analyzer) for identifying bird species rather than discussing postprocessing steps related to model evaluation or interpretation.
+
+That being said, some postprocessing steps mentioned in the context involve processing the output of the BirdNET-Analyzer. After dividing the audio recordings into 3-second segments, the analyzer identifies the top three species with the highest confidence scores. To filter out potentially erroneous predictions, threshold values of 0.35, 0.25, and 0.15 were applied for the first, second, and third species, respectively. Additionally, species-specific thresholds were also considered. Following these steps, the number of vocalizations for each species was then summed.
+
+While not explicitly stated as postprocessing steps, evaluations of the BirdNET-Analyzer's performance were conducted before and after validation. Before validation, the analyzer achieved an average recall of 29.7% ± 3.9 SE and an average precision of 80.9% ± 3.8 SE when tested on a dataset containing 4600 vocalizations from 23 species. Despite having relatively low recall rates, the high precision indicated reliable species detection for further analysis. A fixed confidence threshold of 0.35 was used for all species during this preliminary analysis.

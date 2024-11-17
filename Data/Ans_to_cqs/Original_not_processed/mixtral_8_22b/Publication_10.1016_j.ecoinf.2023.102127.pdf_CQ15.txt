@@ -1,0 +1,55 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The  backbone  of  any  SDM  modelling  are  the  algorithm  used  for 
+inference which in ibis.iSDM are called “engines”. To this date ibis.iSDM 
+supports  a  total  of  7  different  engines  for  inferring  or  projecting  the 
+relative habitat suitability of biodiversity features. Those can broadly be 
+classified into engines  using either regressions and or non-parametric 
+machine learning approaches and being frequentist or Bayesian in na-
+ture. Engines supported are regularized elastic net regressions through 
+the glmnet package as also used by the maxnet package (Friedman et al., 
+2010; Phillips et al., 2017), Bayesian regularized “Spike-and-Slab”  re-
+gressions with the BoomSpikeSlab package (Scott, 2022), Bayesian ad-
+ditive  regression  trees  through  dbarts  (Carlson,  2020;  Dorie,  2022), 
+monotonic  gradient  descent boosting via  mboost  (Hofner et  al.,  2011; 
+Hothorn et al., 2022), Extreme Gradient Boosting through xgboost (Chen
+
+Although some engines support only linear response functions, non- 
+linearity  can  be  introduced  through  specific  transformations  of  cova-
+riates such as hinge, threshold, quadratic or product derivates, as done 
+in the popular maxent/maxnet modelling approach (Merow et al., 2013; 
+Phillips et al., 2017). Functionalities to create such derivates are readily 
+available when adding covariates to a distribution model (see SI Fig. 1 
+and  code  examples  in  the  supplementary  materials).  Each  of  the 
+different engines support different types of integration, with some en-
+gines being more flexible than others. For example, priors on coefficients 
+can in some cases only constrain the directionality of response functions 
+(Hofner et al., 2011), and in other cases also the magnitude of expected 
+changes in relation to environmental covariates. An comparative over-
+view of the capacities of each engine can be found online (https://iiasa. 
+github.io/ibis.iSDM/l).
+
+are not enough data available to reliably fit every type of model, espe-
+cially  given  the  demanding  nature  of  some  machine  learning  ap-
+proaches,  and  computation  time  can  be  a  considerable  limitation  as 
+well, such as for more demanding Bayesian models. The package will 
+raise warnings and highlighted messages in case the provided informa-
+tion is not sufficient for inferring a species distribution.
+
+2.4. Model evaluation
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough information in the provided context to determine what optimization techniques are applied in the deep learning pipeline. However, it does mention that one of the engines uses monotonic gradient descent boosting via mboost, which could suggest that gradient descent methods might be employed within the deep learning pipeline. Additionally, another engine mentioned is Extreme Gradient Boosting through xgboost, indicating that gradient boosting algorithms may also play a role in the process. But without further details about the deep learning pipeline itself, we cannot definitively state what optimization techniques are utilized.

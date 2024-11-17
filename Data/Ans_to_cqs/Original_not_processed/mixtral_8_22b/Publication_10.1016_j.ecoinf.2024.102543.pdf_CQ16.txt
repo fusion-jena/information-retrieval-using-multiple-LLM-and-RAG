@@ -1,0 +1,90 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+introduced  variations 
+
+in  color 
+
+The  training  set,  comprising  the  majority  of  the  data  (82%),  con-
+taining 4000 images, is used to train the model and adjust its parame-
+ters, allowing it to learn from a diverse range of examples and patterns in 
+the data. The validation set (13%), consisting of 607 images, is utilized 
+during  training  to  fine-tune  hyperparameters  and  assess  the  model's 
+performance on unseen data, helping to prevent overfitting and ensuring 
+generalization. Lastly, the testing set (5%), which included 260 images, 
+serves  as  an  independent  evaluation  of  the  model's  performance  on 
+completely unseen data, providing a reliable measure of its real-world 
+effectiveness and ability to generalize. 
+
+2.3. Performance evaluation 
+
+To evaluate the ablated model results, we use five metrics, namely 
+Precision (Eq. (1)), Recall (Eq. (2)), mAP0.5 and mAP0.5:0.95, related to 
+Eq. (3), Params(M), Flops(G), Inference(ms) and Time(h). 
+
+Precision =
+
+mAP =
+
+1
+k
+
+∑k
+
+i=1
+
+APi
+
+(3) 
+
+We  also  consider  Params  and  FLOPs  to  evaluate  the  model.  The 
+“Params”  metric  in  a  neural  network  model  refers  to  the  number  of 
+learned variables used for making predictions. It is an essential metric 
+for  evaluating  the  model's  complexity  and  computational  efficiency. 
+Models  with  more  parameters  generally  require  more  resources  for
+
+It is worth noting, however, that increasing the network depth also 
+comes with some potential downsides, such as increased computational 
+complexity and a greater risk of overfitting the model to the training 
+data. So, adding the P2 layer to the YOLOv8 architecture is a tradeoff 
+that needs to be carefully balanced with other considerations, such as 
+model size and performance requirements. In this sense, we proposed in 
+this work a modification in the C2f layer due to its importance in the 
+general architecture of YOLOv8, in the sense of making it lighter and 
+counterbalancing  the  increase  obtained  with  the  addition  of  the  P2 
+feature level layer. In our work, we call this new layer C2f2.
+
+Performance  parameters  such  as  inference  time  (in  ms)  and  time 
+taken for training (in hours) are critical metrics for evaluating the effi-
+ciency of YOLO models. Inference time measures the speed at which the 
+model  processes  input  data  and  produces  output  predictions.  It  is 
+essential  to  minimize  inference  time  for  real-time  applications  where 
+speed  is  crucial,  such  as  real-time  object  detection  in  videos.  On  the 
+other hand, time taken for training measures how long it takes for the 
+model to learn from the training data and improve its accuracy. This 
+metric is essential for measuring the overall training efficiency of the 
+YOLO model. Considering these two parameters when selecting a YOLO 
+model  for  a  particular  use  case  is  essential,  as  they  can  impact  the 
+model's performance and computational cost.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+In the given context, there isn't explicit information about specific criteria used to determine when training is complete. However, based on common machine learning practices, one could infer that several factors might be considered to decide when to stop training. These include monitoring the validation loss or error rate, observing the model's performance on the validation dataset, and checking if the model has reached convergence.
+
+One commonly used criterion is the validation loss plateau. During training, both the training and validation losses decrease initially. As the model starts fitting better to the training data, the training loss continues decreasing while the validation loss may start to plateau or even increase slightly. When the validation loss stops improving significantly after multiple epochs, it indicates that further training may not lead to substantial improvements in the model's performance. At this point, training can be stopped to avoid overfitting the model to the training data.
+
+Additionally, another factor to consider is the model's performance on the validation dataset. By periodically evaluating the model's precision, recall, mean average precision (mAP), etc., on the validation set during training, one can observe whether the model is improving or not. Once the desired performance levels have been achieved, or the improvement becomes negligible, training can be halted.
+
+Lastly, convergence is another important aspect to monitor. Convergence occurs when the weights of the model stabilize, and further training does not result in significant changes to them. Monitoring the change in weights or gradients can help identify when the model has converged, indicating that training should be stopped.

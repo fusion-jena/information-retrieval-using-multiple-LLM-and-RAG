@@ -1,0 +1,67 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.4. Sampling Method
+
+The SPOT6 satellite data for our ﬁve study areas were preprocessed to be fed into the
+different Deep Learning architectures and the XGBoost model. First, the data were split
+into three mutually exclusive parts: a learning set, a validation set and a test set totally
+independent of the two previous ones.
+
+Four of the ﬁve areas were used for learning and validation. The last, isolated scene
+was then used as the test set. It contained all the classes for the two nomenclatures, the ﬁve
+LC classes, and the 12 LU classes. In addition, this image contained all the environments
+representing the New Caledonian landscape: urban, mining, mountainous and forest
+environment with variations from the coastline to the inland mountain areas. It is on this
+entire scene that the ﬁnal confusion matrix and quality metrics were computed.
+
+12 of 22
+
+3.5. Mapping and Confusion Matrix
+
+After ﬁtting the parameters of the different Deep Learning architectures as well as
+XGBoost on the training set, they were run on the test set to obtain a complete mapping of
+LC and LU as described above. Confusion matrices were extracted from these results. Four
+quality metrics are used: Overall Accuracy (OA), Producer Accuracy (PA), User Accuracy
+(UA) and the F1-score. The OA takes the sum of the diagonal of the confusion matrix. The
+PA takes the number of well-ranked individuals divided by the sum of the column in the
+confusion matrix. The UA takes the number of well-ranked individuals divided by the sum
+of the line. Finally, the F1-score is calculated as the harmonic mean of precision and recall.
+This last metric allows calculating the accuracy of a model by giving an equal importance
+between the PA and the UA. Note that the shadow and cloud areas were not taken into
+account in the confusion matrix.
+
+Learning techniques barely distinguished mines and bare soil classes, but this task is very
+difﬁcult to perform, even for a human operator, without contextual information and based
+only on a small picture (128 × 128 pixels).
+
+L
+1
+2
+3
+4
+5
+
+Description
+
+Buildings
+Bare soil
+Forest
+Low-density vegetation
+Water surfaces
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Answer: The given context does not provide explicit details about how the hyperparameters of the models were optimized. However, it mentions that after fitting the parameters of the different deep learning architectures and XGBoost on the training set, they were run on the test set. This suggests that some form of optimization or tuning was performed before running the models on the test set. Common methods for hyperparameter optimization include grid search, random search, Bayesian optimization, and others. Without further context, we cannot determine which specific method was used for hyperparameter optimization in this case.

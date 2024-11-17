@@ -1,0 +1,9 @@
+Answer:
+
+During the training of the DeepLabV3+ model for land cover classification, a strategy to monitor the model performance was implemented using the ReduceLROnPlateau technique. This method monitored the validation loss value at the end of each epoch. If the validation loss did not decrease after 5 consecutive epochs, the learning rate was halved. If there was no decrease in the validation loss after 10 consecutive epochs, the training process was terminated. This strategy allowed for a dynamic adjustment of the learning rate and early stopping of the training process if the model was not improving, thereby saving computational resources and preventing overfitting.
+
+Additionally, the model's performance was also monitored by evaluating the Overall Accuracy (OA) and Kappa coefficient of the model on different datasets with varying spatial resolutions. The results showed that the UAV_2.5 m model had the highest OA of 0.907 and a Kappa coefficient of 0.891, while the UAV_16m model had the lowest OA of 0.805 and a Kappa coefficient of 0.770. The discrepancies in the classification results were mainly distributed in the karst landscape area in the southern part of the study area, where most of the PlatSpe and water surrounded by mixed forests could not be accurately identified.
+
+Furthermore, the training set was enhanced by various data augmentation techniques, including flipping, channel exchange, random rotation, and random noise addition, to increase the sample size and maintain consistency with the cropping approach in the model prediction stage. These techniques helped to improve the model's generalization ability and prevent overfitting.
+
+In conclusion, the ReduceLROnPlateau technique, evaluation of the OA and Kappa coefficient, data augmentation, and monitoring the validation loss value were the strategies implemented to monitor the model performance during training.

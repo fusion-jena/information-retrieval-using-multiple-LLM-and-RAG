@@ -1,0 +1,83 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Krizhevsky, A., Sutskever, I., Hinton, G.E., 2012. ImageNet classification with deep 
+convolutional neural networks. In: Advances in Neural Information Processing 
+Systems, vol. 25. Curran Associates, Inc. URL. https://papers.nips.cc/paper/2012/ha 
+sh/c399862d3b9d6b76c8436e924a68c45b-Abstract.html. 
+
+Langenk¨amper, D., Zurowietz, M., Schoening, T., Nattkemper, T.W., 2017. BIIGLE 2.0 - 
+browsing and annotating large marine image collections, Frontiers in marine. 
+Science 4, 83. https://doi.org/10.3389/fmars.2017.00083. 
+
+Langenk¨amper, D., Simon-Lled´o, E., Hosking, B., Jones, D.O.B., Nattkemper, T.W., 
+
+2019a. On the impact of citizen science-derived data quality on deep learning based 
+classification in marine images. PLoS One 14 (6), e0218086. https://doi.org/ 
+10.1371/journal.pone.0218086.
+
+2.2.2. Data preparation 
+
+Pre-trained CNNs are designed to expect images in a certain format 
+before feature extraction (or classification). For VGG16 (and other net-
+works trained on ImageNet (He et al., 2016; Howard et al., 2017; Rus-
+sakovsky  et  al.,  2015)),  RGB  images  must  be  224 × 224  pixels.  We 
+therefore resize images to 224 pixels along the x-axis, preserving their 
+aspect ratio. We then crop the center of images such that they are square. 
+Following standard practice, RGB values were also normalized (centered 
+and scaled) to the training dataset (ImageNet), see Table 3. The images 
+in  each  dataset  were  split  into  80%  training  (including  5-fold  cross- 
+validation) and 20% testing subsets. Splits were stratified to preserve 
+the class-ratio. 
+
+2.2.3. Model preparation
+
+For the CNN, The large number of hyperparameters (Table 4) and 
+high  computational  demand,  mean  that  an  exhaustive  grid-search  is 
+inappropriate.  Instead  our  preliminary  work  showed  that  common 
+default parameters, were suitable for our data. These include a batch- 
+size of 32 images and a cross-entropy loss function. We also used the 
+Adam learning rate optimizer (Kingma and Ba, 2015), which automat-
+ically adjusted our initial learning rate of 1e-03 during training in a way 
+that  improved  performance.  Adam  is  computationally  efficient  and 
+straight-forward to use. In preliminary work, each model was set to train 
+for  100  epochs  maximum.  However  for  later  time-saving  and  better 
+automation, we enabled early stopping if the validation error (loss) did 
+not reduce for 10 epochs. This identified a suitable number of epochs for 
+each dataset: 14, 14 and 23 epochs for Datasets 1, 2 and 3, respectively.
+
+2.2.5. Classification 
+
+Each  ML  approach  requires  hyperparameters  to  classify  imagery, 
+which when optimized during training can increase model performance, 
+see  Table  4  for  a  hyperparameter  glossary.  Given  the  computational 
+efficiency of the SVMs and the few hyperparameters required, each of 
+these can be optimized simply and relatively quickly (subject to dataset 
+size)  during  a  k-fold  (k = 5) cross-validated  fine  grid-search  on  the 
+training  data.  For  our  CNN  þ SVM  method,  we  followed  hyper-
+parameter  recommendations  by  (Hsu  et  al.,  2016),  authors  of  the 
+LIBSVM library (Chang and Lin, 2011). For our non-linear RBF SVM we 
+searched  hyperparameters  C = 23, 23.25, …, 27  and  γ = 2
+(cid:0) 13  & 
+(cid:0) 11. For the linear SVM, we used the same hyperparameter search for 
+2
+its sole parameter C. We also looked at the RBF and linear SVM with 
+
+(cid:0) 15, 2
+
+Fig. 3. A diagram of various support vector machines.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning pipeline described in the given context uses image data. Specifically, it employs pre-trained Convolutional Neural Networks (CNNs) like VGG16, which have been trained on the ImageNet dataset. To prepare the input data for these models, the images are resized to 224x224 pixels while maintaining their aspect ratio. After this, the central portion of the images is cropped to create square images. Additionally, the RGB values of the images are normalized according to the training dataset (ImageNet). Therefore, the data format used in this deep learning pipeline is primarily image data.

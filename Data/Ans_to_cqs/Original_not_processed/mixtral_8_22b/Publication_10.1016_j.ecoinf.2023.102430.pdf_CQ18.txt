@@ -1,0 +1,57 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.3. Algorithm training and testing 
+
+We trained all algorithms on a random subset of 5256 pictures (80% 
+
+of  the  6570-picture  dataset).  To  gauge  performance  consistency,  the 
+training-testing  process  was  repeated  10  times  for  each  algorithm;  in 
+each of these (pseudo-)replicate runs, all five algorithms used the same 
+training and testing picture subsets.
+
+AN  was  implemented  in  MATLAB  (www.mathworks.com).  For 
+training,  we  used  the  stochastic  gradient  descent  with  momentum 
+optimizer with default settings except for the initial learning rate (which 
+we set to 0.001) and the maximum number of epochs (which we set to 15 
+after  preliminary  tests).  The  ‘classical’  machine-learning  algorithms 
+(AB, GB, HB, and LD) were run in Python (www.python.org) using the 
+scikit-learn toolbox (Pedregosa et al., 2011). We left hyperparameters at 
+scikit-learn  default  values,  except  for  the  learning  rate  of  GB  and  HB 
+(which we set to 0.15) and the tolerance threshold value for LD (set to 1 
+× 10
+
+results for these exploratory analyses of observed accuracy are provided 
+in Supplementary Tables S1–S6, and the full raw data are available in 
+Supplementary Dataset S1.
+
+We analyzed the outcome of our 50 testing runs (10 per algorithm) 
+using  R  4.2.1  (R  Core  Team,  2022)  and  the  RStudio  2023.03.1.446 
+interface  (Posit  Software,  2022).  We  first  summarized  our  data  in 
+descriptive tables, including cross-classification or ‘confusion’ matrices, 
+calculated Cohen’s κ  agreement scores (Cohen, 1960), and ran simple 
+exploratory analyses by calculating and graphing frequencies and pro-
+portions. Proportions and their Wilson ‘score’ 95% confidence intervals 
+(CIs)  (Newcombe,  1998)  were  computed  using  the  Hmisc  R  package 
+(Harrel and Dupont, 2023).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The strategy implemented to monitor the model performance during training involved repeating the training-testing process ten times for each algorithm. In each of these pseudo-replicate runs, all five algorithms used the same training and testing picture subsets. This approach allowed for gauging performance consistency across different iterations of the training process.
+
+For the AN algorithm, which was implemented in MATLAB, the stochastic gradient descent with momentum optimizer was employed. The initial learning rate was set to 0.001, and the maximum number of epochs was set to 15 after preliminary tests.
+
+On the other hand, the 'classical' machine-learning algorithms (AB, GB, HB, and LD) were executed in Python using the scikit-learn toolbox. Hyperparameters were left at scikit-learn default values, except for specific adjustments made to the learning rates of GB and HB and the tolerance threshold value for LD.
+
+These configurations suggest that the monitoring strategy focused on observing how well the models performed under consistent conditions, allowing for comparisons between different algorithms and iterations. However, it should be noted that this information does not provide explicit details about real-time monitoring strategies such as early stopping or validation loss tracking during individual training sessions.

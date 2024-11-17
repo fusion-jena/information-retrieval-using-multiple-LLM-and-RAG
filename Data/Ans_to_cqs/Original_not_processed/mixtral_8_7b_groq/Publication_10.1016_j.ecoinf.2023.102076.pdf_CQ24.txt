@@ -1,0 +1,9 @@
+The provided context does not discuss specific strategies for handling randomness in the deep learning pipeline, such as setting a random seed value. However, it does describe several techniques used in the process of training a deep learning model for text classification.
+
+To handle long documents, the authors split the text into chunks of 300 tokens using the NLTK word-tokenizer. They then retained chunks that contained any of the original query terms, and if multiple chunks contained keywords, they used the first such chunk for model training and evaluation. Before being fed into the BERT model, texts were tokenized using the BERT tokenizer, with a maximum number of tokens set to 400 for social media posts and 512 for web articles.
+
+The authors also compared the performance of classifiers trained on randomly selected samples versus balanced stratified samples. For the balanced stratified sample, data were grouped according to their initial exploitation-related query term (stemmed), resulting in 19 groups. From each group, 110 texts for labeling were randomly selected, such that each query group was equally represented in the data. This effectively under-sampled texts associated with certain query terms, allowing the classifier to be trained with the full breadth of topics within the dataset.
+
+Figure 5 compares the relationship between the number of texts in training data when data was selected randomly or using active learning. Classifiers were initialized with a random sample of 50 texts, after which different selection strategies were used to select the next 50 texts to include in the training set.
+
+In summary, while the provided context does not directly address strategies for handling randomness in the deep learning pipeline, it does describe techniques for handling long documents, comparing randomly selected samples versus balanced stratified samples, and using different selection strategies for active learning.

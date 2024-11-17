@@ -1,0 +1,83 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To our knowledge, this is the first application of UMAP to directly 
+estimate species distribution based on an analysis of bioclimatic vari-
+ables.  Other  studies  have  used  DRM  to  visualize  results  from  deep 
+learning models; e.g., Deneu et al. (2022) used tSNE (another DRM) to 
+visualize input data and the results of applying a convolutional neural 
+network to model the distribution of species at a fine resolution. On the 
+other hand, we applied clustering to identify groups containing species 
+and near background points to highlight how bioclimatic heterogeneity 
+between clusters in the reduced dimension translates to geographic re-
+gions, i.e., to show that groups in the reduced dimension have similar 
+bioclimatic  properties  within  a  group,  but  differ  among  groups  (see 
+Figs. 6, 7). This behavior underlines the nature of UMAP in that back-
+ground points near species samples share similar bioclimatic properties
+
+The  volume  of  multivariate  data  increases  as  more  information  is 
+generated in fields such as genomics, image analysis, population ecol-
+ogy, and text processing. Dealing with multivariate data is a complex 
+task that may lead to the curse of dimensionality; i.e., redundant or non- 
+significant variables, degradation of model performance, and difficulty 
+in visualizing the relationships between features (Anowar et al., 2021). 
+To  address  these  problems,  dimensionality  reduction  methods  (DRM) 
+provide tools to explore linear and non-linear featured relationships and 
+help select and extract these from a multivariate space. Some examples 
+of  linear  DRM  are  Principal  Components  Analysis,  Single  Value 
+Decomposition,  and  Singular  Value  Decomposition  (Ayesha  et  al., 
+2020).  However,  linear  DRM  cannot  address  more  complex  relation-
+ships,  and  non-linear  DRM  have  thus  gained  importance  in  research.
+
+While  the  proposed  framework  provides  an  alternative  way  to 
+quantify the relationship between the environment and species traits, 
+we detected some aspects that merit future research. UMAP is affected 
+by  hyperparameters  such  as  the  number  of  neighbors  and  minimum 
+distance (McInnes and Healy, 2018), which were maintained at fixed 
+levels  for  this  study.  However,  further  analysis  should  provide  infor-
+mation  on  how  hyperparameter  calibration  affects  the  performance. 
+Since UMAP is a stochastic method, an assessment of how randomness 
+affects  the  results  could  also  be  undertaken  to  obtain  an  estimate  of 
+variability.
+
+Once  the  UMAP  model  was  constructed,  the  testing  data  was 
+embedded  into  the  model  for  projection  in  the  latent  space.  For  the 
+training  and  test  data,  we  computed  the  nearest  neighbor  Euclidean 
+distance  between  species-species  (Dss)  and  background-species  (Dsb). 
+We then calculated Pss, the cumulative empirical distribution function 
+of the intra-species distance Dss. Calculation of Pss was according to the 
+following equation (R Core Team, 2022): 
+
+Pssn(D) =
+
+(
+1
+n
+
+)∑n
+
+i=1
+
+1[di≤D]
+
+where the step function Pss is the proportion of observations less than or 
+equal to a given distance D, n is the number of distance measures, and di 
+is the distance value. Once the Pss function was determined, we calcu-
+lated S = (1- Pss) for the distances between the background and species 
+
+Fig. 1. Workflow to analyze the similarity between a target species and its environment.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the provided context, there is no explicit mention of specific measures taken to ensure the generalizability of the deep learning model. The context primarily focuses on the use of Uniform Manifold Approximation and Projection (UMAP) for estimating species distribution using bioclimatic variables and the comparison of UMAP with other Dimensional Reduction Methods (DRMs). It discusses the advantages of UMAP over traditional linear DRMs and mentions the potential impact of hyperparameters on UMAP's performance. Additionally, it describes the process of embedding testing data into the UMAP model and calculating the nearest neighbor Euclidean distance between species-species and background-species. However, details regarding the validation techniques employed to ensure the robustness and generalizability of the deep learning model, such as diverse datasets, cross-validation, or stratified splitting, are not explicitly mentioned in the provided context.

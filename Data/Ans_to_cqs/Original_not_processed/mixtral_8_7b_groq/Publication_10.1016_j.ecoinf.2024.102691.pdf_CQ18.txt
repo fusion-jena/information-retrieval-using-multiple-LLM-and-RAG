@@ -1,0 +1,13 @@
+Answer:::
+
+During the training of the model, a specific strategy was implemented to monitor and evaluate its performance. This involved the use of various evaluation matrices, including precision, recall, and average precision (AP) at different Intersections Over Union (IoU) thresholds. 
+
+The precision was calculated as the True Positive divided by the sum of True Positive and False Positive. Recall was computed as the True Positive divided by the sum of True Positive and False Negative. The AP was determined by integrating the Precision(Recall) from 0 to 1. The AP0.5, indicating average precision at 50% IoU, was considered a more balanced reflection of the global detection performance of the model. 
+
+The evaluation metrics for each model on the validation set were calculated after 300 epochs. This means that the model's performance was assessed after it had been trained for 300 cycles, providing a robust measure of its ability to detect the desired features.
+
+Additionally, to prevent underfitting, all models were ensured to follow back-propagation after accumulating the batch size 32 times. This technique, known as batch normalization, helps to maintain the model's performance by adjusting the weights and biases of the neural network during training.
+
+The models were trained using a stochastic gradient descent (SGD) optimizer with an initial learning rate of 0.01 and a cycle learning rate of 0.2. This means that the model's learning rate was gradually increased and decreased during training, allowing it to converge on the optimal solution more effectively.
+
+In summary, the strategy implemented to monitor the model performance during training involved the use of precision, recall, and AP at different IoU thresholds, batch normalization to prevent underfitting, and a cyclical learning rate to optimize the model's performance.

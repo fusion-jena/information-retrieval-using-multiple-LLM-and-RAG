@@ -1,0 +1,9 @@
+Answer:::
+
+The hyperparameters of the model are optimized using a random search strategy within the context of Automated Machine Learning (AutoML). In the AutoML procedure, a set of candidate models with architectures and hyperparameters are generated at random from a prespecified range of values. The hyperparameters include aspects such as the number of layers and the learning rate. Each candidate model is then trained using a small subset of the data during a small number of epochs. After training, the performance of the candidate models is compared using a left-out validation data set. The selected candidate model (usually the best performing among candidates) is then trained on the full training data, with an optimal number of training epochs identified to avoid under- or overfitting.
+
+It is worth noting that the random selection of hyperparameters is conducted independently for both CPU- and GPU-based TensorFlow, which can result in different modeling results between the two computer systems used in the study. The desktop PC system was used for reporting results and processing times, while only processing time was reported for the high-end workstation. However, the timings from the two systems are not directly comparable as they correspond to distinct modeling routes.
+
+The study also acknowledges the potential benefits of further tailoring the modeling strategy for specific classification tasks, such as using a priori knowledge to generate only CNN-type candidate models if it is known that a specific architecture is best suited for the classification task at hand. Additional information about fine-tuning of mcfly model generation and selection can be found in van Kuppevelt et al. (2020).
+
+In summary, the hyperparameters of the model are optimized using a random search strategy within the AutoML framework, with the potential for further tailoring of the modeling strategy for specific classification tasks.

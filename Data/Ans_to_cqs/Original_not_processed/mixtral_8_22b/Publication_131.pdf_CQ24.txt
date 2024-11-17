@@ -1,0 +1,71 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+proper databases for CNN training.
+
+13 of 19
+
+ﬁlters per convolution layer is 32 for the ﬁrst one, 64 for the second one, and 128 for the
+ﬁnal one. A kernel size (height and width of the convolution window) of 3 × 3 is used
+on each convolution layer. The fully connected layer (FC) consists of 512 neurons and
+the softmax layer with the number of units for classiﬁcation (one for each type of sound).
+Figure 11 shows the structure of the CNN.
+
+Figure 11. Structure of the designed CNN.
+
+For network training, 80% of the samples were used as training samples, and 20%
+as tests. This strategy is widely used to enhance the generalization of a machine learning
+model and prevent overﬁtting. A balanced sampling was carried out for the test set. For
+it, one audio sample (with its corresponding data augmentation samples) out of 5 was
+selected for each type of anuran call. Thus, 7623 samples were used for training and 1892
+for testing.
+
+The convolutional neural network (CNN) [10] is a class of deep learning neural
+networks oriented mainly to the classiﬁcation of images. It presents a unique architecture
+(Figure 2) with a set of layers for feature extraction and an output layer for classiﬁcation.
+Layers are organized in three dimensions: width, height, and depth. The neurons in one
+layer connect not to all the neurons in the next layer, but only to a small region of the
+layer’s neurons. The ﬁnal output of a CNN is reduced to a single vector of probability
+scores, organized along the depth dimension.
+
+Sensors 2021, 21, 3655
+
+4 of 19
+
+Figure 2. CNN Architecture.
+
+As can be seen in the ﬁgure, the anuran call is located in the interval (2.5, 3.5 s) of the
+sample. The mel-spectrogram allows identiﬁcation, in the image, of both the location of
+the call and the range of frequencies and amplitudes of the same.
+
+2.2.3. Design and Training
+
+As detailed in the introduction, a CNN is a type of neural network basically composed
+of convolution layers and pooling layers. For the design of this work, the convolution
+layers extract features from the mel-spectrograms, preserving the relationship between
+pixels by learning image features using small squares of input data. Thus, the role of a
+convolution layer is to detect call or vocalization features at different positions from the
+input feature maps with these learnable ﬁlters. The pooling layers are used to reduce the
+dimensionality of the previous layers. For this work, max pooling was used. This type of
+pooling calculates the maximum value in each patch of each feature map.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't any explicit mention of strategies employed to handle randomness in the deep learning pipeline, such as managing random seed values. However, it does discuss some common practices in designing and training Convolutional Neural Networks (CNNs), which could indirectly address concerns related to randomness.
+
+One approach mentioned is the use of balanced sampling when creating the test dataset. By selecting one audio sample out of every five for each type of anuran call, they ensure that the test set remains representative and diverse, reducing potential biases introduced by randomness during selection.
+
+Additionally, the context mentions that 80% of the samples were used for training and 20% for testing. This methodology is commonly used to improve model generalization and avoid overfitting. While not directly addressing randomness, this practice helps create a more robust and reliable model, mitigating the impact of random factors like initial weights or random shuffling of data.
+
+Lastly, the context describes the specific architectural choices made for the CNN, including filter sizes, kernel sizes, and the number of neurons in the fully connected layer. These decisions contribute to the overall performance and stability of the model, potentially making it less sensitive to variations caused by randomness in the deep learning pipeline.

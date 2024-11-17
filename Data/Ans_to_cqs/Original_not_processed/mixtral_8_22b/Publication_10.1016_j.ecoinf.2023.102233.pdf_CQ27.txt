@@ -1,0 +1,115 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Active  learning  iterations  used  a  batch  size  of  64,  ten  epochs  and 
+learning rate of 0.001. We used a grid search technique (Mohri et al., 
+2018) to tune hyperparameters of the final model including the number 
+of epochs, batch size and learning rate. 
+
+2.3.3. Active learning framework 
+
+We  applied  an  active  learning  approach  to  iteratively  train  and 
+improve  the  CNN  model.  The  active  learning  approach  is  depicted 
+within Fig. 3 and described below.
+
+Sankupellay, M., Konovalov, D., 2018. Bird call recognition using deep convolutional 
+
+neural network, ResNet-50. In: Proceedings of Acoustics. 
+
+Sekercioglu, C.H., et al., 2008. Climate change, elevational range shifts, and bird 
+
+extinctions. Conserv. Biol. 22 (1), 140–150. 
+
+Settles, B., Craven, M., 2008. An analysis of active learning strategies for sequence 
+
+labeling tasks. In: Proceedings of the 2008 Conference on Empirical Methods in 
+Natural Language Processing, pp. 1070–1079. 
+
+Teixeira, D., et al., 2022. Fledge or fail: Nest monitoring of endangered black-cockatoos 
+using bioacoustics and open-source call recognition. Ecol. Inform. 69, 101656. 
+Thakur, A., Thapar, D., Rajan, P., Nigam, A., 2019. Deep metric learning for bioacoustic 
+
+classification: Overcoming training data scarcity using dynamic triplet loss. 
+J. Acoust. Soc. Am. 146 (1), 534–547. 
+
+Threatened Species Scientific Committee (TSSC), 2005. Commonwealth Listing Advice
+
+Active learning is a powerful method for bioacoustic deep learning, 
+but it poses certain challenges that deviate from the ‘standard recipe’ of 
+bioacoustic deep learning described by Stowell (2022). One challenge is 
+that the active learning process biases labelled data to the model since 
+the model’s predictions guide the annotation process. Resulting labels 
+therefore cannot be used in the model’s evaluation (Ricci et al., 2022; 
+Roh  et  al.,  2019).  Chambert  et  al.  (2018)  and  Ruff  et  al.  (2020) 
+addressed this issue by selecting audio frames for review post-processing 
+based on their model’s predictions. We extended this approach to ac-
+count  for  a  highly  imbalanced  dataset.  Evaluation  of  a  highly  imbal-
+anced dataset through random selection alone would require unfeasibly 
+large numbers of audio frames to be manually reviewed to ensure suf-
+ficient  target  calls  were  captured  to  give  reliable  evaluation  metrics
+
+EcologicalInformatics77(2023)1022334J.M. van Osta et al.                                                                                                                                                                                                                            
+
+Fig. 3. CNN model development pipeline that incorporates active learning iterations to develop a model for identifying calls of the southern black-throated finch.  
+
+Table 1 
+The  number  of  target  and  non-target  audio  frames  used  within  each  model 
+iteration.  
+
+Iteration 
+
+Number of target 
+audio frames 
+
+Number of non-target 
+audio frames 
+
+Train:validation 
+split 
+
+1 
+2 
+3 
+4 
+Final 
+
+model 
+
+254 
+314 
+1044 
+1073 
+1073 
+
+661 
+2642 
+4877 
+5786 
+5786 
+
+70:30 
+70:30 
+70:30 
+70:30 
+100:0  
+
+model, which is described in Section 2.4.1. 
+
+2.4. Model evaluation 
+
+2.4.1. Test dataset
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough information available in the given context to provide a detailed explanation about how the trained deep learning model was deployed. However, based on common practices in machine learning projects, after training and evaluating the model, it might have been serialized into a format such as ONNX, TensorFlow Lite, or PyTorch script, depending on the chosen platform for deployment. This serialized model could then be integrated with various platforms like mobile devices, web applications, or edge computing systems, according to the project requirements.

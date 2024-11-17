@@ -1,0 +1,59 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+This   rising   number   of   digitised   herbarium   sheets   provides   an   opportunity   to   employ
+computer-based   image   processing   techniques,   such   as   deep   learning,   to   automatically
+identify species and higher taxa (Carranza-Rojas et al. 2017, Younis et al. 2018, Carranza-
+Rojas   et   al.   2018)   or   to   extract   other   useful   information   from   the   images,   such   as   the
+presence   of   pathogens   (as   done   for   live   plant   photos   by   Mohanty   et   al.   2016).   Deep
+learning is a subset of machine learning methods for learning data representation. Deep
+learning   techniques   require   huge   amounts   of   training   data   to   learn   the   features   and
+representation of those data for the specified task by fine tuning parameters of hundreds or
+thousands of neural networks, arranged in multiple layers. Learning the value of these
+parameters can take vast computer and time resources, especially on huge datasets.
+
+The most common type of deep learning network architecture being used for extracting
+image   features   is   the   Convolutional   Neural   Network   (CNN)   (LeCun   and   Bengio   1995).
+A convolutional neural network extracts the features of an image by passing through a
+series of convolutional, non-linear, pooling (image downsampling) layers and passes them
+to a fully connected layer to obtain the desired output. Each convolutional layer extracts the
+visual features of the image by applying convolution operations to the image with kernels,
+using a local receptive field, to produce feature maps and passing it as input to the next
+layer. The initial layers in the network compute primitive features on the image, such as
+corners   and   edges,   the   deeper   layers   use   these   features   to   compute   more   complex
+features consisting  of curves and  basic  shapes  and  the   deepest   layers  combine  these
+
+Marco   Schmidt  is   botanist   at   Senckenberg   Biodiversity   and   Climate   Research   Center
+(SBIK-F)   with   a   focus   on   African   savannahs   and   biodiversity   informatics   (e.g.   online
+databases like African Plants - a photo guide and West African vegetation) and is working
+at Palmengarten’s scientific service, curating living collections and collection databases.
+Contributions: concept of study, annotation and verification of herbarium scans, preparation
+of the manuscript.
+
+Claus   Weiland  is   theoretical   biologist   at   SBIK-F’s   Data   &   Modelling   Centre   with   main
+interests in graph neural networks and bio-ontologies. Contributions: Design of the GPU
+platform, data analysis and preparation of the manuscript.
+
+The   model   was   implemented   with   the   Detectron2   (Wu   et   al.   2019)   library   in   PyTorch
+framework and trained using Stochastic Gradient Descent optimiser with a learning rate of
+0.0025 and momentum of 0.9. The anchor generator in the Region Proposal Network (see
+section above on network architecture) had six anchor scales [32, 64, 128, 256, 512, 1024]
+(square root of area in absolute pixels) each with three aspect ratios of [1:2, 1:1, 2:1]. The
+thresholds for non-maximum suppression (NMS) were 0.6 for training and 0.25 for testing,
+respectively.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The deep learning model was implemented using the Detectron2 library in the PyTorch framework. This indicates that the developers utilized PyTorch as their primary tool for building and training the deep learning model. PyTorch is an open-source machine learning library based on Torch, which is used for applications such as natural language processing and computer vision. It is known for its simplicity and ease of use, making it a popular choice among researchers and developers in the field of deep learning.

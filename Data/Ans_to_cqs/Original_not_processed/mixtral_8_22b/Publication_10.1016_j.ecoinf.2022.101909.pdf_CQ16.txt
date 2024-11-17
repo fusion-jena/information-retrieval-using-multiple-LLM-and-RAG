@@ -1,0 +1,112 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+training and 20% for testing with the presence and absence samples. In 
+the training stage, 10% of the dataset was used as a validation subset. It 
+was likely that samples extracted from the same audio file were sepa-
+rated, both for training and for testing and validation. However, this bias 
+was  reduced,  in  the  semi-automatic  labeling  stage,  by  limiting  the 
+extraction of samples to a maximum of three per file. 
+
+The  iterative  learning  process  of  the  model  was  executed  by  pro-
+posing 50 training epochs. The early stopping method was used with a 
+patience equal to 5, to avoid overfitting. In this way, optimal training 
+was achieved at the end of the ninth epoch, reaching a maximum loss of 
+(cid:0) 3  for  the  training  and  validation  subsets 
+4.5×10
+respectively. 
+
+(cid:0) 4  and  1.1×10
+
+2.8. Evaluation
+
+2.4. Feature extraction and visualization 
+
+We  adjusted  the  start  and  end  data  of  all  labels  to  obtain  a  fixed 
+duration of d = 2s. This value represented an attempt to reach a mini-
+mum signal within extended signals and not exceed facing short signals 
+(Fig. 2). 
+
+2.4.1. Spectrograms
+
+(cid:0) 4  and  1.1×10
+
+2.8. Evaluation 
+
+Once the model was trained, we assessed the model’s performance 
+using the split sample subset (spectrograms of two seconds) for testing. 
+Thus, we did not use those samples in the training stage. The multiclass 
+predictions of the model were assessed with the typical indicator series: 
+true  positives  (TP),  false  positives  (FP),  true  negatives  (TN)  and  false 
+negatives (FN). Because the model gave probability values in the [0, 1] 
+range, the prediction depended on a decision threshold θ to define it as 
+positive  (presence)  or  negative  (absence).  With  these  θ-dependent 
+elemental indicators, two useful relationships were obtained, and these 
+helped assess different facets of the model performance. One of them 
+was the precision P: 
+
+P(θ) =
+
+TP
+TP + FP
+
+(1) 
+
+Eq. 1 represents the success number of all presence predictions. On 
+the other hand, the recall R expresses the proportion of well-detected 
+presence—that is: 
+
+R(θ) =
+
+mAP =
+
+1
+Nc
+
+∑Nc
+
+k=1
+
+APk
+
+(4)  
+
+where the Nc  is the number of classes. The advantage of using mAP is 
+that it is independent of the selected threshold for the implementation of 
+the model. The closer its value is to one, the better the model will be. 
+We searched a θ-threshold by class to provide an optimum balance 
+between precision and recall metrics. This was done by observing the 
+highest measure of the harmonic mean (F1score) and the most general 
+measure variations of the Fscore: 
+) P(θ)R(θ)
+P(θ)β2 + R(θ)
+
+1 + β2
+
+Fβ =
+
+(5) 
+
+(cid:0)
+
+This decreased the β  coefficient up to 0.5 to provide a higher pon-
+
+deration to the precision than to the recall (Kahl et al., 2021). 
+
+2.9. Non-acoustic environmental variables
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Training completion is determined using the early stopping method with a patience equal to 5. This means that if the validation loss does not improve after five consecutive epochs, the training process stops to prevent overfitting. In this case, optimal training was achieved at the end of the ninth epoch, reaching a maximum loss of 3 for the training and validation subsets respectively.

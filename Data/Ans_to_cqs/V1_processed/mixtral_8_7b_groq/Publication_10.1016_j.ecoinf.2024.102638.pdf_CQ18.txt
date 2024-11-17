@@ -1,0 +1,11 @@
+The strategy implemented to monitor the model performance during training involves a hyperparameter optimization process, where the performance metrics outlined in Section 2.5 are meticulously evaluated using a designated test set. This test set represents 20% of the dataset, while the remaining 80% is used for training. The division into training and test sets is done through random sampling to ensure both subsets are representative of the overall dataset, thereby minimizing the risk of bias.
+
+During the training phase, the scikit-learn function GridSearchCV is utilized to fine-tune the hyperparameters of each model. A five-fold cross-validation method is employed to enhance the predictive performance of the models. The negative mean square error is set as the target measure.
+
+The models considered in this process include BP (Best Parameter) for EN, KNN, GP, TREE, RF, XGB, SVR, and MLP. The specific hyperparameters adjusted for each model are detailed in the context provided.
+
+The performance of each model is evaluated based on several metrics, including Mean Absolute Error (MAE), Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Percentage Error (MAPE), and Mean Absolute Scaled Error (MASE). These metrics are used to select the most effective models for each target variable.
+
+The visual representation of this model selection process is provided in Fig. 4. Table 4 includes details such as the name of the prediction model, its hyperparameters, the parameters selected during the 5-fold cross-validation, and the hyperparameters adjusted according to the selection criteria to determine the most appropriate configuration for the prediction model.
+
+Therefore, the strategy to monitor model performance during training involves a rigorous hyperparameter optimization process, cross-validation, and the use of various performance metrics. This approach ensures that the models are robust, generalizable, and provide accurate predictions.

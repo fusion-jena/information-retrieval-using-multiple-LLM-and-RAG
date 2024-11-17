@@ -1,0 +1,7 @@
+The hyperparameters of the model are optimized using different methods depending on the specific case. For the two-part split, hyperparameters were tuned using grid search, which performs an exhaustive search over specified parameter values for an estimator. Grid search takes a set of possible values for each hyperparameter that should be tuned and evaluates a model trained on each element of the Cartesian product of the sets. It is an exhaustive search that trains and evaluates a model for each possible combination of the hyperparameter values supplied. This algorithm automatically generates the validation sets internally, so there is no need to generate a validation set to select the best model.
+
+On the other hand, for the RI models, the same initial parameters were set for the analysis of the CS and NW datasets, then a grid search was performed on both datasets with a two-part split to give hyperparameters with the highest level of accuracy. However, grid search was not required for a three-part split, and further tuning of the parameters was done manually.
+
+In contrast, for the RY models, the best performing models (based on MSE) were models with a slow learning rate of 0.005. Additionally, the NW model had a very shallow tree (tree depth of 2). The number of iterations was kept at 500.
+
+Therefore, it can be concluded that the optimization of hyperparameters depends on the specific requirements and characteristics of the dataset being analyzed.

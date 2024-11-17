@@ -1,0 +1,9 @@
+Answer:::
+
+The computing infrastructure used to train the deep learning models consists of Nvidia Tesla V100 GPUs with 16GB of memory. This information is provided in section (b) of the context.
+
+Additional details about the training of the neural networks can be found in Table 2. For the segmentation task, the search space for the number of epochs is 1000, the batch size is 2, the learning rate is 0.008, and the activation function used is Softmax. For the classification task, the search space for the number of epochs is between 500 and 5000, the batch size is between 2 and 128, the learning rate is between 0.0001 and 0.01, and the activation function used is also Softmax. The train/test split for both tasks is 0.9/0.1.
+
+It is important to note that the classifier for fish species classification is based on a residual neural network, which can skip some of its layers. The implementation of ResNet50V2 model in TensorFlow, pre-trained with the ImageNet dataset, was used for this task. The classifier was trained with a total of 86,208 segments. Data augmentation was used during training, which allowed the model to learn in fewer steps and with better accuracy.
+
+Answer:::

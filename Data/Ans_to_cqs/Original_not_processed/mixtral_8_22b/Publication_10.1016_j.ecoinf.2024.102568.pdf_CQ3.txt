@@ -1,0 +1,90 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The LSTM model is trained using the mean squared error (MSE) as 
+loss function and the ADAM optimization (Kingma and Ba (2015)). To 
+avoid overfitting, a dropout layer is added. The dropout layer, described 
+¨
+by 
+Ozgür  and  Nar  (2020),  is  a  regularization  method  that  randomly 
+excludes some inputs from activation and weight updates while training 
+a network. Inputs not set to zero are scaled up by 1/(1 (cid:0) rate) such that 
+the  sum  over  all  inputs  remains  the  same.  The  training  set  is  pre-
+processed using a MinMaxScaler that transforms each feature by scaling 
+it  to  a  [0–1]  range.  The  dimension  of  the  temporal  window  must  be 
+selected  dynamically  considering  the  performance  obtained  with 
+different values on the available dataset. 
+
+In  the  specific  case  of  Modena,  an  Italian  city  spanning  183  km2, 
+
+there are two legal AQ stations denoted by red dots in Fig. 6.
+
+its  past  values  have  decreasing 
+
+For  the  configuration  of  LSTM,  after  evaluating  6,  12,  24,  and  48 
+previous observations in Casarotti (2021), we decided to fix the tem-
+poral window to 12 previous observations (i.e., 2 h of observations) for 
+our use case. Given the selected dimension of the temporal window (x) 
+and the number of features (y), the dataset is reshaped such that each 
+observation consists of x rows and y columns. LSTM was also compared 
+with different RNN architectures such as Multilayer Perceptron (Marius 
+et al. (2009)) and Gate Recurrent Unit (Cho et al. (2014)). LSTM proved 
+to  have  better  results  than  Multilayer  Perceptron,  reducing  RMSE  by 
+5.70% for NO and by 15.23% for NO2, as shown in Casarotti (2021).
+
+Friedman, J., 2002. Stochastic gradient boosting. Comp. Stat. Data Analys. 38, 367–378. 
+
+https://doi.org/10.1016/S0167-9473(01)00065-2. 
+
+Geurts, P., Ernst, D., Wehenkel, L., 2006. Extremely randomized trees. Mach. Learn. 63, 
+
+3–42. https://doi.org/10.1007/s10994-006-6226-1. 
+
+Hengl, T., Nussbaum, M., Wright, M.N., Heuvelink, G.B.M., Gr¨aler, B., 2018. Random 
+
+forest as a generic framework for predictive modeling of spatial and spatio-temporal 
+variables. PEERJ 6, e5518. 
+
+Hochreiter, S., Schmidhuber, J., 1997. Long short-term memory. Neural Comput. 9, 
+
+1735–1780. https://doi.org/10.1162/neco.1997.9.8.1735. 
+
+Hofman, J., Do, T.H., Qin, X., Bonet, E.R., Philips, W., Deligiannis, N., Manna, V.P.L., 
+2022. Spatiotemporal air quality inference of low-cost sensor data: evidence from 
+multiple sensor testbeds. Environ. Model Softw. 149, 105306. https://doi.org/ 
+10.1016/j.envsoft.2022.105306. 
+
+Huang, Qiujun, Mao, Jingli, Liu, Yong, 2012. An improved grid search algorithm of svr
+
+Hafner, H., 2014. Air Sensor Guidebook. US Environmental Protection Agency. https: 
+//cfpub.epa.gov/si/si_public_record_report.cfm?Lab=NERL&dirEntryId=277996&s 
+impleSearch=1&searchAll=air+sensor+guidebook. Accessed: 2023-12-08.  
+
+Zaytar, M.A., Amrani, C.E., 2020. Machine learning methods for air quality monitoring. 
+In: NISS 2020: The 3rd International Conference on Networking, Information 
+Systems & Security, Marrakech, Morocco, March 31 - April 2, 2020, ACM. https:// 
+doi.org/10.1145/3386723.3387835, 16:1–16:5.  
+
+Zimmerman, N., Presto, A.A., Kumar, S.P.N., Gu, J., Hauryliuk, A., Robinson, E.S., 
+
+Robinson, A.L., Subramanian, R., 2018. A machine learning calibration model using 
+random forests to improve sensor performance for lower-cost air quality monitoring. 
+Atmosph. Meas. Tech. 11, 291–313. URL: https://amt.copernicus.org/articles/11/ 
+291/2018/ https://doi.org/10.5194/amt-11-291-2018. 
+
+Costa, C., Pitoura, E. (Eds.), Proceedings of the Workshops of the EDBT/ICDT 2021
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't any information about data annotation techniques used in the given context. However, I can provide general information about common data annotation techniques used in deep learning pipelines. These include bounding box annotation, semantic segmentation, instance segmentation, polygon annotation, key point annotation, landmark annotation, and image classification. Each technique serves a unique purpose depending on the problem being solved. For example, bounding box annotation is often used for object detection tasks, while semantic segmentation is used for pixel-level labeling of images. Instance segmentation combines both object detection and semantic segmentation, allowing for individual objects within an image to be identified and labeled separately. Polygon annotation involves drawing shapes around objects or areas of interest, while key point annotation focuses on identifying specific points within an image. Landmark annotation is similar to key point annotation but is typically used for facial recognition tasks. Image classification involves assigning labels to entire images rather than individual pixels or objects.

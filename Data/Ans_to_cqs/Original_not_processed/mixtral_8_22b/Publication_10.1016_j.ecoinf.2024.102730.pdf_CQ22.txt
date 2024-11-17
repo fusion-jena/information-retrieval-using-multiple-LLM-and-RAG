@@ -1,0 +1,143 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To evaluate how well the models performed, we used three standard
+metrics: MSE, mean average error (MAE), and the coefficient of deter-
+mination (r2). For the grid search, we focused on minimizing the MSE to
+identify the optimal set of hyperparameters. Prior to conducting the grid
+search, we divided our data into a training set (80% of the data) and a
+test set (20% of the data). This split ensures that the models are trained
+on one portion of the data and tested on a separate, previously unseen
+portion, allowing us to assess their ability to generalize to new, unseen
+data accurately.
+
+2.3.3. SHAP values
+
+After training the MLP models, we computed SHAP values using the
+model-agnostic Kernel SHAP method to understand which features are
+most important in predicting the start and (height of the) peak of the
+greening season. We used the implementation in the Python SHAP
+package for this analysis Lundberg et al. (2017).
+
+Table 2
+Overview of the explored ranges of hyperparameters used in the Optuna grid
+search. The optimal values for the three different regression tasks are displayed
+in the right-most three columns.
+
+Description
+
+Range
+
+Number of neurons in first
+
+layer
+
+Number of neurons in
+
+second layer
+Strength of the L2
+
+regularization term
+the solver for weight
+
+optimization
+
+initial learning rate
+
+learning rate schedule for
+
+weight updates
+
+maximum number of
+
+iterations
+
+maximum number of
+iterations with no
+improvement
+
+int: 10, 20, …,
+100
+int: 0, 10, …,
+100
+float: 1e-4 —
+1e-1 logscale
+
+SOS
+
+100
+
+0
+
+POS
+
+PEAK
+
+70
+
+0
+
+30
+
+100
+
+0.0290
+
+0.0010
+
+0.0606
+
+adam, lbfgs
+
+adam
+
+adam
+
+adam
+
+Unfortunately, MLPs are black-box models. This means that, while
+they can approximate any function, it is nearly impossible to determine
+the structure of the approximated function. This led to a whole new field
+within ML, explainable artificial intelligence (xAI), which tries to create
+methods that allow human users to understand the predictions made by
+an ML model (Vilone and Longo, 2021). Some popular examples include
+sensitivity analysis (Zeiler and Fergus, 2014), Local Interpretable Model-
+Agnostic Explanations (LIME) (Ribeiro et al., 2016), and SHapley Ad-
+ditive exPlanations (SHAP) values (Lundberg et al., 2017). This study
+uses the last method, as it is gaining in popularity and is now often used
+in ecology. For example, Masago and Lian (2022) use SHAP values to
+investigate how inter-annual variation in the daily average temperature
+affected the first flowering date or the full blossom date of the Yoshino
+
+Zeiler, M.D., Fergus, R., 2014. Visualizing and Understanding Convolutional Networks.
+Computer Vision–ECCV 2014, 8689, pp. 818–833. https://doi.org/10.1007/978-3-
+319-10590-1_53.
+
+Zhang, X., Friedl, M.A., Schaaf, C.B., Strahler, A.H., Hodges, J.C., Gao, F., Reed, B.C.,
+Huete, A., 2003. Monitoring vegetation phenology using MODIS. Remote Sens.
+Environ. 84, 471–475. https://doi.org/10.1016/S0034-4257(02)00135-9.
+
+Zhang, B., Zhang, L., Xie, D., Yin, X., Liu, C., Liu, G., 2016. Application of synthetic ndvi
+time series blended from landsat and modis data for grassland biomass estimation.
+Remote Sens. 8 https://doi.org/10.3390/rs8010010.
+
+Zhao, Y., Feng, Q., Lu, A., 2021. Spatiotemporal variation in vegetation coverage and its
+driving factors in the guanzhong basin, nw China. Eco. Inform. 64 https://doi.org/
+10.1016/j.ecoinf.2021.101371.
+
+Zmarz, A., Rodzewicz, M., Dąbski, M., Karsznia, I., Korczak-Abshire, M.,
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors used three standard metrics to evaluate the performance of their deep learning models: Mean Squared Error (MSE), Mean Average Error (MAE), and the Coefficient of Determination (r2). They primarily focused on minimizing the MSE during the grid search process to identify the optimal set of hyperparameters. These metrics help measure the quality of the model's predictions and its overall performance.

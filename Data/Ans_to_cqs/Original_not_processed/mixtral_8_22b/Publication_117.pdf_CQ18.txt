@@ -1,0 +1,112 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+science counts of the survey and comparison to expert counts.
+
+tee  that  the  approach  is  transferable  and  how  to  appropriately 
+
+4 |  D I S CU S S I O N
+
+filter the data may be affected by the wording of the guidelines, 
+
+the image resolution and sizes used, or the set of volunteers that 
+
+participate  in  the  project.  Other  more  sophisticated  approaches 
+
+to processing citizen science data have been proposed (Swanson 
+
+From our results, we see that both citizen science and deep learn-
+
+et al., 2016); however, given the range of counts provided by the 
+
+ing methods are capable of producing highly accurate image counts. 
+
+volunteers  and  the  large  errors  we  observe  in  the  baseline  met-
+
+Counting the wildebeest within the survey images is a difficult and 
+
+rics  (c.  11%  and c.  9%  undercount  for  the  mean  and  median,  re-
+
+time- consuming task. When collecting the census images, there are
+
+four skilled counters c.	3–6	weeks	(Torney	et	al.,	2016).	Automating	
+
+Rosi,  &  Post,  2017),  as  well  as  providing  vital  ecosystem  services 
+
+this aspect of the survey would have two major advantages. First, it 
+
+to human communities around the park (Sinclair, Metzger, Mduma, 
+
+would remove a bottleneck in running the survey. Beyond the actual 
+
+(a)
+
+(b)
+
+(c)
+
+more importantly, reduce the number of empty images that citizen 
+
+account for the large amounts of empty space in the training images. 
+
+counters needed to process.
+
+We achieved this by increasing the weighting (from 0.5 to 2) given to 
+
+Following	initial	trials	on	the	website	in	August	2015,	it	was	de-
+
+the no- object component of the multipart loss function described in 
+
+termined  that  volunteers  would  struggle  to  count  entire  aerial  im-
+
+Redmon et al. (2016). For training, we used transfer learning, again 
+
+ages due to their large size and high resolution. Our solution was to 
+
+using  the  pretrained  general  purpose  YOLO  object  detector  as  a 
+
+split each aerial image into 12 equal- sized tiles. The images were up-
+
+starting point with initial weights created by training on the COCO 
+
+loaded to the Serengeti Wildebeest Count project on the Zooniverse 
+
+dataset (Redmon & Farhadi, 2018). During training, we first froze all
+
+153–159. https://doi.org/10.2307/3546876
+
+Valletta,	J.	J.,	Torney,	C.,	Kings,	M.,	Thornton,	A.,	&	Madden,	J.	(2017).	
+Applications	 of	 machine	
+in	 animal	 behaviour	 stud-
+learning	
+ies.  Animal  Behaviour,  124,  203–220.  https://doi.org/10.1016/j.
+anbehav.2016.12.005
+
+Villa,	A.	G.,	Salazar,	A.,	&	Vargas,	F.	(2017).	Towards	automatic	wild	an-
+imal  monitoring:  Identification  of  animal  species  in  camera- trap 
+images  using  very  deep  convolutional  neural  networks.  Ecological 
+Informatics, 41, 24–32. https://doi.org/10.1016/j.ecoinf.2017.07.004
+Walters,	 C.J.	 (1986).	 Adaptive  management  of  renewable  resources.  New 
+
+York, NY: Macmillan Publishers Ltd.
+
+Weinstein,	B.	G.	(2018).	A	computer	vision	for	animal	ecology.	Journal of Animal 
+Ecology, 87, 533–545. https://doi.org/10.1111/1365-2656.12780
+Wilcove, D. S., & Wikelski, M. (2008). Going, going, gone: Is animal mi-
+gration disappearing. PLoS Biology, 6, e188. https://doi.org/10.1371/
+journal.pbio.0060188
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The strategy implemented to monitor the model performance during training involves several steps. Initially, the authors use transfer learning, starting with a pretrained general-purpose YOLO object detector trained on the COCO dataset. They then freeze all layers except the last one, which they fine-tune for the specific task of counting wildebeests in aerial images. To address the issue of class imbalance between objects (wildebeests) and background (no-object), they increase the weighting given to the no-object component of the multipart loss function from 0.5 to 2. This helps the model better account for the large amounts of empty space in the training images. Additionally, the authors split each aerial image into 12 equal-sized tiles to facilitate easier processing by citizen scientists participating in the project on the Zooniverse platform. However, the text does not provide explicit details about other strategies such as validation sets, early stopping, or learning rate adjustments typically employed to monitor model performance during training.

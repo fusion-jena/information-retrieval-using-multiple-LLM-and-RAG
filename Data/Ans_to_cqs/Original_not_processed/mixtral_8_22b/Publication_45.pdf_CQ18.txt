@@ -1,0 +1,65 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+In the training phase of a DNN the connection weights (w in 
+Figure 1) between neurons are iteratively updated by a training 
+algorithm  to  minimize  the  prediction  error  over  the  training 
+data  set  (see  Supplementary  Material  S2  for  more  details). 
+In  order  to  gauge  the  accuracy  of  predictions  for  new  input 
+data  (i.e.,  data  not  used  during  training),  the  available  data  is 
+frequently split into a training data set (used for training), and 
+a test data set. The details of the network architecture, such as 
+the  size  of  the  network,  the  selection  of  specific  layer  types, 
+and parameters of the training process strongly determine the 
+prediction  accuracy  of  the  network  and  are  usually  problem 
+specific. More information on deep learning is available in e.g., 
+Angermueller  et  al.  (  2016),  LeCun  et  al.  (2015)  and  Nielsen 
+(2015).  Moreover,  the  Supplementary  Material  S2  provides  a
+
+The  full  data  set  comprised  of  1.87  million  data  points  for 
+training the DNN. Each training example xi consisted of the cells 
+in a moving window around the focal cell (window size of 19 × 
+19), describing the local host tree distribution and the outbreak 
+activity in the preceding two years, as well as the two auxiliary 
+variables mean annual temperature and outbreak stage. Each xi 
+thus contained 19 x 19 = 361 + 2 = 363 input variables. The size 
+of 19 × 19 cells represents a rectangular area with a distance from 
+the target cell of between 270 and 382 m in each direction, which 
+corresponds to the dispersal distance of >95% of the bark beetles 
+(Kautz et al., 2011). The response variable yi was the state of the 
+focal cell (disturbed/undisturbed) in the current year.
+
+guide for designing and training of DNNs, as well as practical 
+considerations for DNN applications.
+
+The hyper-parameters evaluated iteratively were network capacity 
+(number of layers and neurons per layer), applied regularization 
+techniques, as well as the used loss function and optimizer. The 
+training of the individual candidate networks was stopped when 
+the accuracy of the network on the test dataset did not increase 
+further.  The  thus  determined  network  architecture  was  also 
+used for Experiment 2 (Abadi et al., 2016). All experiments and 
+predictions  were  conducted  using  the  TensorFlow  framework 
+and  run  on  a  desktop  PC  with  an  Intel  QuadCore  CPU  (Intel 
+i5-6600) and equipped with an NVidia GTX 1070 GPU.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+During the training phase of the Deep Neural Network (DNN), the strategy implemented to monitor its performance involved splitting the available data into a training data set and a test data set. This approach allowed for gauging the accuracy of predictions for new input data that wasn't utilized during the training phase.
+
+Moreover, the training of individual candidate networks was halted once the accuracy of the network on the test dataset ceased to improve further. This method ensured that the network didn't continue training beyond its optimal point, preventing potential overfitting or underperformance due to unnecessary computational cycles.
+
+Additionally, various hyper-parameters were evaluated iteratively throughout this process. These included network capacity (defined by the number of layers and neurons per layer), applied regularization techniques, the chosen loss function, and the optimizer. By adjusting these elements, researchers could fine-tune the model's performance and ensure it remained accurate and efficient.
+
+All experiments and predictions were carried out utilizing the TensorFlow framework, running on a desktop computer equipped with an Intel QuadCore CPU (Intel i5-6600) and an NVidia GTX 1070 GPU.

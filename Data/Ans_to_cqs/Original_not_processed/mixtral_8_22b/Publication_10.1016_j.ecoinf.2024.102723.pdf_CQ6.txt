@@ -1,0 +1,77 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+An overview of the created neural networks architecture is shown in
+
+Fig. 4.
+
+In the MCD network we have two fully-connected hidden layers with
+32 nodes each, ‘ReLU’ (Rectified Linear Unit) as activation function,
+dropout rate equal to 0.1 (determined with a 10-fold Cross Validation
+using both the training and validation subsets) and parameters initial-
+ized using the GlorotNormal initializer of Keras.2 The optimizer is Adam
+and the starting learning rate is set to 0.001. These implementation
+details are summarized in Algorithm 1.
+
+The Neural Networks were built from scratch, implemented using
+TensorFlow (tf) (Abadi et al., 2015) and Keras (Chollet et al., 2015).
+Coupled with TensorFlow, an open-source framework developed by
+Google, Keras serves as a high-level Neural Networks API, offering a
+seamless and user-friendly approach to building, training, and deploying
+deep learning models. The MCD layers consist of a modification of the
+Keras Dropout class, while the layers based on the VBI method derive
+from the TensorFlow Probability (tfp) module (in particular, we used the
+DenseVariational type of layers). These two architectures have the same
+input and output layers, they differ for the structure of the hidden layers.
+The size of the input layer depends on the problem we are facing: it has
+two nodes, one for DOY and the other for GDD. As our focus will be on
+dealing with regression problems, the output layer is actually a combi-
+nation of a fully-connected layer (or Dense layer) with two nodes and a
+
+Fig. 4. Neural networks architecture consists of: an input layer with two nodes, one for DOY and the other for GDD; two hidden layers with 32 nodes each, Dense
+layers with Monte Carlo Dropout in the MCD approach, DenseVariational layers in the VBI approach; an output layer which is the combination of a Dense layer with
+two nodes and a DistributionLambda layer that maps the values of these two nodes into the parameters of a Gaussian distribution, used to predict the BBCH value.
+
+Fig. 5. Prediction, over 1000 runs, of the BBCH_res value of a single test point. The actual value is BBCH_res = 4. In blue we have the result of the VBI approach, in
+red that of the MCD approach. (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+
+Fig. 6. Performance of the two different architectures during the prediction phase on test set. Temperature threshold, Tbase, is set to 0
+interval is shown using the percentiles.
+
+◦
+
+In the VBI network we have two hidden layers (DenseVariational
+layers) with 32 nodes each; as expected, the total number of model
+parameters (approximately) doubles compared to the MCD network. For
+Bayesian Neural Networks normal priors are often used, for this reason
+in our model we decided to start with normal priors with zero mean and
+unit variance.3 The posterior is determined using a mean field approx-
+imation and minimizing the KL divergence; the KL term needs to be
+scaled with the number of samples per epoch (Duerr et al., 2020). The
+activation function is still the ‘ReLU’. The optimizer is Adam and the
+starting learning rate is set to 0.01. These implementation details are
+summarized in Algorithm 2.
+
+4. Results
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the given context, there isn't any explicit mention of specific preprocessing steps taken before training the deep learning models. However, some common preprocessing techniques used in machine learning include data normalization or standardization, feature scaling, handling missing values, outlier detection and removal, encoding categorical variables, and splitting datasets into training, validation, and testing sets.
+
+Data normalization involves transforming features so that they fall within a similar range, typically between 0 and 1 or -1 and 1. This can help improve convergence when training certain types of models like neural networks. Standardization scales features such that their mean becomes 0 and their standard deviation becomes 1. Feature scaling ensures all features contribute equally to the final results.
+
+Handling missing values might involve imputation methods where missing values are replaced with estimated ones derived from existing data points. Outliers could potentially skew results, hence detecting and removing them may sometimes be necessary. Encoding categorical variables converts non-numeric categories into numerical representations suitable for modeling purposes. Lastly, dividing datasets into separate parts allows us to train models effectively without introducing bias due to overfitting.
+
+While these general practices apply broadly across many applications, the exact preprocessing steps depend largely on the nature of the dataset and the requirements of the chosen model architecture. Therefore, without further information about the specific dataset and model used here, I cannot provide a definitive list of preprocessing steps employed prior to training the deep learning models mentioned in the context.

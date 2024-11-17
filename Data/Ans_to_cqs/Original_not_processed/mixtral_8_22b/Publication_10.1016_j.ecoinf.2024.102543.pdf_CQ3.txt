@@ -1,0 +1,83 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+During  the  preprocessing  phase,  techniques  like  auto-orientation, 
+resizing,  tiling,  and  filtering  were  utilized  to  standardize  and  enrich 
+the dataset. These steps ensured that the images were consistently ori-
+ented,  had  a  uniform  size  of  640  × 640  pixels,  and  contained  a  sub-
+stantial  amount  of  annotated  data,  meeting  the  90%  annotation 
+
+threshold. Augmentation played a crucial role in further diversifying the 
+dataset. By introducing random saturation adjustments to each training 
+example, the number of outputs per example was increased to two. This 
+augmentation  strategy 
+intensity, 
+contributing to a more comprehensive and robust training dataset. 
+
+introduced  variations 
+
+in  color
+
+◦
+
+The original dataset used in this study consisted of 903 images with 
+at least one annotation. These raw images were first manually annotated 
+using Make Sense, with a single “bug” class, fully containing the visible 
+outline of the NBSB insects. We then applied several preprocessing and 
+augmentation  steps  to  the  annotated  images  using  Roboflow  tools  to 
+enhance the dataset's diversity and increase its size for more effective 
+model training. These steps generated additional data points, ultimately 
+expanding the dataset to 4000 images. The dataset was obtained at the 
+end of these steps, as shown in Fig. 3.
+
+On the positive side, a smaller model might generalize better on data 
+from previously unseen domains or categories, with a reduced capacity 
+to  memorize  training  data;  the  model  may  focus  on  learning  more 
+generic  features  that  can  be  useful  across  different  datasets  (Seema-
+kurthy et al., 2022). As we will see later, this is a goal we seek in our 
+model. 
+
+A reduction in the number of filters can lead to faster inference times. 
+Using  smartphone  applications,  the  model  may  process  images  more 
+quickly, making it suitable for real-time applications or scenarios that 
+demand rapid detection, such as NBSB detection and counting (Diwan 
+et al., 2023). However, care must be taken, as if the number of filters is 
+decreased,  the  model  might  become  more  prone  to  overfitting  the
+
+introduced  variations 
+
+in  color 
+
+The  training  set,  comprising  the  majority  of  the  data  (82%),  con-
+taining 4000 images, is used to train the model and adjust its parame-
+ters, allowing it to learn from a diverse range of examples and patterns in 
+the data. The validation set (13%), consisting of 607 images, is utilized 
+during  training  to  fine-tune  hyperparameters  and  assess  the  model's 
+performance on unseen data, helping to prevent overfitting and ensuring 
+generalization. Lastly, the testing set (5%), which included 260 images, 
+serves  as  an  independent  evaluation  of  the  model's  performance  on 
+completely unseen data, providing a reliable measure of its real-world 
+effectiveness and ability to generalize. 
+
+2.3. Performance evaluation 
+
+To evaluate the ablated model results, we use five metrics, namely 
+Precision (Eq. (1)), Recall (Eq. (2)), mAP0.5 and mAP0.5:0.95, related to 
+Eq. (3), Params(M), Flops(G), Inference(ms) and Time(h). 
+
+Precision =
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, the data annotation technique used is manual annotation using Make Sense. Specifically, a single "bug" class was created to fully contain the visible outline of the NBSB insects. Although not explicitly mentioned, this method likely involves either bounding box annotation or pixel-level semantic segmentation, both common techniques for object localization and classification tasks. Bounding boxes draw rectangles around objects of interest, while semantic segmentation assigns labels to individual pixels within an image. Given the description of outlining the insects, it seems plausible that semantic segmentation was employed in this case.

@@ -1,0 +1,99 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Parameter amount = k2.Cin.Cout
+
+(14)  
+
+(15) 
+
+Understanding  the  computational  cost  and  parameters  of  a  single 
+layer allows for precise estimation and control of the total requirements 
+of our model. Computational complexity is quantified in FLOPs, calcu-
+lated considering the convolutional kernel size (k2), the number of input 
+Cin  and output Cout  channels, and the feature map’s height (hout) and 
+width  (wout).  FPS  measure  the  model’s  speed,  encompassing  pre-
+processing, inference, and non-maximum suppression speeds, providing 
+an overall assessment of the model’s efficiency in real-time applications. 
+
+4.4. Results
+
+tionally, our technique is compared with state-of-the-art deep learning models, and from the baseline model we 
+recorded  a  17.65%  increase  in  FPS,  28.55%  model  parameters  reduction,  and  50.92%  in  FLOPs  reduction. 
+Furthermore, our model has a faster model loading time, which is critical for deployment in remote areas. This 
+enables real-time species recognition on basic hardware, aiding conservation efforts through rapid analysis. The 
+model advances deep learning in ecology by balancing efficiency with performance.
+
+∫ 1
+
+AP =
+
+P(R)dR
+
+0
+
+(12) 
+
+A higher AP value indicates improved accuracy across various object 
+classes. Specifically, AP0.5:0.95  represents the AP calculated over an IoU 
+range from 0.5 to 0.95 in increments of 0.05, while AP0.5 refers to the AP 
+at a 50%IoU threshold. The mAP is defined as the mean of all AP values, 
+as detailed in Eq. (13). For computational analysis, Eq. (14) presents the 
+FLOPs  for  a  single  convolutional  layer,  and  Eq.  (15)  outlines  the 
+parameter count for the same. 
+
+mAP =
+
+1
+n
+
+∑n
+
+i=1
+
+APi
+
+(13)  
+
+FLOPs = k2.hout.wout.Cin.Cout
+
+Parameter amount = k2.Cin.Cout
+
+(14)  
+
+(15)
+
+Fig. 19. Precision metric for the Wild Animal Facing Extinction dataset (WAD), Fishmarket dataset, and MS COCO 2017 dataset with baseline model and our model.  
+
+Fig. 20. mAP@IoU0.5 metric for the WAD, Fishmarket dataset, and MS COCO 2017 dataset with baseline model and our model.  
+
+Fig. 21. mAP@IoU0.5:0.95 metric for WAD, Fishmarket dataset, and MS COCO 2017 dataset with baseline and our model.  
+
+EcologicalInformatics80(2024)10254114S.R. Bakana et al.                                                                                                                                                                                                                              
+
+Fig. 22. Parameter amount, FLOPs, and FPS for the WAD, Fishmarket dataset, and MS COCO 2017 dataset with baseline model and our model.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The paper uses several metrics to evaluate the performance of their deep learning model. These include precision, average precision (AP), mean Average Precision (mAP), and Intersection over Union (IoU).
+
+Precision measures the proportion of true positive predictions made by the model relative to the total number of positive predictions made. A higher precision value indicates fewer false positives, meaning the model is better at correctly identifying objects within its class.
+
+Average precision (AP) is a metric that summarizes the precision-recall curve into a single value. It calculates the area under the precision-recall curve, where a larger area corresponds to a more accurate model. In this study, two types of AP are reported: AP0.5 and AP0.5:0.95. AP0.5 represents the AP calculated at a 50% IoU threshold, while AP0.5:0.95 represents the AP calculated over an IoU range from 0.5 to 0.95 in increments of 0.05.
+
+Mean Average Precision (mAP) is another metric used to evaluate the performance of the model. It is defined as the mean of all AP values, as shown in Equation (13).
+
+Intersection over Union (IoU) is a metric used to determine how well the predicted bounding box matches the ground truth bounding box. It is calculated as the ratio of the intersection area between the predicted and ground truth bounding boxes to the union area between them. A higher IoU value indicates a better match between the predicted and ground truth bounding boxes.
+
+Overall, these metrics provide a comprehensive evaluation of the model's performance in terms of both accuracy and efficiency.

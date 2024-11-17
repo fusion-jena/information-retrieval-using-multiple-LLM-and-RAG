@@ -1,0 +1,67 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.3. Model performance 
+
+All algorithms were evaluated using the same dataset, and five EL 
+models were established for both the Chla concentration and turbidity: 
+RF,  GBDT,  LightGBM,  XGBoost,  and  CatBoost.  Before  tuning  each 
+model, we established a benchmark model with default parameters to 
+evaluate  whether  parameter  adjustments  had  a  beneficial  impact  on 
+model performance. Hyperparameter optimisation was performed using 
+
+both the random grid search and Bayesian optimisation methods, which 
+were  implemented  using  GridSearchCV  from  Scikit-learn  and  the 
+Hyperopt  library (version 0.2.7).  We selected the best  parameters  for 
+each model and compared the results.
+
+L). Overall, the performance of RF and GBDT was weaker than that of 
+CatBoost. However, in our experiment, the training and hyperparameter 
+optimisation times for CatBoost were significantly longer than those of 
+the  other  models,  which  may  be  due  to  the  complex  internal  feature 
+processing  of  the  model  and  the  fact  that  we  did  not  use  a  GPU  for 
+training. For Nansi Lake, XGBoost demonstrated the highest robustness 
+for estimating the water Chla concentration and turbidity.
+
+The results for the five models are shown in Fig. 8, the graph within 
+the  graph  represents  a  comparison  of  the  measured  and  predicted 
+values. First, using 20 spectral bands (Table 2) as training features and 
+the Chla concentration as the target, LightGBM and XGBoost achieved 
+the best performance. LightGBM achieved the highest R2  (0.8390) and 
+Slope (0.8126), while XGBoost had the lowest RMSE (5.0617 μg/L) and 
+MAE (3.9776 μg/L), this indicates that the models had the smallest er-
+rors  between  their  predicted  values  and  the  measured  values.  Next, 
+using 17 spectral bands (Table 2) as training features and turbidity as the 
+target, XGBoost achieved the best theoretical generalisation ability in 
+five-fold cross-validation (R2 = 0.7927, RMSE = 2.1747 μg/L, Slope =
+0.7791, MAE = 1.6791 μg/L). This was slightly better than LightGBM 
+(R2 = 0.7915, RMSE = 2.1816 μg/L, Slope = 0.7812, MAE = 1.7091 μg/
+
+RF is the first algorithm selected as a representative of the bagging 
+algorithm family, Random Forest (RF) is the first algorithm we selected 
+(Breiman,  2001).  Taking regression  as  an example,  its  core idea  is  to 
+construct multiple weak learners in parallel and ultimately output the 
+result as the average of the weak learners to enhance model accuracy. In 
+addition,  we  chose  several  Boosting  algorithms.  The  GBDT,  improves 
+upon the initial boosting algorithm by introducing the concepts of fitting 
+residuals and sampling (Friendman, 2001). XGBoost, built upon GBDT, 
+it  incorporated  a  structural  risk  term  into  the  loss  function  L(y,y ˆ), 
+forming the objective functionO(y,y ˆ), XGBoost also introduced a novel 
+impurity measure metric, which considers complexity in splitting rules 
+(Chen and Guestrin, 2016). Additionally, it employs new tree-building 
+processes, such as estimation greedy algorithms, parallel learning, and
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To monitor the model performance during training, two strategies were employed: random grid search and Bayesian optimization. These strategies were used for hyperparameter optimization, which aimed to improve the performance of the machine learning models. The implementation of these strategies was done using GridSearchCV from Scikit-learn and the Hyperopt library (version 0.2.7). After selecting the best parameters for each model, the results were then compared to evaluate the effectiveness of the chosen strategies.

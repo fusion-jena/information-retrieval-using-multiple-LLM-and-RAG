@@ -1,0 +1,41 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Remote Sens. 2021, 13, 3495
+
+8 of 29
+
+layer 5 and a batch normalization layer after hidden layer 2 increased the testing accuracy
+of the model. These additional layers—dropout and batch normalization—reduce the
+over-ﬁtting of the model on the training data and increase generalization on testing data.
+The hyperparameters in this network—the learning rate, number of epochs, and batch
+size—were further tuned such that the testing accuracy and the kappa were the best among
+all models. The optimized hyperparameter values for learning rate and batch size were
+0.007 and 48, respectively.
+
+Figure 4. Network architecture implemented for the Deep Neural Network (DNN) model along
+with the number of neurons that were optimized for each hidden layer. The output layer contains
+11 neurons, corresponding to the number of classes to be classiﬁed.
+
+2.7. Accuracy Assessment
+
+[42]. The RBF kernel requires tuning of two parameters—C and γ. Choice of the C parameter in-volves a trade-off between correct classification and maximization of the margin. Thus, a smaller C value will result in a wider margin and thus a lower accuracy. The γ value con-trols the radius of influence of the training samples. Thus, a greater value will result in a model that overfits on the training data and poor generalization on the testing data. The best values for C and γ were optimized using GridSearchCV (scikit-learn 0.24) and were found to be 1000 and 1, respectively. 2.5. Random Forest (RF) The RF algorithm constructs multiple decision trees (DTs), or classifiers, that each predict a class [43]. Each tree within the RF is created using different training data subsets, which are selected through repetition and replacement of the original training dataset. This repetition and replacement create a ‘bagged’ dataset for each of the decision trees within the random forest. The
+
+a batch normalization layer after hidden layer 2 increased the testing accuracy of the model. These additional layers—dropout and batch normalization—reduce the over-fitting of the model on the training data and increase generalization on testing data. The hyperparameters in this network—the learning rate, number of epochs, and batch size—were further tuned such that the testing accuracy and the kappa were the best among all models. The optimized hyperparameter values for learning rate and batch size were 0.007 and 48, respectively.  Figure 4. Network architecture implemented for the Deep Neural Network (DNN) model along with the number of neurons that were optimized for each hidden layer. The output layer contains 11 neurons, corresponding to the number of classes to be classified. 2.7. Accuracy Assessment To compare the accuracy of various models independent testing data, i.e., same for all models, is used for model evaluation. The confusion/error matrix and subsequent met-rics are
+
+the decision trees within the random forest. The samples that are out of the bag, the so-called out-of-bag samples (OOB), are used for validation of the RF model. The final prediction of the RF is based on the majority vote from all trees. The RF model was created using the sklearn module (scikit-learn 0.24). The number of trees and the maximum number of features to be considered for the best split were tuned via GridSearchCV (scikit-learn 0.24) and were found to be as follows: best number of trees = 130; maximum features required for split = auto.   Remote Sens. 2021, 13, 3495
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The hyperparameters of the model are optimized using GridSearchCV, a function available in scikit-learn 0.24. For instance, in the case of the DNN model, the learning rate, number of epochs, and batch size were optimized by tuning these hyperparameters until the testing accuracy and kappa were the best among all models. The optimized hyperparameter values for learning rate and batch size were found to be 0.007 and 48, respectively. Similarly, for the Support Vector Machine (SVM) model with Radial Basis Function (RBF) kernel, the best values for C and γ were also optimized using GridSearchCV and were found to be 1000 and 1, respectively. In the case of the Random Forest (RF) model, the number of trees and the maximum number of features to be considered for the best split were tuned via GridSearchCV as well.

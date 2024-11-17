@@ -1,0 +1,156 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.1. DeepLabV3+ algorithm 
+
+DeepLabV3+ is a CNN algorithm for semantic segmentation, which 
+is the latest version of the DeepLab algorithms family (Scepanovic et al., 
+2021).  In  the  encoding  stage,  DeepLabV3+ introduces  dilated  convo-
+lutions,  which expands  the  receptive field  without losing information 
+(Fig.  3).  The  Atrous  spatial  pyramid  pooling  module  with  dilated 
+convolution  has  been  mainly  designed  to  appropriately  incorporate 
+multi-scale information. During decoding, it is capable of enhancing the 
+accuracy  of  segmentation  boundaries  by  further  integrating  low-level 
+features with high-level features (Liu et al., 2021a).
+
+During the DeepLabV3+ model training process, feeding large-size 
+images directly to the network may lead to memory overflow. There-
+fore, it is necessary to cut all remote sensing images and semantic labels 
+of land cover classes into a series of regular image blocks for input. To 
+maximize the sample size and maintain consistency with the cropping 
+approach in the model prediction stage, we set the cropping size to 32 ×
+32  pixels  with  a  redundancy  rate  of  0.5.  In  continuing,  70%  of  the 
+dataset  was  used  for  training  and  the  remaining  for  validation.  The 
+training set was enhanced by: (i) Flipping the images and labels along 
+the X or Y axis; (ii) Exchanging between multiple image channels while 
+the  labels remain unchanged; (iii)  Randomly rotating  the images and 
+◦
+labels by 90
+; and (iv) randomly adding noise to the 
+images  while  maintaining  the  labels  unchanged  (Ye  et  al.,  2022).
+
+, and 270
+
+, 180
+
+◦
+
+◦
+
+MRS_DeepLabV3+ integrates  the  classification  results  (in  TIF 
+format) predicted by the DeepLabV3+ algorithm and the segmentation 
+results (in SHP format) obtained from MRS using Python programming 
+language. The main specific steps of this approach have been provided in 
+the following: First, let us count the number of pixels of each category in 
+the current segmentation object area. After that, we select the category 
+with the largest area. Finally, assign the largest category to the current 
+object. The multiple classification models were then constructed based 
+on MRS_DeepLabV3+ (Table 3). 
+
+Table 3 
+Detailed information on the classification models.  
+
+Class 
+
+Amount  Model 
+
+Sensor 
+
+Spatial 
+resolution 
+(m) 
+
+Hierarchy of 
+spatial 
+resolution 
+
+UAV image 
+models 
+
+7 
+
+Satellite 
+image 
+models 
+
+7 
+
+UAV_2m 
+UAV_2.1 
+m 
+UAV_2.5 
+m 
+UAV_5.8 
+m 
+UAV_8m 
+UAV_10m 
+UAV_16m 
+
+GF1_2m 
+
+ZY3_2.1 
+m 
+ZY1_2.5 
+m 
+ZY3_5.8 
+m 
+
+GF1_8m 
+
+ZY1_10m 
+
+GF1_16m 
+
+P4M
+
+SP = 50 
+
+SP = 30 
+
+SP = 15 
+
+UAV_2m 
+GF1_2m 
+
+0.881 
+0.904 
+
+0.792 
+0.876 
+
+0.853 
+0.933 
+
+0.915 
+0.917 
+
+0.894 
+0.905  
+
+EcologicalInformatics81(2024)1025946Z. Chen et al.                                                                                                                                                                                                                                    
+
+Fig. 4. Segmentation results associated with various SPs and classification results of MRS_DeepLabV3+ model (localized zoom-in image).  
+
+Fig. 5. The optimal SP and segmentation time in various datasets.  
+
+EcologicalInformatics81(2024)1025947Z. Chen et al.                                                                                                                                                                                                                                    
+
+Table 5 
+Reduction rates of the OA and kappa in the UAV image models.  
+
+Model
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the data annotation techniques used in the deep learning pipeline. However, it mentions that during the DeepLabV3+ model training process, remote sensing images and semantic labels of land cover classes are cut into a series of regular image blocks for input. This suggests that some form of semantic segmentation annotation might be used, where each pixel in the image is assigned a class label. Additionally, the text describes how the training set is enhanced through flipping, exchanging between multiple image channels, random rotation, and adding noise to the images. These techniques can help improve the robustness and generalization ability of the model but do not explicitly indicate any particular data annotation technique. Therefore, based on the given context, I cannot definitively state what data annotation techniques are used in the deep learning pipeline.

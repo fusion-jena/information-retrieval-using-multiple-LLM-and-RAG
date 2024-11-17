@@ -1,0 +1,87 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+7.1. Performance 
+
+Comparing the results of VR + SVR and LSTM, we can observe that, 
+even if in some cases VR + SVR is performing better than LSTM, the 
+increase in performance is usually less significant. Instead, in most cases 
+where LSTM shows better results it significantly increases accuracy and 
+reduces RMSE, MAE and MRE. Nevertheless, in cases where the size of 
+the training dataset is restricted, the performance of LSTM models may 
+prove to be inadequate. In these cases, the VR + SVR can provide better 
+performance than the LSTM. From our experiments, we observed that a 
+training period with <4000 observations generates a model unable to 
+achieve satisfactory performance levels.
+
+The LSTM model is trained using the mean squared error (MSE) as 
+loss function and the ADAM optimization (Kingma and Ba (2015)). To 
+avoid overfitting, a dropout layer is added. The dropout layer, described 
+¨
+by 
+Ozgür  and  Nar  (2020),  is  a  regularization  method  that  randomly 
+excludes some inputs from activation and weight updates while training 
+a network. Inputs not set to zero are scaled up by 1/(1 (cid:0) rate) such that 
+the  sum  over  all  inputs  remains  the  same.  The  training  set  is  pre-
+processed using a MinMaxScaler that transforms each feature by scaling 
+it  to  a  [0–1]  range.  The  dimension  of  the  temporal  window  must  be 
+selected  dynamically  considering  the  performance  obtained  with 
+different values on the available dataset. 
+
+In  the  specific  case  of  Modena,  an  Italian  city  spanning  183  km2, 
+
+there are two legal AQ stations denoted by red dots in Fig. 6.
+
+its  past  values  have  decreasing 
+
+For  the  configuration  of  LSTM,  after  evaluating  6,  12,  24,  and  48 
+previous observations in Casarotti (2021), we decided to fix the tem-
+poral window to 12 previous observations (i.e., 2 h of observations) for 
+our use case. Given the selected dimension of the temporal window (x) 
+and the number of features (y), the dataset is reshaped such that each 
+observation consists of x rows and y columns. LSTM was also compared 
+with different RNN architectures such as Multilayer Perceptron (Marius 
+et al. (2009)) and Gate Recurrent Unit (Cho et al. (2014)). LSTM proved 
+to  have  better  results  than  Multilayer  Perceptron,  reducing  RMSE  by 
+5.70% for NO and by 15.23% for NO2, as shown in Casarotti (2021).
+
+Fig. 5. Structure of the LSTM cell.  
+
+Several  configurations  of  the  LSTM  architecture  were  tested  and 
+compared  in  Casarotti  (2021)  showing  that  a  three  hidden  layer 
+configuration of LSTM does not radically improve the performances, and 
+with a small training dataset might be affected by overfitting. 
+
+Since the co-location period needs to be as short as possible and deep 
+learning models usually need many input data, the implemented solu-
+tion  of  LSTM  is  a  trade-off  between  reaching  good  performances  and 
+minimizing the dimension of the training data. 
+
+For this reason, the LSTM model implemented has only one hidden 
+layer  of  y  neurons,  where  y  is  determined  based  on  the  number  of 
+training observations: 
+
+y =
+
+Ns
+α*(Ni + No)
+
+where Ns is the number of samples in the training set, Ni is the number of 
+input neurons, No  is the number of output neurons, and α is usually a 
+value between 5 and 10.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the given context, there isn't explicit information about the exact data format used in the deep learning pipeline. However, since the study focuses on air quality prediction using historical data, it can be inferred that the data format used would likely be structured data, such as CSV or similar tabular formats. This assumption is further supported by the mention of using a MinMaxScaler for preprocessing the training set, which is typically applied to numerical data. Therefore, it can be concluded that the data format used in the deep learning pipeline is most likely structured data like CSV.

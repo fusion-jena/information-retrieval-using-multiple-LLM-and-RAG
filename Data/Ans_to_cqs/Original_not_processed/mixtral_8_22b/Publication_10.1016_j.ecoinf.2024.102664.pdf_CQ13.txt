@@ -1,0 +1,142 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1 
+The  adjustment  process  of  solver  for  training  network  and  input  time  series 
+length for all deep learning models.  
+
+RMSE (10 μg/L) 
+
+Solver for training network (5 Days) 
+
+Input time series length 
+
+adam 
+
+sgdm 
+
+RMSProp 
+
+3 Days 
+
+7 Days 
+
+CNN 
+
+LSTM 
+
+CNN-LSTM 
+
+A 
+B 
+C 
+A 
+B 
+C 
+A 
+B 
+C 
+
+3.17 
+0.62 
+0.43 
+2.09 
+0.54 
+0.33 
+2.19 
+0.56 
+0.35 
+
+3.23 
+0.67 
+0.44 
+2.13 
+0.55 
+0.33 
+2.20 
+0.57 
+0.38 
+
+3.22 
+0.63 
+0.42 
+2.18 
+0.55 
+0.37 
+2.27 
+0.60 
+0.36 
+
+2.69 
+0.64 
+0.46 
+2.13 
+0.65 
+0.48 
+2.18 
+0.61 
+0.36 
+
+3.32 
+0.63 
+0.41 
+2.13 
+0.57 
+0.73 
+2.21 
+0.52 
+0.34
+
+3.3. Main influence parameters 
+
+Sensitivity experiments were conducted to investigate the impact of 
+different  parameters  on  the  hybrid  CNN-LSTM  model,  as  shown  in 
+Fig. 10. In the region with high Chl concentrations (point A), excluding 
+the Chl parameter from the model input resulted in the largest increase 
+in  RMSE,  indicating  that  Chl  is  the  most  critical  factor  affecting  the 
+model’s forecasting performance. Conversely, in the region with low Chl 
+concentrations (point C), excluding the Wind-U and Current-U param-
+eters led to a significant increase in RMSE, highlighting these parameters 
+as the primary factors affecting model accuracy in low-value regions. In 
+the medium-value region (point B), the absence of the Wind-U param-
+eter also increased RMSE, though the impact was more pronounced in 
+the low Chl concentrations region. 
+
+4. Discussion
+
+The  forecast  performance  of  deep  learning  models  varies  across 
+different Chl concentration regions. In the high Chl concentration region 
+(point A), the R2  values are the lowest, while in the low Chl concen-
+tration region (point C), the R2 values are the highest (Fig. 6). Among the 
+models,  the  hybrid  CNN-LSTM  consistently  achieves  the  highest  R2 
+values  across  all  regions,  whereas  the  CNN  model  has  the  lowest  R2 
+values (Fig. 6).
+
+In this study, the structure of the CNN model includes an image input 
+layer, a convolutional layer with a kernel size of 2 × 2 × 25, a maximum 
+pooling layer with a kernel size of 2 × 2, two fully connected layers, and 
+a regression output layer (Fig. 2c). The number of nodes in the first fully 
+connected layer is 10, and in the second fully connected layer is 1. The 
+structure of the LSTM model includes a sequence input layer, an LSTM 
+layer with 60 nodes, two fully connected layers, and a regression output 
+layer (Fig. 2c). The number of nodes in the first fully connected layer is 
+10, and in the second fully connected layer is 1.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, it appears that the deep learning models used in this study include CNN, LSTM, and CNN-LSTM. However, the specific hyperparameters such as learning rate or optimizers used for each model are not explicitly mentioned in the provided context.
+
+From Table 1, we can see that three different optimizers - Adam, SGDM, and RMSProp - have been used for training the networks. But the exact learning rates associated with these optimizers are not specified. Similarly, the input time series lengths for the models are listed as 3 days, 7 days, and unspecified (represented by 'A', 'B', and 'C'), but other crucial hyperparameters like batch size, epochs, or weight initialization methods are not mentioned.
+
+Therefore, based on the available context, I cannot provide detailed information about the hyperparameters used in the deep learning models. It would be necessary to refer to additional resources or documentation related to this study to find out more about the specific hyperparameter settings employed.

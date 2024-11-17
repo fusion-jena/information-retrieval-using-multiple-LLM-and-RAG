@@ -1,0 +1,11 @@
+The data was split for deep learning model training using specific criteria. The full dataset was divided into two main groups: training and test, with a ratio of 80% and 20% respectively. This division allowed for a sufficient amount of data to be used for training the models while also reserving some data for testing the models' performance.
+
+To maintain the proportional representation of each species (class) in the training and test groups, the images within each class were split along the 80:20 ratio. This step is crucial to ensure that the models are trained and tested on a diverse set of images representing all the classes.
+
+Before inputting the images into the models, they were preprocessed. Cropped images were resampled to a standard size for model input. Specifically, images of 224 × 224 pixels were used for ResNet, Wide-Resnet, and MnasNet, while images of 299 × 299 pixels were used for InceptionV3. This step is important to ensure that the models receive input in a consistent format.
+
+An image augmentation strategy was also employed to help reduce overfitting and improve the generality of the models. This strategy included random rotation (≤ 100°), crop (≤ 10%), sheer (≤ 30%), and horizontal flip.
+
+Lastly, to account for the class imbalance in the dataset, predictions were weighted. This step is crucial to ensure that the models do not favor the majority class and can accurately classify the minority classes as well.
+
+In summary, the data was split for deep learning model training by dividing it into training and test groups, maintaining the proportional representation of each species, preprocessing the images, employing image augmentation, and weighting predictions to account for class imbalance.

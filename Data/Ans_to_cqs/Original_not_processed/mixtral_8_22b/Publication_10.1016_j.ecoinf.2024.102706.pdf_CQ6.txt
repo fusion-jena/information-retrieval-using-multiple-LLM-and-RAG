@@ -1,0 +1,174 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+tible to overfitting; therefore, it is crucial to address this issue by tuning
+the hyperparameters.
+
+linear to machine learning methods, were fitted in training data to
+construct regression equations. We used multiple linear regression, Enet,
+SVM, RF, XGboost and LightGBM to predict canopy cover from planet
+data. In general, all the mentioned models are used in machine learning
+as they use algorithms to automatically learn patterns and relationships
+from data to make predictions or decisions. However, we categorised
+
+EcologicalInformatics82(2024)1027065A. Gyawali et al.
+
+Table 4
+The optimised hyperparameter values with grid search range in machine
+learning models.
+
+Model
+
+Hyperparameters
+
+Grid search
+
+Optimised value
+
+Enet
+
+SVM
+
+RF
+
+Xgboost
+
+LightGBM
+
+α
+l1_ratio
+
+Cost (C)
+gamma
+Kernal
+epsilon
+
+n_estimators
+max_features
+max_depth
+min_samples_split
+min_samples_leaf
+
+n_estimators
+max_depth
+colsample_bytree
+min_child_weight
+subsample
+learning_rate
+
+n_estimators
+max_depth
+learning_rate
+num_leaves
+feature_fraction
+bagging_fraction
+bagging_freq
+
+and time overhead (Ke et al., 2017). LightGBM sets itself apart from
+other tree-based methods through its leaf-wise splitting approach, which
+generates more intricate trees. These trees are adept at minimising loss,
+leading to enhanced accuracy. The splitting process is guided by a
+unique sampling method called Gradient-Based One Side Sampling
+(GBOSS) (Ke et al., 2017). This method excludes data with small gra-
+dients while utilising the remainder for estimating information gain and
+facilitating tree growth. A collection of hyperparameters, such as lear-
+ning_rate, max_depth, bagging_fraction, bagging_freq, and n_estimators,
+controls the algorithm. These parameters are crucial in shaping how the
+leaves are structured within the trees. The model's complexity gradually
+rises as the tree grows, guided by these parameters. Simultaneously, loss
+decreases, and the algorithm becomes more adept at learning from the
+data, thereby improving its efficiency. Moreover, this model is suscep-
+
+Model
+
+Train
+
+Test
+
+Linear Regression
+Elastic Net
+Support Vector Machine
+Random Forest
+Extreme Gradient Boosting
+Light Gradient Boosting Machine
+
+R2
+
+0.58
+0.58
+0.66
+0.66
+0.66
+0.69
+
+R2
+
+0.59
+0.59
+0.63
+0.64
+0.64
+0.64
+
+RMSE
+
+rRMSE (%)
+
+MAE
+
+0.17
+0.18
+0.17
+0.16
+0.16
+0.16
+
+23.28
+23.30
+22.26
+22.00
+21.95
+21.92
+
+0.14
+0.14
+0.12
+0.13
+0.12
+0.12
+
+cover. The interquartile range for observed: Q1 = 65%, Q2 (median) =
+86%, and Q3 = 96%, and predicted: Q1 = 63%–69%, Q2 = 83%–87%,
+and Q3 = 88% –91%. The minimum and maximum canopy cover for
+observed and all the models are 0% and 100%, respectively. Similarly,
+the density of the observed and predicted canopy cover is higher in Q3 as
+the violin's shape is expanded in those regions.
+
+3.3. Variable importance
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model, several preprocessing steps may be involved depending on the specific requirements of the dataset and the problem being addressed. Some common preprocessing techniques include:
+
+1. Data Cleaning: This involves removing any irrelevant, redundant, or corrupted data points from the dataset. It also includes handling missing values, outliers, and inconsistent data entries.
+
+2. Normalization/Standardization: Deep learning models often perform better when input features have similar scales. Therefore, normalizing or standardizing the data helps ensure that each feature contributes equally during the learning process. Common techniques include min-max normalization, z-score normalization, and mean normalization.
+
+3. Feature Scaling: Similar to normalization, feature scaling ensures that all input features fall within a certain range, typically between 0 and 1 or -1 and 1. This step is essential when using optimization algorithms like gradient descent, where large differences in scale could lead to slow convergence or poor performance.
+
+4. Encoding Categorical Features: Since neural networks only accept numerical inputs, categorical variables need to be converted into numerical representations. Techniques like one-hot encoding, label encoding, or binary encoding can be employed based on the nature of the variable.
+
+5. Splitting Dataset: Before training the model, the dataset should be divided into three subsets: training set, validation set, and test set. Typically, the ratio is around 70:15:15 or 80:10:10. This allows us to evaluate the model's performance accurately and prevent overfitting.
+
+These preprocessing steps help improve the overall quality of the dataset, making it easier for the deep learning model to extract meaningful insights and generate accurate predictions.

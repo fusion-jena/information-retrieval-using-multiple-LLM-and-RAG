@@ -1,0 +1,84 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.2. Performance of CNN models vs. humans
+
+On average, each human identiﬁed 270 ﬁsh thumbnails during the
+20-min test. Mean rate of correct classiﬁcation for humans was of
+89.3% with a standard deviation of 6% (Table 4). Rate of correct
+classiﬁcation achieved by the best model on the same thumbnails was
+of 94.9% with a standard deviation of 3.3%. Correct classiﬁcation rate
+by the best model ranged from 88.2% (Abudefduf sparoides) to 98.2%
+(Abudefduf vaigiensis). For only one species (Zanclus cornutus), the best
+model had a lower performance than humans but both were higher than
+97%. The mean time needed to identify a ﬁsh by humans was 5 s, with
+
+241
+
+S. Villon et al.
+
+Ecological Informatics 48 (2018) 238–244
+
+2.4. Testing the performance of models
+
+We ﬁrst compared the performance of the 4 models trained using
+each of the 4 training datasets. In addition, we tested the performance
+of models after correcting their raw outputs using two a posteriori de-
+cision rules. First, since the networks trained with T2, T3 or T4 are
+likely to recognize environment samples with a high conﬁdence score
+(over 99%) they could thus classify some ﬁsh as an environment class
+(i.e. false positive). We therefore deﬁned a decision rule (r1): when the
+ﬁrst proposition of the network was ‘environment’ with a conﬁdence
+lower than 99% we provide, as ﬁnal output, the ﬁsh class with the
+highest probability.
+
+Similarly, as “part of species” classes present in T4 were just a
+methodological choice to improve model performance (and hence were
+absent from the test database), we deﬁned a second decision rule (r2):
+when the result given by the network is “part of species X", we provide,
+as ﬁnal output, “species X".
+
+We used a GoogLeNet architecture as it was the winner of the 2015
+competition imageNet (Szegedy et al., 2015), an identiﬁcation chal-
+lenge on 1000 diﬀerent classes. This CNN is composed of 22 layers. It
+uses inception modules. Inception modules allow the network to use
+convolutions of diﬀerent sizes (1*1, 3*3 and 5*5 pixels) and to weight
+each of these convolutions. This network could thus account more or
+less strongly for the context of each pixel, which increases the range of
+possibilities to improve its performance during the training.
+
+A link to a depository with architecture details is given at the end of
+references. We stopped the network training after 70 epochs (i.e. a
+complete scope of the dataset where each image is used only once), to
+−5, an exponential
+prevent overﬁtting. We used a learning rate of 10
+learning decay with a Gamma of 0.95, a dropout of 50% and an Adam
+Solver type as learning parameters. Those are classic hyper-parameters
+for a fast convergence of the network without over-ﬁtting (Srivastava
+et al., 2014). The weight initialization is also classic with a random
+Gaussian initialization. The training lasted 8 days on our conﬁguration;
+we trained and ran our code on a computer with 64GB of RAM, an i7
+3.50GHz CPU and a Titan X GPU card for 900,000 images.
+
+We used at least 2200 thumbnails per ﬁsh species class, and batches
+
+240
+
+S. Villon et al.
+
+Ecological Informatics 48 (2018) 238–244
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The performance of the deep learning model is evaluated based on several metrics such as accuracy, precision, and recall. However, in this study, the primary metric used to assess the performance of the models is the rate of correct classification. The mean rate of correct classification for humans was found to be 89.3%, while the best model achieved a rate of 94.9%. Additionally, the standard deviation of the correct classification rates was reported for both humans and the best model. These results indicate that the best model outperformed humans in terms of the rate of correct classification.

@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+to  augment  60 
+
+times 
+
+All the CNNs in this study were initialised to pre-trained ImageNet 
+weights as this was the most common approach reported in the literature 
+surveyed.  We  compared  12  popular  CNN  architectures  (Table  2).  For 
+each one we removed the classifier and created a randomly initialised 
+(using Xavier initialisation (Glorot and Bengio, 2010)) two-unit softmax 
+output layer. This was done as it is the simplest possible implementation 
+and relates to the goals of this study in keeping the details simple, and to 
+facilitate understanding and usage. We compared two main approaches 
+for transfer learning. The first was to freeze the feature extractor and 
+fine-tune the output layer (denoted as no fine-tuning), and the second was 
+to fine-tune both the feature extractor and the output layer (denoted as
+
+Since CNNs require a fixed input size, we studied the vocalisations 
+within the presence class for each dataset to determine the character-
+istics of the calls which would allow us to create fixed input, which we 
+refer to as segments. For example, the Hainan gibbon calls vary from 2 to 
+9 s (Dufourq et al., 2021), and thus a suitable input size was 4 s to ensure 
+that the smallest call would fit within the segment. A longer input (>4 
+seconds) would result in CNNs with more network parameters, an un-
+desirable consequence as this would increase the chances to overfit. A 
+shorter input (<4 s) would not contain enough information, especially 
+in cases where the individual pulses that make up a call are long. A short 
+input could omit parts of the call. Preliminary experiments were con-
+ducted on the different datasets to minimise the input length as much as 
+possible,  thus  minimising  network  parameters.  The  characteristics  of
+
+this case a CNN – will consistently perform well across all applications 
+and datasets. Table 4 shows that, VGG16 for example, obtained the best 
+results on three configurations, but also did not achieve equally as good 
+results  on  other  configurations.  ResNet101V2  and  ResNet152V2  on 
+average  performed  well  across  nearly  all  configurations  and  we  thus 
+recommend that either of these architectures are used as a starting point 
+for  researchers  wanting  to  use  pre-trained  CNNs  for  bioacoustics 
+research. 
+
+The experiments presented in Fig. 6 reveal that if very little data is 
+available – in our case 25 examples – that pre-trained ResNet152V2 with 
+the feature extractor frozen can yield good performance (up to 82% F1 
+score  on  the  lemurs,  77%  on  the  gibbons  and  75%  on  the  whydah 
+dataset).  This  suggests  that  when  conducting  an  acoustic  survey,  a
+
+consuming step which involves exploring various neural network hyper- 
+parameters to obtain the most optimal model. When combined, these 
+three  problems  render  the  creation  and  utilisation  of  CNNs  to  solve 
+bioacoustics research questions challenging to machine learning experts 
+and non-experts alike.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, the given context does not provide specific information about the data augmentation techniques applied in the deep learning pipeline. However, based on general practices in deep learning, some commonly used data augmentation techniques include flipping, rotation, scaling, cropping, zooming, shifting, shearing, and brightness adjustment. These techniques help improve the robustness and generalization ability of models by increasing the diversity of training data without collecting new samples. In the context of image classification tasks using Convolutional Neural Networks (CNNs), such as those mentioned in the provided text, data augmentation techniques like flipping, rotation, and scaling are often employed to enhance the performance of the models.

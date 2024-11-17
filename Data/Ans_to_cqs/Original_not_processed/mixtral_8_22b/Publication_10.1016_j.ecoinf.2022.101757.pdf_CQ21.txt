@@ -1,0 +1,96 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+EcologicalInformatics70(2022)1017573Data selectionModel segmetationReal distance extractionMetric extractionLUCASimagesNorth looking images2018 with LC =B:CroplandE:GrasslandsInferenceDeeplabv3+with COCOclassesConditionalRandomFields to getdetailedskylineBinarization ofthe results skyvs otherExtraction ofthe classesbelow skyExtraction ofthe skylineFilter imagesthat havenaturalobjects belowthe skySelection ofreference pointsfrom the photoand associationto the classifiedobjectOrthophotosExtraction ofdistancesTopographicmapsCreation ofmetrics perclass objectNormalizedSegmentLengthSamplevarianceAverageabsolutedeviationExtraction ofmetricsL. Martinez-Sanchez et al.
+
+To extract meaningful information for the purpose of our study, the 
+delineation  of  the  skyline  has  to  be  highly  detailed.  The  detection  of 
+edges or object boundaries in semantic segmentation tends to be blurry 
+as the loss of effective spatial resolution associated with the learning of 
+contextual  information  by  the  net  diminishes  high-frequency  details 
+(Hariharan et al., 2015; Shelhamer et al., 2017). We address this prob-
+lem by applying a Conditional Random Fields (CRF) (Kr¨ahenbühl and 
+Koltun,  2011).  The  ability  to  capture  fine  details  with  a  CRF 
+
+compensates the limited performance of these kind of nets to generate 
+precisely delineated objects. 
+
+To  measure  the  increase  in  detail  of  the  skyline  using  CRF,  we 
+calculated the length of the signals extracted with and without CRF and 
+evaluated the gain length as: 
+
+gCRF =
+
+(cid:0)
+
+len
+(
+
+)
+
+ysky[x]
+
+len
+
+ynoCRF
+sky
+
+[x]
+
+) (cid:0) 1
+
+(1)
+
+1. Introduction
+
+Contents lists available at ScienceDirect 
+
+Ecological Informatics 
+
+journal homepage: www.elsevier.com/locate/ecolinf 
+
+Skyline variations allow estimating distance to trees on landscape photos 
+using semantic segmentation 
+
+Laura Martinez-Sanchez 1, *, Daniele Borio 1, Rapha¨el d'Andrimont, Marijn van der Velde 
+
+European Commission, Joint Research Centre (JRC), Ispra, Italy   
+
+A R T I C L E  I N F O    
+
+A B S T R A C T    
+
+Keywords: 
+Semantic segmentation 
+Conditional random fields 
+COCO 
+Landscape 
+Openness 
+Image depth
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, several postprocessing steps can be applied depending on the specific requirements of the project. Based on the given context, some possible postprocessing steps include:
+
+1. Model Segmentation: After training the DeepLabv3+ model with COCO classes, the trained model is used to perform semantic segmentation on input images. This step involves classifying each pixel into one of the predefined categories based on its visual features.
+
+2. Real Distance Extraction: To estimate distances from the camera to various objects in the scene, real distance extraction techniques such as triangulation or stereoscopic vision may be employed. These methods rely on multiple views of the same scene captured from different angles or positions.
+
+3. Metric Extraction: Once the distances have been estimated, relevant metrics like Normalized Segment Length, Sample Variance, Average Absolute Deviation, etc., can be calculated for each identified object category. These metrics help quantify the characteristics of the detected objects and their distribution within the image.
+
+4. Skyline Extraction & Filtering: Since the focus of this research is on measuring skyline variations, it becomes essential to accurately identify and extract the skyline from the segmented images. Postprocessing steps might involve binarizing the results, filtering out images lacking natural objects beneath the sky, selecting reference points, and associating them with the corresponding classified objects.
+
+5. Orthophoto Processing: For further analysis, orthophotos can be generated from the original images using topographical maps. These orthophotos provide accurate representations of the terrain while preserving the geometric properties of the original images.
+
+6. Evaluation: Finally, evaluations like calculating the gain length using equation (1) mentioned in the paper could be performed to assess the improvement achieved through the application of Conditional Random Fields (CRF) during postprocessing.

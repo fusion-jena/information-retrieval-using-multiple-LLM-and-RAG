@@ -1,0 +1,9 @@
+In the context of Variational Autoencoders (VAEs), one method used to prevent overfitting and improve the structure of the latent space is through the use of a regularization term, denoted as ℒreg. This term is part of the modified objective function for the VAE, given by ℒβ(cid:0) VAE = ℒrec + βℒreg, where ℒrec represents the reconstruction loss and β is a hyperparameter controlling the balance between the reconstruction and regularization losses.
+
+The regularization term itself is based on the Kullback-Leibler divergence (KLD), which measures the difference between the learned distribution and the desired prior distribution. By minimizing the KLD, we encourage the learned distribution to closely follow the prior distribution, thus promoting a more structured and smoother latent space.
+
+To further enhance the regularization effect, a technique called β-annealing is often employed. This involves gradually increasing the value of β from a small starting value until it reaches a predetermined maximum. This gradual increase helps stabilize the training process and mitigate potential issues such as posterior collapse, where the learned representations become too simplified due to excessive regularization.
+
+Recently, another approach using cyclical β values has been suggested to achieve even better performance. This method involves periodically varying the value of β within a certain range, allowing for dynamic adjustment of the regularization strength throughout the training process.
+
+While these techniques do not directly correspond to traditional regularization methods like dropout or L2 regularization, they serve a similar purpose in preventing overfitting and improving generalizability in the context of VAEs.

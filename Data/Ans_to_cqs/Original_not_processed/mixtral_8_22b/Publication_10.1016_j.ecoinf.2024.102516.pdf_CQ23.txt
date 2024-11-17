@@ -1,0 +1,94 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+A R T I C L E  I N F O    
+
+A B S T R A C T    
+
+Keywords: 
+Plant biodiversity 
+Plant cover 
+Deep learning 
+Convolutional neural networks 
+Semantic segmentation 
+Artificial intelligence
+
+We utilize these metrics to compare the different model setups and 
+
+EcologicalInformatics80(2024)1025168M. K¨orschens et al.                                                                                                                                                                                                                             
+
+Table 1 
+The investigation results on the two datasets. “FPN PX N” denotes the usage of a Feature Pyramid Network with layer X and N features. Abbreviations: MSAE - Mean 
+Scaled Absolute Error, IoU (Plants) - the intersection over union averaged over all plant species, DPC - DCA-Procrustes-Correlation. Top results are marked in bold font. 
+All results are averaged over three repetitions.  
+
+Network Configuration 
+
+Pre-Training Dataset 
+
+No Cover Training (Zero-Shot) 
+
+Cover Training   
+
+FPN P0 128 
+FPN P1 256 
+FPN P2 512 
+FPN P0 128 
+FPN P1 256 
+FPN P2 512 
+FPN P0 128 
+FPN P1 256 
+FPN P2 512 
+
+ImageNet 
+
+GBIF Natural 
+
+GBIF Preserved 
+
+MSAE
+
+In this phase the network is trained with the mean scaled absolute 
+error as regression loss, using a batch size of 1, an input image resolution 
+(cid:0) 5. Moreover, we utilize 
+of 1536 × 768 pixels, and a learning rate of 10
+only horizontal flipping for data augmentation in this phase. 
+
+2.5. Baseline comparison 
+
+To also have a comparison of our method with a simpler approach, 
+we compare our results with the ones from a ResNet50 that was pre- 
+trained  on  the  ImageNet  classification  dataset  (Russakovsky  et  al., 
+2015) with added FPN, later also referred to at ImageNet baseline model. 
+As the ImageNet dataset is a normal classification dataset that does not 
+contain the plant species from our dataset, this network cannot be uti-
+lized  for  zero-shot  cover  prediction.  Hence,  we  only  evaluate  this 
+network after training it on our dedicated plant cover data.
+
+2.4. Network setup for investigations 
+
+For extracting plant species cover information for our investigations, 
+we  use  the  same  setup  as  described  in  K¨orschens  et  al.  (2021b)  with 
+slight differences. During all three phases, we use a ResNet50 (He et al., 
+2016),  which  is  initialized  with  ImageNet  (Russakovsky  et  al.,  2015) 
+weights from Keras (Chollet et al., 2015) before phase 1 and phase 2, as 
+well as the AdamW optimizer (Kingma and Ba, 2014; Loshchilov and 
+Hutter, 2017). During each phase, we use the ResNet in conjunction with 
+a  Feature  Pyramid  Network  (FPN)  (Lin  et  al.,  2017)  to  increase  the 
+network output resolution. Phase-specific parameters are listed in the 
+
+EcologicalInformatics80(2024)1025167M. K¨orschens et al.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The authors utilized diverse datasets such as GBIF Natural and GBIF Preserved for their study. They used a ResNet50 architecture with weights initialized from ImageNet and employed a Feature Pyramid Network (FPN) to improve the network output resolution. To train the network, they used a combination of mean scaled absolute error as regression loss, a batch size of 1, an input image resolution of 512 x 512 pixels, and a learning rate of 10^-5. Data augmentation techniques like horizontal flipping were applied during the training process. However, there is no explicit mention of specific methods like cross-validation or stratified splitting being used to ensure the generalizability of the deep learning model.

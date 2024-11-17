@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+respectively.  N  represented  the  number  of  images  in  the  test  set  or 
+validation set. 
+
+2.2.6. Model training and hyper-parameters 
+
+We  trained  models  on  the  training  sets  and  tracked  the  model 
+training process on the validation set. The training process was stopped 
+when  the  loss  value  of  the  model  on  the  validation  set  no  longer 
+decreased. We then tested the model performance on the test set. Our 
+computing platform was a Dell PowerEdge C4130 rack server with two 
+Tesla  K80  GPUs  and  256  GB  of  memory.  For  the  deep  learning  envi-
+ronment,  we  utilized  the  PyTorch  1.7.1  platform.  We  employed  the 
+Stochastic Gradient Descent (SGD) optimizer with a momentum value of 
+μ  = 0.9 to train the model. Other hyper-parameter settings for model 
+training were shown in Table S.4 of the Supporting Information. 
+
+3. Results 
+
+3.1. Experiment results of transfer strategy optimization
+
+2.2.1. DCNN model architecture 
+
+To carry out our experiments, we used the ResNext-101 model (Xie 
+et  al.,  2017),  which  is  a  member  of  the  ResNeXt  family  of  models. 
+ResNeXt model combines the advantages of the ResNet (He et al., 2016) 
+and InceptionV3 (Szegedy et al., 2016) models. ResNet and InceptionV3 
+models  are  widely  used  for  empty  camera  trap  image  recognition 
+(Norouzzadeh et al., 2021, 2018; Willi et al., 2019; Yang et al., 2021c). 
+The ResNeXt series models exhibit a remarkably similar architecture to 
+the  ResNet  series  models  that  are  extensively  used  for  recognizing 
+camera trap images (Meng et al., 2023; Norouzzadeh et al., 2021, 2018; 
+Willi et al., 2019; Yang et al., 2021b). Therefore, the findings of ResNext- 
+101 can be generalized to the ResNet family of models.
+
+When it comes to selecting update layers, we recommend selectively 
+updating the last few layers of the DCNN model to enhance its perfor-
+mance in empty image recognition. This approach can lead to a signif-
+icant  improvement  in  the  model’s  performance,  as  opposed  to  solely 
+updating  the  fully  connected  layer.  Specifically,  when  using  a  model 
+from  the  ResNext  or  ResNet  family  pre-trained  on  ImageNet  as  the 
+source model, we recommend using TLS_4 as the transfer strategy. In 
+contexts where pronounced discrepancies exist between the target and 
+source  domain  datasets,  it  could  prove  advantageous  to  augment  the 
+number of convolutional layers subject to update. For example, in the 
+case  of  ResNext  series  models,  using  TLS_3  can  further  enhance  the 
+performance of the transfer model.
+
+Experimental results on test sets showed that when the DCNN model 
+was transferred from the ImageNet dataset to the SS or LSM dataset, the 
+accuracy of the transfer learning model was always better than that of 
+the model trained from scratch (Figs. 5–6). This was observed no matter 
+which transfer strategy was employed. When the model was transferred 
+from ImageNet to the LSM dataset (Fig. 5), TLS_4 was found to be the top 
+performer among the five transfer strategies, while TLS_1 ranked lowest. 
+TLS_4  updated the  Conv5 and  the FC layers  of the  ResNext-101, con-
+trasting with TLS_1, which updated all layers except the Conv1. Notably, 
+the  widely  used  strategy  of  updating  solely  the  fully  connected  layer 
+(TLS_5)  achieved  only  the  fourth  rank.  Across  different  sample  sizes, 
+TLS_4 achieved accuracies of 92.4%, 92.6%, 93.75%, 94.0%, and 94.3%, 
+respectively. Conversely, TLS_5 displayed accuracies of 89.5%, 89.9%,
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In this study, the authors use a Deep Convolutional Neural Network (DCNN) model called ResNext-101. This model belongs to the ResNeXt family of models, which combine the advantages of both the ResNet and InceptionV3 models. These types of models are commonly used for empty camera trap image recognition tasks. The specific version of the model used here is ResNext-101, which has a structure very similar to the popular ResNet series models. The authors suggest that their findings regarding the performance of ResNext-101 can also apply to other models within the ResNet family.

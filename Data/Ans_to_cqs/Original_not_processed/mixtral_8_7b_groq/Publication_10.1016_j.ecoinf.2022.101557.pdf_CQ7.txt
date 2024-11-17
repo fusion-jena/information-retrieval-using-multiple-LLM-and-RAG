@@ -1,0 +1,11 @@
+Answer:::
+
+The data is split for deep learning model training using a 10-fold cross validation method. This approach is utilized to ensure that the model's result is generalizable for the remaining maps, where the Convolutional Neural Network (CNN) is also applied. 
+
+To create the 10 different sets for the cross validation, a 3 × 3 grid is placed over the map, dividing it into 10 sections. The central cell, which contains more area than the other 8, is split into two cells, making it 10 sets in total. During the training of the CNN, 9 of these sets are used for the training, and the final one is used for evaluation. 
+
+Moreover, 20% of the samples used for the training are used as a validation set to prevent overfitting. Overfitting is a situation where the model learns the training data too well, including its noise and outliers, and performs poorly on unseen data. The validation set is used to fine-tune the model's parameters and prevent overfitting.
+
+The CNN is trained for 150 epochs with a batch size of 128. Dropout with a rate of 0.3 is used during the training to make it more stable. ADAM optimisation with a learning rate of 0.0001 is used to find the optimal weights in the neural network, minimizing the cross entropy loss between the network’s predictions and the pre-labelled data.
+
+In addition, the data is first split up into several larger blocks based on coordinates for cross-validation. These blocks are then split into many smaller areas of 80 × 80 pixels due to limitations in the available amount of pixels. This division of the data provides a good challenge to the CNN, as the terrain and style of the maps differ in the different areas.

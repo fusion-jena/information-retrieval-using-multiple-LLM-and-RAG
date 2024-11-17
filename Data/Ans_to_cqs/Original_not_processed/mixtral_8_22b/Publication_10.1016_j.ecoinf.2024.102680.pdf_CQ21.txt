@@ -1,0 +1,126 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+the  feature  information,  leaving  the  other  half  unprocessed.  The  un-
+processed half is directly concatenated with the post-processed features. 
+To  avoid  information  loss  and  extract  more  complete  information
+
+formula  is  shown  in  Eq.  (14),  where  preprocess  represents  the  pre-
+processing time of the image, inference is the inference time of the image, 
+postprocess is the post-processing time of the image, and their units are 
+milliseconds (Noman et al., 2023). 
+
+Precision = TP
+
+FP + TP
+
+Recall = TP
+
+FN + TP
+∫
+
+1
+
+P(R)dR
+
+0
+
+∑M
+
+i=1
+
+AP(i)
+
+AP(i) =
+
+AP = 1
+M
+
+(10)  
+
+(11)  
+
+(12)  
+
+(13)  
+
+EcologicalInformatics82(2024)1026808H. Zhou et al.                                                                                                                                                                                                                                    
+
+Fig. 8. Structural diagram of the LKSP module.  
+
+Table 1 
+Detailed descriptions of the evaluation metrics.  
+
+Metric 
+
+Description 
+
+Table 2 
+Hyperparameter settings for different object detection algorithms.  
+
+Method 
+
+Optimizer 
+
+Learning rate  Momentum  Weight_decay 
+
+AP 
+
+AP50 
+AP75 
+Parameters 
+FLOPs 
+
+FPS
+
+2.2.1.
+
+Input 
+
+The input layer of UODN performs preprocessing operations on the 
+initial images. Preprocessing operations include resizing the images to 
+the  required  size  and  applying  algorithms  such  as  mosaic  data 
+augmentation. These preprocessing steps make the distribution of the 
+input  data  more  uniform  and  enhance  the  ability  of  the  model  to 
+represent  the  data,  thereby improving  the  model  performance  during 
+training. 
+
+EcologicalInformatics82(2024)1026805H. Zhou et al.                                                                                                                                                                                                                                    
+
+2.2.2. Backbone
+
+The  first  row  is  the  baseline  model,  YOLOv8s.  Compared  to 
+YOLOv8s, the CSMB and LKSP modules improved the performance of 
+the baseline network. The CSMB module improved the AP50 by 1%, the 
+AP75  by 1.6%, and the AP by 0.8%, indicating that the CSMB module 
+effectively extracted features of underwater objects. The LKSP module 
+also  achieved  outstanding  performance  in  terms  of  AP  values.  It 
+perfectly replaced the SPPF module without significantly increasing the 
+number  of  parameters,  achieving  a  higher  level  of  accuracy  than  the 
+SPPF module. Although both modules increased the number of param-
+eters,  UODN  still  had  fewer  parameters  than  YOLOv8m,  and  its  AP 
+values  were  better  than  those  of  YOLOv8m.  The  parameters  of 
+YOLOv8m increased by 14.7 million, but its AP increased by only 0.6%. 
+The AP values of our LKSP module were similar to those of YOLOv8m, 
+but the LKSP module increased the number of parameters by only 0.6
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training process, several postprocessing steps can be performed depending on the specific requirements of the task or application. Some common postprocessing techniques include generating saliency maps, calculating various evaluation metrics, and creating confusion matrices.
+
+Saliency maps help visualize which parts of the input data contribute most to the final prediction made by the model. This technique highlights important regions within the input data, providing insights into how the model makes decisions.
+
+Calculating evaluation metrics is essential to assess the performance of the trained model accurately. Common metrics used in object detection tasks include precision, recall, F1 score, average precision (AP), mean Average Precision (mAP), Intersection over Union (IoU), etc. Each metric provides valuable insight into the strengths and weaknesses of the model.
+
+A confusion matrix is another useful tool for evaluating classification models. It summarizes the predictions made by the model compared to the actual labels, allowing users to understand the types of errors the model tends to make. By analyzing the confusion matrix, one can identify patterns in misclassifications and take appropriate actions to improve the model's performance further.

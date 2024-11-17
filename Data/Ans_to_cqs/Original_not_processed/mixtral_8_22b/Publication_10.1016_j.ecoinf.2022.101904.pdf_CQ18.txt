@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.4. Impact of data split 
+
+This  section  illustrates  the  impact  of  the  data  split  (i.e.,  test  and 
+training data ratio) on the final accuracy of wetland mapping. By eval-
+uating  the  classification  results  of  the  proposed  model  with  different 
+training data, we will better understand the required amount of data to 
+reach  an  acceptable  wetland  accuracy  level.  This  is  significant  when 
+there is a limited number of reference data in a project. We utilized a 
+
+different ratio of training data from reference data. The training ratio 
+started from 10% to 90%, increasing by 10%. Based on the results, as the 
+amount of data gradually increased, the classification accuracy of our 
+method was improved. This improvement was substantial for increasing 
+the  training  ratio  from  10%  to  30%  (average  accuracy  improved  by 
+17.47%).  However,  average  accuracy  just  increased  by  7.01%  by 
+increasing the training ratio from 30% to 90% (see Fig. 10).
+
+Where γm presents the number of training samples belonging to the 
+wetland class with the highest number of training samples and γi shows 
+the number of training data of other wetland classes. The 3D patches of 
+Sentinel-1/2 imagery with the dimension of γi × S × S × B, as well as the 
+output of the conditional map unit, are employed in each of Ui. Next is to 
+transform the output of the conditional unit map (intermediate feature 
+expressed by If) to a feature with the length of γi. It should be noted that S 
+and B present image patch size (i.e., 8) and the number of utilized bands 
+(i.e., 18). In the GAN network, a dense layer is employed first, followed 
+by  a  softmax  layer.  For  the  generation  of  the  class-specific  random 
+feature (Im) with the dimension of n × γ, the feature vector n = S × S × B 
+times is repeated. The 3D Sentinel-1/2 image patches with the dimen-
+sion  of  γi  × S  × S  × B  are  then  converted  into  a  matrix  (Pm)  with  a
+
+3.6. Cost of computation in terms of time 
+
+The hardware configurations for the experiments in this study con-
+sisted of Intel Core i7-10750H 2.60 GHz CPU, GeForce RTX 2070-MaxQ 
+GPU, and 16GB RAM. As seen in Table 5, the Swin Transformer classifier 
+had  the  least  cost  in  terms  of  time,  with  approximately  1.5  h  of  its 
+required training time, while the CoAtNet algorithm required about 5 h 
+for its training. The proposed 3DUNetGSFormer required around 3.5 h 
+for its training time. 
+
+4. Discussion 
+
+Understanding  dynamic land  cover changes  in wetland-dominated 
+regions such as Canada requires accurate mapping of diverse and com-
+plex  wetland  ecosystems.  Up-to-date  maps  showing  wetlands’  extent 
+and  spatial  pattern  are  critical  for  protecting  and  conserving  these 
+important  ecosystems.  The  rapid  evolution  of  free  access  and  high
+
+cant capability of the proposed classifier in improving the per-class ac-
+curacy of wetlands using a vision transformer (i.e., Swin Transformer), 
+as seen in Table 5.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it appears there isn't explicit information regarding the specific strategy used to monitor the model performance during training. However, some insights can still be derived from the available text.
+
+In Section 3.4, the authors discuss how they evaluated their proposed model with varying amounts of training data to determine the optimal quantity needed to achieve satisfactory wetland mapping accuracy. They started with a 10% training dataset and incrementally increased it to 90%, observing improvements in classification accuracy as more data were added. Notably, the most significant increase occurred between the 10% and 30% ratios, suggesting that a larger dataset may not always yield proportionate benefits.
+
+While this does not directly address the monitoring strategy, it implies that the researchers might have been tracking the model's performance throughout the training process by assessing its accuracy with various training datasets.
+
+Additionally, in Section 3.6, the authors provide details about the computational resources used for their experiments and the time taken for training different models. Although this doesn't explicitly mention any monitoring strategies, it suggests that the researchers could have monitored the progress of their models based on the time taken for training or other relevant metrics.
+
+Unfortunately, without further context or direct statements from the authors, it remains unclear what precise methodology was adopted to track the model performance during training.

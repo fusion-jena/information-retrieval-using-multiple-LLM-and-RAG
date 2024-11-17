@@ -1,0 +1,120 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+All architectures were trained with stochastic gradient descent using a similar protocol,
+with a momentum of 0.9 and starting from an initial learning rate of 10−2. Every 20 epochs,
+the learning rate is divided by 10 until reaching 10−6.
+
+Neural networks do not perform well when trained with unbalanced data sets [41]. In
+the case of “central-pixel labeling” architectures it is possible to make balanced data sets
+with the initial pixels selection used for the learning. In the case of “semantic labeling” the
+composition of the images makes it more difﬁcult to precisely control the number of pixels
+per class. We tried several methods, but found negligible differences in performance. All
+reported experiments use the median frequency balancing method.
+
+3.3.1. Central-Pixel Labeling
+
+3.4. Sampling Method
+
+The SPOT6 satellite data for our ﬁve study areas were preprocessed to be fed into the
+different Deep Learning architectures and the XGBoost model. First, the data were split
+into three mutually exclusive parts: a learning set, a validation set and a test set totally
+independent of the two previous ones.
+
+Four of the ﬁve areas were used for learning and validation. The last, isolated scene
+was then used as the test set. It contained all the classes for the two nomenclatures, the ﬁve
+LC classes, and the 12 LU classes. In addition, this image contained all the environments
+representing the New Caledonian landscape: urban, mining, mountainous and forest
+environment with variations from the coastline to the inland mountain areas. It is on this
+entire scene that the ﬁnal confusion matrix and quality metrics were computed.
+
+conv1
+conv2
+conv3
+conv4
+conv5
+maxpool
+
+Conv
+
+11 × 11
+5 × 5
+3 × 3
+3 × 3
+3 × 3
+2 × 2
+
+Kernels
+
+Stride
+
+Pad
+
+96
+256
+384
+384
+256
+Na
+
+4
+1
+1
+1
+1
+2
+
+0
+2
+1
+1
+1
+0
+
+ResNet (Deep Residual Network, [43]) is a Deep Learning architecture with many
+layers that use skip connections, as illustrated in Figure 4. These skip connections allow
+the bypassing of layers and add their activations to those of the skipped layers further
+down the sequence. The dotted arrows in Figure 4 denote skip connections through a linear
+projection to adapt to the channel depth.
+
+By skipping layers and thus shortening the back-propagation path, the problem of the
+“vanishing gradient” can be mitigated. Figure 4 represents a 34-layer ResNet architecture.
+The ﬁrst layer uses 7 × 7 convolutions, the remaining ones 3 × 3.
+
+Remote Sens. 2021, 13, 2257
+
+9 of 22
+
+Figure 4.
+architecture. The number of kernels is indicated at the bottom of each convolution layer.
+
+In the frame of classiﬁcation of visible satellite data into l classes, the ﬁrst layer
+of a Deep Learning architecture receives an input, generally an image of k channels of
+n × m pixels. The convolutional layers act as ﬁlters that extract relevant features from the
+image. Pooling layers then allow sub-sampling the ﬁlter responses to a lower resolution to
+extract higher-level features with larger spatial context. The last layers map the resulting
+feature maps to class scores. There are two possible strategies: “central-pixel labeling”,
+where a fully connected layer maps the features computed over an entire image patch to a
+1 × l vector of (pseudo-)probabilities for only the central pixel of the patch; or “semantic
+segmentation”, where the high-level features are interpreted as a latent encoding and
+decoded back to a l × n × m map of per-pixel probabilities for the entire patch, where the
+decoder is a further sequence of (up-)sampling and convolution layers. The objective of
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To address data bias during preprocessing of the deep learning pipeline, various techniques are employed. One such technique mentioned in the given context is the creation of balanced datasets. Neural networks often struggle with unbalanced datasets, which can lead to biased results. To overcome this issue, especially in the case of 'central-pixel labeling' architectures, balanced datasets can be created by carefully selecting the initial pixels used for learning. However, in the case of'semantic labeling', controlling the number of pixels per class becomes more challenging due to the composition of the images. Despite trying several methods, no significant difference in performance was observed. Therefore, the reported experiments utilized the median frequency balancing method.
+
+Additionally, the context mentions that the dataset was split into three mutually exclusive parts: a learning set, a validation set, and a test set completely independent of the first two. This approach ensures that the model does not see any part of the testing data during training, reducing the risk of overfitting and improving the generalization capabilities of the model. While specific techniques like stratified splitting, oversampling, undersampling, or diverse data collection are not explicitly mentioned in the context, these could also potentially be applied depending on the nature and distribution of the data.
+
+Therefore, based on the given context, the main technique used to address data bias during preprocessing of the deep learning pipeline is creating balanced datasets, particularly through careful initial pixel selection for 'central-pixel labeling' architectures and employing the median frequency balancing method. Furthermore, the dataset was partitioned into distinct learning, validation, and test sets to prevent overfitting and enhance model generalizability.

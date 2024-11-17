@@ -1,0 +1,144 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+PConv networks 
+
+256 × 256/512 × 512 
+
+1 
+2e-4 
+
+Adam optimizer 
+per-pixel loss, perceptual 
+loss, style loss and total 
+variation loss 
+50 
+Pre-trained on ImageNet 
+
+Pix2Pix 
+networks 
+
+256 × 256/512 
+× 512 
+1 
+9e-5 
+
+Classification 
+networks 
+
+256 × 256/512 
+× 512 
+32 
+0.03 
+
+Adam optimizer 
+Adversarial loss 
+and L1 loss 
+
+Adam optimizer 
+Cross-entropy 
+loss 
+
+50 
+Trained from 
+Scratch 
+
+20 
+Pre-trained on 
+ImageNet  
+
+Input 
+
+dimension 
+
+Batch size 
+Learning 
+rate 
+Optimizer 
+Loss function 
+
+Epochs 
+Pre-trained 
+network 
+
+applied.  All  input  images  were  preprocessed  by  mean  centering  the 
+image with ImageNet values and then rescaled between 0 and 1. Since 
+our dataset was balanced, both networks were trained with a learning 
+rate of 0.03, cross-entropy loss as a loss function optimized by Adam 
+optimizer (Kingma and Ba, 2014). Table 2 summarizes the parameter 
+used for training each model. 
+
+3.4. Performance evaluation
+
+3.3.3. Classification 
+
+Pretrained classification models such as VGG16 have demonstrated 
+to perform well on various plant species identification tasks (Pang and 
+Lim,  2019).  To  train  our  classification  model,  we  adapted  the  vgg16 
+network  pre-trained  on  ImageNet  dataset  (Simonyan  and  Zisserman, 
+2014). The fully connected layers of the networks were replaced with a 
+global max-pooling layer, a dropout layer with a dropout ratio of 0.5 as a 
+network regularizer and single hidden layer with a total of 256 units for 
+a larger image sized model(512 × 512) and 128 units for a smaller image 
+size model (256 × 256). Both networks were trained for 20 epochs with 
+a  batch  size  of 32  and  various data augmentation  techniques such as 
+height and width shift, flipping, zooming and brightness changes were 
+
+Table 2 
+Summary of the model parameters.   
+
+PConv networks 
+
+256 × 256/512 × 512 
+
+1 
+2e-4
+
+The original implementation of PConv network required a two-phase 
+training process (Liu et al., 2018). This is because the generated holes 
+presented  a  problem  for  batch  normalization  layer  when  computing 
+mean  and  variance  of  the  hole  pixels.  In  this  study,  all  models  were 
+trained in a single process while freezing the batch normalization layer 
+in the encoder part as the network used pre-trained weights with a small 
+batch size of 1. The models were optimized using Adam optimizer with a 
+learning rate of 0.0002 while using relu activation for encoder part and 
+leakyRelu  activation  for  the  decoder  part  of  the  network.  All  models 
+were  trained  for  50  epochs.  For  each  training  epoch,  a  model  was 
+evaluated using the validation set and was saved as the best model based 
+on a validation loss. 
+
+3.3.2. Pix2Pix network
+
+In  this  study,  we  have  applied  a  modified  CNN  called  partial 
+convolution (PConv) neural network that has achieved state-of-the-art 
+results  in  various  domains  (Liu  et  al.,  2018).  We  proposed  a  general 
+framework  for  training  and  testing  this  architecture  as  illustrated  in 
+Fig.  2.  This  network  uses  a  new  convolutional  layer  called  partial 
+convolution layer which is designed to replace the normal convolution 
+layers. The network uses a U-net like architecture which is adapted for 
+the image inpainting task. During training, the network uses two inputs 
+including the original image together with its mask indicating the region 
+to  be  reconstructed.  The  inputs  are  passed  to  the  network  layers, 
+composed  of  the  two-components  namely  the  partial  convolution 
+operation and the mask update function. This function is used to update 
+the  mask  as  the  network  progresses  in  deeper  layers.  Given  an  input
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+To prevent overfitting in the deep learning pipeline, several regularization methods can be employed. One common method mentioned in the given context is dropout. Dropout is a technique where randomly selected neurons are ignored during training, which helps to make the model more robust and prevents it from relying too heavily on any one feature. In the case of the classification networks described in the context, a dropout layer with a dropout ratio of 0.5 was used as a network regularizer.
+
+Additionally, another form of regularization not explicitly mentioned but implied through the use of certain optimization algorithms is weight decay or L2 regularization. Weight decay adds a penalty term to the loss function proportional to the sum of squares of all the weights in the network. This encourages smaller weights and discourages complex models, thus helping to reduce overfitting. Optimizers like Adam, which is used in the given context, often incorporate some form of weight decay or L2 regularization.
+
+Other forms of regularization include early stopping, which involves monitoring the performance of the model on a validation set during training and halting the training process once the validation error starts increasing; and data augmentation, which involves applying random transformations to the input data to create additional training examples and increase the diversity of the training set. Data augmentation techniques such as height and width shifts, flips, zooms, and brightness changes were employed in the given context for training the classification networks.

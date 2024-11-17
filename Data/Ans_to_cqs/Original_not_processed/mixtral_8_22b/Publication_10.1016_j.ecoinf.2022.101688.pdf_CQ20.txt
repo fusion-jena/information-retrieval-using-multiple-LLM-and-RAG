@@ -1,0 +1,65 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+CNNs  are  commonly  executed  on  GPU  hardware  which  results  in 
+faster training time. However, we deliberately trained ResNet152V2 on 
+CPUs  in  an  attempt  to  verify  that  training  could  be  executed  on  less 
+expensive hardware. We trained the CNN on a virtual machine running 
+the  “E2asV4”  instance  on  Microsoft  Azure  with  16GB  RAM  and  a 
+2.35Ghz AMD EPYC™ 7452 2 vCPU which at the time of writing cost 
+0.218  USD  per  hour.  When  the  feature  extractor  was  frozen,  it  took 
+between 450 and 780 s to complete one epoch, and when the feature 
+extractor was fine-tuned it took between 2035 and 3100 s per epoch. 
+While these executions are time consuming, these findings reveal that it 
+is  possible  to  train  pre-trained  models  on  less  expensive  hardware 
+making them accessible to researchers and practitioners.
+
+Using  a  pre-trained  CNN  feature  extractor  and  adding  a  softmax 
+output layer is less complex than having to optimise a CNN from scratch 
+and requires less network design decisions and also less time on hyper- 
+parameter tuning. We thus argue that this approach renders the use of 
+deep learning much more accessible to practitioners. Extensive hyper- 
+parameter tuning also requires expensive GPU hardware which might 
+not  be  accessible  to  practitioners.  Our  findings  revealed  that  results 
+could be obtained on limited hardware within 9 h (10 epochs of fine- 
+tuning  the  feature  extractor)  which  would  cost  2USD,  at  the  time  of 
+writing, if that was executed on a Microsoft Azure virtual machine – thus 
+rendering this approach affordable and accessible. 
+
+It is well accepted that no single machine learning algorithm – or in
+
+nus,  the  critically  endangered  black-and-white  ruffed  lemur  Varecia 
+variegata, the vulnerable Thyolo alethe Chamaetylas choloensis, and the 
+Pin-tailed whydah Vidua macroura. Given the recent work in exploring 
+low  resource  devices  by  Disabato  et  al.  (2021),  this  study  will  also 
+demonstrate how transfer learning can be used to train CNNs with fewer 
+neural network parameters and thus enable researchers to train on less 
+expensive hardware.
+
+The third experiment also holds the input representation constant at 
+the  best  value  found  in  experiment  1,  and then  compares  freezing  or 
+fine-tuning  the  feature  extractor.  This  was  done  for  the  12  CNNs  to 
+determine, firstly, which one would benefit the most from fine-tuning 
+the  feature  extractor  and  secondly,  to  determine  the  relative  perfor-
+mance when the feature extractor was frozen. Two configurations for the 
+input size were explored (50 and 100 samples). These two were selected 
+as it contains enough data to observe performance gains as a result of 
+fine-tuning the feature extractor. For this experiment we ran 35 unique 
+executions – a larger number of unique executions to provide a thorough 
+investigation  of  fine-tuning  for  bioacoustics  classification  as  perfor-
+mance gains were observed in computer vision research. Three datasets 
+were used (lemurs, alethe and gibbons).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text mentions that Convolutional Neural Networks (CNNs) are typically executed on GPU hardware due to faster training times. However, in this case, the authors intentionally chose to train their ResNet152V2 model on CPUs instead of GPUs. They used a virtual machine running the "E2asV4" instance on Microsoft Azure, equipped with 16GB RAM and a 2.35GHz AMD EPYC™ 7452 2 vCPU. This setup allowed them to demonstrate that it is possible to train pre-trained models on less expensive hardware, making them more accessible to researchers and practitioners who may not have access to high-end GPU resources.

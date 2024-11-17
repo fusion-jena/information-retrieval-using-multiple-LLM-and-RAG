@@ -1,0 +1,89 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+IV. EXPERIMENTAL SETTINGS
+To extract the relevant features of birds, we randomly split
+the endemic bird data into 3,132 images for training and
+760 images for testing. To allow the deep networks to con-
+verge and improve the ability of the model to generalize
+adeptly, we augmented the training dataset 10 times, resulting
+in a total of 31,320 images. Then, 25,056 (80%) images were
+used for training and 6,264 (20%) were used for validation.
+The Inception-ResNet-v2 model was trained using the mini-
+batch gradient descent algorithm with the batch size set to
+32 and the learning rate maintained at 0.0001. The Adam
+optimizer was used to ﬁne-tune the model with the following
+parameters:
+
+• Exponential decay rate of ﬁrst-moment estimation
+
+of 0.9.
+
+The structure of this paper is organized as follows.
+Section II describes data acquisition and preprocessing of
+acquired dataset to overcome imbalanced and data overﬁt-
+ting. Section III focuses on the deep learning models and
+enhancement of ﬁne grained feature extraction accuracy by
+swapping the misclassiﬁed data between the training and
+validation datasets. Section IV illustrates the experimental
+setting and the hardware requirements. Section V endorses
+the proof of concept and validation of the purposed method-
+ology. Section VI emphasizes the signiﬁcances of endemic
+birds and its habitation. Finally, Section VII summarizes the
+impact of the purposed model and presents directions for
+future study.
+
+The model is then iteratively trained and validated on these
+different sets. The training set is used to ﬁt the parameters of
+the classiﬁer, whereas the validation set provides an unbiased
+evaluation of the model ﬁt on the training set while tuning
+model hyperparameters, such as the network layer size, ﬁnd-
+ing the optimal number of hidden units, and regularizing the
+model. Models with few hyperparameters are easy to validate
+and tune, but if the model has many hyperparameters, a larger
+validation dataset is required. In some cases, the evaluation
+is biased when a validation dataset is not incorporated into
+the model conﬁguration because the model may perfectly ﬁt
+the training data with high accuracy but may fail to ﬁt the
+test or validation data. In such cases, k-fold cross-validation,
+which is a resampling technique, is used to avoid overﬁtting;
+the training set is generated with different combinations of k
+groups (say 5 or 10, depending on the size of the dataset) as
+
+FIGURE 4. Flowchart for model validation.
+
+• Train the Inception-ResNet-v2 architecture on data aug-
+
+mented from original images.
+
+• Test the validation dataset and determine the misclassi-
+
+ﬁed images.
+
+• Randomly interchange the same amount of misclassiﬁed
+validation images with the training images and retrain
+the model again.
+
+• Repeat this process until the classiﬁer adapts to the
+
+speciﬁc target task.
+
+• Fit the model to evaluate the test set.
+In this way, the algorithm can tune itself and improve the
+generalizability of spatial features to the previously unseen
+domains present in the image.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it appears that there isn't explicit information about specific preprocessing steps like normalization, scaling, or cleaning. However, the text does mention that the endemic bird data was acquired and preprocessed to overcome imbalance and data overfitting. This could imply various techniques such as data augmentation, which is mentioned later in the context. Data augmentation involves creating new samples by applying random transformations to the existing data, thus increasing the diversity of the dataset and reducing overfitting. Additionally, the context mentions splitting the data into training and testing sets, which is also a common step in preparing data for machine learning tasks. It's important to note that preprocessing steps can vary greatly depending on the nature of the data and the specific requirements of the model being used. Therefore, without more detailed information, it's difficult to provide a comprehensive list of preprocessing steps involved in this particular case.

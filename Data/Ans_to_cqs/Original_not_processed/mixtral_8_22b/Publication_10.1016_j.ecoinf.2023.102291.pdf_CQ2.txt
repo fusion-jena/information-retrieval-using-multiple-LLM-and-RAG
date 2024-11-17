@@ -1,0 +1,124 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+for the customised architecture (see Convolutional neural networks sec-
+tion),  and  the  smallest  one  comprised  3900  images  combining  two 
+seconds  window  size  and  90  dpi  for  the  transfer  learning  approach 
+(Table 1).
+
+d
+e
+s
+i
+
+m
+o
+t
+s
+u
+C
+
+g
+n
+i
+n
+r
+a
+e
+L
+
+r
+e
+f
+s
+n
+a
+r
+T
+
+1
+≥
+R
+N
+S
+
+y
+r
+a
+r
+b
+i
+L
+
+i
+p
+d
+
+e
+z
+i
+s
+w
+o
+d
+n
+i
+W
+
+size of 32. The most suitable architecture was chosen based on the best 
+validation accuracy (proportion of all correct predictions) and precision 
+(number of true positives divided by true positives and false positives) 
+obtained during training. The model training and prediction procedures 
+were  executed  on  Microsoft  Azure  using  instance  NV12s  v3  with  12 
+vCPUs and 112 GB RAM. The CNNs were implemented using Tensor-
+Flow (Abadi et al., 2016) and Python 3. The Ubuntu 20.04 operating 
+system was used and obtained via the Ubuntu 20.04 Data Science Virtual 
+Machine  on  Microsoft  Azure.  The  algorithm  scripts  are  available  in 
+Supporting Information B. 
+
+2.5. Inference and post-processing
+
+The  algorithm  developed  in  this  study  assisted  in  finding  optimal 
+parameters to construct a suitable training dataset to be used as input to 
+CNNs for classification tasks on complex dolphin sounds. We found that 
+using  shorter  window  sizes  generated  more  accurate  models  for  both 
+tasks (Tables 1 and 2). With a constant dpi, we investigated the impact of 
+window size on the classification of dolphin calls to determine if it was 
+necessary to encompass the longest annotated call (e.g., O. orca whistle) 
+as proposed in previous studies (Dufourq et al., 2021). The comparison 
+of two two-class (i.e., S. plumbea x T. aduncus) models both built using 
+customised architecture and 40 dpi, but with different window sizes (3 s 
+and 7 s, Tables 1 and 2), demonstrated better performance for models 
+built  using  smaller  window  size,  specifically  two  or  three  seconds  in 
+length (Table 1). The best model was built using a two-second window
+
+Fig. 3. The general pipeline of the algorithm used to build (Training) and test (Testing) the models.  
+
+compared,  namely,  a  customised  CNN  (based  on  preliminary  hyper- 
+parameter tuning experiments), and a pre-trained ResNet152V2 archi-
+tecture (He et al., 2016) that demonstrated good performance in animal 
+sound classification tasks (Dufourq et al., 2022). The customised models 
+were composed of three convolutional layers (32 filters, kernel size of 4 
+× 4,  ReLU  activation).  Each  convolutional  layer  was  followed  by 
+
+dropout (rate of 0.4) and a max pooling (kernel size of 4 × 4) layer. This 
+was followed by a fully connected layer with 64 ReLU units, dropout 
+(rate of 0.4), and a softmax function (two units in the case of CNN1, and 
+three  or  four  units  in  the  case  of  CNN2  depending  on  the  number  of 
+species). The models were trained for 50 epochs using the Adam opti-
+mizer (Kingma and Ba, 2014), with a learning rate of 0.001 and a batch
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, it is not explicitly stated what specific data format is used in the deep learning pipeline. However, there are some clues that suggest the use of image data. For example, the mention of "images" and "Convolutional Neural Networks" implies that the data being processed might be in image format. Additionally, the reference to "dpi" (dots per inch) also suggests that the data could be related to images. Therefore, while it cannot be definitively confirmed without further context, it can be inferred that the data used in the deep learning pipeline is likely in image format.

@@ -1,0 +1,107 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+for each k-1 folds do 
+
+1: procedure SPLIT  THE  DATASET  TO  K  FOLDS (state)
+2: 
+3: 
+4: 
+
+for each number of iterations do 
+
+Split the dataset to datasets: k-2 folds (tuning set), and 1-fold (validation 
+
+dataset) 
+
+5: 
+6: 
+7: 
+8: 
+
+Train the model using the tuning set and the number of iterations. 
+Predict using the 1-fold validation set. 
+Calculate the out-of-sample R2. 
+
+Calculate the median of k-1 out-of-sample R2’s for each number of iterations to 
+
+pick the best number of iterations. 
+
+9: 
+
+return a matrix of medians for each fold (k folds) in rows and each number of 
+
+iterations in columns.  
+
+4. Simulations and evaluation 
+
+4.1. Study design and investigations
+
+was used to grow the tree and find the best split variable for each iter-
+ation of the optimization algorithm. The tree was then pruned using 10- 
+fold cross-validation based on the training set. The habitat usage of the 
+test  set  was  then  predicted  to  measure  the  out-of-sample  prediction 
+scores.  For  the  RF  model,  the  number  of  trees  had  to  be  selected,  as 
+described in Section 3.4. In this case, a baseline of 500 trees was set, 
+where each leaf in each tree was a separate original GFR model or RBF- 
+GFR model. 
+
+The XGBoost model was used in combination with the original GFR 
+and RBF-GFR models over several different numbers of iterations {2, 5, 
+10, 15, 20, 40, 80, 100, 200, 300, 400, 500}; Algorithm 1 was then used 
+to  determine  the  best  number  of  iterations  of  XGBoost  for  use  in  all 
+subsequent applications.
+
+regression models with applications to health-care utilization. J. Bus. Econ. Stat. 14 
+(2), 209–220. https://doi.org/10.1080/07350015.1996.10524648. 
+
+Chen, Tianqi, Guestrin, Carlos, 2016. XGBoost: a scalable tree boosting system. KDD. 
+
+https://doi.org/10.1145/2939672.2939785, pp. 785–794.  
+
+Dormann, Carsten F, 2007. Promising the future? global change projections of species 
+
+distributions. Basic Appl. Ecol. 8 (5), 387–397. https://doi.org/10.1016/j. 
+baae.2006.11.001. 
+
+Duque-Lazo, J., Van Gils, H.A.M.J., Groen, T.A., Navarro-Cerrillo, R.M., 2016. 
+
+Transferability of species distribution models: The case of Phytophthora cinnamomi 
+in Southwest Spain and Southwest Australia. Ecol. Model. 320, 62–70. https://doi. 
+org/10.1016/j.ecolmodel.2015.09.019. 
+
+Ehrl´en, Johan, Morris, William F., 2015. Predicting changes in the distribution and 
+abundance of species under environmental change. Ecol. Lett. 18 (3), 303–314. 
+https://doi.org/10.1111/ele.12410.
+
+The results from applying all the models included in the study, as 
+shown Fig. 1 for the first simulated, second simulated, sparrow and wolf 
+datasets  are  summarized  in  Fig.  2  and  the  details  can  be  found  in 
+Supplements A.5–A.8. 
+
+6.1. Model ranking 
+
+The models were then ranked by performance for each of the four 
+data sets in turn, as shown in Fig. 2. This table thus offers the ranks and 
+the detailed out of data performance of all the models included in the 
+study, as shown in Fig. 1. While none of the individual models consis-
+tently outperformed all other models across all data sets, a pattern did 
+emerge whereby the ensemble methods, which use bagging or boosting 
+
+6.2. Visualising spatial predictions of models
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Answer: The strategy implemented to monitor the model performance during training involves using k-fold cross-validation. Specifically, the dataset is divided into k subsets or 'folds'. Then, for each iteration of the optimization algorithm, one fold is held back as a validation set while the remaining k-1 folds are used as the training set. The model is trained using the training set and its performance is evaluated using the validation set. This process is repeated for each fold, resulting in k-1 out-of-sample R^2 values for each number of iterations. The median of these values is calculated to pick the best number of iterations. This process is outlined in Algorithm 1 and described in detail in the text.

@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The Python nasawebservice is a user-friendly package that provides a 
+set of classes and methods to define pipelines for the automatic MODIS 
+data ingestion from the NASA MODIS/VIIRS Land Products Web Service. 
+The nasawebservice is implemented in the Python 3 programming lan-
+guage. Its dependencies are requests, aiohttp, and asyncio (Hunt, 2019). 
+The  remaining  dependencies  used  are  standard  libraries  for  maximal 
+compatibility. To facilitate the users in the creation of their data process 
+workflows, the nasawebservice was designed to be as close as possible to 
+the  Global  Subset  APIs  of  the  NASA  service  making  use  of  wrapper 
+methods,.  Furthermore,  the  library  provides  additional  methods  with 
+the purpose of making the data ingestion pipeline scalable according to 
+various  user  needs.  All  these  methods  are  exposed  by  NasaWebServi-
+ceAPIProvider  class. NasaWebServiceAPIProvider object is  initialized by
+
+In this manuscript, we provided an overview of new Python package 
+nasawebservice,  whose  main  purpose  is  to  optimize  the  interface  with 
+NASA web service and reduce the pre-processing steps and related time 
+needed to download large amounts of satellite imagery for agroecolog-
+ical studies. The overarching rationale for proposing this new Python 
+package is to present a set of methods and  ready-to-use functions  for 
+retrieving MODIS data from the NASA MODIS/VIIRS Land Products web 
+service model. This package could be part of an automated data inges-
+tion pipeline, both in local and cloud environment, being able to inte-
+grate  the  first  part  of  an  Extract  Transform  and  Load  process  (ETL) 
+scheme. The main advantage of using this package is that the data ob-
+tained are in JSON format (Wang, 2011). In this way it is possible to 
+avoid all those pre-processing operations that hamper the use of satellite
+
+chosen between text/csv (i.e., comma-separated values) or application/ 
+json format, following the common MIME (Multipurpose Internet Mail 
+Extensions) types guidelines (Ned and Borenstein, 1996). A more com-
+plete and detailed review of Global Subset methods can be found on the 
+Open API documentation page of the web service. On the contrary, the 
+Fixed  Sites  APIs  interface,  not  implemented  in  the  current  version  of 
+nasawebservice,  provides  data  for  selected  fields  and  flux  towers, 
+belonging to a certain research network (e.g., FLUXNET Canada), across 
+the world.
+
+NASA’s  MODIS  mission  provides  twice-daily  global  coverage.  For 
+this  purpose,  the  NasaWebServiceAPIProvider  class  is  equipped  with 
+specific methods to create daily pipelines for data ingestion (Listing 5). 
+For instance, the last_product() method accepts as argument the product, 
+location, and band combination, and returns the last imagery uploaded 
+in the NASA server. The method is_present() allows the user specifying a 
+reference date (e.g., the date of today) and receiving a Boolean response 
+stating if a given product is present in the server archive. If the answer is 
+“True”  (i.e.,  the  given  product  is  in  the  archive),  a  subset()  method 
+request can be triggered to retrieve the data. Otherwise, the application 
+waits a  user-defined  time before  starting a  new  query. Moreover,  the
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Answer: The provided context does not mention any specific datasets used in a deep learning pipeline such as MNIST, CIFAR, or ImageNet. Instead, it discusses the nasawebservice, a Python package designed for the automatic MODIS data ingestion from the NASA MODIS/VIIRS Land Products Web Service. The package facilitates the creation of data processing workflows and is intended to be compatible with various user needs. It uses the Global Subset APIs of the NASA service and provides additional methods to make the data ingestion pipeline scalable. The obtained data are in JSON format, which helps avoid pre-processing operations that might hinder the use of satellite imagery. However, there is no information about the usage of any particular dataset in a deep learning pipeline within the provided context.

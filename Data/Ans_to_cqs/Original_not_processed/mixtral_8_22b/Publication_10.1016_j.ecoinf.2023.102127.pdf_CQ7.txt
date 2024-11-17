@@ -1,0 +1,54 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.4. Model evaluation
+
+Isaac et al. (2020). This is since (a) the consideration of all available data 
+is  one of the  main points of  model-based integration, (b)  appropriate 
+validation metrics are less straight-forward than for single datasets as 
+biases and sampling methods can differ, and (c) any validation dataset 
+might not represent the niche and environmental parameters estimated 
+by  the  integrated  model.  For  example,  the  standard  practice  of  with-
+holding parts of the training data for validating a model often means that 
+both  training  and  testing  data  suffer  from  the  same  spatial  and  envi-
+ronmental biases (Baker et al., 2022). If, however prior knowledge of the 
+biology of a species is integrated in a SDM through a prior or offset, thus 
+“nudging”  or constraining response functions towards a more sensible 
+outcome  and  ultimately  different  prediction,  the  use  of  any  (biased) 
+withheld data would likely indicate a reduced predictive performance
+
+are not enough data available to reliably fit every type of model, espe-
+cially  given  the  demanding  nature  of  some  machine  learning  ap-
+proaches,  and  computation  time  can  be  a  considerable  limitation  as 
+well, such as for more demanding Bayesian models. The package will 
+raise warnings and highlighted messages in case the provided informa-
+tion is not sufficient for inferring a species distribution.
+
+Not always are there multiple point occurrence datasets available for 
+a given species, although rarely are they the only information known 
+about  the  biology  of  a  species.  In  many  cases  expert  information  on 
+habitat preferences, or a broad delineation of a species range can also 
+provide  contextual  information  about  a  species  (Brooks  et  al.,  2019; 
+Merow et al., 2017). Ibis.iSDM supports as another type of integration 
+the addition of expert delineated - or previous created model predictions 
+- as covariates to model objects (Domisch et al., 2016), for example for 
+species  ranges  (“add_predictor_range()”)  or  elevational  limits  which 
+transforms  an  elevational  covariate  into  lower  and  upper  bounded 
+variables(“add_predictor_elevationpref()”).  Alternatively,  such  infor-
+mation could also be added through offsets that affect a regression fit 
+and similar methods (e.g. “add_offset_range()” or “add_offset_elevation
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit criteria for splitting data for deep learning model training. However, it mentions that the standard practice of withholding parts of the training data for validating a model often results in both training and testing data suffering from the same spatial and environmental biases. This suggests that when splitting data, it should be done in a way that avoids these biases. Additionally, the text implies that if prior knowledge of the biology of a species is integrated into a model, then using biased withheld data for validation might indicate reduced predictive performance. Therefore, when deciding how to split data, considerations should include avoiding spatial and environmental biases and ensuring that the validation data represents the niche and environmental parameters estimated by the integrated model.

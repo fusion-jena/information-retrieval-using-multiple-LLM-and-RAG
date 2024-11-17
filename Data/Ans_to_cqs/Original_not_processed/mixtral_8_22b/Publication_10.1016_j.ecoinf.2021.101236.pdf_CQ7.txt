@@ -1,0 +1,108 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+diversify  the  training  data,  and  the  3-s  window  length  enables  the 
+implementation of this data augmentation method.
+
+overall process mostly followed current best practices in deep learning 
+which are well summarized in (Chollet, 2017).
+
+Table 1 
+Our  model  design  follows  the  Wide  ResNet  approach  by  Zagoruyko  and 
+Komodakis and consists of 157 layers, of which 36 are weighted.  
+
+Group 
+
+Name 
+
+Input shape 
+
+Output shape 
+
+Pre-processing 
+
+ResStack 1 
+
+ResStack 2 
+
+ResStack 3 
+
+ResStack 4 
+
+Classification 
+
+5×5 Conv+BN+ReLU 
+Ma× pooling 
+Downsampling block 
+2 × ResBlock 
+Downsampling block 
+2 × ResBlock 
+Downsampling block 
+2 × ResBlock 
+Downsampling block 
+2 × ResBlock 
+4×10 Conv+BN + ReLU + DO 
+1×1 Conv+BN + ReLU + DO 
+1×1 Conv+BN + DO 
+Global LME pooling 
+Sigmoid activation 
+
+(1×64×384) 
+(32×64×384) 
+(32×64×192) 
+(64×32×96) 
+(64×32×96) 
+(128×16×48) 
+(128×16×48) 
+(256×8×24) 
+(256×8×24) 
+(512×4×12) 
+(512×4×12) 
+(512×1×3) 
+(1024×1×3) 
+(987×1×3) 
+(987×1) 
+
+(32×64×384) 
+(32×64×192) 
+(64×32×96) 
+(64×32×96) 
+(128×16×48) 
+(128×16×48) 
+(256×8×24) 
+(256×8×24) 
+(512×4×12) 
+(512×4×12) 
+(512×1×3) 
+(1024×1×3) 
+(987×1×3) 
+(987×1) 
+(987×1)
+
+When  training  on  weakly  labeled  samples  of  varying  lengths,  the 
+biggest challenge is to extract segments of audio recordings that contain 
+the target signal. Typically, the focal data (i.e., the recording) we used 
+for  training  included  a  variable  number  of  calls  or  songs  of  a  single 
+species. While the metadata provided information on which species was 
+recorded,  information on  the exact  location of the  bird signals  in the 
+recording was not provided. Therefore, we developed a simple detector 
+based  on  signal  strength  to  extract  segments  containing  vocalizations 
+from  the  recordings.  Since  focal  recordings  are  of  high  quality  (high 
+SNR), this method is very reliable. During the 2016 BirdCLEF edition, 
+(Sprengel et al., 2016) established a method of signal-strength estima-
+tion to determine the presence of a bird sound in a spectrogram using 
+morphological  features  to  distinguish  salient  audio  segments  from
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text does not provide explicit details about how the data was split into training, testing, and validation sets for the deep learning model. However, it can be inferred that the data was likely divided based on common practices in machine learning and deep learning. This usually involves splitting the dataset into three parts: training set, validation set, and test set. The training set is used to fit the model, the validation set is used to tune hyperparameters and prevent overfitting, and the test set is used to evaluate the final performance of the model. The specific proportions used for each set may vary depending on the size of the dataset and other factors, but a common practice is to use around 70% of the data for training, 20% for validation, and 10% for testing.

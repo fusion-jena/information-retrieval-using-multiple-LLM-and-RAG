@@ -1,0 +1,72 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The hybrid MCMC algorithm provides a series of independent chains 
+containing a trace of values for each parameter to estimate. The traces 
+corresponding to each chain are stored in specific text files and can be 
+further analysed to obtain the final parameter values, their distribution, 
+and  their  associated  uncertainty.  The  key  point  of  this  phase  of  the 
+process is to evaluate if each chain provides a set of “best” values that are 
+“suitable” to represent, once inserted into the model, the field dataset. In 
+case different chains lead to a set of best-fitting parameters that faith-
+fully represent the field data, the corresponding traces can be merged to 
+obtain the final value as the mean of their values and the uncertainty as 
+the standard deviation.
+
+From each combination of values belonging to the first quarter of 
+values stored in the Python dictionary, the GA generates four random 
+combinations of initial values considered as input for the LS procedure 
+previously described. Each best fit value stored in a single row of the 
+dictionary is considered as an expected value of a Gaussian distribution, 
+μ, while the associated variance is still considered as σ2  = (zμ)2. Each 
+new combination of best fit values calculated during the iterations of the 
+genetic algorithm is again stored in the database together with all the 
+previously estimated sets of values. 
+
+At the end of a genetic algorithm cycle, the rows of the database are 
+again ordered according to the values of the sum of the residual. The 
+genetic algorithm can be repeated an arbitrary number of times, but for 
+simplicity we considered a nGAC = 2, that leads to a total number of nTGA 
+= 2nGAC+1 ⋅ nLSF = 1536 LS fit evaluations.
+
+The  entries  of  the  database  are  subsequently  ordered  from  the 
+smaller to the higher sum of the residual values. This operation ends the 
+first  step  of  the  LS  algorithm  and  leads  to  the  second  part,  hereafter 
+defined  as  the  genetic  algorithm.  This  is  in  turn  based  on  an  iterative 
+optimization, and its purpose is to partially optimize the results of the 
+estimation and to better explore the space of the parameters. This part of 
+the  process  is  analogous  to  the  previously  described  step:  the  first 
+quarter  of  the  best  fit  parameter  values  stored  in  the  database  is 
+considered as input for the process.
+
+A single iteration of the MCMC algorithm provides for the following 
+steps.  It  is  selected  a  random  row  of  the  genetic  algorithm  output 
+database between [1, nMCMC], and the best parameter values are subse-
+quently absorbed. As already described in Section 2.3.1, even in this case 
+the  absorbed  parameter  values  are  supposed  to  be  the  mean  of  a 
+Gaussian  distribution,  μ,  while  in  this  case  the  associated  variance  is 
+defined as a fixed value σ2 = (0.2 μ)2. A random value is generated from 
+the Gaussian distribution associated with each parameter by using the 
+random.normal() function, then, the ODE system is subsequently solved. 
+At the same time, the step provides for absorbing the array of experi-
+mental data, allowing the comparison between the ODE model output 
+and the experimental data, based on the log-probability value.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't any information about splitting the data for deep learning model training in the given context. However, typically, when working with machine learning or deep learning models, the data is often divided into three parts: training, testing, and validation datasets.
+
+The training dataset is used to train the model, which means it helps the model learn patterns and relationships within the data. The testing dataset is used to assess how well the trained model performs on unseen data. Lastly, the validation dataset is used to fine-tune the model's hyperparameters and prevent overfitting.
+
+In general, the common practice is to use around 70% of the available data for training, 20% for testing, and 10% for validation. However, these percentages may vary depending on the size of the dataset and the complexity of the problem being addressed.

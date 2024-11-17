@@ -1,0 +1,109 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2023; Yuan et al., 2021; Zhao et al., 2023c). The model’s initial learning 
+rate was set to 0.01, further refined via iterative testing. The number of 
+iterations was 150, with a batch size of 4, downsampling multiplier set 
+at 8, and utilized SGD optimizer, ReLu activation function, and Dice loss 
+function.
+
+robustness, with higher scores indicating better performance.
+
+2.3.2. Evaluation of model performance 
+
+Mean  Intersection  over  Union  (MIoU,  %),  Mean  pixel  accuracy 
+(MPA,  %),  Accuracy  (%),  Precision  (%),  Recall  (%)  and  F1  (%)  were 
+chosen to test the model performance: 
+
+MIoU =
+
+1
+K + 1
+
+∑k
+
+i=0
+
+Pii
+∑k
+
+j=0
+
+∑k
+
+j=0
+
+Pij +
+
+Pji (cid:0) Pii  
+
+MPA =
+
+1
+K + 1
+
+∑k
+
+Pii
+
+i=0
+
+∑k
+
+j=0
+
+Pij  
+
+Accuracy =
+
+TP + TN
+TP + TN + FN + FP  
+
+Precision =
+
+TP
+TP + FP  
+
+Recall =
+
+TP
+TP + FN  
+
+F1 =
+
+2*Precision*Recall
+Precision + Recall  
+
+where there are K + 1 classes (including a background), Pij denotes the 
+count of pixels that are classified as class i but are anticipated to be class 
+j.  Pii  denotes  the  count  of  accurate  predictions,  while  Pij  and  Pji,  are 
+defined  as  the  occurrences  of  false  positives  and  false  negatives, 
+respectively. TP, FP, and FN denote true positive, false positive, and false 
+negative, respectively.
+
+to augment the feature map size, aligning with the encoder’s pooling 
+layer.  Each  decoder  module  concatenates  its  output  with  the  corre-
+sponding encoder output. The final decoder tensor undergoes convolu-
+tion and then traverses through a softmax layer, normalizing the output 
+probabilities for two classes at each pixel (Gao et al., 2022; He et al., 
+2022;  Qiu  et  al.,  2023).  The  model’s  initial  learning  rate  was  set  to 
+0.0001, subsequently fine-tuned through iterative testing. The number 
+of iterations was 150, the batch size was configured as 2, utilizing the 
+Adam optimizer, ReLu activation function, and Dice loss function. 
+
+(2)  Pspnet.  To  facilitate  the  integration  of  multi-scale  data  and
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The strategy implemented to monitor the model performance during training involves using several metrics such as Mean Intersection over Union (MIoU, %), Mean pixel accuracy (MPA, %), Accuracy (%), Precision (%), Recall (%), and F1 (%). These metrics help evaluate the performance of the model by comparing predicted values against actual values. MIoU measures the overlap between the predicted segmentation and ground truth, MPA calculates the proportion of correctly classified pixels, Accuracy determines the overall correctness of the prediction, Precision indicates the proportion of true positive predictions out of all positive predictions, Recall shows the proportion of true positive predictions out of all actual positives, and F1 combines both precision and recall into one metric. During training, these metrics can be used to track progress and adjust parameters accordingly.

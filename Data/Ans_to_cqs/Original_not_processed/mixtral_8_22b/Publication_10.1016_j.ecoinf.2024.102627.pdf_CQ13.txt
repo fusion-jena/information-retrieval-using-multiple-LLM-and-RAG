@@ -1,0 +1,103 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+(cid:0)
+
+̂ηs(x) = exp
+exp
+
+∑
+
+j
+
+)
+
+θ(x)
+f s
+(
+f j
+θ(x)
+
+)
+
+where θ is the set of parameters of the neural network to be optimised by 
+minimizing the loss function of Eq. (2). 
+
+Using this very common deep learning framework, it is possible to 
+show that the species assemblage predictor Sλ(x) of Eq. (1) is consistent 
+λ(x) when  the 
+(Lorieul,  2020),  i.e.  it  tends  towards  the  optimal  set  S*
+number  of  training  samples  increases.  In  other  words,  our  species 
+assemblage predictor is as simple as training a deep neural network with 
+a cross-entropy loss function on the presence-only samples and thresh-
+olding  the  output  softmax  probabilities  to  get  the  assemblage  of  pre-
+dicted species. 
+
+◦
+
+(IDRIS). A full description of the model architecture, dataset spatial split 
+and training procedure can be found in supplementary information (SI) 
+Box A. Finally, the settings of our species assemblage model are sum-
+marised in the Fig. 1.
+
+Fig. 1. Method summary scheme. The orchid observation set of 999,258 occurrences from 14,129 species (Section 2.1.1 and Box D) is enriched with predictive 
+features: WorldClim2 bioclimatic variables, Soilgrids pedological variables, Human Footprint rasters, terrestrial ecoregions of the world and location (description Box 
+E, list Table S2 and examples Fig. S5). Next, the Inception v3 model (Szegedy et al., 2016) is first trained with the observation set (Section 3.1.1). Secondly, it is used 
+to predict the most likely species assemblages on a global regular grid of 30-s resolution (Section 2.4.1). The calibration step, which determines the threshold λ on the 
+relative probability of species presence, is described theoretically in Section 2.2.2 and set in Section 3.1.2. When the model is provided with a predictor tensor in 
+inference, the final output is the associated species assemblage Sλ.
+
+Finally,  we  can  chose  λ  so  as  to  minimize  the  average  species 
+assemblage size E[|Sλ(X) |] - which is equivalent to maximize λ  - while 
+guarantying that the average error rate is lower than an ϵ objective: 
+
+argmin
+λ∈[0,1]
+
+E[|Sλ(X) |]
+
+max
+λ∈[0,1]
+
+(λ)
+
+⇔
+
+s.t. ℰ(Sλ) ≤ ϵ
+
+s.t. ℰ(Sλ) ≤ ϵ
+
+(3) 
+
+This is equivalent to what is called conformal prediction in machine 
+learning (Fontana et al., 2023) and guarantees that the actual species is 
+contained within the set with probability 1 (cid:0) ϵ. 
+
+2.3. Conservation indices for species assemblages 
+
+2.3.1. Definition of the indices 
+
+In addition to the classical Shannon index ℐH , we define two novel 
+indices characterizing the extinction risk of a predicted species assem-
+blage, ℐc and ℐO . They respectively render the proportion of threat-
+ened species in the assemblage and the most critical IUCN status in the 
+assemblage. Let’s break down their construction. 
+
+2.3.2.
+
+IUCN status notations
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit details about the specific hyperparameters such as learning rate or optimizer used in the deep learning model. However, it mentions that the model uses a cross-entropy loss function and involves training a deep neural network, specifically the Inception v3 model. It also refers to a minimization process involving the loss function, suggesting the use of some form of gradient descent optimization algorithm. Unfortunately, without additional information, it is impossible to specify the exact values of these hyperparameters.

@@ -1,0 +1,134 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1 
+General transfer training hyper-parameters for each basic model.  
+
+Hyper-parameter / Model 
+
+ResNet-50 
+
+ViT-S/16 
+
+Volo-d1 
+
+ViP-Small/7 
+
+Learning rate 
+Minimum learning rate 
+Optimizer 
+Scheduler 
+Batch size 
+Weight decay 
+Input size 
+Epochs 
+
+1e-4 
+2e-3 
+1e-5 
+1e-5 
+Adamw(0.9, 0.999) 
+Cosine 
+128 
+5e-4 
+224 × 224 
+210  
+
+64 
+5e-4 
+
+8e-6 
+4e-6 
+
+64 
+1e-8 
+
+2e-3 
+1e-5 
+
+64 
+5e-2 
+
+EcologicalInformatics82(2024)1026936M. Chen et al.                                                                                                                                                                                                                                   
+
+Table 2 
+Classification performance (%) of basic models and proposed methods on the 
+IP102 dataset.  
+
+which they are applicable. 
+
+5.1. Ablation experiments 
+
+Model 
+
+Accuracy 
+
+Precision 
+
+Recall 
+
+F1-score 
+
+Resnet-50 
+ViT-S/16 
+Volo-d1 
+ViP-Small/7 
+VecEnsemble (Ours) 
+MatEnsemble (Ours)
+
+Yuan et al. (2022) claimed that the superior performance of a ViT can 
+primarily be attributed to extensive pre-training data. If a ViT is trained 
+from  scratch  on  a  medium-sized  dataset,  its  performance  lags  behind 
+that of a CNN model with comparable parameter sizes. To address this 
+limitation, they proposed Volo with the novel Outlook Attention as the 
+token mixer module, which enabled fine-grained token representation 
+and the aggregation of global information. 
+
+2.3. MLP-like model
+
+The basic models were trained using a deep transfer-learning strat-
+egy based on fine-tuning. The model parameters were initialized using a 
+pre-trained model. The final classification layer was then replaced by a 
+fully connected layer, aligning its output dimension with the number of 
+classes  in  the  target  dataset.  Subsequently,  all  parameters  across  the 
+layers were fine-tuned on the target dataset. The basic models in all the 
+
+The  performances  of  the  four  basic  models  and  two  proposed 
+ensemble  methods  on  the  IP102  dataset  are  lised  in  Table  2.  The 
+parameter  sizes  of  the  four  basic  models  were  comparable,  with 
+approximately 24 M parameters for each model. However, there was a 
+significant variation in the performances of the basic models, as shown 
+in Table 2. ViP-Small/7 exhibited the lowest performance, whereas the 
+two  transformer-like  models  demonstrated  better  performance,  with 
+Volo-d1 achieving the highest performance.
+
+2.1. CNN-like model 
+
+CNN is a classical model in CV, renowned for its robust translational 
+invariance and ability to extract high-level semantic features. ResNet, 
+proposed by He et al. (2016), is a well-known CNN model with a core 
+structure of residual units. This innovative design addresses the issue of 
+gradient disappearance as the number of layers increases. This allows for 
+a  greater  depth  in  the  network,  leading  to  the  extraction  of  more 
+expressive  features.  ResNet  has  exhibited  superior  performance 
+compared with previous models in various downstream recognition and 
+detection tasks. 
+
+EcologicalInformatics82(2024)1026932M. Chen et al.                                                                                                                                                                                                                                   
+
+2.2. Transformer-like model
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it appears that the optimization technique used in the deep learning pipeline is AdamW with parameters (0.9, 0.999). AdamW is a variant of the popular Adam optimizer, which combines the advantages of both Adaptive Gradient Algorithm (AdaGrad) and Root Mean Square Propagation (RMSProp). It uses adaptive estimates of lower-order moments to update the weights and biases of the neural network during backpropagation. The parameters (0.9, 0.999) correspond to the exponential decay rates for the first and second moment estimates, respectively. These values control how much influence past gradients have on the current gradient update. Overall, AdamW is known for its fast convergence and good generalization performance, making it a popular choice for many deep learning applications.

@@ -1,0 +1,135 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1. Hyperparameter ﬁne-tuning results.
+
+Scenario Number of Blocks Number of Filters
+
+Learning Rate Mean IoU Accuracy
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+3
+4
+5
+6
+4
+4
+4
+4
+4
+4
+
+64 , 64, 64
+64, 64, 64, 64
+64, 64, 64, 64, 64
+64, 64, 64, 64, 64, 64
+16, 32, 64, 128
+32, 64, 128, 256
+64, 128, 256, 512
+16, 32, 64, 128
+16, 32, 64, 128
+16, 32, 64, 128
+
+0.001
+0.001
+0.001
+0.001
+0.001
+0.001
+0.001
+0.01
+0.0005
+0.00001
+
+0.30
+0.38
+0.36
+0.32
+0.42
+0.38
+0.31
+0.008
+0.42
+0.39
+
+82%
+89%
+86%
+86%
+94%
+88%
+84%
+71%
+94%
+90%
+
+Scenario 5 was selected as the optimal solution as it had the best values for IoU and accuracy
+while training on fewer epochs. The resulting architecture is shown in Figure 4 and described in
+the following.
+
+2.5.1. Encoding Path
+
+encoding and decoding blocks and are summarized in Table 1. These experiments were monitored
+using TensorBoard and validated on the validation portion of the dataset.
+
+During our study, we tested different hyperparameters to ﬁnd an optimal setting for our problem.
+The different parts of our ﬁnal architecture, as well as the tested hyperparameter settings are described
+in the following.
+
+Figure 4. U-net architecture (experimental setup with 3 encoding blocks).
+
+Remote Sens. 2019, 11, 1976
+
+6 of 14
+
+Figure 5. Loss function of the model (training and validation).
+
+2.4. Evaluation Metrics
+
+To assess the performance of the neural network, several evaluation metrics were used. Evaluation
+metrics were computed during the forward pass, and were not subject to maximization, but were
+rather used as a performance indicator. This helped to optimize the hyperparameters of the model.
+In this study, we used a custom implementation of the intersection over union metric. It computes the
+intersection of the reference dataset and the predicted classiﬁcation and divides it by the union of the
+two (Equation (1)). In addition, we calculated the overall accuracy of the model (Equation (2)).
+
+IoU =
+
+TP
+TP + FP + FN
+
+Accuracy =
+
+TP + TN
+TP + FN + FP + TN
+
+(1)
+
+(2)
+
+where TP, TN, FP, and FN are true positive, true negative, false positive, and false negative.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there is no explicit information about how the data was split for deep learning model training (train, test, validation). However, it can be inferred from the statement "These experiments were monitored using TensorBoard and validated on the validation portion of the dataset" that the dataset was indeed divided into at least two portions - one for training and another for validation. Typically, datasets are also further divided into a testing set to evaluate the final performance of the trained model. Common methods for splitting the data include random sampling or stratified sampling based on the distribution of classes in the dataset. Without additional context, it cannot be determined which method was used in this case.

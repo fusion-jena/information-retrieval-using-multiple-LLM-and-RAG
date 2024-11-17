@@ -1,0 +1,95 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+• We  use  structural  re-parameterization  techniques  to  decouple  the 
+training  structure  from  the  inference  structure.  This  enables  inde-
+pendent optimisation of the training and reasoning stages. Moreover, 
+it enables the training phase to capture more feature information, 
+while  the  inference  phase  simplifies  the  model  structure,  thereby 
+reducing computational costs and deployment difficulties. 
+
+• A  dual  improvement  in  model  performance  and  efficiency  is  ach-
+ieved by replacing the fully connected layer in traditional classifiers 
+with convolutional layers and simplifying the model under structural 
+re-parameterization.
+
+generalised  model  by  adding  convolution  modules  or  introducing  re-
+sidual  connection  techniques.  However,  more  complex  and  deeper 
+models  often  incur  higher  computational  costs  and  require  longer 
+training  time.  To  solve  these  problems,  the  AlexNet  network  was 
+designed to be lightweight and optimised to achieve deep training and 
+short-term testing (Zhang et al., 2022). Specifically, the two convolution 
+layers are merged in the model deployment mode while ensuring that 
+the nonlinear factors caused by the activation function are not reduced. 
+By reducing the number of layers in the model, the computational effi-
+ciency is improved (Ding et al., 2021; Zhao et al., 2017) and the infer-
+ence time of the model is significantly shortened.
+
+4.2.4. Comparison with existing model methods 
+
+Classic deep learning models, such as ResNet and DenseNet (Zhu and 
+Newsam, 2017), and lightweight deep learning models, such as Mobi-
+leNet (Sandler et al., 2018), ShuffleNet (Zhang et al., 2018), and Effi-
+cientNet  (Tan  and  Le,  2019),  were  selected  to  demonstrate  the 
+effectiveness of the proposed model. We train the bird sound recognition 
+dataset using the above model, record the testing accuracy, and testing 
+time of different models, and compare them with the model proposed in 
+this study. The experimental data are shown in Fig. 8. 
+
+Compared to other lightweight models, SIAlex improved the accu-
+racy  to  93.66%  with  a  testing  time  of  only  2.466  ms.  SIAlex's  multi- 
+indicator evaluation for each category is shown in Fig. 10, and Fig. 9 
+
+Table 3 
+Comparison of AlexNet under different activation function and classifier.   
+
+ReLU 
+
+✓  
+
+Leaky 
+ReLU 
+
+✓ 
+✓  
+
+AlexNet 
+AlexNet  
+AlexNet  
+
+Basic classifier
+
+Aʹ(x) = (1 (cid:0) λ)A(x) + λ(x)
+
+(10)  
+
+where,  λ  is  a  hyperparameter  used  to  adjust  the  balance  relationship 
+between the nonlinear factors of the activation function and the identity 
+mapping of Aʹ(x) based on the number of training iterations, which can 
+be expressed as λ = e
+E. Here, e represents the current number of rounds of 
+training and E represents the total number of rounds of model training. 
+→0, and Aʹ(x)→A(x). At this point, a strong 
+nonlinear  factor  exists  between  the  two  convolutional  layers  of  the 
+network, which can achieve better training of the model. When e→E, 
+λ→1, and Aʹ(x)→x. Nonlinear factors are gradually integrated into the 
+
+Starting training, λ = e
+E
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit information about the criteria used to split the dataset for deep learning model training, including the train, test, and validation sets. However, it is common practice in machine learning and deep learning to randomly divide datasets into three subsets: training set, validation set, and test set. Typically, the ratio used for splitting the data is 60% for training, 20% for validation, and 20% for testing. The purpose of having separate sets is to evaluate the model's ability to generalize to unseen data accurately.
+
+In some cases, specific criteria may be applied when dividing the dataset, depending on the problem domain and available resources. For example, stratified sampling might be employed if there is a need to maintain the same distribution of classes across all subsets. Alternatively, one could opt for a temporal split if working with time series data. Nevertheless, without further details regarding the specific application or requirements mentioned in the provided context, we cannot determine the exact criteria used for splitting the dataset.

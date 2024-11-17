@@ -1,0 +1,109 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+19. Atkinson, P.M., Tatnall, A.R.L.: Introduction neural networks in remote sensing.
+
+Int. J. Remote Sens. 18(4), 699–709 (1997)
+
+20. Schmidhuber, J.: Deep learning in neural networks: an overview. Neural Netw. 61,
+
+85–117 (2015)
+
+21. Lecun, Y., Bottou, L., Bengio, Y., et al.: Gradient-based learning applied to doc-
+
+ument recognition. Proc. IEEE 86(11), 2278–2324 (1998)
+
+22. Szegedy, C., Liu, W., Jia, Y.: Going deeper with convolutions. In: Proceedings of
+the IEEE Conference on Computer Vision and Pattern Recognition, pp. 1–9 (2015)
+23. Joly, A., et al.: LifeCLEF 2015: multimedia life species identiﬁcation challenges.
+In: Mothe, J., Savoy, J., Kamps, J., Pinel-Sauvagnat, K., Jones, G.J.F., SanJuan,
+E., Cappellato, L., Ferro, N. (eds.) CLEF 2015. LNCS, vol. 9283, pp. 462–483.
+Springer, Heidelberg (2015). doi:10.1007/978-3-319-24027-5 46
+
+2.2 Deep Learning
+
+Since the 2012 ImageNet competition, and new computational power accessible
+through latest GPU, Neural Network came back as a strong possibility for clas-
+siﬁcation tasks [18]. Moreover, by integrating convolutional layers, Deep Neural
+Networks (DNN) are able to both create features vectors and classify them.
+
+Neural network is a mathematical model which tries to mimic human brains
+[19]. Like SVM, neural networks may classify feature vectors after a training
+phase. A neural network is composed of interconnected nodes called neurons
+and each neuron of each layer receives a signal from the neurons of the previous
+layer. This signal is modiﬁed according to an activation function and transferred
+to the neurons of the next layer.
+
+We can deﬁne for the neuron n, the ﬁrst operation α(n) as:
+
+α(n)(x(n)) =
+
+c(cid:2)
+
+i=1
+
+i x(n)
+w(n)
+
+i
+
+(1)
+
+where x is the input vector, a given neuron, c the number of connections of this
+neuron, w(n)
+the input of rank i of
+i
+a neuron n.
+
+Deep Learning. The architecture of our network follows the GoogLeNet’s
+with 27 layers, 9 inception layers, and a soft-max classiﬁer. Once we have a list
+of cropped thumbnails and their labels, we send them to our network. We use
+inception layers (Fig. 4) based on GoogLeNet architecture [22]. The inceptions
+here allows us to reduce the dimension of the picture to one pixel, and therefore
+not to be dependent of the dimensional impact. We adapted some parameters
+such as the size of the strides and the ﬁrst convolutions adapted to the size of our
+thumbnails, which allowed us to achieve better results than a classic architecture
+(e.g. [18]).
+
+3.3 Post-processing and Bounding Box Fusion
+
+For each sliding window, we deﬁne a motion score by computing the average
+absolute diﬀerence with the window at the same position in the previous frame.
+Based on the hypothesis that most of the ﬁshes are moving, we use this score
+for the ﬁnal detection decision.
+
+the weight of rank i of a neuron n, and x(n)
+
+i
+
+Coral Reef Fish Detection and Recognition in Underwater Videos
+
+163
+
+We can then deﬁne the output of a neuron n as σ(n) with f (n) the activation
+
+function:
+
+σ(n)(x(n)) = f (n)(α(n)(x(n)))
+
+(2)
+
+Each layer of a neural network except the ﬁrst one which receive the feature
+vector and the last one are called hidden layers. During the learning process, the
+network will have its parameters modiﬁed in order to optimize its classiﬁcation
+rate of learning.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The provided context does not explicitly mention the specific hyperparameters such as learning rate or optimizer used in the deep learning model. However, it does state that the architecture of the network follows GoogleNet's with 27 layers, including 9 inception layers, and a soft-max classifier. Additionally, it mentions that certain parameters were adjusted, like the size of the strides and the first convolutions, to accommodate the size of the thumbnail images. These adjustments likely improved performance compared to a more traditional architecture. Unfortunately, without further information, it isn't possible to provide details about other hyperparameters such as learning rate or optimizer.

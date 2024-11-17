@@ -1,0 +1,120 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Finally, in order to improve the localization accuracy, we decided to create
+another class called part of ﬁsh, to ensure that the network does not focus on
+a distinctive part of a ﬁsh as a stripe, a ﬁn, the head, but processes the ﬁsh
+as a whole. We also created a class ﬁsh which contains some unknown ﬁshes to
+make the method able to recognize any ﬁsh even though it is not in the learning
+database. However, this class must contain less samples in order to be sure that
+a ﬁsh will most likely be labeled by its speciﬁc class rather than the generic class
+ﬁsh. Finally, we added 3 classes to our initial thumbnail database as listed in
+Table 2.
+
+Table 2. Classes added to the species database
+
+Class Label
+
+Samples
+
+Random/speciﬁc background 116,820/91,247
+
+Part of Fish
+
+Fish
+
+55,848
+
+970
+
+Coral Reef Fish Detection and Recognition in Underwater Videos
+
+165
+
+3.2 Detection/Recognition Pipeline
+
+19. Atkinson, P.M., Tatnall, A.R.L.: Introduction neural networks in remote sensing.
+
+Int. J. Remote Sens. 18(4), 699–709 (1997)
+
+20. Schmidhuber, J.: Deep learning in neural networks: an overview. Neural Netw. 61,
+
+85–117 (2015)
+
+21. Lecun, Y., Bottou, L., Bengio, Y., et al.: Gradient-based learning applied to doc-
+
+ument recognition. Proc. IEEE 86(11), 2278–2324 (1998)
+
+22. Szegedy, C., Liu, W., Jia, Y.: Going deeper with convolutions. In: Proceedings of
+the IEEE Conference on Computer Vision and Pattern Recognition, pp. 1–9 (2015)
+23. Joly, A., et al.: LifeCLEF 2015: multimedia life species identiﬁcation challenges.
+In: Mothe, J., Savoy, J., Kamps, J., Pinel-Sauvagnat, K., Jones, G.J.F., SanJuan,
+E., Cappellato, L., Ferro, N. (eds.) CLEF 2015. LNCS, vol. 9283, pp. 462–483.
+Springer, Heidelberg (2015). doi:10.1007/978-3-319-24027-5 46
+
+Deep Learning. The architecture of our network follows the GoogLeNet’s
+with 27 layers, 9 inception layers, and a soft-max classiﬁer. Once we have a list
+of cropped thumbnails and their labels, we send them to our network. We use
+inception layers (Fig. 4) based on GoogLeNet architecture [22]. The inceptions
+here allows us to reduce the dimension of the picture to one pixel, and therefore
+not to be dependent of the dimensional impact. We adapted some parameters
+such as the size of the strides and the ﬁrst convolutions adapted to the size of our
+thumbnails, which allowed us to achieve better results than a classic architecture
+(e.g. [18]).
+
+3.3 Post-processing and Bounding Box Fusion
+
+For each sliding window, we deﬁne a motion score by computing the average
+absolute diﬀerence with the window at the same position in the previous frame.
+Based on the hypothesis that most of the ﬁshes are moving, we use this score
+for the ﬁnal detection decision.
+
+2.2 Deep Learning
+
+Since the 2012 ImageNet competition, and new computational power accessible
+through latest GPU, Neural Network came back as a strong possibility for clas-
+siﬁcation tasks [18]. Moreover, by integrating convolutional layers, Deep Neural
+Networks (DNN) are able to both create features vectors and classify them.
+
+Neural network is a mathematical model which tries to mimic human brains
+[19]. Like SVM, neural networks may classify feature vectors after a training
+phase. A neural network is composed of interconnected nodes called neurons
+and each neuron of each layer receives a signal from the neurons of the previous
+layer. This signal is modiﬁed according to an activation function and transferred
+to the neurons of the next layer.
+
+We can deﬁne for the neuron n, the ﬁrst operation α(n) as:
+
+α(n)(x(n)) =
+
+c(cid:2)
+
+i=1
+
+i x(n)
+w(n)
+
+i
+
+(1)
+
+where x is the input vector, a given neuron, c the number of connections of this
+neuron, w(n)
+the input of rank i of
+i
+a neuron n.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the specific regularization methods used to prevent overfitting in the deep learning pipeline. However, common techniques include dropout and L2 regularization. Dropout randomly sets a fraction rate of input units to 0 at each update during training time, helping to prevent overfitting. L2 regularization adds a penalty term to the loss function, encouraging smaller weights and reducing complexity in the model. Other possible methods could include early stopping or data augmentation, although these are not mentioned explicitly in the provided context.

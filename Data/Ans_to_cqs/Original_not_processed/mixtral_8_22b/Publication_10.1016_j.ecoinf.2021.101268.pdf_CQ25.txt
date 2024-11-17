@@ -1,0 +1,80 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Deep Learning (DL) methods are at the top of the state-of-the-art on 
+feature representation for different domains; albeit, DL lacks interpret-
+ability. According to Doshi-Velez and Kim (2017), interpretability lets 
+human specialists understand what a model is learning, making them 
+flexible  real-world  solutions.  Given  such  topics,  this  paper  has  three 
+significant contributions:  
+
+1.  The  paper  introduces  the  first  Peruvian  Amazon  Forestry  Dataset, 
+including  its  detailed  metadata  and  the  acquisition  protocol 
+description. The dataset collects 59,441 samples from ten of the most 
+profitable  and  endangered species (Finer  et al., 2014; Pinedo-Vas-
+quez et al., 1992). Further-more, we employ six different commercial 
+cameras  to  ensure  variability  and  to  develop  any  flexible  solution 
+with real-world conditions in the future.
+
+Like any other complex model, DL requires a large amount of data to 
+fit appropriately, which is hard in our context. To overcome this limi-
+tation, we employ different architectures pre-trained with the ImageNet 
+dataset. Pre-trained models capture low-level features (e.g., edges, cor-
+ners, color spots, etc.) from one domain and transfer them to another 
+with  similar  characteristics.  The  transfer  process  is  called  fine-tuning 
+due  to  the  model  only  learns  specific  higher-level  features  (e.g.,  ar-
+rangements, venations, etc.). We compare four pre-trained models: (1) 
+AlexNet (Krizhevsky et al., 2012, 2) VGG-19 (Simonyan and Zisserman, 
+2014, 3) ResNet-101 (He et al., 2016, 4) DenseNet-201 (Huang et al., 
+2017).  The  fully  connected  block  is  adjusted  to  feed  off  the  feature 
+vector and output the ten species of leaves. Table 3 describe architecture 
+characteristics 
+
+Ih
+R[i, j] = 3.2405⋅Ih
+Ih
+G[i, j] = (cid:0) 0.9693⋅Is
+Ih
+B[i, j] = 0.0556⋅Is
+
+Figs. 6 and 7 show the visual representation of features when fine- 
+tuning  with  raw  and  segmented  images,  respectively.  These  results 
+bolster the ones gets in qualitative analysis (Table 4). AlexNet and VGG- 
+19 learn high-level leaf features, such as venations and shapes (VGG-19 
+more  than  AlexNet).  Moreover,  the  models  fine-tuned  with  the  raw 
+dataset  fit  even  better  than  the  other  ones.  A  clear  example  of  this 
+observation  is  the  ResNet-101  fine-tuned  with  pre-processed  images 
+(Fig.  7).  This  model  has  learned  to  classify  based  on  lateral  sections, 
+almost ignoring the leaf. So, the fine-tuned ResNet-101 probably have 
+exploited an error in the background removal algorithm of some images. 
+
+6. Discussion
+
+6. Discussion 
+
+Traditionally, ResNet-101, and DenseNet-201 have been considered 
+inside the top-models for general feature extraction task, especially the 
+ones related with ImageNet Kornblith et al. (2019). Nevertheless, our 
+quantitative  and  qualitative  evaluations  evidence  that  AlexNet  and 
+VGG-19 are superior for The Peruvian Amazon Forestry Dataset since 
+both derive high-quality abstractions. 
+
+AlexNet achieves to extract shape, texture, and venation with some 
+noise,  while  VGG-19  focus  strongly  in  shape  and  venation.  Conse-
+quently,  VGG-19  has  remarkable  results  in  different  leaf  image  pro-
+cessing tasks (Lee et al., 2017; Rizk, 2019; Thanh et al., 2018).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the purpose of the deep learning model (e.g., classification, segmentation, detection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The purpose of the deep learning model in this context is not explicitly stated, but it can be inferred that the model is used for multi-class classification. The dataset includes ten classes representing the most profitable and endangered species in the Peruvian Amazon forest. The authors use various pre-trained models like AlexNet, VGG-19, ResNet-101, and DenseNet-201, adjusting their fully connected blocks to output the ten species of leaves. They also mention that the models learn specific higher-level features, such as arrangements and venations, suggesting that they are being trained for classification purposes.

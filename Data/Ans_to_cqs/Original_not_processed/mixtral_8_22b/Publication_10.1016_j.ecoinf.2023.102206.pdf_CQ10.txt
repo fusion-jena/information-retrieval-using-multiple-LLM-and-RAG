@@ -1,0 +1,71 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+EcologicalInformatics77(2023)1022067S. Kumar et al.                                                                                                                                                                                                                                  
+
+prediction from carbon emission data. For the experiments, we start by 
+using widely used ELM for the label prediction in the TUR. Later, IFTL 
+and FTL are implemented using GRNN and SVR as the TUR model. It 
+highlights  that  whenever  training  and  testing  data  (including  labels) 
+have  huge  distribution  differences,  then  IFTL  outperformed  FTL  by 
+being the most accurate due to the crucial role of hesitancy.
+
+First, target data labels are predicted by a regression model, which is 
+trained  using  only  the  source  domain  data.  This  regression  model  is 
+entirely unaware of the target domain’s data distribution; hence, it is 
+termed the target unaware regression (TUR) model. Secondly (under the 
+IFTL), both the source and the target data are intuitionistically fuzzified 
+using the IFSs. Then, K-nearest neighbors are chosen using a modified 
+Hausdorff  distance  function.  Finally,  these  K-nearest  neighbors  are 
+optimally  utilized  to  refine  the  labels  predicted  by  TUR  for  effective 
+learning during TL. Following subsections present detailed explanations 
+of  the  components  of  Algorithm  1  (Fig.  2)  in  a  step-by-step  manner. 
+Then, we have also discussed the special case of FTL and the computa-
+tional complexity of IFTL in the following sub-sections. 
+
+Fig. 1. Structure of a typical IFIS (Songwei et al., 2012).
+
+1
+Source hesitancy degree(F)
+
+This  also  gives  α > 1, which  brings  out  the  anomaly  in  Yager’s 
+generating function for its incorporation into IFTL. Hence, it efficiently 
+captures  the  uncertainty  that  arises  due  to  the  variations  in  the  data 
+distribution  across  the  source  and  the  target  domains.  Thereby 
+improving  model  prediction  during  transferral  of  the  learned  knowl-
+edge. As the knowledge is being transferred from the source domain to 
+
+Fig. 2. Proposed IFTL approach under the label refinement framework.  
+
+Algorithm 1. Label refinement using IFTL.  
+
+EcologicalInformatics77(2023)1022065S. Kumar et al.
+
+domain (IND) as explained in Subsection C of Section 4. Then, K-nearest 
+neighbors (Step C of Fig. 3) are chosen for each of the target (IND) data 
+points using minimum distance values calculated by Eq. (17) from the 
+mixture  of  intuitionistically  fuzzified  source  (EU)  and  the  target  data 
+(IND). In the end, these K-nearest neighbors are optimally utilized using 
+Eq. (19) to refine the labels predicted (Step D in Fig. 3) by the TUR model 
+(best of the ELM, GRNN, and SVR, i.e., ELM) for effective TL. During 
+FTL, ordinary fuzzification is performed instead of intuitionistic fuzzi-
+fication,  and  Euclidean  distance  is  calculated  using  membership  and 
+non-membership values. The rest of the procedure is similar to that of 
+IFTL. For both IFTL and FTL, the refinement impact factor ‘gamma’ is 
+kept constant at 10% (γ = 0.1), which governs the impact of refinement 
+in IFTL.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the code repository link of the deep learning pipeline (e.g., Link to GitHub, GitLab, BitBucket)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information about the code repository link of the deep learning pipeline. Therefore, I cannot provide the requested information.

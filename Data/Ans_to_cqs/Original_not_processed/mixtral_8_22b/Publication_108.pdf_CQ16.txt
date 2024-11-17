@@ -1,0 +1,135 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1. Hyperparameter ﬁne-tuning results.
+
+Scenario Number of Blocks Number of Filters
+
+Learning Rate Mean IoU Accuracy
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+3
+4
+5
+6
+4
+4
+4
+4
+4
+4
+
+64 , 64, 64
+64, 64, 64, 64
+64, 64, 64, 64, 64
+64, 64, 64, 64, 64, 64
+16, 32, 64, 128
+32, 64, 128, 256
+64, 128, 256, 512
+16, 32, 64, 128
+16, 32, 64, 128
+16, 32, 64, 128
+
+0.001
+0.001
+0.001
+0.001
+0.001
+0.001
+0.001
+0.01
+0.0005
+0.00001
+
+0.30
+0.38
+0.36
+0.32
+0.42
+0.38
+0.31
+0.008
+0.42
+0.39
+
+82%
+89%
+86%
+86%
+94%
+88%
+84%
+71%
+94%
+90%
+
+Scenario 5 was selected as the optimal solution as it had the best values for IoU and accuracy
+while training on fewer epochs. The resulting architecture is shown in Figure 4 and described in
+the following.
+
+2.5.1. Encoding Path
+
+Due to the fact that the feed-forward neural network outputs a probability of a class rather
+than a class label, a threshold has to be set to obtain a confusion matrix and to be able to compute
+the evaluation metrics. This threshold being unknown during the training, a custom metric was
+implemented and operated according to the algorithm in Algorithm 1 to compute the mean intersection
+over union for thresholds between 0.5 and 1.
+
+Algorithm 1 Pseudocode for calculating a custom metric for thresholding.
+
+1: Create an empty array to hold the intersection over union values for all thresholds IoUs
+2:
+3: Create array V of values between 0.5 and 1 with a step of 0.05
+4:
+5: Feed forward to do the pixelwise classiﬁcation prediction P(C|X, W)
+6:
+7: for Every element k of array V do
+8:
+9:
+10:
+11:
+12:
+13:
+14:
+15: end for
+16:
+17: return the mean intersection over union mIoU ← mean(IoUs)
+
+During our study, we tested different hyperparameters to ﬁnd an optimal setting for our problem.
+The different parts of our ﬁnal architecture, as well as the tested hyperparameter settings are described
+in the following.
+
+3. Results
+
+During the monitoring of the training of the neural network using TensorBoard [30], it was
+noticed that the validation loss was consistently lower than the training loss before the overﬁtting
+point, as shown in Figure 5. This is explained by the effect of the dropout layers as suggested by
+Veliˇckovi´c [33]. During the training process, the dropout layers randomly dropped some neurons,
+causing the feed-forward network to perform worse, while dropout was deactivated and all neurons
+were kept during the validation.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+In this scenario, the criterion used to determine when training is complete is not explicitly stated. However, there are clues that suggest the use of certain criteria. For instance, the text mentions that during the monitoring of the training of the neural network using TensorBoard, it was noticed that the validation loss was consistently lower than the training loss before the overfitting point. This suggests that one possible criterion used to determine when training is complete could be the observation of the validation loss curve. Specifically, if the validation loss stops decreasing or starts increasing significantly compared to the training loss, this might indicate that the model is starting to overfit the data, which means that further training would not improve its performance on unseen data. Therefore, reaching such a point could be considered as an indication that training should be stopped. Additionally, another common criterion used to determine when training is complete is the observation of the learning curves for both the training and validation sets. In particular, if the difference between the two curves becomes too large, this might also indicate that the model is overfitting the data, and thus further training would not be beneficial.

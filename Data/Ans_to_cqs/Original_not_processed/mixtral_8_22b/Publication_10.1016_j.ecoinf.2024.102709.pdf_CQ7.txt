@@ -1,0 +1,61 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To determine the ideal training–test split for our model, we used k- 
+fold  cross-validation  (k  = 5,  epochs  = 500,  imagesize  = 640).  The 
+epochs provide the number of repetitions for training, and the image size 
+is  expressed in  pixels. k-fold  cross-validation  (Rodriguez et  al., 2010) 
+was used to determine the best training test set for the model. Hereby, 
+the data are split into k different training–test sets. The model was not 
+trained on the entire dataset but on each training split. The result was an 
+investigation of the best data split. Functions of the Python library scikit- 
+learn  (scikit-learn  developers,  2023)  were  used  to  split  the  data  and 
+investigate the results of each trained model. In addition, YOLO training 
+losses and mAP50 values of each model were investigated. The split with 
+the  highest  mAP50  value  indicates  the  highest  number  of  correctly 
+predicted labels for the model trained on a specific split. We used the
+
+split  data  with  the  highest  mAP50  (0.987)  for  the  prediction  of  our 
+model.
+
+Using this ideal split, a test was conducted using unprocessed data. 
+This indicates that the test dataset appeared to be similar to the training 
+data  because  it  consisted  of  images  of  the  extracted  clusters  without 
+further processing. 
+
+The  dataset  used  in  this  study  included  single-tree  point  clouds, 
+images of single-trees, and *. csv containing the attributes used to pro-
+duce the images, reference data, clusters of numbers (in two different 
+point-thickness settings), labeled numbers, preprocessed images of the 
+numbers, numbers from the best split, and tables containing the results 
+of  our  digit  recognition  are  freely  available  under:  Doi:  https://doi. 
+org/10.5281/zenodo.10663114. 
+
+3. Results 
+
+3.1. Classification accuracy
+
+Three models (Models 4, 5, and 6) were trained using our own data 
+(clusters of extracted numbers), as described above, as input for training, 
+whereas the other three models (Models 1, 2, and 3) were trained with 
+the modified National Institute of Standards and Technology (MNIST) 
+dataset of handwritten digits, which can be used to train classification 
+models (Deng, 2012).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+In order to find the optimal training-test split for their deep learning model, the authors employed k-fold cross-validation with k=5, epochs=500, and imagesize=640. K-fold cross-validation is a technique where the original sample is randomly partitioned into k equal sized subsamples or folds. Of these k subsamples, one subsample is retained as the validation data for testing the model, while the remaining k−1 subsamples are used as training data. This process is repeated k times, with each of the k subsamples being used exactly once as the validation data. The performance measure reported by k-fold cross-validation is then the average of the values computed in the loop.
+
+In this case, the data was divided into five different training-test splits. Each time, the model was trained on one of the four training splits, leaving out one fold for validation. The function of the Python library scikit-learn was utilized to perform the splitting and evaluate the outcomes of every trained model. Additionally, YOLO training losses and mean Average Precision (mAP50) values of each model were examined. The split with the highest mAP50 value signified the greatest number of accurately predicted labels for the model trained on a particular split. Ultimately, the split with the highest mAP50 (0.987) was chosen for the final model's predictions.

@@ -1,0 +1,61 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+CNNs  are  commonly  executed  on  GPU  hardware  which  results  in 
+faster training time. However, we deliberately trained ResNet152V2 on 
+CPUs  in  an  attempt  to  verify  that  training  could  be  executed  on  less 
+expensive hardware. We trained the CNN on a virtual machine running 
+the  “E2asV4”  instance  on  Microsoft  Azure  with  16GB  RAM  and  a 
+2.35Ghz AMD EPYC™ 7452 2 vCPU which at the time of writing cost 
+0.218  USD  per  hour.  When  the  feature  extractor  was  frozen,  it  took 
+between 450 and 780 s to complete one epoch, and when the feature 
+extractor was fine-tuned it took between 2035 and 3100 s per epoch. 
+While these executions are time consuming, these findings reveal that it 
+is  possible  to  train  pre-trained  models  on  less  expensive  hardware 
+making them accessible to researchers and practitioners.
+
+dataset)  with  46  softmax  units.  The  spectrograms  were  duplicated  to 
+meet  the  input  of  ResNet50  which  expects  3  channels.  Zhong  et  al. 
+(2020) compared VGG16 that was randomly initialised to a ResNet50 
+model that was  pre-trained  on ImageNet.  In both  cases, a  colour mel 
+spectrogram was input into the network. The spectrograms were resized 
+to match the network's input of 224 by 224. Their models were applied 
+to bird and amphibian vocalisations. ResNet50 pre-trained on ImageNet 
+was also used by LeBien et al. (2020) whereby the pre-trained feature 
+extractor was used and then two fully connected layers were added to 
+the CNN. Zhong et al. (2021) applied ResNet50 to a birdsong dataset 
+that contained three classes (two bird presence and one absence). The 
+CNN was  pre-trained on ImageNet and  the fully connected layer, fol-
+lowed by a dropout and an output layer was added to the CNN that was
+
+and  thus  we  could  compute  the  performance  of  the  network  on  each 
+testing  file  and  report  on  the  F1-score  as  it  was  commonly  used  in 
+literature. Unless stated otherwise, model training and testing was done 
+on Microsoft Azure using the Data Science Virtual Machine and a NCv2- 
+series virtual machine (NVIDIA Tesla P100 GPU).
+
+then fine-tuned on the birdsong dataset. Colour spectrograms stored as 
+PNG images were used as input to the CNN. Low resource computational 
+devices were the focus of the study of Disabato et al. (2021). Three layers 
+(the  first  convolution,  first  pooling,  and  second  convolution)  were 
+extracted from ResNet18 (He et al., 2016a) (pre-trained on ImageNet) 
+and  a  fully  connected  output  layer  was  added.  This  model  was  less 
+computationally  expensive  compared  to  commonly  used  CNNs  used 
+within  the literature,  and  thus, sets the  premise  for exploring  models 
+that are both accurate and are able to be executed on hardware with 
+limited resources.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the deployment process of the trained deep learning models. However, there are some clues regarding the platforms used for training and testing the models. For instance, the authors mention using Microsoft Azure's Data Science Virtual Machine and NVIDIA Tesla P100 GPUs for model training and testing. Additionally, they discuss using low resource computational devices such as CPUs for training models like ResNet152V2. These details suggest that the authors might have considered platform selection based on their specific requirements, such as computational power or budget constraints. Nevertheless, without further information, it is impossible to determine the exact process followed to deploy the trained deep learning models.

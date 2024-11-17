@@ -1,0 +1,72 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The pooling operator is connected after this layer for extracting the main features of a certain area, 
+reducing the number of parameters, and preventing the model from over fitting. The maximum pooling 
+with a 2 × 2 window and 2 strides is used in this layer. The pooling result is the data with the size of 56 
+× 56 × 64.  
+
+After pooling, the LRN (Local Response Normalization) is used to normalize the local response. 
+The LRN enhances the larger response value and reduce the smaller response value. Thus, the LRN 
+also can improve the generalization of the model. The output result of the LRN is the data with the size 
+of 56 × 56 × 64.
+
+After first inception modules, second and third inception modules are set in turn. The output is the 
+data with the size of 28 × 28 × 480. Then, the pooling and LRN are performed, the data with the size of 
+14 × 14 × 480 is output. 
+
+Ninth  layer: It  is a convolution layer with  480  3  ×  3  filters  and  their stride  is  1. The ReLU is 
+selected as the activation function. The result of this layer is the data with the size of 14 × 14 × 480. 
+After convolution, the data is performed by LRN. Then, the maximum pooling with a 3 × 3 window 
+and 2 strides is used. The output result is the data with the size of 6 × 6 × 480. 
+
+Tenth layer: This layer is dropout layer which is used to improve the generalization capability. 
+
+The size of output result is 17,280.
+
+(1) LeNet is firstly proposed by LeCun et al. in the 1990s, which includes three convolution layers, 
+two  sampling  layers,  two  fully  connected  layers.  At  that  time,  it  is  difficult  to  run  LeNet  due  to  the 
+limit of computation and memory capacity [21]. 
+
+(2) AlexNet is proposed by Alex et al. and won the ILSVRC 2012 [22]. AlexNet achieves higher 
+identifying accuracy than all the traditional machine learning algorithms. It is significant breakthrough 
+for machine learning for classification. 
+
+(3) GoogLeNet is proposed by Christian of Google and is the winner of ILSVRC 2014 [23], in 
+which inception layers, including different receptive areas with different kernel sizes capturing sparse 
+correlation patterns, are integrated into CNN.
+
+The size of output result is 17,280. 
+
+Eleventh layer: This layer is the full connected layer with 100 neurons. 
+Twelfth layer: This layer is the Softmax activation function layer with 2 neurons. 
+In  our  ICSNet,  we  adopt  the  inception  module  from  GoogLeNet,  but  only  three  inception 
+modules  are  built  in  ICSNet.  And  we  also  add  more  convolution  layers  than  AlextNet,  but  the 
+number of convolution layers is less than VGGNet and ResNet. Consequently, the tradeoff between 
+accuracy and time consuming can be achieved by our ICSNet. This is basic idea of our work. 
+
+Mathematical Biosciences and Engineering 
+
+Volume 18, Issue 2, 1121–1135. 
+
+ 
+1127 
+
+3.  Experiments 
+
+3.1.  Data description
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't any explicit information about the criteria used to split the data for deep learning model training (e.g., train, test, validation). However, typically, datasets are divided into training, testing, and sometimes validation sets using various methods such as random splitting or stratified sampling. These splits help evaluate the performance of the model during training and prevent overfitting. In some cases, cross-validation techniques like k-fold cross-validation may also be employed. Unfortunately, without specific details regarding the dataset and methodology used in this case, it is not possible to provide a definitive answer.

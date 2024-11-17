@@ -1,0 +1,7 @@
+Answer:
+
+The strategy implemented to monitor the model performance during training involves the use of two metrics: the delta.AICc and the Continuous Boyce Index (CBI). The delta.AICc, derived from the Akaike minimum information criterion, is used to determine the best tuning parameters for the model. The optimal model is the one with the minimum delta.AICc value (delta.AICc = 0), and a model with delta.AICc <2 is considered credible. The CBI, on the other hand, was employed in addition to the Area under the Receiver Operating Characteristic curve (AUC-ROC) because AUC-ROC is not reliable when obtaining true absences is challenging. 
+
+The model performance was evaluated across various tuning parameters, including the feature class (‘L', ‘Q', ‘LQ', ‘LQP’,) and the regularization multiplier (from 0.5 to 5). The final optimal parameters were identified as the feature class ‘LQP’ and a regularization multiplier of 3.5. The mean AUC-ROC stands at 95.5%, while the average CBI index for the validation dataset is 82.6%. 
+
+This strategy allows for a comprehensive evaluation of the model's performance, taking into account both the model's fit and its ability to predict true presences and absences. By using both the delta.AICc and the CBI, the study ensures that the selected model is not only statistically sound but also ecologically meaningful.

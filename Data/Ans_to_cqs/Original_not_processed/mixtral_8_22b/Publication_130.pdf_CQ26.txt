@@ -1,0 +1,130 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+a deep learning model with an imbalanced training dataset (i.e. when 
+
+35 sociable weavers at the RFIDs antennas. Of these, 30 individuals 
+
+the different classes, here the individuals, have different number of 
+
+with more than 350 pictures were used to train the classifier. In the 
+
+training pictures) can result in the over-generalization for the classes 
+
+great tit population, 77 birds were photographed, of which 10 had 
+
+in majority due to its increased prior probability. For instance, a naïve 
+
+more than 350 pictures. These 10 individuals were used to train a 
+
+classifier  for  a  binary  classification  task  for  a  dataset  in  which  the 
+
+CNN  for  each  of  the  species.  The  remaining  five  sociable  weavers 
+
+ratio  of  the  minority  class  to  the  majority  class  is  1:100  will  have 
+
+and 67 great tits (with <350 pictures) were used to address the issue 
+of working in open areas where new individuals can constantly be
+
+VGG19 CNN network (i.e. the classifier part) was replaced by layers 
+
+& Mazurowski, 2018). Oversampling was therefore restricted to the 
+
+with random weights that fit our particular task of interest and the 
+
+training dataset and not applied to the validation dataset in order to 
+
+corresponding number of classes (i.e. number of different individu-
+
+avoid  overestimating  the  model's  learning  progress.  For  both  spe-
+
+als; Figure S1).
+
+cies, in order to limit overfitting caused by having very similar pic-
+
+To further increase our training sample, we then used a data aug-
+
+tures  in  the  training  and  validation  datasets,  we  used  images  from 
+
+mentation procedure. This procedure consists of artificially increas-
+
+different  days  in  our  training  and  validation  datasets.  In  total,  we 
+
+ing the sample size by applying transformations to an existing set of 
+
+constructed a dataset of sociable weavers containing 27,038 unique
+
+learning methods such as CNN.
+
+hold would result in discarding 77% of the images of birds present in 
+
+The  most  powerful  aspect  of  CNNs  is  that  they  can  provide  a 
+
+the training dataset.
+
+4 |  D I S C U S S I O N
+
+generalized identification solution. However, the capacity for a CNN 
+
+to work effectively across contexts will be affected by variation in 
+
+the recording conditions, for example due to light intensity, shadow 
+
+or characteristics inherent to the recording quality. One solution to 
+
+this is to ensure that the training dataset contains sufficient variation 
+
+Deep  learning  has  the  potential  to  revolutionize  the  way  in  which 
+
+to capture the broad range of contexts that the CNN is required for. 
+
+researchers identify individuals. Here we propose a practical way of 
+
+Photographing the animals across different times of the day and in 
+
+collecting large labelled datasets, which is currently the main bottle-
+
+1,600 images of each zebra finch were randomly selected without 
+
+eight pictures are being provided to the model each time) was used 
+
+filtering for near-identical images. All birds had at least 1,600 images, 
+
+since it has been shown that small batch sizes improve models’ gen-
+
+except for one that had 1,197 for which oversampling was used by 
+
+eralization capability (Masters & Luschi, 2018). If there was no de-
+
+creating duplicates of 403 randomly sampled images.
+
+crease in loss (i.e. measure of the difference between the predicted 
+
+We used the VGG19 CNN architecture (Simonyan & Zisserman,  
+
+output and the actual output) for more than 10 consecutive epochs, 
+
+2014) and initialized the model with the weights of a network pre-
+
+we stopped training, and then retrained the model that achieved the 
+
+trained on the ImageNet dataset (a dataset with more than 14 mil-
+
+lowest loss with a SGD optimizer and a learning rate 10 times smaller
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In this study, several techniques are employed to address data bias during preprocessing of the deep learning pipeline. To tackle the challenge of imbalanced training datasets, oversampling is utilized. This technique involves creating duplicates of images from underrepresented classes to balance their representation in the dataset. It is important to note that oversampling is only applied to the training dataset and not the validation dataset to avoid overestimating the model's learning progress. Additionally, stratified splitting is implemented to maintain the same distribution of classes in both the training and validation datasets.
+
+Furthermore, to prevent overfitting caused by having very similar pictures in the training and validation datasets, images from different days are included in these sets. Data augmentation procedures are also adopted to artificially increase the sample size by applying transformations to an existing set of learning methods such as CNN. This helps enhance the generalization capabilities of the model. Lastly, diverse data collection is emphasized to ensure that the training dataset captures a wide range of contexts that the CNN is required for. This includes photographing animals across different times of the day and varying lighting conditions.

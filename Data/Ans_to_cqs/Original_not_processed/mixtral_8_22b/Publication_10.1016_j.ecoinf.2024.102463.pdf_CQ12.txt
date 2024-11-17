@@ -1,0 +1,76 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+• CNN  window  size  (dim-filter-cnn)  ∈ [3, 4, 5, 6, 7].  The  convolution 
+window size determines the size of the region over which convolu-
+tion  is  applied  at  each  time  step.  It  is  important  to  choose  an 
+appropriate window size to capture the relevant temporal patterns in 
+the data.  
+
+• the  number  of  filters  (nbr-filters-cnn)  ∈ [8, 16, 24, 32, 40, 48, 56, 64,
+72, 80, 88, 96, 104, 112, 120, 128].The  number  of  filters  determines 
+how many different patterns the network can learn. The higher the 
+number of filters, the more complex the network can be, but this can 
+also make training more difficult.
+
+structure as the one present in the encoder 
+
+For more details on the theory of the elements discussed we refer the 
+reader to the reference book (Goodfellow et al., 2016). This architecture 
+involves  a  large  number  of  hyperparameters  related  to  the  different 
+types of layers (convolutional or recurrent) and therefore a large number 
+of  parameters.  As  a  reminder,  a  parameter  is  internal  to  the  neural 
+network.  It  will  evolve  during  the  whole  training  process  A  hyper-
+parameter is external to the training process, it defines the properties of 
+the network. It remains static during the training process. 
+
+The  HyperBand  algorithm  is  proposed  for  optimisation  and  is 
+
+described in the next section.
+
+8. Conclusion 
+
+Acknowledgement 
+
+In this article, a multivariate modelling by a neural network encoder 
+decoder the Hierarchical Attention-Based Recurrent Highway Networks 
+Tao et al. (2016)is proposed for the prediction of 137Cs concentrations in 
+SPM.  This  model  extracts  the  maximum  of  information  from  past 
+exogenous  variable  from  river  (water  discharge,  release  and  washout 
+flux)  with  encoder  part  using  convolution  layer  and  recurrent  layer 
+(RHN)  to  generate  a  latent  representation.  A  layer  of  Hierarchical 
+Attention  weighs  the  importance  of  this  representation.  Then  the 
+decoder part processes this representation with the past history of the 
+target  variable  using  an  recurrent  layer  (RHN)  for  predict  the  future 
+concentration of 137Cs.
+
+Yang, D., Li, S., Peng, Z., Wang, P., Wang, J., Yang, H., 2019. Mf-cnn: traffic flow 
+
+prediction using convolutional neural network and multi-features fusion. IEICE 
+Trans. Inf. Syst. E102.D, 1526–1536. https://doi.org/10.1587/ 
+transinf.2018EDP7330. 
+
+Yaseen, Z.M., 2021. An insight into machine learning models era in simulating soil, water 
+bodies and adsorption heavy metals: review, challenges and solutions. Chemosphere 
+277, 130126. URL: https://www.sciencedirect.com/science/article/pii/ 
+S0045653521005956.  
+
+Yeo, I., Johnson, R., 2000. A new family of power transformations to improve normality 
+
+or symmetry. Biometrika 87, 954–959.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The deep learning model used in the pipeline is a combination of Convolutional Neural Network (CNN) and Recurrent Highway Network (RHN), which is a variant of Recurrent Neural Network (RNN). The CNN is used in the encoder part of the model to extract features from exogenous variables such as water discharge, release, and washout flux. The RHN is then employed in both the encoder and decoder parts of the model to process these extracted features and historical target variable data, respectively. The use of hierarchical attention mechanism further enhances the performance of the model by assigning weights to the encoded representations based on their relevance.

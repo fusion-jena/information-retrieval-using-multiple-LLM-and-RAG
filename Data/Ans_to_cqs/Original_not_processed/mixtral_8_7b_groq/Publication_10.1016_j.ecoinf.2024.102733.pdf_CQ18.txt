@@ -1,0 +1,13 @@
+Answer:::
+
+During the training of the diffusion model and the MLP, several strategies were implemented to monitor and ensure the performance of the model. 
+
+For the diffusion model, the trajectory lengths were analyzed to determine the appropriate length for the model's input. The histogram of the original trajectory lengths was plotted, and statistics such as the minimum, maximum, average, and median lengths were extracted. It was found that most trajectories had a length of 13, and thus, a standard trajectory length of 13 was established. The trajectories were then segmented into fixed lengths of 13, and segments shorter than 6 detections were discarded. For segments with 6 to 12 detections, their data points were replicated until they reached the required length of 13. This process helped to ensure that the model received consistent input lengths during training.
+
+In the case of the MLP, the Adam optimizer was used during training, along with a scheduler that adjusted the learning rate when the network reached a plateau. This allowed for the model's performance to be maintained during the training process. Additionally, various parameter values and regularization techniques were explored, such as the learning rate (0.00001 and 0.0001), batch sizes (8, 16, 32, and 64), weight decay (0.0001 and 0.001), and dropout (0.1).
+
+Furthermore, the Focal Loss (Lin et al., 2017) was investigated, which introduced additional parameters (α and γ) to study. The former served as a balancing factor, either as a fixed value for all classes or as the inverse of each class frequency. The latter regulated the impact of the scaling factor, with a value of zero making Focal Loss equivalent to Cross-Entropy Loss. The α was experimented with as the inverse of the class frequency.
+
+Lastly, various parameter values, including learning rate (0.0001, 0.001, 0.01, and 0.1), batch size (32, 64, 128, 256, and 512), and latent dimension (128, 256, 512, and 2048), were explored and evaluated. This allowed for the monitoring of the model's performance with different parameter configurations.
+
+In summary, the strategies implemented to monitor the model performance during training include analyzing trajectory lengths, using the Adam optimizer and a scheduler, exploring various parameter values and regularization techniques, and investigating the Focal Loss with its additional parameters. These strategies helped ensure the model's performance during training and optimized its input for accurate predictions.

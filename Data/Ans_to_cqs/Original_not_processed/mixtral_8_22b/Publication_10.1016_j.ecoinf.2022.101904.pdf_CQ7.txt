@@ -1,0 +1,119 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.4. Impact of data split 
+
+This  section  illustrates  the  impact  of  the  data  split  (i.e.,  test  and 
+training data ratio) on the final accuracy of wetland mapping. By eval-
+uating  the  classification  results  of  the  proposed  model  with  different 
+training data, we will better understand the required amount of data to 
+reach  an  acceptable  wetland  accuracy  level.  This  is  significant  when 
+there is a limited number of reference data in a project. We utilized a 
+
+different ratio of training data from reference data. The training ratio 
+started from 10% to 90%, increasing by 10%. Based on the results, as the 
+amount of data gradually increased, the classification accuracy of our 
+method was improved. This improvement was substantial for increasing 
+the  training  ratio  from  10%  to  30%  (average  accuracy  improved  by 
+17.47%).  However,  average  accuracy  just  increased  by  7.01%  by 
+increasing the training ratio from 30% to 90% (see Fig. 10).
+
+Fig. 10. Impact of data split on classification accuracies.  
+
+Table 6 
+Results  of  the  developed  classifier  considering  different  image  patch  sizes 
+(KI=Kappa index, AA = Average accuracy, OA = Overall accuracy).  
+
+Class 
+
+patch size = 4 
+
+patch size = 8 
+
+patch size = 12 
+
+Bog 
+Fen 
+Marsh 
+Swamp 
+Shallow water 
+Urban 
+Deep water 
+Upland 
+KI (%) 
+OA (%) 
+AA (%) 
+
+0.79 
+0.72 
+0.95 
+0.85 
+0.89 
+0.96 
+0.99 
+0.98 
+90.94 
+92.24 
+88.91 
+
+0.94 
+0.92 
+0.97 
+0.96 
+0.99 
+1 
+1 
+0.98 
+96.99 
+97.39 
+97.13 
+
+0.98 
+0.98 
+0.99 
+0.98 
+0.99 
+1 
+1 
+1 
+99.1 
+99.23 
+98.92
+
+Many  ecosystems,  particularly  wetlands,  are  significantly  degraded  or  lost  as  a  result  of  climate  change  and 
+anthropogenic  activities.  Simultaneously,  developments  in  machine  learning,  particularly  deep  learning 
+methods, have greatly improved wetland mapping, which is a critical step in ecosystem monitoring. Yet, present 
+deep  and  very deep  models necessitate  a greater  number  of  training data, which  are costly,  logistically  chal-
+lenging,  and  time-consuming  to  acquire.  Thus,  we  explore  and  address  the  potential  and  possible  limitations 
+caused  by  the  availability  of  limited  ground-truth  data  for  large-scale  wetland  mapping.  To  overcome  this 
+persistent  problem  for  remote  sensing  data  classification  using  deep  learning  models,  we  propose  3D  UNet 
+Generative Adversarial Network Swin Transformer (3DUNetGSFormer) to adaptively synthesize wetland training
+
+Where γm presents the number of training samples belonging to the 
+wetland class with the highest number of training samples and γi shows 
+the number of training data of other wetland classes. The 3D patches of 
+Sentinel-1/2 imagery with the dimension of γi × S × S × B, as well as the 
+output of the conditional map unit, are employed in each of Ui. Next is to 
+transform the output of the conditional unit map (intermediate feature 
+expressed by If) to a feature with the length of γi. It should be noted that S 
+and B present image patch size (i.e., 8) and the number of utilized bands 
+(i.e., 18). In the GAN network, a dense layer is employed first, followed 
+by  a  softmax  layer.  For  the  generation  of  the  class-specific  random 
+feature (Im) with the dimension of n × γ, the feature vector n = S × S × B 
+times is repeated. The 3D Sentinel-1/2 image patches with the dimen-
+sion  of  γi  × S  × S  × B  are  then  converted  into  a  matrix  (Pm)  with  a
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the specific criteria used to split the data for deep learning model training (e.g., train, test, validation). However, it mentions that the study evaluates the classification results of the proposed model with different training data ratios, starting from 10% to 90%, increasing by 10%. This suggests that the authors might have used a simple random sampling approach to divide the dataset into training and testing sets based on varying percentages. Nevertheless, without further details, it cannot be confirmed if any specific criteria were applied during the splitting process.

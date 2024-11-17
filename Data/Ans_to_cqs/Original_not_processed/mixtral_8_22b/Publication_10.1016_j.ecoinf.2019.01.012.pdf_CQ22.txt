@@ -1,0 +1,56 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+positives (TP), true negatives (TN), false positives (FP) and false nega-
+tives (FN). As accuracy metrics, we use Overall Accuracy (OA),
+Precision (P), Recall (R), F1 score (F1) and the Matthews correlation
+coeﬃcient (MCC). Metrics are calculated as follows:
+
+Ecological Informatics 50 (2019) 220–233
+
+Fig. 5. Learning process for loss (left) and model accuracy (right) over 90 epochs. The gap between training and validation accuracy is caused by using dropout on
+the training data only.
+
+All statistics were performed in R (version 3.3.1). The best model
+was chosen based on the two parameters accuracy and loss, whereby
+loss serves as a measure on how far model predictions diﬀer from the
+actual class. Model accuracy and loss were calculated for both training
+and validation set. We tested the performance of the ﬁnal model on two
+diﬀerent data sets: 1) on individual tiles and 2) on whole repeat pho-
+tographs. Prediction accuracy on individual tiles was calculated using
+the 5796 tiles from the test set (= 10%), which has been separated from
+the total number of samples before training. We evaluated the accuracy
+on whole repeat photographs based on the image pairs of the second set
+of photographs. The classiﬁcation results for each of these 34 images
+were compared to the corresponding manual classiﬁcation (reference
+data). A confusion matrix was prepared for each photograph in-
+dividually. The confusion matrix consists of pixel numbers for true
+
+Although the use of pre-trained models has proven to be advanta-
+geous for many image recognition tasks (Weiss et al., 2016), we decided
+to train the model from scratch. We recognized that our speciﬁc clas-
+siﬁcation problem was too diﬀerent from the pre-trained networks.
+Moreover, we considered the number of labeled samples available
+(nearly 30,000 per class) as large enough for training our own network.
+
+We trained the CNN using ReLU activation for the convolutional layers
+and an exponential linear unit (ELU) activation on the fully connected
+layer (Clevert et al., 2015). As optimizer we chose the adaptive ADAM
+(Adaptive Moment Estimation) with a learning rate of lr = 0.0001.
+Training was performed with a batch size of 256 over 16,290 iterations
+(= 90 epochs).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The paper uses several metrics to evaluate the performance of the deep learning model. These include Overall Accuracy (OA), Precision (P), Recall (R), F1 score (F1), and the Matthews correlation coefficient (MCC). Additionally, they also consider the 'loss', which measures how much the model predictions differ from the actual classes. These metrics are calculated for both the training and validation datasets.

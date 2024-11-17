@@ -1,0 +1,11 @@
+Answer:::
+
+To monitor the model performance during training, the strategy implemented involves evaluating the models using three standard metrics: Mean Squared Error (MSE), Mean Average Error (MAE), and the coefficient of determination (r2). Among these, MSE was the primary focus during the grid search to identify the optimal set of hyperparameters.
+
+Before conducting the grid search, the data was divided into a training set, consisting of 80% of the data, and a test set, comprising the remaining 20% of the data. This split ensured that the models were trained on one portion of the data and tested on a separate, previously unseen portion. This approach allowed for an accurate assessment of the models' ability to generalize to new, unseen data.
+
+Additionally, SHAP (SHapley Additive exPlanations) values were computed using the model-agnostic Kernel SHAP method. This was done to understand which features are most important in predicting the start and height of the greening season. SHAP values provide a way to explain the output of any machine learning model. They provide insights into how each feature contributes to the prediction, making it easier to understand and monitor the model's performance.
+
+The table provided in the context gives an overview of the explored ranges of hyperparameters used in the Optuna grid search. The optimal values for the three different regression tasks are displayed in the right-most three columns. Monitoring the model performance during training would involve tracking the changes in these metrics as the model learns from the training data. This would help in identifying any potential overfitting or underfitting issues and adjusting the model parameters accordingly.
+
+In summary, the strategy to monitor the model performance during training involves using multiple metrics (MSE, MAE, and r2), SHAP values for feature importance, and tracking the model's performance on a separate test set. This comprehensive approach ensures that the model's ability to generalize and its dependence on specific features are thoroughly monitored during the training process.

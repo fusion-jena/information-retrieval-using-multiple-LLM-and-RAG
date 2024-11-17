@@ -1,0 +1,64 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3. Results 
+
+3.1. Model training efficiency 
+
+Model  training  on  our  hardware  (NVIDIA  GTX  1080  GPU)  took 
+~460  h.  The  optimization  was  stopped  once  the  validation  ENS 
+repeatedly  failed  to  improve  compared  to  the  score  evaluated  from 
+previous  epochs.  The  model  at  the  epoch  with  the  highest  attained 
+validation  score  was  selected.  We  noted  a  significant  acceleration  of 
+convergence  when  employing  the  baseline  framework,  as  shown  in
+
+2.2. Data 
+
+The data used here was provided as part of the EarthNet2021 Chal-
+lenge and consists of 23,904 training datacubes located across Europe
+
+4.3. The prediction task
+
+Since  MAD,  OLS,  and  EMD  are  originally  defined  as  loss  metrics 
+(which should be minimized), they were transformed here following the 
+standard Earthnet2021 evaluation methodology (Requena-Mesa et al., 
+2021)  into  scores  and  normalised  such  that  0  denotes  poor,  and  1  a 
+perfect  fit  between  predictions  and  observation.  SSIM  is  a  similarity 
+metric, with higher values indicating better model performance. In the 
+following,  we  will  use  MAD,  OLS,  EMD,  and  SSIM  to  denote  score 
+metrics - after transformation (all of which should be maximized). The 
+ENS score as a harmonic mean of the four score components should thus 
+also be maximized. 
+
+EMD and OLS are computed based on the observed and predicted 
+NDVI.  MAD  and  SSIM  are  computed  on  all  RGBI  bands. The  NDVI  is 
+defined  based  on  reflectance  in  the  red  and  near-infrared  bands  (IR) 
+(Pettorelli, 2013) and is computed as 
+
+NDVI =
+
+IR (cid:0) Red
+.
+IR + Red
+
+(4)
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The performance of the deep learning model is evaluated using several metrics, including Mean Absolute Difference (MAD), Optimal Linear Scaling (OLS), Earth Movers Distance (EMD), and Structural Similarity Index Measure (SSIM). These metrics are calculated based on the Normalized Difference Vegetation Index (NDVI) and the RGBI bands.
+
+MAD, OLS, and EMD are initially defined as loss metrics, but for this study, they have been transformed into scores according to the standard EarthNet2021 evaluation methodology. A perfect fit between predictions and observations results in a score of 1, while a poor fit yields a score of 0. On the other hand, SSIM is a similarity metric where higher values indicate better model performance.
+
+The NDVI is derived from reflectance in the red and near-infrared bands (IR) and is computed using the formula provided in the given context. This index plays a crucial role in evaluating the performance of the deep learning model.

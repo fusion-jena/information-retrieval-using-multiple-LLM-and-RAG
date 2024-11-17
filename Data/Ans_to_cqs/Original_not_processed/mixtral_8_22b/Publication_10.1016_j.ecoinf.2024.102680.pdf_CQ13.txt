@@ -1,0 +1,163 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+However,  using  large  kernel  convolutions  usually  leads  to  over-
+whelming computational complexity, resulting in a sharp increase in the 
+number  of  network  parameters  and  network  computational  load.  To 
+overcome this issue, we used dilated convolution (Yu and Koltun, 2016) 
+and depthwise separable convolution to reduce computations. Dilated 
+convolution can increase the receptive field of the convolution kernel by 
+inserting “holes”  without adding parameters or increasing the compu-
+tational load. The equation for calculating the receptive field of dilated 
+convolution  is  shown  in  Eq.  (4),  where  n  represents  the  size  of  the 
+receptive field and d represents the dilation rate. 
+
+EcologicalInformatics82(2024)1026806H. Zhou et al.
+
+(RTMDet)  (Lyu  et  al.,  2022),  YOLOv5,  YOLOv8,  Gold-YOLO  (Wang 
+et  al.,  2023)  and  amplitude-modulated  stochastic  perturbation- 
+underwater object detection (AMSP-UOD) (Zhou et al., 2024)), as well 
+as  the  transformer-related  algorithm  (RT-DETR).  Due  to  the  varying 
+structures of different object detection algorithms, some algorithms may 
+not  achieve  optimal  results  when  using  a  uniform  set  of  hyper-
+parameters.  Therefore,  we  trained  the  various  networks  using  the 
+default parameters preset in the MMDetection framework until the al-
+gorithms fully converged, which means that the detection accuracy did 
+not  improve  further.  The  hyperparameter  settings  of  different  object 
+detection algorithms (e.g., the optimizer and learning rate) are detailed 
+in Table 2, where SGD represents the stochastic gradient descent and 
+AdamW  represents  the  adaptive  moment  estimation  weight  decay
+
+Owing to the insufficient clarity of underwater optical images, gen-
+eral deep learning networks have difficulty capturing accurate feature 
+information and cannot detect objects correctly. The original YOLOv8 
+network  uses  the  C2f  module  for  feature  extraction.  However,  this 
+module employs an split  operation on features after convolution. This 
+operation divides the input data into two non-overlapping parts, making 
+it  difficult  to  obtain  comprehensive  and  rich  feature  information 
+through half of the channel’s features. Specifically, the shape of features 
+F obtained after convolution is ℝN×H×W×C, where N represents the batch 
+size, C represents the channel number, and H and W denote the height 
+and width, respectively. The split  operation evenly divides F  into two 
+parts on the channel dimension with shapes of ℝN×H×W×0.5C, and these 
+two parts do not overlap. The original YOLOv8 convolves only half of
+
+Parameters 
+(million) 
+
+ResNet50 
+
+ResNet50 
+ResNet50 
+
+Two-stage detector 
+Faster RCNN 
+Cascade 
+RCNN 
+Libra RCNN 
+Single-stage detector 
+FCOS 
+ATSS 
+RTMDetm 
+YOLOv5m 
+YOLOv8m 
+Gold-YOLOs 
+AMSP- 
+
+ResNet50 
+ResNet50 
+CSPNeXt 
+CSPDarknet 
+CSPDarknet 
+EfficientRep 
+VortexNet 
+
+UODm 
+
+Transformer detector 
+RT-DETR 
+RT-DETR 
+Our detector 
+UODN 
+
+ResNet18 
+HGNetv2-L 
+
+CSMBDarknet 
+
+65.9 
+66.8 
+
+66.0 
+
+64.2 
+69.4 
+65.2 
+65.2 
+65.4 
+64.0 
+68.2 
+
+64.9 
+66.4 
+
+82.5 
+82.2 
+
+82.0 
+
+81.2 
+83.2 
+83.4 
+85.4 
+86.0 
+85.2 
+85.5 
+
+85.3 
+85.5 
+
+41.4 
+69.2 
+
+41.6 
+
+32.1 
+32.1 
+24.7 
+20.9 
+25.8 
+21.5 
+26.6 
+
+19.9 
+32.0 
+
+69.4 
+
+86.3 
+
+19.0  
+
+utilization and protection of marine biological resources. Overall, the 
+proposed UODN algorithm provides an efficient computer vision solu-
+tion for detecting and monitoring underwater organisms, which can help 
+promote the sustainable utilization of marine biological resources and 
+research on the protection of marine ecosystems. 
+
+5. Conclusion
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The hyperparameters used in the deep learning models vary depending on the specific algorithm employed. For instance, the original YOLOv8 network uses the C2f module for feature extraction, but it has limitations in obtaining comprehensive and rich feature information due to its use of a split operation on features after convolution. Different object detection algorithms, such as ResNet50, Two-stage detector, Single-stage detector, Transformer detector, and others, were trained using default parameters preset in the MMDetection framework until they fully converged. These hyperparameters include the optimizer and learning rate. Detailed hyperparameter settings for different object detection algorithms are presented in Table 2. Some examples of optimizers mentioned are Stochastic Gradient Descent (SGD) and Adaptive Moment Estimation Weight Decay (AdamW).

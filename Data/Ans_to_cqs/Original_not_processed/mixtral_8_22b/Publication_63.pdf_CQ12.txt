@@ -1,0 +1,57 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+(3)  As a contextual constraint, bioclimatic data (see above) was fed into the CNN with the same model and 
+data configuration including Plasticity in a mixed data approach (‘Worldclim’ in Fig. 2, setup 3 in Fig. 1). 
+4) We tested an Ensemble approach, in which two more state-of-the-art model architectures, namely 
+ Xception51 and MobileNetV2, the latter with halved number of trainable  parameters52, were trained on the 
+configuration of setup 3, and their predictions were subsequently averaged (’Ensemble’ in Fig. 2, setup 4 in 
+Fig. 1). These models differed strongly in their number of trainable weights, resulting in a different depth. 
+The final model performance was assessed using a 3-fold cross-validation, with three different training, 
+validation and test splits. To enable a comparison of model performance across traits, the resulting mean 
+absolute error (MAE) was normalised by division over the range of the target values of the respective test
+
+Vol.:(0123456789)www.nature.com/scientificreports/Training  process  and  hyperparameters. 
+In  order  to  build  upon  a  pre-existing  knowledge  base,  we 
+employed  ’transfer  learning’  by  using  pre-trained  layer  weights  (the  storage  of  the  model’s  knowledge)  from 
+a classification task on a dataset on www. image- net. org38 for all CNN models used in this study. The regressor 
+following the basic CNN consisted of a global average pooling layer followed by two dense layers with 512 and 1 
+output units. The latter forces the CNN to output exactly one prediction (trait) value. In case of the mixed data 
+model (setups (3) and (4)), the CNN consisted of parallel branches to incorporate the different input data types. 
+The branch processing the bioclimatic data consisted of three dense layers with 64, 32 and 4 output units, and 
+the last layer of the CNN regressor contained 4 output units. After concatenating the two branches (image and
+
+extracted a random sample of 10% of the dataset of each trait before model training. This ‘test dataset’ was not 
+involved in the training process and exclusively served for the independent evaluation of the trained models. 
+The remaining data was split into ’training dataset’ and ’validation dataset’ by a ratio of 4:1 (Table 1). The train-
+ing dataset was employed to train the weights of the CNN model, whereas the validation dataset indicated the 
+training progress after each full training cycle (’epoch’).
+
+(1)  As a baseline, a state-of-the-art CNN architecture called Inception-Resnet-v249 was used (’Baseline’ in 
+
+(2) 
+
+Fig. 2, setup 1 in Fig. 1).
+In order to test if prior knowledge on within-species variability can improve the weakly supervised learn-
+ing process, ’Plasticity’ (or ’target augmentation’, TA) was implemented with exactly the same model con-
+figuration as in setup 1) (’Plasticitiy’ in Fig. 2, setup 2 in Fig. 1). Plasticity was realised by harnessing the 
+standard deviations obtained from TRY database regarding every trait and species (for information on 
+data availability, see Table 1). The target values were altered within a Gaussian distribution truncated by 
+one standard deviation of the trait values using R package ’truncnorm’ (version 1.0–8)50, thereby leaving a 
+small deviation from the mean value more likely than a large one. To avoid negative as well as overly large 
+values, the targets were clipped to the range between 0 and 1 after normalisation.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: The pipeline uses Convolutional Neural Networks (CNN) as its primary deep learning model. Specifically, it employs state-of-the-art CNN architectures such as Inception-Resnet-v2, Xception, and MobileNetV2. Additionally, transfer learning is utilized by employing pre-trained layer weights from a classification task on a dataset from ImageNet.org.

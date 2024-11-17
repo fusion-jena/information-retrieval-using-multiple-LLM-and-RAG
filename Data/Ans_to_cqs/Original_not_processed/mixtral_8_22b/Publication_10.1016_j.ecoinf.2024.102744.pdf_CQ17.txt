@@ -1,0 +1,301 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+feature  images  while  retaining  crucial  features.  The  Dropout  layer  is  integrated  to  mitigate 
+
+overfitting. Additionally, the Global Average Pooling layer summarizes features, generating input 
+
+for the fully connected layer. This layer also facilitates the visualization of regions relied upon by 
+
+the network for predictions. The subsequent three fully connected layers generate the predicted 
+
+class for the original image 
+
+Table 1: Main parameters of the classification network 
+
+[
+
+Input size 
+
+Output size 
+
+Journal Pre-proof
+
+[
+
+[
+
+[
+
+Parameters 
+
+  conv, strides 1] 
+
+  conv, strides 1] 
+
+  max pool 
+
+  conv, strides 1] 
+
+  conv, strides 1] 
+
+Probability 0.5 
+
+  max pool 
+
+[
+
+  conv, strides 1] 
+
+Layers 
+
+Convolution 
+
+Convolution 
+
+Pooling 
+
+Convolution 
+
+Convolution 
+
+Dropout 
+
+Pooling 
+
+Convolution 
+
+Global Average Pooling 
+
+Dense 
+
+Dense 
+
+Classification layer (Dense) 
+
+128 
+
+128 
+
+128 
+
+128 
+
+128 
+
+128 
+
+1 
+
+- 
+
+- 
+
+- 
+
+-
+
+the objects of interest. Conversely, weights are reduced for simpler samples. 
+
+Consequently, focal loss diminishes the impact of straightforward samples on training loss 
+
+while  amplifying  the  significance  of  challenging  ones.  The  focal  loss  function  is  calculated  as 
+
+Journal Pre-proof
+
+  is the probability of belonging to the class 
+
+  represents  the  ratio  of  generated  boxes  containing  background  and  foreground 
+
+information, aiding in balancing the disparity between background and foreground when 
+
+generating boxes. 
+
+ 
+
+  represents the “concentration” of indistinguishable regions; the larger 
+
+, the smaller 
+
+the error values in the distinguishable regions, and the lower the contribution to the total 
+
+loss of the model. 
+
+follows: 
+
+where: 
+
+ 
+
+ 
+
+(6) 
+
+()=(1)()ttttFLpplogptpt 
+ 
+ 
+ 
+ 
+Journal Pre-proof
+
+4.5. Third improvement: Two class Faster RCNN + Overlap Sampler technique
+
+128 
+
+128 
+
+128 
+
+128 
+
+128 
+
+1 
+
+- 
+
+- 
+
+- 
+
+- 
+
+30018032981788338298178829617616331629617616148881622148881614686323332146863214484643364144846414484641448464724264227242647040128331287040128 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Journal Pre-proof
+
+4.4. Second improvement: Two class YOLOv5 + Focal loss 
+
+In this enhancement, an object detection network is trained to detect two classes: pollen-bearing 
+
+and  non-pollen-bearing  bees.  However,  due  to  data  imbalance,  where  one  class  significantly 
+
+outnumbers the other, we propose the implementation of a focal loss function to address this issue. 
+
+Focal  loss  [41]  is  a  technique  designed  to  mitigate  imbalance  problems  in  object  detection 
+
+networks by assigning higher weights to samples that are challenging or prone to misclassification. 
+
+These samples typically include those with complex backgrounds or only partial representations of
+
+VnPollenBee dataset. The best metrics values are shown in bold font. 
+
+Method 
+
+Evaluation metrics 
+
+Journal Pre-proof
+
+Our proposed methods 
+
+Baseline methods 
+
+0.12  0.004 
+
+0.15  0.009 
+
+0.086  0.03 
+
+0.99 
+
+0.99 
+
+0.58 
+
+0.96 
+
+0.41 
+
+0.91 
+
+0.85 
+
+0.88 
+
+0.88 
+
+MR 
+
+Yolov5 + classification  0.11 
+
+Yolov5 + focal loss 
+
+Yolov5 [39] 
+
+Faster RCNN [40] 
+
+0.91 
+
+0.93 
+
+0.70 
+
+0.93 
+
+FAR  Precision  Recall  F1-score 
+
+Faster RCNN 
+
++ Overlap Sampler 
+
+0.07 
+
+0.01 
+
+0.99 
+
+0.93 
+
+0.95 
+
+Figure 14: Evaluation metrics of the pollen-bearing bee detection results. 
+
+Figure 15: Detection results of the proposed improvement: (above) YOLOv5 + focal loss, (below) 
+
+Faster  RCNN  +  Overlap  sampler.  The  green  and  red  boxes  indicate  pollen-bearing  and 
+
+ 
+ 
+Journal Pre-proof
+
+non-pollen-bearing bees, respectively. Values indicate the confidence score. 
+
+Furthermore,  Fig.  15  depicts  some  detection  outcomes  of  the  second  proposed
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text mentions the use of the Dropout layer as a method to prevent overfitting in the deep learning pipeline. Dropout is a regularization technique used during training to randomly set a fraction rate of input units to 0 at each update, which helps reduce interdependent learning amongst neurons. By doing so, it prevents overfitting and improves the generalization capability of the model. Other common regularization techniques not explicitly mentioned in the given context but widely used in deep learning pipelines include L1 and L2 regularizations, early stopping, and data augmentation. These methods help control the complexity of the model and improve its ability to perform well on unseen data.

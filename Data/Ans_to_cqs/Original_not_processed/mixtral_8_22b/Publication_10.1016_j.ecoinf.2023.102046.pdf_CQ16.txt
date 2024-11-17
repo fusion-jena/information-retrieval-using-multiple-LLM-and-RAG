@@ -1,0 +1,50 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+EcologicalInformatics76(2023)10204610A.R. Sigurðard´ottir et al.                                                                                                                                                                                                                      
+
+Fig. B.1. Difference in predicted versus true age for European plaice when training the linear model on a training dataset of different size. Training size is shown 
+under each image. 
+
+Appendix C. Hyperparameter search 
+
+We  performed  hyperparameter  search  for  our  classification  and  regression  model  to  identify  the  right  level  of  regularization.  For  the  linear 
+regression model, we considered values of α  that determine the L2 regularization to be in the range {0.1, 0.6, 1.1, …, 19.1, 19.6}. The resulting 
+accuracy of the model is shown in Fig. C.1. We observe that the model shows stable performance for α values in the interval [5.0, 15.0]. For the
+
+training set. For SVC, we explored a C value in the interval [0.001, 1] 
+(see Fig. C.2 in the Appendix C. Based on that result, the hyperparameter 
+value chosen was C = 0.1. For ridge regression, we explored α values in 
+the interval [0.1, 19.6] and concluded that the performance of the model 
+is robust to the choice of the hyperparameter when it ranges from 5 to 15 
+(see Fig. C.1 in the Appendix C). Based on that result we chose to use α =
+6.0 for our experiments.
+
+82% agreement of the annotators.
+
+Manual labeling of otoliths for age determination can be expensive, 
+which  can  limit  the  amount  of  labeled  data  available  for  machine 
+learning projects in this field. Few-shot learning is a method that aims to 
+overcome this challenge by training machine learning models on a small 
+number  of  labeled  sample  images,  with  the  goal  of  achieving  good 
+performance on age prediction tasks. This approach can help to make up 
+for the lack of labeled data available for training. Few-shot learning has 
+been  used  in  CV  projects  such  as  character  recognition  (Shaffi  and 
+Hajamohideen, 2021), image classification (Radford et al., 2021), and 
+object detection (Xu et al., 2016), but has not yet been applied to otolith 
+age prediction.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the specific criteria used to determine when training is complete. However, based on common practices in machine learning, some possible criteria include reaching a certain number of epochs or iterations, observing a plateau or decrease in validation loss, or achieving a desired level of accuracy or other performance metric on the validation set. In this case, the authors mention performing hyperparameter search for their classification and regression models, which suggests they may have used cross-validation techniques to evaluate the performance of different parameter settings during training. They also present results showing the accuracy of their models for various hyperparameters, indicating that they likely monitored performance metrics throughout the training process. Without more detailed information, however, it is difficult to definitively state what specific criteria were used to determine when training was complete.

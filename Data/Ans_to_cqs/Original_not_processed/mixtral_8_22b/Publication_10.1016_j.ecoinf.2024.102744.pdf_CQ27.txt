@@ -1,0 +1,250 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+feature  images  while  retaining  crucial  features.  The  Dropout  layer  is  integrated  to  mitigate 
+
+overfitting. Additionally, the Global Average Pooling layer summarizes features, generating input 
+
+for the fully connected layer. This layer also facilitates the visualization of regions relied upon by 
+
+the network for predictions. The subsequent three fully connected layers generate the predicted 
+
+class for the original image 
+
+Table 1: Main parameters of the classification network 
+
+[
+
+Input size 
+
+Output size 
+
+Journal Pre-proof
+
+[
+
+[
+
+[
+
+Parameters 
+
+  conv, strides 1] 
+
+  conv, strides 1] 
+
+  max pool 
+
+  conv, strides 1] 
+
+  conv, strides 1] 
+
+Probability 0.5 
+
+  max pool 
+
+[
+
+  conv, strides 1] 
+
+Layers 
+
+Convolution 
+
+Convolution 
+
+Pooling 
+
+Convolution 
+
+Convolution 
+
+Dropout 
+
+Pooling 
+
+Convolution 
+
+Global Average Pooling 
+
+Dense 
+
+Dense 
+
+Classification layer (Dense) 
+
+128 
+
+128 
+
+128 
+
+128 
+
+128 
+
+128 
+
+1 
+
+- 
+
+- 
+
+- 
+
+-
+
+5.1. Setup 
+
+Journal Pre-proof
+
+In  our  experiments,  we  used  the  Python  3.10  programming  environment  along  with  popular 
+
+libraries  such  as  PyTorch,  TensorFlow,  and  OpenCV.  The  detection  models  were  trained  on  a 
+
+server equipped with an Intel® Core™ i7-8700 CPU @ 3.20GHz (32GB DDR4-2666 memory) 
+
+and an NVIDIA GeForce RTX 3070 GPU (8GB GDDR6 memory). 
+
+The  methods  utilizing  YOLOv5  will  undergo  training  for  300  epochs,  whereas  the 
+
+classification network in method 1 will undergo training for 200 epochs. Here, one epoch signifies 
+
+training the model on all data once. For YOLOv5 training, fundamental parameters such as the 
+
+learning  rate  will  be  set  to  0.02,  with  weight  decay  and  momentum  values  of  0.001  and  0.9, 
+
+respectively.  In  contrast,  methods  employing  Faster  RCNN  will  be  trained  with  90  thousand 
+
+ 
+Journal Pre-proof
+
+image for each model in our experiments are computed and shown in Table 6. 
+
+Table 6: Comparison of the number of parameters, GFLOPs, and inference time of models in our 
+
+experiments. 
+
+Method 
+
+Evaluation metrics 
+
+ 
+ 
+Journal Pre-proof
+
+Parameters (M)  GFLOPs  Time (ms) 
+
+Baseline methods 
+
+Yolov5 [39] 
+
+86.18 
+
+203.8 
+
+Faster RCNN [40] 
+
+41.20 
+
+446.7 
+
+52.9 
+
+60.0 
+
+Other state-of-the-art methods 
+
+EfficientDet [43] 
+
+6.55 
+
+2.8 
+
+322.0 
+
+698.0 
+
+79.4 
+
+22.0 
+
+52.3 
+
+110.0 
+
+Yolov5 + classification 
+
+RetinaNet [41] 
+
+DETR [44] 
+
+Yolov5 + focal loss 
+
+Faster RCNN 
+
++ Overlap Sampler 
+
+47.8 
+
+97.1 
+
+86.35 
+
+41.30 
+
+204.2 
+
+86.18 
+
+37.96 
+
+203.8 
+
+Our proposed methods 
+
+Journal Pre-proof
+
+1097.9 
+
+41.30 
+
+5.4. Application to the problem of counting pollen-bearing bees 
+
+Counting the number of pollen-bearing bees entering the hive enables beekeepers to monitor the 
+
+hive’s food status and promptly replenish it if necessary. Recognizing this benefit, we integrated
+
+CNN architecture but  with  different  filter sizes.  The obtained  results depend on the number of 
+
+hidden layers, filter size, and the number of filters in convolution layers. The higher the number of 
+
+hidden layers, filter size, and filters, the higher the accuracy of classification. In [29], the authors 
+
+proposed  four  different  models  for  bee  image  classification,  serving  different  tasks  in  beehive 
+
+monitoring. All these models were based on different Deep Neural Networks (DNNs) that have 
+
+been  pre-trained  on  the  ImageNet  dataset  [30]  including  AlexNet,  DenseNet-201,  GoogLeNet, 
+
+ResNet-101, ResNet-18, VGG-16, VGG-19. In the first model, the authors used a transfer learning 
+
+method based on these pre-trained DNNs. Meanwhile, in the second, third, and fourth models, the 
+
+authors used the SVM classifier with deep features, shallow features, and deep+shallow features
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough information available in the given context to provide a detailed explanation about the deployment process of the trained deep learning model. However, I can infer from the context that the experiment was conducted using Python 3.10 programming environment with libraries like PyTorch, TensorFlow, and OpenCV. These libraries support model serialization which allows saving the entire model into a file or files after training and then loading it back for prediction. Also, since the experiment was carried out on a server equipped with an Intel® Core™ i7-8700 CPU and an NVIDIA GeForce RTX 3070 GPU, it suggests that the platform selected for deployment could potentially involve hardware acceleration using GPUs. But without explicit details regarding the deployment process, this remains speculative.

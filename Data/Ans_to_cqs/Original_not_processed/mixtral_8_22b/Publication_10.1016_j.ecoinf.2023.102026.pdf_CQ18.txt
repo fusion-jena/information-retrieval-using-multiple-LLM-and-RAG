@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Contents lists available at ScienceDirect 
+
+Ecological Informatics 
+
+journal homepage: www.elsevier.com/locate/ecolinf 
+
+Not seeing the forest for the trees: Generalised linear model out-performs 
+random forest in species distribution modelling for Southeast Asian felids 
+
+˙
+Zaneta Kaszta a, Eric Ash a, b,
+
+Independently for each felid, we investigated the most representative 
+scale for each covariate by performing univariate Random Forest (RF), 
+using  the  full  camera  traps  dataset  and  the  presence-absence  data  as 
+response  variable.  For  each  covariate,  we  selected  the  scale  whose 
+
+univariate RF showed the lowest Out-Of-Bag (OOB) error. 
+
+2.4.1. Random forest – model training 
+
+Similar to the GLM approaches, for RF we used two different training 
+data selection frameworks. For the first one (hereafter non-bootstrapped 
+RF), we trained the RF by using the same training dataset used for the 
+non-bootstrapped GLM, composed of randomly selected 80% of camera 
+trap locations, and produced species distribution probability surfaces for 
+each felid.
+
+4.2. Scaling hypotheses
+
+We  evaluated  the  performances  of  the  non-bootstrapped  GLM  by 
+calculating  the  Area  Under  the  ROC  Curve  (AUC),  Percent  Correctly 
+Classified  (PCC),  sensitivity,  specificity  and  True  Skill  Statistic  (TSS) 
+using the 20% camera traps retained from the training dataset. 
+
+To evaluate the bootstrapped GLM, for each of the 100 iterations, we 
+calculated  AUC,  PCC,  sensitivity,  specificity  and  TSS  using  the  data 
+retained from the model training, composed of 80% of the presence and 
+of the absence locations. We obtained the final metrics by averaging the 
+results  of  100  validation  iterations.  We  implemented  this  framework 
+independently  for  each  felid.  Validation  metrics  were  calculated  in  R 
+v3.5.1  (R  Core  Team,  2018)  using  the  package  PresenceAbsence 
+(Freeman and Moisen, 2007). 
+
+2.4. Random forest – scale optimisation and covariates selection
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The study uses both generalized linear models (GLMs) and random forests (RFs) for species distribution modeling of Southeast Asian felids. To monitor the performance of these models during training, they use different strategies depending on the type of model.
+
+For the non-bootstrapped GLM, they calculate various evaluation metrics such as Area Under the Receiver Operating Characteristic Curve (AUC), Percent Correctly Classified (PCC), sensitivity, specificity, and True Skill Statistic (TSS) using the remaining 20% of the camera trap locations not included in the training dataset. This allows them to assess how well the model can predict the occurrence of felids based on the environmental variables considered.
+
+On the other hand, for the bootstrapped GLM, they perform 100 iterations of model training with different subsets of the data. After each iteration, they calculate the same set of evaluation metrics (AUC, PCC, sensitivity, specificity, and TSS) using the data retained from the model training, which consists of 80% of both presence and absence locations. The final evaluation metrics are then obtained by averaging the results of all 100 iterations. This approach helps ensure that the model is robust and reliable even when dealing with different subsets of the data.
+
+In summary, the authors implement a comprehensive monitoring strategy to track the performance of their species distribution models during training. They use multiple evaluation metrics and consider both non-bootstrapped and bootstrapped versions of the GLM to ensure the reliability and accuracy of their predictions.

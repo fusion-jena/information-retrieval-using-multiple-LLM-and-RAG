@@ -1,0 +1,66 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2. Methods 
+
+2.1. CNN training data
+
+We found that the use of transfer learning when training our CNNs 
+was crucial for their performance. Transfer learning is a common tech-
+nique within deep learning, where networks trained to perform well on 
+one  task  can  be  adapted  with  some  training  towards  similar  tasks 
+(Yosinski et al., 2014). This is especially useful when datasets are sparse 
+and more narrowly distributed. Often, a significant benefit can be gained 
+by starting from a pre-trained network where the first and intermediate 
+layers in the network already have been shaped by training on a large 
+and  diverse  dataset.  EfficientNet  is  available  pretrained  on  the  large 
+benchmark dataset, ImageNet, containing around 1.4 million images in 
+1000 classes (Deng et al., 2009), more than 100 times the number of 
+labelled salmon scale images used in this study. The network's ability to 
+abstract lower level but more generally useful features has then already
+
+2.3. Implementation and training 
+
+The  CNN  was  implemented  using  the  Keras  (Chollet,  2015)  and 
+TensorFlow  (Abadi  et  al.,  2016)  software  packages  implemented  in 
+Python, and computation was performed using CUDA version 9.1 and 
+CuDNN  with  Nvidia  (Nvidia  Corp.,  Santa  Clara,  California)  P100 
+accelerator cards with 12 GB of GPU memory. We used a Keras imple-
+mentation of EfficientNet–B4 called EfficientNet V1.1.0 (https://github. 
+com/qubvel/efficientnet).  The  pre-trained  weights  used  for  transfer 
+learning were available through this API.
+
+Augmentation was applied to the entire training dataset. The images 
+were augmented using rotations between 0 and 360 degrees, reflected 
+by the vertical axis, and vertically shifted by +/(cid:0) 5 pixels. In addition, 
+standard image normalization for CNNs was applied, mapping the 8 bit 
+pixel values to floating-point values between 0 and 1. The dataset was 
+then randomly split into training, validation, and test sets, containing 
+70%, 15% and 15% of the images, respectively. The validation set was 
+used  to  control  (and  terminate)  the  training  process,  while  final  per-
+formance metrics were estimated using the test set.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model such as a Convolutional Neural Network (CNN), several preprocessing steps are typically involved to prepare the input data. These steps may include normalization, scaling, cleaning, and augmentation.
+
+Normalization involves adjusting the range of pixel intensity values in the input images so they fall within a specific range, often between 0 and 1 or -1 and 1. This step helps improve the convergence speed during training and ensures that all input features contribute equally to the learning process.
+
+Scaling refers to resizing the input images to a fixed size, which is necessary because most deep learning models require inputs of consistent dimensions. Scaling also reduces computational complexity and improves efficiency during training.
+
+Cleaning involves removing any irrelevant information or noise from the input data. For example, if there are missing or corrupted pixels in an image, these should be either removed or replaced with appropriate values. Cleaning ensures that only relevant and accurate information is fed into the model during training.
+
+Data augmentation techniques are commonly employed to increase the amount of training data and prevent overfitting. Augmentation methods include rotation, flipping, cropping, zooming, shifting, and adding random noise to the input images. By applying various transformations to the original images, we can generate new samples that help improve the generalizability and robustness of the trained model.
+
+In the given context, the authors mention that they apply augmentation to the entire training dataset using rotations between 0 and 360 degrees, reflection along the vertical axis, and vertical shifts by ±5 pixels. Additionally, standard image normalization is applied, mapping the 8-bit pixel values to floating-point numbers between 0 and 1. Finally, the dataset is randomly split into training, validation, and test sets, containing 70%, 15%, and 15% of the images, respectively.

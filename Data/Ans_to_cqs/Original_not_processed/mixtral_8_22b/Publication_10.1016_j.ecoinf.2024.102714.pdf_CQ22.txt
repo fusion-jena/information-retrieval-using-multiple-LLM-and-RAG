@@ -1,0 +1,88 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Fig. 5. Illustration for the strategy for accuracy assessment using GMEP data.
+
+80
+92
+88
+62
+74
+86
+92
+55
+97
+79
+
+The accuracy assessment at the detailed classification level (Table 5)
+showed that classes that were extensive across the country (e.g., culti-
+vated/managed vegetation, broadleaved woodland, and needleleaved
+plantations) or those dominated by a single or just a few species (e.g.
+bracken) were mapped with relatively high accuracies. The classifica-
+tion of these classes was strongly driven by EO-datasets and benefited
+from systematic integration of each class-specific optimised data-layers.
+High model accuracies were obtained for most of the target VTs
+(Table 4). This indicated that with nationally consistent training-data,
+data-driven algorithms can capture the spectral variations embedded
+within the EO-data reasonably well.
+
+For the ML model, training and testing datasets were generated
+through reference to existing field datasets and VHR images (Section
+2.4.3, Table 2). Areas dominated by the target communities were digi-
+tised as polygons and all pixels contained were extracted. These poly-
+gons were then split into calibration and validation sets, with ~30% of
+pixels for each VT reserved for independent model validation. Splitting
+polygons rather than pixels minimises the effect of spatial autocorrela-
+tion on model accuracies (Karasiak et al., 2022). We used a python
+implementation of the XGBoostClassifier (Chen and Guestrin, 2016) to
+classify the VTs, given optimised random trees can be developed
+whereby each new tree learns from the errors of those previous. As input
+to the ML algorithm, the seasonal vegetation index composites from S2,
+backscatter composites from S1, elevation and slope were used, totalling
+up to 54 features (Appendix-A). The compositing periods were chosen
+
+a) Step-1: Comparing LWHabmod and GMEPmod (actual accuracies)
+b) Step-2: Applying decision rules based on the peat depth, particularly
+those affecting wetland/bog classes, to modify GMEPmod data labels.
+c) Step-3: Applying decision rules (in addition to Step-2) based on the
+Phase-1 Habitat map, and particularly those impacting on the clas-
+sification of grassland, heathland, and scrub classes, to modify the
+GMEPmod data labels.
+
+These exercises were repeated for the broad habitat classes by
+
+modifying the GMEPBHmod labels through Step-2 and Step-3.
+
+2.6.2. Accuracy assessment for Pembrokeshire County
+
+We undertook a dedicated survey of vegetated semi-natural habitats,
+in Pembrokeshire in 2022 (Fig. 2) using the EarthTrack mobile appli-
+cation developed through Living Wales (https://earthtrack.aber.ac.uk/)
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the provided context, it is not explicitly stated which specific metrics are used to evaluate the performance of the machine learning (ML) model. However, we can infer some possible metrics based on common practices in ML model evaluation.
+
+In general, when evaluating the performance of a supervised ML model like the one described here, several standard metrics are often employed. These include:
+
+1. **Accuracy**: This measures the proportion of correct predictions out of the total number of instances evaluated. It provides a simple and intuitive measure of overall performance but may not always be suitable for imbalanced datasets where certain classes have significantly fewer samples than others.
+
+2. **Precision** (also known as Positive Predictive Value): Precision is defined as the ratio of true positive predictions to the sum of true positives and false positives. In other words, it measures how many of the predicted positive cases were actually positive. High precision indicates low false positive rate.
+
+3. **Recall** (also known as Sensitivity or True Positive Rate): Recall is calculated as the ratio of true positive predictions to the sum of true positives and false negatives. Essentially, it quantifies what fraction of actual positives the model correctly identified. A higher recall value suggests better detection of positive cases.
+
+4. **F1 Score**: F1 score is the harmonic mean of precision and recall, providing a more balanced metric that considers both false positives and false negatives. An ideal classifier would achieve high values for both precision and recall, resulting in a high F1 score.
+
+While the text does mention that high model accuracies were obtained for most of the target vegetation types (VTs), it does not specify whether this refers to overall accuracy or if any additional metrics such as precision, recall, or F1 scores were also considered during the evaluation process. Therefore, without further information, it cannot be definitively determined which exact metrics were utilized to assess the performance of the ML model.

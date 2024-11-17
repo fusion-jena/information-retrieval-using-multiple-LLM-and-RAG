@@ -1,0 +1,65 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.4. Training protocols
+
+The models were all trained with the same parameters: 500 epochs, 
+an initial learning rate of 0.01 with a weight decay of 0.005, the opti-
+mizer Adam was chosen, with a beta1 of 0.937, and data augmentation 
+transformations  were  applied  while  training.  Data  augmentation  is  a 
+technique used in machine learning to artificially increase the size of a 
+dataset  by  creating  new  samples  from  the  existing  ones.  Augmented 
+samples are used to train the model more effectively by increasing its 
+ability to generalize and its accuracy on the test dataset. The advantage 
+of this technique when dealing with a low amount of data such as in our 
+case, is the reduced risk of overfitting, since models are exposed to more 
+variations, they will tend  to less memorize the dataset. This  becomes 
+essential when you have limited data to train models with, which is a 
+common problem in deep-learning applications. Another advantage is
+
+models more reliable on a wider range of input data, which in our case 
+would make it more reliable on images from old microscope slices which 
+tend to be in a bad state. Finally, it also saves time by reducing the need 
+to collect a bigger dataset. Various transformations can be applied to 
+create new samples. In the case of images, simple modifications can be 
+applied such as flipping or rotating, and more complex ones like color 
+distortion or random crop. Here are the data augmentation techniques 
+used in training: Random crop, Mosaic, and Color distortions such as 
+brightness,  contrast,  saturation,  hue,  Gaussian  blur,  Random  scaling, 
+Random rotation, and Random horizontal flipping. Data augmentation 
+helps recreate the state of old microscope slides on new ones (Fig. 3), 
+which improves results on old projects. 
+
+2.5. Model bias
+
+The  second  step  was  to  obtain  the  metrics  we  needed  to  evaluate 
+those predictions. To do so, we defined 3 variables: True positive, the 
+prediction coordinates match a ground truth and the species predicted is 
+correct. False positive, the prediction coordinates match a ground truth 
+but predict the wrong species or the coordinates are not matched with 
+any  ground  truth,  meaning  that  a  background  element  was  confused 
+with a Collembola. False negative, the ground truth is not matched with 
+any predictions, suggesting that the model confused a Collembola as a 
+background  element.  Based  on  these  variables  we  calculated  more 
+global metrics. The Recall Eq. 2 is a metric that quantifies the ability of a 
+model to correctly identify all positive instances of a dataset. The higher 
+the recall for a species, the more confident the model is in finding all the 
+Collembola of this species. The precision formula 3 measures the ability
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: After the model training process, there are several postprocessing steps that can be taken to further analyze and understand the performance of the model. One common approach is using saliency maps, which help visualize the areas of an image that contribute most significantly to the model's decision-making process. These maps can provide insights into how well the model understands the features relevant to identifying different species of Collembola.
+
+Additionally, calculating various metrics is another crucial postprocessing step. As mentioned in the given context, three key variables - true positives, false positives, and false negatives - are defined based on the model's predictions and ground truth labels. Using these variables, global metrics such as recall and precision can be computed. Recall, as described in equation 2, evaluates the model's ability to accurately detect all positive instances within the dataset. On the other hand, precision, represented by equation 3, assesses the model's capability to avoid incorrectly classifying non-Collembola elements as actual Collembola.
+
+Furthermore, constructing confusion matrices can offer valuable insights into the model's performance across multiple classes. A confusion matrix is essentially a table layout displaying the number of correct and incorrect predictions made by the model for each class. By examining the values within the matrix, one can determine where the model struggles to distinguish between certain classes and where it excels. Overall, these postprocessing steps play a vital role in understanding the strengths and weaknesses of the model, enabling researchers to fine-tune their approaches accordingly.

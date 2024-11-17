@@ -1,0 +1,128 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+As  the  third  approach  for  SPAD  value  modelling  based  on  the 
+Rasp2SPAD indices, an artificial neural network was implemented. The 
+same predictors as in the previously described LM and GLM were uti-
+lized. All predictors were scaled prior to analysis. The ANN  was con-
+structed empirically, with the first layer containing two input nodes (one 
+per each of the two parameters that were found to be the most suitable 
+by LM and GLM) and the last layer containing only one node (predicted 
+SPAD value). As the fit of the ANN does not give the same output for 
+each run  (because of a random number generator used for numerical 
+optimization of the model), 100 successful runs were performed, and the 
+model residuals obtained in each run were analysed for a more reliable 
+evaluation of the model performance.
+
+Table 1 
+Technical  attributes  of  the single-board  computer  Raspberry  Pi  3B+ used  for 
+Rasp2SPAD prototype development.  
+
+Processor 
+
+ARM Broadcom Quad-Core BCM2837B0, 1.4 GHz 
+
+Operating memory 
+Networking 
+Bluetooth 
+USB 
+GPIO 
+SD card support 
+
+Input power 
+
+Operating 
+
+temperature 
+
+1 GB RAM 
+GigaByte Ethernet/Wifi 802.11b/g/n/ac 2.4 and 5 GHz 
+Bluetooth 4.2, Bluetooth Low Energy (BLE) 
+4xUSB 2.0 
+40-pin GPIO header, populated 
+Micro SD formatted for loading operating system and data 
+storage 
+5 V/2.5A DC via micro-USB connector, 5 V DC via GPIO 
+header, Power over Ethernet (PoE)–enabled (requires separate 
+PoE HAT) 
+0 to 50 
+C  
+
+◦
+
+Fig. 5. Technical specifications of the proposed sensor Rasp2SPAD as the low-cost alternative to the standard commercial handheld sensor SPAD-502Plus (Kon-
+ica Minolta). 
+
+Table 4 
+The best fitting simple linear model (LM) for SPAD value prediction was based 
+on parameters obtained by the Rasp2SPAD prototype.  
+
+Response: SPAD value 
+
+Coefficients     
+
+Estimate 
+
+Intercept 
+Cb 
+Cr 
+R-squared (training data): 0.81 
+Mean absolute difference (test data): 1.85  
+
+89.53762 
+0.47547 
+(cid:0) 0.76144 
+
+t value 
+
+7.56 
+10.18 
+(cid:0) 8.51 
+
+p value 
+
+< 0.001 
+< 0.001 
+< 0.001 
+
+Furthermore, the GLM approach applied on the dataset also achieved 
+significant  results  (Table  5),  although  only  slightly  better  than  LM. 
+Artificial R-squared = 0.81 on training data reached the same level as by 
+LM; nevertheless, lower mean absolute deviance of testing data = 1.79
+
+To achieve the utmost accuracy, a test was completed by engaging 
+the artificial ANN. Only Cb and Cr were used as the input variables since 
+they were considered the most sensitive variables during the two pre-
+ceding testing stages. Thus, the simple ANN was fitted with two inputs 
+and one output, as the addition of any hidden layers returned less ac-
+curacy of the prediction on the test data due to overfitting. The results 
+were  considered  comparable  in  terms  of  accuracy  as  the  previous 
+methods. The mean deviance of the model response from SPAD value 
+measurements  was  1.904  (95%  CI:  1.89–1.92),  while  the  best  “run” 
+showed a mean deviation of 1.70 (max. 2.22, 95% CI, one-sided t-test). 
+All three modelling approaches could be incorporated in the source 
+code at this stage to provide the SPAD value estimate for the following 
+rapeseed measurements. However, LM was concluded to be the simplest 
+method with a high level of accuracy. A complex overview of the plant
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: Before training a deep learning model, several preprocessing steps can be taken to improve its performance. These include:
+
+Normalization: This involves rescaling the values of features so they fall within a specified range, often between 0 and 1 or -1 and 1. Normalizing the data helps prevent certain features from dominating others simply because they have larger numeric values.
+
+Scaling: Scaling is similar to normalization but instead of rescaling the feature values to a fixed range, it scales them to have zero mean and unit variance. This is particularly useful when using algorithms like Support Vector Machines (SVM) which perform poorly if the scale of features varies significantly.
+
+Cleaning: Data cleaning involves removing noise and inconsistencies from the dataset. This might involve handling missing values, correcting errors, dealing with outliers, etc. Cleaning ensures that the model learns from accurate and consistent data.
+
+In the given context, all predictors were scaled prior to analysis for the implementation of an Artificial Neural Network (ANN). This suggests that scaling was employed as a preprocessing step before training the deep learning model.

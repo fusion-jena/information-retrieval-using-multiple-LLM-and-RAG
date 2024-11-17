@@ -1,0 +1,233 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Figure 3. The proposed framework steps visual representation.
+
+3.1. Explanation of Steps
+
+Initially, an image is taken with the help of an underwater drone. In the next step,
+the image is segmentized and divided into small patches. Features are extracted from
+each patch with the help of handcrafted descriptors and D-CNNs. A visual vocabulary
+
+Big Data Cogn. Comput. 2021, 5, 53
+
+5 of 15
+
+(VV) is created, as shown in Figure 4, this visual vocabulary is the features extracted
+from these features, and the training features are passed to classiﬁer i.e., SVM, which
+classiﬁes whether the VV-features are of bleached coral or healthy coral. We used different
+handcrafted features as well as different D-CNN’s but AlexNet shows the highest accuracy.
+We used different classiﬁers i.e., SVM, kNN, and decision tree, but SVM outperforms all
+other classiﬁers.
+
+Figure 4. Visual Vocabulary of features.
+
+3.2. Feature Extraction
+
+Figure 10. Comparison of accuracies of different classiﬁers for all datasets.
+
+Big Data Cogn. Comput. 2021, 5, 53
+
+11 of 15
+
+Table 2. Performance of hand-crafted descriptors and D-CNN models for ﬁrst dataset.
+
+Technique’s
+Name
+
+SVM
+Kernel
+
+LBP [10]
+HOG [11]
+LETRIST [12]
+GLCM [13]
+GLCM [13]
+CJLBP [14]
+LTrP [15]
+AlexNet [17]
+ResNet-50 [18]
+VGG-19 [19]
+GoogleNet [20]
+Inceptionv3 [21]
+CoralNet
+BoF
+
+Polynomial
+Linear
+Linear
+RBF
+Polynomial
+Linear
+Linear
+Linear
+Linear
+Linear
+Linear
+Linear
+–
+Linear
+
+Sensitivity
+
+Speciﬁcity Accuracy
+
+F1-Score
+
+Cohen’s
+Kappa (κ)
+
+70.1%
+66.3%
+56.2%
+66.2%
+73.1%
+71.2%
+48.4%
+94.1%
+92.2%
+92.1%
+85.1%
+77.1%
+92.1%
+99.1%
+
+75.9%
+69.3%
+59.7%
+75.1%
+80.4%
+77.3%
+50.2%
+96.3%
+96.4%
+92.1%
+93.1%
+92.3%
+97.3%
+99.0%
+
+71.8%
+67.1%
+56.6%
+69.3%
+76.7%
+72.7%
+49.1%
+95.2%
+94.5%
+92.2%
+88.2%
+83.3%
+95.0%
+99.08%
+
+0.729
+0.678
+0.579
+0.704
+0.766
+0.741
+0.493
+0.952
+0.942
+0.921
+0.889
+0.840
+0.950
+0.995
+
+0.731
+0.663
+0.594
+0.732
+0.751
+0.743
+0.524
+0.966
+0.952
+0.851
+0.873
+0.862
+0.962
+0.982
+
+.
+
+(3)
+
+where (cid:107) ξi − ξ j (cid:107) provides the Euclidean distance between two samples. Width of Gaussian
+kernel can be set by variance (cid:36) that controls the classiﬁer performance.
+
+3.5. Confusion Matrix
+
+It is the parameter to validate the performance of a machine learning model. It also
+tells us the accomplishment of the classiﬁcation problem. Following are some of the
+essential parameters of the confusion matrix.
+
+1.
+2.
+3.
+4.
+5.
+
+6.
+
+7.
+
+8.
+
+9.
+
+True Positive (TP): It is the accurate prediction of the bleached corals.
+True Negative (TN): It is the accurate prediction of the unbleached corals.
+False Positive (FP): It is the false prediction of the bleached corals.
+False Negative (FN): It is the false prediction of the unbleached corals.
+Sensitivity (TPR): It is the ratio of accurate prediction of the corals and can be given
+by Equation (4).
+
+Sensitivity
+
+(TPR) =
+
+TP
+(TP + FN)
+
+(4)
+
+SVM ClassifierLinear KernelBleached or unbleached coral12345678910abbbb12345678910Input ImageConvolutional Layer 1Convolutional Layer 2Convolutional Layer 3Convolutional Layer 4Convolutional Layer 5Fully Connected Layer 6 Fully Connected Layer 7ClassifierOutputDescriptionStride sizeab4 x 41 x 1227 x 227 x 355 x 55 x 9627 x 27 x 25613 x 13 x 38413 x 13 x 38413 x 13 x 25640964096Big Data Cogn. Comput. 2021, 5, 53
+
+7 of 15
+
+Algorithm 1: k-means Clustering Algorithm.
+
+Input: Features as data points
+Let features F = {F1, F2, F2, ..., Fn} is set of data points and C = {C1, C2, C3, ..., Co}
+is set of centers.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model, several preprocessing steps may be involved depending on the specific application and requirements. These steps aim to prepare the input data so it can be effectively processed by the model. Some common preprocessing techniques include:
+
+1. Normalization: This involves rescaling the input data to have a mean of zero and unit variance. This helps ensure that each feature contributes proportionately to the final output, preventing any single feature from dominating the results due to its scale.
+
+2. Scaling: Similar to normalization, scaling adjusts the range of values within a certain limit, such as between 0 and 1 or -1 and 1. This can improve the convergence speed during training and prevent numerical instability issues.
+
+3. Cleaning: This process removes noise, missing values, or irrelevant information from the input data. For example, removing duplicate entries, handling missing values using imputation methods, or filtering out unnecessary features.
+
+4. Augmentation: To increase the amount of available training data, various transformations like rotation, flipping, zooming, cropping, etc., can be applied to the existing images. This technique helps improve the generalizability of the trained model.
+
+5. Encoding: When dealing with categorical variables, they need to be converted into numerical representations. Techniques like one-hot encoding or label encoding can be employed based on the nature of the variable.
+
+The choice of preprocessing steps depends on the characteristics of the input data and the desired outcome. Not every step might be necessary for every scenario; hence, careful consideration should be given while selecting appropriate preprocessing techniques.

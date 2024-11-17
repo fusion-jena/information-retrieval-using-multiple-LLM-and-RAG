@@ -1,0 +1,97 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The  methods  compared  in  this  study  are  evaluated  in  terms  of 
+classification  accuracy.  We  divide  the  CLO-43SD  dataset  into  5 
+folds  and  perform 5-fold cross  validation,  and  report the  results  as 
+a  box-plot  generated  from  the  per-fold  accuracies.  For  identfying 
+the best training epoch for the CNN model we use  1 of the 4 training 
+folds  as  a validation set, and train on the remaining 3 folds. 
+
+4.  RESULTS AND DISCUSSION 
+
+The results for the MFCC baseline, SKM and CNN models are pro 
+vided  in  Figure  1  (left  of the  dashed  line).  Mean  accuracies  are 
+indicated  by  the  red  squares.  We  see  that  both  models  based  on 
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on November 16,2023 at 09:58:01 UTC from IEEE Xplore.  Restrictions apply. 
+
+142 
+
+1.00 
+
+0.98 
+
+0.96 
+
+,., 
+~ 0.94 
+:; 
+8  0.92 
+<l: 
+§  0.90 
+~ '"'  0.88 
+. ~ 
+.!l!  0.86 
+Ü 
+
+0.84 
+
+0.82 
+
+0.80 
+
+MFCC 
+
+SKM 
+
+CNN 
+
+FUSION
+
+During training the model optimi zes cross-entropy loss via mini-
+batch  stochastic  gradient descent  [26].  We  use  a constant learning 
+rate  of 0.01  and  apply  dropout [27]  to  the  input of the  last two lay 
+ers  with  probability 0.5.  L2-regularization  is  applied to  the  weights 
+of the last two layers  with  a penalty  factor  of 0.001.  The  model  is 
+trained for  100 epochs and is  checkpointed after each epoch.  A val 
+idation  set  is  used to  identify  the  parameter setting  (epoch)  achiev 
+ing the  highest classification accuracy.  The CNN is  implemented  in 
+Python using Lasagne [28] , and data stream  multiplexing (for train 
+ing)  is implemented using Pescador [29].
+
+the  reference  labels).  The  oracle  yielded  a  classification  accuracy 
+of 0.97  (0.974),  suggesting that given  the  right fusion  approach  we
+
+0.84 
+
+0.82 
+
+0.80 
+
+MFCC 
+
+SKM 
+
+CNN 
+
+FUSION 
+
+Fig.  L  Classification accuracy:  baseline (MFCC), dietionary  (shal 
+low)  learning  (SKM),  deep  convolutional  neural  network  (CNN), 
+and late fusion  of the SKM and CNN models (FUSION).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In this study, the criterion used to determine when training is complete is identifying the best training epoch for the CNN model. This is done by using one of the four training folds as a validation set and training on the remaining three folds. The parameter setting (epoch) achieving the highest classification accuracy on the validation set is then selected as the best training epoch. Therefore, the completion of training is determined by reaching the highest classification accuracy on the validation set during the training process.

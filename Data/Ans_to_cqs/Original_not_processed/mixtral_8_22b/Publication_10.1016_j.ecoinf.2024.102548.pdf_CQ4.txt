@@ -1,0 +1,99 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.2. Data augmentation 
+
+Data augmentation is a pivotal technique used to enhance the per-
+formance  and  generalization  capability  of  deep  learning  models  by 
+augmenting  the  training  dataset  with  artificially  generated  variations 
+(Wu et al., 2017). Therefore, there are many augmentation techniques in 
+the  literature  applied  especially  for  the  diagnosis  of  several  diseases 
+
+EcologicalInformatics81(2024)1025485T. Chawla et al.                                                                                                                                                                                                                                 
+
+Fig. 2. Okra Leaves: The top row shows diseased okra leaves, while the bottom row shows healthy okra leaves.  
+
+Table 1 
+Dataset split for Okra Leaves.  
+
+Dataset 
+
+Diseased Okra Leaves 
+
+Healthy Okra Leaves 
+
+Training Set 
+Testing Set 
+Validation Set 
+
+885 
+69 
+143 
+
+703 
+69 
+131
+
+from  medical  images  to  increase  the  reliability  and  robustness  of  the 
+methods in medicine, where lack of enough data is a serious problem. In 
+this  study,  data  augmentation  was  applied  using  the  train_datagen 
+instance of ImageDataGenerator. This generator implemented a range of 
+transformations  on  the  training  images,  including  rotation  up  to  20 
+degrees, width and height shifting up to 20% of the total image size, 
+shearing  with  a  maximum  of  20  degrees,  zooming  with  a  maximum 
+factor  of  20%,  and  horizontal  flipping.  Additionally,  the  fill_mode 
+parameter was set to ‘nearest’ to handle any potential gaps or missing 
+pixels resulting from the transformations. On the other hand, the test 
+and validation data were processed using the test_datagen and val_da-
+tagen  instances  of  ImageDataGenerator,  respectively.  Both  generators 
+rescaled the pixel values of the images by dividing each pixel by 255,
+
+3.2.6.
+
+InceptionResNetV2 
+
+InceptionResNetV2  is  a  fusion  of  the  Inception  and  ResNet  archi-
+tectures,  combining  the  benefits  of  both  networks.  It  incorporates  re-
+sidual  connections  and  parallel  convolutions  to  capture  fine-grained 
+details and high-level features simultaneously. InceptionResNetV2 has 
+been  pre-trained  on  extensive  datasets,  enabling  it  to  learn  compre-
+hensive feature representations and achieve high performance. 
+
+4. Materials and methods 
+
+This section provides a comprehensive overview of the data acqui-
+sition process, augmentation techniques employed, parameter settings, 
+and the proposed model. The system-level design of our model is illus-
+trated  in  Fig.  1.  The  methodology  incorporates  a  range  of  transfer 
+learning  models,  including  MobileNet,  EfficientNet,  InceptionV3,
+
+3. Deep learning techniques 
+
+In the Deep Learning section, we delve into the technical aspects of 
+our  model.  We  utilize  RNNs  to  effectively  capture  sequential  de-
+pendencies in the data. RNNs, such as LSTM and GRUs, allow our model 
+to retain and propagate information from previous steps, enhancing its 
+understanding of sequential patterns. Additionally, we employ transfer 
+learning  techniques,  initializing  our  model  with  pre-trained  weights 
+from  large-scale  datasets  like  ImageNet.  This  transfer  of  knowledge 
+enhances  the  model’s  performance  by  leveraging  learned  representa-
+tions  from  related  tasks.  Detailed  explanations  and  implementation 
+specifics of RNNs and transfer learning are provided in the subsequent 
+subsections. 
+
+3.1. Recurrent neural network (RNN)
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The study applies data augmentation techniques using the train_datagen instance of ImageDataGenerator. This generator implements various transformations on the training images, including rotation up to 20 degrees, width and height shifting up to 20% of the total image size, shearing with a maximum of 20 degrees, zooming with a maximum factor of 20%, and horizontal flipping. Additionally, the fill\_mode parameter is set to 'nearest' to handle any potential gaps or missing pixels resulting from the transformations.

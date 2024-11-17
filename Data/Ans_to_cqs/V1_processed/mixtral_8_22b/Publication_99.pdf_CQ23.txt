@@ -1,0 +1,15 @@
+To ensure the generalizability of the deep learning models, several measures were taken during their development and training processes. These include:
+
+1. Preprocessing of Input Images: All input images were preprocessed by mean centering the image with ImageNet values and then rescaled between 0 and 1. This step helps in reducing the impact of variations in lighting conditions and other irrelevant features, thereby improving the model's ability to learn relevant patterns.
+
+2. Balanced Dataset: The dataset used for training the models was balanced, which means it had equal representation of samples from each class. A balanced dataset ensures that the model does not get biased towards any particular class, thus enhancing its generalizability.
+
+3. Cross-Entropy Loss Function: Both networks were trained with a learning rate of 0.03, cross-entropy loss as a loss function optimized by Adam optimizer. Cross-entropy loss is widely used in multi-class classification problems and has proven effective in achieving good performance across diverse datasets.
+
+4. Data Augmentation Techniques: Various data augmentation techniques such as height and width shift, flipping, zooming, and brightness changes were applied to increase the diversity of the training dataset. Data augmentation helps in preventing overfitting and improves the model's ability to generalize to unseen data.
+
+5. Freezing Batch Normalization Layers: During the training of PConv networks, the batch normalization layer in the encoder part was frozen as the network used pre-trained weights with a small batch size of 1. This measure prevents the batch statistics from being affected by the presence of missing or corrupted regions in the input images, ensuring stable training and better generalization.
+
+6. Model Evaluation Using Validation Set: For each training epoch, a model was evaluated using the validation set and was saved as the best model based on a validation loss. Regularly evaluating the model on a separate validation set allows monitoring its performance on unseen data and selecting the most robust model for final deployment.
+
+These measures collectively contribute to enhancing the generalizability of the deep learning models developed in this study.

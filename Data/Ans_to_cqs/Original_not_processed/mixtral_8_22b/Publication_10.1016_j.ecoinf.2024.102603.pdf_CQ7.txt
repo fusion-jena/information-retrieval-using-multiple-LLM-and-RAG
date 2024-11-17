@@ -1,0 +1,73 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+structured and unstructured data, such as images and text [Jafarzadeh 
+et  al., 2022]. The divergence extends  to computational requirements, 
+where deep learning models typically demand more resources, including 
+GPUs  (Graphics  Processing  Units)  or  TPUs  (Tensor  Processing  Units),
+
+and involve lengthier training times compared to the computationally 
+efficient XGBoost [Joshi et al., 2023]. Moreover, the interpretability of 
+these models varies significantly. XGBoost stands out by offering feature 
+importance scores and decision rules, contributing to a clearer under-
+standing  of  its  decision-making  process.  Conversely,  deep  learning 
+models  often  carry  the  label  of  “black  box”  due  to  their  complexity, 
+making it challenging to interpret and comprehend how they arrive at 
+specific predictions [Wu et al., 2021]. Additionally, the performance on 
+small  datasets  is  another  distinctive  factor.  XGBoost  demonstrates 
+effectiveness  even  with  limited  data  [Chen  and  Guestrin,  2016;  Jing 
+et al., 2022], while deep learning models generally require substantial 
+datasets to achieve optimal results [Wu et al., 2021; Khruschev et al., 
+2022].
+
+Wu, J., Li, Y., Ma, Y., 2021. Comparison of XGBoost and the neural network model on the 
+class-balanced datasets. In: 2021 IEEE 3rd International Conference on Frontiers 
+Technology of Information and Computer (ICFTIC), Greenville, SC, USA, 
+pp. 457–461. https://doi.org/10.1109/ICFTIC54370.2021.9647373. 
+
+Wu, Q., Zhang, Y., Xie, M., Zhao, Z., Yang, L., Liu, J., Hou, D., 2023. Estimation of Fv/Fm 
+in spring wheat using UAV-based multispectral and RGB imagery with multiple 
+machine learning methods. Agronomy 13, 1003. https://doi.org/10.3390/ 
+agronomy13041003. 
+
+Zarco-Tejada, P.J., Berj´on, A., L´opez-Lozano, R., Miller, J.R., Matín, P., Cachorro, V., 
+
+Gonz´ales, M.R., de Frutos, A., 2005. Assessing vineyard condition with hyperspectral 
+indices: leaf and canopy reflectance simulation in a row structured discontinuous 
+canopy. Remote Sens. Environ. 99, 271–287. https://doi.org/10.1016/j. 
+rse.2005.09.002. 
+
+EcologicalInformatics81(2024)10260312
+
+The XGBoost model does not have an analytical form and is obtained 
+through numerical optimization of the error function in successive it-
+erations. According to specific criteria, the algorithm takes the form of a 
+so-called  ensemble  model  and  is  based  on  regression  decision  trees 
+(CART)  that  partition  the  example  space  using  a  divide-and-conquer 
+method, aiming to introduce maximum order to the data. The training 
+(spectral-vegetation  indices  referring  to  Table  2)  and  validation 
+(ground-based  Fv/Fm  measurements)  sets  were  divided  in  an  80:20 
+ratio. XGBoost trains a series of trees, with each subsequent tree starting 
+its  learning  process  anew,  taking  into  account  the  correction  for  the 
+residual values of the previous tree. The error value (residual value in 
+the context of classical regression) made by each tree for each element of
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The given context primarily discusses the differences between XGBoost and deep learning models but does not explicitly mention the criteria used to split the data for deep learning model training. However, it is common practice in machine learning to split the dataset into three parts: training set, validation set, and testing set.
+
+For deep learning models, the criteria used to split the data usually depend on factors like the size of the dataset, class balance, and the nature of the problem being solved. Commonly, the dataset is randomly split into these subsets, with the most popular ratios being 80:10:10 or 70:15:15 for training, validation, and testing respectively. This ensures that the model has enough examples to learn from during training, while also providing separate sets for tuning hyperparameters (validation set) and evaluating final performance (testing set).
+
+However, if the dataset is small or imbalanced, other techniques like stratified sampling or cross-validation may be employed to ensure that all classes are adequately represented in each subset. It should be noted that the context does not provide information about the specific criteria used for splitting the data for deep learning models.

@@ -1,0 +1,120 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+(cid:0) 3, 10
+
+(cid:0) 4;  
+
+The following configuration optimized the performance of the model 
+and was accordingly adopted for analysis: Adam solver (Kingma and Ba, 
+(cid:0) 4,  constant  learning 
+2014),  10 neurons  per  hidden  layer, alpha  = 10
+rate, and rectifier activation function, also called Rectified Linear Unit 
+(ReLU) activation function, defined as: 
+
+(
+
+)
+
+{
+
+ReLU
+
+k
+
+=
+
+k, if k > 0;
+0, if k⩽0.
+
+(14) 
+
+In the case of the RF, the hyperparameters include the number of 
+decision trees in the forest, the maximum depth of the decision tree, the 
+number of features considered by each tree when splitting a node, etc. 
+This  set  of  hyperparameters  was  tested  using  the  grid  configuration 
+shown below:  
+
+1.  Number of decision trees: from 100 to 1000 (in steps of 100);  
+2.  Number of features to consider at every split (max features): auto,
+
+sqrt, log2, None;  
+
+3.  Maximum number of levels in decision tree: None, or from 10 to 100 
+
+(in steps of 10);
+
+The training of the network is usually done with a backpropagation 
+algorithm,  which  is  divided  into  two  phases.  In  the  first  phase  (for-
+warding),  controlled  inputs  are  applied  to  the  network,  pushing  the 
+activation of the input layer neurons. The signal propagates to the next 
+layers,  finally  reaching  the  output  neurons.  The  error  between  the 
+desired  output  and  the  obtained  result  is  then  calculated  for  each 
+neuron. In the  second phase  (backwarding), the  error value is  propa-
+gated backward and the weights of each link are accordingly modified 
+with an optimization method, which aims to minimize the output error. 
+Finally, the network “model selection” is achieved by choosing a set of 
+hyperparameters (i.e. number of hidden layers, number of neurons in 
+each layer, learning rate, solver weight optimization, epoch scale, acti-
+vation functions, etc.) which characterize the architecture of the MLP
+
+(in steps of 10);  
+
+4.  Minimum number of samples required to split a node (samples split): 
+
+2, 5, 10; 
+
+5. Minimum  number  of  samples  required  at  each  leaf  node  (sam-
+
+ples leaf): 1, 2, 4;  
+
+6.  Method of selecting samples for training each tree (bootstrap): True 
+
+or False;  
+
+7.  Parameter  for  minimal  cost-complexity  pruning  (cpp alpha):  from 
+
+0 to 0.06 (in steps of 4⋅10
+
+(cid:0) 4). 
+
+The following setup was chosen for investigation since it achieved the 
+best  prediction  accuracy:  1000  trees,  max features  = auto,  50  levels, 
+samples split = 2, samples leaf = 2, bootstrap = True, cpp alpha = 0. 
+Finally,  feature  analysis  was  performed  to  test  different  combina-
+tions  of  the  input  features  among  a  set  of  12  different  possibilities. 
+Moreover, ML algorithms were also exploited to compensate for missing 
+values in the dataset, as detailed in the following Section 3.3.5. 
+
+3.3.5. Prediction algorithms and gap filling
+
+A  widely  used  feedforward  ANN  is  the  Multi-Layer  Perceptron 
+(MLP), constituted by one input layer, one or more hidden layers, and a 
+layer of output neurons. The neurons are connected to the ones of the 
+next layer with a certain weight and, in each neuron, the weighted sum 
+of input variables is transformed into an output value through an acti-
+vation function, defined as: 
+
+Y = ψ
+
+( ∑
+
+)
+wi*xi + b
+
+where wi is the weight, xi is the neuron input, b is the neuron bias, and ψ 
+is the activation function.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: Before training a deep learning model, several preprocessing steps can be taken to ensure optimal performance. These may include data cleaning, where any irrelevant or incorrect information is removed from the dataset. Normalization and scaling are often employed to standardize the range of independent variables or features, ensuring they have similar scales so that no single feature dominates the others during training. This can involve techniques such as min-max scaling, z-score normalization, or even binary encoding for categorical variables. Additionally, handling missing values is crucial. Strategies might include removing rows with missing data, imputing missing values based on other data points, or employing machine learning algorithms specifically designed for this purpose. Lastly, exploratory data analysis (EDA) can provide insights into the distribution, outliers, and relationships within the data, guiding further preprocessing decisions.

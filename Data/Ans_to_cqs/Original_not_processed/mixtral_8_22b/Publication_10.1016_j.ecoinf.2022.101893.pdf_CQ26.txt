@@ -1,0 +1,304 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+shown in the Fig. 6. 
+
+The network is designed with four convolution kernel pooling layers 
+to extract deep features. After the convolution pooling, the data enters 
+the fully connected layer for connection. The network adds a dropout 
+layer  to  the  fully  connected  layer  to  reduce  network  parameters.  A 
+Dense_1 layer is added after flatten to reduce the dimension of the deep 
+features, and sets the parameter to 500, which is the parameter of the 
+deep feature dimension extracted from different views. 
+
+4.2. Feature selection
+
+In the work, the CNN pre-training models are constructed with the 
+multi-view data of WT spectrum, HHT spectrum and STFT spectrum as 
+the input of the network. And the output data is 500 features obtained 
+from  the  Dense_1  layer  of  each  CNN.  The  CNN  pre-training  model  is 
+
+1 
+
+2 
+
+3 
+
+4 
+
+5 
+
+6 
+
+7 
+
+8 
+
+9 
+
+10 
+11 
+12 
+13 
+14 
+
+Conv 
+Input 
+
+Input Layer 
+
+– 
+
+Conv 1 
+
+Convolution2D 
+
+Pool 1 
+
+MaxPool2D 
+
+Conv 2 
+
+Convolution2D 
+
+Pool 2 
+
+MaxPool2D 
+
+Conv 3 
+
+Convolution2D 
+
+Pool 3 
+
+MaxPool2D 
+
+Conv 3 
+
+Convolution2D 
+
+Pool 3 
+
+MaxPool2D 
+
+3 × 3 
+
+2 × 2 
+
+3 × 3 
+
+2 × 2 
+
+3 × 3 
+
+2 × 2 
+
+3 × 3 
+
+2 × 2 
+
+– 
+– 
+– 
+– 
+– 
+
+Dropout (0.4) 
+Flatten 
+Dense 
+Dense_1 
+Output 
+
+– 
+– 
+– 
+– 
+– 
+
+– 
+
+1 
+
+2 
+
+1 
+
+2 
+
+1 
+
+2 
+
+1 
+
+2 
+
+– 
+– 
+– 
+– 
+– 
+
+– 
+
+64 
+
+– 
+
+64 
+
+– 
+
+32 
+
+– 
+
+32 
+
+– 
+
+– 
+– 
+– 
+– 
+– 
+
+112 × 112 
+× 3 
+112 × 112 
+× 3 
+112 × 112 
+× 64 
+56 × 56 ×
+64 
+56 × 56 ×
+64 
+28 × 28 ×
+64 
+28 × 28 ×
+32 
+14 × 14 ×
+32 
+14 × 14 ×
+32 
+7 × 7 × 32 
+7 × 7 × 32 
+1568 
+500 
+16
+
+The  hardware  platform  used  in  this  experiment  is  a  desktop  com-
+puter with 128G memory, 16 core and 32 thread CPU, 3.40 GHz fre-
+quency  and  24G  GPU.  The  operating  system  is  Windows  10  64-bit 
+professional operating system. Annaconda3, PyCharm 2020.1, Python 
+3.7, TensorFlow 2.6 as deep learning platform and MATLAB 2018b as 
+data processing platform are exploited. Table 4 shows the labels used for 
+various features. 
+
+To verify the effectiveness of the proposed method, two groups of 
+experiments are designed for comparison and analysis. The one exper-
+iment is to compare the proposed model with the classic CNN model. 
+That is, using the CNN to classify the spectrums of HHT, WT and STFT. 
+Another experiment is to compare the proposed model with the machine
+
+5.2. Result analysis 
+
+The datasets are divided into training set and test set according to the 
+ratio of 8:2. And the number of test samples and training samples are 
+3094 and 12,340, respectively. The classification models are built with 
+the training set, and accuracy on test set is used as indicator to evaluate 
+performance of classification models. 
+
+5.2.1. Classic CNN model 
+
+The three features of F1, F2 and F3 are input into CNN model, and 
+
+their classification performance on the test set is shown in Table 6. 
+
+Feature 
+
+F1 
+F2 
+F3 
+
+CNN 
+
+81.00 
+88.36 
+89.11 
+
+Number of features 
+
+500 
+500 
+500  
+
+Table 7 
+Test accuracy (in %) of various features.  
+
+Feature 
+
+F4 
+F5 
+F6 
+F7 
+F4⊕F5⊕F6 
+F4⊕F5⊕F6⊕F7 
+Fdh 
+
+RF 
+
+82.92 
+87.93 
+88.47 
+85.70 
+90.76 
+91.10 
+95.43 
+
+SVM 
+
+85.59 
+91.11 
+91.60 
+64.51 
+93.96 
+93.96 
+96.19 
+
+MLP 
+
+83.85 
+89.53 
+90.46 
+73.45 
+93.40 
+93.53 
+96.03 
+
+Number of features 
+
+500 
+500 
+500 
+13 
+1500 
+1513 
+96  
+
+5.2.3. Proposed models
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't any explicit mention of specific techniques used to address data bias during preprocessing of the deep learning pipeline such as stratified splitting, oversampling, undersampling, or diverse data collection. However, it can be inferred that the dataset was split into training and testing sets in an 8:2 ratio, which could potentially help mitigate bias by ensuring both sets have similar distributions. Additionally, the use of multiple features (F1, F2, F3, etc.) and their combinations (F4⊕F5⊕F6, F4⊕F5⊕F6⊕F7) might also contribute to reducing potential biases in the data. Nevertheless, without further information regarding the nature of the data and its distribution, it cannot be definitively stated whether these measures effectively addressed data bias.

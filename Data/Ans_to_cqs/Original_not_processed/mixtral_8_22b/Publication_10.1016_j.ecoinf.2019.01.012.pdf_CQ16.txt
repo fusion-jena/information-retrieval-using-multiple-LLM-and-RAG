@@ -1,0 +1,73 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Ecological Informatics 50 (2019) 220–233
+
+Fig. 5. Learning process for loss (left) and model accuracy (right) over 90 epochs. The gap between training and validation accuracy is caused by using dropout on
+the training data only.
+
+All statistics were performed in R (version 3.3.1). The best model
+was chosen based on the two parameters accuracy and loss, whereby
+loss serves as a measure on how far model predictions diﬀer from the
+actual class. Model accuracy and loss were calculated for both training
+and validation set. We tested the performance of the ﬁnal model on two
+diﬀerent data sets: 1) on individual tiles and 2) on whole repeat pho-
+tographs. Prediction accuracy on individual tiles was calculated using
+the 5796 tiles from the test set (= 10%), which has been separated from
+the total number of samples before training. We evaluated the accuracy
+on whole repeat photographs based on the image pairs of the second set
+of photographs. The classiﬁcation results for each of these 34 images
+were compared to the corresponding manual classiﬁcation (reference
+data). A confusion matrix was prepared for each photograph in-
+dividually. The confusion matrix consists of pixel numbers for true
+
+3. Results
+
+3.1. Training and model performance on individual tiles
+
+We stopped the learning process after 90 epochs, where the learning
+curve converged and loss values did not longer decrease. Fig. 5 illus-
+trates the improvement in loss and accuracy during the training pro-
+cess. The fact that validation accuracy exceeds training accuracy is a
+common eﬀect when dropout and data augmentation is applied on
+training data only. Consequently, the training set contains more diﬃ-
+cult tiles than the validation set. Based on the validation set, the best
+model reached a maximum accuracy of 96.4% (loss = 0.13). Ad-
+ditionally, we evaluated the performance of the ﬁnal model on a se-
+parate test dataset containing n = 5796 individual tiles, which were not
+used during the process of model selection. On these individual tiles,
+the model reached an accuracy of 96.7% (loss = 0.08).
+
+U. Bayr and O. Puschmann
+
+Ecological Informatics 50 (2019) 220–233
+
+To prevent spatial autocorrelation between neighboring tiles, the
+tiles retrieved from all 50 training photographs were collected in one
+folder and shuﬄed, before they were split into training, validation and
+test set. In this regard, the validation set is used during training for the
+ﬁne tuning of hyperparameters and model selection (Hastie et al.,
+2009). Only after the best model setup has been found, its prediction
+error is assessed once again on the test set. For splitting the whole set of
+samples into the three sets, we ﬁrst took a random sample of 10% from
+the total number of tiles as validation set and then a further sample of
+10% as test set. The remaining 80% of the tiles were used as training
+set. To further increase the number of sample tiles, we performed data
+augmentation on the training set. Data augmentation is a common
+practice in machine learning to artiﬁcially increase the number of
+training samples by applying slight transformation on the original data,
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The learning process was stopped after 90 epochs, where the learning curve converged and loss values no longer decreased. This indicates that the model had learned enough about the patterns in the data and any additional training would likely result in overfitting or diminishing returns. The figure illustrating the improvement in loss and accuracy during the training process shows that the validation accuracy exceeds training accuracy due to the application of dropout and data augmentation on the training data only. This means that the training set contained more difficult tiles than the validation set, but it also suggests that the model was able to generalize well to new data. The best model was selected based on the two parameters accuracy and loss, with loss serving as a measure of how far model predictions differ from the actual class. The final model achieved a maximum accuracy of 96.4% on the validation set and 96.7% on a separate test dataset containing individual tiles not used during the model selection process. These high accuracies suggest that the model was effective at predicting the correct classes for new data.

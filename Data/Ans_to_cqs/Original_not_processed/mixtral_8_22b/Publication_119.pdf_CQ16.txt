@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Remote Sens. 2021, 13, 3495
+
+8 of 29
+
+layer 5 and a batch normalization layer after hidden layer 2 increased the testing accuracy
+of the model. These additional layers—dropout and batch normalization—reduce the
+over-ﬁtting of the model on the training data and increase generalization on testing data.
+The hyperparameters in this network—the learning rate, number of epochs, and batch
+size—were further tuned such that the testing accuracy and the kappa were the best among
+all models. The optimized hyperparameter values for learning rate and batch size were
+0.007 and 48, respectively.
+
+Figure 4. Network architecture implemented for the Deep Neural Network (DNN) model along
+with the number of neurons that were optimized for each hidden layer. The output layer contains
+11 neurons, corresponding to the number of classes to be classiﬁed.
+
+2.7. Accuracy Assessment
+
+[42]. The RBF kernel requires tuning of two parameters—C and γ. Choice of the C parameter in-volves a trade-off between correct classification and maximization of the margin. Thus, a smaller C value will result in a wider margin and thus a lower accuracy. The γ value con-trols the radius of influence of the training samples. Thus, a greater value will result in a model that overfits on the training data and poor generalization on the testing data. The best values for C and γ were optimized using GridSearchCV (scikit-learn 0.24) and were found to be 1000 and 1, respectively. 2.5. Random Forest (RF) The RF algorithm constructs multiple decision trees (DTs), or classifiers, that each predict a class [43]. Each tree within the RF is created using different training data subsets, which are selected through repetition and replacement of the original training dataset. This repetition and replacement create a ‘bagged’ dataset for each of the decision trees within the random forest. The
+
+shown in Table 4. Table 4. Percentage and area in hectares of each class type mapped in 2019 within the study area, based on the classification map seen in Figure 8. Classes 2019 (%) 2019 (ha) Mixed Forest 19.74 32,990.21 Evergreen Forest 13.22 22,099.87 Residential  0.38 650.62 Molucca Raspberry 1.31 2190.60 Row Crops 3.08 5147.37 Fallow 4.97 8313.04 Shrubland 48.55 81,148.99 Open Water 1.39 2327.05 Madagascar Cardamom 2.02 3386.98 Grassland 3.81 6369.07 Guava 1.49 2490.60  Figure 8. Detailed and highly accurate classification map of the BNR and surrounding areas, created using WorldView-3 imagery and post-classification editing, showing the distribution of 11 classes. Remote Sens. 2021, 13, 3495
+
+Table 3. Overall accuracy (Equation (2)) and percent change for all classiﬁcation models including
+(16 bands) and excluding (8 bands) the shortwave infrared (SWIR) bands.
+
+Accuracy Metric
+
+Overall Accuracy (%) (16 bands)
+Overall Accuracy (%) (8 bands)
+Percent Decrease
+
+U-Net
+
+90.9
+89.2
+−1.87
+
+SVM
+
+88.6
+83.8
+−5.42
+
+RF
+
+84.8
+82.1
+−3.18
+
+DNN
+
+86.6
+79.2
+−8.55
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, there isn't explicit information about the specific criteria used to determine when training is complete. However, we can infer from the text that the authors might have used some common machine learning practices to decide when to stop training their models.
+
+One possible criterion could be monitoring the validation loss during training. When the validation loss stops decreasing significantly or starts increasing, it may indicate that the model has started to overfit the training data, and further training would not improve its performance on unseen data. This point where the validation loss plateaus or increases is often considered as the optimal stopping point for training.
+
+Additionally, the authors mention that they used techniques like dropout and batch normalization to reduce overfitting and improve generalization on testing data. They also state that they tuned hyperparameters like learning rate, number of epochs, and batch size to achieve the best testing accuracy and Kappa score. This suggests that they likely monitored these metrics during training and stopped training when they observed satisfactory results on the test set.
+
+However, without more specific details about the training process, it is impossible to provide a definitive answer regarding the exact criteria used by the authors to determine when training was complete.

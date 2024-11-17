@@ -1,0 +1,164 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The most signiﬁcant variation of performance is concerning the number of parameters
+and with training and inference time. Despite being the best architecture in performance,
+According to Table 2, DeepLabv3+ needed more parameters than the other architectures,
+about 2.75 times more parameters than the U-Net, the least requiring one. The need for a
+more signiﬁcant number of parameters often implies a higher demand for training samples
+that our dataset or another dataset may not have met that the methods present in this
+research paper may be applied, possibly causing the DeepLabV3+ architecture to perform
+below its potential.
+
+Remote Sens. 2021, 13, 3054
+
+11 of 19
+
+Figure 11. Convergence of the evaluated networks.
+
+Table 2. Number of Parameters and Processing Time of the proposed approaches. The training time
+represents the results for the test set of each method. The inference time stands for the time taken by
+each model to make predictions for each image.
+
+Method
+
+FCN
+
+U-Net
+
+SegNet
+
+Remote Sens. 2021, 13, 3054
+
+8 of 19
+
+Figure 9. Schematic diagram of the evaluation process.
+
+All deep learning-based models exploited in this work were implemented using the
+TensorFlow [51], a Python framework conceived to allow efﬁcient analysis and implemen-
+tation of deep learning with Graphics Processing Units (GPUs). All experiments conducted
+here were performed on a 64-bit Intel i7-8700K@3.70GHz CPU workstation, 64 GB memory,
+and NVIDIA® GTX 1080 GPU with 12Gb of memory, under a 10.0 CUDA version. Debian
+4.195.98-1 version was used as the operating system.
+
+2.2.2. Evaluation Metrics
+
+model that adjusts too well to the training data, but it does not generalize to the unseen
+before dataset, i.e., a test dataset), after 50,000 iterations, the learning rate was reduced
+following an exponential decay parameter of 0.5 by an SGD scheduler. Aside from this,
+we used rotation, noise, and ﬂip (as in [50]) for data augmentation, and we were capable
+of augmenting the dataset by six times. With the data augmentation technique, we can
+make the CNN classiﬁcation more robust and generalize better. In Figure 9, we can see the
+schematic diagram for the evaluation process.
+
+Method
+
+FCN
+
+U-Net
+
+SegNet
+
+DeepLabV3+
+
+DDCN
+
+Number of Parameters
+(in millions)
+
+3.83
+
+1.86
+
+2.32
+
+Training Time
+(GPU hours)
+
+Inference Time
+(GPU min.)
+
+Inference Time
+(CPU min.)
+
+Inference Time
+(GPU min./ha)
+
+Inference Time
+(CPU min./ha)
+
+485
+
+450
+
+472
+
+1.4
+
+1.9
+
+1
+
+1.3
+
+1.1
+
+1.5
+
+5.16
+
+486
+
+1.4
+
+1.9
+
+2.08
+
+500
+
+5.1
+
+6.2
+
+0.042
+
+0.030
+
+0.033
+
+0.042
+
+0.153
+
+0.057
+
+0.039
+
+0.045
+
+0.057
+
+0.186
+
+3.3. Visual Analysis
+
+Some features maps, learned by the convolutional layers, are presented in Figure 12.
+Speciﬁcally, this image presents low-, mid- and high-level feature maps learned by the
+ﬁrst, a middle, and the last layers of the networks, respectively. We can see the each CNN
+performs very differently from one another.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, the optimization technique applied in the deep learning pipeline is Stochastic Gradient Descent (SGD). After 50,000 iterations, the learning rate was reduced following an exponential decay parameter of 0.5 by an SGD scheduler. This indicates that the SGD optimizer was used during the training phase of the deep learning models. However, there is no mention of other optimization techniques such as Adam, RMSprop, or Adagrad. Therefore, based on the provided context, only SGD has been explicitly mentioned as an optimization technique used in the deep learning pipeline.

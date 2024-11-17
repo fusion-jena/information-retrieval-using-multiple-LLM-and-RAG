@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+SNN, DNN and CNN models are ﬁtted with the package mxnet: All model
+0.03, 0.03), then we
+parameters were initialized with a uniform distribution U (
+applied a stochastic gradient descent algorithm with a momentum of 0.9, a
+batch-size of 50 (batch samples are randomly chosen at each iteration), and an initial
+8. The choice of initial learning rate was critical for a good
+learning rate of 10−
+optimization behavior. A too big learning rate can lead to training loss divergence,
+
+−
+
+190
+
+C. Botella et al.
+
+whereas when it is too small, learning can be very slow. We stopped when the
+average slope of the training mean loss had an absolute difference to 0 on the last 100
+3. The learning took approximately 5 min for SNN, 10 min for
+epochs inferior to 10−
+DNN, and 5 h for CNN (independently of the version).
+
+10.3.5 Evaluation Metrics
+
+• CNN is composed of two hidden convolutional layers and one last layer fully
+connected with 200 neurons, exactly similar to previous ones. The ﬁrst layer is
+composed of 64 convolution ﬁlters of kernel size (3, 3) and 1 line of 0 padding.
+The resulting feature maps are batch-normalized (same normalization for every
+pixels of a feature map) and transformed with a Relu. Then, an average pooling
+with a (8, 8) kernel and (8, 8) stride is applied. The second layer is composed of
+128 convolution ﬁlters of kernel size (5, 5) and 2 lines of padding, plus Batch-
+Normalization and ReLU. After, that a second average pooling with a (8, 8)
+kernel and (8, 8) kernel and (8, 8) stride reduces size of the 128 feature maps
+to one pixel. Those are collected in a vector by a ﬂattening operation preceding
+the fully connected layer. This architecture is not very deep. However, considered
+the restricted number of samples, a deep CNN would be very prone to over ﬁtting.
+
+28. Van Liedekerke, M. Jones, A. & Panagos, P. (2006). ESDBv2 Raster Library-a set of rasters
+derived from the European Soil Database distribution v2. 0. European Commission and the
+European Soil Bureau Network, CDROM, EUR, 19945.
+
+29. Chen, T., Li, M., Li, Y., Lin, M., Wang, N., Wang, M., . . . & Zhang, Z. (2015). Mxnet: A
+ﬂexible and efﬁcient machine learning library for heterogeneous distributed systems. arXiv
+preprint arXiv:1512.01274.
+
+CNN is a form of neural network introduced in [11]. It aims to efﬁciently apply
+NN to input data of large size (typically 2D or 3D arrays, like images) where
+elements are spatially auto-correlated. For example, using a fully-connected neural
+network with 200 neurons on an input RGB image of dimensions 256
+3
+107 parameters only for the ﬁrst layer, which is already too
+would imply around 4
+heavy computationally to optimize on a standard computer these days. Rather than
+applying a weight to every pixel of an input array, CNN will apply a parametric
+discrete convolution, based on a kernel of reasonable size (3/3/p or 5/5/p are
+common for N/N/p input arrays) on the input arrays to get an intermediate feature
+map (2D). The convolution is applied with a moving windows as illustrated in
+Fig. 10.2b. Noting X
+Md,d,p an input array, we simplify notations in all that
+follows by writing C V (X, kγ (c)) the resulting feature map from applying the
+c2p. If the convolution is
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, there isn't any explicit mention of specific datasets such as MNIST, CIFAR, or ImageNet being used in the deep learning pipeline. Instead, the text discusses the use of Convolutional Neural Networks (CNN) for processing input data of large sizes, typically 2D or 3D arrays like images. Furthermore, the description focuses on the structure and implementation details of the CNN model rather than specifying the dataset(s) used for training or evaluation purposes. Therefore, without additional context, I cannot provide the exact datasets utilized in this particular deep learning pipeline.

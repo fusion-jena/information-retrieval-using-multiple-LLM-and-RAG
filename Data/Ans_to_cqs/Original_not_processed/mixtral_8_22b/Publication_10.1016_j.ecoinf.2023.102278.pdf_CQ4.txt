@@ -1,0 +1,181 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Eq. (4) denotes the predicted class in level l as the maximum output 
+value from the network at the level. An input image is also classified as 
+‘unsure’ when the predicted class is not correct according to the higher 
+rank in the taxonomic hierarchy as defined in Eq. (7). 
+
+{
+
+̃yl =
+
+Unsure
+̃yl
+
+̃yl⇏̃yl(cid:0) 1
+
+if
+otherwise
+
+or Rlj < th
+
+(7)  
+
+3.3. Training, augmentation and optimizers 
+
+The training on the datasets was  performed using data augmenta-
+tion, including image scaling, horizontal and vertical flip, perspective 
+distortion and adding color jitter for brightness, contrast and saturation. 
+Data augmentation mitigates overfitting by increasing the diversity of 
+the training data. We selected a batch size of 20 for training our models 
+since it is faster to update, and results in less noise, than smaller batch 
+sizes. The accuracy of the models on the training and validation datasets 
+was computed after each epoch. 
+
+The Adam optimizer with a fixed learning rate of 1.0⋅10
+
+Table 4 
+Average performance (Avg) and standard deviation (SD) for five trained models. Average precision, recall and F1-score for trained ResNet50 and EfficientNetB3 
+(EffNetB3) models modified for multitask learning (MTL) with transfer learning using pre-trained weights from ImageNet. The models are trained and validated on the 
+TLm  dataset. The models ResNet50, EfficientNetB3 are trained without MTL.  
+
+Model 
+
+Level 
+
+ResNet50MTL 
+EffNetB3MTL 
+
+ResNet50MTL 
+EffNetB3MTL 
+
+ResNet50MTL 
+EffNetB3MTL 
+
+ResNet50 
+EffNetB3 
+
+L1 Order 
+L1 Order 
+
+L2 Family 
+L2 Family 
+
+L3 Species 
+L3 Species 
+
+Species 
+Species 
+
+Avg 
+
+0.990 
+0.986 
+
+0.987 
+0.984 
+
+0.955 
+0.948 
+
+0.955 
+0.953 
+
+Precision 
+
+SD (10
+
+(cid:0) 3) 
+
+(1.0) 
+(4.4) 
+
+(0.8) 
+(3.1) 
+
+(4.3) 
+(5.2) 
+
+(3.3) 
+(2.5) 
+
+Avg 
+
+0.991 
+0.993 
+
+0.986 
+0.988 
+
+0.961 
+0.966 
+
+0.957 
+0.966 
+
+Recall 
+
+SD (10
+
+(cid:0) 3) 
+
+(1.1) 
+(0.5) 
+
+(0.9) 
+(0.7) 
+
+(9.8) 
+(5.1) 
+
+(7.3) 
+(2.5) 
+
+Avg 
+
+0.991 
+0.989 
+
+0.987 
+0.986 
+
+0.957 
+0.956 
+
+0.955 
+0.959
+
+(cid:0) 4 was finally 
+chosen after comparing with stochastic gradient descent (SGD) with the 
+(cid:0) 4  and learning rate of 
+(cid:0) 4, weight decay of 1.0⋅10
+momentum of 1.0⋅10
+(cid:0) 3. SGD was tested with the parameters as recommended by L. 
+1.0⋅10
+Smith  (Smith,  2018),  but  achieved  a  1%–2%  decrease  in  accuracy 
+compared to using the Adam optimizer. 
+
+The  ResNet50  architecture  (He  et  al.,  2016)  was  modified  and 
+trained with transfer learning using pre-trained weights from ImageNet 
+(Smith,  2018).  Models  trained  with  transfer  learning  outperformed 
+models trained with random weights with an increase of 4% in the F1-
+
+pendency  in  “flat”  networks.  Both  methods  only  focus  on  the  loss 
+function  and  do  not  incorporate  the  class  hierarchy  into  the  CNN 
+architecture.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In this study, several data augmentation techniques were employed during the training phase of the deep learning pipeline. These techniques included image scaling, which involves resizing the images to different dimensions. Horizontal and vertical flipping were used to create new samples by mirroring the original images along their respective axes. Perspective distortion was another technique utilized, which manipulates the image's geometry to simulate changes in viewing angle or distance. Lastly, color jitter was introduced to modify the brightness, contrast, and saturation levels of the images, thereby creating additional variations within the dataset. All these techniques aimed to enhance the model's robustness and generalization capabilities by artificially expanding the available training data.

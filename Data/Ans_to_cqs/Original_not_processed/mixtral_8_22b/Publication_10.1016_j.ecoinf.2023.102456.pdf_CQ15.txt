@@ -1,0 +1,138 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+However, for machine learning algorithms like backpropagation to 
+be successful, a critical condition must be met: all functions involved 
+must be differentiable to compute gradients accurately. As said above, 
+to make the update criterion differentiable, we use the Gumbel softmax 
+
+function.  So,  by  changing  our  update  criterion  to 
+
+̃
+Uk,  we  manage  to 
+
+compute the gradients. 
+
+This new data-driven architecture aims to learn the neighbourhood 
+relationship Rk to improve the results of our model. In addition, learning 
+the  neighbourhood  relationship  has  value  in  itself,  as  it  allows  us  to 
+know and learn how the different elements of the system interact. For 
+this purpose, as we can see in Fig. 13 a neural network ANN (or other 
+objects) might be defined as Rk, which may take two kinds of inputs:
+
+function. We also avoid defining parameters, this allows us to learn non- 
+linear  relationships  with  an  infection  capacity  greater  than  those 
+established in (Boters-Pitarch et al., 2023a). Thirdly, the φ filter ensures 
+that the expansion is carried out only by the infected elements of the 
+system,  making  the  ΔID  parameter  decisive  during  learning,  which 
+represents a significant advance over the previous relationship. Finally, 
+using the sigmoid activation function σ (or similar) as the output of the 
+network guarantees that all the cells of the neighbourhood relationship 
+can  be  interpreted  as  probabilities,  without  having  to  consider  those 
+with a probability greater than one, i.e. Rk ∈ [0, 1]N×,N. 
+
+Thus, setting a random seed s, we can compute the estimation ̂y
+
+the model in the generation k + 1 by reasoning as Fig. 13 
+
+̂ys
+k+1←S0 R0
+
+̃U0…Sk Rk
+
+̃Uk
+
+s
+k+1 of 
+
+(8)
+
+The Gumbel-Softmax  function is  a  more general  function  that can 
+approximate any discrete distribution to a continuous distribution. Its 
+usefulness in optimizing neural networks involving discrete variables, 
+such as those used in reinforcement learning and generative models, can 
+be seen in (Mena et al., 2018; Strypsteen and Bertrand, 2021). However, 
+the Gumbel-Softmax function is not a perfect substitute for the binary 
+Bernoulli  random  variable.  Since  the  introduction  of  a  stochastic 
+element into the computational process allows us to keep that character, 
+but it could have an impact on our estimates. Furthermore, the function 
+
+Remark 2.2. Mostly, the value of τ considered by default is τ = 1. 
+
+Thus,  if  mk
+
+ij  refers  to  the  state of  the  cell (i, j) in  the  generation  k, 
+
+where 
+
+⎧
+⎨
+
+mk
+
+ij :=
+
+⎩
+
+0
+1
+2
+
+if
+if
+if
+
+susceptible
+infected
+dead  
+
+then, the new update criterion 
+
+̃U k  is defined by Eq. (7) 
+
+∀mk
+
+ij = 2 ⇒ mk+1
+
+ij = 2
+
+∀1 ≤ mk
+
+Emmanuel, Tlamelo, Maupong, Thabiso, Mpoeleng, Dimane, Semong, Thabo, 
+
+Mphago, Banyatsang, Tabona, Oteng, 2021. A survey on missing data in machine 
+learning. J. Big Data 8 (1), 1–37. 
+
+F¨oldi, L´aszl´o, Kuti, Rajmund, 2016. Characteristics of forest fires and their impact on the 
+
+environment. Acad. Appl. Res. Military Public Manag. Sci. 15 (1), 5–17. 
+
+Ganteaume, Anne, Camia, Andrea, Jappiot, Marielle, San-Miguel-Ayanz, Jesus, Long- 
+Fournel, Marl`ene, Lampin, Corinne, 2013. A review of the main driving factors of 
+forest fire ignition over europe. Environ. Manag. 51, 651–662. 
+
+He, Haibo, Garcia, Edwardo A., 2009. Learning from imbalanced data. IEEE Trans. 
+
+Knowl. Data Eng. 21 (9), 1263–1284. 
+
+Hern´andez Encinas, A., Hern´andez Encinas, L., Hoya White, S., Martín, A., del Rey, and G 
+Rodríguez S´anchez., 2007a. Simulation of forest fire fronts using cellular automata. 
+Adv. Eng. Softw. 38 (6), 372–378.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the given context, there isn't explicit information about specific optimization techniques such as Stochastic Gradient Descent (SGD) or Adam being used in the deep learning pipeline. However, the text does mention the use of the Gumbel-softmax function, which is often employed to optimize neural networks involving discrete variables. This technique is particularly useful in areas like reinforcement learning and generative models. The Gumbel-softmax function approximates any discrete distribution to a continuous distribution, allowing for gradient-based optimization methods to be applied. It introduces a stochastic element into the computation process, maintaining its character but potentially affecting estimates.
+
+While the context doesn't directly discuss traditional optimization techniques like SGD or Adam, these methods are commonly used in conjunction with various functions and architectures in deep learning pipelines. Therefore, even though they aren't explicitly mentioned here, it's reasonable to assume that some form of optimization technique would still be necessary for training the described neural network.

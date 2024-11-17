@@ -1,0 +1,9 @@
+The strategy implemented to monitor the model performance during training involves several techniques. First, the model's performance is evaluated based on its ability to identify sounds in standardized recordings that have been segmented into 3-second clips. This duration was chosen because the majority of sound classes in their database have a duration of less than 3 seconds. 
+
+During the training process, the model's performance is monitored by using YOLOv5s, the smallest weight of YOLOv5, to build the sound identification model. The model is trained for 100 epochs with a batch size of 32 and an input image dimension of 640 × 640. Data augmentation is used to increase the diversity of the training data, including scaling, color space adjustments, and Mosaic augmentation. Mosaic augmentation involves randomly selecting four original spectrograms, resizing, cropping, and color jittering them before merging them into one big input image for model training.
+
+The model training is performed on a workstation equipped with specific hardware to ensure sufficient computing power. The workstation includes an Intel Xeon E5-2660 V4 CPU, DDR4 2400 ECC 16GB RAM, NVIDIA Titan RTX GPU, and WD black AN1500 4 TB NVMePCIe SSD.
+
+The model's performance is evaluated using mixed audio clips that are converted into spectrograms as input images for model training. The spectrograms are transformed by applying the short-time Fourier transform (STFT) with a window size of 1600 samples, hop size of 400 samples (75% overlap), and 240 mel-scale frequency bins.
+
+However, the context does not explicitly mention any strategy for monitoring the model performance during training. The above answer is based on the assumption that the model's performance is evaluated based on its ability to identify sounds accurately in the test dataset.

@@ -1,0 +1,53 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+proper databases for CNN training.
+
+13 of 19
+
+ﬁlters per convolution layer is 32 for the ﬁrst one, 64 for the second one, and 128 for the
+ﬁnal one. A kernel size (height and width of the convolution window) of 3 × 3 is used
+on each convolution layer. The fully connected layer (FC) consists of 512 neurons and
+the softmax layer with the number of units for classiﬁcation (one for each type of sound).
+Figure 11 shows the structure of the CNN.
+
+Figure 11. Structure of the designed CNN.
+
+For network training, 80% of the samples were used as training samples, and 20%
+as tests. This strategy is widely used to enhance the generalization of a machine learning
+model and prevent overﬁtting. A balanced sampling was carried out for the test set. For
+it, one audio sample (with its corresponding data augmentation samples) out of 5 was
+selected for each type of anuran call. Thus, 7623 samples were used for training and 1892
+for testing.
+
+number of output filters per convolution layer is 32 for the first one, 64 for the second one, and 128 for the final one. A kernel size (height and width of the convolution window) of 3 × 3 is used on each convolution layer. The fully connected layer (FC) consists of 512 neurons and the softmax layer with the number of units for classification (one for each type of sound). Figure 11 shows the structure of the CNN. Sensors 2021, 21, 3655
+
+As mentioned in the data augmentation section above, a CNN was ﬁrst trained for
+the 4 sound classes covered in the classiﬁcation model developed in previous work [20–23].
+Later, a second CNN was trained to expand the classiﬁcation system to the total of the
+5 classes detailed in Table 1.
+
+For the ﬁrst network, the best results were obtained with training in only 8 epochs
+(number of passes of the entire training dataset) and a batch size (number of samples
+utilized in one training iteration) equal to 32. For the second network, the best training was
+achieved with 6 epochs and, again, a batch size equal to 32. For both networks, the initial
+learning rate [33] with 0.001 and the “adam” optimizer [34] were the parameters used in
+the training process.
+
+3. Results
+3.1. CPS Performance
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The data was split into two sets: training and testing. The training set consisted of 80% of the samples, while the remaining 20% were used for testing. To ensure a balanced sampling for the test set, one audio sample (along with its corresponding data augmentation samples) out of every five was selected for each type of anuran call. As a result, 7623 samples were utilized for training, and 1892 samples were employed for testing. No specific mention was made regarding a separate validation set.

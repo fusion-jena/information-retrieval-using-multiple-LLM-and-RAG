@@ -1,0 +1,136 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.1 Data Preprocessing
+
+The choice of learning data is a crucial point. We worked with biology experts
+of the MARBEC laboratory to label many videos. We cropped some frames of
+the videos and created a training database composed of 13000 ﬁsh thumbnails.
+The thumbnail size varies from a minimum of 20 × 40 pixels to a maximum of
+150 × 200 pixels. Each thumbnail contains only one labeled-ﬁsh as shown on
+Fig. 2.
+
+We decided to keep only the species with more than 450 thumbnails. We also
+widen the database by applying rotations and symmetries in order to capture
+all the possible position of the ﬁshes. Table 1 lists the retained species.
+
+Due to the highly textured natural background, we also added a class for the
+background. This class is constituted with random thumbnails of the background
+which were randomly selected in frames and speciﬁc background thumbnails
+which were taken around the ﬁsh thumbnails.
+
+164
+
+S. Villon et al.
+
+Fig. 2. Some training thumbnails from the MARBEC database
+
+After processing all the resolutions of a frame, we obtain a list of bounding
+boxes, and for each bounding box a probability of belonging to a class. Yet
+the classiﬁcation remains ambiguous if there is more than one bounding box
+corresponding to the same potential ﬁsh (see Fig. 5).
+
+To suppress the redundant bounding boxes, we ﬁrst keep the boxes whose
+probabilities are above a given probability threshold T (T = 98 %) in the case
+of Fig. 5. So if the motion score is greater than our motion threshold and the
+probabilities to belong to a class of ﬁsh is greater than 98 %, we keep the box.
+Then, we fuse the remaining boxes following based on the following properties:
+
+Coral Reef Fish Detection and Recognition in Underwater Videos
+
+167
+
+Fig. 5. Results of the detection before (left) and after (right) post-processing. Note
+that two ﬁshes in the center are not displayed because they do not belong to one of
+the species which have been learned.
+
+Table 1. Fish species in the learning database
+
+Species
+
+Acanthurus lineatus
+
+Acanthurus nigrofuscus
+
+Chromis ternatensis
+
+Chromis viridis/Chromis atripectoralis
+
+Pomacentrus sulfureus
+
+Pseudanthias squamipinnis
+
+Zebrasoma scopas
+
+Ctenochatus striatus
+
+Thumbnails Rotations and symmetries
+
+493
+
+1455
+
+951
+
+523
+
+766
+
+1180
+
+488
+
+1400
+
+2465
+
+3923
+
+4755
+
+2619
+
+3830
+
+5900
+
+2400
+
+4000
+
+To be able to do multi-resolution classiﬁcation, all the background thumbnails
+
+were taken with random dimensions, from 40 × 60 pixels to 400 × 500 pixels.
+
+19. Atkinson, P.M., Tatnall, A.R.L.: Introduction neural networks in remote sensing.
+
+Int. J. Remote Sens. 18(4), 699–709 (1997)
+
+20. Schmidhuber, J.: Deep learning in neural networks: an overview. Neural Netw. 61,
+
+85–117 (2015)
+
+21. Lecun, Y., Bottou, L., Bengio, Y., et al.: Gradient-based learning applied to doc-
+
+ument recognition. Proc. IEEE 86(11), 2278–2324 (1998)
+
+22. Szegedy, C., Liu, W., Jia, Y.: Going deeper with convolutions. In: Proceedings of
+the IEEE Conference on Computer Vision and Pattern Recognition, pp. 1–9 (2015)
+23. Joly, A., et al.: LifeCLEF 2015: multimedia life species identiﬁcation challenges.
+In: Mothe, J., Savoy, J., Kamps, J., Pinel-Sauvagnat, K., Jones, G.J.F., SanJuan,
+E., Cappellato, L., Ferro, N. (eds.) CLEF 2015. LNCS, vol. 9283, pp. 462–483.
+Springer, Heidelberg (2015). doi:10.1007/978-3-319-24027-5 46
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The provided context does not explicitly mention any specific criteria used to determine when training is complete. However, it can be inferred that the authors may use common machine learning practices such as monitoring the validation loss or accuracy over epochs and stopping the training process once the model performance has reached a satisfactory level or stopped improving significantly. It is important to note that this information is not directly stated in the provided context, so further clarification would be needed to provide a definitive answer.

@@ -1,0 +1,146 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+function to ignore a certain class. These annotations are made manually, 
+using special software, and consume large amounts of time. For model 
+development  there  are  many  well  established  collections  of  image 
+datasets for the training and evaluation of the models, such as ImageNet
+
+Generally, in order to achieve good results, it is very important to have 
+consistent dataset properties for training and test data.
+
+(cid:0)
+y1,klog
+
+)
+
+ˆy1,k
+
+∑K
+
+k=1
+
+(17)  
+
+with y1 as model output and ˆy1  as target values. By minimizing our loss 
+function 
+
+L(x1, x2, y1, ˆy1) = (cid:0)
+
+y1,klog
+
+(cid:0)
+
+)
+
+ˆy1,k
+
+∑K
+
+k=1
+
++ Eθ(x2) (cid:0) Eθ(x1)
+
+(18)  
+
+we  trained  the  model  to  reach  a  high  classification  accuracy  on  our 
+labeled biocrust images as well as adapt our model to an unknown data 
+subset. The training was performed on randomly cropped images of size 
+512  × 512  with  a  learning  rate  of  0.0001  and  an  Adam  optimizer 
+(Kingma and Ba, 2017). Again, the training was performed using a cross 
+validation  on  the  training  data  set  with  80%  training  data  and  20% 
+validation  data.  A  detailed  workflow  regarding  the  methodology  is 
+shown in Fig. 3. In order to avoid overfitting the data was augmented 
+using  varius  spatial  and  color  transformations  and  the  training  was 
+stopped after 100 epochs. 
+
+2.4. Evaluation metrics
+
+(2)  
+
+without  changing  the  parameterization  θ  of  the  neural  network  (Liu 
+et al., 2020). During the training of our neural network, a discriminative 
+loss function got minimized. To maximize the log-likelihood of p(x) we 
+minimized the negative one in addition to our discriminative loss. So, as 
+proposed in (Grathwohl et al., 2020), additionally to the gradient decent 
+of the discriminative training, we could compute the generative loss of 
+our model as  
+
+pθ(y, x|q) =
+
+1
+Z(θ, q)
+
+efθ (x)[y,q],
+
+pθ(x|q) =
+
+∑
+
+y
+
+pθ(y, x|q) =
+
+and 
+
+1
+Z(θ, q)
+
+∑
+
+y
+
+Lgen = (cid:0) (Eθ(x′) (cid:0) Eθ(x) ) = Eθ(x) (cid:0) Eθ(x′) = (cid:0) log
+
+(
+
+∑
+
+efθ (x)[y]
+
+(
+
+)
+
+(
+
+(cid:0)
+
+(cid:0)
+
+log
+
+∑
+
+efθ (x′)[y]
+
+) )
+
+,
+
+y
+
+y
+
+′ 
+with x
+as adversarial data, sampled from Stochastic Gradient Langevin 
+Dynamics (SGLD) sampling. LogZ(θ) could be ignored here, since it is a 
+constant and has no influence on the minimization. 
+
+2.3.1. Joint energy-based models for semantic segmentation
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not explicitly state the specific criterion used to determine when training is complete. However, it mentions that the training was stopped after 100 epochs. This suggests that the number of epochs or iterations through the entire dataset might be used as a stopping criterion. Additionally, the use of early stopping based on validation loss plateauing can also be inferred, given that the training process involves a cross-validation split of 80% training data and 20% validation data. Therefore, monitoring the performance on the validation set during training would allow for identifying when the model starts to overfit and stop training accordingly.

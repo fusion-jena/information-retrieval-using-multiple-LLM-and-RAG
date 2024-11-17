@@ -1,0 +1,76 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+During training the model optimi zes cross-entropy loss via mini-
+batch  stochastic  gradient descent  [26].  We  use  a constant learning 
+rate  of 0.01  and  apply  dropout [27]  to  the  input of the  last two lay 
+ers  with  probability 0.5.  L2-regularization  is  applied to  the  weights 
+of the last two layers  with  a penalty  factor  of 0.001.  The  model  is 
+trained for  100 epochs and is  checkpointed after each epoch.  A val 
+idation  set  is  used to  identify  the  parameter setting  (epoch)  achiev 
+ing the  highest classification accuracy.  The CNN is  implemented  in 
+Python using Lasagne [28] , and data stream  multiplexing (for train 
+ing)  is implemented using Pescador [29].
+
+Index  Terms- Convolutional  neural  networks,  bioacoustics, 
+
+flight calls, deep learning, data augmentation. 
+
+1.  INTRODUCTION
+
+The  automated  classification  of  migrating  birds'  ftight  calls  has 
+the  potential  to  yield  new  biologieal  insights  and  conservation  ap 
+plications  for  birds  that  vocalize  during  migration.  In  this  paper 
+we  explored  two  state-of-the-art classification  techniques  for large 
+vocabulary  bird  species  classification  from  flight  calls:  a  "shallow 
+learning" unsupervised dietionary learning  method and  a deep con 
+volutional  neural  network  combined  with  data  augmentation.  The 
+models  were evaluated on a dataset of 5428  ftight  calls from 43  dif 
+ferent  species, and  were  compared  against  a  baseline  model  based 
+on  MFCCs.  We  showed  that  the  two  models  perform  comparably, 
+yielding  a  mean  classification  accuracy  of 0.94  and  significantly 
+outperforming  the  MFCC  baseline  (0.85).  We  also  compared  the 
+performance of the CNN model  with  and  without augmentation and
+
+[17]  J.  Salamon  and  J.  P.  Bello,  "Deep  convolutional  neural  net 
+works  and  data augmentation  for environmental sound  c1assi 
+fication ,"  IEEE Signal Processing Leiters, In Press. 
+
+[18]  A. Coates and A.  Y. Ng, "Learning feature representations with 
+K-means,"  in  Neural Networks:  Tricks  ofthe Trade,  pp.  561 -
+580. Springer, 2012. 
+
+[19]  S.  Lloyd, 
+
+"Least  squares  quanti zation  in  PCM," 
+
+IEEE 
+Trans.  on  Infonnation  Theory,  vol.  28,  no.  2,  pp.  129- 137, 
+1982. 
+
+[20]  I.S.  Dhillon  and  D.M.  Modha,  "Concept decompositions  for 
+large  sparse  text  data  using  clustering,"  Machine  Learning, 
+vol.  42, no.  1, pp.  143- 175,2001. 
+
+[21]  S.  Dieleman and B. Schrauwen, "Multiscale approaches to mu 
+sie audio feature learning," in 14th Int.  Soc.for Music Info.  Re 
+trieval Conj., Curitiba, Brazil, Nov.  2013.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, there are two regularization methods mentioned to prevent overfitting in the deep learning pipeline. These methods are Dropout and L2 Regularization.
+
+Dropout is a technique where randomly selected neurons are ignored or "dropped out" during training. This helps to avoid overfitting by making sure that the model does not rely too heavily on any single neuron. In this case, dropout was applied to the input of the last two layers with a probability of 0.5.
+
+L2 Regularization, also known as weight decay, is another common technique used to prevent overfitting. It adds a penalty term to the loss function, which discourages large weights and encourages smaller ones. This results in simpler models that generalize better. In this context, L2 Regularization was applied to the weights of the last two layers with a penalty factor of 0.001.

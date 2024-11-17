@@ -1,0 +1,150 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+For training the EF and SN models, we selected the following setup empirically: batch size equal
+to 32 with 100 number of epochs, early stopping after 10 epochs with no improvement (over the
+validation set) and a dropout rate of 0.2 in the ﬁnal FC layer. Additionally, Adam optimizer was
+selected empirically with weight decay equal to 0.9 and learning rate equal to 10−3. As loss function,
+we used the binary cross-entropy.
+
+Table 1. Number of samples in the training, validation and test sets for Amazon database.
+
+Set
+
+Tiles
+
+Available Def.
+Samples
+
+Available No-def.
+Samples
+
+Balanced Samples
+(per Class)
+
+Total Samples
+
+Training
+
+Validation
+
+1, 7, 9, 13
+
+5, 12
+
+2706
+
+963
+
+78,431
+
+39,697
+
+Test
+
+2, 3, 4, 6, 8, 10, 11, 14, 15
+
+40,392
+
+1,675,608
+
+8118
+
+2889
+
+-
+
+16,236
+
+5778
+
+1,716,000
+
+The EF network architecture consisted of three convolutional layers (Conv) including the
+Rectiﬁed Linear Unit (ReLU), two Max-pooling layers (MaxPool), and two Fully Connected layers
+(FC), with a softmax layer at the end with two outputs, corresponding to “deforestation” and
+“no-deforestation” classes. The ﬁlter and output size of each layer are summarized in Table 3.
+
+132456789101112131415Remote Sens. 2020, 12, 910
+
+11 of 28
+
+Table 2. Number of samples in the training, validation and test sets for Cerrado database.
+
+Set
+
+Tiles
+
+Available Def.
+Samples
+
+Available No-def.
+Samples
+
+Balanced Samples
+(per Class)
+
+Total Samples
+
+A critical issue is still the number of training samples required by deep learning-based methods to
+achieve their full potential. Techniques based on domain adaptation seem another promising research
+direction to mitigate this hindrance.
+
+Author Contributions: Experiments and writing, original draft preparation, M.O.A.; overall study design, R.Q.F.;
+co-supervision, writing, review and editing, P.N.H., C.A.D.A. and A.R.G. All authors have read and agreed to the
+published version of the manuscript.
+
+Funding: This research was supported by Conselho Nacional de Desenvolvimento Cientíﬁco e Tecnológico
+(CNPq), by Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES).
+
+Acknowledgments: The authors are grateful to Professor Farid Melgani and his research group for providing the
+original CSVM code.
+
+Conﬂicts of Interest: The authors declare no conﬂict of interest.
+
+Remote Sens. 2020, 12, 910
+
+References
+
+26 of 28
+
+4.
+
+3.
+
+5.
+
+1.
+
+6 of 28
+
+Figure 3. Procedure to train the SVMs ﬁlter bank. Mini-patches are extracted from input patches,
+and they are vectorized to compose the training set of SVMs.
+
+2.3.2. Training the SVMs Filter Bank
+
+After the global training set is built, m subsets of N random selected samples are created to train
+m SVMs ﬁlters. These m subsets are composed of n samples per class, which are randomly selected
+from the global training set. The weights of the SVMs ﬁlters are learned using a conventional forward
+supervised learning layer by layer in a greedy fashion. To make the most of available training samples
+and to avoid data duplication in the subsets, in our study, the value of n was set to the ratio between
+the number of training samples (N) and the amount (m) of SVM ﬁlters.
+
+2.3.3. Generation of Feature Maps
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, there is only one explicit mention of a regularization method used to prevent overfitting in the deep learning pipeline. That method is dropout, which is applied with a rate of 0.2 in the final fully connected layer of the EF network architecture. Dropout is a technique where randomly selected neurons are ignored during training, which helps prevent overfitting by making the model more robust and less sensitive to the specific weights of any individual neuron.
+
+There is also implicit use of L2 regularization through the use of the Adam optimizer with weight decay. Weight decay is a form of L2 regularization that adds a penalty term to the loss function proportional to the square of the magnitude of all the weights in the model. This encourages smaller weights, which can help reduce overfitting. However, it should be noted that while these techniques are mentioned in the context of the EF network, it is not explicitly stated whether or not they were also used for the SN model.

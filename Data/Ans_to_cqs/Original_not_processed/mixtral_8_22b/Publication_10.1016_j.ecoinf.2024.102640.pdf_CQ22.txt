@@ -1,0 +1,158 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+5.2. Deep GVI learning 
+
+In  GreenCam,  we  measure  photo  GVI  by  SegFormer  (Xie  et  al., 
+2021),  a  state-of-the-art  Transformer-based  model  for  semantic  seg-
+mentation. As shown in Fig. 12, SegFormer follows the encoder-decoder 
+structure, which combines a Transformer-based encoder (i.e., MiT) with 
+a  lightweight  decoder  (i.e.,  ALL-MLP)  that  is  composed  entirely  of 
+multilayer perceptron (MLP) blocks.
+
+Parameter (m) 
+
+Flops (g) 
+
+FCN 
+HRNet 
+PSPNet 
+DeeplabV3+
+SegFormer 
+
+ResNet50 
+HRNet-W18 
+MobileNetV2 
+MobileNetV2 
+MiT-B1 
+
+59.12 
+60.74 
+54.94 
+58.89 
+63.73 
+
+78.88 
+80.58 
+75.97 
+78.72 
+84.25 
+
+0.719 
+0.727 
+0.664 
+0.695 
+0.745 
+
+0.732 
+0.739 
+0.679 
+0.712 
+0.756 
+
+0.716 
+0.727 
+0.689 
+0.718 
+0.761 
+
+6.67 
+2.63 
+0.56 
+1.39 
+1.51 
+
+32.951 
+9.639 
+2.377 
+5.815 
+13.665 
+
+277.225 
+32.598 
+5.971 
+52.753 
+26.475  
+
+Table 2 
+IOU and PA of classes.  
+
+Classes 
+
+IOU 
+
+PA 
+
+classes 
+
+Tree 
+Lawn 
+Shrub 
+Flower 
+Flat 
+
+85.19 
+72.95 
+60.34 
+78.13 
+79.04 
+
+92.27 
+82.19 
+74.2 
+85.58 
+90.88     
+
+sky 
+facility 
+architecture 
+water body 
+
+IOU 
+
+88.84 
+32.05 
+61.81 
+82.63 
+
+PA 
+
+95.2 
+42.78 
+78.09 
+90.5
+
+performance of the trained SegFormer on each category. The average 
+IOU and pixel accuracy (PA) for tree, lawn, and shrub are 72.82% and 
+82.89%, respectively. However, the performance on the facility category 
+is relatively poor, which could be attributed to the limited annotations 
+available for this category in the UGE-D.
+
+As a matter of fact, any semantic models of image can be incorpo-
+rated into GreenCam's framework as long as they can be deployed and 
+run on smartphone. We have evaluated FCN (Long et al., 2015), HRNet 
+(Wang et al., 2020), PSPNet (Zhao et al., 2017), and DeepLabV3+ (Chen 
+et  al.,  2018)  (which  are  all  widely-used  segmenters)  on  our  UGE-D 
+dataset,  compared  them  with  SegFormer,  and  found  that  SegFormer 
+outperforms those four models in terms of mIOU, accuracy and F1-score. 
+Table  1  tells  the  details.  The  results  indicate  that  SegFormer  demon-
+strates stronger segmentation performance across different categories. 
+Despite  being  slightly  inferior  in  inference  time  and  parameters 
+compared  to  models  with  MobileNetV2  (Sandler  et  al.,  2018),  when 
+considering  the  segmentation  performance,  SegFormer  remains  the 
+model  with  the  strongest  overall  performance.  Table  2  presents  the
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The performance of the deep learning model, specifically SegFormer, is evaluated using several metrics such as mean Intersection over Union (mIOU), accuracy, and F1-score. These metrics help assess the quality of the segmentation output produced by the model. Additionally, other factors like inference time and number of parameters are also considered while comparing it with other models.

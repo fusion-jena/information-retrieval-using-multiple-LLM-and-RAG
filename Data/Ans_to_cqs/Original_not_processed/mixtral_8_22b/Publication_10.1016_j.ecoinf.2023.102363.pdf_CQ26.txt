@@ -1,0 +1,80 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Nazari, Z., Nazari, M., Sayed, M., Danish, S., 2018. Evaluation of class noise impact on 
+performance of machine learning algorithms. IJCSNS Int. J. Comput. Sci Netw. 
+Secur. 18, 149. 
+
+Neal, B., Mittal, S., Baratin, A., Tantia, V., Scicluna, M., Lacoste-Julien, S., Mitliagkas, I., 
+2018. A modern take on the bias-variance tradeoff in neural networks. arXiv 
+preprint:1810.08591.  
+
+Oswald, J.N., Rankin, S., Barlow, J., Oswald, M., Lammers, M.O., 2003. Realtime call 
+
+classification algorithm (ROCCA): software for species identification of 26 delphinid 
+whistles. Detection, classification and localization of marine mammals using passive 
+acoustics, 2013 (10). 
+
+Pace, F., White, P., Adam, O., 2012. Hidden Markov modeling for humpback whale 
+
+(Megaptera novaeanglie) call classification. In: Proceedings of Meetings on Acoustics 
+ECUA2012. The Journal of the Acoustical Society of America, p. 17. 
+
+Belgith, E.H., Rioult, F., Bouzidi, M., 2018, November. Acoustic diversity classifier for
+
+In this work we use two environments that are significantly different 
+with respect to their soundscape. The training and testing protocol used 
+is restricted to five 24-h periods of acoustic data, within which we do not 
+select periods of high quality, or high activity data. Although training 
+batches are equal across classes, the contributing frames to each training 
+batch cannot be equal due to overrepresentation of ambient frames. We 
+attribute the variable results between batch sizes 100 and 300 across all 
+performance metrics to the bias-variance trade-off (Neal et al., 2018). 
+Specifically, at small sample sizes, noise can create fluctuations in the 
+data  that  look  like  genuine  patterns.  Here  we  are  using  a  small-scale 
+model  pre-trained  on  40,000 frames.  During fine-tuning,  as  the  num-
+ber of frames per class reaches 500, the model is able to learn to separate 
+the noise from the patterns within each signal type across the two ma-
+
+2.2. Model fine-tuning 
+
+To  fine-tune  the  base  model  with  Gulf  of  Mexico  data  the  feature 
+extractor remains frozen. Models are trained with the same parameters 
+as the base model but we use a cyclical learning rate of 0.0004 and is set 
+to run for 50 epochs, with early stopping set to deploy if the validation 
+loss does not improve within 10 epochs. A dropout rate of 0.2 is used 
+during  fine-tuning,  and  DropConnect  is  employed.  Drop  out  layers 
+randomly  discard  the  output  of  the  hidden  nodes  during  training, 
+DropConnect randomly discards the input of the hidden layer (Sun et al., 
+2022). 
+
+2.2.1. Data acquisition
+
+(Fig.  1),  considering  its  performance  in  the  new  environment  with 
+limited re-training. Starting with a pre-trained model (EfficientNet B0, 
+Tan and Le, 2019), we freeze the networks original feature extractor. We 
+then train fully connected layers, which operate on the output of the 
+EfficientNet  B0  network,  to  classify  the  PAM  data  frames  into  the 
+specified sound source classes. Audio data is input to the network in a 
+novel  spectrogram representation (White  et  al.,  2022). Networks  pre- 
+trained on image data have been proven to perform well on classifica-
+tion  tasks  using  spectrograms  as  image  input,  transformed  from  raw 
+audio data (Allen et al., 2021; Shiu et al., 2020; Stowell, 2022). In this 
+work  we fine-tune the  parameters  of the fully connected layers  itera-
+tively  on  small  batches  of  training  data  acquired  from  a  new  region. 
+Through  an  experimental  approach  to  retraining  we  demonstrate  the
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors of the paper employ several strategies to mitigate data bias during the preprocessing stage of the deep learning pipeline. They utilize stratified sampling when dividing the dataset into training and test sets, ensuring that both subsets maintain similar distributions of target variables. This method helps prevent any potential skewing of results due to uneven distribution of classes. Additionally, they mention the use of a diverse data collection strategy, where they gather data from two distinct environments with significantly different soundscapes. By doing so, they aim to reduce the risk of overfitting to specific features present only in one environment. However, there is no explicit mention of oversampling or undersampling techniques being applied in this study. Instead, they acknowledge the presence of imbalanced classes, particularly the overrepresentation of ambient frames, and attribute some variability in their results to this issue.

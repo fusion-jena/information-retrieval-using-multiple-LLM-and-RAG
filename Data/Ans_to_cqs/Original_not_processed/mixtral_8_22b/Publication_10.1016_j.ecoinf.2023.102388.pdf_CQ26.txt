@@ -1,0 +1,76 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Strengthening the ability of trained models to generalize effectively 
+poses  a  significant  challenge  within  the  domain  of  deep  learning. 
+Indeed, generalization refers to the variation in a model’s performance 
+when applied to data it has been trained on, as opposed to data it en-
+counters for the first time during testing. This issue is of fundamental 
+importance and has far-reaching implications for applications employ-
+ing  deep  neural  networks.  In  particular,  this  challenge  becomes 
+
+Table 7 
+Discrimination  accuracy  (%)  of  ensemble  MIA  and  SNN  for  the  GREMM 
+dataset.  
+
+Approach 
+
+Siamese Neural Network (SNN) 
+Ensemble MIA 
+
+Discrimination (%) 
+
+65.86 
+86.22  
+
+EcologicalInformatics79(2024)10238814V.M. Araújo et al.
+
+• No-overfitting. In this setting, the optimization algorithm of CNNs is 
+Stochastic Gradient Descent (SGD), with a learning rate of 0.0001 
+and a weight decay of 0.5. The batch size is set to 32, the number of 
+training epochs to 200 and finally the batch-norm and dropout (0.5) 
+are used to reduce the overfitting level.  
+
+• Overfitting.  We  use  the  same  hyperparameters  setting  as  the  no- 
+overfitting  but  we  remove  the  use  of  batch-norm,  weight  decay 
+and dropout techniques to ensure that the model overfits.
+
+The traditional way of training machine learning models normally 
+aims at avoiding the overfitting phenomenon (Ravoor and T.S.B., 2020; 
+Santos and Papa, 2022). Indeed, the main concern about overfitting is 
+that it occurs when the model performs well on the training data but 
+generalizes  poorly  on  unseen  samples  (i.e.,  test  set).  In  the  privacy 
+domain,  overfitting  has  also  been  shown  to  make  the  model  more 
+vulnerable to privacy attacks as it results in the model memorizing more 
+information  about  the  training  set  (Shokri  et  al.,  2017;  Song  et  al., 
+2019).
+
+distribution” for the non-members in the attack dataset. In practice, this 
+can have a big impact in the situation in which the target dataset is of 
+limited size and we do want to sacrifice some of its data to build the 
+attack dataset.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To address data bias during preprocessing of the deep learning pipeline, several techniques can be employed. These include stratified splitting, oversampling, undersampling, and diverse data collection.
+
+Stratified splitting involves dividing the dataset into subsets or strata based on certain criteria such as class labels. Each subset is then split into training and validation sets while maintaining the original distribution of classes. This ensures that each subset contains a representative sample of all classes, reducing any potential bias towards one class.
+
+Oversampling is another technique used to balance datasets by increasing the frequency of minority classes. This can be achieved through various methods such as random oversampling, synthetic minority oversampling technique (SMOTE), and adaptive synthetic sampling (ADASYN). Random oversampling simply duplicates instances from the minority class until they match the majority class count. SMOTE generates new synthetic examples along the line connecting neighboring points in feature space, while ADASYN creates synthetic samples using density distribution information.
+
+Undersampling, conversely, reduces the frequency of majority classes to achieve balanced datasets. Techniques like random undersampling, NearMiss, and Condensed Nearest Neighbor (CNN) rule are commonly used. Random undersampling removes instances randomly from the majority class until their count matches the minority class. NearMiss selects only those majority class instances closest to the minority class boundary, whereas CNN eliminates redundant instances from both classes.
+
+Lastly, collecting diverse data helps mitigate biases inherent in existing datasets. By gathering data from multiple sources, demographics, geographical locations, etc., we can create a more comprehensive representation of real-world scenarios. Additionally, augmentation techniques like rotation, scaling, flipping, cropping, and color jittering can further diversify our dataset.
+
+These techniques collectively contribute towards minimizing data bias during preprocessing stages of the deep learning pipeline. However, choosing the appropriate method depends largely on factors such as dataset characteristics, problem complexity, computational resources, and desired outcomes.

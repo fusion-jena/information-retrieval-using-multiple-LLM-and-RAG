@@ -1,0 +1,67 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To  ensure  comparability  across  trained  models,  we  maintained 
+consistent hyperparameters across all training instances for each task (i. 
+e.,  SEIO  PBW  vocalization  and  Dcall).  Specifically,  for  SEIO  PBW 
+
+vocalization  training  and  blue  whale  Dcall  training,  we  set  the  batch 
+sizes to 5 and 4, and the learning rates to 1e-4 and 1e-3, respectively. 
+This decision was based on the fact that more samples were used for 
+SEIO PBW vocalization training. The models were trained for 40 and 25 
+epochs  respectively.  However  an  early  stopping  method  was  used  to 
+keep  the  model  weights  before  the  models  overfitted.  The  patience 
+parameter is set at 10 epochs for all training phases. 
+
+2.4. Evaluation metrics 
+
+Considering  the  absence  of  absolute  ground  truth  for  identifying 
+audio events within underwater acoustic recordings, the annotation sets 
+proposed by the annotators, expert or novice, are called pseudo ground 
+truth in the present study.
+
+Red  dotted  lines  represent  the  performances  of  the  model  trained 
+with the expert annotation set. A Krustkal-Wallis test is performed, using 
+the performances of the largest subgroup size and the performance of the 
+expert  on  Fig.  8,  to  evaluate  the  null  hypothesis  formulated  as  “the 
+performance of the model trained with an expert annotation does not 
+significantly differ from performance obtained with models trained on 
+non-experts  annotations”.  P-values  computed  for  each  metrics  (AUC, 
+mAP) are (0.11, 0.75) and (0.11, 0.21) for SEIO PW and Dcall respec-
+tively.  The  null  hypothesis  cannot  be  rejected.  However,  the  perfor-
+mances  of  the  model  trained  with  the  expert  annotation  are  always 
+higher than the mean performance obtained with models trained with 
+non-expert annotations.
+
+Fig.  8. Performance  (AUC  and  mAP)  of  the  models  trained  with  aggregated 
+annotation sets of novices using a major voting. The red dotted line corresponds 
+to the performance of the model trained on the expert. 
+
+EcologicalInformatics81(2024)1026427(a)SEIOPBWvocalizations(b)BluewhalesDcall(a)SEIOPBWvocalizations(b)Bluewhale’sDcallG. Dubus et al.
+
+strategy was used to aggregate annotation sets. Thus, for different sizes 
+of  annotator  subgroups  (between  2  and  13),  10  random  selections  of 
+novice annotators were realized, creating 10 distinct trainsets. A model 
+was  trained  on  the  subgroup  annotations  from  the  development  set 
+AmStP and evaluated on the evaluation sets: SWAMS and ElephantIs-
+land2013 for SEIO PBW and Dcall, respectively. Fig. 8 shows the mean 
+and standard deviation of AUC and mAP metrics of those 10 models, in 
+comparison with the performance of the model trained with the expert 
+annotation. The results for the group size of 1 are the mean and standard 
+deviation of the 19 models trained with the annotation of the novices, 
+one by one, presented in the previous section.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide information about how the hyperparameters of the model were optimized. It only mentions that consistent hyperparameters were maintained across all training instances for each task, specifically setting the batch sizes to 5 and 4, and the learning rates to 1e-4 and 1e-3 for SEIO PBW vocalization training and blue whale Dcall training, respectively. These decisions were based on the fact that more samples were used for SEIO PBW vocalization training. However, it does not mention any specific optimization technique such as grid search or random search.

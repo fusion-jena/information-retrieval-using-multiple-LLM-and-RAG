@@ -1,0 +1,164 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+models, pre-trained on 1.4M images from 1000 classes. First,
+the intermediate layer of all the models was selected to use
+for feature extraction. For this purpose, the output of the last
+layer (bottleneck layer) is commonly used prior to the ﬂatten
+operation. The reason is that all the fully connected layers
+are specialized to the task network was trained on; thus, the
+features learned by these layers will not be useful for the new
+task. The bottleneck features are more generic. Therefore, the
+base models were frozen, loaded with weights trained on the
+ImageNet dataset and used as a feature extractor. We added
+a dropout layer with a dropout rate of 0.2 to reduce the
+overﬁtting of the model. Finally, the top classiﬁer softmax
+layer was added for predicting the class for an input image.
+The model with the base model of MobileNetV2 was compiled
+and optimized with Adam optimizer. The other with the base
+model of MobileNetV3 were optimized with Gradient descent
+
+D. Model Training
+
+Feature Extraction: The hardware to train the model included
+a Lenovo laptop equipped with an 8265U CPU at 1.80 GHz
+of Intel Core i5, 8 GB of RAM running on a Windows 10 64-
+bit system. The software tools included Annaconda3 Jupyter
+Notebook with Python 3.8, where the Tensorﬂow, OpenCV-
+python3 [37] and Keras [38] libraries were used. The dataset
+was divided in a ratio of 75:25 into a training set of 5789
+images and a test set of 1930 images. To obtain the pre-
+trained weight parameters, we built the base models from the
+MobileNetV2, MobileNetV3-Large and MobileNetV3-Small
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on August 29,2024 at 05:51:17 UTC from IEEE Xplore.  Restrictions apply.
+
+TABLE I
+COMPARISON OF TRAINED MNV3/MNV2 MODELS WITH OTHER CNN-BASED APPROACHES
+
+Model
+
+Dataset
+
+Overall Iterations
+
+Accuracy % Loss %
+
+[22] CNN
+[23] CNN
+[25] CNN
+[25] CNN
+Our work
+MobileNetV2
+Our work
+MobileNetV3-Large
+Our work
+MobileNetV3-Small
+
+Flavia
+Flavia
+LeafSnap
+Flavia
+
+LeafSnap
+
+LeafSnap
+
+LeafSnap
+
+12,000
+50,000
+200,000
+30,000
+
+20
+
+20
+
+20
+
+94.69
+98.69
+79.96
+98.69
+
+86
+
+89
+
+86
+
+0.7-2.5
+-
+-
+-
+
+0.4
+
+0.3-0.4
+
+0.5-0.6
+
+Training Time
+(minutes)
+-
+252
+1920
+-
+
+40
+
+40
+
+16
+
+Size
+
+-
+-
+-
+-
+
+9.86 MB
+
+4.88 MB
+
+1.99 MB
+
+much reduced, which makes them ideal to be inserted in
+handheld devices for ofﬂine plant and tree species recognition.
+
+V. MOBILE APP IMPLEMENTATION
+
+App Development: For tree species identiﬁcation in a remote
+area, an end-user app is essential. For the app development,
+Android Studio [39] was used. The saved models were
+converted into the TensorFlow Lite [40] version using the
+TensorFlow Lite converter. TensorFlow Lite is a set of tools
+to perform deep learning on smartphone and IoT devices. The
+architecture of the mobile app is shown in Fig. 4. The squares
+marked with dotted red will be included in future iterations.
+The size of the models based on MobileNetV3-Large and
+MobileNetV3-Small was 4.88 MB and 1.99 MB, respectively,
+which are lightweight compared to AlexNet (227.5 MB) [27].
+The app is developed using the Java programming language.
+The leaf detection module in the app contains a Tensorﬂow
+Lite interpreter for the TensorFlow Lite model.
+App Testing: For testing the application, Android studio
+comes with built-in phone emulators, or the app could be
+deployed to an actual device. From an online search, we
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, it is mentioned that the authors have used Convolutional Neural Networks (CNN) as their deep learning model. Specifically, they have utilized pre-trained models such as MobileNetV2, MobileNetV3-Large, and MobileNetV3-Small, which are variants of CNN architectures designed for efficient execution on mobile devices. These models have been fine-tuned and adapted for the specific task of plant and tree species identification.

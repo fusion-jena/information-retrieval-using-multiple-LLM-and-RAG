@@ -1,0 +1,133 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+for the customised architecture (see Convolutional neural networks sec-
+tion),  and  the  smallest  one  comprised  3900  images  combining  two 
+seconds  window  size  and  90  dpi  for  the  transfer  learning  approach 
+(Table 1).
+
+d
+e
+s
+i
+
+m
+o
+t
+s
+u
+C
+
+g
+n
+i
+n
+r
+a
+e
+L
+
+r
+e
+f
+s
+n
+a
+r
+T
+
+1
+≥
+R
+N
+S
+
+y
+r
+a
+r
+b
+i
+L
+
+i
+p
+d
+
+e
+z
+i
+s
+w
+o
+d
+n
+i
+W
+
+size of 32. The most suitable architecture was chosen based on the best 
+validation accuracy (proportion of all correct predictions) and precision 
+(number of true positives divided by true positives and false positives) 
+obtained during training. The model training and prediction procedures 
+were  executed  on  Microsoft  Azure  using  instance  NV12s  v3  with  12 
+vCPUs and 112 GB RAM. The CNNs were implemented using Tensor-
+Flow (Abadi et al., 2016) and Python 3. The Ubuntu 20.04 operating 
+system was used and obtained via the Ubuntu 20.04 Data Science Virtual 
+Machine  on  Microsoft  Azure.  The  algorithm  scripts  are  available  in 
+Supporting Information B. 
+
+2.5. Inference and post-processing
+
+Appendix A. Supplementary data 
+
+Supplementary data to this article can be found online at https://doi. 
+
+org/10.1016/j.ecoinf.2023.102291. 
+
+References 
+
+Abadi, M., Agarwal, A., Barham, P., Brevdo, E., Chen, Z., Citro, C., Corrado, G.S., 
+
+Davis, A., Dean, J., Devin, M., 2016. Tensorflow: large-scale machine learning on 
+heterogeneous distributed systems arXiv preprint arXiv:160304467.  
+
+Allen, A.N., Harvey, M., Harrell, L., Jansen, A., Merkens, K.P., Wall, C.C., Cattiau, J., 
+
+Oleson, E.M., 2021. A convolutional neural network for automated detection of 
+humpback whale Song in a diverse, long-term passive acoustic dataset. Front. Mar. 
+Sci. 8 https://doi.org/10.3389/fmars.2021.607321. 
+
+Au, W.L., 2000. Hearing in whales and dolphins: An overview. In: Au, W.L., Richard, R.F. 
+(Eds.), Hearing by Whales and Dolphins. Springer, New York, pp. 1–42. https://doi. 
+org/10.1007/978-1-4612-1150-1_1.
+
+Fig. 3. The general pipeline of the algorithm used to build (Training) and test (Testing) the models.  
+
+compared,  namely,  a  customised  CNN  (based  on  preliminary  hyper- 
+parameter tuning experiments), and a pre-trained ResNet152V2 archi-
+tecture (He et al., 2016) that demonstrated good performance in animal 
+sound classification tasks (Dufourq et al., 2022). The customised models 
+were composed of three convolutional layers (32 filters, kernel size of 4 
+× 4,  ReLU  activation).  Each  convolutional  layer  was  followed  by 
+
+dropout (rate of 0.4) and a max pooling (kernel size of 4 × 4) layer. This 
+was followed by a fully connected layer with 64 ReLU units, dropout 
+(rate of 0.4), and a softmax function (two units in the case of CNN1, and 
+three  or  four  units  in  the  case  of  CNN2  depending  on  the  number  of 
+species). The models were trained for 50 epochs using the Adam opti-
+mizer (Kingma and Ba, 2014), with a learning rate of 0.001 and a batch
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about specific measures taken to ensure the generalizability of the deep learning model, such as using a diverse dataset, cross-validation, or stratified splitting. However, it mentions that the smallest dataset consisted of 3900 images, which suggests some level of diversity in the dataset. Additionally, the choice of the most suitable architecture was based on the best validation accuracy and precision obtained during training, indicating that some form of evaluation was performed to assess the model's performance. Furthermore, the use of Microsoft Azure instances with substantial computational resources implies that the model was developed and tested under robust conditions. Nevertheless, without more detailed information regarding the dataset composition, sampling methods, and validation techniques employed, it is difficult to definitively state what measures were taken to ensure the generalizability of the deep learning model.

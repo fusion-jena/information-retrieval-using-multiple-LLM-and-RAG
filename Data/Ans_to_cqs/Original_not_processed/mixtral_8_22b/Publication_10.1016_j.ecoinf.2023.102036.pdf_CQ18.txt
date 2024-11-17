@@ -1,0 +1,111 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1 
+Model training optimized parameters.  
+
+Parameter 
+
+Nomenclature 
+
+Search interval 
+
+Learning 
+rate 
+
+Momentum 
+SD threshold 
+Input size 
+
+μ 
+
+β 
+σ 
+s 
+
+[10
+
+(cid:0) 5, 10
+
+(cid:0) 2] 
+
+[0,1] 
+[0.05, 0.25] 
+{(75, 125, 3), (100, 150, 3), 
+(200, 250, 3)} 
+
+Optimized 
+value 
+
+0.096 
+
+0.845 
+0.05 
+(200, 250, 3)  
+
+Each optimization run consisted of 3000 train iterations with a batch 
+size of 25 individuals to pick a pair of similar and a pair of dissimilar 
+photos (i.e., a batch size of 100 images), and validating each 300 iter-
+ations. TensorBoard —a set of visualization tools included in the open- 
+source  library  for  machine  learning  TensorFlow—  was  used  to  study 
+the performance of the runs. The selected parameters correspond to the 
+run shown in Supplementary Fig. S3. 
+
+3. Results
+
+Collectedly,  the  findings  of  the  proposed  model  suppose  a  strong 
+impact and have several implications on the real applications of wildlife 
+research,  concerning  that  it  means  a  feasible  application  for  most  of 
+research teams: we face the problem of dealing with a small amount of 
+photographs per individual to train the model, altogether with consid-
+ering a model invariant to different data collection techniques, and a 
+scenario  with  non-perfect  conditions  in  the  wild.  Furthermore,  our 
+model is very low time-consuming and can even be trained on CPU since 
+it has been oriented to train the fewest number of weights possible (al-
+ways taking into account the trade-off with the information provided to 
+the  model).  This  implied  that  our  architecture  was  already  trained 
+within  about  a  day,  allowing  us  to  run  many  iterations  of  Bayesian 
+optimization and hence explore multiple options for the tuning param-
+eters in promising regions.
+
+This  system  was  built  under  Python  3.9.5  using  TensorFlow  2.4.1 
+and training was performed on an Intel(R) Core(TM) i9-9900K CPU @ 
+3.60GHz processor and 32GB RAM memory. Learning was performed 
+with Stochastic Gradient Descendent (SGD) method, optimizing its pa-
+rameters (learning rate and momentum) and binary cross-entropy as a 
+loss function. The algorithm was also asked to exceed a certain threshold 
+of variability in its predictions, i.e., that the standard deviation of the 
+predicted probabilities exceeds a certain threshold —to be tuned—  so 
+that the output of the classifier is not almost the same for all images that 
+feed  the  model.  Moreover,  the  input  image  size  was  optimized,  since 
+there is a trade-off between the information provided by large resolu-
+tions and the number of weights of the network that need to be trained. 
+The parameters were tuned with Bayesian optimization (Snoek et al.,
+
+3. Results 
+
+Our approach based on a siamese artificial neural architecture ob-
+tained a best validation accuracy of 94.5% after 900 train iterations. The 
+weights of the aforementioned best validation run were saved and made 
+up  the  final  model.  When  the  model  was  used  to  finally  predict  the 
+identity  of  the  unseen  individuals  in  the  test  set,  the  model  correctly 
+identified the 70% of the skates. As the test set included re-sightings of 
+recaptures that happened about a year after the first shots, that loss of 20 
+percentage points shows the generalization when the model is deployed 
+to real life processing.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The strategy implemented to monitor the model performance during training involved using TensorBoard, which is a set of visualization tools included in the open-source library for machine learning TensorFlow. Each optimization run consisted of 3000 train iterations with a batch size of 25 individuals to pick a pair of similar and a pair of dissimilar photos (i.e., a batch size of 100 images), and validating every 300 iterations. The selected parameters corresponded to the run shown in Supplementary Fig. S3.

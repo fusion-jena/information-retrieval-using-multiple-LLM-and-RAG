@@ -1,0 +1,298 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Page 10 of 14
+
+Table 4 Results of the experiments related to cross-herbarium transfer learning
+
+Experiment
+
+Initialization
+
+Training
+
+Testing
+
+Top-1 accuracy
+
+Top-5 accuracy
+
+Cross-herbaria Transfer learning (France to Costa-Rica)
+
+H1K.H255.H255
+
+Herbarium1K
+
+Herbarium255
+
+Herbarium255
+
+H1KI.H255.H255
+
+ImageNet+Herbarium1K
+
+Herbarium255
+
+Herbarium255
+
+0.693
+
+0.745
+
+0.842
+
+0.872
+
+illustrated by less images, the low-level layers of the net-
+work benefit more from training on more visual contents
+beforehand.
+
+7×7/2
+3×3/2
+
+3×3/1
+3×3/2
+
+Convolution
+
+Max pool
+
+Batch norm
+
+LRN
+
+Convolution
+
+Max pool
+
+Batch norm
+
+LRN
+
+Inception (3a)
+
+Inception (3b)
+
+Max pool
+
+3×3/2
+
+Batch norm
+
+Inception (4a)
+
+Inception (4b)
+
+inception (4c)
+
+Inception (4d)
+
+Inception (4e)
+
+Max pool
+
+3×3/2
+
+Batch norm
+
+Inception (5a)
+
+Inception (5b)
+
+Avg pool
+
+7×7/1
+
+Batch norm
+
+Linear
+
+Softmax
+
+0
+
+0
+
+0
+
+0
+
+2
+
+2
+
+2
+
+0
+
+0
+
+0
+
+0
+
+112×112×64 1
+56×56×64
+56×56×64
+56×56×64
+56×56×192
+28×28×192
+28×28×192
+28×28×192
+28×28×256
+28×28×480
+14×14×480
+14×14×480
+14×14×512
+14×14×512
+14×14×512
+14×14×528
+14×14×832
+7×7×832
+7×7×832
+7×7×832
+7×7×1024
+1×1×1024
+1×1×1024
+1×1×10000
+1×1×10000
+
+1
+
+2
+
+2
+
+0
+
+2
+
+2
+
+2
+
+0
+
+0
+
+2
+
+2
+
+0
+
+0
+
+2.7K
+
+34M
+
+112K
+
+360M
+
+159K
+
+380K
+
+128M
+
+304M
+
+364K
+
+437K
+
+463K
+
+580K
+
+840K
+
+73M
+
+88M
+
+100M
+
+119M
+
+170M
+
+1072K
+
+54M
+
+1388K
+
+71M
+
+1000K
+
+1M
+
+119M
+
+170M
+
+1072K
+
+54M
+
+1388K
+
+71M
+
+1000K
+
+1M
+
+the network. Therefore, a common practice is to initialize
+the network by pre-training it on a big available dataset
+and then fine-tune it on the scarcer domain-specific data.
+Concretely, the methodology we used in our experiment
+for transferring knowledge from dataset A to dataset B is
+the following:
+
+1. The network is first trained from scratch on dataset
+A by using a multinomial logistic regression on top
+of the SOFTMAX layer and the linear classification
+layer.
+
+2. The linear classification layer used for dataset A is
+then replaced by a new one aimed at classifying the
+classes in B. It is initialized with random weights.
+
+3. The other layers are kept unchanged so as to
+
+initialize the learning of dataset B with the weights
+learned from A.
+
+4. The network is trained on the images in B.
+
+Annosys—implementation of a generic annotation system for
+schema-based data using the example of biodiversity collection data.
+Database. 2017;2017(1):bax018.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit information about the specific criteria used to determine when training is complete. However, based on general machine learning practices, some commonly used criteria include:
+
+1. Validation Loss Plateau: Training can be considered complete if the validation loss stops decreasing or remains constant over several epochs. This indicates that the model has learned all it can from the training data and further training may lead to overfitting.
+
+2. Maximum Number of Epochs: Training can also be stopped after a certain number of epochs have been completed. This is often used when time or computational resources are limited.
+
+3. Early Stopping: In this approach, training is halted when the performance on a validation set stops improving. This helps prevent overfitting and saves time.
+
+4. Learning Rate Schedule: Some models use a learning rate schedule where the learning rate is reduced after each epoch or after a certain number of epochs. Training can be considered complete once the learning rate reaches a minimum threshold.

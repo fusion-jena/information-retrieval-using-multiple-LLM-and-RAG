@@ -1,0 +1,165 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The  tuned  hyperparameters  of  the  final  models  are  shown  in  
+
+Table 2. 
+
+2.4.3.  GAM modelling of most influential parameters 
+
+The top four most influential variables from the GBRT models (as 
+indicated by VI scores) were included in a series of generalised additive 
+
+Table 2 
+Tuned model parameters.       
+
+Model 
+
+splits 
+
+Number of iterations 
+
+Learning rate 
+
+Tree depth  
+
+RI CS 
+RI CS 
+RI NW 
+RI NW 
+RY CS 
+RY NW 
+
+2 
+3 
+2 
+3 
+2 
+2 
+
+120 
+102 
+106 
+144 
+500 
+500 
+
+0.05 
+0.05 
+0.01 
+0.05 
+0.005 
+0.005 
+
+4 
+4 
+6 
+6 
+8 
+2 
+
+Number of iterations was defined by early stopping. Subsample rate was 0.75% 
+in  all  cases.  Parameters  for  2-part  split  were  defined  through  grid  search, 
+whereas parameters for 3-part split were tuned manually.
+
+2.4.2.  Hyperparameters 
+
+Hyperparameter tuning was done manually. As a starting point the 
+learning rate was set as low as possible and the number of iterations as 
+high as computationally feasible (Hastie et al., 2009). The learning rate, 
+which is also called a shrinkage parameter, determines the contribution 
+of each tree to the model. The maximum tree depth which reflects the 
+degree of interaction in the model is usually low. GBRT performs best 
+using fairly shallow trees, so-called tree stumps.
+
+For  the  RI  models  the  same  initial  parameters  were  set  for  the 
+analysis of the CS and NW datasets, then a grid search was performed 
+on both datasets with a two-part split to give hyperparameters with the 
+highest level of accuracy. These were as following: learning rate 0.05 
+and maximum tree depth of 4 for both the CS and the NW models. The 
+early stopping technique was used to determine when to stop the model 
+training  to  avoid  overfitting.  Using  early  stopping  the  number  of 
+iterations required until convergence was 120 for CS and 106 for NW. 
+Grid search was not required for a three-part splits, and further tuning 
+of the parameters was done manually. 
+
+For the RY models, in contrast to the RI models, the best performing 
+models (based on MSE) were models with a slow learning rate of 0.005. 
+Additionally, the NW model had a very shallow tree (tree depth of 2). 
+The number of iterations was kept at 500.
+
+function L given the current model Fm−1  and its fit Fm−1(xi) 
+
+(2)  
+
+(3)  
+
+The  response  variable  (length  of  3  ring  herring)  reflects  the 
+
+GBRT attempts to solve this minimization problem numerically via 
+
+3
+
+==Fxhx()()mmMmm1=+FxFxhx()()()mmmm1=+=FxFxLyFxhx()()argmin(,()())mmhinimim111cfin C3 
+cfin D4 
+cfin C4 
+chel C3 
+chel D4 
+chel C4 
+Fbar CS 
+
+SSB CS 
+
+recr CS 
+
+Fbar NW 
+
+SSB NW 
+
+recr NW 
+
+cumF NW 
+
+totalN NW 
+
+cumF CS 
+
+totalN CS 
+
+sst CS,NW 
+
+O. Lyashevska, et al.   
+
+Ecological Informatics 60 (2020) 101154
+
+Table 1 
+Description, temporal resolution, source and accessed date of datasets used as potential variables to explain herring growth variability over time.      
+
+Abbreviation  Variable 
+
+Source 
+
+Weblink  
+
+Calanus finmarchicus in areas C3, D4, C4 
+(mean abundance in April–August) 
+
+Sir Alister Hardy Foundation of Ocean Science CPR survey, in standard areas C3, 
+D4, and C4. DOI https://doi.org/10.7487/2016.109.1.967 
+
+https://www.sahfos.ac.uk/
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the information provided, there is no mention of any specific deep learning framework such as TensorFlow or PyTorch being used to build the models. Instead, it appears that Gradient Boosting Regression Trees (GBRT) models were employed using manual hyperparameter tuning. Therefore, I cannot provide a definitive answer regarding the use of TensorFlow or PyTorch in building these models.

@@ -1,0 +1,114 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+and TensorFlow 2.5.0 (https://www.tensorflow.org) libraries, and all
+
+statistical analyses were conducted with R 4.1.0 (R Core Team, 2021).
+
+Between-datasets classification
+
+For the between-dataset prediction, the CNN model was trained with
+
+RE SU LT S
+
+a source dataset to predict images from a different target dataset. The
+
+NN was trained with N images randomly selected from the source
+
+Performance of within-dataset classification
+
+dataset, which was then used to predict all images of the target data-
+set and AccT and ΔAcc were measured. We ran the above procedures
+for three source–target pairs (training dataset!predicted dataset),
+GH!LH, GH!LL and LL!LH. These settings simulate two alternative
+scenarios: (i) a global image database is used to predict local samples
+(GH!LH and GH!LL) and (ii) conventional
+
+images, as
+
+those
+
+Effects of datasets and the number of images
+
+The accuracy of within-dataset classification and the effect of the
+
+(2.2% reduction for DANN,
+predictions by the plain NN model
+p = 0.0002, Figure S4). In the GH!LL prediction, a similar trend was
+observed (Figure S5) and the target accuracy was not significantly dif-
+ferent from the NN (0.015% reduction for DANN, p = 0.98). Loss and
+
+accuracy development during training of models are reported in
+
+Figures S2, S3.
+
+Classification error
+
+Classification error was visualized as a scaled confusion matrix. Starting
+
+with a trial for a within-dataset analysis with 400 training images in the
+
+LH random sampling showed that the large taxonomic groups were cor-
+rectly classified in most cases (Table S4). For example, four families
+
+In order to test the effect of the presence of unknown inputs (out-of-
+
+distribution samples) on the classification, we first used an LH-trained
+model to predict the class of 16 LH images belonging to eight families/
+subfamilies, Coccinellidae, Elateridae, Endomychidae, Hydrophilidae,
+
+the accuracy reduction in across-dataset predictions. Subsets of
+randomly selected images of one dataset are used for training and
+predicting the class (family label) of another set, as indicated by
+different colours. Lines in light blue refer to the comparison involving
+tests of locality, that is, when using global high quality (GH) images for
+training and predicting the class of local high quality (LH) images. Lines
+in green refer to comparisons involving tests of image quality, that is,
+when using local low quality (LL) images for training and predicting the
+class of local high quality (LH) images. Lines in dark blue refer to
+comparisons involving differences in both locality and image quality,
+that is, when using global high quality (GH) images for training and
+predicting the class of local high quality (LL) images. The x-axis
+representing the number of training images is on a logarithmic scale.
+The vertical dotted bars indicate 95% confidence interval of the
+
+datasets. Conversely to the above analyses, here the model was
+
+tion to the classifier (Figure S1). The training procedure then optimizes
+
+trained to classify datasets instead of taxa. Then, a classification error
+of the SVM, εsource(cid:4)target, was measured as a proportion of incorrect
+predictions of 200 test images sampled from the two datasets. An
+
+the model parameters in the shared part of the network to not only
+
+minimize the loss of the label classifier (taxon prediction) but at the
+
+same time to maximize the loss of the domain classifier (dataset predic-
+
+intuitive interpretation of this measure is that the dataset classifica-
+
+tion). This adversarial training procedure optimizes shared intermediate
+
+tion task is harder when the feature distributions between two data-
+
+features to be invariant between the two domains, and hence the
+
+sets are more similar. Therefore, a large classification error indicates
+
+model can generalize across them, which potentially improves the accu-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it appears that the data was divided into source and target datasets for training and testing purposes. Specifically, the convolutional neural network (CNN) model was trained with a source dataset to predict images from a different target dataset. Three source-target pairs were used: GH!LH, GH!LL, and LL!LH. It seems that these splits were chosen to simulate two scenarios: (i) a global image database is used to predict local samples (GH!LH and GH!LL) and (ii) conventional images are used to predict other images (LL!LH). However, the exact criteria used to select the specific subsets of images for each source and target dataset are not explicitly mentioned in the provided context.

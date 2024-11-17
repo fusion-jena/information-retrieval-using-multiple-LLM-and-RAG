@@ -1,0 +1,82 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The model is then iteratively trained and validated on these
+different sets. The training set is used to ﬁt the parameters of
+the classiﬁer, whereas the validation set provides an unbiased
+evaluation of the model ﬁt on the training set while tuning
+model hyperparameters, such as the network layer size, ﬁnd-
+ing the optimal number of hidden units, and regularizing the
+model. Models with few hyperparameters are easy to validate
+and tune, but if the model has many hyperparameters, a larger
+validation dataset is required. In some cases, the evaluation
+is biased when a validation dataset is not incorporated into
+the model conﬁguration because the model may perfectly ﬁt
+the training data with high accuracy but may fail to ﬁt the
+test or validation data. In such cases, k-fold cross-validation,
+which is a resampling technique, is used to avoid overﬁtting;
+the training set is generated with different combinations of k
+groups (say 5 or 10, depending on the size of the dataset) as
+
+the training and validation sets. Then, the model is ﬁt by using
+(k − 1) folds and evaluated using the remaining k th fold. The
+process is repeated until every k-fold is used as the test set.
+However, this may produce varying results. Thus, to improve
+the model and analyze the inﬂuence of various components
+in the framework, we adopted multistage training with the
+training and validation datasets (Fig. 4) to better predict test
+dataset.
+
+C. PERFORMANCE EVALUATION
+The performance of the trained models in identifying individ-
+ual bird species was evaluated using three standard metrics:
+
+• TP is the true positive, indicating the number of birds
+
+correctly detected as endemic birds.
+
+• TN is the true negative, indicating the number of birds
+
+correctly detected as nonendemic birds.
+
+• FP is the false positive, indicating the number of birds
+
+incorrectly detected as endemic birds.
+
+• FN is the false negative, indicating the number of ground
+
+truth birds undetected by the predictive system.
+
+3. Furthermore, to enhance the performance and decrease
+overﬁtting in the selected model, we proposed a mech-
+anism to swap the training and validation misclassiﬁed
+datasets. Then, we retrained the model until it yielded
+the highest accuracy possible on the validation and test
+datasets. Additionally, ﬁve-fold cross-validation was
+employed to verify the predictive performance of the
+model.
+
+Thus, through the monitoring and identiﬁcation of endemic
+birds in their habitats and estimating the size of their popula-
+tions, the proposed system can help conserve biodiversity.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+During the training process, several strategies were employed to monitor the model's performance and prevent overfitting. Initially, the dataset was divided into separate training, validation, and testing sets. The training set was utilized for fitting the parameters of the classifier, while the validation set offered an unbiased assessment of the model fit on the training set. This allowed for the fine-tuning of model hyperparameters like network layer size and finding the optimal number of hidden units.
+
+In situations where the model had numerous hyperparameters, a more extensive validation dataset was necessary. To address potential bias issues, k-fold cross-validation was applied. This involved generating the training set with different combinations of k groups from the original dataset, which served alternately as both training and validation sets. By repeating this process until each k-fold acted as the test set, the risk of overfitting could be minimized.
+
+To further optimize the model and evaluate the impact of its constituent elements, multi-stage training was carried out using the training and validation datasets. Moreover, five-fold cross-validation was also employed to confirm the model's predictive capabilities.
+
+Additionally, a mechanism was introduced to exchange misclassified instances between the training and validation datasets. This enabled the model to be retrained continuously until achieving the maximum attainable accuracy on the validation and test datasets. Consequently, this approach facilitated enhanced performance and reduced overfitting within the chosen model.

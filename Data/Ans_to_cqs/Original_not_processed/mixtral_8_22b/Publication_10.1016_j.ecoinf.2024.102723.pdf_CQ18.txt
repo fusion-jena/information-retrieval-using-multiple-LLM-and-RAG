@@ -1,0 +1,70 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+used to control the training process through an early stopping criterion.
+The reference metric is the Mean Squared Error (MSE). In order to have a
+reliable estimate of the MSE on the test set, we performed a 10-fold Cross
+Validation. In addition, given that our models are probabilistic in nature,
+each evaluation predicts the output per test point through 1000 runs.
+Considering the problem addressed and computational resources, this
+approach ensures an accurate reconstruction of the predicted output
+distribution since it guarantees a robust estimation process with a 95%
+confidence interval and a precision level of 5% (Ghosh et al., 2006). The
+result of the prediction of a single test point is shown in Fig. 5; as stated
+in the previous section, the uncertainty range of the MCD approach is
+wider than that of the VBI approach. Fig. 6 shows the performance of the
+two different architectures during the prediction phase on the whole test
+
+• Second method: use of BBCH_res values during the training phase
+(standardization is applied here too); the output is converted to the
+BBCH scale through a dictionary; in this case, in order to use the
+dictionary, it is necessary to apply the rounding function on the
+
+output before converting it to the BBCH scale, so it is not possible to
+evaluate the results with and without rounding separately.
+
+Before proceeding, an important observation must be made: in order
+to use the dictionary in the second method, it is necessary to ensure that
+the network outputs are consistent with the keys of the dictionary itself;
+therefore negative values must be forced to zero, while values that
+exceed the upper bound of the keys, i.e. 91, must be forced to 91.
+Furthermore, aiming to have a legitimate comparison between the two
+methods, these corrections are also made during the execution of the
+first method (even if not strictly necessary).
+
+Fig. 4. Neural networks architecture consists of: an input layer with two nodes, one for DOY and the other for GDD; two hidden layers with 32 nodes each, Dense
+layers with Monte Carlo Dropout in the MCD approach, DenseVariational layers in the VBI approach; an output layer which is the combination of a Dense layer with
+two nodes and a DistributionLambda layer that maps the values of these two nodes into the parameters of a Gaussian distribution, used to predict the BBCH value.
+
+Fig. 5. Prediction, over 1000 runs, of the BBCH_res value of a single test point. The actual value is BBCH_res = 4. In blue we have the result of the VBI approach, in
+red that of the MCD approach. (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+
+Fig. 6. Performance of the two different architectures during the prediction phase on test set. Temperature threshold, Tbase, is set to 0
+interval is shown using the percentiles.
+
+◦
+
+Algorithm 1. MCD model
+
+Algorithm 2. VBI model
+
+A. Nappa et al.
+
+are shown in Fig. 3.
+
+3.1. Neural networks settings
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To monitor the model performance during training, the authors employed an early stopping criterion. This means that they halted the training process when certain conditions were met, preventing overfitting or underfitting. To determine whether to stop training, they relied on the Mean Squared Error (MSE) as their primary metric. They ensured a reliable estimate of the MSE by performing a 10-fold cross validation. Additionally, considering the probabilistic nature of their models, they ran each evaluation 1000 times for every test point. This approach allowed them to accurately reconstruct the predicted output distribution, providing a robust estimation process with a 95% confidence interval and a precision level of 5%.

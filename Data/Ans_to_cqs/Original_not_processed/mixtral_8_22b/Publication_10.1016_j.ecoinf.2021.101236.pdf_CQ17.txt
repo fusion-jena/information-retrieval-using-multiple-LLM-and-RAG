@@ -1,0 +1,62 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+overall process mostly followed current best practices in deep learning 
+which are well summarized in (Chollet, 2017).
+
+followed  the  original  Wide  ResNet  design.  Our  downsampling  blocks 
+employed the changes suggested in (Xie et al., 2018). The third and final 
+component, the classification block, was derived from (Schlüter, 2018) 
+and resulted in probability predictions for all 987 classes per second (i. 
+e., three predictions per 3-s input spectrogram) followed by global log- 
+mean-exponential  pooling  and  sigmoid  activation.  Most  convolutions 
+use 3 × 3 kernels with padding and are succeeded by batch normali-
+zation  (Ioffe  and  Szegedy,  2015)  and  ReLU  activation  (if  not  noted 
+differently).  Because  we  treated  spectrograms  as  monochrome  input 
+images, the input was a single channel mel spectrogram of size 64 × 384, 
+visualizing three seconds of audio at a sampling rate of 48 kHz. 
+
+2.5. Training
+
+schedule  whenever  the  validation  loss  stalled.  This  also  included  a 
+step-wise reduction of dropout probabilities by 0.1, starting at an initial 
+probability of 0.5. Early stopping with a cooldown of 3 epochs prevented 
+overfitting. We started with a maximum amount of 500 sample spec-
+trograms  per  class  and  increased  that  amount  by  1000  whenever 
+training was finished—pre-trained snapshots were used to initialize the 
+weights. Finally, an approach of knowledge distillation (Hinton et al., 
+2015) was used to train a born-again network (Furlanello et al., 2018) 
+using  the  best  previous  snapshot  as  a  teacher.  Doing  so  helped  to 
+improve the overall performance even though the capacity of the model 
+remained unchanged. We did not experiment with ensemble techniques 
+due to the high computational demand and the respective lack of real- 
+world  applicability  despite  their  popularity  for  this  kind  of  task.  Our
+
+Our model is based on a residual network or ResNet. ResNets are easy 
+to implement and can be scaled in both width and depth to fit the needs 
+of the training scenario best. (Zagoruyko and Komodakis, 2016) showed 
+that wide residual networks provided similar performance compared to 
+extremely  deep  architectures  despite  limited  depth.  This  can  be 
+explained by improved regularization in the residual blocks and scaling 
+of network in width (scaling factor K) and depth (scaling factor N) to 
+identify  the  best  possible  layout.  We  followed  this  design  and  chose 
+scaling factors of K = 4 and N = 3 to build our network, which resulted in 
+a  sequence  of  157  total  layers  of  which  36  are  weighted.  Three  core 
+components formed the succession of layers in our model. First, a pre- 
+processing block transformed the original input spectrogram before it 
+was passed through a series of residual stacks. Second, this sequence of
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning pipeline employed several regularization methods to prevent overfitting. One such method was dropout, where the dropout probabilities were initially set to 0.5 and gradually reduced step-wise by 0.1 whenever the validation loss stalled. Additionally, early stopping with a cooldown period of 3 epochs was implemented to further mitigate overfitting. Furthermore, the use of batch normalization after most convolutions contributed to regularization by reducing internal covariate shift and improving the stability of the neural network. Lastly, the choice of a wide residual network architecture inherently provided better regularization due to improved regularization in the residual blocks and scaling of the network in width and depth.

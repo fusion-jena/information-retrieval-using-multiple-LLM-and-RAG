@@ -1,0 +1,77 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.5. Description of hyperparameters and training aspects 
+
+The  five  detection  models  were  trained  using  a  manually  labeled 
+image dataset for alate detection. After conducted initial computational 
+experiments with different combinations of epochs of 300, 400 and 500 
+with batch sizes of 8, 16, and 32, it was determined that the optimal 
+hyperparameters for our training were 400 epochs with a batch size of 8 
+and were constant when comparing the five detection models using 640 
+× 640, and 1280 × 1280 pixels input resolutions on each model type. 
+The batch defines the number of samples to be worked through before 
+moving on to update the internal model parameters (Radiuk, 2017). The 
+epoch  number  used  in  training  determines  the  number  of  times  the 
+detection model processes the dataset dedicated to training the model 
+(Brownlee,  2018).  The  computer  infrastructure  used  for  training 
+
+2.6. Evaluation metrics of the trained models
+
+2.7. Web application development 
+
+In order to allow researchers and stakeholder users to interact and 
+use  our  best  trained  model  to  detect  alates  on  sorghum  leaves,  we 
+created and deployed a web application (Fig. 3). This application allows 
+a user to upload images of sorghum leaves, then the model will process 
+the  images  within  the  backend  of  the  application.  Once  images  are 
+
+EcologicalInformatics80(2024)1025403I. Grijalva et al.                                                                                                                                                                                                                                 
+
+Fig. 2. Examples of training images at 1280 × 1280 pixels input resolution (A, B, C, D) with annotations of alates and augmentation techniques using the cloud-based 
+Roboflow environment (Dwyer and Nelson, 2022).
+
+2.3. Imagery splitting ratio 
+
+We split the dataset in a ratio of 80:10:10 for training, validation, and 
+testing sets, respectively. This ratio was used due to prior evidence of 
+exceed performances in detecting small insects and diseases using deep 
+learning models (Kiratiratanapruk et al., 2022; Krishnadas and Sampa-
+thila, 2021; Mulchandani et al., 2019). The training dataset consisted of 
+1543 images, 243 images for the validation set, and 247 images for the 
+testing set and all were at input resolution of 640 × 640 pixels. The 1280 
+× 1280 pixels input resolution consisted of 1637 images for the training 
+set, 255 images for the validation set, and 262 images for the testing set. 
+Independently,  we  trained  5  different  versions  of  the  YOLOv5  model 
+family  including:  YOLOv5n,  YOLOv5s,  YOLOv5m,  YOLOv5l,  and 
+YOLOv5x models to detect alates on sorghum leaves. 
+
+2.4. Characteristics of deep learning models
+
+2.6. Evaluation metrics of the trained models 
+
+In this study, we evaluated four metrics, which are common metrics 
+used to evaluate detector models (Padilla et al., 2020). These metrics 
+were  the  precision,  mean  average  precision  (mAP@0.5),  recall,  and 
+mean  percent  error  of  misdetection.  The  precision  metric  is  the  per-
+centage  of  correct  positive  predictions  (Padilla  et  al.,  2020).  The 
+mAP@0.5, measures the accuracy of object detection models using an 
+Intersection-over-union measure set to 0.5 (Padilla et al., 2020), and the 
+recall metric shows how successfully a model can make correct detection 
+predictions out of all of the predictions it should make (Padilla et al., 
+2020).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To monitor the model performance during training, the authors employed a validation set consisting of 243 images for the 640 x 640 pixels input resolution and 255 images for the 1280 x 1280 pixels input resolution. They also utilized a 10:10 split ratio for both the validation and testing sets, respectively. Furthermore, they independently trained five different versions of the YOLOv5 model family, namely YOLOv5n, YOLOv5s, YOLOv5m, YOLOv5l, and YOLOv5x models, to detect alates on sorghum leaves. During the training phase, the authors conducted initial computational experiments with various combinations of epochs (300, 400, and 500) and batch sizes (8, 16, and 32) to determine the optimal hyperparameters for their training. Ultimately, they found that the optimal hyperparameters were 400 epochs with a batch size of 8.

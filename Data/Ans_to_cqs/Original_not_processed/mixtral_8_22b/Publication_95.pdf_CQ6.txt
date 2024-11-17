@@ -1,0 +1,66 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+When training a deep convolutional neural network, it is important to split the data
+into a training set, a validation set, and a test set. The training set is used for optimizing the
+parameters of the network, while the validation set is used for monitoring the performance
+of the network during training and for comparing the performance of different networks
+with, for example, different hyperparameters or network structures. The test set acts as a
+ﬁnal evaluation of a network. To ensure a proper evaluation on both the validation set and
+the test set, samples in each set must be independent and have similar class distributions.
+The full data set can be split in various ways. The naïve approach is to randomly
+sample images from the full data set. However, due to the images being captured in
+close proximity and potentially having overlapping ﬁelds of views, information may leak
+between the data sets when using the naïve approach. Another approach would be to
+
+The following three-step data augmentation procedure was applied to the images dur-
+ing training before being processed by the network: (1) randomly ﬂip image horizontally,
+(2) scale the contrast of each image channel by a random factor between 0.8 and 1.2, and (3)
+randomly crop the image to a square with side lengths equal to the image height.
+
+All networks were trained on the training set for 100 epochs, using the Adam opti-
+mizer [27] with a learning rate of 0.001 and cross-entropy loss. The image batch size varied
+from 1 to 32 images, depending on the input image resolution with larger batch sizes
+for smaller image sizes. After each epoch, the network was evaluated on the validation
+set. The epoch model with the highest accuracy on the validation set during training was
+saved for further analysis. Before training the networks, the training set was balanced by
+upsampling the images from the underrepresented classes through repetition to match the
+number of images of the most represented class, “No species”.
+
+5.1.1. Network Training Procedure
+
+In both network structures, the ﬁnal classiﬁcation layer was adapted to match the
+seven classes (six IAPS and “no species” (Table 2)). The input image size affects the
+processing time of each image, but can also impact the classiﬁcation accuracy. Therefore,
+the network models were trained on ﬁve different image sizes: 96 × 128 px, 192 × 256 px,
+384 × 512 px, 768 × 1024 px, and 1536 × 2048 px (see Supplementary Materials for a visual
+comparison of the image sizes). For each image size, a network was trained using either
+random weights or weights pre-trained on ImageNet and with global max pooling or
+global average pooling before the ﬁnal classiﬁcation layers.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model such as a deep convolutional neural network, several preprocessing steps are typically performed on the dataset. These steps aim to improve the quality of the data and enhance the model's ability to learn meaningful features. In this case, the following preprocessing steps were taken:
+
+1. Data splitting: The dataset was divided into three subsets - training, validation, and testing sets. This division ensures that the model does not overfit to the training data and allows for better generalization. It also enables the comparison of different networks and their performances.
+
+2. Data balancing: The training set was balanced by upsampling the images from underrepresented classes through repetition. This step helps prevent the model from becoming biased towards the majority class and improves its overall performance.
+
+3. Data augmentation: A three-step data augmentation process was applied to the images before they were fed into the network. This included horizontal flipping, scaling the contrast of each image channel, and cropping the image to a square. Data augmentation techniques help increase the diversity of the training data and reduce overfitting.
+
+4. Input image size adjustment: The input image size was adjusted based on five different resolutions. This step impacts the processing time and classification accuracy of the model. By experimenting with different image sizes, the authors aimed to find the optimal balance between computational efficiency and model performance.
+
+5. Adapting final classification layer: The final classification layer of the network structure was modified to match the seven classes present in the dataset. This adaptation ensures that the output of the model aligns with the desired number of classes.
+
+These preprocessing steps contribute to improving the overall performance of the deep learning model and ensuring that it can effectively learn from the given dataset.

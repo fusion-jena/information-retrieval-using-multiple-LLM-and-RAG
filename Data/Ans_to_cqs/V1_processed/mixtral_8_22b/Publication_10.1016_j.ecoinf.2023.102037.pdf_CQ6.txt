@@ -1,0 +1,13 @@
+Before training a deep learning model, several preprocessing steps may be involved depending on the specific application and data. These steps aim to prepare the input data so that the model can learn effectively from it. Some common preprocessing techniques include:
+
+1. Normalization: This involves rescaling the input features or pixel values to a standard range, typically between 0 and 1 or -1 and 1. Normalization helps ensure that each feature contributes equally to the learning process and prevents any single feature from dominating the others due to its larger numerical value.
+
+2. Scaling: Similar to normalization, scaling adjusts the range of input features but does not necessarily rescale them to a specific range. For example, one might use min-max scaling to map the minimum and maximum values of a feature to 0 and 1, respectively. Scaling can help improve the convergence rate during optimization and prevent issues related to vanishing or exploding gradients.
+
+3. Cleaning: This step involves removing noise, outliers, or irrelevant data points from the input data. Cleaning ensures that the model focuses only on relevant patterns and reduces the risk of overfitting or poor generalization performance.
+
+4. Augmentation: Image augmentation techniques such as rotation, flipping, cropping, or zooming can be applied to increase the diversity of the training data and improve the robustness of the learned models.
+
+5. Tiling: When dealing with large images or datasets, it may be necessary to split the images into smaller tiles or patches to reduce computational complexity and memory usage. This approach allows the model to focus on local patterns within the images while still capturing global context.
+
+Based on the given context, the authors sliced their images into smaller tiles of a fixed size (512x512 pixels) using the Python library "impy" (Lucero, 2018). This preprocessing step aimed to maintain the original pixel dimensions of the insect images, especially important for detecting small insects. By designing the tiles to contain the maximum number of complete bounding boxes, the authors ensured that no unnecessary background information was included in the data.

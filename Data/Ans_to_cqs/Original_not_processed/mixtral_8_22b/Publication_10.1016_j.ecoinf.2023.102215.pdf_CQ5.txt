@@ -1,0 +1,182 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+72 
+72 
+128 
+64 
+
+DN-3 
+72 
+72 
+256 
+64 
+
+36 
+36 
+256 
+128 
+
+DN-4 
+36 
+36 
+512 
+128 
+
+18 
+18 
+512 
+256 
+
+DN-5  
+18  
+18  
+1024  
+256   
+
+9 
+9 
+512 
+256         
+
+networks often fail in extracting global information from shallow layers 
+because of the small receptive fields (Liu et al., 2019b; Liu et al., 2021). 
+For  creating  feature  maps  with  much  global  information,  multiple 
+dilated convolutions are used for shallow layers (Zhao et al., 2020)— 
+which, however, entail more computation resources. U2-Net defines a 
+two-level  nested  model  (i.e.,  a  stack  of  nested  encoder-decoder)  to 
+capture the contextual information in different scales at a moderate level 
+of computation cost.
+
+Ours 
+
+Pixel 
+Box 
+Pixel 
+
+Box 
+Pixel 
+
+Pixel 
+
+801 
+43 K +
+100 
+
+Static images and living videos of a commercial 
+orchard 
+RGB-images and point cloud data of a 
+commercial orchard 
+RGB-images of a single tree branch 
+
+RGB-images of urban streets 
+Synthetic images and natural images of forests 
+
+2500 
+
+RGB-images of a modern apple orchard 
+
+2569 
+
+RGB-images of complex urban scenes 
+
+SOD 
+
+OD 
+
+OD 
+
+Seg 
+
+Seg 
+
+Seg 
+OD 
+Seg 
+
+OD 
+Seg 
+
+Faster R- 
+CNN 
+YOLOv4- 
+tiny 
+SegNet 
+
+83.8% 
+
+99.1% 
+
+91.0%* 
+
+CNN 
+
+96.9% 
+
+U-Net 
+Cascade  
+Mask R- 
+CNN 
+Cascade  
+Mask R- 
+CNN 
+TrunkNet 
+
+93.0% 
+90.4% 
+87.2% 
+
+98.6% 
+98.6% 
+
+97.2%  
+
+EcologicalInformatics77(2023)10221512R. Li et al.
+
+and can yield desirable saliency identification results on public datasets. 
+Recent deep SOD models based on fully convolutional networks (FCN) 
+(Long et al., 2015) are committed to extracting and fusing multi-scale 
+features, aiming to produce comprehensive representations of various 
+objects to generate the final saliency predictions. For instance, Liu et al. 
+(2019b)  (PoolNet)  incorporated  a  pyramid  pooling  module  into  the 
+feature pyramid network (FPN) (Lin et al., 2017) architecture to pass 
+high-level semantic information, which is aggregated into feature maps 
+at different levels. Zhao et al. (2020) (GateNet) proposed the FPN-based 
+gate  mechanism  to  cooperatively  fuse  multi-level  features,  enhancing 
+the overall discernment capability of the network.
+
+TrunkNet’s  feature  extraction  includes  11  well-configured  MIF
+blocks,  which  are  connected  in  an  encoder-decoder  framework  of  U- 
+structure.  The  MIF block  is  also  an  encoder-decoder  network  and  in 
+particular,  embedded  with  an  attention  mechanism  (the  TA module) 
+such that it can well capture multiscale features. The MIF block and the 
+TA module will be articulated in later sections. Six MIF blocks, marked 
+with EN-i for 1⩽i⩽6 are encoders, while the others, marked with DN-j for 
+1⩽j⩽5 are decoders. Encoder EN-6 and all five decoders output a feature 
+map each; these output maps form a set of multiscale features, which are 
+passed into the feature aggregation part for further processing.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The paper does not explicitly mention any standard datasets such as MNIST, CIFAR, or ImageNet. However, it mentions several types of datasets used in their experiments:
+
+1. Static images and living videos of a commercial orchard
+2. RGB-images and point cloud data of a commercial orchard
+3. RGB-images of a single tree branch
+4. RGB-images of urban streets
+5. Synthetic images and natural images of forests
+6. RGB-images of a modern apple orchard
+7. RGB-images of complex urban scenes
+
+These datasets seem to be specific to the research topic, focusing on applications related to agriculture and urban environments.

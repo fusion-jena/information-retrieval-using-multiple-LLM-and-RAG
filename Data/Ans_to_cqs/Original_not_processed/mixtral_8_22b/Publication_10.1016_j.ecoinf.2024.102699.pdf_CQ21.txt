@@ -1,0 +1,92 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+training or validation progress could be observed. To fine-tune our ViT
+models, we deployed ImageNet-based weights for pretraining.
+
+1.3. Section overview
+
+The remainder of this work is structured as follows. Firstly, we pre-
+sent an overview of the fundamental concepts as well as the imple-
+mentation of our birdsong augmentation and classification framework
+(section 2). This includes a detailed description of the employed
+augmentation methods, our data preprocessing steps, the architectural
+design of our classification models, and our training configuration.
+
+Fig. 1. Exemplary overview of commonly utilized augmentation methods for data augmentation within learning-based birdsong classification.
+
+EcologicalInformatics82(2024)1026992A.S. Kumar et al.
+
+Table 1
+Overview of different audio augmentation techniques. Listed are audio augmentation approaches using, among others, pitch shifting, time stretching, mix up, and
+Gaussian noise.
+
+Literature
+
+Pitch
+shifting
+
+Time
+stretching
+
+Mix
+up
+
+Gaussian
+noise
+
+Vertical
+roll
+
+Horizontal
+roll
+
+Blur
+
+Brightness
+
+Masking
+
+Warping
+
+BirdCLEF 2021 (Kahl et al., 2021a)
+
+For the ViT models, we adapted the approach of pretraining deep
+bidirectional transformers for language understanding (BERT) by Devlin
+et al. (2018) for birdsong classification. Table 3 provides an overview of
+the investigated ViT models with their respective parameterizations.
+ViT-S/16, for example, denotes a ViT variant of reduced complexity with
+an input patch size of 16 × 16. The sequence length of the transformer
+models is inversely proportional to the square of the provided patch size.
+In the following, ViT-B/16 is further investigated as it strikes a balance
+between general model complexity and classification performance.
+
+In order to alleviate the effects of present class imbalances, the focal
+loss was introduced to the training process. To reduce the impact of
+computational costs within the context of the BirdCLEF challenge in
+terms of model runtime, our augmentation techniques were applied to
+the training samples with a probability factor 50%. Therefore, future
+investigations should also assess the differences in classification capa-
+bilities when different probabilities are compared with each other.
+When further assessing the resulting training and testing times in
+Table 3, it is evident that the improved performance of ViT-B/16 comes
+at a cost of increased training times by a factor of about 2.3 as well as
+increased testing times by a factor of about 3.9. The observed data
+augmentation trends – for increasing and decreasing classification ca-
+pabilities – are merely robust against the investigated models. There-
+fore, future investigations focusing on augmentation strategies should
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough information available from the given context to provide a specific answer regarding the postprocessing steps involved after the model training. However, based on common practices in machine learning projects, some possible postprocessing steps might include generating saliency maps, calculating metrics such as accuracy, precision, recall, F1 score, etc., creating confusion matrices, and visualizing results through graphs and charts. These steps help evaluate the performance of the trained models and gain insights into areas where they may need improvement.

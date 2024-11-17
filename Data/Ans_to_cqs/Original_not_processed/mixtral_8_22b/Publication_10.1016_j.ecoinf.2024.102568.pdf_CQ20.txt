@@ -1,0 +1,92 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Fig. 5. Structure of the LSTM cell.  
+
+Several  configurations  of  the  LSTM  architecture  were  tested  and 
+compared  in  Casarotti  (2021)  showing  that  a  three  hidden  layer 
+configuration of LSTM does not radically improve the performances, and 
+with a small training dataset might be affected by overfitting. 
+
+Since the co-location period needs to be as short as possible and deep 
+learning models usually need many input data, the implemented solu-
+tion  of  LSTM  is  a  trade-off  between  reaching  good  performances  and 
+minimizing the dimension of the training data. 
+
+For this reason, the LSTM model implemented has only one hidden 
+layer  of  y  neurons,  where  y  is  determined  based  on  the  number  of 
+training observations: 
+
+y =
+
+Ns
+α*(Ni + No)
+
+where Ns is the number of samples in the training set, Ni is the number of 
+input neurons, No  is the number of output neurons, and α is usually a 
+value between 5 and 10.
+
+The LSTM model is trained using the mean squared error (MSE) as 
+loss function and the ADAM optimization (Kingma and Ba (2015)). To 
+avoid overfitting, a dropout layer is added. The dropout layer, described 
+¨
+by 
+Ozgür  and  Nar  (2020),  is  a  regularization  method  that  randomly 
+excludes some inputs from activation and weight updates while training 
+a network. Inputs not set to zero are scaled up by 1/(1 (cid:0) rate) such that 
+the  sum  over  all  inputs  remains  the  same.  The  training  set  is  pre-
+processed using a MinMaxScaler that transforms each feature by scaling 
+it  to  a  [0–1]  range.  The  dimension  of  the  temporal  window  must  be 
+selected  dynamically  considering  the  performance  obtained  with 
+different values on the available dataset. 
+
+In  the  specific  case  of  Modena,  an  Italian  city  spanning  183  km2, 
+
+there are two legal AQ stations denoted by red dots in Fig. 6.
+
+7.1. Performance 
+
+Comparing the results of VR + SVR and LSTM, we can observe that, 
+even if in some cases VR + SVR is performing better than LSTM, the 
+increase in performance is usually less significant. Instead, in most cases 
+where LSTM shows better results it significantly increases accuracy and 
+reduces RMSE, MAE and MRE. Nevertheless, in cases where the size of 
+the training dataset is restricted, the performance of LSTM models may 
+prove to be inadequate. In these cases, the VR + SVR can provide better 
+performance than the LSTM. From our experiments, we observed that a 
+training period with <4000 observations generates a model unable to 
+achieve satisfactory performance levels.
+
+Table 7 
+Results of Exp.3. 
+
+the distribution of values in the training is more similar to the one of the 
+test period. However, when LSTM is performing better than VR + SVR, 
+the gain in performance is more significant. 
+
+In  terms  of  bias,  the  results  are  good  for  both  NO  and  NO2.  The 
+precision of sensors 4005, 4007, 4009, and 4012 is very low for both NO 
+and NO2. Sensor 4006 shows a high precision error only for NO. The 
+other sensors have very good performances, even reaching the regula-
+tory  monitoring  required  performances.  This  is  an  important  result, 
+considering that the mean value of the NO concentrations during the test 
+period  (17.22  μg/m3)  was  beyond  the  noise  limit  of  the  cell  (18.75 
+μg/m3). The mean concentration of NO is low because the test periods 
+are during the co-location near the background station which is located 
+in a green area far away from the most relevant source of pollution, such 
+as road traffic.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't any information provided about the hardware resources used for training the deep learning model in the given context. Therefore, I cannot determine whether GPUs, TPUs, or other hardware resources were utilized for training the LSTM model.

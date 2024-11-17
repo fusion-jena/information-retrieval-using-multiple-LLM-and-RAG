@@ -1,0 +1,73 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We trained IUC-NN on all species with an IUCN RL as-
+sessment and available occurrence records. Prior to the
+training, we randomly split the data set into a training
+set (90% of the entries) and a test set (10%). We used
+20% of the training set for validation. Because the size
+of the data set was comparatively small, we performed
+cross-validation by shifting the validation set 5 times to
+quantify the average validation cross-entropy loss and ac-
+curacy. We then used the neural network with the lowest
+cross-entropy loss across a range of models with differ-
+ent numbers of hidden layers and subsets of features to
+predict the conservation status of all orchid species at
+2 levels: binary (possibly threatened vs. not threatened)
+and detailed (CR, EN, VU, NT, and LC). See Supporting
+Information for details on the network architecture and
+training. We combined the IUC-NN assessments with dis-
+tribution data from WCSP to show the number and pro-
+
+We implemented a deep neural network algorithm
+(Goodfellow et al. 2016)—IUC-NN—as an R package
+(IUCNN, available at https://github.com/azizka/IUCNN)
+based on the Python (version 3.7) TensorFlow (https://
+www.tensorflow.org) library to predict the conservation
+status of unevaluated orchid species. We based the pre-
+dictions on 4 groups of features, derivable from digitally
+available occurrence records: geographic (mean latitude
+and longitude, longitudinal and latitudinal range, extent
+of occurrence [EOO], area of occupancy [AOO], number
+of locations [sensu IUCN], and occurrence records); cli-
+matic (mean of 19 bioclim variables [Karger et al. 2017]);
+biome (presence in 14 biomes [Olson et al. 2001]); and
+
+anthropogenic (mean Human Footprint Index [Wildlife
+Conservation Society & International Earth Science In-
+formation Network 2005]).
+
+Keywords: biodiversity, data quality, IUC-NN, IUCN Red List, machine learning, Orchidaceae, sampling bias
+
+Evaluación Automatizada de la Conservación de la Familia Orchidaceae mediante Aprendizaje Profundo
+
+generally high for CR, EN, and LC classes and low for
+the intermediate VU and NT classes (Supporting Infor-
+mation). Accuracy was highest for species the IUCN con-
+sidered threatened by natural systems modification and
+energy production and mining and lowest for species
+threatened by human intrusion and disturbance and pol-
+lution (Supporting Information). Relative to the IUCN
+RL, the accuracy of index-based methods to identify pos-
+sibly threatened and not threatened species was higher
+with IUCN15 (69.9%, n = 359) and ThreatSearch (78.6%,
+n = 14), similar with IUCN2008 (64.4%, n = 810), and
+lower with SRLI (57.1%, n = 261) (Supporting Informa-
+tion).
+
+Conservation Biology
+Volume 35, No. 3, 2021
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The provided context does not explicitly mention which specific hardware resources were used for training the deep learning model, such as GPUs or TPUs. However, it is mentioned that the IUC-NN algorithm is based on the Python TensorFlow library, which can utilize both CPUs and GPUs for computation. Therefore, it can be inferred that either CPUs, GPUs, or possibly even TPUs could have been employed during the training process. Nevertheless, without explicit information regarding the hardware resources utilized, one cannot definitively state whether GPUs, TPUs, or other hardware components were specifically used for training the deep learning model.

@@ -1,0 +1,84 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To extract the input information, the SRC3 block employs a parallel 
+analysis  of  the  input  feature  map  using  two  convolution  kernels.  In 
+contrast to the C3 block, the SRC3 block incorporates two convolution 
+kernels prior to the input of the bottleneck block. One of the kernels is 
+responsible  for  halving  the  dimension  of  the  feature  map,  while  the 
+other  maintains  the  dimension  unchanged.  This  approach  allows  for 
+more  comprehensive  processing  of  the  input  features,  enabling  the 
+model  to  capture  both  high-level  semantic  information  and  preserve 
+relevant details during the feature extraction process. The convolution 
+kernel size utilized is 3 × 3, which leads to a broader receptive field of 
+information and richer characteristics compared to the 1 × 1 convolu-
+tion kernel. The output semantic information can be augmented by the 
+action of two convolution kernels. The information output from the first
+
+dataset  contains  638  images,  divided  into  seven  categories,  with  510 
+images for training and  128 for testing. The trash-ICRA19 dataset in-
+cludes 1144 images across three categories, with 915 images for training 
+and 229 for testing. The VisDrone dataset is selected as part of the Tiny 
+Target Dataset and comprises 1610 images categorized into 12 classes. 
+The training set consists of 1288 images, while the test set contains 332 
+images. NWPU VHR-10 and HRSID are small target datasets for remote 
+sensing. The NWPU VHR-10 dataset includes 800 images with ten cat-
+egories, and the training and test sets consist of 640 and 160 images, 
+respectively. The HRSID dataset contains 5604 images in one category, 
+and the training and test sets comprise 4483 and 1121 images, respec-
+tively. By testing YWnet on these diverse datasets, we aimed to assess its 
+performance in various scenarios, including marine environments and 
+detecting tiny target objects in remote sensing.
+
+their ability to automatically learn and extract low- and high-level visual 
+features  directly  from  the  data.  Traditional  methods  often  require 
+manual  feature  engineering,  where  domain-specific  knowledge  and 
+expertise are used to design handcrafted features. Deep learning algo-
+rithms,  on  the  other  hand,  can  learn  feature  representations  directly 
+from the raw input data, eliminating the need for manual feature engi-
+neering.  Efficiently  handling  these  multiscale  features  is  crucial  for 
+network performance, given their diverse resolutions. Feature pyramid 
+networks  (FPNs)  have  made  significant  advancements  by  integrating 
+multiscale  features  in  a  top-down  manner.  The  path  aggregation 
+network  (PANet)  (Liu  et  al.,  2016)  further  extends  the  FPN  by  intro-
+ducing a bottom-up path. Another notable network learning mechanism, 
+the bidirectional feature pyramid network (BiFPN) (Tan et al., 2020),
+
+4.4. Data augmentation 
+
+Data augmentation techniques play a crucial role in augmenting the 
+training dataset to enhance the learning effect and generalization per-
+formance of the network. This experiment uses various data augmen-
+tation methods, including HSV adjustment, rotation, scaling, cropping, 
+flipping, and mosaicking, to expand the dataset. Random probabilities 
+are used to determine whether each image should undergo augmenta-
+tion. HSV  adjustment involves modifying  the image's  hue, saturation, 
+and value components. And rotation randomly rotates the image within 
+a specific range. Moreover, scaling changes the size of the image while 
+maintaining its aspect ratio. Cropping randomly crops a portion of the 
+image.  Additionally,  Flipping  horizontally  flips  the  image.  Mosaic 
+combines  multiple  randomly  cropped,  resized,  and  rotated  images  to 
+
+Table 1 
+Detailed information of selected datasets.  
+
+Datasets 
+
+Images 
+
+Category
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the provided context, it appears that the deep learning pipeline primarily utilizes image data. Specifically, several datasets mentioned in the text contain images for training and testing purposes. For instance, the first dataset has 638 images divided into seven categories, with 510 images for training and 128 for testing. Similarly, the trash-ICRA19 dataset includes 1144 images across three categories, with 915 images for training and 229 for testing. Other datasets such as VisDrone, NWPU VHR-10, and HRSID also use image data. Therefore, based on this information, it can be concluded that the deep learning pipeline discussed here mainly deals with image data. However, without explicit mention of other data formats like audio or video, it cannot be confirmed if those formats are also used in this particular pipeline.

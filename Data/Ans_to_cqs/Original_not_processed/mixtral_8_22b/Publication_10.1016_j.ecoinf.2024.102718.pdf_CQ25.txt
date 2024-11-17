@@ -1,0 +1,121 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The proposed BEiT model exhibits considerable performance im-
+provements in the classification task compared to various conventional
+deep learning models, as summarized in Table 16. Achieving an accu-
+racy of 98.1%, the BEiT model exceeds all other State-of-the-art models,
+including the previously top-performing model by Farian et al. (96.1%).
+This improvement in accuracy is statistically significant, with signifi-
+cance denoted by the α markers, indicating p < 0.05 using a two-sided
+McNemar’s test against the BEiT model. It achieves a precision of
+98.2%, a recall of 97.7%, and an F1-score of 96.5%, which are higher
+than those of other models such as the ViT-30, ViT-20, and LAMP-LFD
+models. Vivek et al.’s model, which shows high precision (94.5%) and
+recall (95.0%), still falls short of the BEiT model’s comprehensive
+
+Table 11
+Ablation study evaluating BEiT model performance without added noise.
+
+Model
+
+Acc
+
+Loss
+
+AUC
+
+CK
+
+Precision
+
+Recall
+
+F1
+
+98.33
+99.33
+97.33
+
+0.092
+0.082
+0.121
+
+As illustrated in Fig. 1, our research involves a detailed working plan
+that employed various deep learning architectures to accurately differ-
+entiate between healthy and unhealthy plant leaf images. Additionally,
+recent advancements in computer vision that are introduced by vision
+transformer models, mainly represent a significant architectural inno-
+vation in this domain. The BEiT model effectively utilizes the BERT
+architecture, originally developed for natural
+language processing
+(NLP), for image processing. The model is trained in its network to
+predict the original information after transforming images into distinct
+visual elements and masking a portion of these elements. This process is
+similar to filling in missing words in a phrase (Bao et al., 2021). This
+process involves two key representations: image patches as input and
+visual tokens as output. During pre-training, the model learns from these
+visual tokens which are derived from the image patches using a discrete
+
+Gaussian Noise
+Speckle Noise
+To Tensor
+Normalize
+
+Parameters
+
+Size: (224, 224)
+None
+None
+Degree: 30
+Brightness: 0.4
+Contrast: 0.4
+Saturation: 0.4
+Hue: 0.1
+Standard Deviation: 25
+Variance: 25
+None
+Mean: [0.485, 0.456, 0.406]
+Std: [0.229, 0.224, 0.225]
+
+transformer architecture in vision tasks, and Xception (Chollet, 2017)
+for its depthwise separable convolutions that enhance model perfor-
+mance and efficiency. Therefore, we employed our BEiT model to
+leverage transformer capabilities with these existing models. This
+combination ensures effective and complementary strengths for our
+purpose. Furthermore, we add the LIME explainable technique to
+enhance the interpretability of our model’s decision-making process
+which mainly
+broader
+transparency
+understanding.
+
+promotes
+
+ensures
+
+and
+
+3.1. Data acquisition
+
+In the BEiT model architecture, our initial steps involve loading the
+BEiT model and strategically freezing a substantial portion of its layers
+approximately 7 of the total layers. By doing so, the model freezes the
+weights in these layers, focusing the training process on fine-tuning the
+remaining layers. The model is then derived by isolating the output of a
+specific layer (‘out_ln’) from the BEiT architecture. To enhance training
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the purpose of the deep learning model (e.g., classification, segmentation, detection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The purpose of the deep learning model discussed here is primarily for classification tasks. Specifically, it aims to differentiate between healthy and unhealthy plant leaf images. The model, known as BEiT, uses the BERT architecture, initially designed for Natural Language Processing (NLP), but adapted for image processing. Its main function is to predict the original information after transforming images into distinct visual elements and masking a portion of these elements. This process helps the model learn from visual tokens derived from the image patches using a discrete Gaussian or speckle noise transformation. The ultimate goal is to achieve accurate classification results, as evidenced by the high accuracy, precision, recall, and F1 scores reported in the text.

@@ -1,0 +1,17 @@
+Answer:::
+
+In the context provided, there are a few strategies employed to handle randomness in the deep learning pipeline. While the text does not explicitly mention the use of a random seed value, it does discuss other techniques that introduce randomness and methods to control it.
+
+1. **Batch Size**: The batch size is the number of training examples used in one iteration. In the no-overfitting scenario, the batch size is set to 32. By using a fixed batch size, the training process becomes deterministic for a given input dataset, reducing the impact of randomness.
+
+2. **Stochastic Gradient Descent (SGD)**: SGD is a stochastic optimization method used to update the parameters of the Convolutional Neural Networks (CNNs). The term "stochastic" indicates that it introduces a form of randomness, as it samples the training data instead of using the entire dataset in each iteration. However, the learning rate, set to 0.0001 in this case, controls the extent of this randomness.
+
+3. **Number of Training Epochs**: The number of training epochs is set to 200, which is a fixed value. This means that the model will see the entire training dataset 200 times, reducing the impact of randomness compared to training for a variable or random number of epochs.
+
+4. **Batch Normalization (Batch-norm)**: Batch normalization is a technique used to normalize the activations of the neurons in a layer, reducing internal covariate shift. It involves computing the mean and variance of the activations in a mini-batch, which introduces a form of randomness. However, in the no-overfitting scenario, batch-norm is used, which suggests that it is used to control the randomness introduced by SGD and the batch size.
+
+5. **Dropout**: Dropout is a regularization technique that randomly drops out neurons during training to prevent overfitting. In the no-overfitting scenario, a dropout rate of 0.5 is used. This controlled introduction of randomness helps to improve the model's generalization ability.
+
+In the overfitting scenario, the strategies to handle randomness remain the same, but the techniques to reduce overfitting (batch-norm, weight decay, and dropout) are removed. This increases the impact of randomness, which can lead to overfitting.
+
+In conclusion, while the text does not explicitly mention a random seed value, it does discuss other strategies to handle randomness in the deep learning pipeline. These include fixed batch sizes, a fixed number of training epochs, and controlled introductions of randomness using techniques like SGD, batch normalization, and dropout.

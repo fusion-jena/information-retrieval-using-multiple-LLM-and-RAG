@@ -1,0 +1,90 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.4. Deep learning approaches for plant image classification 
+In  our  experiments,  the  prediction  accuracy  was  evaluated  by  commonly  used  mean  average  (MA) 
+methods[33].  The  MA  average  top-1  accuracy  measures  the  distance  between  predicting  labels  and 
+labeled classes. Multiple samples are fed into the test model, and their inference labels according to the 
+highest score are exported as their prediction labels. At last accuracy is calculated by averaging these 
+outcomes.  For  example,  there  are  n  images  belong  to  m  classes,  and  they  are  fed  into  a  model,  the 
+average accuracy in this case can be described as formula: 
+
+Average= 
+
+1
+
+n
+
+n
+i=1
+
+∑ ∑ L(F(cid:4666)xi(cid:4667)=yi)
+
+m
+j=1
+
+(1) 
+
+Where L(.) is a logic function to verify if argmax index equals to instance label, which means that 
+L(.) is 1 if F(xi) = yi otherwise L(.) is 0. Function F(.) means to find the highest score of classify output 
+
+4
+
+2.5. Model training 
+
+  To ensure the accuracy of the experimental results and obtain the best classification, the exact 
+parameters  and  functions  as  well  as  classifier  built-in  the  six  neural  network  models  are 
+designed as follows: 
+
+  The resolution of input data is 224×224 with Red Green Blue (RGB) format, and the inputs 
+
+are batch normalized before training; 
+
+  Batch size is applied which is set to 30 when training, but images are tested one by one; 
+  An  optimized  rectified  linear  activation,  Leaky  ReLU,  was  introduced  into  models  after 
+
+convolution or concatenate layer; 
+
+In MobileNet, width multiplier is 1.2, resolution multiplier is 1; 
+
+  Learning rate and dropout rate adopt same value 0.001, bias value is 0;  
+ 
+  For the neural networks with lower depth, the higher training epochs are, the higher probability 
+of over fitting is. Therefor models in which less than 100 layers adhibit raw data 60 epochs, 
+otherwise executed 80 epochs;
+
+Journal of Physics: ConferenceSeries     PAPER • OPEN ACCESSA comprehensive comparison on current deeplearning approaches for plant image classificationTo cite this article: Cheng-Li Zhou et al 2021 J. Phys.: Conf. Ser. 1873 012002 View the article online for updates and enhancements.You may also likeSeedAI: a novel seed germinationpredictionsystem using dual stage deeplearning frameworkD Ramesh Reddy, RamalingaswamyCheruku and Prakash Kodali-MNIST-MIX: a multi-language handwrittendigit recognition datasetWeiwei Jiang-Static hand gesture recognition forAmerican sign language usingneuromorphic hardwareMohammadreza Mohammadi, PeytonChandarana, James Seekings et al.-This content was downloaded from IP address 141.35.40.48 on 29/08/2024 at 07:01 IWECAI 2021
+Journal of Physics: Conference Series
+
+1873 (2021) 012002
+
+IOP Publishing
+doi:10.1088/1742-6596/1873/1/012002
+
+A comprehensive comparison on current deep learning 
+approaches for plant image classification
+
+Abstract. Plant identification and classification play a key role in understanding, protecting and 
+conserving  biodiversity.  Traditional  plant  taxonomy  needs  long  time  intensive  training  and 
+experience, which limited others to identify plant categories. With the development of automated 
+image-based  classification,  machine  learning  (ML)  is  becoming  a  popular  tool.  Image 
+classification, especially plant images taxonomy, has achieved great improvement in these years 
+by  deep  learning  (DL)  methods.  In  this  study,  we  first  reviewed  current  deep  learning 
+applications  in  the  field  of  plant  image  classification,  and  then  we  tested  six  deep  learning 
+methods  in  four  public  plant  image  datasets.  In  order  to  test  the  classification  power  of  DL 
+methods  at  cultivar  level,  we  prepared  a  Camellia  sasanqua  Thunb.  dataset,  which  is  called
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about handling randomness in the deep learning pipeline, such as managing random seed values. However, it mentions some strategies related to the training process of the deep learning models. These include setting specific parameters, such as the resolution of input data (224x224), applying batch normalization, using a batch size of 30 during training, employing an optimized rectified linear activation (Leaky ReLU), adjusting width and resolution multipliers for certain models (like MobileNet), and setting consistent learning rates, dropout rates, and bias values across all models. Additionally, the number of training epochs is adjusted based on the depth of the neural networks to prevent overfitting. While these strategies do not directly address randomness due to factors like random seed values, they contribute to creating a more controlled and standardized environment for training deep learning models.

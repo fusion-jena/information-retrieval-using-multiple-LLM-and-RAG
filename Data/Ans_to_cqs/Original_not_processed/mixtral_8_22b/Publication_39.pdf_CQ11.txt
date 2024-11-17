@@ -1,0 +1,71 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Feichtenhofer et al. (2019). This parameter combination achieved the 
+best  results  in  our  experiments.  The  Slow  and  Fast  pathways  are 
+implemented by a ResNet-101. 
+
+We  split  the  annotated  dataset  AnnotationsActions  (cf.  Section  2.2) 
+randomly (but fixed for all experiments and all networks) into a train set, 
+validation set and test set. The test set includes 20% of the video clips of 
+each class. Of the remaining clips, again 20% of the clips in each class 
+form the validation set. The remaining clips are the training set. 
+
+4.4.1. Data augmentation for action recognition
+
+To  combine  the  features  from  the  Fast  pathway  with  the  Slow 
+pathway  the  authors  use  lateral  connections.  They  are  unidirectional 
+and  go  from  the  Fast  pathway  to  the  Slow  pathway.  The  lateral  con-
+nections  are  positioned  after  each  building  block  of  the  ResNet.  The 
+structure of a ResNet has already been described in Section 3.2.1. 
+
+The average pooling is done on both pathways. Then the results of 
+both pathways are concatenated and build the input for the fully con-
+nected layer. 
+
+The described SlowFast architecture is shown in Fig. 7. 
+
+4. Results and evaluation 
+
+4.1. Evaluation metrics 
+
+We  exemplify  the  evaluation  metrics  that we  use  in  the  following 
+sections. We use the  official COCO evaluation metrics  and follow  Lin 
+et al. (2014) and Everingham et al. (2010).
+
+4.4. Action recognition 
+
+The three ResNet variants are trained for 40 epochs starting with an 
+initial learning rate of 0.001. The learning rate is decreased every 10 
+epochs by multiplying it with a γ = 0.1. For optimization we utilize the 
+Stochastic  Gradient  Descent  (SGD)  with  a  momentum  of  0.9  and  a 
+
+EcologicalInformatics61(2021)1012158F. Schindler and V. Steinhage
+
+We use a pretrained backbone for FGFA. The backbone is extracted 
+from  a  Mask  R-CNN  network  trained  on  the  segmentation  dataset. 
+During the training process FGFA trains only the head and the RPN. We 
+implement  the  flow  network  in  the  FGFA  architecture  with  a  SPyNet 
+(Ranjan and Black (2017)). Other popular choices are FlowNet (Doso-
+vitskiy et al. (2015)) and FlowNet 2.0 (Ilg et al. (2017)). SPyNet is more 
+lightweight than the FlowNets. It uses 96% less parameters than Flow-
+Net. Therefore it is more efficient in an embedded environment like our 
+FGFA architecture. Moreover, the results of SPyNet are more accurate 
+than the results of the FlowNets. 
+
+4.3.1. Data augmentation for segmentation and detection
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the data repository link of the deep learning pipeline (e.g., Link to Zenodo, Figshare, Dryad, GBIF)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough information available to provide a direct link to the data repository of the deep learning pipeline mentioned in the given context. However, based on the context, it appears that the authors used the AnnotationsActions dataset for their experiments, which was randomly split into a train set, validation set, and test set. Additionally, they utilized the official COCO evaluation metrics for evaluating their models. To find the specific data repository or any related links, I would recommend checking the original paper or contacting the authors directly.

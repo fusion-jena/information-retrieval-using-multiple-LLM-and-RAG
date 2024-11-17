@@ -1,0 +1,84 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.5. Model training 
+
+  To ensure the accuracy of the experimental results and obtain the best classification, the exact 
+parameters  and  functions  as  well  as  classifier  built-in  the  six  neural  network  models  are 
+designed as follows: 
+
+  The resolution of input data is 224×224 with Red Green Blue (RGB) format, and the inputs 
+
+are batch normalized before training; 
+
+  Batch size is applied which is set to 30 when training, but images are tested one by one; 
+  An  optimized  rectified  linear  activation,  Leaky  ReLU,  was  introduced  into  models  after 
+
+convolution or concatenate layer; 
+
+In MobileNet, width multiplier is 1.2, resolution multiplier is 1; 
+
+  Learning rate and dropout rate adopt same value 0.001, bias value is 0;  
+ 
+  For the neural networks with lower depth, the higher training epochs are, the higher probability 
+of over fitting is. Therefor models in which less than 100 layers adhibit raw data 60 epochs, 
+otherwise executed 80 epochs;
+
+  A fully connected layer with softmax activation has 28 nodes, which is regarded as classifier 
+
+while training but removed when inference. 
+
+2.6. Computational resources and environment 
+In this study, the operation system is CentOS Linux release 7.7.1908 (Core) with 32 CPUs and each 
+CPU has 64 processors. The develop environment built-up is Python(version 3.6.2) packaged by Conda-
+forge which compiled with GCC (version4.8.2,20140120). Tool packages used in virtual environment 
+are the TensorFlow (version 1.12.0) and the Numpy (version 1.19.2).
+
+datasets were showed in Figure 3. The boxplot of the 10 times 10-fold CV prediction accuracy and loss 
+of each DL classification model in five plant image datasets. A) The boxplot of the 10 times 10-fold CV 
+prediction accuracy of each DL classification model in five plant image datasets. B) The boxplot of the 
+10 times 10-fold CV prediction loss of each DL classification model in five plant image datasets. Black 
+points  in  boxplots  are  actual  outcomes.  All  models  maintain  the  same  parameters  and  training 
+strategies..
+
+4
+
+ 
+ 
+ 
+ 
+ IWECAI 2021
+Journal of Physics: Conference Series
+
+1873 (2021) 012002
+
+IOP Publishing
+doi:10.1088/1742-6596/1873/1/012002
+
+metrics. The highest score indicates the highest rank in a array which single sample inferred to n given 
+classes, and prediction label is the index of the highest score.  
+
+Model  loss  is  computed  by  compound  loss  which  is  added  by  softmax  cross-entropy  and 
+regularization  loss,  which  expresses  the  distance  between  two  distributions.  Lower  cross  entropy  is, 
+mutual  closer  are.  Regularization  loss  is  inserted  to  reduce  overfitting,  which  balances  model 
+performance and model complexity. On purpose of normalizing losses, softmax is introduced to map 
+true loss value to between zero to one. 
+
+2.5. Model training
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The strategy implemented to monitor the model performance during training involves using metrics such as prediction accuracy and loss. Prediction accuracy measures how often the model correctly predicts the output for new input data, while loss represents the difference between predicted values and true values. In this case, the highest score from the metrics indicates the highest rank in an array where a single sample is inferred to 'n' given classes, and the prediction label is the index of the highest score.
+
+Furthermore, model loss is calculated using compound loss, which combines softmax cross-entropy and regularization loss. Softmax cross-entropy measures the distance between two distributions, with lower cross-entropy indicating that they are more similar. Meanwhile, regularization loss is included to prevent overfitting, striking a balance between model performance and complexity. To normalize losses, softmax is employed to map the true loss value between zero and one.

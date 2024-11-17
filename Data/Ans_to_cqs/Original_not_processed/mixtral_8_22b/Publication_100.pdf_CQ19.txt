@@ -1,0 +1,59 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.5. Implementation details
+
+We have implemented our models in PyTorch (Paszke et al., 2017).
+We trained 𝑀 = 5 models with batch size 𝐵 = 64 and a base learning
+rate 𝛼 = 10−4. The learning rate is automatically reduced by a factor
+of 0.1 when the validation loss has not improved for 15 consecutive
+epochs. We apply weight decay to control the strength of the unit
+Gaussian prior, with an empirically chosen magnitude of 10−3 that
+is inversely proportional to the hyperparameter 𝜆 from Eq. (1). We
+chose 𝛽1 = 0.9, 𝛽2 = 0.999 and 𝜖 = 10−8 as hyper-parameters for the
+Adam optimizer. Each neural network was trained on a single Nvidia
+RTX2080Ti GPU for ∼14 days.
+
+5. Experimental results and discussion
+
+Fig. 5. Proposed model architecture. Convolutional layers are shown in cyan, with the kernel size and number of output channels in brackets. Batch normalization layers
+are in lime, ReLU activations in yellow and grouped convolutions in purple, with an additional argument for the number of groups. ⊕ and ⊙ denote element-wise addition,
+respectively concatenation along channel dimension, branching arrows indicate sharing (‘‘copying’’) of the respective tensor. In our experiments we set 𝑵 blocks = [2, 3, 5, 3] and
+𝑵 channels = [256, 512, 1024, 2048].
+
+(For interpretation of the references to color in this figure legend, the reader is referred to the web version of this article.)
+
+to get blurred (as information over an increasingly larger receptive
+field is mixed through repeated convolutions). We visualize our model
+architecture in Fig. 5 and in the following, the data flow in the model
+is described in more detail.
+
+As commonly done in deep learning, we iteratively learn the model
+parameters with stochastic gradient descend, starting from a random
+initialization. In each iteration, we randomly sample a batch of 𝐵 = 64
+reference data patches of size 15 × 15 pixels, where a patch is only
+considered for training if the center pixel is forested. We consider a
+pixel forested if and only if it contains vegetation points (points with
+𝐷𝑧 > 1.3 m, see Section 3.1) and also is considered forested based on
+NIBIO’s Norway-wide timber volume map (Astrup et al., 2019). We use
+the latter as an additional precautionary measure to avoid unnecessary
+noise from non-forested areas, as we are interested in learning forest
+characteristics only. For every reference data patch, we randomly pick
+an optical image from the correct year and two SAR images (one as-
+cending and one descending orbit) with acquisition dates near the one
+of the optical image. Using SAR with both ascending and descending
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning model is built using the PyTorch framework. This can be found in section 4.5 of the given context, which states, "We have implemented our models in PyTorch."

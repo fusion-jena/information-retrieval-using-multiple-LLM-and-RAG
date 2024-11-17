@@ -1,0 +1,95 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The above procedure was repeated after incrementing the time index 
+m by 1 (see Fig. 1). Figs. A-1 in the Appendix represents a schematic 
+view of the training and prediction flow. In this flow, the weight wm  was 
+obtained  using  the  training  dataset  Dm.  The  prediction  from  time  tm 
+using  the  signature  xm  yielded  the  value  ̂ym+ma ,  which  was  compared 
+with  the  validation  data  ym+ma .  Notably,  the  size  of  the  training  data 
+|Dm| = m (cid:0) ma (cid:0) mb + 1 depended on the starting time tm. The predic-
+tion error was obtained by calculating ̂ym+ma
+(cid:0) ym+ma  at different starting 
+times. By adopting this approach, which involves conducting training 
+and forecasts progressively by changing the starting time of the forecast 
+but not used the information that is not accessible at the start of pre-
+diction period, each forecast was assured to be a fair cross-validation. 
+We used a climate time series composed of d = 12 indices in Table 1
+
+Thereafter, we use the following time indices, whose unit is month: 
+ma  is the leading time of prediction relative to the starting time of pre-
+diction m, and mb  is the duration of the past time series segment. Also, 
+the  time  interval  [m0, m1] means  that  time  runs  m0, m0+1, …, m1.  For 
+supervised  learning  in  this  model,  the  object variable  is  the  NINO3.4 
+index ym+ma  at time τ = tm+ma , whereas the explanatory variables xm  for 
+a time period include the signature for the segment of time series X in 
+. The approximation property described in the 
+that period 
+previous  section  allowed  us  to  express  the  object  variable  as  a  linear 
+combination of explanatory variables, as follow: 
+
+[
+tm(cid:0) mb+1, tm
+
+]
+
+ym+ma = ym + 〈wm, xm〉 + ϵ
+
+xm := Sn
+
+(
+X[tm(cid:0) mb +1,tm]
+
+)
+
+(5)  
+
+(6)
+
+Our  findings  also  revealed  a  significant  reduction  in  computation 
+time when ML models, along with preselection, were used. Unlike ex-
+pected, pre-selection lowered the accuracy of the results, which likely 
+indicates  a  loss  of  information  in  the  database  transformed  using  the 
+signature method. As we expected that the Lasso model, in the absence 
+of the signature method, would not provide convincing results; there-
+fore, we only retained this analysis to maintain consistency in compar-
+ison with the ML models. Though it is possible to extract PDPs from RF 
+runs  coupled  with  the  signature  method,  their  interpretation  is  not 
+possible because of this transformation. The amount of input data, or in 
+our case, the size of the time series used during the learning phase of an 
+ML  model,  can  have  a  non-negligible  influence  on  predictive  perfor-
+mance (Bustillo et al., 2022; Derot et al., 2020b). In other words, a long
+
+4. Conclusion 
+
+Our comparative analysis enabled us to show that the best predictive 
+performances  were  obtained  when  we  used  the  signature  method 
+without pre-selection; with R2 equal to 0.79 and 0.74 respectively for the 
+Lasso and LSTM models. Regardless of the forecast strategy used, the RF 
+model had a fairly constant predictive performance, close to R2 = 0.6. In 
+this  study  we  also  evidenced  the  following  threshold  values: 
+
+EcologicalInformatics79(2024)1024379J. Derot et al.                                                                                                                                                                                                                                    
+
+◦
+
+◦
+
+C and 26.5 
+
+C  and  27.5
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, the criteria used to determine when training is complete involve conducting training and forecasts progressively by changing the starting time of the forecast but not using the information that is not accessible at the start of prediction period. Each forecast is assured to be a fair cross-validation. The prediction error is obtained by calculating the difference between the predicted value and the validation data at different starting times. This approach ensures that each forecast is a fair cross-validation, indicating that the training process is complete when the prediction error is minimized across various starting times. However, the specific criterion for determining when the prediction error is sufficiently small to consider the training complete is not explicitly mentioned in the provided context.

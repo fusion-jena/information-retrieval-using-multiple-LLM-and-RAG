@@ -1,0 +1,177 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+A good evaluation strategy without temporal information is to use 
+the whole recording. It requires windowing the lengthy recordings due 
+to limited machine memory. Hence, each test recording was split into 
+
+Table 1 
+Number of the recording files and their total duration in hours (h).  
+
+Species 
+
+train files 
+(duration) 
+
+validation files 
+(duration) 
+
+306 (2.51 h) 
+1032 (21.69 h) 
+861 (15.97 h) 
+553 (18.98 h) 
+
+43 (0.06 h) 
+147 (0.20 h) 
+122 (0.17 h) 
+79 (0.11 h) 
+
+1158 (18.23 h) 
+997 (13.00 h) 
+
+165 (0.23 h) 
+142 (0.20 h) 
+
+995 (26.13 h) 
+677 (13.73 h) 
+
+142 (0.20 h) 
+96 (0.13 h) 
+
+Cettia Cetti 
+Erithacus Rubecula 
+Fringilla Coelebs 
+Luscinia 
+
+Megarhynchos 
+
+Parus Major 
+Phylloscopus 
+Collybita 
+
+Sylvia Atricapilla 
+Troglodytes 
+
+Troglodytes 
+Turdus Merula 
+Turdus Philomelos 
+Total 
+
+1193 (47.58 h) 
+797 (29.74 h) 
+8569 (207.56 h) 
+
+170 (0.23 h) 
+113 (0.14 h) 
+1219 (1.67 h) 
+
+298 (7.73 h) 
+154 (4.53 h) 
+2207 (44.62 h)  
+
+test files 
+(duration)
+
+3.1. Main results 
+
+Table 2 shows the test results. The largest performance gap between 
+the learnable and traditional frontends stems from using PCEN instead 
+of log compression. When combined with PCEN, the (mel-)spectrogram 
+is on par with the learnable frontends. Noticeably, a proper normaliza-
+tion on top of the log compression produced similar results to the PCEN 
+version of the models. It is hard to eyeball some of these effects, espe-
+cially for the data augmentation. Therefore, a performance summary for 
+the 48 models is depicted in Fig. 3 to comprehend the importance of 
+each component. Fig. 4 shows the confusion matrices of the base and the 
+best configuration for each frontend.
+
+The above randomness is undesired for the evaluation. Thus, the first 
+five  seconds  of  the  validation  recordings  were  used  to  monitor  the 
+models during training. It works since the labeled species are usually 
+present during the first few seconds of the recordings from Xeno-Canto. 
+The preliminary experiments confirmed that this strategy significantly 
+reduces the computation time while producing valid results compared to 
+the full-length evaluation used for the test set. 
+
+2.3. Data normalization
+
+Table 2 
+Test  results  (in  %)  of  the  frontends.  The  codes  ‘A’,’S’,  and  ‘M’  indicate  data 
+augmentation, standardization, and min-max normalization, respectively. Sinc 
+refers to SincNet+.  
+
+Model 
+
+accuracy 
+
+top-3 accuracy 
+
+f1-score 
+
+precision 
+
+recall 
+
+Mel-log-A 
+Mel-log 
+Mel-pcen-S 
+Mel-log-M 
+Mel-log-S 
+Mel-log-M-A 
+Mel-log-S-A 
+Mel-pcen 
+Mel-pcen-M 
+Mel-pcen-S-A 
+Mel-pcen-A 
+Mel-pcen-M-A 
+Stft-log-A 
+Stft-log 
+Stft-log-S 
+Stft-pcen 
+Stft-log-M-A 
+Stft-log-M 
+Stft-pcen-M 
+Stft-log-S-A 
+Stft-pcen-S 
+Stft-pcen-A 
+Stft-pcen-M-A 
+Stft-pcen-S-A 
+Sinc-log-A 
+Sinc-log 
+Sinc-log-M 
+Sinc-pcen 
+Sinc-log-S-A 
+Sinc-log-M-A 
+Sinc-pcen-M 
+Sinc-log-S 
+Sinc-pcen-S-A 
+Sinc-pcen-A 
+Sinc-pcen-S 
+Sinc-pcen-M-A 
+Leaf-log-M 
+Leaf-pcen-S 
+Leaf-log 
+Leaf-pcen 
+Leaf-log-S 
+Leaf-pcen-M 
+Leaf-pcen-S-A 
+Leaf-log-A 
+Leaf-pcen-A 
+Leaf-log-S-A 
+Leaf-log-M-A 
+Leaf-pcen-M-A
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To monitor the model performance during training, the first five seconds of the validation recordings were used. This strategy was effective because the labeled species are typically present during the initial few seconds of the recordings from Xeno-Canto. Preliminary experiments confirmed that this approach significantly reduces computation time while still yielding valid results when compared to the full-length evaluation employed for the test set.

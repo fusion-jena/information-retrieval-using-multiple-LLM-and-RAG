@@ -1,0 +1,87 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The active learning experiments are carried out in the embedding
+space of the selected transfer learning model (BirdNet-1, see Section
+3.1). We explore a range of sampling strategies: uncertainty and di-
+versity based, myopic (greedy) and adaptive (batch mode), and com-
+binations thereof. Fig. 2 provides a schematic overview of the pure
+families of sampling strategies: Random sampling selects samples arbi-
+trarily, uncertainty sampling targets samples near the decision bound-
+ary, and diversity sampling focuses on samples that span the entire data
+space. In all cases, 5% of the samples are selected at random. Class labels
+are available for all samples used in this study, and an active learning
+scenario is emulated by hiding all labels from the classifier at first and
+incrementally revealing the ones for each batch of samples queried by
+the sampling methods. We use a batch size of 20 samples. The classifier
+heads are identical to those from the transfer learning training process.
+
+4 https://github.com/HKathman/pam_annotation_experiments
+5 https://github.com/kahst/BirdNET-Analyzer/tree/main/checkpoints/V2.4
+6 https://tfhub.dev/google/vggish/1
+7 https://tfhub.dev/google/yamnet/1
+8 tensorflow.keras.applications.vgg16.VGG16(weights=’imagenet’).
+9 tensorflow.keras.applications.resnet_v2.ResNet152V2
+
+(weights=’imagenet’).
+
+Fig. 4. UMAP plots for different embedding layers of different embedding
+models for AnuraSet. For UMAP generation, we randomly select 5000 samples
+and discard all samples that are aligned to more than one class. Colors and
+shapes indicate the 10 classes with the highest occurrence frequency. Layers are
+numbered according to their distance from the classification layer, e.g. ‘Bird-
+Net-1’ is the last layer before the classification layer of the BirdNet model.
+
+EcologicalInformatics82(2024)1027105H. Kath et al.
+
+EcologicalInformatics82(2024)1027102H. Kath et al.
+
+Fig. 1. Workflow for annotating passive acoustic monitoring datasets,
+comparing the conventional approach (left) with the proposed approach (right).
+We compare the transfer learning models BirdNet, VGGish, YAMNet, VGG16
+and ResNet152-V2 for generating data representations. As active learning
+method we select uncertainty methods, diversity methods, adaptive methods
+and combinations of those.
+
+different accuracy metrics (namely precision and recall) and discuss
+their practical implications.
+
+2. Methods
+
+2.1. Datasets
+
+We used an Intel® Core™ i7-1165G7 CPU, and 32 GB of RAM for all
+computations. The pre-processing, especially the computation of the
+embeddings, requires approximately 100 h of CPU time for all three
+datasets for all embedding models and layers. The active learning ex-
+periments require approximately 6 h of CPU time per random seed for all
+three datasets. Table 1 shows the CPU time required for all sampling
+strategies, normalized to random sampling.
+
+3. Results
+
+An annotated PAM dataset typically serves one of two primary pur-
+poses: as a resource for training new machine learning models for later
+deployment for inference in a related domain (e.g., geographical region,
+taxa), or as an end product in itself for subsequent analysis of ecological
+phenomena within the same domain. In this study, we explore the po-
+tential of combining transfer learning and active learning to accelerate
+the annotation of species-level sound events in PAM datasets for both
+purposes.
+
+3.1. Transfer learning
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What methods are utilized for collecting raw data in the deep learning pipeline (e.g., surveys, sensors, public datasets)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The information provided does not explicitly mention the specific methods used for collecting raw data in the deep learning pipeline. However, it can be inferred that the authors utilize existing datasets such as AnuraSet, which may have been collected through various means like field recordings using microphones or other audio recording devices. Additionally, they employ several pre-trained models like BirdNet, VGGish, YAMNet, VGG16, and ResNet152-V2 for generating data representations. These models were likely trained on large-scale datasets, but the exact sources of these datasets are not mentioned in the given context.

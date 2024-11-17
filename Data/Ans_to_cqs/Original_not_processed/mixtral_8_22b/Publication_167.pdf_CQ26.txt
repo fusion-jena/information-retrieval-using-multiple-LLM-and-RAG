@@ -1,0 +1,67 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+σ(x) =
+
+1
+1 + e−x
+
+(1)
+
+Input Data
+
+In this paper, the input data are 40-dimensional data. Due to the large time span and large land
+area in the training data, there are large diﬀerences in the distribution between diﬀerent batches of
+training data in the training stage, and there is a certain distribution diﬀerence between the training set
+and the test set. Therefore, batch normalization is performed on the input data, where the speciﬁc
+calculation/transformation of BatchNorm (Algorithm 1) is shown below. First, the mean of each
+channel in the current batch is calculated, and then, the variance of each channel in the current batch is
+calculated. The mean is subtracted from the input, and the result is divided by the standard deviation
+to obtain the normalized output ˆχ
+i is multiplied by the scale parameter γ, and the shift
+parameter β is added to obtain the ﬁnal output yi:
+
+i; then, ˆχ
+
+Because there are diﬀerent numbers of samples of the ﬁve types of LU suitability samples in the
+training data, with a ratio of 7:14:1:5:7, there is an imbalance in the categorical data. In the training
+process, a relatively large weight is generated for the categories that have fewer samples, and a
+small weight is generated for the categories that have more samples, which solves the problem of the
+performance of the model being poor for the categories that have small sample sizes.
+
+2.4. Reconstruction Procedure
+
+In the following, the LUCC reconstruction of Zhenlai County in 2000 is used as an example to
+present the DLURM reconstruction process (the data of the year 2000 should be removed from the
+training set).
+
+The data of a certain year are used as the test set, and the remaining data are the training and
+validation set. The training and validation set ia divided into ten parts using the 10-fold cross-validation
+method, in which nine of the parts are used as a training set and one is used for the validation set.
+The percentage of the training, validation, and testing sets is 5.4:0.6:1. The training set is the data
+sample used for model ﬁtting. The validation set is a set of samples set aside separately during the
+model training. It can be used to adjust the hyperparameters of the model and to conduct a preliminary
+evaluation of the model’s capabilities. The testing set is used to evaluate the generalization ability of
+the ﬁnal model. However, it cannot be used as a basis for algorithm-related selection such as parameter
+tuning and selection of features. The mean value of the ten results is used to estimate the accuracy of
+
+as the loss function, and the Adam optimization algorithm is used to update the weights of the neural network. Because there are different numbers of samples of the five types of LU suitability samples in the training data, with a ratio of 7:14:1:5:7, there is an imbalance in the categorical data. In the training process, a relatively large weight is generated for the categories that have fewer samples, and a small weight is generated for the categories that have more samples, which solves the problem of the performance of the model being poor for the categories that have small sample sizes.   Remote Sens. 2020, 12, 3314
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To address data bias during preprocessing of the deep learning pipeline, several techniques are employed. One technique mentioned in the given context is batch normalization, which is applied to the input data. This involves calculating the mean and variance of each channel in the current batch, subtracting the mean from the input, dividing the result by the standard deviation, and obtaining the normalized output. Then, the normalized output is scaled by a factor gamma and shifted by beta to get the final output.
+
+Additionally, the issue of class imbalance in the categorical data is addressed by assigning larger weights to classes with fewer samples and smaller weights to those with more samples during the training process. This helps improve the model's performance for classes with small sample sizes.
+
+However, other common techniques for addressing data bias, such as stratified splitting, oversampling, undersampling, or diverse data collection, are not explicitly mentioned in the provided context. These methods could also potentially be useful depending on the specific characteristics of the dataset and the nature of the biases present.

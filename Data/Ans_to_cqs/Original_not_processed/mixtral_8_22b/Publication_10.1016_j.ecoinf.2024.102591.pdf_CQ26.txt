@@ -1,0 +1,83 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+bandwidth.  The  FCOVER  retrieval  must  be  based  on  atmospherically 
+corrected data to provide interpretable canopy reflectance by PROSAIL- 
+D RTM (Fern´andez-Guisuraga et al., 2021a; Jia et al., 2016), and thus 
+the  algorithm  relies  on  harmonized  S2  post-fire  Level-2  A  data 
+(COPERNICUS/S2_SR_HARMONIZED  dataset  in  GEE)  discarding  60  m 
+bands as in the BA product. Additional sensors will be included in future 
+FIREMAP  versions  (see  Section  4)  to  allow  for  the  FCOVER  retrieval 
+prior to 2018.
+
+Google Earth engine: planetary-scale geospatial analysis for everyone. Remote Sens. 
+Environ. 202, 18–27. 
+
+Harvey, B.J., Donato, D.C., Turner, M.G., 2016. Drivers and trends in landscape patterns 
+of stand-replacing fire in forests of the US Northern Rocky Mountains (1984–2010). 
+Landsc. Ecol. 31, 2367–2383. 
+
+Horning, N., Robinson, J.A., Sterling, E.J., Turner, W., 2010. Remote Sensing for Ecology 
+and Conservation: A Handbook of Techniques. Oxford University Press, Oxford, 
+United Kingdom.  
+
+Huang, H., Roy, D.P., Boschetti, L., Zhang, H.K., Yan, L., Kumar, S.S., Gomez-Dans, J., 
+Li, J., 2016. Separability analysis of sentinel-2A multi-spectral instrument (MSI) data 
+for burned area discrimination. Remote Sens. 8, 873. 
+
+Jones, G.M., Tingley, M.W., 2022. Pyrodiversity and biodiversity: a history, synthesis, 
+
+and outlook. Divers. Distrib. 28, 386–403. 
+
+Jones, A., Ugalde, O., Scarpa, S., 2020. LUCAS 2015 Topsoil Survey, EUR 30332 EN.
+
+Third, the training dataset was incorporated as an asset in GEE to 
+perform  the  ML-based  PROSAIL-D  RTM  inversion  and  retrieve  the 
+FCOVER  from  post-fire  S2  scenes.  The  RF  regression  algorithm  has 
+become a highly-adopted alternative for this purpose in GEE due to its 
+high computational efficiency (Campos-Taberner et al., 2018). There-
+fore, we considered the implementation of RF regression in FIREMAP to 
+build  the  relationships  between  the  FCOVER  and  the  corresponding 
+reflectance  in  the  S2  band  configuration.  We  preserved  the  default 
+values for RF hyperparameters except for the number of trees, which 
+was set to 500 to improve computational efficiency in GEE. As in BA and 
+fire severity algorithms implemented in FIREMAP, the FCOVER retrieval 
+can be performed both for the user-defined region of interest and for the 
+official fire perimeters of the EFFIS database. Similarly, the selection of
+
+bands  to  discriminate  the  burned  signal  by  operating  with  individual 
+bands  themselves  rather  than  using  context-dependent,  broadband 
+spectral indices with limited spectral information (Huang et al., 2016; 
+Quintano et al., 2023). Although mono-temporal approaches are usually 
+preferred  when  using  individual  bands,  complex  interactions  among 
+them as inputs in data-mining ML approaches can be expected (Afira and 
+Wijayanto,  2022).  Second,  cloud  masks  in  S2  Level-1C  scenes  may 
+seriously underestimate the presence of dense clouds and cirrus, with 
+omission errors higher than 50% (Coluzzi et al., 2018). The use of S2 
+Level-2  A  scenes  minimizes  this  issue  but  may  feature  a  topography 
+overcorrection in mountain areas (Roteta et al., 2021). More user op-
+tions (multi-temporal approaches and additional sensors, including S2 
+Level-1C) will be provided in future implementations (see Section 4) to
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not directly discuss specific techniques used to address data bias during preprocessing of the deep learning pipeline such as stratified splitting, oversampling, undersampling, or diverse data collection. However, it mentions some aspects related to handling data biases and improving computational efficiency.
+
+In the context of the Firemap project, the authors mention using Random Forest (RF) regression algorithm for building relationships between Fractional Cover (FCOVER) and corresponding reflectance in the Sentinel-2 (S2) band configuration. They also state that they preserve the default values for RF hyperparameters except for the number of trees, which is set to 500 to improve computational efficiency in Google Earth Engine (GEE). This indicates their focus on optimizing computational resources while maintaining accuracy.
+
+Additionally, the text highlights the importance of selecting appropriate bands to discriminate the burned signal by operating with individual bands instead of using context-dependent, broadband spectral indices with limited spectral information. It suggests that complex interactions among bands as inputs in data-mining machine learning approaches can be expected. This implies that careful consideration should be given to input features to minimize potential biases and ensure accurate results.
+
+Lastly, the context points out issues with cloud masks in Sentinel-2 Level-1C scenes, where omission errors might be higher than 50%. To mitigate this problem, the authors suggest using Sentinel-2 Level-2 A scenes, although these might have topography overcorrection in mountain areas. Future implementations aim to include more user options like multi-temporal approaches and additional sensors to further enhance the processing pipeline.
+
+While these details do not explicitly cover the mentioned techniques for addressing data bias, they demonstrate efforts towards reducing biases through optimal feature selection, efficient resource utilization, and improved scene selection.

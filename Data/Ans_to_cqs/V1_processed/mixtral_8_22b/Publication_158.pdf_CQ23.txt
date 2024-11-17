@@ -1,0 +1,9 @@
+To ensure the generalizability of the deep learning model, several measures were taken during its development and training process. Firstly, the model was designed to handle a wide range of object sizes and scales within images, which was achieved through an ensemble approach utilizing varying input image sizes. This allowed the model to accurately classify objects represented as small as a single pixel and as large as those extending beyond the 32 by 32 pixel input image.
+
+Secondly, data augmentation techniques were employed to increase sample variation and improve the robustness of the model. These techniques included rotation, reflectance bias of ±10%, and random noise of ±10% reflectance for 15% of the input image. By applying such transformations, the model became more capable of handling diverse real-world scenarios and reducing overfitting.
+
+Thirdly, early stopping criteria were implemented to prevent unnecessary computation and potential overfitting. The network weights with the best performance were retained, and the training process stopped if no improvements were observed after 50 consecutive epochs.
+
+Lastly, an ensemble of three models was generated to mitigate the effects of weight initialization and random selection for batch training, which may introduce variability into the results. The final output layer averaged the predictions of all three models, ensuring a more stable and reliable outcome.
+
+In summary, the generalizability of the deep learning model was enhanced through various strategies, including handling different object sizes and scales, employing data augmentation techniques, implementing early stopping criteria, and creating an ensemble of multiple models.

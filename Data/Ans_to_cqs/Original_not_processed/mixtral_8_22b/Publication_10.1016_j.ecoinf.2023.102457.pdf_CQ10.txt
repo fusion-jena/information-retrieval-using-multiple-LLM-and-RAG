@@ -1,0 +1,56 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The second approach we used to extract embeddings was from the 
+pre-trained  BirdNET  model.  The  original  version  of  the  model  was
+
+We expected higher performance of the embeddings, but a possible 
+limitation to our study may be the use of pre-trained CNNs. This may 
+have limited the potential performance of using embedding from neural 
+networks.  Interestingly,  higher  classification  accuracy was  seen  when 
+using  BirdNET,  a  CNN  trained  on  audio  data  of  bird  vocalizations  in 
+comparison  with  VGGish  and  Wav2Vec  2.0,  two  models  trained 
+respectively on a vast Youtube audio dataset and a human speech audio 
+dataset. This suggests that training a model with data input of gibbon 
+vocalizations might result in an even better performance of neural net-
+works for individual gibbon discrimination. However, such data training 
+requires a large dataset and is very computationally costly, hence why 
+we chose to test pre-trained CNNs.
+
+of length 2048. Model and code was run in Python version 3.10 based on 
+the code and methods presented in: https://github.com/kahst/BirdNET 
+-Analyzer.
+
+3.4. Supervised classification 
+
+We used random forest, a supervised classifier, implemented in the 
+‘randomForest’ R package to classify the female gibbon calls (Liaw and 
+Wiener,  2001);  and  therefore,  test  the  efficiency  of  MFCCs,  BirdNET, 
+VGGish, Wav2Vec2, and acoustic indices as feature extraction methods 
+for supervised classification of gibbon individuals. For each recorder (e. 
+
+EcologicalInformatics80(2024)1024575M.W. Lakdari et al.                                                                                                                                                                                                                            
+
+g., distance category) we randomly divided our data into an 80/20 split 
+of training and test sets over 20 iterations of cross-validation. We report 
+the classification accuracy, mean, and standard deviation for each of the 
+methods to compare their ability to classify great calls.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the code repository link of the deep learning pipeline (e.g., Link to GitHub, GitLab, BitBucket)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: The code repository link of the deep learning pipeline is <https://github.com/kahst/BirdNET-Analyzer>. It is mentioned in the given context that the model and code were run in Python version 3.10 based on the code and methods presented in this repository.
+
+Based on the provided context, it appears that the researchers used several approaches to extract features from audio recordings of gibbons, including Mel Frequency Cepstral Coefficients (MFCCs), BirdNET, VGGish, Wav2Vec2, and acoustic indices. They then used these features to train a supervised classifier, specifically a random forest algorithm, to classify female gibbon calls. To evaluate the performance of these different feature extraction methods, they performed 20 iterations of cross-validation and reported the classification accuracy, mean, and standard deviation for each method.
+
+One interesting finding from their study was that the BirdNET model, which had been trained on audio data of bird vocalizations, outperformed both VGGish and Wav2Vec2, which had been trained on YouTube audio data and human speech audio data, respectively. This suggests that training a model specifically on gibbon vocalization data could potentially improve its performance for discriminating between individual gibbons. However, the authors note that collecting and processing such a large dataset would be computationally expensive and time-consuming.

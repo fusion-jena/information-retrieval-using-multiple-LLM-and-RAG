@@ -1,0 +1,126 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.3. Model performance 
+
+All algorithms were evaluated using the same dataset, and five EL 
+models were established for both the Chla concentration and turbidity: 
+RF,  GBDT,  LightGBM,  XGBoost,  and  CatBoost.  Before  tuning  each 
+model, we established a benchmark model with default parameters to 
+evaluate  whether  parameter  adjustments  had  a  beneficial  impact  on 
+model performance. Hyperparameter optimisation was performed using 
+
+both the random grid search and Bayesian optimisation methods, which 
+were  implemented  using  GridSearchCV  from  Scikit-learn  and  the 
+Hyperopt  library (version 0.2.7).  We selected the best  parameters  for 
+each model and compared the results.
+
+Table 2 
+Selection of feature bands for Chla concentration and turbidity.  
+
+WQP 
+
+Chla 
+
+Turbidity 
+
+Feature bands 
+
+Rrs(490) to Rrs(865)
+
+Rrs(705)/Rrs(665)
+
+Rrs(842)/Rrs(665)
+
+Three Bands: 
+(
+Rrs(665)(cid:0) 1 (cid:0) Rrs(705)(cid:0) 1
+Enhanced Three Bands: 
+(
+Rrs(665)(cid:0) 1 (cid:0) Rrs(705)(cid:0) 1
+
+Rrs(492)/Rrs(560)
+
+Rrs(560)/Rrs(665)
+
+Rrs(740)/Rrs(705)
+
+Rrs(842)/Rrs(560)
+
+Rrs(865)/Rrs(665)
+
+)
+
+• Rrs(740)
+
+(
+
+)
+/
+
+Rrs(740)(cid:0) 1 (cid:0) Rrs(705)(cid:0) 1
+
+)
+
+Maximum Chlorophyll Index (MCI): Rrs(865)-Rrs(665)-0.533(Rrs(740)-Rrs(665)) 
+
+Normalized Difference Turbidity Index (NDTI): 
+(Rrs(665)-Rrs(560))/(Rrs(665)+Rrs(560)) 
+Normalized Difference Chlorophyll Index (NDCI): 
+(Rrs(705)-Rrs(665))/(Rrs(705)+Rrs(665)) 
+Rrs(490) to Rrs(865)
+Rrs(865)/Rrs(740)
+Rrs(865)/Rrs(783)
+Rrs(865)-Rrs(705)
+Rrs(705)-Rrs(783)
+Rrs(740)-Rrs(783)
+Rrs(865)-Rrs(740)
+Rrs(705)-Rrs(740)
+Rrs(705)+Rrs(560)
+Normalized Difference Turbidity Index (NDTI): 
+(Rrs(665)-Rrs(560))/(Rrs(665)+Rrs(560)) 
+
+Reference
+
+In recent years, machine learning (ML) has been applied in various 
+fields  due  to  its  powerful  ability  to  handle  non-linear  relationships 
+(Mohammadi et al., 2023), according to previous surveys, an increasing 
+number of studies are attempting to use ML methods to estimate WQP. Li 
+et al. established a Support Vector Machine (SVM) model to estimate 
+Chla concentrations in 45 typical lakes in China based on measured data 
+from 2017 to 2019; the results indicated that this model is suitable for 
+lakes  with  medium  to  low  Chla  concentrations  (Li  et  al.,  2021). 
+Muhammad et al. developed a neural network model called the Ocean 
+Color  Network  (OGN)  to  estimate  Chla  concentrations  in  the  Barents 
+Sea,  in  comparison  to  Gaussian  Process  Regression,  this  network 
+demonstrated  a  5.2%  reduction  in  mean  absolute  error  (Asim  et  al., 
+2021). Ensemble learning (EL) is one of the key technologies in the field
+
+RF is the first algorithm selected as a representative of the bagging 
+algorithm family, Random Forest (RF) is the first algorithm we selected 
+(Breiman,  2001).  Taking regression  as  an example,  its  core idea  is  to 
+construct multiple weak learners in parallel and ultimately output the 
+result as the average of the weak learners to enhance model accuracy. In 
+addition,  we  chose  several  Boosting  algorithms.  The  GBDT,  improves 
+upon the initial boosting algorithm by introducing the concepts of fitting 
+residuals and sampling (Friendman, 2001). XGBoost, built upon GBDT, 
+it  incorporated  a  structural  risk  term  into  the  loss  function  L(y,y ˆ), 
+forming the objective functionO(y,y ˆ), XGBoost also introduced a novel 
+impurity measure metric, which considers complexity in splitting rules 
+(Chen and Guestrin, 2016). Additionally, it employs new tree-building 
+processes, such as estimation greedy algorithms, parallel learning, and
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the specific criteria used to determine when training is completed. However, common practices in machine learning include monitoring metrics like validation loss or accuracy during training and stopping when these values reach a plateau or no longer improve significantly. This can be done manually or automatically through early stopping mechanisms. Other possible criteria could involve reaching a predefined number of epochs or iterations, achieving a target performance level, or exceeding a maximum allowed time limit for training. Without more details, it cannot be definitively stated which criteria were employed in this particular case.

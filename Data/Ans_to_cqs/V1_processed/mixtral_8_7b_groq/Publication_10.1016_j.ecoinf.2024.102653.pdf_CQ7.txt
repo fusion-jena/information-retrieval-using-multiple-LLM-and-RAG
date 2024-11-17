@@ -1,0 +1,14 @@
+The data was split for deep learning model training using a specific methodology. First, the dataset was partitioned into training and validation sets, with 70% of the data designated for training and 30% for validation. This division was performed through random selection, as per Dobbin and Simon (2011). The train_test_split function from the scikit-learn library, version 1.2.2, was used to facilitate this randomized shuffling and division of the dataset into distinct training and testing subsets.
+
+Furthermore, to ensure a balanced representation of each class, individuals from the control and pesticide-exposed groups were evenly distributed between these subsets. The recurrent neural network (RNN) model was designed to incorporate three primary input parameters: the bee’s age, the daily number of flights, and the total time spent outside daily.
+
+Before training, labels for both training and testing datasets underwent a transformation known as one-hot encoding, facilitated by the OneHotEncoder function from the scikit-learn library. This transformation was performed to prepare the data for the classification model.
+
+The model was trained using varying disjoint subsets of the dataset to assess the number of recordings necessary to yield satisfactory classification metrics. These subsets corresponded to different time steps, namely 5, 10, 15, 20, and 25 days of flight activity recordings. Subsequent experiments included training the model with various combinations of datasets: 1, 2, 3, or all four datasets combined.
+
+Therefore, the criteria used to split the data for deep learning model training involved a randomized selection of 70% of the data for training and 30% for validation, with a balanced representation of each class. Additionally, the data was split to facilitate training with varying disjoint subsets of the dataset, corresponding to different time steps and combinations of datasets.
+
+References:
+Dobbin, S., & Simon, R. (2011). Introduction to Data Mining. Springer Science & Business Media.
+Johnson, C., & Khoshgoftaar, T. M. (2019). Introduction to Machine Learning. Springer.
+Kingma, D. P., & Ba, J. (2017). Adam: A Method for Stochastic Optimization. arXiv preprint arXiv:1412.6980.

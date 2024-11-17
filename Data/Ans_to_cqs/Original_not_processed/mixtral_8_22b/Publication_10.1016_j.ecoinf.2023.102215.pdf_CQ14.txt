@@ -1,0 +1,165 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+EcologicalInformatics77(2023)10221510R. Li et al.                                                                                                                                                                                                                                        
+
+Fig. 11. Visual comparison between our TrunkNet with 10 SOTA models.  
+
+Table 5 
+Summary of models’ time and computational performance.  
+
+Model 
+
+PoolNet 
+
+BASNet 
+
+SCRNet 
+
+Average inference time(ms) 
+Total training time(h) 
+Total parameters(M) 
+FLOPs(G) 
+
+28.86 
+1.3 
+68.26 
+62.45 
+
+72.81 
+9.5 
+87.06 
+161.46 
+
+94.85 
+1.2 
+25.23 
+10.15 
+
+U2-Net 
+
+80.80 
+10.0 
+44.01 
+30.73 
+
+EGNet 
+
+ICON 
+
+GateNet 
+
+60.82 
+4.6 
+111.66 
+198.25 
+
+81.35 
+0.6 
+33.09 
+13.99 
+
+97.88 
+8.5 
+128.63 
+91.16 
+
+F3Net 
+
+29.16 
+0.4 
+25.54 
+10.99 
+
+MINet 
+
+PFSNet 
+
+TrunkNet 
+
+293.95 
+2.0 
+47.56 
+118.47 
+
+37.30 
+0.8 
+31.18 
+30.39 
+
+58.41 
+11.5 
+68.52 
+39.42  
+
+of the tree trunk edges and the integrity of the interior structures.
+
+(cid:0) 8, (3) initial learning rate lr=1.0 × 10
+
+TrunkNet is trained with PyTorch 1.13.0.1  All training and test im-
+ages are uniformly resized to 288 × 288. TrunkNet is trained with the 
+Adam  optimizer  with  default  hyper-parameters:  (1)  betas=(0.9, 
+(cid:0) 3, and 
+0.999), (2) eps=1.0 × 10
+(4) weight_decay = 0. The evaluation experiments of TrunkNet are all 
+conducted on a computer that has a 14-core Intel(R) Xeon(R) Gold 6330 
+CPU (80 GB RAM) and an NVIDIA RTX 3090 GPU (24 GB memory). The 
+model is trained from scratch with a batch size of 12. After 65 K itera-
+tions,  the  training  loss  converges,  and  the  training  process  takes 
+approximately 11.5 h. 
+
+3.2. Performance evaluation metrics 
+
+To evaluate the performance of salient tree trunk detection on ST-D, 
+
+we follow seven metrics given below. 
+
+Mean Absolute Error (M) assesses the pixel-level similarity between 
+the  final  saliency  map  Spre  and  the  ground-truth  mask  G.  It  can  be 
+formulated as 
+
+M =
+
+EcologicalInformatics77(2023)1022159R. Li et al.                                                                                                                                                                                                                                        
+
+Fig. 9. Precision-recall and F-measure curves of the models on our ST-D dataset.  
+
+Fig. 10. Quantitative comparison of the models on a sub-dataset of tiny trunks and intricately coiled branches.  
+
+using  the  official  codes  and  default  hyperparameters  under  the  same 
+environment. 
+
+Table  4  provides  a  quantitative  summary  of  the  performance  of 
+TrunkNet and other models on the ST-D. As we can see, TrunkNet out-
+performs all the others in terms of all seven metrics. Fig. 9 shows the 
+precision-recall (PR) and F-measure curves, which are consistent with 
+the scores in Table 4. It confirms again that TrunkNet outperforms those 
+ten SOTA models in salient tree trunk detection.
+
+We  also  conduct  a  comparative  analysis  of  total  training  time, 
+average  inference  time,  model parameters,  and  FLOPs  between  Trun-
+kNet and the other 10 SOTAs, aiming to evaluate the time and compu-
+tational performance. The experimental results are presented in Table 5. 
+Noticeably, TrunkNet is built entirely on the proposed MIF block that 
+
+needs to be trained from scratch, so necessitates a longer training time in 
+comparison to models built on pre-trained backbones. Since TrunkNet 
+prioritizes competitive performance, there may be a limitation in terms 
+of  time  efficiency.  However,  TrunkNet  achieves  an  average  inference 
+time of only 58.41 ms per image, that is 17.12 frames per second (FPS), 
+which  is  still  above  average.  Furthermore,  TrunkNet  showcases
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about how the hyperparameters of the model were optimized. However, it mentions that the Adam optimizer was used with its default hyperparameters, such as betas=(0.9, 0.999), eps=1.0 × 10^-8, and weight\_decay = 0. This suggests that no specific optimization method like grid search or random search was mentioned for tuning these hyperparameters.

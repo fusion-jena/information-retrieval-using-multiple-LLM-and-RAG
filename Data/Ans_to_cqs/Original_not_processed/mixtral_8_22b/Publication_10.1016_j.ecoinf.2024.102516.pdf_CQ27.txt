@@ -1,0 +1,63 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To  train  the  network,  we  follow  the  base  method  proposed  in 
+K¨orschens et al. (2021b). This approach, which we will refer to as seg-
+mentation  pre-training,  is  motivated  by  four  aspects.  First,  there  is 
+usually only little training data available for plant cover estimation data, 
+as  annotating  such  images  is  highly  laborious.  CNNs  usually  require 
+large amounts of training data to perform well. Therefore, it would be 
+advantageous to be able to utilize additional external training data to 
+improve  the  training  results.  Second,  transfer  learning,  the  task  of 
+training the network on larger datasets first, followed by fine-tuning the 
+network on the target task, has been shown to improve the performance 
+of  CNNs  drastically  (Kornblith  et  al.,  2019).  Third,  in  previous  in-
+vestigations (K¨orschens et al., 2021a) also found that performing pre- 
+training  on  domain-related  image  data  (e.g.,  images  containing  the
+
+In this phase the network is trained with the mean scaled absolute 
+error as regression loss, using a batch size of 1, an input image resolution 
+(cid:0) 5. Moreover, we utilize 
+of 1536 × 768 pixels, and a learning rate of 10
+only horizontal flipping for data augmentation in this phase. 
+
+2.5. Baseline comparison 
+
+To also have a comparison of our method with a simpler approach, 
+we compare our results with the ones from a ResNet50 that was pre- 
+trained  on  the  ImageNet  classification  dataset  (Russakovsky  et  al., 
+2015) with added FPN, later also referred to at ImageNet baseline model. 
+As the ImageNet dataset is a normal classification dataset that does not 
+contain the plant species from our dataset, this network cannot be uti-
+lized  for  zero-shot  cover  prediction.  Hence,  we  only  evaluate  this 
+network after training it on our dedicated plant cover data.
+
+2.4. Network setup for investigations 
+
+For extracting plant species cover information for our investigations, 
+we  use  the  same  setup  as  described  in  K¨orschens  et  al.  (2021b)  with 
+slight differences. During all three phases, we use a ResNet50 (He et al., 
+2016),  which  is  initialized  with  ImageNet  (Russakovsky  et  al.,  2015) 
+weights from Keras (Chollet et al., 2015) before phase 1 and phase 2, as 
+well as the AdamW optimizer (Kingma and Ba, 2014; Loshchilov and 
+Hutter, 2017). During each phase, we use the ResNet in conjunction with 
+a  Feature  Pyramid  Network  (FPN)  (Lin  et  al.,  2017)  to  increase  the 
+network output resolution. Phase-specific parameters are listed in the 
+
+EcologicalInformatics80(2024)1025167M. K¨orschens et al.
+
+information usable as annotations for network training.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The given context does not provide any specific details about how the trained deep learning model was deployed. However, based on common practices in machine learning projects, once the model is trained, it can be serialized into a format like ONNX or saved as a checkpoint file. Then, depending on the application requirements, the model can be integrated into various platforms such as web applications, mobile apps, or edge devices. The platform selection depends on factors like computational resources, latency requirements, and security considerations. Unfortunately, without more specific information, I cannot provide a detailed description of the deployment process used in this case.

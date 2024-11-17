@@ -1,0 +1,11 @@
+The hyperparameters of the models in the study were optimized using the grid search method. The study used three classifiers, Random Forest (RF), Support Vector Machine (SVM), and Multivariate Adaptive Regression Splines (MARS), and each classifier had specific hyperparameters that needed to be fine-tuned for optimal performance.
+
+For RF, the hyperparameter that was optimized was mtry, which controls the number of input variables for the decision trees. The range of mtry was set from 1 to 20 with increments of 1.
+
+For SVM, the two hyperparameters that were optimized were gamma and C. Gamma determines the influence of the training data, with small values defining large distances and large values defining small distances in the hyperspace defined by the variables. C controls misclassifications, with small values increasing and large values decreasing misclassifications. The range of gamma was set from 0.01 to 0.1 with increments of 0.01, and the range of C was set from 2 to 16 with increments of 2.
+
+For MARS, the two hyperparameters that were optimized were degree and nprune. Degree determines the maximum degree of interactions between input variables, while nprune controls the number of terms in the model. The range of degree was set from 1 to 3, and the range of nprune was set from 2 to 100 with increments of 10.
+
+The hyperparameter tuning was conducted using the caret package in R version 4.2. The input dataset combinations were classified with each classifier and two sets of classes, resulting in 60 models. The classification models were run with hyperparameter tuning using the grid search method to determine the best sets of function parameters.
+
+The study found that the best five median accuracies belonged to the SVM and RF, while the MARS was ranked sixth and tenth for the two sets of classes. The best overall accuracies were 96.1% and 85.4% for the two sets of classes, and the model performance also depended on the input datasets. The texture index alone was the worst input data, with median overall accuracies of 38.8% and 30.9% for the two sets of classes.

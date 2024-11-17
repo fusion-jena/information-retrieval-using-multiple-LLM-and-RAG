@@ -1,0 +1,123 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We further improved Waveman by modifying BatNet and opti-
+mizing parameter setting of batch size. We add new kind of BNorm
+layers behind the 22 convolutional layers to prevent overfitting when
+we trained models using BatNet (Fig. 2C). Therefore the model
+“learned” to generalize from a trend in both “known” and “unknown”
+datasets rather than to maximize the performance on the “known”
+datasets (usually called training datasets, Ioffe and Szegedy, 2015).
+Computers can only train with small volumes of images at once as they
+have too little Random Access Memory or Graphic memory. Batch size
+was set to limit the image number. In this study, we set a large batch
+size equal to 128, which means training with 128 images for each
+iteration.
+
+2.1.4. Training models with the reference library
+
+The network is key to optimizing the parameters in the model using
+the reference dataset. The higher the efficiency of extracting acoustic
+feature from spectrum images, the higher the accuracy. We built a new
+network specifically for the tropical bats (termed BatNet), which was
+incorporated into our software Waveman. The BatNet has 22 convolu-
+tional layers for extracting useful acoustic features (Simonyan and
+Zisserman, 2014) and eight shortcut connections between layers to
+avoid the problem of information loss as layer number increases. There
+are two key parameter settings of batch size equal to 64, and learning
+
+3
+
+X. Chen, et al.
+
+Biological Conservation 241 (2020) 108269
+
+Biological Conservation 241 (2020) 108269
+
+Contents lists available at ScienceDirect
+
+Biological Conservation
+
+journal homepage: www.elsevier.com/locate/biocon
+
+Automatic standardized processing and identification of tropical bat calls
+using deep learning approaches
+
+T
+
+Xing Chena,1, Jun Zhaob,1, Yan-hua Chena, Wei Zhoub,*, Alice C. Hughesa,*
+a Center for Integrative Conservation, Xishuangbanna Tropical Botanical Garden, Chinese Academy of Sciences, Menglun 666303, China
+b Software School, Yunnan University, Kunming 650500, China
+
+A R T I C L E I N F O
+
+A B S T R A C T
+
+Keywords:
+Bats
+Bioacoustics
+Automated monitoring
+Algorithms
+Deep learning
+Neural network
+Automatic processing
+Biodiversity metrics
+Machine learning
+Calls
+Echolocation
+Monitoring protocol
+
+Fig. 1. Schematic diagram of pipeline. We first built model
+and then test the model. There are three python scripts used to
+for
+Coverting_image.py,
+including
+Making_database.py, and Training.py in a self-developed open
+source software Waveman. Tested process using both filtered
+images and unfiltered audio-files.
+
+modelling,
+
+2
+
+X. Chen, et al.
+
+Biological Conservation 241 (2020) 108269
+
+Table 1
+Taxa summary of the 36 species and itscall information.
+
+Family
+
+Species
+
+Individual number**
+
+No. of images***
+
+Location
+
+Release type
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, there are several postprocessing steps that can be taken to evaluate the performance of the model and gain insights into its predictions. Some common postprocessing techniques include saliency maps, metrics calculation, and confusion matrices.
+
+Saliency maps are visualizations that highlight the regions of input data that have the most significant impact on the output prediction. They can help identify which parts of the input data were important for making a particular decision, providing insight into how the model arrived at its conclusion.
+
+Metrics calculation involves computing various measures of model performance such as precision, recall, F1 score, and area under the ROC curve (AUC). These metrics provide quantitative assessments of the model's ability to accurately classify inputs and detect true positives while minimizing false negatives and false positives.
+
+Confusion matrices are tables that summarize the results of classification tasks by comparing predicted labels against actual labels. They allow us to see where the model made mistakes and what types of errors it tends to make. This information can be used to fine-tune the model and improve its overall performance.
+
+In addition to these techniques, other postprocessing methods may also be employed depending on the specific application and goals of the project. For example, feature importance analysis could be performed to determine which input variables had the greatest influence on the model's predictions. Alternatively, dimensionality reduction techniques like principal component analysis (PCA) might be applied to simplify complex datasets and facilitate interpretation of results. Ultimately, the choice of postprocessing method will depend on the nature of the data being analyzed and the objectives of the researcher.

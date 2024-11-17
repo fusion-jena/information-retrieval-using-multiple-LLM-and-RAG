@@ -1,0 +1,56 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To tune the architecture of the neural network, we tested the following combinations of parameters
+(Algorithm A1, line #24), which correspond to diﬀerent U-Net architectures: num_layers = {64, 32, 16},
+depth = {2, 3, 4}, layer_rate = {2, 1.5, 1.2}, batch_norm = {True, False}, residual = {True, False}, dropout
+= {0, 0.5}. Thus, we performed a grid search over 216 diﬀerent U-Net-like architectures and found
+several of the best ones which are suitable for forest damage segmentation.
+
+All of the best results corresponded to the conﬁguration when the number of layers was equal to
+64, and dropout was applied. The best one, whereby an additional batch normalization is applied,
+corresponds to the following parameters: num_layers = 64, depth = 4, layer_rate = 2, batch_norm =
+True, residual = False, dropout = 0.5.
+
+High-intensity ﬂuctuations of the loss function shown in Figure 2, which corresponds to the best
+set of parameter values, are caused by the speciﬁcity of the algorithm used at the training stage. We
+did not have a prebuilt set of images to use for the training. We instead generated batches of training
+images randomly, on the ﬂy, from source images presented in Table 1 (we randomly cropped source
+images to 256 × 256 resolution and applied augmentation), and we never showed exactly the same
+
+Remote Sens. 2020, 12, 1145
+
+8 of 17
+
+63. Kingma, D.P.; Ba, J. Adam: A method for stochastic optimization. arXiv 2015, arXiv:1412.6980.
+64. Mannor, S.; Peleg, D.; Rubinstein, R. The cross entropy method for classiﬁcation. In Proceedings of the 22nd
+International Conference on Machine Learning (ICML ’05); Association for Computing Machinery: New York,
+NY, USA, 2005; pp. 561–568. [CrossRef]
+
+65. Zhang, H. The optimality of naive Bayes. In Proceedings of the Seventeenth International Florida Artiﬁcial
+Intelligence Research Society Conference (FLAIRS), Miami Beach, FL, USA, 12–14 May 2004; Available online:
+https://www.aaai.org/Library/FLAIRS/2004/ﬂairs04-097.php (accessed on 26 March 2020).
+66. Cramer, J.S. The origins of logistic regression. Tinbergen Inst. Work. Pap. 2002, 119, 16. [CrossRef]
+67. Cortes, C.; Vapnik, V. Support-vector networks. Mach. Learn. 1995, 20, 273–297. [CrossRef]
+68.
+
+resolution. Images of the study sites have a resolution of 2500 × 2500 pixels (~1 km × 1 km on the
+surface in Pleiades-1A/B images), except for the sites #4 and #9, where the images are smaller and have
+a resolution of 1250 × 1250 pixels (~500 m × 500 m). Further, these images were used in training and
+validation datasets by randomly and repeatedly cropping sub-images having a resolution of 256 × 256
+pixels (~128 × 128 m).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The hyperparameters of the model are optimized using a grid search approach. This means that all possible combinations of the given hyperparameter values are tested to find the optimal configuration. In this case, the authors tested 216 different configurations of U-Net-like architectures with varying numbers of layers, depths, layer rates, batch normalizations, residuals, and dropouts. After testing all these combinations, they identified several of the best models suitable for forest damage segmentation. All of the best results corresponded to the configuration when the number of layers was equal to 64, and dropout was applied. The best one, whereby an additional batch normalization is applied, corresponds to the following parameters: num_layers = 64, depth = 4, layer_rate = 2, batch_norm = True, residual = False, dropout = 0.5.

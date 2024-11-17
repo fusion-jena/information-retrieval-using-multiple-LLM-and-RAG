@@ -1,0 +1,90 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+• CNN is composed of two hidden convolutional layers and one last layer fully
+connected with 200 neurons, exactly similar to previous ones. The ﬁrst layer is
+composed of 64 convolution ﬁlters of kernel size (3, 3) and 1 line of 0 padding.
+The resulting feature maps are batch-normalized (same normalization for every
+pixels of a feature map) and transformed with a Relu. Then, an average pooling
+with a (8, 8) kernel and (8, 8) stride is applied. The second layer is composed of
+128 convolution ﬁlters of kernel size (5, 5) and 2 lines of padding, plus Batch-
+Normalization and ReLU. After, that a second average pooling with a (8, 8)
+kernel and (8, 8) kernel and (8, 8) stride reduces size of the 128 feature maps
+to one pixel. Those are collected in a vector by a ﬂattening operation preceding
+the fully connected layer. This architecture is not very deep. However, considered
+the restricted number of samples, a deep CNN would be very prone to over ﬁtting.
+
+CNN is a form of neural network introduced in [11]. It aims to efﬁciently apply
+NN to input data of large size (typically 2D or 3D arrays, like images) where
+elements are spatially auto-correlated. For example, using a fully-connected neural
+network with 200 neurons on an input RGB image of dimensions 256
+3
+107 parameters only for the ﬁrst layer, which is already too
+would imply around 4
+heavy computationally to optimize on a standard computer these days. Rather than
+applying a weight to every pixel of an input array, CNN will apply a parametric
+discrete convolution, based on a kernel of reasonable size (3/3/p or 5/5/p are
+common for N/N/p input arrays) on the input arrays to get an intermediate feature
+map (2D). The convolution is applied with a moving windows as illustrated in
+Fig. 10.2b. Noting X
+Md,d,p an input array, we simplify notations in all that
+follows by writing C V (X, kγ (c)) the resulting feature map from applying the
+c2p. If the convolution is
+
+10.1.2 Interest of Deep and Convolutional Neural Networks for
+
+SDM
+
+Notations When talking about environmental input data, there could be confusions
+between their different possible formats. Without precision given, x will represent a
+general input environmental variable which can have any format. When a distinction
+is made, x will represent a vector, while an array is always noted X. To avoid
+confusions on notations for the different index kinds, we note the spatial site index
+as superscript on the input variable (xk or Xk for kth site) and the component index
+as subscript (so xk
+p, or for the array
+Xk
+.,j,. is the j th matrix slice taken on its second dimension). When
+we denote an input associated with a precise point location taken in a continuous
+spatial domain, the point z is noted as argument: x(z).
+
+j for the j th component of kth site vector xk
+
+Md,e,p(R), Xk
+
+R
+
+∈
+
+∈
+
+Classical SDM approaches postulate that the relationship between output and
+
+propagating errors. Cognitive modeling, 5(3).
+
+19. Nair, V. & Hinton, G. (2010). Rectiﬁed linear units improve restricted boltzmann machines.
+Proceedings of the 27th international conference on machine learning (ICML-10), 807–814.
+20. Ioffe, S. & Szegedy, C. (2015). Batch normalization: Accelerating deep network training by
+reducing internal covariate shift. International Conference on Machine Learning. 448–456.
+21. Dutrève, B. & Robert, S. (2016). INPN - Données ﬂore des CBN agrégées par la FCBN.
+Version 1.1. SPN - Service du Patrimoine naturel, Muséum national d’Histoire naturelle, Paris.
+Occurrence Dataset https://doi.org/10.15468/omae84 accessed via GBIF.org on 2017-08-30.
+22. Karger, D. N., Conrad, O., Bohner, J., Kawohl, T., Kreft, H., Soria-Auza, R.W. & Kessler,
+M. (2016). Climatologies at high resolution for the earth’s land surface areas. arXiv preprint
+arXiv:1607.00217.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The text does not explicitly mention the specific types of data formats used in the deep learning pipeline. However, it does provide some clues regarding the type of data being processed. In particular, the text mentions that CNN is typically applied to input data of large size, such as 2D or 3D arrays, like images. Therefore, it can be inferred that the deep learning pipeline described in the text likely involves processing image data. Additionally, the use of convolutional layers suggests that the input data has spatial correlations, further supporting the idea that the data may be in the form of images. While other data formats such as audio or video could also potentially be used, the text does not provide enough information to definitively determine this.

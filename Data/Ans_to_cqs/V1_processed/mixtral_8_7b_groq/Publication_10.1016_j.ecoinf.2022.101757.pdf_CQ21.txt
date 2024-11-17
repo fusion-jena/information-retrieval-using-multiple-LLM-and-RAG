@@ -1,0 +1,15 @@
+Based on the provided context, the postprocessing steps after model training involve the following:
+
+First, a Conditional Random Fields (CRF) is applied to the semantic segmentation results to enhance the delineation of the skyline. This step helps in capturing fine details that might have been lost during the learning process of the neural network, which tends to blur the detection of edges or object boundaries.
+
+Next, the length of the signals extracted from the semantic segmentation is calculated with and without the CRF. The gain length (gCRF) is then evaluated as the ratio of the length of the signals extracted with CRF to the length of the signals extracted without CRF. This metric helps in measuring the increase in detail of the skyline using CRF.
+
+After the length calculation, the results are binarized, and the sky is separated from other objects in the image. The classes below the sky are then extracted, and the images that do not have natural objects below the sky are filtered out.
+
+Subsequently, reference points are selected from the photo and associated with the classified object. Orthophotos are extracted from the distances, and topographic maps are created for each class object.
+
+Finally, metrics are extracted for each class object, including Normalized Segment Length, Sample Variance, and Average Absolute Deviation.
+
+Therefore, the postprocessing steps involved after the model training include applying CRF, calculating the gain length, binarization of the results, extracting the classes below the sky, filtering images, selecting reference points, creating topographic maps, and extracting metrics for each class object.
+
+It is worth noting that the context does not mention any specific steps such as Saliency Maps or Confusion Matrix, which are commonly used postprocessing techniques in machine learning.

@@ -1,0 +1,75 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+empirically noticed the gain in optimization speed and less complications with the
+learning rate initialization when using Batch-Normalization. For this reason, Batch-
+Normalization is applied to every pre-activation (before applying the ReLU) to every
+class of NN model in this paper, even with CNNs. We give a general representation
+of the class of NN models used in this work in Fig. 10.1.
+
+SNN, DNN and CNN models are ﬁtted with the package mxnet: All model
+0.03, 0.03), then we
+parameters were initialized with a uniform distribution U (
+applied a stochastic gradient descent algorithm with a momentum of 0.9, a
+batch-size of 50 (batch samples are randomly chosen at each iteration), and an initial
+8. The choice of initial learning rate was critical for a good
+learning rate of 10−
+optimization behavior. A too big learning rate can lead to training loss divergence,
+
+−
+
+190
+
+C. Botella et al.
+
+whereas when it is too small, learning can be very slow. We stopped when the
+average slope of the training mean loss had an absolute difference to 0 on the last 100
+3. The learning took approximately 5 min for SNN, 10 min for
+epochs inferior to 10−
+DNN, and 5 h for CNN (independently of the version).
+
+10.3.5 Evaluation Metrics
+
+• CNN is composed of two hidden convolutional layers and one last layer fully
+connected with 200 neurons, exactly similar to previous ones. The ﬁrst layer is
+composed of 64 convolution ﬁlters of kernel size (3, 3) and 1 line of 0 padding.
+The resulting feature maps are batch-normalized (same normalization for every
+pixels of a feature map) and transformed with a Relu. Then, an average pooling
+with a (8, 8) kernel and (8, 8) stride is applied. The second layer is composed of
+128 convolution ﬁlters of kernel size (5, 5) and 2 lines of padding, plus Batch-
+Normalization and ReLU. After, that a second average pooling with a (8, 8)
+kernel and (8, 8) kernel and (8, 8) stride reduces size of the 128 feature maps
+to one pixel. Those are collected in a vector by a ﬂattening operation preceding
+the fully connected layer. This architecture is not very deep. However, considered
+the restricted number of samples, a deep CNN would be very prone to over ﬁtting.
+
+shift and help to regularize our model as well. It consists of a parameterized
+centering and reduction of pre-activations. This facilitates optimization and enables
+to raise the learning rate leading to a quicker convergence. At the same time, it has
+a regularization effect because the centering and reduction of a neuron activation
+is linked to the mini-batch statistics. The mini-batch selection being stochastic at
+every iteration, a neuron activation is stochastic itself, and the model will not rely
+on it when it has no good effect on prediction.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model such as a Convolutional Neural Network (CNN), several preprocessing steps may be involved. These steps aim to prepare the data for optimal performance during the training process. Some common preprocessing techniques include:
+
+1. Normalization: In the given context, Batch-Normalization is applied to every pre-activation (before applying the ReLU) for all classes of neural network models, including CNNs. Batch-Normalization helps optimize the learning rate initialization and speeds up the optimization process. It involves standardizing the inputs or activations of each layer to have zero mean and unit variance across the mini-batch.
+
+2. Scaling: Although not explicitly mentioned in the provided context, scaling is another common preprocessing step. Data scaling ensures that features with different scales do not dominate others during the learning process. Common scaling methods include Min-Max scaling and Standardization.
+
+3. Cleaning: While not directly discussed in the context, data cleaning is often necessary before feeding data into a deep learning model. Data cleaning involves handling missing values, removing outliers, and correcting inconsistent entries. Properly cleaned data improves the overall quality of the dataset and enhances the model's ability to learn meaningful patterns.
+
+In summary, the main preprocessing steps involved before training a deep learning model like a CNN include normalization, scaling, and cleaning. Normalization, specifically Batch-Normalization, is employed in the given context to improve optimization speed and simplify the learning rate initialization. Additionally, although not mentioned in the context, scaling and cleaning are also essential preprocessing steps to ensure optimal performance during the training process.

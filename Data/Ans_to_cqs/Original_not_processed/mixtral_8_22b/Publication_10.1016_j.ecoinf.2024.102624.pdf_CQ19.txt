@@ -1,0 +1,97 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We  classified  all  the  input  dataset combinations  (10  variable  sets; 
+Table  2)  with  each  classifier  (RF,  SVM,  MARS)  and  with  two  sets  of 
+classes (7C and 13C); thus, we had 60 models as a result of the classi-
+fications. Classifications and hyperparameter tuning were conducted in 
+R  4.2  (R  Core  Team,  2023)  with  the  caret  package  (Kuhnaut  et  al., 
+2022). 
+
+2.4. Accuracy assessment
+
+Table 2 
+The different combinations of input datasets used for the classifications (Near Infrared [NIR], Normalized Difference Vegetation Index [NDVI], Normalized Difference 
+RedEdge Index [NDRE] and visible NDVI [vNDVI], Digital Surface Model [DSM], kernel [k] and offset [o] values applied during the Run Percentage calculation).  
+
+Code 
+
+Description 
+
+Input data 
+
+a 
+b 
+si 
+t 
+bsi 
+rfe 
+
+tsi 
+tb 
+db 
+dsi 
+
+all type 
+spectral bands 
+spectral indices 
+texture indices 
+bands and spectral indices 
+variable selection with Recursive Feature Elimination of the 7 class model 
+variable selection with Recursive Feature Elimination of the 13 class model 
+texture index and spectral indices 
+texture index and spectral bands 
+DSM and spectral bands 
+DSM and spectral indices
+
+GREEN, RED, REDEDGE, NIR, NDRE, NDVI, vNDVI, DSM, Run Percentage (k5o1) 
+GREEN, RED, REDEDGE, NIR 
+NDVI, NDRE, vNDVI 
+Run Percentage (k2o1, k2o3, k2o5, k3o1, k3o3, k3o5, k5o1, k5o3, k5o5) 
+GREEN, RED, REDEDGE, NIR, NDRE, NDVI, vNDVI 
+DSM, REDEDGE, NIR, vNDVI, GREEN, NDVI 
+REDEDGE, vNDVI, DSM, NIR, NDRE, NDVI 
+Run Percentage (k5o1), NDVI, NDRE, vNDVI 
+Run Percentage (k5o1), GREEN, RED, REDEDGE, NIR 
+DSM, GREEN, RED, REDEDGE, NIR 
+DSM, NDRE, NDVI, vNDVI  
+
+EcologicalInformatics81(2024)1026245L. Szab´o et al.                                                                                                                                                                                                                                   
+
+JM values were squared to achieve the common JM value range of 0–2 as 
+the varSel used a different function (with the square root of JM). 
+
+3.3. Class level evaluation 
+
+3. Results 
+
+3.1. Jeffries-Matusita separability analysis
+
+Thirty models of the 10 input datasets with three classifiers revealed 
+that the best five medians belonged to the SVM and RF, while the MARS 
+was only ranked 6th (7C) and 10th (13C) (Fig. 6). The best OAs were 
+96.1% (7C) and 85.4% (13C), and the model performance also depended 
+on the input datasets, while the best accuracy of 7C was obtained with 
+the RFE variable selection dataset. In the case of 13C, it required the use 
+of  all  variables;  nevertheless,  the  RFE  dataset  ensured  only  slightly 
+(1.1%)  worse  OA.  Regarding  the  minimum  OAs,  RF  (with  the  RFE 
+dataset)  provided  3.8%  better  results  than  the  SVM  (with  the  RFE 
+dataset; 80.7%) in the case of 7C, and we experienced the same in the 
+case of 13C, but the difference was only 1.9%. The texture index alone 
+was the worst input data, with median OAs of 38.8% and 30.9% (7C and 
+13C, respectively), followed by 74.0% and 66.6% for spectral indices,
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, there is no mention of any specific deep learning framework such as TensorFlow or PyTorch being used to build the models. Instead, the text mentions that classifications and hyperparameter tuning were conducted using R version 4.2 with the caret package. Therefore, it can be concluded that the models were built using R programming language and not any popular deep learning framework like TensorFlow or PyTorch.

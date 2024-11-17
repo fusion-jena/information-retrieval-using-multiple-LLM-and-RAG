@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+As machine learning continues to advance, the process of identifying 
+bird species can be automated by transferring the knowledge of experts 
+in this field to a learning model. A recent study has shown that deep 
+learning is an effective method for classifying birds based on their calls, 
+such as processing large amounts of audio data, which allows it to detect 
+subtle  differences  between  bird's  calls  (Michaud  et  al.,  2023).  Addi-
+tionally, deep learning models can be trained on a wide variety of audio 
+data,  allowing  them  to  identify  even  rare  ecological  moment  of  bird 
+species (Akbal et al., 2022). Transfer learning is an important tool in 
+machine learning, allowing models to leverage the knowledge learned 
+from  one  domain  and  apply  it  to  another.  Transfer  learning  is  very 
+helpful when there is insufficient data to fully train a model, such as 
+recognizing  uncommon  bird  species  (Huang  and  Basanta,  2021).
+
+4.3. Baseline models 
+
+Hybrid  CNN-LSTM  is  an  architecture  that  combines  the  temporal 
+modelling ability of the LSTM with the CNN ability to learn invariant 
+features  (Ayadi  and  Lachiri,  2022)  (Yadav  and  Vishwakarma,  2020) 
+(Ashraf  et  al.,  2023).  The  combination  of  Convolutional  Neural  Net-
+works  (CNN)  and  Long  Short-Term  Memory  (LSTM)  has  the  major 
+benefit of learning spatial and temporal data. CNN excels in extracting 
+spatial elements like edges, textures, and forms from an input. Mean-
+while,  an  LSTM  excels  in  extracting  temporal  data,  like  the  order  of 
+words in a phrase or frames in a movie. By combining the two, a model 
+
+EcologicalInformatics80(2024)1024719B. Swaminathan et al.
+
+4.4. Wav2Vec model description 
+
+After pre-processing, the whole dataset is splitted into training and 
+testing  of  various  ratio  including  70:30,  80:20  and  90:10  for  strong 
+performance  analysis.  As  a  part  of  training  proposed  model,  the  raw 
+audio signals of various bird species are given as input to extract 768- 
+dimensional  vector  as  features.  In  wav2vec,  after  the  transformer 
+block, there are three dense layers with ReLU activation function con-
+tains 1024, 512, and 256 hidden neurons, respectively. Followed by, one 
+classification layer with sigmoid activation function is kept to decide on 
+
+bird categories as output. For this technique, Adam is used as optimizer 
+with initial learning rate of order 10e-5 is appropriate for small weight 
+updates throughout the network while fine-tuning. Based on the manual 
+fine-tuning process, other hyper parameters such as epochs of 30 with 
+batch size 1 is chosen as optimal value. 
+
+4.5. Multi labelling framework
+
+The  motivation  comes  from  success  of  transformer  in  natural  lan-
+guage processing (NLP) is the reason for evolution of advanced archi-
+tecture called vision transformer. In (Dosovitskiy et al., 2021) proposed 
+work, the attention mechanism is focused as network's core component 
+for capturing long-range relationship among complex structure of image 
+data.  The  vision  transformer  processes  each  input  image  as  patches 
+where they are treated as tokens by NLP model. Then the model pro-
+cessed the tokens to learn more about the visual representation of the 
+input. Hence, in comparison to CNN techniques, transformer-based re-
+sults  demonstrated  state-of-the-art  performance  by  processing  more 
+deep features in limited computational resources. Subsequently, vision 
+transformer is applied along with hyper-head attention mechanism for 
+bird  sound  recognition  (Tang  et  al.,  2023).  In  this  work,  author  has
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the purpose of the deep learning model (e.g., classification, segmentation, detection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The purpose of the deep learning model discussed in the provided context is for the classification of bird species based on their calls. This is achieved through the use of hybrid CNN-LSTM architectures, which combine the temporal modeling abilities of LSTM networks with the feature extraction capabilities of convolutional neural networks (CNNs). Additionally, the Wav2Vec model is employed to extract features from raw audio signals of various bird species, resulting in a 768-dimensional vector. These vectors serve as inputs to a series of dense layers with ReLU activation functions, followed by a classification layer with a sigmoid activation function. Ultimately, the goal of this deep learning model is to accurately categorize different bird species based on their unique vocalizations.

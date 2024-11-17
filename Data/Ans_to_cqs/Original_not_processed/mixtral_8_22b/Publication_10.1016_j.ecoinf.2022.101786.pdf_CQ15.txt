@@ -1,0 +1,65 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Some model parameters were modified from the default configura-
+tion to balance use of resources and training speed. We retained a res-
+olution of 704 × 704, batch size 64, 32 subdivisions and trained up to 
+6000 iterations. Other parameters were kept to default or set according 
+to guidance by the developers (https://github.com/AlexeyAB/darknet). 
+Manual annotations were used to generate training, validation and 
+testing  datasets.  Biigle  annotations  (label  name,  centre  x,  center  y, 
+
+EcologicalInformatics71(2022)1017863N. Piechaud and K.L. Howell
+
+This optimum point for best performances was sought by interrupting 
+the CNN training before it loses capacity to generalize, or early stopping 
+(Ying, 2019). Performances were calculated for CNNs trained with 1000, 
+2000, 3000, 4000, 5000 and 6000 iterations in order to detect the point 
+where performance was best and thus avoid overfitting. During testing, 
+every object detected with a confidence value >0.05 were recorded so 
+that  higher  thresholds  could  later  be  applied.  Performances  were 
+calculated with confidence thresholds of 0.05, 0.3 (the default), 0.5 and 
+0.9 and compared to select the threshold that maximized the TP while 
+keeping FP to a reasonable level.
+
+2.5. Model selection 
+
+CNNs are sensitive to overfitting (Domingos, 2012). Throughout the 
+training process, the algorithm goes through cycles of training on the 
+training set - evaluating performance on the validation set – adjusting 
+CNN node weights – before repeating the entire cycle. These cycles are 
+referred to as epochs or iterations when the training dataset is too large 
+to  be  processed  in  one  stroke  and  needs  to  be  subdivided  in  several 
+smaller batches as is the case in this study. There is an optimum number 
+of iterations before the performance on the validation and training sets 
+(independent data that the CNN has not seen) start to diverge as the CNN 
+overfits  and  becomes  more  specialized  at  predicting  the  training  set 
+while becoming less able to predict the validation set (generalization).
+
+Training  the  CNN  took  approximately  18  h  to  complete  the  6000 
+iterations. Measuring the accuracy of the different CNNs and the effect of 
+different confidence thresholds took several hours but could be further 
+automated. Predictions on the 58,148 images took approximately 10 h 
+however  the  training  and  predictions  phases  do  not  require  constant 
+supervision and can be performed overnight or while the analysist is free 
+to attend to other tasks. Finally, the calculation-intensive nature of the 
+training, and to a lesser extent, prediction phases makes their duration 
+largely  dependent  on  the  hardware  used  and  thus  may  vary  between 
+users. Overall, the whole pipeline could be completed within one or two 
+weeks (10 days) once the analysists are familiar with it. 
+
+4. Discussion
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text does not provide explicit information about which specific optimization technique such as Stochastic Gradient Descent (SGD) or Adaptive Moment Estimation (Adam) was used during the deep learning pipeline. However, it mentions that the Convolutional Neural Network (CNN) went through cycles of training on the training set, evaluating performance on the validation set, and adjusting CNN node weights. This suggests that some form of gradient descent optimization method was employed to update the network weights based on the error computed from the loss function. Additionally, the concept of early stopping is mentioned, which is a regularization technique used to prevent overfitting by halting the training process before the model starts to lose its ability to generalize well to unseen data.

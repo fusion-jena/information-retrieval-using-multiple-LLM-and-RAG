@@ -1,0 +1,56 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We  have  provided  further  evidence  that  individual  modeling  ap-
+proaches perform better when the number of background points used to 
+train each model is optimized for that particular modeling algorithm. 
+Given the popularity of ensemble modeling approaches in the scientific 
+literature,  we  went  further  and  demonstrated  how  the  number  of 
+background  points  used  to  train  individual  models  can  influence  the 
+performance of ensemble models. We tested ensemble models built with 
+four combinations of background points and found that the ensemble 
+performed slightly better (based on AUC) when all individual models 
+used  to  train  the  ensemble  were  built  with  their  optimal  number  of 
+background points (Fig. 4). Although there is only a small increase in 
+performance, this potentially highlights the ability of ensemble models 
+to balance the strengths and weaknesses of the component models, even
+
+number of presences, (c) 10,000 background points, and (d) optimized background points for each component 
+model. Among regression-based approaches, MARS performed best when built with 10,000 background points. 
+Among machine learning models, RF performed the best when built with equal presences and background points. 
+Among the four ensemble models, AUC indicated that the best performing model was the ensemble with each 
+component model including the optimized number of background points, while TSS increased as the number of 
+background  points  models  increased.  We  found  that  an  ensemble  of  models,  each  trained  with  an  optimal 
+number of background points, outperformed ensembles of models trained with the same number of background 
+points, although differences in performance were slight. When using a single modeling method, RF with equal 
+number of presences and background points can perform better than an ensemble model, but the performance
+
+2.8. Training individual models 
+
+To train the component models for the ultimate ensemble models, we 
+used  six  modeling  approaches,  categorized  into  regression-based  and 
+machine  learning models. Regression-based  models included General-
+ized Linear Models (GLMs), Generalized Additive Models (GAMs), and 
+Multivariate  Adaptive  Regression  Splines  (MARS).  Machine  learning 
+models included Random Forest (RF), Artificial Neural Networks (ANN), 
+and Maximum Entropy software (MaxEnt). We built all models using the 
+biomod2 package in R (Thuiller et al., 2021).
+
+0.213 (threshold = 0.260). For each modeling algorithm, we compared 
+AUCs between the three background point selections and selected the 
+model  with  the  highest  AUC  as  the  “optimal”  number  of  background 
+points for that particular algorithm for this data, reported in Table S2.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text does not provide information about specific optimization techniques such as Stochastic Gradient Descent (SGD) or Adam that are typically used in deep learning pipelines. However, it mentions that different numbers of background points were used to train each model, and the number of background points was optimized for each particular modeling algorithm. This suggests that some form of hyperparameter tuning or optimization was employed to find the optimal number of background points for each algorithm. Additionally, the use of various modeling algorithms like GLMs, GAMs, MARS, RF, ANN, and MaxEnt indicates that multiple methods were explored to build the most accurate models possible.

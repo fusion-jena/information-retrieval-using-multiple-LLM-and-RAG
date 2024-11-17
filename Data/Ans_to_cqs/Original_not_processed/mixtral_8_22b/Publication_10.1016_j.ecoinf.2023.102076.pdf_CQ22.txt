@@ -1,0 +1,113 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.4. Performance evaluation 
+
+We evaluated the performance of all classifiers using several metrics, 
+including  precision  (specificity;  the  proportion  of  texts  identified  as 
+relevant that were actually relevant), recall (sensitivity; the proportion 
+of relevant text correctly identified as relevant) and F1 score (the har-
+monic mean of recall and precision). These metrics are more informative 
+than accuracy, which is highly influenced by the balance of classes in the 
+testing data. The experiments outlined below were repeated for each of 
+the  three  models  (Naive  Bayes,  Neural  Network  and  BERT),  for  each 
+classification task, to enable comparison, and for both social media posts 
+and longer web articles (Fig. 2). 
+
+To  test  the  influence  of  training  data  size  of  classification  perfor-
+mance, we iteratively increased training data from 50 to 1200 texts by 
+randomly  sampling  (without  replacement)  from  the  original  training
+
+Fig. 3. The median and ranges of F1 achieved by each model, for each classification task, when trained with 1200 gold-standard labelled texts (randomly selected). 
+(For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.) 
+
+Table 1 
+The mean (across five repeats) precision, recall, f1 score and accuracy achieved by all models, classification tasks and datasets (social media and web articles), when 
+trained with 1200 randomly selected, manually labelled texts and tested using a separate dataset.  
+
+Classification Task 
+
+Dataset 
+
+Model 
+
+Precision 
+
+Recall 
+
+1 
+1 
+1 
+2 
+2 
+2 
+3 
+3 
+3 
+1 
+1 
+1 
+2 
+2 
+2 
+3 
+3 
+3 
+
+Social Media 
+Social Media 
+Social Media 
+Social Media 
+Social Media 
+Social Media 
+Social Media 
+Social Media 
+Social Media 
+Web 
+Web 
+Web 
+Web 
+Web 
+Web 
+Web 
+Web 
+Web
+
+For the Naive Bayes and neural network model, a vector represen-
+tation of the whole text was used in the classification decision. However, 
+for web articles, the BERT model used a truncated section of the whole 
+text  (see  Methods  2.3.2):  75%,  72%  and  80%  of  web  articles  were 
+truncated in the training sets for classification tasks 1, 2 and 3, respec-
+tively. Thus, for comparability, we also tested the performance of the 
+
+EcologicalInformatics75(2023)1020765S.B. Hunter et al.
+
+Since BERT can only accept a maximum of 512 tokens as input, we 
+used smaller subsections of the longer web articles as classifier input, an 
+approach previously applied to long document classification (Fiok et al., 
+2021; Sun et al., 2019). To identify the sections of text most likely to be 
+relevant to the classification decision, documents were split into chunks 
+of 300 tokens using the NLTK word-tokenizer. Chunks that contained 
+any  of  our  original  query  terms  (i.e.  any  bat-related  or  exploitation- 
+related  term)  were  retained.  If  more  than  one  chunk  contained  key-
+words,  the  first  such  chunk  of  the  document  was  retained  for  use  in 
+model training and evaluation. Before being fed into the BERT model, 
+texts are tokenized using the BERT tokenizer. Here, we set the maximum 
+number of tokens as 400 for social media posts, as most were very short, 
+and 512 for web articles, meaning some texts would have been further 
+truncated at this step.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The performance of the deep learning model was evaluated using several metrics, including precision (also known as specificity), recall (also known as sensitivity), and F1 score. Precision measures the proportion of texts identified as relevant that were actually relevant, while recall measures the proportion of relevant texts correctly identified as relevant. The F1 score is the harmonic mean of recall and precision. These metrics are considered more informative than accuracy, which can be heavily influenced by the balance of classes in the testing data. The experiments were conducted for each of the three models (Naive Bayes, Neural Network, and BERT) and for each classification task, using both social media posts and longer web articles.

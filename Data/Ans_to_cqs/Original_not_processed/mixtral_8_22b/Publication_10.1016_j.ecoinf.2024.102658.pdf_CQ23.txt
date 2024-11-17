@@ -1,0 +1,203 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+EcologicalInformatics82(2024)1026584R. Noda et al.                                                                                                                                                                                                                                    
+
+frequently in the best-performing feature set were retained for the final 
+model  (Mechenich  et  al.,  2024).  Random  and  spatial  CV  selected 
+different feature sets, and these are compared in our final modeling and 
+analysis,  under  the  names  ‘random-CV’  and  ‘spatial-CV’  features, 
+respectively.  Lists  of  features  and  short  descriptions  are  presented  in 
+Table 1. 
+
+5.2.2. Feature scaling 
+
+We tested both raw and scaled versions of features when modeling. 
+Thus, there were four feature sets to fit per model type (raw random-CV 
+features, scaled random-CV features, raw spatial-CV features, and scaled 
+spatial-CV features).
+
+Table 1 
+The list of features. We utilize two feature sets selected through different CV 
+processes  in  a  previous  study  (Mechenich  et  al.,  2024),  which  we  name  the 
+‘random-CV’ feature set and the ‘spatial-CV’ feature set, respectively. The two 
+feature sets share six common features.  
+
+Feature set 
+
+Feature 
+Name 
+
+Source 
+
+Definition 
+
+BIO03 
+
+WorldClim 
+
+random-CV 
+
+TN10P 
+
+ETCCDI 
+
+GSL 
+
+TNX 
+
+ETCCDI 
+
+ETCCDI 
+
+BIO08 
+
+WorldClim 
+
+TXX 
+
+ETCCDI 
+
+spatial-CV 
+
+BIO02 
+
+WorldClim 
+
+TN90P 
+
+ETCCDI 
+
+ID 
+BIO14 
+BIO18 
+CWD 
+
+ETCCDI 
+WorldClim 
+WorldClim 
+ETCCDI 
+
+RX1DAY 
+
+ETCCDI 
+
+WSDI 
+
+ETCCDI 
+
+common for 
+both sets
+
+4.2.1. Baseline model: random forest 
+
+Random forest (Breiman, 2001) utilizes an ensemble of classification 
+or regression trees; each tree is grown from a bootstrap sample of the 
+training dataset, and represents a series of sequential decisions, in which 
+each node of the tree is a binary split made on a predictive feature (e.g., 
+whether  the  mean  annual  temperature  is  above  25 
+C).  Further,  a 
+random subset of features is considered when finding the optimal split at 
+each node (we use a value of sqrt(n), n being the number of potential 
+predictors, for the size of this subset). When used for classification, the 
+outputs from the component trees are put through a majority vote to 
+create a single output. This is known to be a simple but powerful method 
+of retaining the complex non-linearity of decision trees while avoiding 
+overfitting. 
+
+◦
+
+Feature set 
+
+Scaling 
+
+Setting type 
+
+Initial 
+
+Final 
+
+logistic regression 
+
+random-CV 
+
+spatial-CV 
+
+yes 
+
+no 
+
+yes 
+
+no 
+
+GAM 
+
+all feature sets and scaling 
+
+priors 
+
+priors 
+
+priors 
+
+priors 
+
+priors 
+
+argument 
+
+coefficients 
+intercept 
+coefficients 
+intercept 
+coefficients 
+intercept 
+coefficients 
+intercept 
+coefficients 
+non-linearity 
+intercept 
+basis dimension (k) 
+
+Normal(0,5) 
+Normal(0,10) 
+Normal(0,5) 
+Normal(0,10) 
+Normal(0,5) 
+Normal(0,10) 
+Normal(0,5) 
+Normal(0,10) 
+Normal(0,5) 
+Student-t(3,0,2.5) 
+Normal(0,10) 
+(cid:0) 1 (default) 
+
+Normal(0,10) 
+Normal(0,20) 
+Normal(0,10) 
+Normal(0,20) 
+Normal(0,10) 
+Normal(0,20) 
+– 
+– 
+
+Normal(0,5) or flat 
+Normal(0,1) 
+Normal(0,10) or flat 
+1 (one linear term and one non-linear term)
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of their deep learning models, R. Noda et al. employed several strategies. Firstly, they utilized diverse datasets by selecting features using two different Cross-Validation (CV) processes - 'random-CV' and'spatial-CV'. These feature sets were derived from a previous study conducted by Mechenich et al. (2024). Secondly, they performed testing with both raw and scaled versions of features, resulting in four feature sets per model type. Lastly, they applied various machine learning techniques such as logistic regression and Generalized Additive Models (GAMs) with different settings and prior distributions. However, it should be noted that the paper does not explicitly mention specific methods like stratified splitting or k-fold cross-validation.

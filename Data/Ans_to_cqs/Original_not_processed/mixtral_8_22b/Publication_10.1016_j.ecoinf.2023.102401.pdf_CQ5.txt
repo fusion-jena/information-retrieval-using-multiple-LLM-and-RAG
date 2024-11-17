@@ -1,0 +1,75 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+dataset  contains  638  images,  divided  into  seven  categories,  with  510 
+images for training and  128 for testing. The trash-ICRA19 dataset in-
+cludes 1144 images across three categories, with 915 images for training 
+and 229 for testing. The VisDrone dataset is selected as part of the Tiny 
+Target Dataset and comprises 1610 images categorized into 12 classes. 
+The training set consists of 1288 images, while the test set contains 332 
+images. NWPU VHR-10 and HRSID are small target datasets for remote 
+sensing. The NWPU VHR-10 dataset includes 800 images with ten cat-
+egories, and the training and test sets consist of 640 and 160 images, 
+respectively. The HRSID dataset contains 5604 images in one category, 
+and the training and test sets comprise 4483 and 1121 images, respec-
+tively. By testing YWnet on these diverse datasets, we aimed to assess its 
+performance in various scenarios, including marine environments and 
+detecting tiny target objects in remote sensing.
+
+their ability to automatically learn and extract low- and high-level visual 
+features  directly  from  the  data.  Traditional  methods  often  require 
+manual  feature  engineering,  where  domain-specific  knowledge  and 
+expertise are used to design handcrafted features. Deep learning algo-
+rithms,  on  the  other  hand,  can  learn  feature  representations  directly 
+from the raw input data, eliminating the need for manual feature engi-
+neering.  Efficiently  handling  these  multiscale  features  is  crucial  for 
+network performance, given their diverse resolutions. Feature pyramid 
+networks  (FPNs)  have  made  significant  advancements  by  integrating 
+multiscale  features  in  a  top-down  manner.  The  path  aggregation 
+network  (PANet)  (Liu  et  al.,  2016)  further  extends  the  FPN  by  intro-
+ducing a bottom-up path. Another notable network learning mechanism, 
+the bidirectional feature pyramid network (BiFPN) (Tan et al., 2020),
+
+To extract the input information, the SRC3 block employs a parallel 
+analysis  of  the  input  feature  map  using  two  convolution  kernels.  In 
+contrast to the C3 block, the SRC3 block incorporates two convolution 
+kernels prior to the input of the bottleneck block. One of the kernels is 
+responsible  for  halving  the  dimension  of  the  feature  map,  while  the 
+other  maintains  the  dimension  unchanged.  This  approach  allows  for 
+more  comprehensive  processing  of  the  input  features,  enabling  the 
+model  to  capture  both  high-level  semantic  information  and  preserve 
+relevant details during the feature extraction process. The convolution 
+kernel size utilized is 3 × 3, which leads to a broader receptive field of 
+information and richer characteristics compared to the 1 × 1 convolu-
+tion kernel. The output semantic information can be augmented by the 
+action of two convolution kernels. The information output from the first
+
+For the experiments, we utilized the URPC datasets, which consist of 
+a total of 1201 images. These datasets contain four object categories: 
+holothurian, echinus, scallop, and starfish. In this study, we divide the 
+experimental data into training and test sets, following an 8:2 ratio. The 
+training process of YWnet utilized a dataset consisting of 956 images, 
+while a separate test set of 244 images was used to evaluate the model's 
+generalization capabilities. This division of data into training and test 
+sets  allows  for  a  comprehensive  assessment  of  the  algorithm's  perfor-
+mance. To evaluate the generalization capabilities of YWnet, we con-
+ducted tests on five additional datasets. Table 1 provides an overview of 
+these  datasets,  including  Aquarium,  Trash-ICRA19,  VisDrone,  NWPU 
+VHR-10, and HRSID. Aquarium and Trash-ICRA19 are part of the Marine 
+Dataset, comprising marine animals and waste categories. The aquarium
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+In the given context, several datasets were mentioned as being used in the deep learning pipeline. These include the URPC dataset, which consists of 1201 images containing four object categories: holothurian, echinus, scallop, and starfish. For the experiments, the experimental data was divided into training and test sets following an 8:2 ratio, resulting in a training set of 956 images and a test set of 244 images. Additionally, the paper mentions conducting tests on five more datasets to evaluate the generalization capabilities of YWnet. These datasets include Aquarium, Trash-ICRA19, VisDrone, NWPU VHR-10, and HRSID. Aquarium and Trash-ICRA19 are part of the Marine Dataset, which comprises marine animals and waste categories. However, specific details about the number of images or classes in each of these datasets are not explicitly stated in the provided context.

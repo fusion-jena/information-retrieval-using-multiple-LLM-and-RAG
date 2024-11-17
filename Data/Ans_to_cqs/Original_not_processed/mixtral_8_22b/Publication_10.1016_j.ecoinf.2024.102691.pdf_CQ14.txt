@@ -1,0 +1,75 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+was analysed using various evaluation matrices. During model training, 
+the input image size was set to 512 × 512 and the maximum batch size 
+was limited to 4. To prevent underfitting, all models were ensured to 
+follow back-propagation after accumulating the batch size 32 times. The 
+models were trained using a stochastic gradient descent (SGD) optimizer 
+with an initial learning rate of 0.01 and a cycle learning rate of 0.2, with 
+
+EcologicalInformatics82(2024)1026917S. Kaukab et al.
+
+(2) 
+
+The notation “[:; :; x, y, 4:]” means that we are selecting all elements 
+along the batch size and height dimensions. For each location (x, y), we 
+are  selecting  elements  starting  from  the  4th  channel  onward.  The 
+resulting shape will be [batch size, height, width, channels - 4]. w(n) [x, 
+y, 1] is an indexing operation that selects a specific element from w(n) at 
+the (x, y) location and channel index 1. The resulting shape will be a 
+scalar value. 
+
+To create the depth-attention matrix, the depth map was first pro-
+cessed to create a JET pseudo-colour image. The image transforms into a 
+two-dimensional  (2D)  matrix  known  as  a  depth  map  (Dmap),  which 
+contains values ranging from 0 to 255. This matrix represents the depth 
+information of the image and is utilized in Eq. (3) for further processing 
+or analysis. The dimensions of the pooled Dmap matrix in this equation 
+are the same as those of n, input tensor. The pooled depth map matrix
+
+EcologicalInformatics82(2024)1026916S. Kaukab et al.                                                                                                                                                                                                                                 
+
+Fig. 9. Architecture of YOLOv5 with depth attention.  
+
+Fig. 10. YOLOv5 components mechanism.  
+
+method is compared and tested against other methods and fruits using 
+different input modals and fusion techniques. 
+
+3.1. Network training and hyper-parameters 
+
+The impact of using multi-modal information on model performance
+
+Attention = f (w(n) , n)
+
+(1)  
+
+where,  n  represents  the  input  tensor  with  shape  [batch_size,  height, 
+width, channels].  It contains the input  data or feature map  used in a 
+neural network, w(n) is a weight tensor derived from n, typically ob-
+tained through some form of learned parameters or coefficients, and f (w 
+(n), n) represents the process of treating the input feature n. 
+
+The network architecture of the depth-attention YOLOv5 is shown in 
+Fig. 10. Unlike other attention mechanisms that are usually introduced 
+earlier in the network and trained along with the other layers, the depth- 
+attention mechanism was placed after the final processing layers of the 
+detection model. It remains unchanged and does not adapt during the 
+training  process.  This means that the depth-attention  weights are not 
+updated  during  training  and  remain  fixed  throughout  the  learning
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it appears that the model was trained using a stochastic gradient descent (SGD) optimizer with an initial learning rate of 0.01 and a cycle learning rate of 0.2. However, there is no explicit mention of how the hyperparameters of the model were optimized, such as whether they used grid search, random search, or any other optimization technique. Therefore, based solely on the provided context, I cannot provide a definitive answer to how the hyperparameters of the model were optimized.

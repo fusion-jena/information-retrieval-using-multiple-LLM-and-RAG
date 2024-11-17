@@ -1,0 +1,183 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Due to processing limitations in GEE, it is impossible to utilize many 
+samples and automate hyperparameter tuning. To fill this gap and avoid 
+overfitting,  the  validation  data  were  employed  for  tuning  the  key 
+hyperparameters for each model. Table 3 presents the hyperparameters 
+set for each model during training and validation. 
+
+5.3.2. Pixel-based approach 
+
+The  pixel-based  classification  approach  relies  on  the  spectral 
+
+Table 3 
+Hyperparameters were set for each machine learning technique within the GEE 
+platform.  
+
+Model 
+
+CART   
+
+RF   
+
+GTB   
+
+SVM   
+
+Hyperparameters 
+
+• Max nodes: No limit  
+• Min leaf population: 1 
+
+• Number of trees: 264  
+• Bag fraction: 0.5  
+• Variables per split: Root of the number of variables 
+
+• Number of trees: 20  
+• Shrinkage: 0.005  
+• Sampling rate: 0.7  
+• Loss: Least absolute deviation 
+
+• Kernel type: RBF  
+• SVM type: C_SVC  
+• Decision procedure: Voting
+
+Table 1 
+USGS 24 LULC classes defined for WRF simulation.  
+
+Category Index 
+
+Name of the Category 
+
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+
+Urban and Built-up Land 
+Dryland Cropland and Pasture 
+Irrigated Cropland and Pasture 
+Mixed Dryland/Irrigated Cropland and Pasture 
+Cropland/Grassland Mosaic 
+Cropland/Woodland Mosaic 
+Grassland 
+Shrubland 
+Mixed Shrubland/Grassland 
+Savanna 
+Deciduous Broadleaf Forest 
+Deciduous Needleleaf Forest 
+Evergreen Broadleaf 
+Evergreen Needleleaf 
+Mixed Forest 
+Water Bodies 
+Herbaceous Wetland 
+Wooden Wetland 
+Barren or Sparsely Vegetated 
+Herbaceous Tundra 
+Wooden Tundra 
+Mixed Tundra 
+Bare Ground Tundra 
+Snow or Ice
+
+the inability to split further, is met. This algorithm is simple, fast, and 
+highly interpretable (Gislason et al., 2006). It is important to note that 
+CART models can be susceptible to overfitting without proper tuning of 
+input  parameters.  In  this  research,  by  evaluating  the  model's  perfor-
+mance  using  validation  data,  it  was  determined  that  setting  the  Max 
+Nodes parameter to its default value (no limit on the number of nodes) 
+
+EcologicalInformatics80(2024)10249810M. Ganjirad and H. Bagheri                                                                                                                                                                                                                  
+
+yielded better results.
+
+5.4.3. Performance evaluation 
+
+For  evaluating  the  performance  of  the  generated  LULC  map  in 
+simulating meteorological parameters, statistical metrics such as Root 
+
+Mean Square Error (RMSE), Mean Absolute Error (MAE), and Bias were 
+defined below: 
+
+RMSE =
+
+∑n
+
+̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+√
+1
+(yi (cid:0) ̂yi)2
+n
+
+i=1
+
+, MAE =
+
+=
+
+1
+n
+
+∑n
+
+(yi (cid:0) ̂yi),
+
+i=1
+
+1
+n
+
+∑n
+
+i=1
+
+∣yi (cid:0) ̂yi∣, Bias
+
+(5)  
+
+where  ̂yi  and  yi  are  the  predicted  and  measured  values  of  the  target 
+meteorological parameters at the location of station i, respectively, and n 
+denotes the number of the ground stations. 
+
+6. Results 
+
+6.1. Result of pixel-based and object-based classifications 
+
+Depending  on  the  strategy  used  for  LULC  classification,  including 
+pixel-based  and  object-based  approaches,  various  ML  models  were 
+implemented and evaluated during warm and cool seasons. The results
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+According to the given context, the hyperparameters of the model were not optimized using methods like grid search or random search due to processing limitations in Google Earth Engine (GEE). Instead, they utilized validation data for tuning the key hyperparameters for each model to prevent overfitting. The specific hyperparameters set for each model during training and validation are presented in Table 3. However, the exact methodology used for selecting these hyperparameters is not explicitly mentioned in the provided context.

@@ -1,0 +1,86 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The dataset was divided into training (60%), validation (20%), and 
+testing (20%) subsets for model evaluation and hyperparameter search 
+(Fig. 3 (b)). This approach was chosen to obtain an unbiased estimation 
+of  error.  Data  augmentation  was  only  applied  to  the  training  data  to 
+avoid overlapping the same data in different partitions. To evaluate the 
+models we used the coefficients of determination (R2  - calculated as the 
+squared  Pearson's  correlation  coefficient),  which  measures  the  per-
+centage of variation in the response variable explained by the model. 
+Additionally,  we  used  the  root  mean  squared  error  (RMSE)  metric, 
+where  RMSE =
+,  with  Yi = the  actual  values  pine 
+̂
+Y i = the predicted pine cove values. In our work, RMSE 
+cover values and 
+values ranged from 0.0 to 1.0, with values closer to 0 indicating better 
+model  predictions.  The  overfitting  was  assessed  by  comparing  model
+
+of the models. For instance, Mil`a et al. (2022) used the Nearest Neighbor 
+Distance Matching (NNDM) LOO CV method to delineate a geographic 
+space  in  which  predictions  can  be  made.  Many  of  these  approaches 
+accurately  demonstrate  the  model's  transfer  learning  capabilities,  yet 
+they  impose  limitations  on  the  training  domain,  leading  to  reduced 
+training  heterogeneity  (Meyer  and  Pebesma,  2021).  However,  con-
+ducting large CV experiments with deep learning-based models is often 
+infeasible due to  their high computational costs. Deep  learning-based 
+models  typically  employ  simple  data  partitioning  strategies,  such  as 
+training, validation, and testing (Ocer et al., 2020). This simple scheme 
+can help to add heterogeneous information to the training procedure, 
+but may also overlook the diversity of heterogeneous spatial information 
+in remotely sensed data that is aligned with different learning domains
+
+associated  with  efforts  to  enhance  the  model's  generalization  to  new 
+sites. However, the strategy of separating data into training, validation, 
+and testing aims to reduce over-training issues and evaluate the model's 
+generalization in a specific domain when cross-validation is not feasible 
+(Karystinos and Pados, 2000; Liu et al., 2008). Therefore, experimenting 
+with different sites or spatially distinct areas in training, validation, and 
+testing  does  not  guarantee  generalization  to  new  sites,  which  may 
+exhibit unique spatial variability and represent a different domain. It is 
+also important to mention that when the training data is scarce and not 
+representative, the transfer learning of the models is impossible in areas 
+with  conditions  very  different  from  the  training  data  (Meyer  and 
+Pebesma,  2021).  However,  as  far  as  possible,  it  is  recommended  to 
+evaluate  the  similarity  between  training  data  (source  domain)  and
+
+We applied the  standard machine learning hyperparameter  search 
+over  two  sites  because  of  computational  cost.  In  our  research,  we 
+considered the activation function, the optimizer, and the learning rate. 
+In addition, we performed an exhaustive search for the fully connected 
+architecture for all mono-site and multi-site models. In all these cases, 
+we compare the training, validation, and testing performance to avoid 
+overfitting.  We  could  have  achieved  the  same  results  using  hyper-
+parameter search software such as Optuna and Sklearn. However, even 
+though they could save coding time, we prefer to control every aspect of 
+the process to avoid problems. The hyperparameter search involved a 
+small grid search selecting the following hyperparameters and values:  
+
+1.  Hidden activation function: ReLU, sigmoid, or elu,  
+2.  Optimizer: RMSprop or adam  
+3.  Learning rate: 0.1, 0.001, 0.0001, and 0.00001.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of the deep learning model, several measures were taken. Firstly, the dataset was divided into three subsets: training (60%), validation (20%), and testing (20%). This division aimed to provide an unbiased estimation of error and prevent overfitting. Data augmentation was applied solely to the training data to avoid duplication across different partitions.
+
+Secondly, the models were evaluated using the coefficients of determination (R2) and the root mean squared error (RMSE) metrics. These metrics helped measure the percentage of variation in the response variable explained by the model and quantify the difference between the actual and predicted values, respectively.
+
+Thirdly, the issue of overfitting was addressed by comparing the performance of the models on the training, validation, and testing datasets. Overfitting occurs when a model performs well on the training data but poorly on the validation and testing data. By monitoring the performance on all three datasets, the researchers ensured that the model did not become too specialized to the training data.
+
+Lastly, while conducting large cross-validation experiments with deep learning-based models can be computationally expensive, the researchers acknowledged the importance of evaluating the model's generalization to new sites. They mentioned that experimenting with different sites or spatially distinct areas in training, validation, and testing does not guarantee generalization to new sites, especially if those sites exhibit unique spatial variability and represent a different domain.
+
+However, the researchers did not explicitly state whether they employed techniques like stratified sampling or cross-validation to further improve the model's generalizability. Instead, they focused on controlling every aspect of the hyperparameter search process to avoid potential problems.

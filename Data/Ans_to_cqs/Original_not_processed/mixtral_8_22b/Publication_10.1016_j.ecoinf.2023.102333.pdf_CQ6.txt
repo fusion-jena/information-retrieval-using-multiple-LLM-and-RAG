@@ -1,0 +1,55 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+adjustable parameters that control network architecture, optimization 
+procedure,  and  regularization.  Common  hyperparameters  include 
+number of layers and nodes, learning rate, dropout rate, etc. However, 
+optimizing  model hyperparameters  remains imperative  for leveraging
+
+Determining  the  optimal  DNN  architecture  is  an  active  area  of 
+research. Recent studies have evaluated different techniques for tuning 
+hyperparameters, such as network structure, activation functions, reg-
+ularization,  and  optimization  algorithms  (Xu  and  Liang,  2021).  For 
+instance,  Lecun  et  al.  (1998)  demonstrated  the  effectiveness  of  sto-
+chastic  gradient  descent  (SGD)  for  DNN  training.  Though it  has  been 
+shown  to  get  stuck  in  local  minima,  momentum  was  shown  to  help 
+overcome  this  by  accelerating  SGD  convergence  (Luo  et  al.,  2021). 
+Dropout  regularization  has  also proven  essential  for  controlling  over-
+fitting  as  network  depth  and  complexity  increase  (Gupta  and  Raza, 
+2020). More recently, exponential linear unit (ELU) activation functions 
+have  gained  some  traction  for  addressing  ReLU  limitations  like  dead 
+neurons  and  slow  convergence  (Alkhouly  et  al.,  2021;  Clevert  et  al.,
+
+This  study  adopted  an  automated  optimization  architecture  by 
+comparing three architecture optimization algorithms: Random Search 
+(RS), Hyperband, and Bayesian optimization. Hyperparameters of our 
+DNN model were automatically optimized according to a search grid of 
+several hyperparameters listed in Table 1. A dropout layer was added to 
+prevent overfitting and to reduce statistical noise. The dropout regula-
+rization  randomly  removed  different  sets  of  neurons  using  a  pre-
+determined  dropout  rate,  which  resulted  in  training  different  neural 
+networks and reduced overfitting (Srivastava et al., 2014). 
+
+2.6.1. Random search
+
+A search space of the primary hyperparameters was defined. Opti-
+mization  algorithms  were executed to  find  the  highest  accuracy from 
+1,788,160  hyperparameter  combinations.  Our  model  was  trained  for 
+200 epochs for each trial to find three DNN architectures that were used 
+to  build  three  models  and  train  them  for  the  entire  dataset  for  1000 
+epochs (Table 2).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The provided context does not explicitly mention any specific preprocessing steps involved before training a deep learning model. However, common practices often involve data normalization or scaling, where features are rescaled to a standard range, typically between 0 and 1 or -1 and 1. This helps prevent certain features with larger scales from dominating the learning process. Data cleaning is another crucial step, involving handling missing values, removing outliers, and correcting inconsistent entries. Additionally, encoding categorical variables into numerical form may be necessary if the model requires numeric input. Lastly, splitting the dataset into training, validation, and testing subsets is important for evaluating model performance accurately.

@@ -1,0 +1,11 @@
+Answer:::
+
+The process followed to deploy the trained deep learning model, as described in the given context, includes model serialization and platform selection. The models were trained and tested on Microsoft Azure, using the Data Science Virtual Machine and a NCv2-series virtual machine with NVIDIA Tesla P100 GPU for most of the experiments. However, in a specific instance, a ResNet152V2 model was trained on CPU hardware, using a virtual machine running the "E2asV4" instance on Microsoft Azure with 16GB RAM and a 2.35Ghz AMD EPYC™ 7452 2 vCPU.
+
+After training the models, they were deployed by serializing the models to save the architecture and learned parameters. This allows for the models to be easily loaded and used for making predictions on new data. The context does not explicitly mention the specific format used for serialization, but it is a common practice to use formats like HDF5, JSON, or protocol buffers for model serialization.
+
+In the case of the ResNet152V2 model trained on CPU hardware, the trained model was used to demonstrate the feasibility of training pre-trained models on less expensive hardware, making them accessible to researchers and practitioners with limited resources.
+
+For another experiment, a custom model was created by extracting three layers (the first convolution, first pooling, and second convolution) from a ResNet18 model pre-trained on ImageNet and adding a fully connected output layer. This custom model was designed to be less computationally expensive, making it suitable for low resource computational devices, and sets the premise for exploring models that are both accurate and can be executed on hardware with limited resources.
+
+In summary, the process followed for deploying the trained deep learning models involves training the models on a selected platform (Azure in this case, with various virtual machine configurations), serializing the models to save the architecture and learned parameters, and potentially creating custom models tailored for specific use cases, such as low resource computational devices.

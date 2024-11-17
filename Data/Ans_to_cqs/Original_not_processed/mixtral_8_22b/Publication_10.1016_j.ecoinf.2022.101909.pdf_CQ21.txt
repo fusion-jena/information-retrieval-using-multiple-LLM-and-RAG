@@ -1,0 +1,100 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+training and 20% for testing with the presence and absence samples. In 
+the training stage, 10% of the dataset was used as a validation subset. It 
+was likely that samples extracted from the same audio file were sepa-
+rated, both for training and for testing and validation. However, this bias 
+was  reduced,  in  the  semi-automatic  labeling  stage,  by  limiting  the 
+extraction of samples to a maximum of three per file. 
+
+The  iterative  learning  process  of  the  model  was  executed  by  pro-
+posing 50 training epochs. The early stopping method was used with a 
+patience equal to 5, to avoid overfitting. In this way, optimal training 
+was achieved at the end of the ninth epoch, reaching a maximum loss of 
+(cid:0) 3  for  the  training  and  validation  subsets 
+4.5×10
+respectively. 
+
+(cid:0) 4  and  1.1×10
+
+2.8. Evaluation
+
+The workflow is summarized in Fig. 3 in order to facilitate under-
+standing of the inputs and outputs of the techniques used throughout the 
+process. 
+
+3. Results 
+
+The UMAP technique (Fig. 4) elegantly and effectively revealed the 
+variety  and  clustering  of  the  representative  samples  given  in  both 
+feature spaces (STFT and FCT). This allowed us to predict an encour-
+aging forecast of separability in a supervised learning process. Consid-
+ering the high dimensionality of the hyper-vectors extracted with FCT 
+(22,000 components versus 11,136 with STFT) and the longer process-
+ing time (160 ms per sample versus 3 ms with STFT), the creation of 
+spectrograms for the training stage was calculated with STFT only, as 
+described in Subsection 2.4.1.
+
+(cid:0) 4  and  1.1×10
+
+2.8. Evaluation 
+
+Once the model was trained, we assessed the model’s performance 
+using the split sample subset (spectrograms of two seconds) for testing. 
+Thus, we did not use those samples in the training stage. The multiclass 
+predictions of the model were assessed with the typical indicator series: 
+true  positives  (TP),  false  positives  (FP),  true  negatives  (TN)  and  false 
+negatives (FN). Because the model gave probability values in the [0, 1] 
+range, the prediction depended on a decision threshold θ to define it as 
+positive  (presence)  or  negative  (absence).  With  these  θ-dependent 
+elemental indicators, two useful relationships were obtained, and these 
+helped assess different facets of the model performance. One of them 
+was the precision P: 
+
+P(θ) =
+
+TP
+TP + FP
+
+(1) 
+
+Eq. 1 represents the success number of all presence predictions. On 
+the other hand, the recall R expresses the proportion of well-detected 
+presence—that is: 
+
+R(θ) =
+
+We applied the transfer learning and fine-tuning technique with the 
+deep learning model ResNet50 (He et al., 2016; Tan et al., 2018), which 
+was already pre-trained on ImageNet data (Deng et al., 2009). Transfer 
+learning is a technique that enabled us to overcome the issue of shortage 
+of  training  data  and  construct  a  model  efficiently  by  transferring 
+knowledge  from  a  similar  task  to,  in  this  case,  our  target  task.  The 
+implemented  architecture  received  RGB  images  of  224×224×3  as 
+inputs—in this case, color spectrograms of two-second durations—and 
+included  only  the  feature  extraction  layers  from  the  ResNet50,  dis-
+carding the superior classification layers (known as the top network). 
+The newly created model reconfigured the top network with two fully 
+connected  layers  (FC)  that  could  learn  new  features.  To  reduce  over-
+fitting and imitate the training of a set of different models, a dropout
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: After the model training, several postprocessing steps were taken to evaluate the model's performance. Firstly, the model was tested using a separate test subset consisting of spectrograms of two-second duration, which were not included during the training phase. The multi-class predictions made by the model were evaluated using standard metrics such as True Positives (TP), False Positives (FP), True Negatives (TN), and False Negatives (FN). These metrics helped determine the accuracy of the model's predictions.
+
+Furthermore, since the model produced output probabilities between 0 and 1, a decision threshold 'θ' was established to classify each prediction as either positive (presence) or negative (absence). Using these θ-dependent elemental indicators, two important measures were derived - Precision (P) and Recall (R). Precision represented the ratio of correctly predicted presences out of all predicted presences, while Recall indicated the fraction of accurately detected presences among all actual presences.
+
+Additionally, the evaluation also considered the processing time required for extracting features using Short Time Fourier Transform (STFT) and Fast Cosine Transform (FCT). Despite the higher dimensionality of vectors generated through FCT compared to STFT, the latter was preferred due to its significantly shorter processing time.
+
+Finally, the Uniform Manifold Approximation and Projection (UMAP) technique was employed to visualize the variety and clustering of representative samples in both feature spaces (STFT and FCT). This facilitated the prediction of encouraging separability in the supervised learning process.

@@ -1,0 +1,16 @@
+The deep learning pipeline in the given context employs several optimization techniques, including Stochastic Gradient Descent (SGD) with momentum and the Adam optimizer.
+
+For the initial phase of the deep learning pipeline, where pre-trained models are used as feature extractors, the base models are frozen and loaded with weights trained on the ImageNet dataset. Here, the SGD optimizer with a learning rate of 0.5 and momentum of 0.9 is used. This classic optimization algorithm computes gradients on individual training examples, enabling faster learning and convergence [1]. Moreover, the addition of momentum helps to smooth the training process and avoid getting stuck in poor local minima [2].
+
+In the fine-tuning stage, where the top layers of the pre-trained models are trained along with the classifier layer, a different optimization technique is applied. The MobileNetV3 model is optimized using the Gradient Descent algorithm, while the MobileNetV2 model is compiled and optimized with the Adam optimizer.
+
+The Adam optimizer, a more recent development in optimization techniques, combines the advantages of two popular optimization algorithms: AdaGrad [3] and RMSProp [4]. Adam calculates individual learning rates for different parameters, making it an efficient optimization algorithm for problems with sparse gradients or noisy data [5].
+
+In summary, the deep learning pipeline described in the context utilizes Stochastic Gradient Descent with momentum for feature extraction and both Gradient Descent and Adam optimizers for fine-tuning, depending on the base model used.
+
+References:
+[1] Sutskever, I., Martens, J., Dahl, G., & Hinton, G. (2013). On the importance of initialization and momentum in deep learning. In International conference on machine learning (pp. 1139-1147).
+[2] Ruder, S. (2016). An overview of gradient descent optimization algorithms. arXiv preprint arXiv:1609.04747.
+[3] Duchi, J., Hazan, E., & Singer, Y. (2011). Adaptive subgradient methods for online learning and stochastic optimization. Journal of machine learning research, 12(7), 2121-2159.
+[4] Tieleman, T., & Hinton, G. (2012). Lecture 6.5-rmsprop: Divide the gradient by the running variance of the gradient. COURSERA: Neural Networks for Machine Learning.
+[5] Kingma, D. P., & Ba, J. (2014). Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980.

@@ -1,0 +1,73 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Transfer learning, where a model pre-trained on one dataset is re- 
+trained  to  classify  a  similar  datset,  is  one  convenient  approach  to 
+effectively  utilize  the  power  of  CNNs.  Well-known  pre-trained  archi-
+tectures such as Inception, MobileNet, and Resnet50 have recently been 
+used with great success for the classification of birds in soundscape re-
+cordings (Florentin et al., 2020; He et al., 2016; Howard et al., 2017; 
+Incze et al., 2018; LeBien et al., 2020; Sevilla and Glotin, 2017; Szegedy 
+et  al.,  2014).  Such  networks  are  typically  pre-trained  on  large  image 
+databases such as ImageNet, which contains over one million samples 
+distributed across 1000 classes (Deng et al., 2009). However, in cases 
+where  targeting  foreground  species  is  the  main  task,  or  with  more 
+acoustically sparse soundscapes, CNN architectures with far fewer (<10) 
+convolutional layers have proven more than sufficient, and indeed, may
+
+Pre-training on the both ResNet50 (He et al., 2016) and Inception 
+(Szegedy et al., 2014) neural networks did not meaningfully improve 
+classification performance, therefore this simpler architecture, similar to 
+those implemented by (Ruff et al., 2020; Sprengel et al., 2016) was used 
+instead. 
+
+2.6. Generating prediction record
+
+2.5. Convolutional neural network architecture 
+
+To classify the spectrograms, a two-dimensional convolutional neu-
+ral network (CNN) was constructed using the Python package Keras with 
+a Tensorflow backend (Abadi et al., 2015; Chollet, 2015). Each of the 
+four convolutional layers had a 3 × 3 kernel. The first two layers had 64 
+filters, while the latter two had 128 filters. Following each convolution 
+block, a batch normalization layer and max pooling layer were applied. 
+After the first convolution step, both the kernel and stride of the max 
+pooling layer were 2, while for the final three, a kernel and stride size of 
+4 were used (see Fig. 5 for more details). 
+
+These network parameters were selected using the Python optimi-
+zation library Hyperopt. Hyperopt compares the results of training the 
+network  on  different  combinations  of  parameters  using  an  oriented 
+random search (Bergstra et al., 2013).
+
+EcologicalInformatics61(2021)1012425M.M. Morgan and J. Braasch                                                                                                                                                                                                                
+
+Fig. 5. The convolutional neural network architecture.  
+
+3.2. Validation database performance 
+
+After training the neural network, the generalizability and robust-
+ness of the model was further tested on the validation dataset. In the case 
+of  the  small  portion  of  multi-label  data,  if  either  or  both  of  the  two 
+labeled classes was output as a prediction, that prediction was consid-
+ered to be correct. 
+
+The network performance on all six validation days is summarized in 
+Table 5. The average classification accuracy is 84.9%, with the lowest 
+reported  accuracy  being  81.7%,  and  the  highest  being  88.6%.  Recall 
+scores are fairly comparable.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+A two-dimensional convolutional neural network (CNN) is used in the pipeline for classifying spectrograms. This CNN is built using the Python package Keras with a TensorFlow backend. It consists of four convolutional layers, each having a 3x3 kernel. The first two layers have 64 filters, while the last two have 128 filters. After each convolution block, there is a batch normalization layer and a max pooling layer. The network parameters are chosen using the Python optimization library Hyperopt, which uses an oriented random search to compare the results of training the network on various parameter combinations.

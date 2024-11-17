@@ -1,0 +1,171 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+hyperparameters  (i.e.,  ‘AutoML’;  He  et  al.,  2021).  This  represents  an 
+important  advantage  for  non-experts  in  deep  learning,  as  it  does  not 
+require  the  manual  assembly  of  the  models  and  definition  of  their 
+hyperparameters. The AutoML procedure starts by generating a set of 
+candidate models with architectures and hyperparameters (e.g. number 
+of layers; learning rate) selected at random from a prespecified range of 
+values (see Fig. 2). Each candidate model is trained using a small subset 
+of the data (data partition At; Fig. 2) during a small number of epochs. 
+After  training,  the  performance  of  the  candidate  models  is  compared 
+using a left-out validation data set (Av; Fig. 2). The selected candidate 
+model (usually the best performing among candidates) is then trained on 
+the full training data (Bt; Fig. 2). In this step it is required to identify an 
+optimal number of training epochs, to avoid under- or overfitting of the
+
+0.91 
+
+Architecture 
+
+Case study 2 
+
+ResNet 
+InceptionTime 
+LSTM 
+CNN 
+ResNet 
+LSTM 
+InceptionTime 
+CNN 
+CNN 
+ResNet 
+InceptionTime 
+LSTM 
+ResNet 
+CNN 
+InceptionTime 
+LSTM 
+CNN 
+InceptionTime 
+LSTM 
+ResNet 
+
+Accuracy of 
+candidate 
+models (% 
+correct) 
+
+AUC of 
+selected 
+model 
+
+Architecture 
+
+Accuracy of 
+candidate 
+models (% 
+correct) 
+
+0.67  
+0.63  
+0.52  
+0.82 
+0.61  
+0.52  
+0.67  
+0.52  
+0.48  
+0.67  
+0.66  
+0.52  
+0.66  
+0.77  
+0.67  
+0.52  
+0.52  
+0.75  
+0.52  
+0.7  
+
+0.95 
+
+Case study 3 
+
+ResNet 
+InceptionTime 
+LSTM 
+CNN 
+ResNet 
+LSTM 
+InceptionTime 
+CNN 
+CNN 
+ResNet 
+InceptionTime 
+LSTM 
+ResNet 
+CNN 
+InceptionTime 
+LSTM 
+CNN 
+InceptionTime 
+LSTM 
+ResNet 
+
+0.5  
+0.81 
+0.8  
+0.69  
+0.5  
+0.81  
+0.76  
+0.51  
+0.5  
+0.49  
+0.5  
+0.75  
+0.5  
+0.66  
+0.5  
+0.61  
+0.5  
+0.51  
+0.77  
+0.5
+
+The  training  and  internal  validation  of  deep  learning  models  are 
+sensitive to strong class imbalance (i.e., when one or several classes have 
+a  much  higher  number  of  samples).  Strong  class  imbalance  can  bias 
+models towards the prediction of majority classes (Menardi and Torelli, 
+2014) and reduces the reliability of performance metrics such as accu-
+racy sensu stricto (i.e., the proportion of correct predictions to the total 
+number  of  samples),  which  is  used  for  the  automated  selection  of 
+candidate models in mcfly (van Kuppevelt et al., 2020). Accordingly, we 
+balanced  our  data  by  randomly  duplicating  presence  records  and  de-
+leting absence records until a balance of ~50:50 is obtained, which was 
+executed using the ROSE package (Lunardon et al., 2014) for R (R Core 
+Team, 2020). This was done for the data sets that mcfly uses for internal 
+assessment of accuracy s.s. (At, Av and Bt, Fig. 2). Data partitioning was
+
+demanding, alternatives. Research efforts should also attempt to identify 
+the deep learning architectures and hyperparameters that are best suited 
+for specific ecological phenomena and data types. Thus far, classification 
+performances  from  distinct  deep  learning  typologies  were  compared 
+using time series data coming from multiple domains (e.g. Fawaz et al., 
+2019), and the relevance of these results to ecology remains uncertain. 
+Differently  from  feature-based  approaches,  deep  learning  ap-
+proaches  allow  classifying  phenomena  directly  from  raw  time  series 
+data,  a  characteristic  that  requires  ecologists  to  think  more  critically 
+about the temporal component of the phenomena being classified. This 
+increased  relevance  of  the  temporal  dimension  was,  perhaps,  best 
+illustrated by using continuous climate data (cid:0)
+instead of the usual long- 
+term climate averages (cid:0)
+for predicting the potential distribution of a
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about handling randomness in the deep learning pipeline, such as managing random seed values. However, it mentions the use of AutoML procedures, which could potentially address some aspects of randomness. AutoML generates a set of candidate models with architectures and hyperparameters chosen randomly within a predefined range. After training each candidate model on a small subset of data, their performances are evaluated using a separate validation dataset. The best-performing model is then selected and trained further on the entire training dataset. While this process involves some level of randomness, it aims to find the most suitable architecture and hyperparameters for a given task through systematic exploration rather than relying solely on chance. Nevertheless, the management of random seeds specifically is not discussed in the provided context.

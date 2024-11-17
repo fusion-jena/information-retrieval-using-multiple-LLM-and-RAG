@@ -1,0 +1,79 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.2. Performance evaluation and results
+
+model (Sowmya et al., 2020). The best model is selected comparing the 
+performance scores of all possible combinations of hyperparameters.
+
+(in steps of 10);  
+
+4.  Minimum number of samples required to split a node (samples split): 
+
+2, 5, 10; 
+
+5. Minimum  number  of  samples  required  at  each  leaf  node  (sam-
+
+ples leaf): 1, 2, 4;  
+
+6.  Method of selecting samples for training each tree (bootstrap): True 
+
+or False;  
+
+7.  Parameter  for  minimal  cost-complexity  pruning  (cpp alpha):  from 
+
+0 to 0.06 (in steps of 4⋅10
+
+(cid:0) 4). 
+
+The following setup was chosen for investigation since it achieved the 
+best  prediction  accuracy:  1000  trees,  max features  = auto,  50  levels, 
+samples split = 2, samples leaf = 2, bootstrap = True, cpp alpha = 0. 
+Finally,  feature  analysis  was  performed  to  test  different  combina-
+tions  of  the  input  features  among  a  set  of  12  different  possibilities. 
+Moreover, ML algorithms were also exploited to compensate for missing 
+values in the dataset, as detailed in the following Section 3.3.5. 
+
+3.3.5. Prediction algorithms and gap filling
+
+3.3.4. Model hyperparameters selection 
+
+For  both  MLP  and  RF  predictors,  the  grid  search  technique  was 
+applied to compute the optimum values of hyperparameters. Regarding 
+the MLP, the network was implemented with an input layer, 3 hidden 
+layers, and  an output layer. In the model selection  phase, the perfor-
+mance  obtained  using  different  hyperparameters  was  compared.  Spe-
+cifically, the following hyperparameters were tested:  
+
+1.  Solvers:  Limited-Broyden–Fletcher–Goldfarb–Shanno 
+
+(L-BFGS), 
+Adam,  Stochastic  Gradient  Descent  (SGD)  with  constant  learning 
+rate, SGD with adaptive learning rate;  
+
+2.  Number of neurons in the hidden layers: from 1 to 100;  
+(cid:0) 2, 10
+(cid:0) 1, 10
+3.  Regularization factor “alpha” (L2 penalty): 10
+4.  Activation function: identity, logistic, tanh, ReLU;  
+5.  Learning Rate: constant, invscaling, adaptive. 
+
+(cid:0) 3, 10
+
+(cid:0) 4;
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the given context, the strategy implemented to monitor the model performance during training involves the use of grid search technique for both Multilayer Perceptron (MLP) and Random Forest (RF) predictors. This technique is used to compute the optimum values of hyperparameters. For the MLP, the network is implemented with an input layer, three hidden layers, and an output layer. During the model selection phase, the performance obtained using different hyperparameters is compared. Specifically, the following hyperparameters are tested: solvers (Limited-Broyden–Fletcher–Goldfarb–Shanno, Adam, Stochastic Gradient Descent with constant learning rate, and Stochastic Gradient Descent with adaptive learning rate), number of neurons in the hidden layers (from 1 to 100), regularization factor "alpha" (L2 penalty), activation function (identity, logistic, tanh, ReLU), and learning rate (constant, invscaling, adaptive). Similarly, for the RF predictor, various hyperparameters such as the maximum depth of the tree, minimum number of samples required to split a node, minimum number of samples required at each leaf node, method of selecting samples for training each tree, and parameter for minimal cost-complexity pruning are considered. The best model is then selected by comparing the performance scores of all possible combinations of these hyperparameters.

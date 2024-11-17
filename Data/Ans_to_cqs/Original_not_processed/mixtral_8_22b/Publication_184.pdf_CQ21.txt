@@ -1,0 +1,104 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+In  order  to  train  the  model,  it  is important to provide not only 
+the  class  of  the  object  but  also  the  bounding  box  data  of  the 
+object  as  correct  answer.  In  this  context,  we  parsed  the  x,  y 
+coordinates, width and height of the fish in the annotation of the 
+image’s  dataset.  In  addition,  we  used  data  augmentation  to 
+extend the amount of data. 
+
+The  model  has  better  performance  as  number  of  epochs 
+increases.  However,  when  number  of  epochs  exceeds  200,  the 
+network  seems  to  be  overfitted  to  training  data.  As  a  result, 
+Table  I  shows  the  hyper-parameters  used  to  train  and  validate 
+the Yolo model. 
+
+Number 
+of 
+iterations 
+4000 
+
+Number 
+of 
+epochs 
+200 
+
+Learning 
+rate 
+
+Batch 
+size 
+
+Subdivisions 
+
+0.001 
+
+16 
+
+64 
+
+Table 1. Hyper-parameters to train the Yolo model.
+
+The graph illustrates the loss while training the neural network 
+and the average loss is reduced to 0.54%. That means the model 
+is  affected  by  training  data.  A  total  of  4000  iteration  were  run 
+and  it  took  14  hours  to  complete  the  training.  The  model 
+improved swiftly in terms of precision, recall and mean average 
+precision  before  plateauing  after  about  1000  iterations,  and 
+around 1000 iterations the loss showed a rapid decline. 
+
+For  each  epoch,  64  images  are  randomly  selected  and  used  to 
+train  the  model.  Each  image  is  used  multiple  times  due  to  the 
+limited  number  of  samples.  Figure  8,  shows  some  training 
+samples, and the number zero indicates the fish class. 
+
+Figure 8. Training samples.
+
+Figure 3. Some examples of the data augmentation step: (a) 
+original image, (b) horizontal flip, (c) image cropping, (d) 
+grayscale, (e) image blur up to 10px, (f) image noise up to 10% 
+of pixels 
+
+3.  METHODOLOGY
+
+Where:   N x N: is the number of the grid cells of the system 
+               3: to decode the features extracted from each of the 3           
+               scales  
+               4 + 1: to decode the bounding boxes offsets +  
+               objectness score 
+               C: is the number of classes we train our model on.  
+
+This permits to induce better semantic information from the up-
+sampled features and finer-grained information from the earlier 
+feature map.  
+
+Figure 2. Fish samples with different environment 
+circumstances: (a) separated fish in seagrass, (b) a shoal (a 
+group of fish), (c) tiny fish, (d) occlusion by corals, and (e) 
+shading and light conditions.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training process, there are several postprocessing steps that can be taken to evaluate and analyze the trained model. These include:
+
+1. **Metrics Calculation**: This involves calculating various metrics such as Precision, Recall, F1 Score, Mean Average Precision (mAP), etc. These metrics help in understanding how well the model performed during training and validation. For instance, the text mentions that the model improved swiftly in terms of precision, recall, and mean average precision before plateauing after about 1000 iterations.
+
+2. **Confusion Matrix**: This is a table layout that allows visualization of the performance of an algorithm. It provides insights into the false positives and negatives made by the model. While the given context does not explicitly mention confusion matrices, they are often used for evaluating models like YOLO.
+
+3. **Visualizations**: Visualizing the results of the model predictions can be helpful in understanding its performance. This could involve drawing bounding boxes around detected objects or creating saliency maps which highlight areas of importance in the input image. Although these specific techniques aren't mentioned in the provided context, they are common practices in computer vision tasks.
+
+4. **Model Evaluation**: After training, the model needs to be evaluated using unseen test data to understand its generalizability. Overfitting was observed when the number of epochs exceeded 200, indicating the need for careful evaluation to ensure the model doesn't perform poorly on new data.
+
+However, please note that the exact postprocessing steps may vary depending on the specific requirements and goals of the project. The context provided does not detail any specific postprocessing steps beyond those related directly to the training process itself.

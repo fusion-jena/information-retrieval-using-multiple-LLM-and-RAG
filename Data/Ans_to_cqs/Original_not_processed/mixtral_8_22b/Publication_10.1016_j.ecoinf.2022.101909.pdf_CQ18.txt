@@ -1,0 +1,95 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+training and 20% for testing with the presence and absence samples. In 
+the training stage, 10% of the dataset was used as a validation subset. It 
+was likely that samples extracted from the same audio file were sepa-
+rated, both for training and for testing and validation. However, this bias 
+was  reduced,  in  the  semi-automatic  labeling  stage,  by  limiting  the 
+extraction of samples to a maximum of three per file. 
+
+The  iterative  learning  process  of  the  model  was  executed  by  pro-
+posing 50 training epochs. The early stopping method was used with a 
+patience equal to 5, to avoid overfitting. In this way, optimal training 
+was achieved at the end of the ninth epoch, reaching a maximum loss of 
+(cid:0) 3  for  the  training  and  validation  subsets 
+4.5×10
+respectively. 
+
+(cid:0) 4  and  1.1×10
+
+2.8. Evaluation
+
+(cid:0) 4  and  1.1×10
+
+2.8. Evaluation 
+
+Once the model was trained, we assessed the model’s performance 
+using the split sample subset (spectrograms of two seconds) for testing. 
+Thus, we did not use those samples in the training stage. The multiclass 
+predictions of the model were assessed with the typical indicator series: 
+true  positives  (TP),  false  positives  (FP),  true  negatives  (TN)  and  false 
+negatives (FN). Because the model gave probability values in the [0, 1] 
+range, the prediction depended on a decision threshold θ to define it as 
+positive  (presence)  or  negative  (absence).  With  these  θ-dependent 
+elemental indicators, two useful relationships were obtained, and these 
+helped assess different facets of the model performance. One of them 
+was the precision P: 
+
+P(θ) =
+
+TP
+TP + FP
+
+(1) 
+
+Eq. 1 represents the success number of all presence predictions. On 
+the other hand, the recall R expresses the proportion of well-detected 
+presence—that is: 
+
+R(θ) =
+
+CNN training was run successfully, and the optimized weights of the 
+model were stored. To evaluate the predictive performance in the testing 
+dataset, we plotted the P (cid:0) R curves of all classes on the same graph 
+(Fig. 5). The points of each curve closest to the coordinate (1, 1) corre-
+spond to the best performance in the prediction, with the threshold θ 
+associated with that point. The observed performance was ideal in the 
+Scytalopus  magellanicus class  and very  close to the ideal in a majority 
+group of classes. The curves that were separated from this group rep-
+resented classes far from the ideal: Glaucidium nana (a) and Glaucidium 
+nana (b), which in turn were augmented with simulated samples. This 
+suggests three likely sources of conflict: (1) inconsistency between real 
+and simulated samples, (2) less relative differentiation between classes 
+belonging to the same species and (3), in the case of G. nana (a), a gap of
+
+The workflow is summarized in Fig. 3 in order to facilitate under-
+standing of the inputs and outputs of the techniques used throughout the 
+process. 
+
+3. Results 
+
+The UMAP technique (Fig. 4) elegantly and effectively revealed the 
+variety  and  clustering  of  the  representative  samples  given  in  both 
+feature spaces (STFT and FCT). This allowed us to predict an encour-
+aging forecast of separability in a supervised learning process. Consid-
+ering the high dimensionality of the hyper-vectors extracted with FCT 
+(22,000 components versus 11,136 with STFT) and the longer process-
+ing time (160 ms per sample versus 3 ms with STFT), the creation of 
+spectrograms for the training stage was calculated with STFT only, as 
+described in Subsection 2.4.1.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+During the training phase, the authors employed a strategy to prevent overfitting and ensure optimal training of their model. They proposed 50 training epochs and utilized the early stopping method with patience set to 5. Early stopping is a form of regularization used to stop training when a monitored metric has stopped improving. By setting the patience parameter to 5, they ensured that if there was no improvement in the monitored metric after five consecutive epochs, the training would be halted. This approach helped achieve optimal training at the end of the ninth epoch, where the maximum loss reached approximately 3 for the training subset and around 4.5 × 10^(-4) for the validation subset.

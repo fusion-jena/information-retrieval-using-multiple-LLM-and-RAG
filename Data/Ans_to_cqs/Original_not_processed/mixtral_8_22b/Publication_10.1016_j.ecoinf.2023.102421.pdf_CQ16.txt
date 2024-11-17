@@ -1,0 +1,128 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The training dataset, including 268 sample plots with 39 features in a 
+tabulated format, was used as input during the training process (opti-
+mizing  hyper-parameters  and  fitting  models  with  these  data).  The 
+training data set was divided into two parts, in which 80% was used for 
+training/validation, and the remaining 20% was kept as unseen data for 
+testing. To eliminate bias, 10-fold cross-validation was used during the 
+training  process,  and  mean  RMSE  was  used  as  the  objective  function 
+(lost function). Table 4 shows RMSE, MAE, and R2  using different op-
+timizers. In addition, we tested the differences between the RMSEs in 
+Table 4 using the Wilcoxon Signed-Rank test with paired samples. The 
+differences between (XGBoost-BO vs. XGBoost-TDO, XGBoost-BOHB vs. 
+XGBoost-TDO) or (LightGBM-BO vs. LightGBM-TDO, LightGBM-BOHB 
+vs.  LightGBM-TDO)  are  significant.  However,  the  performance  of 
+XGBoost-TDO  versus  LightGBM-TDO  appears  to  be  the  same (Fig.  3),
+
+Parameter to control 
+
+minimum loss reduction 
+Amount of weight required 
+for a tree to produce a 
+child 
+
+Parameter to control the 
+
+step size at each iteration 
+
+Maximum-depth trees can 
+
+grow 
+
+number of boosting 
+
+iterations 
+
+Minimal number of data in 
+
+one leaf.  
+
+‘reg_alpha’: (0.0, 0.1), 
+
+‘lambda_l1’: (0.0, 0.1), 
+
+‘reg_lambda’: (0.0, 0.1), 
+
+‘lambda_l2’: (0.0, 0.1), 
+
+‘num_leaves’: (25, 5000), 
+
+“gamma”: (0,10)  
+
+‘min_child_weight’: 
+(1,10), 
+
+‘min_child_samples’: (50, 
+10,000), 
+
+Learning_rate: (0, 0.1) 
+
+Learning_rate: (0, 0.1) 
+
+‘max_depth’: (5, 50), 
+
+‘max_depth’: (5, 50), 
+
+‘num_boost_round’: 
+(100,2000), 
+
+‘num_boost_round’: (100, 
+2000), 
+‘min_data_in_leaf’: (100, 
+2000), 
+
+Random seed for bagging 
+
+“seed”: (0,200),   
+
+performance comparisons. 
+
+3. Results and discussions 
+
+3.1. AGB estimation
+
+2.4. Hyperparameter optimisation 
+
+Hyperparameter  optimization  searches  for  the  best  set  of  hyper-
+parameters  for  a  machine  learning  model  that  can  perform  best  on  a 
+given  task.  In  many  packages,  random  or  grid  search  is  the  default 
+method  for  selecting  optimal  hyperparameters  (Snoek  et  al.,  2012). 
+There are many studies on the selections of optimization algorithms for 
+theoretical  problems  or  engineering  applications,  in  which  various 
+versions  of  Bayesian  optimizers  and  Swarm-based  algorithms  were 
+compared (Stenger et al., 2019; Stenger and Dirk, 2022).
+
+According  to  the  guidelines  of  the  forest  inventory  procedure  in 
+Vietnam, forests are classified into five stages (Thy, 2012), including (i) 
+very  rich  (the  reserve  of  standing  trees  is  over  300m3/ha);  (ii).  Rich 
+(201–300 m3/ha); (iii) medium forest (101 to 200 m3/ha); (iv) poor (10 
+to  100  m3/ha),  and  (v)  forest  without  reserve  (wood  forest  with  an 
+average diameter smaller than 8 cm and a standing tree reserve less than 
+10 m3/ha). The national forest condition survey is periodically imple-
+mented  with  sample  plots  in  different  forest  stages  to  monitor  tree 
+growth. In this study, field data was collated from local inventory at the 
+end of 2014 and the beginning of 2015, consisting of 268 sample plots in 
+natural forests. The sample plots for the forest reserve have a rectangular 
+area of 1.000 m2 (33.3 m * 30 m). Each sample plot has four subplots (5 
+m * 5 m) at the corners of the standard plot. The main sample plot is used
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, it is not explicitly mentioned what specific criteria are used to determine when the training is complete. However, based on common practices in machine learning, there are several possible ways to decide when the training should stop. These include reaching a certain number of epochs or iterations, achieving a desired level of accuracy or loss on the validation set, observing no further improvement in validation metrics for a certain number of epochs (also known as early stopping), or meeting some other predefined criterion.
+
+From the information available, we do know that the training dataset was divided into two parts, where 80% was used for training/validation and the remaining 20% was kept as unseen data for testing. This suggests that the authors might have been monitoring the performance of their models on the validation set during training to decide when to stop. Additionally, they mention using 10-fold cross-validation during the training process, which could also help prevent overfitting and provide a more robust estimate of the model's generalization error.
+
+However, without explicit details about the exact stopping criteria used by the authors, one cannot definitively state how they determined when training was complete. It would be necessary to refer back to the original research paper or consult with the authors directly to obtain this information.

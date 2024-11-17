@@ -1,0 +1,115 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+In our proposed dynamic β-VAE formulation, the changes in recon-
+struction  and  regularisation  losses  are  monitored  throughout  the 
+training process; these changes are used to adapt the β  value in each 
+epoch using a simple control algorithm. If either the reconstruction- or 
+regularization  losses increase above a  specific level  of their historical 
+minimum then β is adjusted (either by increasing or decreasing) until a 
+new optimum is attained. This dynamic control of β maintains a steady 
+trade-off  between  the  two  loss  terms  while  reducing  the  global  loss 
+function  by  latching  on  to  the  historical  minimum  of  the  loss 
+components. 
+
+In the remainder of this section, we detail the dynamic β-VAE and 
+formulate a semi-supervised variant of the model using a new clustering 
+loss component. 
+
+3.1. Dynamic β-VAE
+
+optima into account. The specific formulation of these control mecha-
+nisms in Eqs. (6)–(8) force the model optimization to not deviate from 
+the previous optimal solutions. The terms comprising min over (: t (cid:0) 1) 
+epochs in Eqs. (6) and (7) provide a form of memory of the previous local 
+optima. The trade off between long and short term memory of the losses 
+and  the  corresponding  optima  help  the  model  to  steer  towards  more 
+global optima. These equations provide a sufficiently general formula-
+tion for adjusting β as they are only dependent on the two loss compo-
+nents. Further, one can also envision a learnable neural network with 
+long short-term memory (LSTM) that can perform this dynamic control 
+in a recurrent neural network type formulation of a closed loop control 
+system (Hochreiter and Schmidhuber, 1997). 
+
+5.2. Influence of the β and γ  parameters
+
+In both cases, d(⋅) is the Euclidean distance. 
+
+Finally, the clustering loss is computed as the ratio between the two 
+distances,  which  when  minimized  encourages  smaller  intra-class  and 
+larger inter-class distances, given by 
+
+ℒcls =
+
+dC + ε
+,
+dR + ε
+
+(12)  
+
+where ε is a constant used for numerical stability. 
+
+3.3. Training of dynamic β-VAE 
+
+The final objective of the dynamic β-VAE with semi-supervision in 
+Eq. (9) has three components which are introduced during the training 
+in three successive stages:  
+
+1.  Warm-up  phase  (β = 0,  γ = 0):  In  this  phase,  the  model  primarily 
+input  data  similar  to  bottleneck 
+
+learns  to  reconstruct  the 
+autoencoders.  
+
+2.  Regularized phase (β > 0, γ = 0): In this phase, the dynamic control 
+of β sets in which smooths the learned latent space without deteri-
+oration in the quality of reconstructions.
+
+3.1.2. Regularization regime (β↑) 
+
+The increase in β happens due to the +a term in Eq. (5) when Δreg is 
+positive; meaning the regularization loss is increasing according to Eq. 
+(7).  The  increase  rule  checks  if  the  reconstruction  loss  has  decreased 
+compared to the historical minimum with the term 1 (cid:0) ψ
+in Eq. 
+(5). 
+
+[
+Δreg
+
+]
+
+Additionally, Δℒrec  in Eq (8) nudges a change in β based on the last 
+update to β. This allows β to get out of plateaus of either stable recon-
+struction or regularization regimes. 
+
+In  Fig.  1,  one  instance  of  optimizing  the  dynamic  β-VAE  with  the 
+objective in Eq. (4) is shown. The value of β increases until about epoch 
+700 at which it plateaus and decreases (Fig. 1, row 3). At epoch 2000, it 
+has finally stabilized. These changes are correlated with changes to ℒreg 
+and ℒrec captured in the second row of Fig. 1, estimated according to Eqs. 
+(5)–(8). 
+
+3.2. Semi-supervised clustering
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the provided context, there isn't explicit information regarding the criteria used to determine when training is complete for the dynamic β-VAE model. However, some insights can be derived from the description of the model's behavior during training.
+
+One possible criterion could be related to the stabilization of the β parameter, which controls the balance between the reconstruction and regularization losses. As mentioned in the context, the value of β increases until around epoch 700, where it plateaus and eventually decreases before stabilizing at epoch 2000. This suggests that the model might consider training complete once the β parameter reaches a stable state.
+
+Moreover, the context describes how the changes in β correlate with changes in the reconstruction and regularization losses, estimated according to Eqs. (5)-(8). Therefore, another potential criterion for determining the completion of training could involve monitoring the convergence or stabilization of these losses.
+
+However, it should be noted that these interpretations are speculative, as the context does not explicitly mention any specific criteria for deciding when training is complete. To obtain a definitive answer, additional information would be required.

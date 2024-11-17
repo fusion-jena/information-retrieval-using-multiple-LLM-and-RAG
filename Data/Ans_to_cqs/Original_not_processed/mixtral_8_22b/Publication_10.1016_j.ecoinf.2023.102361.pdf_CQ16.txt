@@ -1,0 +1,189 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+datasets. A global average pooling layer followed by two dense layers 
+with 1024 neurons and ReLU (Rectified Linear Unit) had replaced the 
+fully connected layer of the original model. The final output layer was 
+another dense layer with a softmax activation function, and the number 
+of  neurons  varied  depending  on  the  number  of  classes.  Although  the 
+maximum number of epochs for training was set to 100, the training was 
+completed  before  that  because  of  the  early  stopping  strategy  by 
+inspecting validation accuracy. The initial learning rate was set to 1 ×
+(cid:0) 6  by monitoring the validation 
+10
+loss  after  every  epoch.  We  used  “Adam”  optimiser  and  “Categorical 
+Cross Entropy” loss for training all deep learning models. The input size 
+for all the DL models was 256 × 256 × 3 and due to capability of the 
+computing device the batch size was set to 32. 
+
+(cid:0) 4  and was randomly decreased to 10
+
+3. Results
+
+2.2. Split the datasets 
+
+In this research, the datasets were randomly divided into three parts 
+for training, validation and testing. Here, 60% of the data was used to 
+train the deep learning models, and 20% of them was kept to validate the 
+models. The remaining 20% data was used to evaluate the performance 
+of the models. Table 1 show the number of data in the dataset and how 
+they are separated for training, testing and validation. 
+
+2.3. Deep learning models
+
+2.6.4. Model training with selected patches 
+
+We trained the same deep learning models as mentioned in Section 
+2.5. For training, we resized all the patches of images to a resolution of 
+256 × 256 pixels. Although after dividing the image into patches, there 
+were images with lower resolution, i.e., 64 × 64 and 128 × 128 pixels, 
+they were converted into a uniform size. 
+
+2.6.5. Evaluation of the models 
+
+An image was divided into patches first to predict its class label. Then 
+the important patches were selected using the approach mentioned in 
+Section 2.6.3. After that, the model predicted the class label for each 
+patch. The weighted majority voting technique was used to predict the 
+class label of the image from the predicted labels. 
+
+2.7. Experimental setup
+
+90.43 
+97.40 
+63.41 
+100.00 
+42.22 
+96.15 
+62.65 
+91.36 
+90.02 
+96.07 
+87.18 
+96.43 
+83.87 
+96.03 
+30.43 
+96.30 
+76.36 
+97.18 
+79.17 
+100.00 
+71.43 
+95.92 
+65.31 
+98.97 
+23.53 
+90.91 
+86.67 
+93.33 
+71.92 
+98.89 
+
+94.87 
+97.73 
+88.37 
+100.00 
+72.90 
+92.45 
+78.95 
+97.73 
+93.36 
+96.16 
+88.19 
+93.46 
+90.91 
+96.45 
+75.56 
+96.30 
+90.61 
+94.51 
+90.57 
+98.18 
+87.64 
+96.91 
+88.89 
+95.74 
+72.00 
+90.91 
+92.86 
+96.77 
+88.17 
+97.80 
+
+94.43 
+98.38 
+86.36 
+100.00 
+81.42 
+97.14 
+80.49 
+97.67 
+95.13 
+97.30 
+94.12 
+97.25 
+89.12 
+95.71 
+70.83 
+96.30 
+84.39 
+96.70 
+91.23 
+98.18 
+84.00 
+96.84 
+86.96 
+96.84 
+78.26 
+95.65 
+82.76 
+96.77 
+83.15 
+97.83 
+
+97.42 
+99.67 
+87.80 
+100.00 
+71.84 
+98.08 
+87.50 
+97.73 
+96.43 
+99.33 
+94.83 
+99.10 
+91.99 
+98.21 
+73.91 
+100.00 
+93.26 
+99.45 
+92.86 
+96.30 
+91.84 
+97.92 
+91.11 
+98.97 
+80.00 
+95.65 
+89.66 
+100.00 
+84.97 
+99.45
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The training process is determined to be complete based on the early stopping strategy by inspecting validation accuracy. This means that even though the maximum number of epochs for training was set to 100, the training could finish earlier if the validation accuracy reached a satisfactory level. Additionally, the learning rate was adjusted during training by monitoring the validation loss after every epoch.

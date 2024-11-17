@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Our  deep-learning  models  used  NASnet  architecture  (Zoph  et  al., 
+2017) with a Faster-rcnn backbone (Ren et al., 2015) implemented in 
+Tensorflow2. The parameters of the model can be found on TensorFlow 
+model zoo1 under the name “faster_rcnn_nas”. All images were resized to 
+1333 × 800 pixels to match with the pre-training data (COCO dataset 
+(Lin et al., 2014)) used to prepare the first layers of our model and save 
+computing time during the training phase). We used a learning rate of 
+0.008 with a cosine learning rate decay. For each K-fold, the model was 
+trained on its own version of Trainingclips  through 200,000 iterations, 
+with a batch size of 16 images per iteration. The training was completed 
+in 96 h  per model using a GPU-cluster equipped with 4 RTX8000. In 
+order  to  evaluate  the  performance  of  our  deep-learning  models,  we 
+computed the recall, precision, and F-measure for each model. Briefly, a
+
+they were included during the training phase to enhance the ability of 
+our CNN to build pertinent feature embeddings. In an effort to improve 
+our model accuracy, we also included 19 non-shark species during the 
+training  phase.  These  species  were  commonly  associated  with  or 
+exhibited  resemblances  to  the  studied  shark  species.  Overall,  we 
+assembled two types of datasets
+
+clips (refer to Methods for details). Our training data included 8 shark 
+species and 19 non-shark species commonly associated with sharks on 
+baited underwater videos to add diversity in the training. After trans-
+forming video clips into still images at a rate of 1 frame per second, we 
+annotated  sharks  and  the  19  non-shark  species  present  in  the  frames 
+with bounding boxes. This resulted in 26,947 fish annotations (Table 1). 
+Given  that  the  Faster  RCNN  architecture  automatically  generates 
+negative samples (Ren et al., 2015), there was no need to annotate any. 
+It  is  known  that  classic  deep  architectures  need  numerous  image 
+sample  per  class  to  work  correctly  (Lecun  et  al.,  2015;  Villon  et  al., 
+2022). Hence, shark species that were infrequently captured in our clips 
+(Carcharhinus  albimarginatus,  Galeocerdo  cuvier,  Nebrius  ferrugineus, 
+Negaprion  acutidens)  were  excluded  from  the  testing  phase.  However,
+
+Jalal, A., Salman, A., Mian, A., Shortis, M., Shafait, F., 2020. Fish detection and species 
+classification in underwater environments using deep learning with temporal 
+information. Eco. Inform. 57 https://doi.org/10.1016/j.ecoinf.2020.101088. 
+
+Jenrette, J., Liu, Z.Y.C., Chimote, P., Hastie, T., Fox, E., Ferretti, F., 2022. Shark detection 
+and classification with machine learning. Eco. Inform. 69 https://doi.org/10.1016/j. 
+ecoinf.2022.101673. 
+
+Jorgensen, S., Micheli, F., White, T., Van Houtan, K., Alfaro-Shigueto, J., 
+
+Andrzejaczek, S., Arnoldi, N., Baum, J., Block, B., Britten, G., Butner, C., 
+Caballero, S., Carde˜nosa, D., Chapple, T., Clarke, S., Cort´es, E., Dulvy, N., Fowler, S., 
+Gallagher, A., Ferretti, F., 2022. Emergent research and priorities for shark and ray
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning model was trained using a GPU-cluster equipped with 4 RTX8000 graphics cards. It took approximately 96 hours to complete the training process for each model.
+
+Reference(s):
+[1] Lin, T.-Y., Maire, M., Belongie, S., Hays, J., Perona, P., Ramanan, D., Dollár, P., Zitnick, C.L., 2014. Microsoft COCO: Common objects in context. arXiv preprint arXiv:1405.0312.

@@ -1,0 +1,112 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+diverse datasets. This includes addressing issues such as class imbalance 
+and sampling bias.
+
+vancements in deep learning to enhance performance. Specifically, our 
+MLP architecture consists of four layers, each containing 512 neurons 
+and connected with residual connections (He et al., 2016). We employ 
+batch normalization (Ioffe and Szegedy, 2015) and the Rectified Linear 
+Unit (ReLU) activation function in all layers except the final one, where 
+instead a sigmoid function is used to enable multi-label classification. 
+The model is trained with a batch size of 256 for 30 epochs using the 
+AdamW optimizer (Loshchilov and Hutter, 2017). Both the weight decay 
+and learning rate are set to 0.0001. Additionally, we employ a learning 
+rate scheduler with exponential decay of 0.95, and introduce dropout
+
+3.5. Evaluation and baselines
+
+Table B.4 
+Mean AUC performance of other alternative ML loss functions. The performance is averaged over 10 random seeds.   
+
+CE 
+weighted CE 
+Focal CE (γ = 0.5) 
+Focal CE (γ = 1) 
+Focal CE (γ = 2) 
+Focal CE (γ = 5) 
+Focal full weighted (γ = 0.5) 
+Focal full weighted (γ = 1) 
+Focal full weighted (γ = 2) 
+Focal full weighted (γ = 5) 
+LDAM (C = 0.1) 
+LDAM (C = 1) 
+LDAM (C = 10) 
+DB loss (λ = 3) 
+DB loss (λ = 5) 
+Entmax (α = 0.01) 
+Entmax (α = 0.05) 
+Entmax (α = 0.1) 
+Full weighted (λ2 = 0.5) 
+Full weighted (λ2 = 0.8) 
+Full weighted (λ2 = 1) 
+
+AWT 
+
+0.663 
+0.670 
+0.663 
+0.663 
+0.662 
+0.660 
+0.680 
+0.686 
+0.689 
+0.682 
+0.663 
+0.662 
+0.648 
+0.669 
+0.668 
+0.665 
+0.680 
+0.676 
+0.698 
+0.704 
+0.696 
+
+CAN 
+
+0.718 
+0.706 
+0.718 
+0.718 
+0.718 
+0.719 
+0.684 
+0.682 
+0.678 
+0.665 
+0.718 
+0.718 
+0.719 
+0.704 
+0.698 
+0.687 
+0.697 
+0.683 
+0.650 
+0.696 
+0.714 
+
+NSW
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of their deep learning model, several measures have been implemented. Firstly, they addressed diverse datasets by tackling issues like class imbalance and sampling bias. Class imbalance occurs when there is a significant disparity between the number of instances in different classes, while sampling bias arises from non-representative data collection or preprocessing methods. By handling these challenges, they aimed to improve the robustness and applicability of their model across various scenarios.
+
+Secondly, they employed advances in deep learning techniques to boost performance. Their MLP architecture consisted of four layers, each having 512 neurons and linked via residual connections. They utilized batch normalization and ReLU activation function in all but the last layer, which instead had a sigmoid function for multi-label classification. The model was trained with a batch size of 256 for 30 epochs using the AdamW optimizer. Both the weight decay and learning rate were set to 0.0001. Furthermore, they introduced a learning rate scheduler with exponential decay of 0.95 and incorporated dropout to prevent overfitting.
+
+Lastly, they evaluated their model against multiple baseline alternatives and reported mean AUC performance averaged over 10 random seeds. These baselines included various machine learning loss functions such as Cross Entropy (CE), Focal Loss, LDAM, DB loss, Entmax, and Full Weighted losses. By comparing their model's performance against these established benchmarks, they demonstrated its competitiveness and potential for generalizing well on unseen data. However, it should be noted that explicit mentions of specific validation strategies like cross-validation or stratified splitting are not present in the given context.

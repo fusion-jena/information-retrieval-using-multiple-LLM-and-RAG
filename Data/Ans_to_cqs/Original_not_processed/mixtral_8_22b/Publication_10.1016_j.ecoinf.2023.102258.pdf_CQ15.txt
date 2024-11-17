@@ -1,0 +1,208 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Then, for each sample xq  from the query set, a distance function is 
+used  to  calculate  the  Euclidean  distance  of  xq  from  each  prototype, 
+following which a softmax function over the distances produces a dis-
+tribution over the classes. This directly implies that training the neural 
+network to optimise these distances should move prototypes and their 
+corresponding  query  points  closer  together  in  the  embedding  space 
+created  by  fϕ,  and  further  away  from  non-matching  points.  In  other 
+words, the training procedure creates a general representation in which 
+similar  sounds  are  close  to  each  other.  Nearest-neighbour  algorithms 
+such as k-means can then be used to label future data points—even those 
+from novel categories, after a simple procedure of calculating the pro-
+totype of a novel category as the centroid of its k shots.
+
+Many machine learning systems have pragmatic design constraints 
+that  limit  the  range  of  durations  they  can  consider.  Our  template- 
+matching method uses ranges directly inherited from the 5 annotated 
+events, although there remain practical limits on very large templates, 
+such as computer memory. In deep learning, long audio files are usually 
+divided into shorter chunks (with fixed durations of e.g. 3 or 10 s), so 
+that a whole batch can fit inside the limited memory of GPUs. To detect 
+long  events,  detections  that  span  these  chunks  are  joined  together  in 
+post-processing. This as well as other considerations meant that post- 
+processing  of  outputs  was  an  important  aspect  of  all  strongly- 
+performing systems.
+
+• Transductive  few-shot  learning  -  Meta  learning  methods  aim  to 
+learn on scarce data in order to generalise to unseen tasks,  which 
+makes the problem fundamentally difficult. In order to mitigate the 
+difficulty, transductive based methods utilise the information present 
+in the unlabeled examples from the query set to adapt the model and 
+improve its predictions. In Liu et al. (2018), the samples in support 
+and query set are jointly modelled as nodes of a graph and the pre-
+diction on query set is conducted by label-propagation algorithm. In 
+Hou  et  al.  (2019),  a  cross-attention  based  map  is  learnt  between 
+support set and query set in order to make predictions on individual 
+query examples.
+
+Baselines 
+
+Prototypical 
+
+Mel +PCEN 
+
+Systems submitted 
+to the public 
+challenge 
+
+Template matching 
+
+Yang et al. (2021) 
+
+Lin 
+
+Mel 
+
+Tang et al. (2021) 
+
+Lin + PCEN 
+
+Du_NERCSLIP 
+
+Mel +PCEN 
+
+Liu_Surrey 
+
+Mel +PCEN & 
+delta-MFCC 
+
+CNN 
+
+n/a 
+
+CNN 
+
+CNN 
+
+CNN 
+framewise 
+
+CNN 
+
+n/a 
+
+x-ent 
+
+Proto 
+
+x-ent 
+
+Proto 
+(modifed) 
+
+Wu_SHNU (+Wu 
+2023 ICASSP) DFSL 
+Moummad_IMT 
+
+Other 
+
+Wolters 2021 arxiv 
+Perceiver 
+
+You et al. (2023) 
+(ICASSP 2023) 
+
+Mel 
+
+Mel 
+
+Mel 
+
+Mel +PCEN 
+
+CNN (ResNet) 
+
+x-ent 
+
+DFSL attentive 
+
+No 
+
+Pseudo-pos 
+
+– 
+
+Proto 
+
+Dist:Proto 
+
+TI, Retrain 
+
+5 
+
+Between-the-5 +
+Pseudo-neg 
+(SpecSim) 
+Pseudo-neg 
+
+CNN (ResNet) 
+
+SCL 
+
+CNN + CRNN 
++Perceiver 
+
+Proto +RPN 
+(R-CRNN) 
+
+Posterior 
+
+Finetune 
+
+Between-the-5 
+
+Dist:Proto 
+
+No 
+
+n/a 
+
+5 
+
+5 
+
+AST 
+
+Proto 
+
+Proto 
+
+Dist:Proto 
+
+Finetune, TI 
+
+Between-the-5 
+
+5 + aug 
+
+New 
+templates 
+Retrain (new 
+pos + neg) 
+Proto 
+
+Finetune last 
+layer 
+
+DFSL 
+attentive 
+Finetune last 
+layer 
+Proto
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The given text does not provide explicit details about specific optimization techniques such as Stochastic Gradient Descent (SGD) or Adaptive Moment Estimation (Adam). However, it mentions that during the training process, the neural network is optimized to minimize the distances between prototypes and corresponding query points while maximizing the distances with non-matching points. This suggests that some form of gradient descent optimization technique might be employed to update the weights of the neural network during backpropagation. Additionally, the use of a softmax function indicates that the output layer of the neural network could be using a form of categorical cross-entropy loss function, which is commonly minimized using optimization techniques like SGD or Adam.

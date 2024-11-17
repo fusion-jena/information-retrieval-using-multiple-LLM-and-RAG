@@ -1,0 +1,84 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Fig. 3. Flowchart of the modeling procedure. Eleven machine learning models
+were utilized in the study: multilayer perceptron (MLP), logistic regression
+(LR), naïve Bayes (NB), CatBoost (CAT), random forest (RF), XGBoost (XGB),
+LightGBM (LGB), weighted soft voting (WSOFT), weighted hard voting
+(WHARD), blending, and stacking.
+
+and TPE algorithms were implemented in the CatBoost package
+(V.1.0.6), LightGBM package (V.3.2.1), XGBoost package (V.1.5.0), and
+Hyperopt package (V.0.2.7), respectively.
+
+3.2. Bias–variance decomposition
+
+During this process the hyperparameters of the heterogeneous
+ensemble models were set to those optimized by the TPE algorithms.
+Each ML model was trained on 100 different subsets generated from the
+original training sets using the bootstrap method (sampling with
+replacement). The number of samples in each subset equaled the num-
+ber of samples in the original training data. The predictions of the
+trained models on the testing dataset were averaged to obtain the main
+prediction. The average loss, average bias, and average variance were
+then derived for each model. The noise was assumed as 0 following
+previous studies (Domingos, 2000; Kohavi and Wolpert, 1996).
+
+3.3. Model interpretation
+
+learning problem: the CoIL challenge 2000. Mach. Learn. 57, 177–195. https://doi.
+org/10.1023/B:MACH.0000035476.95130.99.
+
+Van Der Valk, D., Picek, S., 2019. Bias-variance decomposition in machine learning-
+
+based side-channel analysis. Cryptol. ePrint Arch. 1–27.
+
+Wohl, E., Angermeier, P.L., Bledsoe, B., Kondolf, G.M., MacDonnell, L., Merritt, D.M.,
+
+Palmer, M.A., Poff, N.L.R., Tarboton, D., 2005. River restoration. Water Resour. Res.
+41, 1–12. https://doi.org/10.1029/2005WR003985.
+
+Wolpert, D.H., 1992. Stacked generalization. Neural Netw. 5, 241–259. https://doi.org/
+
+10.1016/S0893-6080(05)80023-1.
+
+Woo, S.Y., Jung, C.G., Lee, J.W., Kim, S.J., 2019. Evaluation of watershed scale aquatic
+ecosystem health by SWAT modeling and random forest technique. Sustain 11.
+https://doi.org/10.3390/SU11123397.
+
+3.2. Bias–variance decomposition
+
+Bias–variance decomposition evaluates the generalizability of an ML
+model to unseen datasets (Dietterich and Kong, 1995; Kohavi and
+Wolpert, 1996). The loss is decomposed into bias, variance, and noise
+terms. Bias evaluates the proximity of the average prediction of the
+learning algorithm to the true label. Models with high bias tend to be
+underfitted; that is, they oversimplify the interpretation of the under-
+lying data patterns. The variance quantifies the variation in the model's
+predictions caused by random fluctuations in the training data. Models
+exhibiting high variance are typically overfitted to the training dataset.
+Finally, the noise component represents the irreducible error incurred
+by the learning algorithm. A model with low loss (i.e., combined low
+bias and low variance) is considered as generalizable to unseen data.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: After the model training, several postprocessing steps can be performed depending on the specific requirements of the task or project. Some common postprocessing steps include:
+
+1. Prediction: Once the model has been trained, it can be used to predict outcomes for new input data. This step involves applying the learned parameters of the model to the test dataset to generate predicted values.
+2. Evaluation metrics: To assess the performance of a machine learning model, various evaluation metrics such as accuracy, precision, recall, F1 score, ROC curve, etc., can be calculated based on the confusion matrix. These metrics provide insights into how well the model performs in terms of correctly classifying positive and negative instances.
+3. Hyperparameter tuning: In order to improve the performance of the model, hyperparameters such as learning rate, regularization parameter, batch size, etc., can be adjusted through techniques like grid search, random search, or Bayesian optimization.
+4. Feature importance: For interpretable models, feature importances can be computed to understand which features contribute most significantly towards the final output. Techniques such as SHAP values, LIME, or permutation importance can be employed for this purpose.
+5. Visualizations: Various visualizations such as saliency maps, heatmaps, decision boundaries, etc., can be created to gain further insight into the behavior of the model. These visualizations help in understanding the strengths and weaknesses of the model and identifying areas where improvements can be made.
+
+In the given context, the authors have not explicitly mentioned any postprocessing steps apart from calculating the average loss, average bias, and average variance for each model. However, these calculations could also be considered as part of the postprocessing stage since they evaluate the generalizability of the machine learning models to unseen datasets.

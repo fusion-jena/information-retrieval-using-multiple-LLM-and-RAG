@@ -1,0 +1,74 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The Inception-V3 model accepts images resized to (299, 299) pixels 
+but ViT and ResNet resize to (224, 224) pixels. Dataset imbalance was 
+dealt with by including class weights in the cross-entropy loss function. 
+For the training we used AdamW optimizer for Hugging Face models, 
+which is the default optimizer in the transformers library by Hugging-
+Face. For Inception-V3, we used Adam since that was the optimizer used 
+in  previous  work  (and  AdamW  is  not  available  in  Keras).  We  used  a 
+(cid:0) 4  for 
+batch  size  of  16  examples  and  the  learning  rate  was  set  to  10
+(cid:0) 5  for  Vanilla  Inception-V3  and  ViT.  For  Deep  Otolith 
+ResNet  but  10
+(cid:0) 4 as suggested by Politikos 
+Inception we used a learning rate of 4 × 10
+et  al.  (2021).  For  every  fine-tuning  experiment,  the  model  with  the 
+
+smallest validation loss was used for evaluation on the test set. 
+
+2.3. Performance
+
+For fine-tuning, we used the HuggingFace implementations of ViT 
+(“google/vit-hugepatch14–224-in21k”) and ResNet (“microsoft/resnet- 
+50”)  but  the  Keras  implementation  of  Inception-V3.  All  fine-tuning 
+models  had  been  pre-trained  on  the  ImageNet  (Deng  et  al.,  2009) 
+dataset. 
+
+We replaced the classifier head on all models so that it received the 
+output of the models along with the additional parameters, quarters and 
+length. We also tried adding additional dropout and dense layers at the 
+end of the Inception model as for the DeepOtolith model Politikos et al. 
+(2021). To differentiate we use Deep Otolith Inception-V3 for the model 
+
+EcologicalInformatics76(2023)1020463A.R. Sigurðard´ottir et al.
+
+EcologicalInformatics76(2023)10204610A.R. Sigurðard´ottir et al.                                                                                                                                                                                                                      
+
+Fig. B.1. Difference in predicted versus true age for European plaice when training the linear model on a training dataset of different size. Training size is shown 
+under each image. 
+
+Appendix C. Hyperparameter search 
+
+We  performed  hyperparameter  search  for  our  classification  and  regression  model  to  identify  the  right  level  of  regularization.  For  the  linear 
+regression model, we considered values of α  that determine the L2 regularization to be in the range {0.1, 0.6, 1.1, …, 19.1, 19.6}. The resulting 
+accuracy of the model is shown in Fig. C.1. We observe that the model shows stable performance for α values in the interval [5.0, 15.0]. For the
+
+ResNet-50 is a convolutional neural network model that uses skip 
+connections,  which  made  it  possible  to  get  good  performance  with 
+deeper models than was previously possible (He et al., 2015). Training 
+deep neural networks can result in exploding gradients, and skip con-
+nections  were  introduced  to  ameliorate  that  problem.  ResNet-50  was 
+chosen  for  comparison  as  it  is  a  proven  CV  classification  model.  It  is 
+commonly used and provides a well-performing baseline. 
+
+Inception-V3  is  a  convolutional  neural  network  used  for  image 
+classification, that has an auxiliary classifier that acts as a regularizer 
+(Szegedy et al., 2015b). The Inception-V3 architecture is built on pre-
+vious Inception models, with the aim of making the V3 computationally
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of the deep learning model, several measures were taken. Firstly, the dataset used for training and testing consisted of diverse samples from various locations and seasons, ensuring that the model could learn patterns applicable across multiple scenarios. Secondly, class weights were included in the cross-entropy loss function to address any potential dataset imbalances. This approach helps prevent the model from being biased towards classes with more data points. Lastly, the model with the smallest validation loss was chosen for evaluation on the test set after conducting fine-tuning experiments. This strategy ensures that the final model selected for evaluation is the one that performs best on unseen data, thus promoting its ability to generalize.

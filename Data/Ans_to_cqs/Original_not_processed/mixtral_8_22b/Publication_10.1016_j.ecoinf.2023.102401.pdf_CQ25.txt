@@ -1,0 +1,122 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To extract the input information, the SRC3 block employs a parallel 
+analysis  of  the  input  feature  map  using  two  convolution  kernels.  In 
+contrast to the C3 block, the SRC3 block incorporates two convolution 
+kernels prior to the input of the bottleneck block. One of the kernels is 
+responsible  for  halving  the  dimension  of  the  feature  map,  while  the 
+other  maintains  the  dimension  unchanged.  This  approach  allows  for 
+more  comprehensive  processing  of  the  input  features,  enabling  the 
+model  to  capture  both  high-level  semantic  information  and  preserve 
+relevant details during the feature extraction process. The convolution 
+kernel size utilized is 3 × 3, which leads to a broader receptive field of 
+information and richer characteristics compared to the 1 × 1 convolu-
+tion kernel. The output semantic information can be augmented by the 
+action of two convolution kernels. The information output from the first
+
+specific steps are outlined: 
+
+Step 1: Select appropriate water downloading gear and sensors for 
+data collection. Pre-processing of the acquired data, such as denoising, 
+image enhancement, and correction. In order to train and evaluate un-
+derwater target detection models, the dataset needs to be labeled. Then 
+separate underwater images collected from the underwater environment 
+into training and test images. 
+
+Step 2: Prepare hardware servers capable of training deep learning 
+models to deploy the YWnet network. This allows learning weights to 
+recognize  underwater  organisms.  Tune  the  hyperparameters  of  the 
+model such as learning rate, batch size and network depth to achieve the 
+best performance of the model.
+
+3.1.1. Adding the attention module 
+
+Through the attention mechanism, the network may better learn the 
+correlation between data and enhance the overall model's performance. 
+In this work, CBAM is embedded in the backbone network of YWnet to 
+improve the feature extraction of underwater detection information. As 
+illustrated in Fig. 2, CBAM is a lightweight, commonly used attention 
+mechanism that combines spatial and channel attention. Given an in-
+termediate feature map F ∈ RC×H×W as input, CBAM sequentially infers a 
+1D channel attention map Mc ∈ RC×1×1  and a 2D spatial attention map 
+
+Ms ∈ R1×H×W. The calculation formula is: 
+
+F' = Mc(F) ⊗ F.
+
+F'' = Ms(F') ⊗ F'.
+
+(1)  
+
+(2)
+
+W0
+
+Fc
+
+avg
+
++ W1
+
+W0
+
+Fc
+
+max
+
+) ) )
+.
+
+(3) 
+
+By weighting spatial elements, spatial attention concentrates on the 
+location of the target in the images and gathers specific spatial details of 
+each space. As shown in Fig. 4, the output results of the CAM block are 
+operated by the max pooling layer and average pooling layer to obtain 
+two  1 × H × Wfeature  maps,  and  then  the  two  feature  maps  are 
+concatenated, and the feature map is changed by a convolution kernel of 
+7 × 7.  The  final  module  output  is  obtained  by  a  sigmoid  activation 
+function. The mathematical expression is as follows: 
+
+(cid:0)
+
+Ms(F) = σ
+
+f 7×7([AvgPool(F) ; MaxPool(F) ] )
+
+[
+
+(
+f 7×7
+
+= σ
+
+] )
+.
+
+avg; Fs
+Fs
+
+max
+
+)
+
+(4)  
+
+3.1.2. SRC3 module
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the purpose of the deep learning model (e.g., classification, segmentation, detection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The purpose of the deep learning model mentioned in the given context is not explicitly stated. However, based on the available information, it can be inferred that the model is designed for object detection tasks, specifically for detecting underwater targets or organisms. This is evident from the use of the YWnet network, which is likely a customized version of a popular neural network architecture tailored for underwater image analysis. Additionally, the inclusion of the Convolutional Block Attention Module (CBAM) further supports this assumption, as it enhances the feature extraction capabilities of the model, making it more suitable for object detection tasks.

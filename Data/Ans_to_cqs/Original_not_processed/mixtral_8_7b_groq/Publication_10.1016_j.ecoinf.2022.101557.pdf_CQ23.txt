@@ -1,0 +1,13 @@
+Answer:::
+
+To ensure the generalizability of the deep learning model, several measures were taken. Firstly, a diverse dataset was used, which included samples from all areas of the training set. These samples were randomly selected and were never used to fit the model. Instead, they were used for evaluation during the training process.
+
+Secondly, cross-validation was performed to evaluate the model's performance and generalizability. Specifically, a 10-fold cross-validation was used, where the map was split into 10 different sets by placing a 3 × 3 grid over the map. The central cell was split into two cells, resulting in a total of 10 sets. During the training of the CNN, 9 of these sets were used for training, and the final one was used for evaluation. This process was repeated 10 times, with a different set used for evaluation each time.
+
+Thirdly, to prevent overfitting, dropout was used during the training process. Dropout is a technique where randomly selected neurons are ignored during training, which helps to make the model more stable and less prone to overfitting. In this case, a dropout rate of 0.3 was used.
+
+Fourthly, to minimize the cross-entropy loss between the network's predictions and the pre-labelled data, ADAM optimization was used with a learning rate of 0.0001. This optimization algorithm is well-suited for training deep learning models and can help to find the optimal weights in the neural network.
+
+Finally, data pre-processing and post-processing techniques were used to ensure that the model was trained on a diverse and representative dataset. Specifically, the data was split up into larger blocks based on coordinates, and then split into smaller areas of 80 × 80 pixels. A padding of 27 pixels was added around the input area to counteract the size reduction that occurs within the CNN. This process created 41,601 smaller segments that were handled independently by the model.
+
+Overall, these measures were taken to ensure that the deep learning model was generalizable and not overfitted to the training data. By using a diverse dataset, cross-validation, dropout, optimization, and data pre-processing and post-processing techniques, the model was able to learn from the training data and generalize well to new, unseen data.

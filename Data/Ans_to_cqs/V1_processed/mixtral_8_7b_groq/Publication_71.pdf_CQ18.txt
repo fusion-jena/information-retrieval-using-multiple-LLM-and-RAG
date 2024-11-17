@@ -1,0 +1,15 @@
+The strategy implemented to monitor the model performance during training is not explicitly stated in the provided context. However, there are several parameters and settings in the training procedure that allow for tracking and evaluating the model's performance.
+
+Firstly, the 'Learning policy' is set to 'Poly', which is a type of learning rate scheduler that adjusts the learning rate during training. This scheduler multiplies the base learning rate by (1 - step/total\_steps)^(power), where step is the current step, total\_steps is the total number of training steps, and power is a hyperparameter. This allows for a smooth decrease in the learning rate as training progresses, which can help in model convergence and prevent overfitting.
+
+Secondly, the 'Training number of steps' is set to ≥100,000, which means the model will be trained for a sufficiently large number of steps, allowing for a thorough exploration of the parameter space and potentially better generalization.
+
+Thirdly, the 'Momentum' is set to 0.9, which is a technique to accelerate gradient descent by incorporating the past gradients' direction. This can help in faster convergence and avoiding local minima.
+
+Fourthly, the 'Weight decay' is set to 0.00004, which is a form of regularization that discourages large weights, preventing overfitting and improving generalization.
+
+Fifthly, the 'Train crop size' is set to '513,513', which is the size of the input image patches for training. This parameter can influence the model's ability to learn and generalize from the training data.
+
+Lastly, the 'Upsample logits' is set to True, which means the logits (the raw, unnormalized output values from the last layer) will be upsampled to the original image size during inference. This allows for a direct comparison between the model's output and the ground truth labels at the original resolution, facilitating performance evaluation.
+
+In summary, while the context does not explicitly mention a strategy for monitoring model performance during training, several parameters and settings are present that enable tracking and evaluating the model's performance, such as the learning rate scheduler, the number of training steps, momentum, weight decay, train crop size, and upsampling logits.

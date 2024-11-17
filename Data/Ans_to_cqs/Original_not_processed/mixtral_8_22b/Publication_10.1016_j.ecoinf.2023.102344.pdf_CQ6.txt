@@ -1,0 +1,57 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+the  shortcut  connections  within  the  network  that  makes  the  training 
+faster; bottleneck architecture which consists of a 1 × 1 convolutional 
+layer  for  dimension  reduction,  3  × 3  convolution  layer  for  feature 
+extraction, and another 1 × 1 convolutional layer for dimension resto-
+ration;  shortcut  connections  which  allows  gradients  to  flow  directly 
+through  the  network  due  to  the  input  added  directly  to  the  output; 
+global  average  pooling  (GAP)  which  computes  spatial  average  of  the 
+feature  maps  at  the  end  section  of  the  convolutional  layer;  and  skip 
+connections which bypass multiple residual blocks. On the other hand, 
+InceptionV3 is a 48-layer 24 CNN containing 24 × 106 parameters with 
+enhancement using label smoothing and factorized convolutional layers 
+in order to easily propagate the information from the input to the output 
+section. For all image-based pre-trained networks, the purpose of CNN
+
+Approach  2  utilized  the  raw  bivalve  images  as  inputs  to  the  opti-
+mized pre-trained networks of EfficientNet-B0, ResNet101, MobilNetV2, 
+and InceptionV3. Unlike Approaches 1 and 3, Approach 2 has no PCA- 
+NCA  integration  as  the  extraction  of  features  was  not  manually  per-
+formed, rather the built-in architecture of these four pre-trained deep 
+networks  (Fig.  3)  extracted  millions  of  possible  features  that  are  not 
+visible to human eyes for visual discrimination. Despite this supposedly 
+advantageous  aspect  of  the  image-based  pre-trained  network,  only 
+EfficientNet-B0 and InceptionV3 resulted in a 1.135 and 1.009 increase 
+factor in accuracy as compared to its equivalent model to Approach 1 
+(Table  1).  This  resulted  in  InceptionV3  being  the  most  accurate  and 
+sensitive  model  in  Approach  2  with  scores  of  90.13%  and  87.45% 
+respectively (Table 1, Fig. 9). The 9.87% Hamming loss of InceptionV3 is
+
+means the images where the extracted numerical features were used in 
+Approach 1 during training were the exact images used in training in
+
+output that is suitable for the target output. It teaches the network to 
+learn to map its high-dimensional input data to usually low-dimensional
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The context does not provide explicit details about specific preprocessing steps such as normalization, scaling, or cleaning applied before training the deep learning models mentioned (EfficientNet-B0, ResNet101, MobileNetV2, and InceptionV3). However, it can be inferred that some form of preprocessing might have been performed on the raw bivalve images used as inputs for these optimized pre-trained networks.
+
+For instance, the use of global average pooling (GAP) in the architectures suggests that the spatial dimensions of the feature maps are reduced to a single value, effectively summarizing the presence of each feature across the entire image. This could imply that the input images were rescaled or normalized to ensure consistent size and intensity levels before feeding them into the networks.
+
+Additionally, the mention of label smoothing enhancement in InceptionV3 indicates that the ground truth labels may have undergone some form of processing to prevent overconfidence in predictions. Label smoothing involves modifying one-hot encoded labels to introduce uncertainty, encouraging the model to produce more conservative probability estimates.
+
+While the context does not explicitly state any preprocessing steps, it is common practice in deep learning applications to perform tasks like normalization, scaling, and cleaning to improve model performance and convergence speed. Therefore, it can be assumed that similar preprocessing techniques would likely have been employed here as well.

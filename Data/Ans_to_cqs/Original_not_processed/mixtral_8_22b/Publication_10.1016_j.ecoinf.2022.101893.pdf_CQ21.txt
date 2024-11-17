@@ -1,0 +1,172 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+5.2. Result analysis 
+
+The datasets are divided into training set and test set according to the 
+ratio of 8:2. And the number of test samples and training samples are 
+3094 and 12,340, respectively. The classification models are built with 
+the training set, and accuracy on test set is used as indicator to evaluate 
+performance of classification models. 
+
+5.2.1. Classic CNN model 
+
+The three features of F1, F2 and F3 are input into CNN model, and 
+
+their classification performance on the test set is shown in Table 6. 
+
+Feature 
+
+F1 
+F2 
+F3 
+
+CNN 
+
+81.00 
+88.36 
+89.11 
+
+Number of features 
+
+500 
+500 
+500  
+
+Table 7 
+Test accuracy (in %) of various features.  
+
+Feature 
+
+F4 
+F5 
+F6 
+F7 
+F4⊕F5⊕F6 
+F4⊕F5⊕F6⊕F7 
+Fdh 
+
+RF 
+
+82.92 
+87.93 
+88.47 
+85.70 
+90.76 
+91.10 
+95.43 
+
+SVM 
+
+85.59 
+91.11 
+91.60 
+64.51 
+93.96 
+93.96 
+96.19 
+
+MLP 
+
+83.85 
+89.53 
+90.46 
+73.45 
+93.40 
+93.53 
+96.03 
+
+Number of features 
+
+500 
+500 
+500 
+13 
+1500 
+1513 
+96  
+
+5.2.3. Proposed models
+
+shown in the Fig. 6. 
+
+The network is designed with four convolution kernel pooling layers 
+to extract deep features. After the convolution pooling, the data enters 
+the fully connected layer for connection. The network adds a dropout 
+layer  to  the  fully  connected  layer  to  reduce  network  parameters.  A 
+Dense_1 layer is added after flatten to reduce the dimension of the deep 
+features, and sets the parameter to 500, which is the parameter of the 
+deep feature dimension extracted from different views. 
+
+4.2. Feature selection
+
+2. Related work 
+
+Feature extraction plays an important role in machine learning. It 
+can extract useful information from data. Some scholars have proposed 
+many features and combined other methods to classify birdsong. Dogan 
+et al. used a mixed feature selector, including neighborhood component 
+analysis  (NCA)  and  principal  component  analysis  (PCA)  to  select  the 
+most  distinctive  features,  and  verified  them  through  five  shallow
+
+Fig. 6. CNN pre-training model.  
+
+features  with  maximal  correlation  with  the  category  and  minimal 
+redundancy  with  other  features  from  the  raw  feature  set.  The  redun-
+dancy among the features and relevance between the feature and the 
+category  in  the  mRMR  method  are  calculated  based  on  mutual 
+information. 
+
+The mutual information is defined as Eq. (11): 
+
+∫∫
+
+I(x; y) =
+
+p(x, y)log
+
+p(x, y)
+p(x)p(y)
+
+dxdy
+
+(11)  
+
+where p(x, y) is the joint probability density of random variables x and y, 
+and  p(x)  and  p(y)  are  the  marginal  probability  densities  of  x  and  y, 
+respectively. 
+
+For a sample feature set S = {f1, f2, …fn} and a sample class c, the 
+relevance between S and c, is the mean of all mutual information be-
+tween each feature fi and class c, as shown in Eq. (12): 
+
+D(S, c) =
+
+1
+|s|
+
+∑
+
+I(fi; c)#
+
+fi∈S
+
+(12)  
+
+where ∣s∣ is the number of features in S, and I(fi; c) is the mutual infor-
+mation between the feature fi and the class c.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, several postprocessing steps can be performed depending on the specific requirements of the task. In this case, the authors use the accuracy on the test set as an indicator to evaluate the performance of their classification models. This means that they calculate the percentage of correct predictions made by the model out of the total number of instances in the test set. Additionally, they may also compute metrics such as precision, recall, and F1 score to gain further insights into the model's performance. Another common postprocessing step is generating saliency maps, which highlight the regions of the input image that contribute most significantly to the model's prediction. These maps can help identify any biases or errors in the model's decision-making process. Finally, confusion matrices can also be constructed to visualize the distribution of predicted labels versus actual labels, providing a more detailed view of the model's strengths and weaknesses.

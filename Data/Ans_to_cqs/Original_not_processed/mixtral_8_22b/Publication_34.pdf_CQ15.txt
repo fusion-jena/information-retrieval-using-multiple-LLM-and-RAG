@@ -1,0 +1,81 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+SNN, DNN and CNN models are ﬁtted with the package mxnet: All model
+0.03, 0.03), then we
+parameters were initialized with a uniform distribution U (
+applied a stochastic gradient descent algorithm with a momentum of 0.9, a
+batch-size of 50 (batch samples are randomly chosen at each iteration), and an initial
+8. The choice of initial learning rate was critical for a good
+learning rate of 10−
+optimization behavior. A too big learning rate can lead to training loss divergence,
+
+−
+
+190
+
+C. Botella et al.
+
+whereas when it is too small, learning can be very slow. We stopped when the
+average slope of the training mean loss had an absolute difference to 0 on the last 100
+3. The learning took approximately 5 min for SNN, 10 min for
+epochs inferior to 10−
+DNN, and 5 h for CNN (independently of the version).
+
+10.3.5 Evaluation Metrics
+
+In the NN models learning, there is still work to be done on quick automated
+procedure for tuning optimization hyper-parameters, especially the initial learning
+rate, and we are looking for a more suited stopping rule. On the other hand, in the
+case of models of species distributions, we can imagine to minimize the number of
+not null connections in the network, to make it more interpretable, and introduce an
+L1-type penalty on the network parameters. This is a potential important perspective
+of future works.
+
+10 A Deep Learning Approach to Species Distribution Modelling
+
+197
+
+• CNN is composed of two hidden convolutional layers and one last layer fully
+connected with 200 neurons, exactly similar to previous ones. The ﬁrst layer is
+composed of 64 convolution ﬁlters of kernel size (3, 3) and 1 line of 0 padding.
+The resulting feature maps are batch-normalized (same normalization for every
+pixels of a feature map) and transformed with a Relu. Then, an average pooling
+with a (8, 8) kernel and (8, 8) stride is applied. The second layer is composed of
+128 convolution ﬁlters of kernel size (5, 5) and 2 lines of padding, plus Batch-
+Normalization and ReLU. After, that a second average pooling with a (8, 8)
+kernel and (8, 8) kernel and (8, 8) stride reduces size of the 128 feature maps
+to one pixel. Those are collected in a vector by a ﬂattening operation preceding
+the fully connected layer. This architecture is not very deep. However, considered
+the restricted number of samples, a deep CNN would be very prone to over ﬁtting.
+
+Learning a NN model lead to a lot of technical difﬁculties that have been
+progressively dealt with during last decade, and through many different techniques.
+We present some that have been of particular interest in our study. A ﬁrst point is
+that there are several types of activation functions, the ﬁrst one introduced being
+the sigmoid function. However, the extinction of its gradient when xT θ 1
+j is small
+or big, has presented a serious problem for parameters optimization in the past.
+More recently, the introduction of the ReLU [19] activation function helped made
+an important step forward in NNs optimization. A second point is that when we
+train a NN model, simultaneous changes of all the parameters lead to important
+change in the distribution (across the dataset) of each activation of the model. This
+phenomenon is called internal covariate shift, and perturbs learning importantly.
+Batch-Normalization [20] is a technique that signiﬁcantly reduces internal covariate
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+A stochastic gradient descent algorithm with a momentum of 0.9 is used in this case. Stochastic Gradient Descent (SGD) is an iterative method for optimizing an objective function with suitable smoothness properties. It uses random sampling to estimate the true gradient of the cost function. Momentum is a term used in gradient descent optimization algorithms which helps accelerate gradients in the right direction, thus leading to faster convergence. In addition, batch-size of 50 is also mentioned, where batch samples are randomly chosen at each iteration.
+
+However, no specific mention of using the Adam optimization algorithm or any other optimization techniques besides SGD is found in the given context.

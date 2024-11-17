@@ -1,0 +1,116 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Group 
+
+Encoder    
+Pre-processing 
+
+ResStack 1 
+
+ResStack 2 
+
+ResStack 3 
+
+ResStack 3 
+
+Temporal Framing 
+Bottleneck     
+
+Reparameterisation 
+
+Decoder    
+Temporal Framing 
+ResStack 3 
+
+ResStack 3 
+
+ResStack 2 
+
+ResStack 1 
+
+Post-processing 
+
+Operation 
+
+Input Shape 
+
+Output Shape 
+
+5 × 5 Conv + BatchNorm + ReLU 
+Max & Avg pooling +1 × 1 Conv 
+Downsampling block 
+2 × Residual Block 
+Downsampling block 
+2 × Residual Block 
+Downsampling block 
+2 × Residual Block 
+Downsampling block 
+2 × Residual Block 
+Reshape 
+
+Flatten 
+Linear 
+Sample 
+Linear 
+Unflatten 
+
+Reshape 
+Upsampling block 
+2 × Residual Block 
+Upsampling block 
+2 × Residual Block 
+Upsampling block 
+2 × Residual Block 
+Upsampling block 
+2 × Residual Block 
+1 × 1 Conv + BatchNorm + ReLU 
+2 × 2 ConvTranspose + BatchNorm + ReLU 
+5 × 5 Conv
+
+The  encoder  uses  a  pre-processing  block  containing  a  convolution 
+with a wide receptive field (5 × 5 kernel) and signal coarsening along 
+the time axis (2 × 1 kernel) (Kahl et al., 2021). Coarsening follows the 
+changes suggested in (He et al., 2018) and replicates later versions of 
+BirdNet’s  down-sampling  strategy  by  recombining  the  concatenated 
+output  of  2 × 2  maximum and  2  × 2 average  pooling using  a  1 × 1 
+convolution.  After  convolution,  feature  representations  are  chunked 
+along the time axis into T = 19 independent frames each corresponding 
+to 3.072 s. Each frame is flattened and passed through a final linear layer 
+to  output  T  d-dimensional  mean  μ  and  log  variance  logσ2  vectors  as 
+parameters  for  the  Gaussian  variational  posterior.  A  latent  vector  for 
+each frame in the time-series is sampled from the posterior using the 
+reparameterisation trick. We set d = 128 for comparability with ecoa-
+
+network deepens (Ioffe and Szegedy, 2015; Prince, 2023). To mitigate 
+internal covariate shift and stabilise training residual networks require 
+some form  of layer  normalisation  such  as batch  normalisation.  While 
+increasing  the  number  of  model  parameters,  batch  normalisation  en-
+ables the use of higher learning rates, significantly speeding up training 
+and  reducing  power  usage  (Ioffe  and  Szegedy,  2015).  Wide  ResNets 
+increase network width and reduce depth (Zagoruyko and Komodakis, 
+2017) allowing faster training due to shallower architectures. Our ar-
+chitecture  draws on  the  layout  of  BirdNet’s  encoder,  preserving  their 
+pre-processing block and dropping the classification layers, setting up a 
+wide  residual  network  with  a  width  scaling  factor  K = 4  and  depth 
+scaling factor N = 3 (Kahl et al., 2021). Hidden layer activations use a 
+rectified linear unit (ReLU) activation function. Additional regularisa-
+
+used  and  the  learning  capacity,  complexity  and  architecture  of  the 
+model.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The context does not provide explicit information about the criteria used to split the data for deep learning model training (e.g., train, test, validation). However, common practices include splitting the dataset randomly or stratified based on class labels. Typically, the dataset is divided into three parts: training, validation, and testing sets. The training set is used to fit the model, while the validation set helps tune hyperparameters and prevent overfitting. Lastly, the testing set evaluates the model's performance on unseen data.
+
+Based on the given context, it can be assumed that similar practices were followed during the development of this deep learning model. However, without specific details regarding the dataset and its distribution, it is impossible to determine the exact criteria used for splitting the data.

@@ -1,0 +1,13 @@
+Answer:::
+
+The strategy implemented to monitor the model performance during training involves the use of loss values, which are used to assess how well the model is learning. In the context provided, the training and validation loss values for Mask R-CNN are obtained for epoch 20. The training loss is the sum of rpn\_class\_loss, rpn\_bbox\_loss, mrcnn\_class\_loss, mrcnn\_bbox\_loss, and mrcnn\_mask\_loss. Similarly, the validation loss is the sum of val\_rpn\_bbox\_loss, val\_rpn\_class\_loss, val\_mrcnn\_bbox\_loss, and val\_mrcnn\_class\_loss.
+
+The rpn\_class\_loss and rpn\_bbox\_loss are the anchor classifier loss and bounding box loss for the Region Proposal Network (RPN), respectively. The mrcnn\_class\_loss and mrcnn\_bbox\_loss are the loss values for the classifier head and bounding box refinement of Mask R-CNN, respectively. The mrcnn\_mask\_loss is the mask binary cross-entropy loss.
+
+The val\_mrcnn\_mask\_loss is not provided in the context, but it is assumed to be calculated similarly to mrcnn\_mask\_loss.
+
+The loss values are used to monitor the model's performance during training by comparing the training and validation loss values. Ideally, the training loss should decrease as the model learns, while the validation loss should remain relatively stable. If the validation loss starts to increase while the training loss continues to decrease, it may indicate overfitting, where the model is learning the training data too well and is not generalizing well to new data.
+
+In addition to monitoring the loss values, the model's performance is also evaluated by using evaluation metrics such as mean Average Precision (mAP) and Intersection over Union (IoU). These metrics are not provided in the context, but they are commonly used to evaluate the performance of object detection and instance segmentation models.
+
+In summary, the strategy implemented to monitor the model performance during training involves the use of loss values, which are used to assess how well the model is learning. The training and validation loss values are compared to monitor the model's performance, and evaluation metrics such as mAP and IoU are used to evaluate the model's performance.

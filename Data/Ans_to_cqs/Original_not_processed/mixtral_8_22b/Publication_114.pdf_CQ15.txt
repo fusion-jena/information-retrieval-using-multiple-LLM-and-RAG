@@ -1,0 +1,165 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+kernels. GoogLeNet adopted the Inception module, which is easy to use for network modification. It also removed the fully connected layers to reduce the number of parameters. Moreover, it used two auxiliary classifiers to accelerate network convergence. As a consequence of the auxiliary classifiers, GoogLeNet is not as scalable as VGG. On the other hand, the depth of networks is a crucial factor that influences CNN performance [39]. Richer features of different levels can be extracted from deep CNN layers, whereas deep models are not easy to optimize. In many studies, batch normalization (BN) is employed to hamper vanishing/exploding gradients in deep CNNs. However, the accuracy often becomes saturated and then degrades (degradation problem) in the training phase, even though BN layers are used. ResNet [41] addressed the degradation problem by using shallow layers and identity mapping for network construction. Two shortcuts (i.e., identity and projection shortcuts) have been
+
+In the past few years, CNNs have been a hot topic in the ﬁeld of image classiﬁcation. Since the
+publication of AlexNet [38], a number of classical CNN architectures have been proposed, including
+VGG [39], GoogLeNet [40], and ResNet [41]. VGG can be considered as a deepened version of AlexNet,
+which employed small convolutional kernels. GoogLeNet adopted the Inception module, which is
+easy to use for network modiﬁcation. It also removed the fully connected layers to reduce the number
+of parameters. Moreover, it used two auxiliary classiﬁers to accelerate network convergence. As a
+consequence of the auxiliary classiﬁers, GoogLeNet is not as scalable as VGG. On the other hand, the
+depth of networks is a crucial factor that inﬂuences CNN performance [39]. Richer features of diﬀerent
+levels can be extracted from deep CNN layers, whereas deep models are not easy to optimize. In
+many studies, batch normalization (BN) is employed to hamper vanishing/exploding gradients in deep
+
+For deep-learning-based tree species classiﬁcation, all the CNNs in this study were implemented
+in Caﬀe [47] on a NVIDIA GTX Titan X GPU. The initial learning rate was determined by trial and
+error from the two values 0.00001 and 0.0001, and ﬁnally 0.00001 was adopted for all the three CNNs.
+The Adam optimizer [48] was used to optimize the learning rate. The max iteration was set as
+200,000 for all the three networks in the training phase, and the training models were saved every
+10,000 iterations to identify the best models for testing. The test tree samples were predicted by each
+saved training model of the three CNNs. The best performance of VGG 16, ResNet50, and AlexNet
+were at 140,000, 110,000, and 100,000 iterations, respectively.
+
+3.6. Assessment
+
+Tree Type
+
+Silk ﬂoss tree
+Banyan tree
+Flame tree
+Longan
+Banana
+Papaya
+Bauhinia
+Eucalyptus trees
+Carambola
+Sakura tree
+Pond cypress
+Alstonia scholaris
+Bischoﬁa javanica
+Hibiscus tiliaceus
+Litchi
+Mango tree
+Camphor tree
+Others
+
+Table 2. Classiﬁcation accuracies of the three deep learning algorithms.
+
+VGG16 (140,000)
+
+ResNet50 (110,000)
+
+AlexNet (100,000)
+
+UA (%)
+
+PA (%)
+
+F1-Score UA (%)
+
+PA (%)
+
+F1-Score UA (%)
+
+PA (%)
+
+F1-Score
+
+55.56
+76.47
+90.20
+80.77
+100.00
+100.00
+81.61
+100.00
+76.47
+100.00
+100.00
+83.33
+89.19
+100.00
+15.00
+28.57
+27.59
+59.14
+
+30.61
+59.77
+80.70
+40.38
+93.75
+100.00
+77.17
+88.00
+86.67
+100.00
+88.89
+71.43
+66.00
+76.92
+50.00
+60.00
+44.44
+79.11
+OA = 73.25%
+Kappa = 69.76%
+
+39.47
+67.10
+85.19
+53.85
+96.77
+100.00
+79.33
+93.62
+81.25
+100.00
+94.12
+76.92
+75.86
+86.96
+23.08
+38.71
+34.04
+67.68
+
+44.44
+86.76
+90.20
+88.46
+100.00
+100.00
+83.91
+100.00
+82.35
+96.88
+83.33
+83.33
+83.78
+95.00
+40.00
+38.10
+24.14
+55.48
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+In the given context, the optimization technique used in the deep learning pipeline is mentioned as the Adam optimizer. The Adam optimizer is a method for efficient stochastic optimization that only requires first-order gradients with little memory requirement. It combines the advantages of AdaGrad and RMSProp methods to provide an optimization algorithm that can handle sparse gradients on noisy problems. This makes it well suited for large-scale machine learning applications such as neural networks.
+
+In the context of this study, the Adam optimizer was used to optimize the learning rate for all three CNNs - VGG 16, ResNet50, and AlexNet. The initial learning rate was determined through trial and error, and finally set to 0.00001 for all three networks. The max iteration was set as 200,000 for all three networks in the training phase, and the training models were saved every 10,000 iterations to identify the best models for testing.

@@ -1,0 +1,73 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The model was trained over 200 epochs using the Adam optimizer 
+(cid:0) 5. The batch size 
+(Kingma and Ba, 2015), with a weight decay of 1 × 10
+was fixed at 16, and the loss function was updated as per Eq. (6). The 
+learning rate was initially set at 0.001 and was subsequently reduced by 
+a  factor  of  0.1  in  a  step-wise  manner  whenever  the  validation  loss 
+remained  constant  for  five  epochs.  The  minimum  learning  rate  was 
+(cid:0) 5. The hyper-parameter λ in Eq. (4) was set to 0.8, 
+established at 1 × 10
+Mk  in Eq. (5) was defined as 2k+1(k = 1, 2, …K), and β in Eq. (6) was set 
+to 0.4.
+
+The  model’s  performance  was  assessed  using  the  mean  reciprocal 
+rank  (MRR),  accuracy  (ACC),  and  hierarchical  distance  of  a  mistake 
+(HDM) as metrics. The MRR (Go¨eau et al., 2018), an official evaluation 
+metric of the BirdCLEF2018 competition, was employed to assess pro-
+cesses that generate a list of potential responses to a sample of queries 
+which are ranked by their likelihood of correctness. Accuracy was used 
+to determine the proportion of correctly classified items, and an average 
+accuracy across all class hierarchies (avg_ACC) was calculated to eval-
+uate the efficacy of the hierarchical classification. The HDM (Bertinetto 
+et al., 2020) was used to quantify the degree of misclassification when 
+only  a  single  class  could  be  predicted.  For  example,  misclassifying 
+Garrulax canorus as  Leiothrix lutea may not incur the same penalty as 
+misclassifying Garrulax canorus as Caprimulgus jotaka. The mean height
+
+13/47/100  
+
+the  two  datasets  using  the  “stratified  sampling”  method.  We  selected 
+birds of different class sizes from BirdCLEF2018, abbreviated as “BC-S" 
+(BirdCLEF-Small)  and  “BC-L"  (BirdCLEF-Large).  From  the  Lishui- 
+Zhejiang Birdsdata, we chose 100 bird species, referred to as “LS”. We 
+then halved the number of training samples of each species for “LS” to 
+construct  a  supplementary  small-scale  training  set,  denoted  as  “LS*”. 
+The datasets were divided into three exclusive groups: 80% for training, 
+10% for validation, and 10% for testing to compare the experimental 
+results. Detailed statistical information is presented in Table 3. 
+
+4.2. Experimental results 
+
+This section presents the experimental results of our PPNN model,
+
+their  convolutional  kernels  and  pooling  layers.  Regarding  this  issue, 
+Zhang  et  al.  (2019)  incorporated  a  long  short-term  memory  (LSTM) 
+network to develop a 3DCNN-LSTM model as a classifier, making the 
+network more sensitive to the temporal changes in birdsong informa-
+tion. It is important to note that the use of RNNs such as the CRNN model 
+requires  more  computing  resources  for  training,  and  performance 
+improvement is not always guaranteed. Another common approach to 
+addressing  the  limitations  of  CNNs  is  to  introduce  attention  mecha-
+nisms.  For  example,  Soundception  (Sevilla  and  Glotin,  2017)  was 
+developed  by  introducing  time  and  time-frequency  attention  mecha-
+nisms to Inception V4; the resulting model achieved first place in the 
+BirdCLEF  2017  Competition.  Fu  et  al.  (2023)  proposed  an  improved 
+ACGAN model named DR-ACGAN based on the residual structure and an
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+During the training process, the model's performance was monitored through several strategies. Firstly, the learning rate was initialized at 0.001 and then decreased by a factor of 0.1 in a step-wise manner whenever the validation loss remained constant for five epochs. This indicates that the model's performance on the validation data was being tracked after every epoch, and if there was no improvement in the validation loss for five consecutive epochs, the learning rate was adjusted to prevent overfitting and improve generalization. Secondly, the model's performance was also evaluated using specific metrics such as Mean Reciprocal Rank (MRR), accuracy (ACC), and Hierarchical Distance of a Mistake (HDM). These metrics helped measure the effectiveness of the model in generating a list of potential responses to a sample of queries, determining the proportion of correctly classified items, and quantifying the degree of misclassification respectively. Lastly, the model's performance was tested on various datasets including BC-S, BC-L, LS, and LS*. Each dataset had its own unique characteristics which allowed for a comprehensive assessment of the model's ability to handle diverse scenarios.

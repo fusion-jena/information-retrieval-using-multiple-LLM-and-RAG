@@ -1,0 +1,112 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The convolutional layer, batch normalization (BN) layer, and SiLU 
+activation function are combined to form the CBS block. The SPPF (Li 
+et  al.,  2021)  block  operates  three  maximum  pooling  layers,  and  then 
+each branch is aggregated to the concat layer. It is capable of combining 
+information  from  several  scales.  The  CRFPN  is  utilized  in  the  neck 
+portion to combine the extractive features and convey information to the 
+head  portion.  Finally,  the  head  predicts  and  presents  the  bounding 
+boxes, classes, and concordance scores. 
+
+3.1. The backbone of YWnet
+
+To extract the input information, the SRC3 block employs a parallel 
+analysis  of  the  input  feature  map  using  two  convolution  kernels.  In 
+contrast to the C3 block, the SRC3 block incorporates two convolution 
+kernels prior to the input of the bottleneck block. One of the kernels is 
+responsible  for  halving  the  dimension  of  the  feature  map,  while  the 
+other  maintains  the  dimension  unchanged.  This  approach  allows  for 
+more  comprehensive  processing  of  the  input  features,  enabling  the 
+model  to  capture  both  high-level  semantic  information  and  preserve 
+relevant details during the feature extraction process. The convolution 
+kernel size utilized is 3 × 3, which leads to a broader receptive field of 
+information and richer characteristics compared to the 1 × 1 convolu-
+tion kernel. The output semantic information can be augmented by the 
+action of two convolution kernels. The information output from the first
+
+Datasets 
+
+Images 
+
+Category 
+
+Aquarium 
+Trash-ICRA19 
+VisDrone 
+NWPU VHR-10 
+HRSID 
+
+638 
+1144 
+1610 
+800 
+5604 
+
+7 
+3 
+12 
+10 
+1 
+
+Train 
+
+510 
+915 
+1288 
+640 
+4483 
+
+Test 
+
+128 
+229 
+322 
+160 
+1121  
+
+EcologicalInformatics79(2024)1024017P. Liu et al.                                                                                                                                                                                                                                       
+
+create a single image, enhancing the background of the identified object. 
+Table  2  presents  the  hyperparameters  used  for  data  augmentation, 
+specifying  the  ranges  and  probabilities  for  each  augmentation  tech-
+nique.  These  augmentation  techniques  introduce  diversity  into  the 
+training  dataset,  enabling  the  model  to  learn  robust  features  and 
+improve its performance in real-world scenarios. 
+
+Table 3 
+Comparison of networks using different attention mechanism modules.
+
+For the experiments, we utilized the URPC datasets, which consist of 
+a total of 1201 images. These datasets contain four object categories: 
+holothurian, echinus, scallop, and starfish. In this study, we divide the 
+experimental data into training and test sets, following an 8:2 ratio. The 
+training process of YWnet utilized a dataset consisting of 956 images, 
+while a separate test set of 244 images was used to evaluate the model's 
+generalization capabilities. This division of data into training and test 
+sets  allows  for  a  comprehensive  assessment  of  the  algorithm's  perfor-
+mance. To evaluate the generalization capabilities of YWnet, we con-
+ducted tests on five additional datasets. Table 1 provides an overview of 
+these  datasets,  including  Aquarium,  Trash-ICRA19,  VisDrone,  NWPU 
+VHR-10, and HRSID. Aquarium and Trash-ICRA19 are part of the Marine 
+Dataset, comprising marine animals and waste categories. The aquarium
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of the deep learning model, various measures were taken. Firstly, diverse datasets were employed for training and testing purposes. For instance, the URPC datasets containing four object categories - holothurian, echinus, scallop, and starfish - were used for experimentation. Additionally, five more datasets, namely Aquarium, Trash-ICRA19, VisDrone, NWPU VHR-10, and HRSID, were also included for evaluating the model's generalization capabilities.
+
+Secondly, the experimental data was divided into training and test sets following an 8:2 ratio. Specifically, the training process of YWnet utilized a dataset consisting of 956 images, while a separate test set of 244 images was used to assess the model's ability to perform well on unseen data. This division of data into training and test sets allowed for a comprehensive evaluation of the algorithm's performance.
+
+Lastly, data augmentation techniques such as rotation, scaling, flipping, brightness adjustment, contrast adjustment, saturation adjustment, hue adjustment, Gaussian blurring, and median blurring were applied to enhance the diversity of the training dataset. By introducing variations in the training data, these augmentations enabled the model to learn robust features and improve its performance in real-world scenarios.

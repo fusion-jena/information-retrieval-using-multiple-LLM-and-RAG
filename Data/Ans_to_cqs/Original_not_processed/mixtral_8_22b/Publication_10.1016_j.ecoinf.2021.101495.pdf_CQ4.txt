@@ -1,0 +1,100 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+(b) Computing infrastructure used to train both neural networks 
+
+Infrastructure 
+Search strategy 
+Training duration 
+(best assignment) 
+
+Nvidia Tesla V100 (16GB) 
+Manual tuning  
+Segmentation 
+Classification 
+
+4 h 6 min 24 s 
+9 h 22 min 34 s
+
+Trained model 
+
+-  Manually: 275 
+
+segments  
+
+-  Automatically: 
+6921 segments  
+
+-  Data 
+
+augmentation: 
+x12 
+
+-  14,896 images  
+-  Two trained 
+
+models 
+
+22 of the 30 
+fishing sets 
+(unannotated) 
+
+Data of the 22 
+fishing sets   
+
+-  Annotations  
+-  Species 
+
+prediction  
+
+-  Size 
+
+distribution 
+Comparison  
+
+Ground truth 
+
+validation (sec. 
+2.5) 
+
+Data from 4 fishing 
+sets  
+
+-  Official sources  
+-  Estimations
+
+Data augmentation techniques were used to obtain a larger number 
+of segments. For each of the original segments 12 new ones are gener-
+ated,  varying  the  orientation  of  the  individual  (image  rotation),  the 
+contrast and the brightness of the image. To generate these augmenta-
+tions, first each individual was placed so that its longest axis was hori-
+zontal. This way each fish could be found randomly in a left-right hand 
+view combination and with its head up or down. By generating the three 
+
+missing rotations, all the possible positions in which the model can find a 
+fish  are  generated.  Finally,  a  change  in  brightness  and  contrast  was 
+randomly  applied  to  each  of  these  four  images.  This  two  parameters 
+were altered using Eq. 1. Each pixel x of the image is multiplied by α to 
+alter the contrast and β is added to change the brightness. The possible 
+values for α and β were {α ∈ ℝ : 0.9 ≤ α ≤ 1.1} and {β ∈ ℕ :  (cid:0) 4 ≤ β ≤ 4}. 
+
+g(x) = αf (x) + β
+
+the classification model with a total of 86,208 segments. Fig. 7 shows 
+how the model is able to learn in fewer steps and with better accuracy if 
+data augmentation is used.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The data augmentation techniques applied in this deep learning pipeline include variations in the orientation of individuals (image rotation), changes in contrast, and alterations in brightness. Specifically, each individual was positioned such that their longest axis was horizontal, allowing them to appear randomly in either a left-hand or right-hand view and with their head facing up or down. The missing rotations were then generated to create all possible orientations in which the model might encounter a fish. Subsequently, random adjustments to brightness and contrast were made using Equation 1, where each pixel x of the image was multiplied by α to modify the contrast and β was added to change the brightness. The values for α and β ranged within {α ∈ ℝ : 0.9 ≤ α ≤ 1.1} and {β ∈ ℕ : -4 ≤ β ≤ 4}, respectively.

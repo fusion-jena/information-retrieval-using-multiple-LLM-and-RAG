@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+adjusted to optimize the model (Jafarzadeh et al., 2021). Whereas node- 
+size  determines  the  smallest  number  of  observations  in  a  tree  subset 
+terminal node, and default value is always at 1 (Jafarzadeh et al., 2021; 
+Pham et al., 2018). Gradient boosting iteration is a repetition process of 
+increasing  or  decreasing  weights  in  a  training  datasets  (Huang  et  al., 
+2022). All hyperparameters were tuned with a grid search method. 
+
+2.5.1. Artificial neural networks
+
+During  the  MLPNN  training  phase,  initial  arbitrary  connection 
+weights were assigned. Inputs were forward-fed from the input to the 
+hidden  layer.  Hidden  neurons  multiplied  inputs  by  weights,  summed 
+products,  and  processed  sums  through  a  transfer  function.  Results 
+propagated  to  the  output  layer,  with  output  values  compared  to  ex-
+pected  values  for  error  computation.  Iterative  error  back-propagation 
+adjusted  connection  weights  until  reaching  a  target  minimal  error. 
+The network then accurately estimated carbon stocks for both training 
+and new input data without training data. This required tests to deter-
+mine optimal learning rate (0.01), momentum (0.18), and training it-
+erations  (500).  The  trained  network  was  subsequently  used  for  feed- 
+forward predictions on continuous spatial data. 
+
+2.5.2. Optimal predictor variable selection
+
+Extreme  Gradient  boosting  (XGBoost)  is  known  for  its  speed  and 
+accurate  prediction  process,  especially  when  dealing  with  large  and 
+complex  datasets.  Its  power  lies  in  its  ability  to  minimize  bias  error 
+within  and  between  spectral  predictors.  XGBoost  builds  sequential 
+models to reduce errors of predictors that could potentially lower the 
+estimation accuracy (Huang et al., 2022; Tamiminia et al., 2022; Zhang 
+et al., 2019b). In each sequent model, the weights of all weak learners 
+(predictors)  are  increased  (or  boosted)  and  the  weights  for  strong 
+learners in the model are decreased (Huang et al., 2022; Pham et al., 
+2021). This process is repeated until the error is reduced, and the data is 
+correctly  predicted.  Furthermore,  XGB  permits  model  tuning  through 
+various  hyper-parameters,  namely:  ntree,  tree  node  size  and  gradient 
+boosting iteration. Ntree builds a multitude of decision trees and select
+
+Artificial  Neural  Network  (ANN)  algorithms  simulate  human 
+learning by establishing and strengthening connections between input 
+and  output  data  (Campesato,  2020).  These  connections  enable  data 
+linkage without the need for training data (Shen et al., 2021). Notable 
+ANN algorithms include Radial Basis Function, Elman Recurrent, and 
+Hopfield Neural Networks (Campesato, 2020; Domingues et al., 2020). 
+However,  Multilayer  Perceptron  Neural  Networks  (MLPNNs)  using 
+backpropagation  have  gained  popularity  and  were  employed  in  this 
+study (Günlü and Ercanlı, 2020; Wang and Xing, 2008). MLPNNs consist 
+of  input,  hidden,  and  output  layers,  each  with  interconnected  nodes 
+(neurons) that transform input into output data (Wang et al., 2017). In 
+this study, the input layer had 23 neurons, correlating with predictors. 
+The  hidden  layer's  neuron  count  was  determined  using  training  and
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, there is no explicit mention of specific regularization methods such as dropout or L2 regularization being used to prevent overfitting in the deep learning pipeline. However, some techniques mentioned can be considered as forms of regularization. For instance, the use of Extreme Gradient Boosting (XGBoost) can help prevent overfitting due to its ability to minimize bias error within and between spectral predictors. Additionally, the iterative error back-propagation adjustment in the MLPNN training phase can also contribute to preventing overfitting by fine-tuning the connection weights until reaching a target minimal error. Lastly, the use of a grid search method for hyperparameter tuning can also aid in avoiding overfitting by finding the best combination of parameters that generalizes well to unseen data.

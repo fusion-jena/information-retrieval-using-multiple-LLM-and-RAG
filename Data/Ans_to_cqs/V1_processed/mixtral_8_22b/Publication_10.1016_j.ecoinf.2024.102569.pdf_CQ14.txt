@@ -1,0 +1,7 @@
+The hyperparameters of the model, specifically the tuning parameters τ and ϕ, are optimized using the Root Trimmed Mean Squared Prediction Error (RTMSPE). This approach removes the impact of heterogeneous observations and helps in selecting the appropriate values for these hyperparameters.
+
+The RTMSPE is defined as the square root of the average of the squares of the middle (1 - δ) fraction of the ordered squared prediction errors. Here, δ is a value between 0 and 1, and it ensures that 1/(1 - δ) represents the expected proportion of heterogeneous observations. These heterogeneous observations are identified based on their large squared residual magnitudes, which indicate a higher likelihood of them being outliers or anomalies.
+
+The RTMSPE is used to evaluate different combinations of hyperparameter values, and the combination that results in the lowest RTMSPE is chosen as the optimal one. However, due to the computational cost of cross-validation, the RTMSPE is calculated using the training data instead of a separate validation dataset.
+
+It should also be noted that the L1 penalty is employed to simultaneously carry out shrinkage estimation and variable selection. This involves adding a penalty term to the loss function, which discourages overfitting and encourages simpler models. The L1 penalized estimates are computed using the gradient ascent method.

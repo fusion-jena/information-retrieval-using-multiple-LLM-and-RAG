@@ -1,0 +1,196 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Adding decision rule r2 (i.e. identiﬁcation of a part of a species
+considered as a correct answer) increased this success rate to 94.1%
+(Table 2). Hence, post-processing raw outputs of the model trained with
+the most complete dataset provided the best identiﬁcation rate. Among
+the 18 species, success rate ranged from 85.2 to 100%, with only 3
+species being correctly identiﬁed in < 90% of cases and 9 species being
+correctly identiﬁed in > 95% of cases, including 3 with a correct
+identiﬁcation rate > 99%.
+
+Confusions between 2 ﬁsh species were lower than 4% (Table 3).
+Confusion between a ﬁsh and the environment was common when no
+post-processing was applied with for instance up to 20.9% of Poma-
+centrus sulfureus individuals misidentiﬁed as environment (Tables S4,
+S5). However, applying decision rule r1 decreased this error rate
+to < 4% (Table 3).
+
+3.2. Performance of CNN models vs. humans
+
+2.4. Testing the performance of models
+
+We ﬁrst compared the performance of the 4 models trained using
+each of the 4 training datasets. In addition, we tested the performance
+of models after correcting their raw outputs using two a posteriori de-
+cision rules. First, since the networks trained with T2, T3 or T4 are
+likely to recognize environment samples with a high conﬁdence score
+(over 99%) they could thus classify some ﬁsh as an environment class
+(i.e. false positive). We therefore deﬁned a decision rule (r1): when the
+ﬁrst proposition of the network was ‘environment’ with a conﬁdence
+lower than 99% we provide, as ﬁnal output, the ﬁsh class with the
+highest probability.
+
+Similarly, as “part of species” classes present in T4 were just a
+methodological choice to improve model performance (and hence were
+absent from the test database), we deﬁned a second decision rule (r2):
+when the result given by the network is “part of species X", we provide,
+as ﬁnal output, “species X".
+
+The model was trained using thumbnails of whole ﬁsh, part of ﬁsh species and
+environment (T?). Raw outputs were post-processed applying two decision
+rules: (r1) keeping most likely ﬁsh class if “environment” was the most likely
+class, and (r2) considering “part of species X" equivalent to “species X".
+
+Species
+
+Number of thumbnails
+tested
+
+Deep-learning
+model
+
+Humans
+
+Abudefduf sparoides
+Abudefduf vaigiensis
+Chaetodon trifascialis
+Naso elegans
+Pomacentrus sulfureus
+Pygoplites diacanthus
+Thalassoma hardwicke
+Zanclus cornutus
+Zebrasoma scopas
+Average success rate
+
+88
+47
+149
+165
+443
+35
+73
+53
+144
+1197
+
+93.4
+97.3
+95.1
+98.4
+97.9
+90.4
+96
+97.1
+96.2
+95.7
+
+87.7
+84.7
+89.4
+94.8
+93.2
+77.4
+91
+97.8
+88.3
+89.3
+
+with following decision rules:
+
+‘r1’: If the highest probability is lower than 99% and is for class “environment” then the ﬁsh class with the second highest probability is kept.
+‘r2’: Outputs “part of species X" are considered as equivalent to “species X" (i.e. the scores of A. sparoides and part of A. sparoides were merged).
+Columns indicate the species to classify, and rows indicate the results (most probable species) given by the model (i.e. percentages on the diagonal indicate success
+
+rate). Only values over 1% are shown. Full names of species are in Table 1.
+
+Species
+
+A.sparoides
+
+A. vaigiensis
+
+C. trifascialis
+
+N. elegans
+
+P. sulfureus
+
+P. diacanthus
+
+T. hardwicke
+
+Z. cornutus
+
+Z. scopas
+
+A.sparoides
+A. vaigiensis
+C. Trifascialis
+C. weberi
+D. caruleus
+N. elegans
+P. sulfureus
+P. diacanthus
+P. lacrymatus
+T. Hardwicke
+Z. cornutus
+Z. scopas
+Environment
+
+91.9
+1.1
+
+2.2
+
+1.0
+
+2.0
+1.0
+
+98.2
+
+1.8
+
+91.5
+
+1.0
+
+1.5
+
+1.3
+
+1.0
+1.1
+
+94.2
+
+1.5
+
+98.5
+
+3.9
+
+92.7
+1.0
+
+97.8
+
+87.9
+3.8
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough information available in the provided context to determine how the hyperparameters of the model were optimized. The text discusses various aspects such as the performance of different models, application of decision rules, and comparison with human accuracy, but it does not mention any specific details about hyperparameter optimization methods like grid search or random search. Therefore, I cannot provide a helpful answer based solely on the given context.

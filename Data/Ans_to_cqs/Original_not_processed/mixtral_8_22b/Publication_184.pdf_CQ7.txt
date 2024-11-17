@@ -1,0 +1,101 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+In  order  to  train  the  model,  it  is important to provide not only 
+the  class  of  the  object  but  also  the  bounding  box  data  of  the 
+object  as  correct  answer.  In  this  context,  we  parsed  the  x,  y 
+coordinates, width and height of the fish in the annotation of the 
+image’s  dataset.  In  addition,  we  used  data  augmentation  to 
+extend the amount of data. 
+
+The  model  has  better  performance  as  number  of  epochs 
+increases.  However,  when  number  of  epochs  exceeds  200,  the 
+network  seems  to  be  overfitted  to  training  data.  As  a  result, 
+Table  I  shows  the  hyper-parameters  used  to  train  and  validate 
+the Yolo model. 
+
+Number 
+of 
+iterations 
+4000 
+
+Number 
+of 
+epochs 
+200 
+
+Learning 
+rate 
+
+Batch 
+size 
+
+Subdivisions 
+
+0.001 
+
+16 
+
+64 
+
+Table 1. Hyper-parameters to train the Yolo model.
+
+The graph illustrates the loss while training the neural network 
+and the average loss is reduced to 0.54%. That means the model 
+is  affected  by  training  data.  A  total  of  4000  iteration  were  run 
+and  it  took  14  hours  to  complete  the  training.  The  model 
+improved swiftly in terms of precision, recall and mean average 
+precision  before  plateauing  after  about  1000  iterations,  and 
+around 1000 iterations the loss showed a rapid decline. 
+
+For  each  epoch,  64  images  are  randomly  selected  and  used  to 
+train  the  model.  Each  image  is  used  multiple  times  due  to  the 
+limited  number  of  samples.  Figure  8,  shows  some  training 
+samples, and the number zero indicates the fish class. 
+
+Figure 8. Training samples.
+
+Where:   N x N: is the number of the grid cells of the system 
+               3: to decode the features extracted from each of the 3           
+               scales  
+               4 + 1: to decode the bounding boxes offsets +  
+               objectness score 
+               C: is the number of classes we train our model on.  
+
+This permits to induce better semantic information from the up-
+sampled features and finer-grained information from the earlier 
+feature map.  
+
+Figure 2. Fish samples with different environment 
+circumstances: (a) separated fish in seagrass, (b) a shoal (a 
+group of fish), (c) tiny fish, (d) occlusion by corals, and (e) 
+shading and light conditions.
+
+The data augmentation technique was used in this study, which 
+help  to  extend  the  amount  of  information  by  adding  adjusted 
+copies of already existing data, and it acts as a  regularizer and 
+makes  a  difference  to  reduce  the  overfitting.  While  training, 
+before input into the model, each image was randomly sampled 
+by  one  of  the  following  options;  the  entire  original  image, 
+horizontal  flip,  grayscale,  blur,  noise  and  cropping.  So,  each 
+image  was  horizontally  flipped,  grayscale  was  applied  to  25% 
+of images, blur was up to 10px, noise was up to 10% of pixels, 
+and for the cropping operation, a patch with the same size as the 
+original  image  was  randomly  cropped  from  image.  Some 
+examples of the data augmentation step are illustrated in Figure 
+3.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't explicit mention of how the data was split for training, testing, or validation purposes. However, it can be inferred that the data was divided into training and validation sets based on Table I, which lists the hyperparameters used to train and validate the YOLO model. Additionally, the text mentions that the model improved in terms of precision, recall, and mean average precision before plateauing around 1000 iterations, indicating that the model was evaluated during the training process. It is common practice in machine learning to divide datasets into training, validation, and testing subsets, often using ratios such as 70/15/15 or 80/10/10. Without further specific details, it cannot be determined exactly what criteria were used to split the data in this case.

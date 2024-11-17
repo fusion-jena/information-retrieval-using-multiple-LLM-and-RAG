@@ -1,0 +1,76 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+was analysed using various evaluation matrices. During model training, 
+the input image size was set to 512 × 512 and the maximum batch size 
+was limited to 4. To prevent underfitting, all models were ensured to 
+follow back-propagation after accumulating the batch size 32 times. The 
+models were trained using a stochastic gradient descent (SGD) optimizer 
+with an initial learning rate of 0.01 and a cycle learning rate of 0.2, with 
+
+EcologicalInformatics82(2024)1026917S. Kaukab et al.
+
+Attention = f (w(n) , n)
+
+(1)  
+
+where,  n  represents  the  input  tensor  with  shape  [batch_size,  height, 
+width, channels].  It contains the input  data or feature map  used in a 
+neural network, w(n) is a weight tensor derived from n, typically ob-
+tained through some form of learned parameters or coefficients, and f (w 
+(n), n) represents the process of treating the input feature n. 
+
+The network architecture of the depth-attention YOLOv5 is shown in 
+Fig. 10. Unlike other attention mechanisms that are usually introduced 
+earlier in the network and trained along with the other layers, the depth- 
+attention mechanism was placed after the final processing layers of the 
+detection model. It remains unchanged and does not adapt during the 
+training  process.  This means that the depth-attention  weights are not 
+updated  during  training  and  remain  fixed  throughout  the  learning
+
+The input part of YOLOv5 uses self-adaptive anchor box computa-
+tion, mosaic data augmentation, and image scaling. Input images were 
+scaled down to a fixed size (512 × 512) with normalization using self- 
+adaptive  image  scaling.  A  high-performance  classifier  is  used  by  the 
+backbone benchmark network in YOLOv5 to extract features. The focus 
+structure was used as the backbone of architecture to resize the input 
+image by using slice operation and fuse it in the channel. This results in 
+lowering  the  number of  FLOPs and  parameters. 6 × 6 sized  convolu-
+tional layers are more effective on GPUs to use as focus structures in 
+YOLOv5.  In  YOLOv5  architecture,  the  neck  part  oversees  boosting 
+feature variety and creating useful feature outputs. The head serves as 
+both  a  classifier  and  a  regressor,  predicting  of  class  and  position  of 
+targets. Three feature layers are created in the head by applying 1 × 1
+
+Jie, Z., Jin, L., Xinyan, Q., Bo, L., Zhaojun, L., Huidong, L., Yujie, Z., Jie, S., 2021. 
+A fitting recognition approach combining depth- attention yolov5 and prior 
+synthetic dataset. Appl. Sci. 13 (18), 3776. https://doi.org/10.3390/rs13183776. 
+
+Koirala, A., Walsh, K.B., Wang, Z., Mccarthy, C., 2019a. Deep learning - method overview 
+and review of use for fruit detection and yield estimation. Comput. Electron. Agric. 
+162, 219–234. 
+
+Koirala, A., Walsh, K.B., Wang, Z., Mccarthy, C., 2019b. Deep learning for real-time fruit 
+detection and orchard fruit load estimation: benchmarking of ‘mangoyolo.’. Precis. 
+Agric. 1–29. 
+
+Lin, G., Tang, Y., Zou, X., Li, J., Xiong, J., 2019. In-field citrus detection and localisation 
+based on rgb-d image analysis. Biosyst. Eng. 186, 34–44. https://doi.org/10.1016/j. 
+biosystemseng.2019.06.019. 
+
+Liu, Z., Wu, J., Fu, L., Majeed, Y., Feng, Y., Li, R., 2020. Improved kiwifruit detection
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, there isn't any explicit mention of specific datasets such as MNIST, CIFAR, or ImageNet being used in the deep learning pipeline. However, it can be inferred that the authors have utilized their own custom dataset consisting of ecological images related to their research topic. They also mentioned using a 'prior synthetic dataset', but no further details about this dataset were provided. Therefore, without additional context, I cannot provide a definitive list of datasets used in the deep learning pipeline.

@@ -1,0 +1,144 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+(4)  Computational efficiency 
+
+Because  LaDeco  processes  image  data,  high-quality  Graphics  Pro-
+cessing Units (GPU) are essential. In this study, for example, a total of 
+8301 images were analyzed on a computer with 128GB RAM, an Intel-i9 
+CPU,  and  a  Nvidia-RTX5000  GPU,  taking  a  total  time  of  5087  s  (an 
+average of 0.61 s per image). To improve the processing speed, espe-
+cially  when  dealing  with  large  datasets,  it  is  advisable  to  use  more 
+advanced GPU. 
+
+6. Conclusion
+
+A.1.4. Output format 
+
+For easier integration with other datasets or further statistical analysis, the output was provided in CSV format. Table A.1 shows the output 
+template. The first column lists the names of the images. The subsequent columns show the percentages of various landscape elements categorized into 
+Levels L-1, L-2, L-3, and L-4. The table concludes with the NFI. All data are presented as percentages. For instance, if L1_Nature = 0.996 for an image 
+named 1.jpg, this indicates that 99.6% of the image pixels are natural elements.  
+
+Table A.1 
+Output data example.  
+
+fid 
+
+1.jpg 
+2.jpg 
+3.jpg 
+4.jpg 
+5.jpg 
+6.jpg 
+7.jpg 
+8.jpg 
+9.jpg 
+10.jpg 
+11.jpg 
+12.jpg 
+13.jpg 
+14.jpg 
+15.jpg 
+16.jpg 
+
+L1_Nature 
+
+L1_man-made 
+
+L2_landform 
+
+0.996 
+0.995 
+0.587 
+0.937 
+0.011 
+0 
+0.717 
+0.674 
+0.663 
+0.999 
+0.696 
+0.726 
+0.352 
+0.988 
+0.876 
+0 
+
+0.005 
+0.003 
+0.408 
+0.064 
+0.723 
+0.996 
+0.148 
+0.324 
+0.338 
+0 
+0.303 
+0.113 
+0.647 
+0.012 
+0.124 
+0.923
+
+2.2. Semantic segmentation 
+
+Semantic  Segmentation  is  a  technology  used  in  image  recognition 
+that assigns specific objects to each pixel of an image (Guo et al., 2018; 
+Yu  et  al.,  2018).  This  is  illustrated  in  Fig.  2.  An  SS  model  generally 
+comprises two main components: a downsampling network, which de-
+tects objects within an image, and an upsampling network, which as-
+signs each pixel to its corresponding object. 
+
+Semantic  segmentation  has  matured  into  the  field  of  Artificial  In-
+telligence. Several open-source platforms offer SS functionality. Among 
+these, MXNet, managed by the Apache Software Foundation, offers the 
+most extensive selection of SS models. According to research conducted 
+by  Ho  and  Ho  (2022),  models  trained  on  the  ADE20K  dataset  are 
+particularly  well  suited  for  landscape-based  applications.  However, 
+
+Fig. 1. Scene classification system of Places365.
+
+An  AI  platform  operates  on  a  Central  Processing  Unit  (CPU)  or 
+Graphics Processing Unit (GPU). It uses MXNet to provide the essential 
+modules and functions required for the program operation. 
+
+The  programming  platform  encompasses  four  primary  computa-
+
+tional functions:  
+
+(1)  Analysis  Module:  Responsible  for  conducting  core  analytical 
+
+tasks.  
+
+(2)  Data Filtering Module: Filters irrelevant data.  
+
+(1)  The computer initially read the images and forwarded them to the 
+
+SS model.  
+
+(2)  The SS model produced a pixel count for 150 objects.  
+(3)  Any data that fell below a certain threshold were assigned a value 
+
+of zero.  
+
+(4)  Finally,  the  percentages  of  each  element  and  category  were 
+calculated based on a visual landscape classification framework. 
+The  results  were  then  exported  in  Comma-Separated  Values 
+(CSV) format.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, the deep learning pipeline primarily deals with image data. The input consists of images, which are processed using semantic segmentation techniques to identify different landscape elements. After processing, the output is provided in CSV format for easier integration with other datasets or further statistical analysis. Therefore, the data formats used in this deep learning pipeline include image files for input and CSV files for output.

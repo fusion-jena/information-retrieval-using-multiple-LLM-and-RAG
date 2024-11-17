@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+AP50 and AP75 denote the average precision at an inter-
+section  over  union  (IoU)  threshold  of  50  and  75%,
+respectively. AP denotes the average precision over IoU
+thresholds from 50 to 95% in 5% increments. The out-
+lined metrics are summarized for bounding box detec-
+tion and segmentation in Table 2.
+
+results in an unchanged expected activation in the fol-
+lowing  convolutional  layers.  Furthermore,  we  nor-
+malize all input channels (red, green, blue, and depth)
+by subtracting the respective mean and dividing by the
+respective standard deviation over the whole dataset.
+We also introduce a feature fusion module to combine
+the extracted features from both backbones using one
+3 × 3 convolution per FPN scale and reduce the num-
+ber of channels from 2 × 256 to 256. This allows us to
+use weights pre-trained on the Microsoft COCO data-
+set [24] for the region proposal network (RPN) classi-
+fier and mask head. Fig. 4 illustrates the general archi-
+tecture of the resulting D-Mask R-CNN architecture.
+We  restrict  our  evaluation  of  D-Mask  R-CNN  to
+instances of deers as it is the most common species in our
+RGB-D dataset. We quantify the results of D-Mask R-
+CNN using the average precision (AP), AP50, and AP75
+metrics as defined by the Microsoft COCO dataset [24].
+
+We then trained a standard deep learning classifier
+(ResNet-50 [16] pre-trained on ImageNet [30]) on the
+cropped  bounding  box  images  of  the  detected  moths
+and  achieved  an  average  accuracy  of  89.00%  on  an
+held-out test set. We also make use of additional images
+obtained  from  Internet  image  search  engines  to  aug-
+ment the training dataset. However, since this leads to
+noisy annotated images, filtering different types of label
+noise  is  required  as  proposed  by  [6].  This  can  further
+improve  the  recognition  performance  of  the  system,
+especially when the initial training set has been rather
+small with less than ten sample images per species.
+
+CONCLUSIONS
+
+15. K. He, G. Gkioxari, P. Dollár, and R. Girshick, “Mask R-
+CNN,” in Proceedings of the IEEE International Confer-
+ence on Computer Vision (ICCV) (2017), pp. 2961–2969.
+16. K. He, X. Zhang, S. Ren, and J. Sun, “Deep residual
+learning for image recognition,” in IEEE Conference on
+Computer  Vision  and  Pattern  Recognition  (CVPR)
+(2016), pp. 770–778.
+
+17. E. J. Howe, S. T. Buckland, M. L. Després-Einspen-
+ner, and H. S. Kühl, “Distance sampling with camera
+traps,” Methods Ecol. Evol. 8 (11), 1558–1565 (2017).
+18. A. K. Kalan et al., “Towards the automated detection
+and  occupancy  estimation  of  primates  using  passive
+acoustic monitoring,” Ecol. Indic. 54, 217–226 (2015).
+19. L.  Keselman,  J.  Iselin  Woodfill,  A.  Grunnet-Jepsen,
+and A. Bhowmik, “Intel real-sense stereoscopic depth
+cameras,”  in  Proceedings  of  the  IEEE  Conference  on
+Computer  Vision  and  Pattern  Recognition  Workshops
+(CVPR-WS) (2017), pp. 1–10.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The performance of the deep learning model, specifically D-Mask R-CNN, is evaluated using several metrics. These include Average Precision (AP), AP50, and AP75. AP refers to the average precision over Intersection over Union (IoU) thresholds ranging from 50 to 95 percent in 5 percent increments. On the other hand, AP50 and AP75 denote the average precision at an intersection over union (IoU) threshold of 50 and 75 percent respectively. Additionally, a standard deep learning classifier (ResNet-50) was employed to train on cropped bounding box images of detected objects, achieving an average accuracy of 89.00 percent on a held-out test set.

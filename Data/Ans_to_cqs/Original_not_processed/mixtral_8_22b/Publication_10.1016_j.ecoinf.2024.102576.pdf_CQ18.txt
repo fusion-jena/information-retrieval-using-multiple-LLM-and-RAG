@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To generate training data for the PCF, 16,660 grid cells with a res-
+olution  of  2560  m  were  created  in  South  Korea.  This  resolution  was 
+selected because the training unit of the U-Net model was 256 pixels, 
+and 2560 m contains 256 pixels of Sentinel-2 with a 10 m resolution. 
+Fig. 6a and b show the extracted results, where 8330 cells (half of the 
+total) were randomly extracted as a mask for training data in Fig. 6a, and 
+3,332 cells (20% of the total) were randomly extracted as a mask for 
+validation data in Fig. 6b. The PSI was extracted from Fig. 6a and b to 
+prepare input data for model training. The sub-class land-cover map of 
+South Korea can be transformed into a macro-class land-cover map by 
+converting all sub-class items into macro-class items (Fig. 4). This con-
+version  process  resulted  in  the  production  of  a  completely  converted 
+sub-class  land-cover  map  of  South  Korea,  as  shown  in  Fig.  6c.  Addi-
+
+the satellite. The labeling part determines the labeling methodology for 
+training  the  deep  learning  model.  In  the  classification  part,  a  deep 
+learning model was trained based on the results of previous steps. The 
+target PSI, which has the same format as the trained PSI, can be classi-
+fied using the trained model. Here, the format refers to the spatial res-
+olution and spectral band used, interval in PSI, and chronological order 
+of  each  band.  If  satellite  imagery  accumulates  owing  to  continuous 
+satellite observations, the PSI can also be continuously generated, and 
+classification can be continued using the model. This enables PCF land 
+monitoring.
+
+The PCF consists of three sequential parts: PSI generation, labeling, 
+and classification. The PSI generation part produces satellite imagery to 
+train  the  model,  which  reflects  the  phenological  characteristics  of 
+vegetation on the land surface. PSI data are defined as satellite imagery 
+with appropriate intervals that have had cloud cover removed to accu-
+rately reflect these characteristics. The length of the appropriate interval 
+may vary depending on the temporal resolution or observation width of 
+
+Fig.  2. Graphical representation  of  the concept  of  phenology  based on  satel-
+lite imagery.
+
+tion. In future studies, it is expected that the multi-year classification 
+performance will be improved by the process of learning classification 
+results and incorporating them into the model. Additionally, using the 
+results, a land-cover matrix that can spatially identify changes between 
+land-cover  types  can  be  generated.  These  are  high-level  activity  data
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the given context, there isn't explicit information about the specific strategy implemented to monitor the model performance during training. However, we can infer some aspects related to this topic.
+
+Firstly, the text mentions that 8330 cells (half of the total) were randomly extracted as a mask for training data, while 3,332 cells (20% of the total) were randomly extracted as a mask for validation data. This suggests that the authors might use the validation dataset to evaluate the model's performance during training. By comparing the predicted output of the model against the actual values in the validation set, one could assess the accuracy and efficiency of the model.
+
+Secondly, the context discusses the possibility of improving multi-year classification performance by learning classification results and incorporating them into the model. This implies that the authors may consider monitoring the long-term performance of the model and adjusting its parameters accordingly.
+
+Lastly, the mention of generating a land-cover matrix that can spatially identify changes between land-cover types indicates that the authors aim to track the evolution of land-cover patterns over time. Monitoring such changes would require evaluating the model's performance consistently and updating it when necessary.
+
+In conclusion, although the exact strategy to monitor the model performance during training is not explicitly stated, the context provides clues suggesting the use of a validation dataset, potential improvements through learning classification results, and tracking land-cover pattern changes over time.

@@ -1,0 +1,79 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Deep CNNs, such as ResNet and GoogLeNet, are generally trained based on the prediction loss
+minimization. Let x and y be the input images and corresponding output class labels, the objective of
+the training is to iteratively minimize the average loss deﬁned as
+
+J(w) =
+
+1
+N
+
+N
+∑
+i=1
+
+L( f (w; xi), yi) + λR(w)
+
+(1)
+
+This loss function measures how different is the output of the ﬁnal layer from the ground truth.
+N is the number of data instances (mini-batch) in every iteration, L is the loss function, f is the
+predicted output of the network depending on the current weights w, and R is the weight decay with
+the Lagrange multiplier λ. It is worth mentioning that in the case of GoogLeNet, the losses of the
+
+Remote Sens. 2017, 9, 1220
+
+6 of 22
+
+two auxiliary classiﬁers are weighted by 0.3 and added to the total loss of each training iteration.
+The Stochastic Gradient Descent (SGD) is commonly used to update the weights.
+
+wt+1 = µwt − α∆J(wt)
+
+(2)
+
+wt+1 = µwt − α∆J(wt)
+
+(2)
+
+where µ is the momentum weight for the current weights wt and α is the learning rate.
+
+The network weights, wt, can be randomly initialized if the network is trained from scratch.
+However, this is suitable only when a large labeled training-set is available, which is expensive in
+practice. Several previous studies have shown that data-augmentation ([44]) and transfer learning ([45])
+help overcoming this limitation.
+
+•
+
+In general, ﬁne-tuning the entire network (i.e., updating all the weights) is only used when the
+new dataset is large enough, otherwise, the model could suffer overﬁtting especially among the
+ﬁrst layers of the network. Since these layers extract low-level features, e.g., edges and color,
+they do not change signiﬁcantly and can be utilized for several visual recognition tasks. The last
+learnable layers of the CNN are gradually adjusted to the particularities of the problem and
+extract high level features.
+
+In this work, we have used ﬁne-tuning on ResNet and GoogleNet. We initialized the used CNNs
+with the pre-trained weights of the same architectures on ImageNet dataset (around 1.28 million
+images over 1000 generic object classes) ([13]).
+
+improvement techniques such as data-augmentation and transfer-learning, which allow reutilization
+of the knowledge acquired from a set of images into other new images. Currently, the most commonly
+used software implementing CNNs is the open source library of Tensorﬂow by GoogleTM ([18]),
+which requires programming skills since it does not have a graphical user-interface.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, the given context does not provide information about the specific hardware resources used for training the deep learning models like ResNet or GoogLeNet. However, typically, deep learning models require significant computational power due to their complex nature and large datasets. Therefore, Graphics Processing Units (GPUs) are often used for training deep learning models because they can perform parallel operations more efficiently than Central Processing Units (CPUs). Recently, Tensor Processing Units (TPUs) designed specifically for machine learning tasks have also been introduced. But without explicit information, I cannot confirm whether GPUs, TPUs, or any other hardware resources were used for training the mentioned models.

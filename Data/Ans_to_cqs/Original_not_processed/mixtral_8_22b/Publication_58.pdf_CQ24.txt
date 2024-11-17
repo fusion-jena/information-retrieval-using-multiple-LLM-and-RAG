@@ -1,0 +1,124 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.4. Sampling Method
+
+The SPOT6 satellite data for our ﬁve study areas were preprocessed to be fed into the
+different Deep Learning architectures and the XGBoost model. First, the data were split
+into three mutually exclusive parts: a learning set, a validation set and a test set totally
+independent of the two previous ones.
+
+Four of the ﬁve areas were used for learning and validation. The last, isolated scene
+was then used as the test set. It contained all the classes for the two nomenclatures, the ﬁve
+LC classes, and the 12 LU classes. In addition, this image contained all the environments
+representing the New Caledonian landscape: urban, mining, mountainous and forest
+environment with variations from the coastline to the inland mountain areas. It is on this
+entire scene that the ﬁnal confusion matrix and quality metrics were computed.
+
+All architectures were trained with stochastic gradient descent using a similar protocol,
+with a momentum of 0.9 and starting from an initial learning rate of 10−2. Every 20 epochs,
+the learning rate is divided by 10 until reaching 10−6.
+
+Neural networks do not perform well when trained with unbalanced data sets [41]. In
+the case of “central-pixel labeling” architectures it is possible to make balanced data sets
+with the initial pixels selection used for the learning. In the case of “semantic labeling” the
+composition of the images makes it more difﬁcult to precisely control the number of pixels
+per class. We tried several methods, but found negligible differences in performance. All
+reported experiments use the median frequency balancing method.
+
+3.3.1. Central-Pixel Labeling
+
+conv1
+conv2
+conv3
+conv4
+conv5
+maxpool
+
+Conv
+
+11 × 11
+5 × 5
+3 × 3
+3 × 3
+3 × 3
+2 × 2
+
+Kernels
+
+Stride
+
+Pad
+
+96
+256
+384
+384
+256
+Na
+
+4
+1
+1
+1
+1
+2
+
+0
+2
+1
+1
+1
+0
+
+ResNet (Deep Residual Network, [43]) is a Deep Learning architecture with many
+layers that use skip connections, as illustrated in Figure 4. These skip connections allow
+the bypassing of layers and add their activations to those of the skipped layers further
+down the sequence. The dotted arrows in Figure 4 denote skip connections through a linear
+projection to adapt to the channel depth.
+
+By skipping layers and thus shortening the back-propagation path, the problem of the
+“vanishing gradient” can be mitigated. Figure 4 represents a 34-layer ResNet architecture.
+The ﬁrst layer uses 7 × 7 convolutions, the remaining ones 3 × 3.
+
+Remote Sens. 2021, 13, 2257
+
+9 of 22
+
+Figure 4.
+architecture. The number of kernels is indicated at the bottom of each convolution layer.
+
+Among comparisons of methods to classify LULC from satellite images on several
+benchmark datasets, Deep Learning has recently stood out as a particularly effective
+framework for automatic image interpretation [12]. Given large amounts of training data,
+Deep Learning is able to extract very complex decision rules [13]. In image processing in
+particular, Deep Learning is at the top of the state-of-the-art semantic image analyses [14]
+(described in the Methods section), greatly enhanced by the particular design of the
+convolutional deep networks. Indeed, on some tasks its performance matches or even
+exceeds that of humans [15]. Additionally in optical satellite remote sensing, Deep Learning
+has become a standard tool, as it appears to cope particularly well with the continuously
+varying imaging conditions (illumination, sensor properties, atmospheric composition,
+etc.) [16–18]. Deep Learning has been widely employed for remote sensing, including tasks
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't any explicit information about handling randomness in the deep learning pipeline, such as managing random seed values. However, we can infer some strategies based on common practices in machine learning and deep learning.
+
+One strategy to manage randomness is setting a fixed seed value before running the models. This ensures reproducibility of results across different runs and platforms. By fixing the seed value, the same sequence of pseudo-random numbers will be generated every time the code is executed, leading to consistent results.
+
+Another approach is to employ techniques like cross-validation or bootstrapping to assess the variability introduced by randomness. Cross-validation involves splitting the dataset into multiple folds and iteratively training the model on different subsets while testing on the remaining fold. Bootstrapping, on the other hand, creates multiple samples with replacement from the original dataset and trains the model on these samples. Both techniques help estimate the robustness and generalization capabilities of the model in the presence of randomness.
+
+Additionally, ensemble methods can also be utilized to reduce the impact of randomness. Ensemble methods combine predictions from multiple models, which may have been initialized with different seeds or trained on different subsets of the data. Averaging the outputs of these models helps minimize the effects of randomness and improves overall performance.
+
+In summary, although the given context does not explicitly mention strategies for handling randomness in the deep learning pipeline, common approaches include setting a fixed seed value, utilizing cross-validation or bootstrapping, and employing ensemble methods.

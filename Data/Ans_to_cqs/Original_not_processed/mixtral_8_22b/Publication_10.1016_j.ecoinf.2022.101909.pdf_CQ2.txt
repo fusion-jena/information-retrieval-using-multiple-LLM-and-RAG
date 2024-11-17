@@ -1,0 +1,94 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Krizhevsky, A., Sutskever, I., Hinton, G.E., 2012. Imagenet classification with deep 
+convolutional neural networks. Adv. Neural Inf. Proces. Syst. 25, 1097–1105. 
+Lasseck, M., 2019. Bird species identification in soundscapes. CLEF (Working Notes) 
+
+2380. 
+
+LeBien, J., Zhong, M., Campos-Cerqueira, M., Velev, J.P., Dodhia, R., Ferres, J.L., Aide, T. 
+M., 2020. A pipeline for identification of bird and frog species in tropical soundscape 
+recordings using a convolutional neural network. Ecol. Inform. 59, 101113 https:// 
+doi.org/10.1016/j.ecoinf.2020.101113. 
+
+LeCun, Y., Bengio, Y., 1995. Convolutional Networks for Images, Speech and Time Series. 
+
+The MIT Press, pp. 255–258. 
+
+LeCun, Y., Bengio, Y., Hinton, G., 2015. Deep learning. Nature 521, 436–444. https:// 
+
+doi.org/10.1038/nature14539. 
+
+Luther, D., 2009. The influence of the acoustic community on songs of birds in a 
+
+neotropical rain forest. Behav. Ecol. 20, 864–871. https://doi.org/10.1093/beheco/ 
+arp074.
+
+The  implemented  CNN  corresponded  to  a  modified  version  of 
+ResNet50, one of the dominant architectures in bioacoustic tasks, and, 
+although other authors have applied previous ImageNet training to the 
+bioacoustic  domain  (LeBien  et  al.,  2020;  Zhong  et  al.,  2021),  other 
+datasets such as Audio Set (Gemmeke et al., 2017) or VGG-Sound (Chen 
+et al., 2020) can be just as good as ImageNet for pre-training, either on 
+ResNet or on other architectures, such as VGGish, Inception or Mobile-
+Net. Another viable option is to pretrain with synthetic clicks or chirps 
+(Glotin  et  al.,  2017;  Yang  et  al.,  2021).  Models  already  available  in 
+mobile  apps  that  perform  this  same  spectrogram-based  identification 
+task are advancing rapidly. To date (October 2022), the BirdNet appli-
+cation (Kahl et al., 2021) allows for the identification of more than 3000 
+bird species (Wood et al., 2022). In the short term, this particular model
+
+Chen, H., Xie, W., Vedaldi, A., Zisserman, A., 2020. Vggsound: a large-scale audio-visual 
+dataset. In: ICASSP 2020-2020 IEEE International Conference on Acoustics, Speech 
+and Signal Processing (ICASSP). IEEE, pp. 721–725. https://doi.org/10.48550/ 
+arXiv.2004.14368. 
+
+Chepushtanova, S., Farnell, E., Kehoe, E., Kirby, M., Kvinge, H., 2020. Dimensionality 
+
+reduction. In: Data Science for Mathematicians. Chapman and Hall/CRC, 
+pp. 291–337. 
+
+Clink, D.J., Klinck, H., 2021. Unsupervised acoustic classification of individual gibbon 
+females and the implications for passive acoustic monitoring. Methods Ecol. Evol. 
+12, 328–341. https://doi.org/10.1111/2041-210X.13520. 
+
+Correa, H., Blanco-Wells, G., Barrena, J., Tac´on, A., 2018. Self-organizing processes in 
+urban green commons. The case of the Angachilla wetland, Valdivia-Chile. Int. J. 
+Commons 12, 573–595. https://doi.org/10.18352/ijc.856. 
+
+Davis, S.B., Mermelstein, P., 1980. Comparison of parametric representations for
+
+We applied the transfer learning and fine-tuning technique with the 
+deep learning model ResNet50 (He et al., 2016; Tan et al., 2018), which 
+was already pre-trained on ImageNet data (Deng et al., 2009). Transfer 
+learning is a technique that enabled us to overcome the issue of shortage 
+of  training  data  and  construct  a  model  efficiently  by  transferring 
+knowledge  from  a  similar  task  to,  in  this  case,  our  target  task.  The 
+implemented  architecture  received  RGB  images  of  224×224×3  as 
+inputs—in this case, color spectrograms of two-second durations—and 
+included  only  the  feature  extraction  layers  from  the  ResNet50,  dis-
+carding the superior classification layers (known as the top network). 
+The newly created model reconfigured the top network with two fully 
+connected  layers  (FC)  that  could  learn  new  features.  To  reduce  over-
+fitting and imitate the training of a set of different models, a dropout
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+In the given context, the implemented deep learning model uses color spectrograms of two-second durations as inputs. Spectrograms are visual representations of the spectrum of frequencies of a signal as it varies with time. They are commonly used in the analysis of audio signals, including speech and music. Therefore, the input format used in this deep learning pipeline is essentially derived from audio data. However, since the spectrograms are represented as RGB images, they can also be considered as a form of image data.
+
+Moreover, the context mentions that the ResNet50 model was pre-trained on ImageNet data, which consists of millions of labeled images. This indicates that the model has been trained on image data before being adapted for use with spectrograms. Additionally, the context suggests that other datasets like AudioSet and VGG-Sound can also be used for pre-training, further emphasizing the importance of both audio and image data in this pipeline.
+
+Therefore, based on the given context, we can conclude that the deep learning pipeline primarily utilizes audio and image data formats. There is no mention of any other data formats like video or CSV files.

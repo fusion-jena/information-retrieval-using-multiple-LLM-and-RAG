@@ -1,0 +1,67 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+within the study area for MaxEnt and set up the hyperparameters as in 
+Bean et al. (2012). The training settings and hyperparameters used for 
+each SDM are described in Table 3.
+
+SDM 
+
+Training setup 
+
+Modeling package 
+
+threshold values from 0 to 1. Table 5 summarizes the evaluation criteria 
+for the AUC and TSS metrics for the objective comparison of the per-
+formances of the SDMs. 
+
+Elapid (Anderson, 2023) 
+
+3. Results 
+
+SRE 
+
+GLM 
+
+GAM 
+
+MaxEnt 
+
+RF 
+
+GBM 
+
+XGB 
+
+LGBM 
+
+ANN 
+
+SDP- 
+
+EPL
+
+EcologicalInformatics79(2024)1024075Output: Trained student model1:Initialize DTwithDL// DTrepresents a training set2:Train the ensemble teacher model with DL3:For j= 1 to Ndo4:Ifj% 100 = 0 then5:Sample maximum 10,000 unlabeled data DSfrom DU6:Predict yiusing the teacher model for DS7:Choose an equal no. of present/absence labels from the predicted labels8:Add the chosen presence/absence datato DT9:Remove the chosen presence/absence datafrom DU10:Initialize and train the teacher model with DT11:Train the student model with DT12:End forModel 1: RFModel 2: GBMModel M: XGBEnsemble teacher model(1) TrainLabeled data pointsModel: ANNStudent model(5) Add(7) Train(2) Sample(3) PredictUnlabeled data pointsSelected data points(6) Init & TrainLabeled data pointsPseudo labeled data pointsPseudo-labeled data points(4) Data selection: presence data: absence dataE. Kim et al.
+
+In particular, we construct an ensemble teacher model by grouping 
+the ANN, RF, GBM, XGB, and LGBM models, and a student model using 
+ANNs that are commonly used in PL approaches (Ali et al., 2022; Asghar 
+et al., 2020). We train our SDP-EPL model for up to 400 epochs, incre-
+mentally  generating  PL  presence  data  and  PL  absence  data  using  the 
+teacher model with K = 200 every 100 epochs. K was selected empiri-
+cally based on the AUC of SDP-EPL on the validation set.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the specific criteria used to split the data for deep learning model training into train, test, or validation sets. However, it mentions that the SDP-EPL model is trained for up to 400 epochs, incrementally generating pseudo-labeled (PL) presence data and PL absence data using the teacher model with K = 200 every 100 epochs. This suggests that the dataset might be divided into batches or subsets for each epoch during the training process. Additionally, the mention of a validation set implies that some portion of the data is reserved for evaluating the performance of the model during training. Nevertheless, without further details, it is impossible to determine the exact criteria used for splitting the data.

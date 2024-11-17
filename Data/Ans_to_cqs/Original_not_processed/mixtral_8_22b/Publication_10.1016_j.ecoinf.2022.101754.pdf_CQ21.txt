@@ -1,0 +1,77 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.6. Training and validation set 
+
+The  study  utilized  a  training-and-test  approach  with  stratification 
+splitting. For each setting, 100 different splits to the training-and-test set 
+were given. Tuning of the hyperparameter on the training set was done 
+for  each  set.  This  was  followed  by  model  training  using  an  optimal 
+setting of the hyperparameter. 
+
+2.7. Regression models 
+
+Four methods were used to model forest AGB in the study: AdaBoost, 
+random  decision  forest  (RF),  multilayer  neural  network  (NET),  and 
+Bayesian ridge regression (Bayes).
+
+In  recent  years,  nonparametric  machine  learning  models  have 
+become  predominant  for  quantifying  forest  biomass  within  a  space 
+based  on  ALS  data  (Ali  et  al.,  2015;  Zhang  et  al.,  2019).  Machine
+
+EcologicalInformatics70(2022)1017547O. Brovkina et al.                                                                                                                                                                                                                               
+
+Fig. 8. Box-and-whisker plot for model score and field AGB reference method: LAGBr (live AGB with regeneration), LAGBw (live AGB without regeneration), TAGBr 
+(total  AGB  with  regeneration),  TAGBw  (total  AGB  without  regeneration).  Box-and-whisker  plot  for  model  score  and  machine-learning  methods:  AdaBoostReg 
+(AdaBoost regression), Bayes (Bayesian ridge regression), RFR (random decision forest), NET (multilayer neural network). Horizontal green line is the median. Green 
+triangles are mean values. (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+
+(1)  
+
+(cid:0)
+
+)
+
+R2 all
+
++ score
+
+where. 
+
+_test is descriptor for test samples, 
+_all is descriptor for all samples, 
+AD  is  average  angle  deviation  from  the  line  1:1  for  test  samples 
+
+[degree] (Eq. 2), 
+
+ACT1 is accuracy with tolerance 15 t/ha ± 10% of AGB [t/ha], 
+ACT2 is accuracy with tolerance 10 t/ha ± 5% of AGB [t/ha], 
+RMSE is root mean squared error [t/ha] (eq. 3), 
+R2 is coefficient of determination (R2; eq. 4), 
+Diff_R2 is the difference between R2_test and R2_all, and. 
+CV_R2 is cross-validation R2. 
+
+EcologicalInformatics70(2022)1017545O. Brovkina et al.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training process, several postprocessing steps can be performed depending on the specific requirements of the analysis. Some common postprocessing steps include:
+
+1. Model Evaluation: The performance of the trained model needs to be evaluated using appropriate metrics such as accuracy, precision, recall, F1-score, ROC curve, etc. These metrics help assess how well the model has learned from the training data and its ability to generalize to unseen data. In the given context, the authors use various evaluation metrics like RMSE, R2, Diff\_R2, CV\_R2, ACT1, and ACT2 to evaluate their models.
+
+2. Cross-Validation: To ensure that the model performs well on new, unseen data, it is essential to perform cross-validation. Cross-validation involves splitting the dataset into multiple folds or subsets and then training and testing the model on these subsets iteratively. This helps prevent overfitting and provides a more robust estimate of the model's performance. In the given context, the authors mention performing 100 different splits to the training-and-test sets, which suggests they might have employed some form of cross-validation.
+
+3. Hyperparameter Tuning: After evaluating the initial model, one may need to fine-tune the hyperparameters to improve the model's performance further. Hyperparameters are parameters whose values are set before the training process begins. Common examples include learning rate, number of layers in a neural network, batch size, etc. In the given context, the authors mention tuning the hyperparameters on the training set for each split, indicating that they optimized the hyperparameters for better model performance.
+
+4. Visualization Techniques: Postprocessing also includes visualizing the results obtained from the model. This could involve creating saliency maps, confusion matrices, or other types of plots to understand the model's behavior better. However, there is no explicit mention of any visualization techniques being applied in the given context.

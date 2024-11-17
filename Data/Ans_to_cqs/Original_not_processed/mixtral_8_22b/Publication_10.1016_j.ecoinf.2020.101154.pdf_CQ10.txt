@@ -1,0 +1,122 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.4.2.  Hyperparameters 
+
+Hyperparameter tuning was done manually. As a starting point the 
+learning rate was set as low as possible and the number of iterations as 
+high as computationally feasible (Hastie et al., 2009). The learning rate, 
+which is also called a shrinkage parameter, determines the contribution 
+of each tree to the model. The maximum tree depth which reflects the 
+degree of interaction in the model is usually low. GBRT performs best 
+using fairly shallow trees, so-called tree stumps.
+
+The  tuned  hyperparameters  of  the  final  models  are  shown  in  
+
+Table 2. 
+
+2.4.3.  GAM modelling of most influential parameters 
+
+The top four most influential variables from the GBRT models (as 
+indicated by VI scores) were included in a series of generalised additive 
+
+Table 2 
+Tuned model parameters.       
+
+Model 
+
+splits 
+
+Number of iterations 
+
+Learning rate 
+
+Tree depth  
+
+RI CS 
+RI CS 
+RI NW 
+RI NW 
+RY CS 
+RY NW 
+
+2 
+3 
+2 
+3 
+2 
+2 
+
+120 
+102 
+106 
+144 
+500 
+500 
+
+0.05 
+0.05 
+0.01 
+0.05 
+0.005 
+0.005 
+
+4 
+4 
+6 
+6 
+8 
+2 
+
+Number of iterations was defined by early stopping. Subsample rate was 0.75% 
+in  all  cases.  Parameters  for  2-part  split  were  defined  through  grid  search, 
+whereas parameters for 3-part split were tuned manually.
+
+For  the  RI  models  the  same  initial  parameters  were  set  for  the 
+analysis of the CS and NW datasets, then a grid search was performed 
+on both datasets with a two-part split to give hyperparameters with the 
+highest level of accuracy. These were as following: learning rate 0.05 
+and maximum tree depth of 4 for both the CS and the NW models. The 
+early stopping technique was used to determine when to stop the model 
+training  to  avoid  overfitting.  Using  early  stopping  the  number  of 
+iterations required until convergence was 120 for CS and 106 for NW. 
+Grid search was not required for a three-part splits, and further tuning 
+of the parameters was done manually. 
+
+For the RY models, in contrast to the RI models, the best performing 
+models (based on MSE) were models with a slow learning rate of 0.005. 
+Additionally, the NW model had a very shallow tree (tree depth of 2). 
+The number of iterations was kept at 500.
+
+For each tree the GBRT model makes splits that minimize the loss 
+function L using the variable that contributes most in the reduction of 
+the  loss  function.  Variable  Importance  (VI)  is  computed  as  the  nor-
+malized total reduction of the loss function brought by that variable and 
+based on the number of times a variable is used in the model, weighted 
+by the squared improvement to the model, and averaged over the entire 
+model. The more often the variable is used for splitting, and the more it 
+improves the model predictions, the higher the VI score. 
+
+2.4.1.  Data splitting by randomisation 
+
+For both populations, data were split randomly into two sets: train 
+(50%) and test (50%). A two-part split is a general practice in machine 
+learning, the purpose of which is to test the predictive performance of 
+the model when presented with previously unseen data. In the present 
+
+4
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the code repository link of the deep learning pipeline (e.g., Link to GitHub, GitLab, BitBucket)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there is no information available regarding the code repository link of the deep learning pipeline in the given context. Therefore, I cannot provide the requested information.

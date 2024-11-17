@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We then use data augmentation to estimate σARU by adding a number 
+of known ‘non-detections’ with distance of NA to our dataset of detected 
+or simulated calls, increasing our total number of observations M to 300 
+per ARU. We used a data augmentation variable zi,j for each observation 
+to indicate whether it was a true call or not, so that the total realized 
+M
+number of calls including false positive CNN detections (NFPi =
+j=1zi,j) 
+can be modelled in relation to our data augmentation parameter ψ, pi,j 
+and the binary detection outcomes of each call (yi,j)(eq. 10–12). 
+
+∑
+
+zi,j ∼ Bernoulli(ψ)
+
+mui,j = zi,j*pi,j
+
+(cid:0)
+yi,j ∼ Bernoulli
+
+mui,j
+
+)
+
+(10)  
+
+(11)  
+
+(12)
+
+Our ARU DS model was slightly more complex, and consisted of four 
+sub-models:  1)  detection  probability  as  a  function  of  peak  power,  2) 
+peak power as a function of the distance between calls and ARUs, 3) the 
+number of calls for each covey, and 4) the number of coveys. We used 
+the linear relationship between peak power and distance (eq. 9) to first 
+convert  peak  powers  obtained  from  our  CNN  to  distances  for  each 
+detected  or  simulated  covey  call  j.  We  used  a  half  normal  detection 
+function to estimate the scale parameter for the ARU data (σARU) and 
+model  the probability  of detecting  each  call at  each  ARU using  these 
+estimated  distances.  We  used  informative  priors  based  on  the  values 
+from Wilhite et al. (2020) (mean, precision) for these parameters:: ao ~ 
+Normal (76.45, 10), a1 ~ Normal ((cid:0) 0.147, 1e6), tauj  ~ Exponential (1/ 
+5) where ∈j  = pow(tauj, (cid:0) 2) and σ ~ Normal (96, 10).
+
+Nevertheless, an important consideration of the use of ARUs, which 
+may limit their use in certain situations for density estimation, is how to 
+effectively process the acoustic data collected (Gibb et al., 2019). Our 
+custom  convolutional  neural  network  (CNN)  for  covey  call  detection 
+proved  here  to  be  an  extremely  useful  tool  for  quick  processing  of 
+acoustic data: a one hour .wav file can be processed for detections in 
+approximately eight seconds (Nolan et al., 2022). However, the appli-
+cation of ARUs to the surveys of other species may be limited by the 
+available machine learning methods to process large quantities of data 
+as efficiently. Nevertheless, CNNs in ecology are becoming increasingly 
+more common, and models for the detection of many species, especially 
+avian  species  (for  example  BirdNET  (Kahl  et  al.,  2021)  or  BirdCLEF 
+models (Kahl et al., 2020)) are freely available for download. Models can
+
+then be retrained, or used as-is, to detect the target species of interest. 
+Training a CNN for acoustic detection is also becomingly increasingly 
+more  accessible  as  researchers  develop  and  publish  their  models,  for
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text does not provide information about specific optimization techniques applied in the deep learning pipeline such as Stochastic Gradient Descent (SGD) or Adaptive Moment Estimation (Adam). However, it mentions the use of a custom Convolutional Neural Network (CNN) for covey call detection. In general, during training of CNNs, various optimization algorithms like SGD, Adam, RMSprop etc. are employed to minimize the loss function and update the weights of the network. But without explicit mention of the optimization technique used in this case, we cannot definitively state which one was utilized.

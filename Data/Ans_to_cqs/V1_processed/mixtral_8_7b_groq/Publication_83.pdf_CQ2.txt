@@ -1,0 +1,7 @@
+Based on the provided context, the data format used in the deep learning pipeline is audio. The audio files in the CLO-43DS dataset have varying durations, which cannot be directly used as input to the Convolutional Neural Network (CNN). To handle this, the audio signal is repeated from the beginning to force a fixed duration of 2 seconds. Alternatively, the audio image can be directly resized to a fixed size. 
+
+The time-frequency representation of the audio signals is generated using Mel-spectrogram, which is then divided into harmonic and percussive components using Harmonic-percussive source separation. This process is illustrated in Figure 3. 
+
+In the work of [30], a triplet sampling method is used to generate triplet spectrograms as input to CNNs. The triplet spectrograms consist of a full spectrogram, a harmonic-component based spectrogram, and a percussive-component spectrogram. A dynamic triplet loss is then used for classification using a multi-scale analysis module.
+
+Therefore, the data format used in this deep learning pipeline is audio, which is transformed into Mel-spectrogram and further divided into harmonic and percussive components. The audio signal is repeated or the audio image is resized to a fixed duration or size, respectively, to be used as input to the CNN.

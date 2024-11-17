@@ -1,0 +1,81 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.2. Split the datasets 
+
+In this research, the datasets were randomly divided into three parts 
+for training, validation and testing. Here, 60% of the data was used to 
+train the deep learning models, and 20% of them was kept to validate the 
+models. The remaining 20% data was used to evaluate the performance 
+of the models. Table 1 show the number of data in the dataset and how 
+they are separated for training, testing and validation. 
+
+2.3. Deep learning models
+
+2.6.4. Model training with selected patches 
+
+We trained the same deep learning models as mentioned in Section 
+2.5. For training, we resized all the patches of images to a resolution of 
+256 × 256 pixels. Although after dividing the image into patches, there 
+were images with lower resolution, i.e., 64 × 64 and 128 × 128 pixels, 
+they were converted into a uniform size. 
+
+2.6.5. Evaluation of the models 
+
+An image was divided into patches first to predict its class label. Then 
+the important patches were selected using the approach mentioned in 
+Section 2.6.3. After that, the model predicted the class label for each 
+patch. The weighted majority voting technique was used to predict the 
+class label of the image from the predicted labels. 
+
+2.7. Experimental setup
+
+images than others, which can affect the performance of the DL models 
+(Attri et al., 2023; Kamilaris and Prenafeta-Boldú, 2018). Many studies 
+use  data augmentation  techniques  to  increase  the  number  of  training 
+data to address that. This approach generally improves the classification 
+accuracy (Chen et al., 2022; Hasan et al., 2023; Le et al., 2020; Olsen 
+et  al.,  2019;  Sarvini  et  al.,  2019).  Application  of  several  image  pre- 
+processing techniques, such as resizing (Chechli´nski et al., 2019; Far-
+ooq et al., 2018; Partel et al., 2020), removing background (Alam et al., 
+2020; Bah et al., 2018; Jiang et al., 2019), image enhancement (Nke-
+melu et al., 2018; Wang et al., 2020) and denoising (Tang et al., 2017), 
+can also improve the performance of the models.
+
+datasets. A global average pooling layer followed by two dense layers 
+with 1024 neurons and ReLU (Rectified Linear Unit) had replaced the 
+fully connected layer of the original model. The final output layer was 
+another dense layer with a softmax activation function, and the number 
+of  neurons  varied  depending  on  the  number  of  classes.  Although  the 
+maximum number of epochs for training was set to 100, the training was 
+completed  before  that  because  of  the  early  stopping  strategy  by 
+inspecting validation accuracy. The initial learning rate was set to 1 ×
+(cid:0) 6  by monitoring the validation 
+10
+loss  after  every  epoch.  We  used  “Adam”  optimiser  and  “Categorical 
+Cross Entropy” loss for training all deep learning models. The input size 
+for all the DL models was 256 × 256 × 3 and due to capability of the 
+computing device the batch size was set to 32. 
+
+(cid:0) 4  and was randomly decreased to 10
+
+3. Results
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, the experimental setup involves evaluating the models using a test dataset. An image is divided into patches, and the important patches are selected using a specific approach. Each patch is then classified by the model, and the weighted majority voting technique is applied to predict the overall class label of the image based on these individual predictions.
+
+The evaluation process does not explicitly mention any postprocessing steps like saliency maps or confusion matrices. However, it implies that metrics calculation might be part of the evaluation since the study aims to assess the performance of the models. These metrics could include accuracy, precision, recall, F1 score, etc., but the exact metrics used are not specified in the given context.
+
+Therefore, while the postprocessing steps are not clearly outlined in the provided information, one can infer that some form of metrics calculation would likely take place during the evaluation phase to measure the effectiveness of the deep learning models.

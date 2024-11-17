@@ -1,0 +1,59 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.4. Training and testing the models
+
+The baseline model comprised a simple CNN architecture that had 
+two  convolutional layers (8  filters of  size 16 × 16,  with ReLU activa-
+tions), followed by max pooling (4 × 4), a flattening operation, and two 
+fully-connected layers (32 ReLU and 22 softmax units respectively) (see 
+Fig. 2). Given only a spectrogram input, the baseline model produced a 
+probability for each of the 22 species. 
+
+3.3.2. Case II: One-hot encoding 
+
+Different methods were explored and tested to enhance the neural 
+network with contextual information. One straightforward approach to 
+incorporate additional information into a deep learning classifier, while 
+maintaining  model  simplicity,  is  to  utilize  a  multi-branch  CNN.  As  a 
+result, we investigate this approach as the initial method to integrate
+
+Fig. 2. Architecture of the model for Case IV; the baseline model (top) and the geographical prior (bottom) trained separately. The numbers indicate the size of each 
+layer. From the probabilities obtained for the 8,836 species (represented in green), only the 22 species involved in our study (represented in yellow) are kept and 
+multiplied with the corresponding outputs of the baseline model (represented in red). 
+
+the network is trained on a relatively small number of examples, which 
+is often the case in ecology datasets. We conducted preliminary exper-
+iments  on  enhancing  deep  learning  with  metadata  using  the  Hainan 
+gibbon case study and the network developed by Dufourq et al. (2021). 
+Our findings revealed that this architecture, applied to the bird classi-
+fication  task,  resulted  in  good  results  and  thus  we  adopted  this 
+straightforward approach. The proposed methodology can be adapted to 
+other CNN architectures.
+
+embedding space between words throughout the training phase.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough context provided to give a specific answer about how the trained deep learning model was deployed. However, I can provide some general steps typically taken when deploying a trained deep learning model:
+
+1. Model Serialization: After training, the model weights and architecture are saved or serialized into a file format such as.h5 (HDF5) for Keras/TensorFlow models or.pth for PyTorch models. This allows us to use the same model later without having to retrain it.
+
+2. Platform Selection: Depending on the application requirements, one might choose different platforms for deployment. Some popular choices include cloud services like AWS, Google Cloud, Azure, etc., or edge devices like Nvidia Jetson boards, Raspberry Pi, etc.
+
+3. Inference Scripts: Once the platform has been selected, scripts need to be written to load the serialized model and perform predictions on new data. These scripts should also handle any necessary preprocessing and postprocessing steps required before feeding data into the model and interpreting its output.
+
+4. Testing & Validation: Before fully deploying the model, thorough testing and validation must be performed to ensure that the model performs well under various conditions and scenarios. This may involve creating test cases, benchmarking performance metrics, and comparing against other existing solutions if applicable.
+
+Without more details regarding the specific project mentioned in the given context, these are the general steps usually followed during the deployment of a trained deep learning model.

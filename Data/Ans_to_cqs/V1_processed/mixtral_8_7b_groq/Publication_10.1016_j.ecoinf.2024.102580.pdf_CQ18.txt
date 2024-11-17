@@ -1,0 +1,15 @@
+The strategy to monitor the model performance during training involves the use of validation sets, precision and recall metrics, and a confidence threshold. 
+
+Firstly, the ground-truth dataset was divided into three sets: training (80%), validation (10%), and test (10%). This division of the dataset allowed for a good-sized validation and test dataset to evaluate the model’s accuracy while maximizing the training set. 
+
+During the training process, the images were subset and cropped into 6 overlapping patches, resulting in a total training set size of 379 images. 
+
+To monitor the model’s performance, precision and recall metrics were used. Precision is the ratio of true positive predictions to the total predicted positives, while recall is the ratio of true positive predictions to the total actual positives. These metrics provide insights into the model’s ability to correctly detect instances and minimize false positives. 
+
+Additionally, a confidence threshold was established to refine the predictions and remove false detections. The confidence threshold was determined by plotting precision and recall against the threshold on the validation set. The chosen threshold balanced the two metrics, maximizing performance by detecting individuals (precision) while minimizing false detections (recall). 
+
+Furthermore, the DETR (Detection Transformer) model used in the study underwent 300 training cycles with a batch size of two. The learning rate for the model backbone and the transformer was set to 10. 
+
+The training loss curve, mean Average Precision curve for the validation set, and Generalized Intersection-over-Union (IoU) loss curve for training and validation sets were also monitored to assess the model’s performance and convergence. 
+
+Overall, the strategy to monitor the model performance during training involved the use of validation sets, precision and recall metrics, a confidence threshold, and various training curves.

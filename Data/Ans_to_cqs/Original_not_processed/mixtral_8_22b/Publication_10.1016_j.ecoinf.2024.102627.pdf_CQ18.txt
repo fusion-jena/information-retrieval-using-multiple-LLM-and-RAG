@@ -1,0 +1,52 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+(IDRIS). A full description of the model architecture, dataset spatial split 
+and training procedure can be found in supplementary information (SI) 
+Box A. Finally, the settings of our species assemblage model are sum-
+marised in the Fig. 1.
+
+Final test set performances at epoch 69 are A30 = 0.87 and MSA30 =
+0.48. This means that i) the correct label is returned among the first 30 
+species  for  87%  of  the  test  observations  (representative  of  common 
+species),  and  ii)  when  each  species  in  the  test  set  is  given  the  same 
+weight, the correct label is within the first 30 classes returned almost 
+half the time. This second metric may seem low, but it actually measures 
+a particularly difficult task, given that the test set contains 4166 species
+
+Fig. 1. Method summary scheme. The orchid observation set of 999,258 occurrences from 14,129 species (Section 2.1.1 and Box D) is enriched with predictive 
+features: WorldClim2 bioclimatic variables, Soilgrids pedological variables, Human Footprint rasters, terrestrial ecoregions of the world and location (description Box 
+E, list Table S2 and examples Fig. S5). Next, the Inception v3 model (Szegedy et al., 2016) is first trained with the observation set (Section 3.1.1). Secondly, it is used 
+to predict the most likely species assemblages on a global regular grid of 30-s resolution (Section 2.4.1). The calibration step, which determines the threshold λ on the 
+relative probability of species presence, is described theoretically in Section 2.2.2 and set in Section 3.1.2. When the model is provided with a predictor tensor in 
+inference, the final output is the associated species assemblage Sλ.
+
+2.1.2. Predictive features 
+
+A large environmental context around each observation is collected 
+and provided to the model: 64 × 64 2D tensors sampled at the kilometre- 
+scale  resolution  and  centred  on  the  observation.  Predictors  include 
+WorldClim2  bioclimatic  variables,  Soilgrids  pedological  variables, 
+human  footprint  rasters,  terrestrial  ecoregions  of  the  world  and  the 
+observation location (longitude and latitude), see SI Box E for details. 
+Examples of input are shown in Fig. S5 and the full list of predictors is 
+given in Table S2. 
+
+2.2. Species assemblage model 
+
+2.2.1. Definition
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the strategy implemented to monitor the model performance during training. However, we can infer that the authors might have monitored the model performance using metrics such as accuracy, precision, recall, F1 score, etc., based on the mention of 'test set performances'. Additionally, they could have used techniques like cross-validation or early stopping to prevent overfitting and ensure optimal performance. But without specific details mentioned in the provided context, these assumptions remain speculative.

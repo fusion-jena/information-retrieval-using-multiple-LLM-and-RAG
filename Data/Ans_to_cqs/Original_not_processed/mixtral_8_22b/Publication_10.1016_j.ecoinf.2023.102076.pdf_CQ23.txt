@@ -1,0 +1,56 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Since BERT can only accept a maximum of 512 tokens as input, we 
+used smaller subsections of the longer web articles as classifier input, an 
+approach previously applied to long document classification (Fiok et al., 
+2021; Sun et al., 2019). To identify the sections of text most likely to be 
+relevant to the classification decision, documents were split into chunks 
+of 300 tokens using the NLTK word-tokenizer. Chunks that contained 
+any  of  our  original  query  terms  (i.e.  any  bat-related  or  exploitation- 
+related  term)  were  retained.  If  more  than  one  chunk  contained  key-
+words,  the  first  such  chunk  of  the  document  was  retained  for  use  in 
+model training and evaluation. Before being fed into the BERT model, 
+texts are tokenized using the BERT tokenizer. Here, we set the maximum 
+number of tokens as 400 for social media posts, as most were very short, 
+and 512 for web articles, meaning some texts would have been further 
+truncated at this step.
+
+consideration for the nature of the classification task and the dataset to 
+which it will be applied.
+
+For the Naive Bayes and neural network model, a vector represen-
+tation of the whole text was used in the classification decision. However, 
+for web articles, the BERT model used a truncated section of the whole 
+text  (see  Methods  2.3.2):  75%,  72%  and  80%  of  web  articles  were 
+truncated in the training sets for classification tasks 1, 2 and 3, respec-
+tively. Thus, for comparability, we also tested the performance of the 
+
+EcologicalInformatics75(2023)1020765S.B. Hunter et al.
+
+3.4. The influence of data stratification 
+
+As shown in Table 2, stratification of training data for classification 
+tasks 2 and 3 influenced the performance with which classifiers were 
+able  to  identify  relevant  texts  in  testing  data.  Overall,  the  recall  of 
+relevant  texts  within  stratified  testing  sets  was  higher  for  classifiers 
+trained  on  stratified  data  those  those  trained  on  non-stratified  data 
+(Table 2). The exception to this is classification task 3, applied to web 
+articles, where performance was comparable between different classi-
+fiers. This may be attributed to the relatively balanced distribution of 
+topics (query groups) within this labelled dataset (Table S2.3).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors took several measures to ensure the generalizability of their deep learning model. Firstly, they used diverse datasets consisting of both social media posts and web articles. Secondly, they employed a technique called stratified sampling when preparing their training data for certain classification tasks. As mentioned in Section 3.4, stratifying the training data improved the performance of the classifiers in identifying relevant texts within the testing data. Lastly, although not explicitly stated, the process of dividing the data into training, validation, and test sets could imply the use of cross-validation techniques to evaluate the model's performance and prevent overfitting.

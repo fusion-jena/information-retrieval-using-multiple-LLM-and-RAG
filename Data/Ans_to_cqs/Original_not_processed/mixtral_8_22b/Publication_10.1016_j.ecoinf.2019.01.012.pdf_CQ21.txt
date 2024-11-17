@@ -1,0 +1,71 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Ecological Informatics 50 (2019) 220–233
+
+Fig. 5. Learning process for loss (left) and model accuracy (right) over 90 epochs. The gap between training and validation accuracy is caused by using dropout on
+the training data only.
+
+layers, pooling layers and fully connected layers (Voulodimos et al.,
+2018). The ﬁrst two components are responsible for automatic feature
+extraction by applying a large number of diﬀerent ﬁlters on the input
+data. This process of feature extraction is performed on multiple levels,
+whereby the output of each level is the input to the following. From
+level to level, the extracted features increase in complexity - from rather
+simple features (e.g. edges) on the lowest level to more complex fea-
+tures on the highest level (Gu et al., 2018). By passing large quantities
+of labeled training data through the network, the model successively
+learns to recognize the relevant features, which are necessary to dis-
+tinguish between classes.
+
+All statistics were performed in R (version 3.3.1). The best model
+was chosen based on the two parameters accuracy and loss, whereby
+loss serves as a measure on how far model predictions diﬀer from the
+actual class. Model accuracy and loss were calculated for both training
+and validation set. We tested the performance of the ﬁnal model on two
+diﬀerent data sets: 1) on individual tiles and 2) on whole repeat pho-
+tographs. Prediction accuracy on individual tiles was calculated using
+the 5796 tiles from the test set (= 10%), which has been separated from
+the total number of samples before training. We evaluated the accuracy
+on whole repeat photographs based on the image pairs of the second set
+of photographs. The classiﬁcation results for each of these 34 images
+were compared to the corresponding manual classiﬁcation (reference
+data). A confusion matrix was prepared for each photograph in-
+dividually. The confusion matrix consists of pixel numbers for true
+
+To prevent spatial autocorrelation between neighboring tiles, the
+tiles retrieved from all 50 training photographs were collected in one
+folder and shuﬄed, before they were split into training, validation and
+test set. In this regard, the validation set is used during training for the
+ﬁne tuning of hyperparameters and model selection (Hastie et al.,
+2009). Only after the best model setup has been found, its prediction
+error is assessed once again on the test set. For splitting the whole set of
+samples into the three sets, we ﬁrst took a random sample of 10% from
+the total number of tiles as validation set and then a further sample of
+10% as test set. The remaining 80% of the tiles were used as training
+set. To further increase the number of sample tiles, we performed data
+augmentation on the training set. Data augmentation is a common
+practice in machine learning to artiﬁcially increase the number of
+training samples by applying slight transformation on the original data,
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: After the model training, several postprocessing steps can be taken to evaluate the performance of the model and understand its decision-making process. Some of these steps include:
+
+1. Calculating metrics: Accuracy and loss are commonly used metrics to evaluate the performance of a deep learning model. Accuracy measures the proportion of correct predictions made by the model, while loss quantifies the difference between predicted values and actual values. These metrics can be calculated for both training and validation datasets to monitor the progress of the model during training and ensure it does not overfit or underfit the data.
+
+2. Creating confusion matrices: A confusion matrix is a table that summarizes the performance of a classification algorithm. It shows the number of correctly classified instances (true positives and true negatives) and misclassified instances (false positives and false negatives) for each class. Confusion matrices provide valuable insights into the strengths and weaknesses of the model and help identify areas for improvement.
+
+3. Generating saliency maps: Saliency maps highlight the regions of an input image that contribute most significantly to the model's prediction. They can be generated using various techniques such as gradient-based methods or perturbation-based methods. Saliency maps offer visual explanations of the model's decision-making process and enable users to verify whether the model focuses on relevant features when making predictions.
+
+In summary, postprocessing steps after model training involve calculating metrics like accuracy and loss, creating confusion matrices to evaluate the performance of the model, and generating saliency maps to gain insight into the model's decision-making process.

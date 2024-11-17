@@ -1,0 +1,11 @@
+Answer:::
+
+The strategy implemented to monitor the model performance during training involves dividing all the collected data into three parts: data from 2003 to 2020 for training, 2021 data for validation, and 2022 data for testing. The structure and hyperparameters of the model are determined by assessing the effectiveness of validation data forecasts. This is achieved by using data from points A, B, and C and keeping other variables constant while selecting the parameters that optimize the validation data forecast results as the model’s hyperparameters.
+
+Table 1 specifically illustrates the adjustment process of the solver for training the network and the input time series length for all models. The solver used for training the network is Adam, SGDM, or RMSProp, and the input time series length varies for each model. The Root Mean Square Error (RMSE) of the validation data forecasting results is generally lower when using Adam as the solver for training the network.
+
+The performance of the models is evaluated based on various metrics, such as Probability of Detection (POD), Critical Success Index (CSI), and Heidke Skill Score (HSS). The Hybrid CNN-LSTM model demonstrated superior performance throughout the year, achieving the highest values for POD and HSS compared to other models. Specifically, during the peak algal bloom occurrence in summer, the hybrid CNN-LSTM model excelled with both POD and HSS at 0.32.
+
+The strategy also includes monitoring the models' performance across all model forecasts and seasonal variations. During winter and autumn, the hybrid CNN-LSTM model displayed lower HSS values, primarily due to elevated False Alarm Ratio (FAR). This indicates that the model may have overestimated the occurrence of algal blooms during these seasons.
+
+In summary, the strategy to monitor the model performance during training involves dividing the data into training, validation, and testing sets, optimizing the hyperparameters based on validation data forecasts, and evaluating the models based on various metrics. The Hybrid CNN-LSTM model demonstrated superior performance, but there is still room for improvement during winter and autumn seasons.

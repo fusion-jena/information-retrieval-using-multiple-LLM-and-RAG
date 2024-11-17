@@ -1,0 +1,91 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+A related research question in ecology and biogeography is how to 
+predict the potential natural vegetation (PNV). PNV is the expected state 
+of mature vegetation, given a particular set of environmental constraints 
+in the absence of human intervention (Chiarucci et al., 2010). At first, 
+PNV models were constructed based only on expert knowledge, whereas 
+nowadays, various statistical techniques and machine learning methods 
+are more widely employed (Hemsing and Bryn, 2012). In Hengl et al. 
+(2018), authors evaluate different machine learning methods, such as 
+neural  networks,  random  forests,  gradient  boosting,  and  k-nearest 
+neighbours,  for  PNV  mapping  in  a  classification  setting.  The  latter 
+example  describes  global  PNV  mapping.  However,  most  PNV  studies 
+focus on specific areas or regions (Raja et al., 2019; Vaca et al., 2011; 
+Hemsing and Bryn, 2012). 
+
+1.2. Why the task is difficult
+
+Vaca, R.A., Golicher, D.J., Cayuela, L., 2011. Using climatically based random forests to 
+downscale coarse-grained potential natural vegetation maps in tropical mexico. 
+Appl. Veg. Sci. 14 (3), 388–401. 
+
+Van Engelen, J.E., Hoos, H.H., 2020. A survey on semi-supervised learning. Mach. Learn. 
+
+109 (2), 373–440. 
+
+Verdin, K., Greenlee, S., 1998. Hydro1k documentation, US Geological survey. 
+Whittaker, R.H., 1962. Classification of natural communities. Bot. Rev. 28 (1), 1–239. 
+Xie, M.K., Huang, S.J., 2018. Partial multi-label learning. In: Thirty-Second AAAI 
+
+Conference on Artificial Intelligence. 
+
+Xu, Y., Zhu, J.Y., Eric, I., Chang, C., Lai, M., Tu, Z., 2014. Weakly supervised 
+
+histopathology cancer image segmentation and classification. Med. Image Anal. 18 
+(3), 591–604. 
+
+Yao, X., Han, J., Cheng, G., Qian, X., Guo, L., 2016. Semantic annotation of high- 
+resolution satellite images via weakly supervised learning. IEEE Trans. Geosci. 
+Remote Sens. 54 (62), 3660–3671.
+
+by a random percentage.  
+
+2.  Random reduction. We reduce each target in the composition by a 
+random fraction. In this case, some targets can be reduced to 0.  
+3.  Non-random (biased) reduction. We reduce targets randomly, as 
+in the random reduction. However, only a few selected targets are 
+being reduced. This  way, we imitate  the biased incompleteness of 
+only some target labels. 
+
+Then, we compare the mean absolute error (MAE) left in the data 
+after we employ baseline approaches from Section 2.2 (taking no action 
+and applying normalization) and partial imputation algorithm (Section 
+2.3)  to  this  artificially  incomplete  data.  MAE  is  averaged  over  1000 
+repetitions for each experiment. 
+
+In the partial imputation algorithm, we use two types of clusters:
+
+The  highest  accuracy  using  the  neural  network  model  and  the 
+random forest model is achieved when no action is taken while handling 
+the targets. One of the explanations for this superiority could be that, 
+with the lower error than in imputation and normalization cases, this 
+model is better trained to predict the open shurbland type, which is the 
+second largest vegetation type. Using k-nearest neighbours, the predic-
+tion error of the open shurbland type is lower compared to the error when 
+no action is taken. In that case, the prediction accuracy of imputation 
+based on the clusters approach and the no-action approach is the same. 
+The lowest MAE among other than the complete case approaches is
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the provided context, there isn't any direct information about strategies employed to handle randomness in the deep learning pipeline, specifically regarding random seed values. However, it does mention several strategies used in machine learning and data processing that involve randomness.
+
+One strategy mentioned is random reduction, where each target in the dataset is reduced by a random fraction. Another strategy is non-random (biased) reduction, where only certain targets are reduced randomly. These reductions can help simulate real-world scenarios with missing or incomplete data.
+
+Additionally, the context discusses the use of clustering algorithms like k-means and hierarchical clustering in the partial imputation algorithm. Clustering involves grouping similar instances together, often relying on random initialization. To mitigate the effects of randomness, one common practice is to run multiple iterations of the algorithm with different initializations and then select the best result or average them.
+
+While these strategies do not directly address managing randomness in the form of random seed values, they demonstrate ways to manage randomness within datasets and algorithms. For handling random seed values specifically, common practices include fixing the seed value for reproducibility, running experiments with multiple seeds and aggregating results, or intentionally varying the seed value to test robustness.

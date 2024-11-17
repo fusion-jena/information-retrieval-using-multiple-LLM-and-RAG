@@ -1,0 +1,75 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The  reference  dataset  was  split  into  training  and  testing  sets  at  a 
+70:30 ratio, and we applied two types of accuracy assessments. (i) In the 
+model  building  phase,  using  the  training  dataset,  we  applied  10-fold 
+cross-validation  with  three  repetitions.  The  training  dataset  was 
+randomly split into 10 folds; 9 folds were used for model training and 1 
+for testing, and this procedure ended when all folds were testing data. 
+The whole sequence was repeated using two new random splits (Abriha 
+et al., 2023; Molinaro et al., 2005). This type of accuracy assessment, 
+with  hyperparameter  tuning,  helps  to  find  the  best  models  with  the 
+largest  overall  accuracy  (OA),  and  also  reflects  the  resulting  30  OAs 
+distribution  models  with  minimums,  maximums,  quartiles,  and  me-
+dians. The smaller the range of possible model outcomes (OAs), the more 
+reliable the prediction. (ii) Based on the testing dataset, we predicted the
+
+We  classified  all  the  input  dataset combinations  (10  variable  sets; 
+Table  2)  with  each  classifier  (RF,  SVM,  MARS)  and  with  two  sets  of 
+classes (7C and 13C); thus, we had 60 models as a result of the classi-
+fications. Classifications and hyperparameter tuning were conducted in 
+R  4.2  (R  Core  Team,  2023)  with  the  caret  package  (Kuhnaut  et  al., 
+2022). 
+
+2.4. Accuracy assessment
+
+Staiano, 2019). Training data augmentation, which extends the existing 
+training  data,  enhances  the  generalization  capabilities  (Lik´o  et  al., 
+2023). Post-classification, generally segmentation, and filtering gener-
+ally  provide  better  maps  with  a  lower  rate  of  salt-and-pepper  errors 
+(Ahmed et al., 2017). We can also deal with the characteristics of the 
+geometry of the training data, excluding outliers, refining the training 
+samples, or changing the proportion of the training and test data. These 
+strategies collectively improve classification accuracy, enabling better 
+modelling of the environment.
+
+Mayer, Z., Kenkel, B., Team, R. Core, Benesty, M., Lescarbeau, R., Ziem, A., 
+Scrucca, L., Tang, Y., Candan, C., Hunt, T., 2022. caret: Classification and Regression 
+Training. 
+
+Kyristsis, S., Antonopoulos, A., Chanialakis, T., Stefanakis, E., Linardos, C., 
+
+Tripolitsiotis, A., Partsinevelos, P., 2016. Towards autonomous modular UAV 
+missions: the detection, geo-location and landing paradigm. Sensors 16, 1844. 
+https://doi.org/10.3390/s16111844. 
+
+Laliberte, A.S., Goforth, M.A., Steele, C.M., Rango, A., 2011. Multispectral remote 
+
+sensing from unmanned aircraft: image processing workflows and applications for 
+rangeland environments. Remote Sens. 3, 2529–2551. https://doi.org/10.3390/ 
+rs3112529. 
+
+Li, S., Xu, L., Jing, Y., Yin, H., Li, X., Guan, X., 2021. High-quality vegetation index 
+
+product generation: a review of NDVI time series reconstruction techniques. Int. J. 
+Appl. Earth Obs. Geoinf. 105, 102640 https://doi.org/10.1016/j.jag.2021.102640.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, the reference dataset was split into training and testing sets at a 70:30 ratio. This means that 70% of the data was used for training the deep learning models, while the remaining 30% was used for testing their performance. No specific mention is made about a separate validation set, but it could be assumed that the authors might have used part of the training set for validation purposes during the model building phase.
+
+To ensure reliable predictions and minimize overfitting, the authors employed a 10-fold cross-validation technique with three repetitions. Cross-validation involves splitting the training data into multiple subsets called 'folds'. In this case, the training dataset was randomly divided into 10 folds. For each iteration, nine folds were used for training the model, while one fold served as the testing data. This process continued until every fold acted as the testing data once. To further enhance the robustness of the results, the entire sequence was repeated twice using different random splits.
+
+This approach helped identify the most accurate models by comparing the overall accuracy (OA) achieved across various iterations. By analyzing the distribution of these accuracies, including minimums, maximums, quartiles, and medians, the researchers aimed to select the models with the smallest range of potential outcomes. This would indicate higher reliability and consistency in predictive performance.

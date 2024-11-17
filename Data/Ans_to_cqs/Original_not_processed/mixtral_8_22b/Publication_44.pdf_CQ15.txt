@@ -1,0 +1,60 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+algorithm and hence making the network easily adaptable to train with other datasets [17].
+We also performed a ﬁne-tuning process of YOLOv5s, which was trained from the MS
+COCO dataset for the object detection task. The network was trained for 300 epochs using
+an Adam optimizer with an initial image size of 640 × 640 and a batch size of 16. Like
+in the Faster R-CNN training process, we stored the best performing model based on
+validation loss and used it for inference. To improve the network results, we used test time
+augmentation with a 0.6 NMS threshold. Both networks were trained to detect potential
+candidate leaves from the herbarium images using the same train/validation and test
+dataset as the one used to train the proposed segmentation model. For each detected
+potential leaf from the networks, an Otsu thresholding and ﬂood-ﬁll operation was applied
+before using connected component analysis to extract the largest component. The extracted
+
+kernel to expand without increasing the number of parameters [39]. This expansion of the
+window is controlled by the dilation rate and it enables the network to capture information
+from a larger receptive ﬁeld of view with the same parameters and computational complex-
+ity as the normal convolution. The combination of spatial pyramid pooling with Atrous
+convolutions resulted in an efﬁcient multi-scale processing module called Atrous spatial
+pyramid pooling (ASPP). In the earlier version (DeepLabV3) [40], the last ResNet block of
+the modiﬁed ResNet-101 uses different Atrous convolutions with different dilation rates.
+ASPP, together with bilinear up sampling, is also used on top of the modiﬁed ResNet block.
+DeepLabv3+ is an improvement in the previous version by adding an effective decoder
+module to improve the boundaries of the segmentation results [41]. Furthermore, apart
+from ResNet-101, an Xception model can be used as a feature extractor while applying a
+
+threshold during training for 3000 iterations. At the end of the training process, the best
+performing model based on the validation loss was saved and used as the Faster R-CNN
+model with a NMS threshold of 0.7 during testing.
+
+Training procedure—We adapted a pre-trained VGG16 network that is a CNN trained
+on the ImageNet dataset and used for transfer learning on our dataset [51]. We froze
+earlier layers of the base version of the network to make them non-trainable and added an
+extra max-pooling layer before the fully connected layers to reduce the dimension of the
+previous layer. The feature vector of the fully connected layer was reduced from 2048 units
+of the original VGG16 to 128 units, which helped in reducing the computational complexity
+without sacriﬁcing much on performance. The model was implemented using Keras with
+TensorFlow backend [52].
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text mentions the use of two optimization techniques in the deep learning pipeline: Stochastic Gradient Descent (SGD) and Adam.
+
+In the case of YOLOv5s, the network was trained for 300 epochs using an Adam optimizer. Adam is an optimization algorithm that can be thought of as a combination of RMSprop and Stochastic Gradient Descent with momentum. It calculates individual adaptive learning rates for different parameters from estimates of first and second moments of the gradients.
+
+On the other hand, the Faster R-CNN model was trained using Stochastic Gradient Descent (SGD) with a learning rate of 0.001. SGD is an iterative method for optimizing a differentiable objective function, often used for machine learning applications. It updates the weights of the model after computing the gradient of the cost function with respect to the weights for a small subset of the training data.
+
+Both these optimization techniques help in improving the efficiency and accuracy of the models by minimizing the error or loss function.

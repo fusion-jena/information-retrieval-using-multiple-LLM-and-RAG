@@ -1,0 +1,67 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Remote Sens. 2020, 12, 1145
+
+6 of 17
+
+Training data were generated as batches of size (m, 256, 256, 3), where m is the batch size (m =
+20 in our experiments). The batches consisted of sub-images of size 256 × 256 that were randomly
+cropped out from the original satellite images presented in Table 1. We had a stream (internally, a
+Python generator) of almost never repeated sub-images; these sub-images were combined into batches
+and used for the neural network training. Satellite images for sites #1, #3, #5, #7–10 were used for
+training and #2, #4, #6 for validation. Corresponding batches of mask data had shape (20, 256, 256, 1).
+The network training assessment was performed on sub-images generated from image #2 (Table 1).
+Images #4 and #6 were used for visualization and demonstration of the algorithm eﬃcacy.
+
+2.5. Neural Network Implementation and Tuning
+
+The U-Net-like CNN described in Algorithm A1 was implemented in a Python-based (Python
+3.7.3 was used) computational environment, which was built on top of the Keras framework [54] using
+Tensorﬂow [62] as a backend. All computations were performed on a PC with 1 GPGPU Nvidia Tesla
+K80 with 16 GB of RAM and required up to 10 h to train one CNN architecture.
+
+45. Ayrey, E.; Hayes, D.J. The use of three-dimensional convolutional neural networks to interpret LiDAR for
+
+forest inventory. Remote Sens. 2018, 10, 649. [CrossRef]
+
+46. Mahdianpari, M.; Zhang, Y.; Salehi, B. Deep convolutional neural network for complex wetland classiﬁcation
+using optical remote sensing imagery. IEEE J. Sel. Top. Appl. Earth Obs. Remote Sens. 2018, 11, 3030–3039.
+[CrossRef]
+
+47. Kattenborn, T.; Eichel, J.; Wiser, S.; Burrows, L.; Fassnacht, F.E.; Schmidtlein, S. Convolutional neural networks
+accurately predict cover fractions of plant species and communities in unmanned aerial vehicle imagery.
+Remote Sens. Ecol. Conserv. 2020. [CrossRef]
+
+48. Li, W.; Fu, H.; Yu, L.; Cracknell, A. Deep learning based oil palm tree detection and counting for high-resolution
+
+remote sensing images. Remote Sens. 2017, 9, 22. [CrossRef]
+
+49. Csillik, O.; Cherbini, J.; Johnson, R.; Lyons, L.; Kelly, M. Identiﬁcation of citrus trees from unmanned aerial
+
+To tune the architecture of the neural network, we tested the following combinations of parameters
+(Algorithm A1, line #24), which correspond to diﬀerent U-Net architectures: num_layers = {64, 32, 16},
+depth = {2, 3, 4}, layer_rate = {2, 1.5, 1.2}, batch_norm = {True, False}, residual = {True, False}, dropout
+= {0, 0.5}. Thus, we performed a grid search over 216 diﬀerent U-Net-like architectures and found
+several of the best ones which are suitable for forest damage segmentation.
+
+All of the best results corresponded to the conﬁguration when the number of layers was equal to
+64, and dropout was applied. The best one, whereby an additional batch normalization is applied,
+corresponds to the following parameters: num_layers = 64, depth = 4, layer_rate = 2, batch_norm =
+True, residual = False, dropout = 0.5.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which platform was used to deploy the deep learning model (e.g., AWS, Azure, Google Cloud platform)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Answer: The given information does not explicitly state which cloud platform was used to deploy the deep learning model. However, it mentions that all computations were performed on a PC with 1 GPGPU Nvidia Tesla K80 with 16 GB of RAM. This suggests that the deployment might have been done locally rather than on any specific cloud platform like AWS, Azure, or Google Cloud Platform.

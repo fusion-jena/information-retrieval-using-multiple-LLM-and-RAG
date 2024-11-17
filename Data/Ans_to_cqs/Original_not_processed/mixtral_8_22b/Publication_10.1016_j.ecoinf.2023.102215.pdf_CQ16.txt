@@ -1,0 +1,110 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Relax  boundary  F-measure  (F
+
+rb
+β )  measures  the  final  prediction’s 
+boundary quality. To obtain the binary mask representation of the sa-
+liency  map  P,  we  applied  a  thresholding  procedure  with  a  threshold 
+value of 0.5. Next, we obtained a one-pixel-wide boundary by applying 
+the XOR(Pbw, Perd) process, where Perd implies the eroded binary mask of 
+Pbw. The same procedure was used to obtain the edges of the ground- 
+ω
+β  metric  defined  in  (7):  replacing  the 
+truth  mask.  F
+Precisionω 
+and 
+relaxRecallω
+indicates  the  per-
+centage of predicted edge pixels of ground-truth boundary pixels within 
+a range of ρ pixels, and relaxRecallω 
+evaluates the percentage of ground- 
+truth edge pixels which are within ρ pixels of predicted edge pixels. In 
+line with the previous work (Qin et al., 2019; Qin et al., 2020), we set the 
+rb
+slack parameter ρ to three. We present the average F
+β  of all predicted 
+saliency maps for our ST-D.
+
+(cid:0) 8, (3) initial learning rate lr=1.0 × 10
+
+TrunkNet is trained with PyTorch 1.13.0.1  All training and test im-
+ages are uniformly resized to 288 × 288. TrunkNet is trained with the 
+Adam  optimizer  with  default  hyper-parameters:  (1)  betas=(0.9, 
+(cid:0) 3, and 
+0.999), (2) eps=1.0 × 10
+(4) weight_decay = 0. The evaluation experiments of TrunkNet are all 
+conducted on a computer that has a 14-core Intel(R) Xeon(R) Gold 6330 
+CPU (80 GB RAM) and an NVIDIA RTX 3090 GPU (24 GB memory). The 
+model is trained from scratch with a batch size of 12. After 65 K itera-
+tions,  the  training  loss  converges,  and  the  training  process  takes 
+approximately 11.5 h. 
+
+3.2. Performance evaluation metrics 
+
+To evaluate the performance of salient tree trunk detection on ST-D, 
+
+we follow seven metrics given below. 
+
+Mean Absolute Error (M) assesses the pixel-level similarity between 
+the  final  saliency  map  Spre  and  the  ground-truth  mask  G.  It  can  be 
+formulated as 
+
+M =
+
+2.3. Model training 
+
+Our study can be categorized as a binary classification. We supervise 
+TrunkNet’s training with the Binary Cross-Entropy (BCE) loss function, 
+which  is  a  commonly  employed  loss  function  in  supervised  deep 
+learning (Zhao et al., 2019b). The BCE loss function measures the dif-
+ference between the predicted probability and the actual value. Mini-
+mizing this difference indicates a better training effect. Specifically, the 
+BCE loss function in use is expressed with 
+
+L BCE = (cid:0)
+
+∑H
+
+∑W
+
+x=1
+
+y=1
+
+G(x, y)logSpre(x, y) + (1 (cid:0) G(x, y))log(1 (cid:0) Spre(x, y)),
+
+(3)  
+
+where (x,y) is the pixel coordinate, H and W are the height and width of 
+the image, respectively, G is the ground-truth, and Spre  is the final pre-
+dicted saliency map.
+
+We  also  conduct  a  comparative  analysis  of  total  training  time, 
+average  inference  time,  model parameters,  and  FLOPs  between  Trun-
+kNet and the other 10 SOTAs, aiming to evaluate the time and compu-
+tational performance. The experimental results are presented in Table 5. 
+Noticeably, TrunkNet is built entirely on the proposed MIF block that 
+
+needs to be trained from scratch, so necessitates a longer training time in 
+comparison to models built on pre-trained backbones. Since TrunkNet 
+prioritizes competitive performance, there may be a limitation in terms 
+of  time  efficiency.  However,  TrunkNet  achieves  an  average  inference 
+time of only 58.41 ms per image, that is 17.12 frames per second (FPS), 
+which  is  still  above  average.  Furthermore,  TrunkNet  showcases
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not explicitly state the specific criterion used to determine when training is complete. However, it mentions that after 65K iterations, the training loss converges, indicating that convergence of the training loss might have been used as a stopping criterion. This means that once the training loss stops decreasing significantly or reaches a stable level, the training process could be considered complete. Other common criteria include reaching a maximum number of epochs/iterations, early stopping based on validation loss or accuracy, or manual inspection of the model's performance.

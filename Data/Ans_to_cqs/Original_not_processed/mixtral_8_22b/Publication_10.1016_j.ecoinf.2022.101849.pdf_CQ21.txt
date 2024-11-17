@@ -1,0 +1,85 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1 
+An example training instance for different weakly-labeled settings. Here yj indicates the targets of an instance. Red indicates an 
+error in the training data (deviation from ground truth) – it is not known to the user where errors occur. Note that in the weak 
+j=1yj = 1 and yj⩾0). In our setting 
+label setting, only 0s may be errors. Shading represents a constraint (in this example, that 
+(structurally incomplete), the constraint may not be met, but errors are neither random deviations. Mixtures of these settings 
+are possible, e.g., we may have structurally incomplete with missing labels, etc. 
+
+∑
+5
+
+EcologicalInformatics72(2022)1018492R. Beigait˙e et al.
+
+Various other terms have been used to describe weakly supervised 
+learning tasks in the literature (Table 1). Weak labels (Sun et al., 2010) 
+or  partial labels (Xie  and  Huang, 2018)  are  mainly  considered  in  the 
+context  of  binary  labels.  They  often  include  different  types  of  noise 
+coming from the labeling process and data sources and lacks constraints. 
+Distribution learning (Gao et al., 2017) entails the constraint that the 
+outputs  must  sum  to  unity,  but  this  constraint  is  already  met  in  the 
+training data, unlike in our structural incompleteness setting.
+
+2010. The concept of potential natural vegetation: an epitaph? J. Veg. Sci. 21 (6), 
+1172–1178. 
+
+Chollet, F.. Keras. https://keras.io. 
+Chung, S., Kontar, R., Wu, Z., 2022. Weakly supervised multi-output regression via 
+
+correlated gaussian processes. INFORMS Journal on Data Science. 
+
+Dery, L.M., Nachman, B., Rubbo, F., Schwartzman, A., 2017. Weakly supervised 
+classification in high energy physics. J. High Energy Phys. 2017 (5), 145. 
+Ferrer-Rosell, B., Coenders, G., Martínez-Garcia, E., 2015. Determinants in tourist 
+expenditure composition—the role of airline types. Tour. Econ. 21 (1), 9–32. 
+Fick, S.E., Hijmans, R.J., 2017. Worldclim 2: new 1-km spatial resolution climate 
+
+surfaces for global land areas. Int. J. Climatol. 37 (12), 4302–4315. 
+
+Gao, B.B., Xing, C., Xie, C.W., Wu, J., Geng, X., 2017. Deep label distribution learning 
+
+with label ambiguity. IEEE Trans. Image Process. 26 (6), 2825–2838.
+
+4.2. Performance of predictive models 
+
+The performance of compared predictive models is summarized in 
+Tables 2–4. When using only complete targets for training, the MAE of 
+complete  observations  of  the  test  set  is  the  lowest.  However,  experi-
+mental  results  on  evaluating  the  prediction  accuracy  of  dominant 
+vegetation  cover  types  show  that  using  this  approach,  the  prediction 
+accuracy of incomplete observations is more than 10% less than using 
+other approaches. This suggests that complete observations do not carry 
+full information about the distribution of the natural vegetation cover 
+worldwide.  It  confirms  existing  findings  (Nikoloski  et  al.,  2021)  that 
+better performance can be achieved if incompletely labeled data is used 
+in model training instead of discarding it.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, several postprocessing steps can be performed depending on the specific requirements and goals of the analysis. Some common postprocessing steps include:
+
+1. Model Evaluation: After training, the model needs to be evaluated to assess its performance. Common evaluation metrics include accuracy, precision, recall, F1 score, ROC curves, confusion matrices, etc. These metrics help determine how well the model has learned to classify or predict the target variable.
+
+2. Hyperparameter Tuning: Once the initial model has been trained and evaluated, hyperparameters such as learning rate, regularization parameters, batch size, number of layers, etc., can be fine-tuned to improve the model's performance further. Techniques like grid search, random search, Bayesian optimization, etc., can be employed for hyperparameter tuning.
+
+3. Feature Importance Analysis: Understanding which features contribute most significantly to the predictions made by the model can provide valuable insights into the underlying patterns in the data. Methods like permutation feature importance, SHAP values, LIME, etc., can be used to analyze feature importance.
+
+4. Visualizations: Creating visual representations of the model's output can aid in understanding the model's behavior better. Examples include saliency maps, activation heatmaps, t-SNE plots, PCA plots, etc. These visualizations can reveal interesting patterns and relationships within the data.
+
+5. Ensemble Models: Combining multiple models to create an ensemble can lead to improved performance over individual models. Techniques like bagging, boosting, stacking, etc., can be applied to build ensembles.
+
+6. Deployment: Finally, once the model has been thoroughly tested and validated, it can be deployed in production environments to generate real-time predictions or perform automated decision making.

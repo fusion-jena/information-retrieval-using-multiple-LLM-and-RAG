@@ -1,0 +1,277 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+7×7/2
+3×3/2
+
+3×3/1
+3×3/2
+
+Convolution
+
+Max pool
+
+Batch norm
+
+LRN
+
+Convolution
+
+Max pool
+
+Batch norm
+
+LRN
+
+Inception (3a)
+
+Inception (3b)
+
+Max pool
+
+3×3/2
+
+Batch norm
+
+Inception (4a)
+
+Inception (4b)
+
+inception (4c)
+
+Inception (4d)
+
+Inception (4e)
+
+Max pool
+
+3×3/2
+
+Batch norm
+
+Inception (5a)
+
+Inception (5b)
+
+Avg pool
+
+7×7/1
+
+Batch norm
+
+Linear
+
+Softmax
+
+0
+
+0
+
+0
+
+0
+
+2
+
+2
+
+2
+
+0
+
+0
+
+0
+
+0
+
+112×112×64 1
+56×56×64
+56×56×64
+56×56×64
+56×56×192
+28×28×192
+28×28×192
+28×28×192
+28×28×256
+28×28×480
+14×14×480
+14×14×480
+14×14×512
+14×14×512
+14×14×512
+14×14×528
+14×14×832
+7×7×832
+7×7×832
+7×7×832
+7×7×1024
+1×1×1024
+1×1×1024
+1×1×10000
+1×1×10000
+
+1
+
+2
+
+2
+
+0
+
+2
+
+2
+
+2
+
+0
+
+0
+
+2
+
+2
+
+0
+
+0
+
+2.7K
+
+34M
+
+112K
+
+360M
+
+159K
+
+380K
+
+128M
+
+304M
+
+364K
+
+437K
+
+463K
+
+580K
+
+840K
+
+73M
+
+88M
+
+100M
+
+119M
+
+170M
+
+1072K
+
+54M
+
+1388K
+
+71M
+
+1000K
+
+1M
+
+119M
+
+170M
+
+1072K
+
+54M
+
+1388K
+
+71M
+
+1000K
+
+1M
+
+the network. Therefore, a common practice is to initialize
+the network by pre-training it on a big available dataset
+and then fine-tune it on the scarcer domain-specific data.
+Concretely, the methodology we used in our experiment
+for transferring knowledge from dataset A to dataset B is
+the following:
+
+1. The network is first trained from scratch on dataset
+A by using a multinomial logistic regression on top
+of the SOFTMAX layer and the linear classification
+layer.
+
+2. The linear classification layer used for dataset A is
+then replaced by a new one aimed at classifying the
+classes in B. It is initialized with random weights.
+
+3. The other layers are kept unchanged so as to
+
+initialize the learning of dataset B with the weights
+learned from A.
+
+4. The network is trained on the images in B.
+
+Experiments and results
+All experiments measured the top-1 and top-5 accu-
+racy of the trained deep learning model under different
+circumstances, i.e., herbarium specimens classification
+(“Herbarium specimen classification” section, Table 3),
+transfer learning across herbarium data from differ-
+ent regions (“Cross-Herbaria transfer learning” section,
+Table 4), and transfer learning from herbarium data to
+non-dried plant images (“Transfer learning from herbar-
+ium to non-dried plant images” section, Table 5).
+
+For each of these experiments, table columns are
+
+defined as follows:
+
+Vanhoucke V, Rabinovich A. Going deeper with convolutions. In: 2015
+IEEE Conference on Computer Vision and Pattern Recognition (CVPR).
+Boston: IEEE Conference; 2015. p. 1–9. doi:10.1109/CVPR.2015.7298594.
+Ioffe S, Szegedy C. Batch normalization: Accelerating deep network
+training by reducing internal covariate shift. CoRR. 2015. abs/1502.03167.
+[Online]. Available http://arxiv.org/abs/1502.03167.
+
+35.
+
+37.
+
+36. He K, Zhang X, Ren S, Sun J. Delving deep into rectifiers: Surpassing
+human-level performance on imagenet classification. CoRR. 2015.
+abs/1502.01852. [Online]. Available http://arxiv.org/abs/1502.01852.
+Jia Y, Shelhamer E, Donahue J, Karayev S, Long J, Girshick R,
+Guadarrama S, Darrell T. Caffe: Convolutional architecture for fast feature
+embedding. In: Proceedings of the 22Nd ACM International Conference
+on Multimedia. New York: ACM; 2014. p. 675–8.
+doi:10.1145/2647868.2654889.
+
+38. Mata-Montero E, Carranza-Rojas J. Automated plant species
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The information regarding the specific hyperparameters used in the deep learning model, such as the learning rate or the type of optimizer, is not explicitly mentioned in the given context. However, based on general practices in training deep learning models, some commonly used hyperparameters include the learning rate, batch size, number of epochs, choice of optimizer (e.g., Adam, SGD, etc.), weight decay, and others depending on the specific requirements of the task. Without further details about the exact implementation of this particular model, it is impossible to provide precise values for these hyperparameters.

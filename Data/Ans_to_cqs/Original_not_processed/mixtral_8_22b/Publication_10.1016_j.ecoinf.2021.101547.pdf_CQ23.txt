@@ -1,0 +1,63 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The  diversity  of  considerations  and  possibilities  for  improvement 
+highlights another general challenge of using deep learning at present: 
+as a still-burgeoning technology, optimized or standardized approaches 
+for different analysis tasks are not yet well-established, so the range of 
+possibilities  can  seem  overwhelming,  especially  to  non-expert  users. 
+Even the basic training options, some of which are listed in Table 1, are 
+numerous and highly technical. A sensible approach is to initially set 
+options based on a review of published studies involving similar analysis 
+tasks,  then  attempt  to  refine  certain  settings  through  trial  and  error. 
+However,  it  should  also  be  noted  that  the  computationally  laborious 
+process of training a CNN (several hours to several days of background 
+processing) imposes a practical limit on the extent of trial and error that 
+can  be  undertaken.  Nevertheless,  deep  learning  is  now  clearly  over-
+
+The  mini-batch  size  is  user-adjustable  (typically  in  binary-number 
+increments,  e.g.  2,  4,  8,  16,  32,  etc.)  depending  on  the  data  set.  Too 
+small  a  mini-batch  size  may  provide  insufficient  image  data  for  the 
+network  to  meaningfully  learn from  some or  all  of  the  classes  within 
+each iteration, while too large a mini-batch size may cause the network 
+to  overfit  to  the  training  images.  Because  of  the  high  computational 
+complexity  of  the  deep  learning  process,  the  mini-batch  size  is  ulti-
+mately limited by the amount of memory available to the GPU (in our 
+case 8 GB), factoring in the size of the images (in our case 224 × 224 
+pixels × 3 bands) and the number of internal parameters in the network 
+(25.6 million in the case of ResNet-50). Thus, we were limited to mini-
+
+Details of the parameters and settings we used for these two training 
+stages are summarized in Table 1.
+
+2.4.1. Background training images 
+
+To train the CNN on the large diversity of background throughout the 
+aerial survey imagery so as to minimize misclassification of background 
+features as polar bears, we randomly selected 6092 photos (~10% of the 
+full  set),  excluding  the  20  photos  known  to  contain  bears.  We  then 
+cropped  each  photo to  224  × 224  pixels  at a  random  location in the 
+photo to match the CNN's input size. We additionally randomly selected 
+and  cropped  another  1000  photos  from  the  full  set  to  serve  as  back-
+ground validation images to assess the network's classification accuracy 
+throughout training. 
+
+2.4.2. Training image manipulations and augmentations
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: To ensure the generalizability of the deep learning model, several measures were taken. Firstly, a diverse dataset was utilized for training the Convolutional Neural Network (CNN). This involved selecting 6092 photos (approximately 10% of the full set) from the aerial survey imagery, ensuring a wide variety of background features. These photos did not include any images known to contain bears, thus focusing the training on distinguishing between various types of backgrounds rather than identifying specific objects like polar bears. Each photo was then cropped to 224 x 224 pixels at a random location, matching the CNN's input size. Additionally, another 1000 photos were randomly selected and cropped to serve as background validation images. These images helped assess the network's classification accuracy during the training process.
+
+Moreover, image manipulation and augmentation techniques were employed to further enhance the model's ability to generalize. While the text does not explicitly mention what specific manipulations and augmentations were applied, common practices include rotating, flipping, zooming, shifting, and adjusting brightness levels of the images. These techniques help create more varied training examples, allowing the model to better recognize patterns and features across different conditions.
+
+Lastly, although not directly mentioned in the given context, cross-validation and stratified splitting could have been additional methods used to improve the model's generalizability. Cross-validation involves dividing the dataset into multiple subsets and iteratively training the model on different combinations of these subsets. This helps prevent overfitting and provides a more robust estimate of the model's performance. On the other hand, stratified splitting ensures that the distribution of classes remains consistent across the training, validation, and test sets, preventing any class imbalance issues that might negatively impact the model's performance.

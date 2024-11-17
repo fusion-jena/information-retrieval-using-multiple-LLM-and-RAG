@@ -1,0 +1,112 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.3. Network architecture 
+
+The architecture used was a heavily modified version of that used in 
+“Unsupervised Deep Learning with Pytorch” by github user “eelxpeng” 
+(eelxpeng, 2018). As the size of our audio spectrograms has been con-
+strained to 128 × 128 pixel RGB images with values repeated in each 
+color channel to produce a greyscale image. For this initial experiment 
+testing  the feasibility of using an auto-encoder-generated feature rep-
+resentation for ecoacoustic analysis, we chose a basic auto-encoder ar-
+chitecture  to  minimise  the  complications  that  may  be  introduced  by 
+more advanced architectures. A rectified linear unit (ReLU) based acti-
+vation function was be used, to help mitigate the vanishing/exploding 
+gradient  problem  (Xu  et  al.,  2015).  Networks  using  implicit  pooling 
+(determined using pytorch) and explicit max-pooling were used.
+
+Fig. 1. The structure of an auto-encoder.  
+
+EcologicalInformatics62(2021)1012372B. Rowe et al.                                                                                                                                                                                                                                    
+
+proportion of non-silent audio clips. The research design is outlined in 
+Fig. 2 
+
+3.4. Training 
+
+3.2. Data pre-processing
+
+Table 3 
+Comparing the variance of bcubed and purity evaluation metrics of feature representations found using Spectral Indices, MFCC and Auto Encoder over 20 runs using a 
+subset of the total dataset.   
+
+Vector size 
+
+bcubed precision (Variance) 
+
+bcubed recall (Variance) 
+
+bcubed Fscore (Variance) 
+
+Purity (Variance) 
+
+Spectral indices 
+MFCC 
+Auto encoder (implicit) 
+Auto encoder (explicit max-pooling) 
+
+2048 
+1287 
+384 
+384 
+
+0.003 
+0.006 
+0.002 
+0.0007 
+
+0.006 
+0.007 
+0.001 
+0.0007 
+
+0.003 
+0.006 
+0.002 
+0.0006 
+
+0.003 
+0.005 
+0.002 
+0.001  
+
+Fig.  10. 2nd t-SNE plot  generated using  spectral indices.  Cluster  represented  by color  and species  ground-truth represented  by  shape.(For  interpretation  of  the 
+references to color in this figure legend, the reader is referred to the web version of this article.) 
+
+by Dias, et al., uses varying length spectrograms, and does not focus on 
+individual call types directly directly (Dias et al., 2020).
+
+• When  training  for  the  same  amount  of  time,  the  explicit  max- 
+pooling  autoencoder  performed  worse  than  the  implicit  pooling 
+auto  encoder.  We  hypothesise  that  this  is  due  to  the  “Check-
+erboarding” effect (illustrated in Fig. 6), which is known to occur 
+with max-unpooling. It is possible that this could be remedied by 
+training for a larger number of epochs, however time constraints 
+did not allow for this  
+
+• The  feature  representations  created  using  MFCC  outperformed 
+
+Spectral Indices substantially.  
+–  Standard Deviation and Variance  
+
+• MFCC is the least consistent  
+• Spectral indices are slightly more consistent than MFCC  
+• Auto-encoder-based  approaches  are  the  most  consistent  of  the 
+
+methods tested
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't any specific information about what techniques are used to address data bias during preprocessing of the deep learning pipeline such as stratified splitting, oversampling, undersampling, or diverse data collection. However, it can be noted from the context that the authors have constrained the size of their audio spectrograms to 128 x 128 pixel RGB images with values repeated in each color channel to produce a grayscale image. This might suggest some form of normalization or standardization technique being applied to the input data before feeding into the network. Additionally, the use of a basic auto-encoder architecture with ReLU activation function also suggests that the authors aimed to minimize potential biases that could be introduced by more complex architectures. Nevertheless, without further details regarding the specific steps taken to handle data bias, it cannot be definitively stated what techniques were employed.

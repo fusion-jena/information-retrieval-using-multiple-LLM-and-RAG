@@ -1,0 +1,60 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+In the training phase of a DNN the connection weights (w in 
+Figure 1) between neurons are iteratively updated by a training 
+algorithm  to  minimize  the  prediction  error  over  the  training 
+data  set  (see  Supplementary  Material  S2  for  more  details). 
+In  order  to  gauge  the  accuracy  of  predictions  for  new  input 
+data  (i.e.,  data  not  used  during  training),  the  available  data  is 
+frequently split into a training data set (used for training), and 
+a test data set. The details of the network architecture, such as 
+the  size  of  the  network,  the  selection  of  specific  layer  types, 
+and parameters of the training process strongly determine the 
+prediction  accuracy  of  the  network  and  are  usually  problem 
+specific. More information on deep learning is available in e.g., 
+Angermueller  et  al.  (  2016),  LeCun  et  al.  (2015)  and  Nielsen 
+(2015).  Moreover,  the  Supplementary  Material  S2  provides  a
+
+guide for designing and training of DNNs, as well as practical 
+considerations for DNN applications.
+
+The hyper-parameters evaluated iteratively were network capacity 
+(number of layers and neurons per layer), applied regularization 
+techniques, as well as the used loss function and optimizer. The 
+training of the individual candidate networks was stopped when 
+the accuracy of the network on the test dataset did not increase 
+further.  The  thus  determined  network  architecture  was  also 
+used for Experiment 2 (Abadi et al., 2016). All experiments and 
+predictions  were  conducted  using  the  TensorFlow  framework 
+and  run  on  a  desktop  PC  with  an  Intel  QuadCore  CPU  (Intel 
+i5-6600) and equipped with an NVidia GTX 1070 GPU.
+
+We  evaluated  the  network  performance  by  calculating  a 
+number of different performance measures based on comparing 
+predictions to test set data. The accuracy (defined as the ratio of 
+correct classifications relative to the total number of examples) 
+has  only  limited  value  as  an  evaluation  metric  here,  as  the 
+class  distribution  is  very  unbalanced  (only  3.48%  of  the  data 
+points  are  classified  as  disturbed).  We  therefore  also  calculated 
+precision, recall, and the F1 Score, as well as Conditional Kappa 
+and the True Skill Statistic (Allouche et al., 2006; Powers, 2011) 
+(Table 1). Conditional Kappa and True Skill Statistic range from 
+−1  to  +1,  where  +1  indicates  perfect  agreement  with  test  data, 
+and values >0 indicate a performance than is better than random
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Answer: Training of the individual candidate networks was stopped when the accuracy of the network on the test dataset did not increase further. This suggests that the criterion used to determine when training is complete is based on the performance of the model on the test dataset. Specifically, if the model's accuracy on the test dataset does not improve after a certain point, then it can be assumed that the model has learned all it can from the training data and further training would not yield any additional benefits. This approach is known as early stopping, which is a form of regularization used to prevent overfitting. It involves monitoring the performance of the model on a separate validation dataset during training and stopping the training process once the performance starts to degrade or stops improving. In this case, the test dataset appears to have been used both for evaluating the final performance of the model and for determining when to stop training. However, it is generally recommended to use a separate validation dataset for early stopping to avoid biasing the estimates of generalization performance.

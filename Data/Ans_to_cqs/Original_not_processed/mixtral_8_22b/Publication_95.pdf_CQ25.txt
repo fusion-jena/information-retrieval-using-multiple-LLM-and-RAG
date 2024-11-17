@@ -1,0 +1,52 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+When training a deep convolutional neural network, it is important to split the data
+into a training set, a validation set, and a test set. The training set is used for optimizing the
+parameters of the network, while the validation set is used for monitoring the performance
+of the network during training and for comparing the performance of different networks
+with, for example, different hyperparameters or network structures. The test set acts as a
+ﬁnal evaluation of a network. To ensure a proper evaluation on both the validation set and
+the test set, samples in each set must be independent and have similar class distributions.
+The full data set can be split in various ways. The naïve approach is to randomly
+sample images from the full data set. However, due to the images being captured in
+close proximity and potentially having overlapping ﬁelds of views, information may leak
+between the data sets when using the naïve approach. Another approach would be to
+
+the collected data. Finally, the deep learning algorithms are evaluated and the challenges
+of monitoring IAPS are discussed.
+
+All networks were trained on the training set for 100 epochs, using the Adam opti-
+mizer [27] with a learning rate of 0.001 and cross-entropy loss. The image batch size varied
+from 1 to 32 images, depending on the input image resolution with larger batch sizes
+for smaller image sizes. After each epoch, the network was evaluated on the validation
+set. The epoch model with the highest accuracy on the validation set during training was
+saved for further analysis. Before training the networks, the training set was balanced by
+upsampling the images from the underrepresented classes through repetition to match the
+number of images of the most represented class, “No species”.
+
+5.1.1. Network Training Procedure
+
+In both network structures, the ﬁnal classiﬁcation layer was adapted to match the
+seven classes (six IAPS and “no species” (Table 2)). The input image size affects the
+processing time of each image, but can also impact the classiﬁcation accuracy. Therefore,
+the network models were trained on ﬁve different image sizes: 96 × 128 px, 192 × 256 px,
+384 × 512 px, 768 × 1024 px, and 1536 × 2048 px (see Supplementary Materials for a visual
+comparison of the image sizes). For each image size, a network was trained using either
+random weights or weights pre-trained on ImageNet and with global max pooling or
+global average pooling before the ﬁnal classiﬁcation layers.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the purpose of the deep learning model (e.g., classification, segmentation, detection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The purpose of the deep learning model is not explicitly stated in the given context. However, based on the information provided, we can infer that the deep learning model is likely used for multi-class image classification. This is suggested by the mention of adapting the final classification layer to match seven classes, which includes six invasive alien plant species (IAPS) and one additional class labeled as "no species." Furthermore, the use of cross-entropy loss during training is commonly employed for multi-class classification tasks.

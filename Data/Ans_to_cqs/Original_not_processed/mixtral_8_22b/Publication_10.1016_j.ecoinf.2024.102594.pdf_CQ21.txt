@@ -1,0 +1,146 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+ReduceLROnPlateau was as follows: If the validation loss value did not 
+decrease  after  5  consecutive  epochs,  the  learning  rate  was  halved.  If 
+there was no decrease in the validation loss value after 10 consecutive 
+epochs, the training process was terminated. Both model training and 
+inference were executed on a GeForce RTX 3070 GPU.
+
+GF1_8m 
+
+ZY1_10m 
+
+GF1_16m 
+
+P4M 
+
+P4M 
+
+2 
+
+2.1 
+
+P4M 
+
+2.5 
+
+P4M 
+
+5.8 
+
+P4M 
+P4M 
+P4M 
+GF1 
+PMS2 
+ZY3 
+NAD 
+ZY1 
+VNIC 
+ZY3 
+MUX 
+GF1 
+PMS2 
+ZY1E 
+VNIC 
+GF1 
+WFV3 
+
+8 
+10 
+16 
+
+2 
+
+2.1 
+
+2.5 
+
+5.8 
+
+8 
+
+10 
+
+16 
+
+High 
+
+Medium 
+
+Low 
+
+High 
+
+Medium 
+
+Low
+
+During the DeepLabV3+ model training process, feeding large-size 
+images directly to the network may lead to memory overflow. There-
+fore, it is necessary to cut all remote sensing images and semantic labels 
+of land cover classes into a series of regular image blocks for input. To 
+maximize the sample size and maintain consistency with the cropping 
+approach in the model prediction stage, we set the cropping size to 32 ×
+32  pixels  with  a  redundancy  rate  of  0.5.  In  continuing,  70%  of  the 
+dataset  was  used  for  training  and  the  remaining  for  validation.  The 
+training set was enhanced by: (i) Flipping the images and labels along 
+the X or Y axis; (ii) Exchanging between multiple image channels while 
+the  labels remain unchanged; (iii)  Randomly rotating  the images and 
+◦
+labels by 90
+; and (iv) randomly adding noise to the 
+images  while  maintaining  the  labels  unchanged  (Ye  et  al.,  2022).
+
+SP = 50 
+
+SP = 30 
+
+SP = 15 
+
+UAV_2m 
+GF1_2m 
+
+0.881 
+0.904 
+
+0.792 
+0.876 
+
+0.853 
+0.933 
+
+0.915 
+0.917 
+
+0.894 
+0.905  
+
+EcologicalInformatics81(2024)1025946Z. Chen et al.                                                                                                                                                                                                                                    
+
+Fig. 4. Segmentation results associated with various SPs and classification results of MRS_DeepLabV3+ model (localized zoom-in image).  
+
+Fig. 5. The optimal SP and segmentation time in various datasets.  
+
+EcologicalInformatics81(2024)1025947Z. Chen et al.                                                                                                                                                                                                                                    
+
+Table 5 
+Reduction rates of the OA and kappa in the UAV image models.  
+
+Model
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the specific postprocessing steps involved after the model training. However, based on common practices in machine learning projects, some possible postprocessing steps could include generating saliency maps, calculating metrics such as accuracy, precision, recall, F1 score, etc., creating confusion matrices, and visualizing the results. These steps help evaluate the performance of the trained model and understand its strengths and weaknesses.

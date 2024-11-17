@@ -1,0 +1,127 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The performance of each of the trained networks was quantiﬁed, using the overall
+accuracy as well as the precision, recall, and F1-score of individual classes. The overall
+accuracy is the number of images correctly classiﬁed out of the total number of images.
+The precision is the number of correctly classiﬁed images of a given class out of the number
+of predicted images of that class. The recall is the number of correctly classiﬁed images of a
+given class out of the number of annotated/observed images of that class. The F1-score is
+the harmonic mean of precision and recall.
+
+5.1.2. Results on Image Classiﬁcation
+
+A total of 40 networks were trained to evaluate the effect of the hyperparameters on
+the network structure (MobileNetV2 and ResNet50V2). These hyperparameters are input
+image size (96 × 128 px, 192 × 256 px, 384 × 512 px, 768 × 1024 px, and 1536 × 2048 px),
+weight initialization (random or pre-trained on ImageNet) and global pooling (average
+or max).
+
+When training a deep convolutional neural network, it is important to split the data
+into a training set, a validation set, and a test set. The training set is used for optimizing the
+parameters of the network, while the validation set is used for monitoring the performance
+of the network during training and for comparing the performance of different networks
+with, for example, different hyperparameters or network structures. The test set acts as a
+ﬁnal evaluation of a network. To ensure a proper evaluation on both the validation set and
+the test set, samples in each set must be independent and have similar class distributions.
+The full data set can be split in various ways. The naïve approach is to randomly
+sample images from the full data set. However, due to the images being captured in
+close proximity and potentially having overlapping ﬁelds of views, information may leak
+between the data sets when using the naïve approach. Another approach would be to
+
+Figure 8. Recall of the ResNet50V2 models on the validation set as a function of the annotation size relative to image size.
+The validation images were binned according to the relative size of their respective annotations with respect to the image
+size (“annotation size”). Each line shows the recall (left axis) of a ResNet50V2 model with a given input image size across
+the binned annotation sizes. The recall lines were “smoothed”, using kernel density estimation. The number of images in
+each bin is shown as vertical bars (right axis).
+
+Table 7. Frame rate (FPS) vs. precision and recall with a conﬁdence threshold of 10%, 25% and 50%
+of the trained YOLOv3 model running on the Jetson AGX Xavier platform or a Ubuntu computer
+equipped with an Nvidia GTX1080 GPU.
+
+Image Size
+(pixels)
+
+Xavier GTX1080 Pre.
+(50%)
+(FPS)
+(FPS)
+
+Recall
+(50%)
+
+832 × 832
+608 × 608
+416 × 416
+320 × 320
+
+n/a
+3.3
+6.3
+10.0
+
+n/a
+16.1
+27.0
+35.7
+
+0.637
+0.835
+0.931
+0.912
+
+0.215
+0.201
+0.181
+0.139
+
+Pre.
+(25%)
+
+0.535
+0.771
+0.876
+0.863
+
+Recall
+(25%)
+
+0.280
+0.263
+0.240
+0.319
+
+Pre.
+(10%)
+
+0.459
+0.654
+0.799
+0.775
+
+Recall
+(10%)
+
+0.345
+0.331
+0.299
+0.248
+
+300400500600700800Image pixel size0.10.20.30.40.50.60.70.80.9ScorePrecision and Recall vs. Image size (TH=10,25,50)Precision TH=10Recall TH=10Precision TH=25Recall TH=25Precision TH=50Recall TH=50Sensors 2021, 21, 6126
+
+17 of 22
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The performance of the deep learning model is evaluated using several metrics such as overall accuracy, precision, recall, and F1-score. Overall accuracy is calculated by dividing the number of images correctly classified by the total number of images. Precision measures the proportion of true positive predictions out of all positive predictions made by the model. It is calculated by dividing the number of true positives by the sum of true positives and false positives. Recall measures the proportion of actual positives that were identified correctly by the model. It is calculated by dividing the number of true positives by the sum of true positives and false negatives. The F1-score is the harmonic mean of precision and recall, which provides a single metric that balances both precision and recall. In addition to these metrics, frame rates (FPS) are also considered when evaluating the performance of the model on specific hardware platforms like the Jetson AGX Xavier or a computer equipped with an Nvidia GTX1080 GPU.

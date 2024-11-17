@@ -1,0 +1,141 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Deep CNNs, such as ResNet and GoogLeNet, are generally trained based on the prediction loss
+minimization. Let x and y be the input images and corresponding output class labels, the objective of
+the training is to iteratively minimize the average loss deﬁned as
+
+J(w) =
+
+1
+N
+
+N
+∑
+i=1
+
+L( f (w; xi), yi) + λR(w)
+
+(1)
+
+This loss function measures how different is the output of the ﬁnal layer from the ground truth.
+N is the number of data instances (mini-batch) in every iteration, L is the loss function, f is the
+predicted output of the network depending on the current weights w, and R is the weight decay with
+the Lagrange multiplier λ. It is worth mentioning that in the case of GoogLeNet, the losses of the
+
+Remote Sens. 2017, 9, 1220
+
+6 of 22
+
+two auxiliary classiﬁers are weighted by 0.3 and added to the total loss of each training iteration.
+The Stochastic Gradient Descent (SGD) is commonly used to update the weights.
+
+wt+1 = µwt − α∆J(wt)
+
+(2)
+
+wt+1 = µwt − α∆J(wt)
+
+(2)
+
+where µ is the momentum weight for the current weights wt and α is the learning rate.
+
+The network weights, wt, can be randomly initialized if the network is trained from scratch.
+However, this is suitable only when a large labeled training-set is available, which is expensive in
+practice. Several previous studies have shown that data-augmentation ([44]) and transfer learning ([45])
+help overcoming this limitation.
+
+•
+
+4.2.3. Training Dataset for the CNN-Classiﬁer
+
+The design of the training dataset is key to the performance of a good CNN classiﬁcation model.
+From the 82 Ziziphus individuals georeferenced by botanic experts in the training-zone, we identiﬁed
+100 80 × 80-pixel image patches containing Ziziphus lotus shrubs and 100 images for Bare soil with
+sparse vegetation. Examples of the labeled classes can be seen in Figure 3. We distributed the
+100 images of each class into 80 images for training and 20 images for validating the obtained CNNs
+classiﬁers, as summarized in Table 1.
+
+Table 1. Training and testing datasets for both CNN and OBIA used for mapping Ziziphus lotus shrubs.
+Bare soil: Bare soil and sparse vegetation; Img: 80 × 80-pixel image patches; Poly: digitized polygons.
+
+CNN Classiﬁer
+
+OBIA Classiﬁer
+
+Class
+
+Training
+
+Validation
+
+Training
+
+Accuracy
+
+Assessment
+
+Training-Zone
+
+Test-Zone-1
+
+Test-Zone-2 Test-Zone-1
+
+Test-Zone-2
+
+Ziziphus
+Bare soil
+
+80 img
+80 img
+
+20 img
+20 img
+
+Ziziphus
+Bare soil
+
+80 img
+80 img
+
+20 img
+20 img
+
+22 poly
+22 poly
+
+0 poly
+0 poly
+
+52 poly
+52 poly
+
+40 poly
+40 poly
+
+Remote Sens. 2017, 9, 1220
+
+10 of 22
+
+Figure 3. The two top panels show examples of the 80 × 80-pixel image patches used to build the
+training dataset for the CNN model: (left) patches of Ziziphus lotus class, (right) patches of Bare soil
+with sparse vegetation class. The bottom panel shows the training-zone dataset with 100 Ziziphus lotus
+patches labeled with a green contour and 100 Bare soil and sparse vegetation patches labeled with
+yellow contour.
+
+5. Experimental Evaluation and Discussions
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, the authors use a specific criterion to split their data for training and validating their Convolutional Neural Network (CNN) classifier. They identified 100 80x80 pixel image patches containing Ziziphus lotus shrubs and another 100 images for bare soil with sparse vegetation. These images were then divided into 80 images per class for training purposes and 20 images per class for validating the obtained CNN classifiers. This distribution is summarized in Table 1 within the context. Therefore, the authors employed a simple yet effective method of splitting their data, using a fixed ratio of 80% for training and 20% for validation.

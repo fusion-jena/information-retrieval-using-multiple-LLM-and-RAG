@@ -1,0 +1,7 @@
+Answer: The deep learning pipeline in this particular experiment uses an audio format as its input data. More specifically, it utilizes bird vocalization sounds from ten different species.
+
+The audio signals undergo processing through learnable frontends, namely LEAF-P and SincNet-P. These frontends are responsible for extracting joint temporal and spectral information from the audio signal. The primary difference between these frontends and others in the literature lies in the type of filter used and potential adjustments to compression and normalization operations. However, for the task of extracting information from the audio signal without prior knowledge of the data or task, a (mel-)spectrogram seems sufficient.
+
+The audio frontends output processed signals, which are then fed into a backend neural network classifier. In this case, an EfficientNet-B0 model from the TorchVision official implementation is used as the backend neural network classifier. This model leverages pre-trained weights from image classification to improve performance and optimization stability.
+
+To summarize, the deep learning pipeline in this experiment deals specifically with audio data, utilizing learnable frontends for processing and an EfficientNet-B0 model as the backend neural network classifier.

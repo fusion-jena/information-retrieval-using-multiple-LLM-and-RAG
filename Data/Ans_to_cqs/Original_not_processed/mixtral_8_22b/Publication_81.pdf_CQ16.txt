@@ -1,0 +1,140 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Symmetry 2021, 13, 1599
+
+7 of 16
+
+of data itself. In our method, the decision threshold is determined by KDE base on the
+outgroup scores. After that, the correct classiﬁcation results of ﬁsh will be found. Given the
+outgroup score vector s obtained from the EN-SAE model, KDE estimates the probability
+density function (PDF) p(s) in a nonparametric way:
+
+p(s) ≈
+
+1
+nh
+
+n
+∑
+i=1
+
+K(
+
+s − si
+h
+
+)
+
+(7)
+
+where n is the size of dataset, {si} i = 1, 2, . . . , n, is the outgroup score vector of dataset,
+K (·) is the kernel function, and h is the bandwidth.
+
+There are many kinds of kernel functions, and the epanechnikov function is the most
+commonly used function in density estimation, and also has good effects. Therefore,
+epanechnikov is used to estimate the PDF:
+
+Ke(s)α(
+
+3
+4
+
+(1 − s2))
+
+(8)
+
+After obtaining p(s), the cumulative distribution function (CDF) F(s) can be deﬁned
+
+as follows:
+
+F(s) =
+
+(cid:90) s
+
+−∞
+
+p(s)ds
+
+(9)
+
+2.3. Evaluation Method
+
+To test the performance of proposed model, the sample is divided into four situations
+based on the actual classiﬁcation and the ESK predicted classiﬁcation. In Table 2, four
+situations are illustrated with a confusion matrix. True positive (TP) is the number of
+ingroups that are correctly classiﬁed as ingroups. True negative (TN) is the number of
+outgroups that are correctly classiﬁed as outgroups. False positive (FP) is the number of
+outgroups that are wrongly classiﬁed as ingroups. False negative (FN) is the number of
+ingroups that are wrongly classiﬁed as outgroups.
+
+Table 2. Confusion matrix.
+
+Predicted Positive
+
+Predicted Negative
+
+Actual positive
+Actual negative
+
+TP
+FP
+
+FN
+TN
+
+With confusion matrix, the classiﬁcation performance of all experiments is measured
+by three criterions: accuracy, recall, and F1-Score. Those evaluation equations are formu-
+lated as follows:
+
+Accuracy =
+
+TP + TN
+TP + TN + FP + FN
+
+Recall =
+
+TP
+TP + FN
+2TP
+2TP + FP + FN
+
+datasets, and the best results were obtained, with the accuracy, recall, F1-Score reaching
+97.57%, 97.43%, and 98.96% on average. The main contributions of our paper are as follows:
+•
+
+226.5478
+
+ESK
+
+122.3258
+
+295.8245
+
+201.4312
+
+As shown in Tables 4–6, the AE has the shortest running time and the poorest clas-
+siﬁcation results compared with the other two models. The AE consists of only a single
+Autoencoder, but only one Autoencoder cannot learn the deep features of DNA barcode se-
+quences well, resulting in poor classiﬁcation results compared with deep learning methods.
+Although the ESK time consumption is longer than AE, the accuracy, recall, and F1-Score
+improved for all datasets, by 8.44%, 8.77%, and 4.84%, respectively.
+
+Symmetry 2021, 13, 1599
+
+13 of 16
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The article does not provide information about the specific criteria used to determine when training is complete. However, common criteria used in machine learning include observing a plateau or decrease in validation loss, achieving a predefined level of accuracy or another metric, or setting a maximum number of epochs or iterations. These criteria help prevent overfitting and ensure that the model generalizes well to unseen data.

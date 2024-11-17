@@ -1,0 +1,246 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+For training the EF and SN models, we selected the following setup empirically: batch size equal
+to 32 with 100 number of epochs, early stopping after 10 epochs with no improvement (over the
+validation set) and a dropout rate of 0.2 in the ﬁnal FC layer. Additionally, Adam optimizer was
+selected empirically with weight decay equal to 0.9 and learning rate equal to 10−3. As loss function,
+we used the binary cross-entropy.
+
+Table 1. Number of samples in the training, validation and test sets for Amazon database.
+
+Set
+
+Tiles
+
+Available Def.
+Samples
+
+Available No-def.
+Samples
+
+Balanced Samples
+(per Class)
+
+Total Samples
+
+Training
+
+Validation
+
+1, 7, 9, 13
+
+5, 12
+
+2706
+
+963
+
+78,431
+
+39,697
+
+Test
+
+2, 3, 4, 6, 8, 10, 11, 14, 15
+
+40,392
+
+1,675,608
+
+8118
+
+2889
+
+-
+
+16,236
+
+5778
+
+1,716,000
+
+The EF network architecture consisted of three convolutional layers (Conv) including the
+Rectiﬁed Linear Unit (ReLU), two Max-pooling layers (MaxPool), and two Fully Connected layers
+(FC), with a softmax layer at the end with two outputs, corresponding to “deforestation” and
+“no-deforestation” classes. The ﬁlter and output size of each layer are summarized in Table 3.
+
+132456789101112131415Remote Sens. 2020, 12, 910
+
+11 of 28
+
+Table 2. Number of samples in the training, validation and test sets for Cerrado database.
+
+Set
+
+Tiles
+
+Available Def.
+Samples
+
+Available No-def.
+Samples
+
+Balanced Samples
+(per Class)
+
+Total Samples
+
+2.6. Inﬂuence of the Number of Training Samples
+
+To evaluate the inﬂuence of the number of training samples, four scenarios were considered.
+Speciﬁcally collecting samples from the training set of a one, two, three and four tiles, denoted as Ni,
+where i corresponds to the number of tiles used in each scenario. For EF and SN methods, the validation
+set (val) was used to stop training once the loss increased in 10 consecutive epochs (early stopping).
+As mentioned before, for CSVM and SVM the samples in this set were added to the training set (tr).
+The number of training samples in each scenario for the Amazon and Cerrado databases is presented
+in Tables 6 and 7, respectively.
+
+Table 6. Training tiles used for the Amazon database.
+
+Training Set
+
+Tiles
+
+Available Def.
+Samples
+
+Available No-def.
+Samples
+
+Balanced Samples
+(per Class)
+
+Total Samples
+(tr + val)
+
+1 Tile
+2 Tiles
+3 Tiles
+4 Tiles
+
+13
+1, 13
+1, 7, 13
+1, 7, 9, 13
+
+239
+709
+1807
+2706
+
+20,306
+40,515
+59,102
+78,431
+
+717
+2127
+5421
+8118
+
+20,306
+40,515
+59,102
+78,431
+
+717
+2127
+5421
+8118
+
+1434 + 5778
+4254 + 5778
+10,842 + 5778
+16,236 + 5778
+
+Table 7. Training tiles used for the Cerrado database.
+
+Training Set
+
+Tiles
+
+Available Def.
+Samples
+
+Available No-def.
+Samples
+
+Balanced Samples
+(per Class)
+
+Total Samples
+(tr + val)
+
+1 Tile
+2 Tiles
+3 Tiles
+4 Tiles
+
+5
+5, 13
+1, 5, 13
+1, 5, 12, 13
+
+671
+1240
+2287
+4182
+
+17,370
+33,760
+50,273
+65,717
+
+2013
+3720
+6861
+12,546
+
+4026 + 3,978
+7440 + 3,978
+13,722 + 3,978
+25,092 + 3978
+
+2.7. Accuracy Assessment
+
+The performance of the evaluated methods was expressed in terms of Overall Accuracy (OA),
+
+F1-Score, and Alarm Area (AA).
+
+•
+
+•
+
+•
+
+Overall Accuracy (OA): is a global metric that indicates the percentage of samples correctly
+classiﬁed in relation to the total samples. It is deﬁned by:
+
+OA =
+
+tp + tn
+P + N
+
+× 100
+
+(2)
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The performance of the evaluated methods was expressed in terms of Overall Accuracy (OA), F1-Score, and Alarm Area (AA).
+
+* Overall Accuracy (OA): is a global metric that indicates the percentage of samples correctly classified in relation to the total samples. It is defined by: OA = tp + tn / P + N × 100 (2)
+
+Therefore, the metrics used to evaluate the performance of the deep learning model are Overall Accuracy (OA), F1-Score, and Alarm Area (AA).

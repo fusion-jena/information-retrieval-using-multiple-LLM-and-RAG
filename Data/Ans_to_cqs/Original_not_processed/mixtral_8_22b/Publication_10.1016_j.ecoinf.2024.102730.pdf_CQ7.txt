@@ -1,0 +1,143 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To evaluate how well the models performed, we used three standard
+metrics: MSE, mean average error (MAE), and the coefficient of deter-
+mination (r2). For the grid search, we focused on minimizing the MSE to
+identify the optimal set of hyperparameters. Prior to conducting the grid
+search, we divided our data into a training set (80% of the data) and a
+test set (20% of the data). This split ensures that the models are trained
+on one portion of the data and tested on a separate, previously unseen
+portion, allowing us to assess their ability to generalize to new, unseen
+data accurately.
+
+2.3.3. SHAP values
+
+After training the MLP models, we computed SHAP values using the
+model-agnostic Kernel SHAP method to understand which features are
+most important in predicting the start and (height of the) peak of the
+greening season. We used the implementation in the Python SHAP
+package for this analysis Lundberg et al. (2017).
+
+Table 2
+Overview of the explored ranges of hyperparameters used in the Optuna grid
+search. The optimal values for the three different regression tasks are displayed
+in the right-most three columns.
+
+Description
+
+Range
+
+Number of neurons in first
+
+layer
+
+Number of neurons in
+
+second layer
+Strength of the L2
+
+regularization term
+the solver for weight
+
+optimization
+
+initial learning rate
+
+learning rate schedule for
+
+weight updates
+
+maximum number of
+
+iterations
+
+maximum number of
+iterations with no
+improvement
+
+int: 10, 20, …,
+100
+int: 0, 10, …,
+100
+float: 1e-4 —
+1e-1 logscale
+
+SOS
+
+100
+
+0
+
+POS
+
+PEAK
+
+70
+
+0
+
+30
+
+100
+
+0.0290
+
+0.0010
+
+0.0606
+
+adam, lbfgs
+
+adam
+
+adam
+
+adam
+
+Despite massive advancements in the field of machine learning (ML)
+during the last decade, ML is not yet often used for vegetation studies.
+ML models can be used for various tasks, among which are classification,
+regression, and image segmentation. In ML, models extract knowledge
+from data and use this knowledge to produce an output relevant to the
+task at hand. These models use three main learning paradigms: super-
+vised learning, unsupervised learning or reinforcement learning. This
+study only considers the first paradigm, as we build a regression model.
+Within supervised learning, there are a multitude of model types, for
+example, support vector machines (Hearst et al., 1998), boosted tree
+ensembles (e.g., XGBoost (Chen and Guestrin, 2016) or LightGBM (Ke
+et al., 2017)) and artificial neural networks (ANNs) (McCulloch and
+Pitts, 1943). This analysis will use ANNs, particularly multilayer per-
+ceptrons (MLPs), which are fully connected feedforward neural net-
+
+2.3.2. Machine learning
+
+To better understand the inter-annual variability in our results, we
+used ML techniques to create models predicting different vegetation
+phenology characteristics. Specifically, we trained three separate MLPs:
+one to predict the start of the season, another to predict the peak of the
+season, and a third to predict the height of the peak season. An MLP is a
+type of ANN designed to mimic the way the human brain processes in-
+formation. It consists of multiple layers of nodes (neurons): an input
+layer, one or more hidden layers, and an output layer which is used to
+provide the final predictions. Each node in a layer connects to every
+node in the next layer, with each connection having a specific weight.
+During training, the MLP adjusts these weights to minimize the differ-
+ence between its predictions and the actual outcomes using an algorithm
+called backpropagation, allowing it to learn complex patterns in the data
+(Werbos, 1990).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The data was split into a training set and a test set for the purpose of training and evaluating the deep learning models. The split was done such that 80% of the data was allocated to the training set and the remaining 20% was assigned to the test set. This division allows the models to be trained on a substantial amount of data while also ensuring that they are able to generalize effectively to new, unseen data. By testing the models on a separate portion of the data, their performance can be evaluated objectively and any potential overfitting can be identified and addressed.

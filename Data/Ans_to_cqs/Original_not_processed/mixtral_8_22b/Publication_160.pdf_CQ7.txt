@@ -1,0 +1,143 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The deeply learned features and the different layer outputs of the
+training, validation, and test sets were extracted in advance. LRs were
+trained and optimised using the grid search tool implemented in scikit-
+learn2 on the validation set.
+
+SGR was applied at risk levels ranging from 5 to 30% and resultant
+thresholds. Coverages and bounds for the coverage were assessed to-
+gether with top-5 accuracy on the unclassified part of the dataset. SGR
+was trained on the validation set and applied to the training and test set
+with the aforementioned risk levels to assess the corresponding cov-
+erages.
+
+All architectures were implemented in Python 3.6 using the Keras3
+library and Tensorflow4 backend. All training and testing processes
+were performed on a Windows 10 workstation with 64 bits OS, 128 Gb
+RAM, 2 × NVidia GeForce GTX 1080 Ti 11 Gb memory and 12 cores
+CPU 2.9 GHz.
+
+5.2. Evaluation metrics
+
+5.2.1. Classification performances
+
+60.64
+63.82
+65.77
+66.30
+
+60.17
+63.57
+65.54
+65.94
+
+Table 3
+Performances of different ResNet architectures on validation and test sets. ResNetX-Y is written so that X indicates the network's depth and Y the input size. In bold
+the best value for each metric.
+
+Network -patch Size
+
+Batch size
+
+Validation set
+
+Test set
+
+Macro-F1
+
+Top-1 accuracy
+
+Micro-F1
+
+Macro-F1
+
+Top-1 accuracy
+
+Micro-F1
+
+ResNet152–224
+ResNet50–128
+ResNet18–128
+ResNet18–224
+Ensemble
+
+16
+128
+128
+200
+128
+
+37.45
+52.04
+51.40
+54.93
+60.56
+
+62.38
+64.07
+63.90
+66.70
+70.60
+
+60.46
+63.85
+63.88
+66.44
+70.35
+
+38.26
+52.27
+51.62
+53.93
+60.38
+
+61.71
+64.35
+63.60
+66.30
+70.54
+
+60.09
+63.89
+63.44
+65.94
+70.37
+
+60.09
+63.89
+63.44
+65.94
+70.37
+
+(Table 3, ResNet50–128 and ResNet18–128) performed roughly equally
+on validation and test sets, with ResNet18–128 achieving a micro-F1 of
+63.44 and ResNet50 63.89 on the test set. However, an epoch for the
+ResNet50 took about three times longer than ResNet18. The ResNet50
+did not outperform the previously trained ResNet18 with patch size 128
+and batch size 512 (see Table 2). The deeper architecture of the Re-
+sNet50 made it impossible to train with a batch size of 512.
+
+• Features from the concatenation of GAP outputs;
+• Features from the first layer of the MLP (fc512);
+• Features from the second layer of the MLP (fc256);
+• Logits of the softmax layer;
+• Concatenation of the features of fc256 and the logits (see Fig. 6).
+
+4.4. Semi-automated framework with selective classification
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, it appears that the data has been divided into training, validation, and test sets for the purpose of deep learning model training. However, the specific criteria used to split the data have not been explicitly mentioned. Typically, the data is randomly split into these subsets, with the majority of the data allocated to the training set, followed by smaller portions assigned to the validation and test sets. The exact proportions can vary depending on factors such as the total amount of available data and the desired balance between model performance and generalization ability.

@@ -1,0 +1,200 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Input Size 
+224 × 224 × 3 
+224 × 224 × 3 
+112 × 112 × 32 
+112 × 112 × 64 
+112 × 112 × 64 
+112 × 112 × 64 
+56 × 56 × 64 
+56 × 56 × 128 
+56 × 56 × 128 
+28 × 28 × 128 
+28 × 28 × 256 
+28 × 28 × 256 
+28 × 28 × 256 
+14 × 14 × 256 
+14 × 14 × 512 
+14 × 14 × 512 
+14 × 14 × 512 
+196 × 512 
+100,352 
+32 
+
+Data preprocessing 
+
+Before  the  training  stage,  we  first  need  to 
+pre-process  the  raw  data  from  the  dataset.  
+The input of the pose estimator is the cropped 
+image,  but  the  original  ground  truth  of  the 
+image  is  the  absolute  position  in  the  entire 
+raw image. Therefore, there is a need to first 
+transform  the  ground  truth  into  a  relative 
+position  with  respect  to  the  center  of  the 
+hand. Finally, the images are sized to 96x96 
+and  in  grey-scale  with  values  normalized 
+between 0 and 1. 
+
+Training
+
+CONCLUSION 
+
+REFERENCES 
+
+learning.  It  helps
+
+Table 2: Summary of the tensor in each layer of the proposed species identification system. 
+
+Layer         Type 
+
+1  Convolution2D 
+2  Pool 2 
+3  Convolution2D 
+4  Convolution2D 
+5  Convolution2D 
+6  Pool 2 
+7  Convolution2D 
+8  Convolution2D 
+9  Pool 2 
+10  Convolution2D 
+11  Convolution2D 
+12  Convolution2D 
+13  Pool 2 
+14  Convolution2D 
+15  Convolution2D 
+16  Convolution2D 
+17  Pool 2 
+18  LSTM 
+19  FC 
+20  OUTPUT 
+
+Kernel Size    
+3 × 3 
+2 × 2 
+3 × 3 
+3 × 3 
+3 × 3 
+2 × 2 
+3 × 3 
+3 × 3 
+2 × 2 
+3 × 3 
+3 × 3 
+3 × 3 
+2 × 2 
+3 × 3 
+3 × 3 
+3 × 3 
+2 × 2 
+- 
+- 
+- 
+
+Stride 
+1  
+2 
+1 
+1 
+1 
+2 
+1 
+1 
+2 
+1 
+1 
+1 
+2 
+1 
+1 
+1 
+2 
+- 
+- 
+- 
+
+Kernel 
+32 
+- 
+64 
+64 
+64 
+- 
+128 
+128 
+- 
+256 
+256 
+256 
+- 
+512 
+512 
+512 
+- 
+- 
+32 
+100
+
+Where f(s) is the output condition 
+probability 
+training example Si                
+
+ for some 
+
+This probability function for softmax 
+activation is given in equation 2 
+
+RESULTS 
+
+The training process took around 10 hours on 
+the  CPU.  The  accuracy  obtained  reaches 
+95%  on  140  epochs.  We  first  measure  the 
+performance  of  the  proposed  model  fig  6. 
+and then compared it with the state-of-the-art 
+approaches to justify its performance. 
+
+100 
+
+ 
+ 
+ 
+ 
+Tanzania Journal of Forestry and Nature Conservation, Vol 90, No. 3 (2021) Special Issue: 
+Embracing Science and Technology in Nature Conservation. pp 93-103 
+
+Experiment  show  that  the  proposed  CNN-
+LSTM  performs  better  in  classifying  plant 
+species  than  the  convectional  CNN  as  it 
+attains  the  accuracy  of  95.06%  while  the 
+literatures (Zhang et al. 2019) have reported 
+only 91% accuracy. 
+
+Performance Evaluation
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, several postprocessing steps can be performed depending on the specific requirements or goals of the analysis. Here are some common postprocessing steps:
+
+1. Model evaluation metrics: Calculating various evaluation metrics such as accuracy, precision, recall, F1 score, ROC AUC, etc., to assess the performance of the trained model. These metrics help determine how well the model has learned to predict the target variable based on the input features.
+
+2. Confusion Matrix: Creating a confusion matrix to visualize the performance of the classification model. This matrix shows the number of correct and incorrect predictions made by the model for each class. It provides insights into which classes were correctly predicted and where the model struggled.
+
+3. Saliency Maps: Generating saliency maps to understand which parts of the input data contributed most significantly to the final prediction. Saliency maps highlight areas in the input data that had the highest impact on the model's decision-making process. They provide valuable information about feature importance and can aid in interpreting the model's behavior.
+
+4. Hyperparameter tuning: Adjusting hyperparameters like learning rate, batch size, regularization parameters, etc., to optimize the model's performance further. This step involves experimenting with different combinations of hyperparameters and selecting the best set that yields optimal results.
+
+5. Ensemble methods: Combining multiple models using techniques like bagging, boosting, stacking, etc., to improve overall performance. Ensemble methods leverage the strengths of individual models and reduce their weaknesses, resulting in more robust and accurate predictions.
+
+In summary, postprocessing steps after model training may include calculating evaluation metrics, creating confusion matrices, generating saliency maps, adjusting hyperparameters, and applying ensemble methods. These steps help evaluate the model's performance, interpret its behavior, and fine-tune it for improved accuracy.

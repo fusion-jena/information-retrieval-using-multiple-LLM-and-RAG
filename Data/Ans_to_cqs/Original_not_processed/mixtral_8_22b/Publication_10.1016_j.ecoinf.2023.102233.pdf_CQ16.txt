@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Each successive model iteration was trained on 70% of the training 
+data and validated against 30% of the training data. The train/valida-
+tion split approach minimises potential overfitting of the model on small 
+samples sizes, when compared to a cross-validation approach (Vabalas 
+et  al.,  2019).  We  chose  F1  score  as  our  validation  metric,  which  is  a 
+standard performance metric that includes information on both model 
+precision and recall (Mohri et al., 2018,; Stowell, 2022). Iterative model 
+training stopped when the stopping criterion was reached, which was 
+when successive model iterations did not reduce the F1  score. A final 
+model was then trained using the combined training and validation data. 
+A  separate  test  dataset  was  used  for  final  testing/evaluation  of  the
+
+Active  learning  iterations  used  a  batch  size  of  64,  ten  epochs  and 
+learning rate of 0.001. We used a grid search technique (Mohri et al., 
+2018) to tune hyperparameters of the final model including the number 
+of epochs, batch size and learning rate. 
+
+2.3.3. Active learning framework 
+
+We  applied  an  active  learning  approach  to  iteratively  train  and 
+improve  the  CNN  model.  The  active  learning  approach  is  depicted 
+within Fig. 3 and described below.
+
+validation  (Section  2.3)  and  test  datasets  (Section  2.4)  prior  to  the 
+commencement of CNN development. The training/validation dataset 
+comprised  6363  h  of  audio  from  ten  independent  sites  (five  solar- 
+powered bioacoustic recorders and five Audiomoth recorders) and the 
+test dataset comprised 2735 h of audio from nine independent sites (four 
+solar-powered bioacoustic recorders and five Audiomoth recorders) that 
+were different from the training/validation dataset. All audio data were 
+unlabelled at the commencement of the study. 
+
+All recorders were set to record 10-min files continuously between 6 
+am and 6 pm daily, which reflected the diurnal activity patterns of SBTF. 
+We stored audio data as FLAC files at a sampling rate of 44.1 kHz for the 
+solar-powered bioacoustic recorders and WAV files at a 32 kHz sampling 
+rate for the Audiomoth recorders. 
+
+2.3. CNN development 
+
+2.3.1. Data pre-processing
+
+between  the  primary  annotator  and  the  final  model  (0.859  α).  The 
+agreement coefficients were similar between the final model and the two 
+experts (0.760 α and 0.795 α respectively for experts 1 and 2) and be-
+tween  the  two  experts  (0.808  α).  Overall,  the  agreement  coefficients 
+show that the final model labelled data within the range of annotation 
+uncertainty that was present among the primary annotator and experts. 
+The final model was more consistent with the primary annotator, who 
+annotated the training data, compared to the experts who independently 
+annotated test data only.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Iterative model training stopped when the stopping criterion was reached, which was when successive model iterations did not reduce the F1 score. This means that the training process continued until there was no further improvement in the F1 score, indicating that the model had learned all it could from the available data. In other words, the model had converged and additional training would not improve its performance. This approach helps prevent overfitting by avoiding unnecessary training cycles once the model has already learned what it can from the data.

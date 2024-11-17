@@ -1,0 +1,83 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+similarities. It is widely used to visualize high-dimensional data (van der 
+Maaten  and Hinton, 2008). Here the  method has been applied to the 
+fc1000 activation vectors returned by ResNet-50. 
+
+4.2. Classifier model 
+
+The labeled dataset was split 70/30 into training and testing data-
+sets.  For  model  selection  and  parameter  optimization  50%  of  the 
+training data were held-out for validation (see Supporting Information). 
+The final classification model, a SVM with a cubic polynomial kernel, 
+was trained using the ResNet-50 fc1000 activations of the full training 
+dataset. A 10-fold cross-validation was then used to define the score-to- 
+posterior-probability transformation function (Platt, 2000), which pro-
+vides a basis for estimating the posterior probability for new observa-
+tions. Fig. 9 shows a confusion matrix for the test data not seen during 
+training.
+
+from 
+
+information 
+
+The  research  community  continues  to  explore  approaches  for 
+extracting  ecologically  relevant 
+these  often- 
+voluminous  acoustic  datasets  (Wall  et  al.,  2021).  Efforts  to  automate 
+the analysis of these data have included the development of various eco- 
+acoustic metrics that attempt to summarize a soundscape using a small 
+number  of  parameters,  often  intending  to  establish  a  proxy  for  more 
+traditional  ecological  metrics  (e.g.,  Farina,  2019;  Gasc  et  al.,  2013; 
+Pieretti  et  al.,  2011;  Towsey  et  al.,  2014),  unsupervised  machine 
+learning and ordination techniques that quantify soundscape similarly 
+(e.g.,  Campos-Cerqueira  and  Aide,  2017;  Kim  et  al.,  2023;  Lin  et  al., 
+2017; Sethi et al., 2020; Van Hoeck et al., 2020), and call detection and 
+classification methods that seek to quantify the rate of occurrence for a 
+
+* Corresponding author. 
+
+E-mail address: drbohnen@ncsu.edu.
+
+EcologicalInformatics77(2023)1022686D.R. Bohnenstiehl                                                                                                                                                                                                                               
+
+Fig.  6. Feature  extraction  and  classification  work-
+flows as applied to the same data segments in Fig. 5. 
+An  850-ms  long  data  segment  (boxes)  is  extracted 
+from the unfiltered waveform around each detection 
+to  form  a  frequency-reassigned  spectrogram  image. 
+These  images  are  fed  into  ResNet-50  CNN,  and  acti-
+vations  from  the  fully  connected  layer  (fc1000)  are 
+used as a feature vector for each detected signal. The 
+SVM  classifier  is  used  to  classify  the  candidate  de-
+tections based on the layer activations. Signals in the 
+‘other’  class  represent  false  alarms  identified  by 
+detection stage.
+
+extracted  automatically  using  the  activations  from  ResNet-50's  deep, 
+fully connected layer fc1000, located just before its classification layer. 
+Based on these activations, a one vs. all support vector machine (SVM) 
+classifier  is  then  used  to  identify  the  optimal  decision  boundary  to 
+differentiate ‘boatwhistles' from ‘other’ signals within the feature space 
+(Fig.  6)  (e.g.,  Kecman,  2005).  Using  a  pre-trained  deep  CNN  with  an 
+SVM is a form of transfer learning (e.g., Bousetouane and Morris, 2015; 
+Halberstadt, 2020), and the workflow mirrors that used by Bohnenstiehl 
+(2023a) for cataloging American silver perch calls. 
+
+3.5. Data labeling
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of the deep learning model, several measures were taken. Firstly, the labeled dataset was split into 70/30 training and testing datasets. This approach allows the model to learn from a larger portion of the data while still having a separate set of data to evaluate its performance. Secondly, 50% of the training data were held out for validation. This process helps prevent overfitting, where the model becomes too specialized to the training data and performs poorly on new, unseen data. Lastly, a 10-fold cross-validation was employed to define the score-to-posterior-probability transformation function. Cross-validation is a technique used to assess how well a statistical model will generalize to an independent dataset. In this case, it provides a way to estimate the model's ability to predict new observations accurately. These steps collectively contribute to enhancing the robustness and reliability of the deep learning model.

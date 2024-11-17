@@ -1,0 +1,67 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2014), which is suggested for relatively small datasets such as ours
+(Ng et al., 2015; Peng et al., 2018). The CNN model (Fig. 2) is trained
+using a two-stage process. In the ﬁrst stage only a top classiﬁer
+(fully connected layer) is trained based on features extracted from
+processing images with a pretrained convolutional part of the net-
+work. In the second stage, an adjustment of the network in a ﬁne-
+tuned manner (using smaller learning rates) is done by training it
+as a whole. A two phase approach was used to speed up the process
+by preserving pretrained encoder weights in the ﬁrst phase of the
+training and achieve optimal model performance using the second
+phase. We also applied data augmentation by randomly deforming
+input images in each training cycle due to the small sample size.
+Additionally, dropout techniques (Hinton et al., 2012) were applied
+to extracted features to enhance model robustness.
+
+cies level (Table 2). The network performed surprisingly well con-
+sidering the ImageNet dataset does not contain any similar object
+(e.g., does not contain non-biting midges). As expected, the results
+further improved when ﬁne-tuning was applied in the second
+training phase, where the whole network was trained allowing
+the model to learn additional features speciﬁc to our dataset.
+
+The implementation of the CNN classiﬁer was done in Python
+programming language (https://www.python.org/), using the
+Keras high level deep learning library (https://keras.io/), and Ten-
+sorFlow with graphical processing unit (GPU) execution as the
+back-end engine (https://www.tensorﬂow.org/). The regions of
+the images most informative for the decision making process in
+the deep learning model were visualized using Gradient-
+weighted Class Activation Mapping (Grad-CAM; (Selvaraju et al.,
+2017)). As an output, heatmaps were generated that indicated
+important aspects of the each head capsule used to determine
+the taxonomic decision-making process of the model.
+
+3. Results
+
+3.1. Classiﬁcation results
+
+the genus (5) and subfamily level (2) all images were correctly
+assigned. It is also notable that each model performed very well
+even after the ﬁrst phase of the training, where the ResNet-50
+encoder was frozen and only the fully connected layer was trained.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Unfortunately, the given context does not provide explicit information about the deployment process of the trained deep learning model. However, we can infer some details regarding the development environment and tools used during the training process.
+
+The implementation of the Convolutional Neural Network (CNN) classifier was carried out using Python programming language along with Keras, a high-level deep learning library, and TensorFlow as the backend engine. This setup suggests that the model could be deployed using these same libraries or other compatible platforms like Google Cloud AI Platform, AWS SageMaker, etc.
+
+Furthermore, the use of GPU execution indicates that the model might have been developed and optimized for hardware accelerators, implying potential deployment on systems equipped with GPUs for faster predictions.
+
+However, without specific information on the actual deployment process, such as model serialization, platform selection, or API creation, I cannot provide a definitive answer.

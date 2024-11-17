@@ -1,0 +1,81 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.2. Performance evaluation and results
+
+models were calibrated under regulated deficit irrigation (RDI) conditions to estimate ETa  and save irrigation 
+water. On average up to 38.5% water savings were obtained, compared to full irrigation. Moreover, among the 
+different input variables adopted, the soil water content (SWC) feature appears to have a prominent role in the 
+prediction of ETa. Indeed, the presented results show that by choosing the appropriate input features, the ac-
+curacy  of  the  proposed  machine  learning  models  remains  acceptable  even  when  the  number  of  features  is 
+reduced to only 4. The best performance was achieved by the Random Forest method, with seven input features, 
+obtaining a root mean square error (RMSE) and a coefficient of determination (R2) of 0.39 mm/day and 0.84, 
+respectively. Finally, the results show that the joint use of SWC, weather and satellite data significantly improves
+
+(in steps of 10);  
+
+4.  Minimum number of samples required to split a node (samples split): 
+
+2, 5, 10; 
+
+5. Minimum  number  of  samples  required  at  each  leaf  node  (sam-
+
+ples leaf): 1, 2, 4;  
+
+6.  Method of selecting samples for training each tree (bootstrap): True 
+
+or False;  
+
+7.  Parameter  for  minimal  cost-complexity  pruning  (cpp alpha):  from 
+
+0 to 0.06 (in steps of 4⋅10
+
+(cid:0) 4). 
+
+The following setup was chosen for investigation since it achieved the 
+best  prediction  accuracy:  1000  trees,  max features  = auto,  50  levels, 
+samples split = 2, samples leaf = 2, bootstrap = True, cpp alpha = 0. 
+Finally,  feature  analysis  was  performed  to  test  different  combina-
+tions  of  the  input  features  among  a  set  of  12  different  possibilities. 
+Moreover, ML algorithms were also exploited to compensate for missing 
+values in the dataset, as detailed in the following Section 3.3.5. 
+
+3.3.5. Prediction algorithms and gap filling
+
+missing values is greater than the number of observed ones (the case of 
+VIs), iterative  imputation  was used  (Richman et  al., 2009). Note  also 
+that the dataset misses several ETa  measurements, with 542 complete 
+records out of a total number of 1430 records. Being ETa  the output of 
+the proposed data-driven models, the previous approaches for filling in 
+the missing data were not used. Nevertheless, MLP and RF models were 
+trained only on the sub-set of complete data and the best models can be 
+selected as detailed in the next section. Cross-validation was also used to 
+assess models reliability and avoid over-fitting. Obviously, the trained 
+models can be used for future predictions, as well as for predicting the 
+missing ETa  values of the dataset. 
+
+4. Feature analysis and results 
+
+◦
+
+◦
+
+(cid:0) 2d
+
+(cid:0) 2d
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the given information, there isn't a direct mention of specific criteria used to determine when training is complete. However, some indications suggest that cross-validation was used to assess model reliability and avoid overfitting. This implies that the training process might have been monitored using metrics such as validation loss or accuracy, which could indicate when the model has reached its optimal state. Additionally, the text mentions that the best models were selected based on their performance, suggesting that some form of evaluation was conducted during the training process. Therefore, while the exact criteria aren't explicitly stated, it can be inferred that they likely involve monitoring validation metrics and evaluating model performance throughout the training process.

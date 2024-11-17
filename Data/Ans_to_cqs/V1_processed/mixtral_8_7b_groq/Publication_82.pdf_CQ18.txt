@@ -1,0 +1,11 @@
+To monitor the performance of their models during training, the authors implemented a comprehensive strategy involving multiple train-test set splits, a fixed number of training epochs, and standardized hyper-parameters. They used five different train-test set distributions, ranging from 80-20 to 20-80, to ensure that the models' performance generalized well to unseen data. Each experiment ran for 30 epochs, with one epoch defined as the number of training iterations required for the neural network to complete a full pass through the training set.
+
+The authors chose the number of epochs based on empirical observations, noting that learning consistently converged within 30 epochs. To enable fair comparisons between experimental configurations, they standardized hyper-parameters across all experiments, using the following values:
+
+1. Solver type: Stochastic Gradient Descent
+2. Base learning rate: 0.005
+3. Learning rate policy: Step (decreases by a factor of 10 every specified number of epochs)
+
+The authors used the notation Architecture:TrainingMechanism:DatasetType:Train-Test-Set-Distribution to refer to specific experiments. For example, GoogLeNet:TransferLearning:GrayScale:60–40 refers to the experiment using the GoogLeNet learning architecture, transfer learning on the gray-scaled PlantVillage dataset, and a train-test set distribution of 60-40.
+
+To address overfitting, the authors varied the test set to train set ratio and observed that even in the extreme case of training on only 20% of the data, the model achieved a high overall accuracy of 98.21% (mean F1 score of 0.9820) in the case of GoogLeNet::TransferLearning::Color::20–80. They also monitored the validation loss and training loss, observing no divergence between the two, which confirmed that overfitting was not a significant issue in their experiments.

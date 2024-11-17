@@ -1,0 +1,13 @@
+The data augmentation techniques applied in the deep learning pipeline for herbarium sheet image segmentation include rotation, flipping, and brightness adjustments. These techniques are used to increase the diversity of the training data and improve the generalization ability of the model.
+
+Firstly, all input images together with their annotations are resized to a 512 × 512 resolution to reduce the computational cost during training. This step is a common procedure for training deep learning models, especially when dealing with high-resolution images.
+
+Next, rotation and flipping are applied to the resized images. Rotation involves changing the orientation of the images by a certain angle, while flipping involves mirroring the images horizontally or vertically. These techniques help the model to learn features that are invariant to orientation and mirror symmetry, which is useful for handling images with different orientations and symmetries.
+
+Finally, brightness adjustments are applied to the images to simulate different lighting conditions. This technique helps the model to learn features that are robust to changes in illumination, which is important for handling images with varying lighting conditions.
+
+These data augmentation techniques are applied to the herbarium sheet images during the training of the DeepLabv3+ segmentation model with ResNet-101 as the feature extractor. The model is pre-trained on the ImageNet dataset and fine-tuned on the herbarium sheet image dataset. The earlier layers of the network tend to learn generic features, which makes them useful for other computer vision tasks.
+
+The training procedure involves using an Adam optimizer with a learning rate of 1 × 10−4 and a batch size of 3. The model is trained for 100 epochs with a binary cross-entropy loss function, as the problem is a binary class problem (leaf or background).
+
+In summary, the data augmentation techniques used in the deep learning pipeline for herbarium sheet image segmentation include rotation, flipping, and brightness adjustments. These techniques help to increase the diversity of the training data, improve the generalization ability of the model, and handle images with different orientations, symmetries, and lighting conditions.

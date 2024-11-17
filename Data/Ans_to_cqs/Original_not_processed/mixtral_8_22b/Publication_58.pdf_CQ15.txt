@@ -1,0 +1,142 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+conv1
+conv2
+conv3
+conv4
+conv5
+maxpool
+
+Conv
+
+11 × 11
+5 × 5
+3 × 3
+3 × 3
+3 × 3
+2 × 2
+
+Kernels
+
+Stride
+
+Pad
+
+96
+256
+384
+384
+256
+Na
+
+4
+1
+1
+1
+1
+2
+
+0
+2
+1
+1
+1
+0
+
+ResNet (Deep Residual Network, [43]) is a Deep Learning architecture with many
+layers that use skip connections, as illustrated in Figure 4. These skip connections allow
+the bypassing of layers and add their activations to those of the skipped layers further
+down the sequence. The dotted arrows in Figure 4 denote skip connections through a linear
+projection to adapt to the channel depth.
+
+By skipping layers and thus shortening the back-propagation path, the problem of the
+“vanishing gradient” can be mitigated. Figure 4 represents a 34-layer ResNet architecture.
+The ﬁrst layer uses 7 × 7 convolutions, the remaining ones 3 × 3.
+
+Remote Sens. 2021, 13, 2257
+
+9 of 22
+
+Figure 4.
+architecture. The number of kernels is indicated at the bottom of each convolution layer.
+
+All architectures were trained with stochastic gradient descent using a similar protocol,
+with a momentum of 0.9 and starting from an initial learning rate of 10−2. Every 20 epochs,
+the learning rate is divided by 10 until reaching 10−6.
+
+Neural networks do not perform well when trained with unbalanced data sets [41]. In
+the case of “central-pixel labeling” architectures it is possible to make balanced data sets
+with the initial pixels selection used for the learning. In the case of “semantic labeling” the
+composition of the images makes it more difﬁcult to precisely control the number of pixels
+per class. We tried several methods, but found negligible differences in performance. All
+reported experiments use the median frequency balancing method.
+
+3.3.1. Central-Pixel Labeling
+
+40.32%
+35.97%
+46.56%
+50.21%
+38.75%
+50.40%
+48.38%
+
+For the LU detection task, all deep learning techniques except AlexNet outperformed
+XGBoost. Differences were signiﬁcant, with up to 15 percent points in OA. As in the
+previous section, the best performing “single-pixel” architecture is DenseNet and the best
+“semantic labeling” network is DeepLab. Interestingly, DenseNet reached the best PA,
+although DeepLab dominated the remaining metrics.
+
+For the remainder of this study, the best performing “single-pixel” and “semantic
+labeling” were selected. There was little difference between the architectures, so the
+architectures with the best F1-score for the LU classiﬁcation were chosen arbitrarily.
+
+4.3. Inﬂuence of Neo-Channels and Land Cover as Input on the Learning
+
+3.3.1. Central-Pixel Labeling
+
+AlexNet, an architecture introduced by Alex Krizhevsky [42], is one of the ﬁrst Deep
+Learning architectures to appear on the scene. Inspired by the LeNet architecture in-
+troduced by Yann LeCun [40], AlexNet is deeper with eight layers, the ﬁrst ﬁve being
+convolutional layers whose parameters are shown in Table 5, interleaved with max-pooling
+layers (Figure 3). The sequence ﬁnishes with two fully connected layers before the ﬁnal
+
+Remote Sens. 2021, 13, 2257
+
+8 of 22
+
+classiﬁcation with a softmax. A ReLu type activation function is used for each layer. Data
+augmentation and drop-out are used to limit overﬁtting.
+
+Figure 3. The AlexNet architecture. The number of kernels is indicated at the bottom of each convolution layer, the rest of
+the parameters are indicated in Table 5.
+
+Table 5. Conﬁguration of the different layers of Figure 3 representing the AlexNet architecture.
+
+Layer
+
+conv1
+conv2
+conv3
+conv4
+conv5
+maxpool
+
+Conv
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+In the given context, it is mentioned that all architectures were trained with stochastic gradient descent (SGD) using a similar protocol. This indicates that SGD is the optimization technique employed in the deep learning pipeline. Additionally, a momentum of 0.9 was used, which helps accelerate SGD in relevant directions and dampen oscillations. The initial learning rate was set to 10^-2, and every 20 epochs, the learning rate was divided by 10 until reaching 10^-6. This process of gradually decreasing the learning rate during training is known as learning rate decay or learning rate scheduling, which helps improve convergence and generalization.

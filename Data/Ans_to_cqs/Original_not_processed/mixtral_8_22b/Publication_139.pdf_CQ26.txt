@@ -1,0 +1,61 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Pre-training on the both ResNet50 (He et al., 2016) and Inception 
+(Szegedy et al., 2014) neural networks did not meaningfully improve 
+classification performance, therefore this simpler architecture, similar to 
+those implemented by (Ruff et al., 2020; Sprengel et al., 2016) was used 
+instead. 
+
+2.6. Generating prediction record
+
+2.3. Data pre-processing 
+
+Once all of the audio data was collected, it was segmented into 8 s- 
+long clips, to increase the likelihood  that both biological and  anthro-
+pogenic sound sources with longer call lengths (the cardinal, with a song 
+sequence that often lasts 4 s, and the siren call, one period of which lasts 
+5  s)  to  be  captured  in  their  entirety.  Each  segment  was  then  down-
+sampled to 16 kHz for processing efficiency, allowing each to be rep-
+resented  as  a  128,000-sample  vector.  Finally,  these  segments  were 
+converted into log-mel spectrograms using the Librosa python package 
+
+EcologicalInformatics61(2021)1012423M.M. Morgan and J. Braasch
+
+2.6. Generating prediction record 
+
+After  neural  network  training  and  validation,  predictions  for  the 
+entire  unvalidated  recording  period  were  generated.  Specifically,  for 
+each of the five training folds, a single prediction for every 8 s-interval 
+was made for the duration of the year. The five prediction records that 
+resulted were then averaged together to create a single prediction re-
+cord.  To  summarize  this  data  more  succinctly,  these  8  s-interval  pre-
+dictions were then aggregated into hourly prediction records, containing 
+the number of instances that each particular sound stimuli was predicted 
+per  hour.  This  record  was  normalized  by  the  number  of  8-s  intervals 
+actually recorded during that hour, to account for the possibility that 
+missing audio data would render a given prediction record artificially 
+low. 
+
+2.7. Collecting weather data
+
+approaches or post-prediction thresholding to allow for an arbitrary N 
+number of sound classes to be considered, instead of defining N a priori 
+(Thakur et al., 2019). As a final step, samples rejected in this way can be 
+either manually annotated or themselves aggregated and clustered for 
+possible later development into new sonic categories.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about specific techniques used to address data bias during preprocessing of the deep learning pipeline such as stratified splitting, oversampling, undersampling, or diverse data collection. However, there is mention of collecting audio data from various locations and times throughout the year, which could potentially help mitigate any biases related to location or time. Additionally, the use of log-mel spectrograms for representing audio data might also contribute to reducing certain types of biases, as they capture relevant features while discarding irrelevant ones. Nevertheless, without further details regarding the dataset and its potential biases, it is difficult to determine if these measures alone are sufficient to effectively address data bias during preprocessing.

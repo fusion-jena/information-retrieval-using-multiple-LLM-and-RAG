@@ -1,0 +1,85 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+(cid:0)
+
+̂ηs(x) = exp
+exp
+
+∑
+
+j
+
+)
+
+θ(x)
+f s
+(
+f j
+θ(x)
+
+)
+
+where θ is the set of parameters of the neural network to be optimised by 
+minimizing the loss function of Eq. (2). 
+
+Using this very common deep learning framework, it is possible to 
+show that the species assemblage predictor Sλ(x) of Eq. (1) is consistent 
+λ(x) when  the 
+(Lorieul,  2020),  i.e.  it  tends  towards  the  optimal  set  S*
+number  of  training  samples  increases.  In  other  words,  our  species 
+assemblage predictor is as simple as training a deep neural network with 
+a cross-entropy loss function on the presence-only samples and thresh-
+olding  the  output  softmax  probabilities  to  get  the  assemblage  of  pre-
+dicted species. 
+
+◦
+
+After validating and calibrating the model on the validation set for 
+predicting species assemblages, a new training is started from scratch on 
+the entire dataset. It stops at the best epoch previously determined on 
+the  validation  set  (epoch  69).  The  aim  is  to  obtain  the  best  possible 
+model  weights  before  global-scale  inference.  Finally,  the  species  as-
+semblages  are  post-processed.  i)  Predictions  outside  the  continents 
+where species are known to occur (according to our observation dataset) 
+are removed, and ii) conditional probabilities associated with orchids 
+are normalised, see SI Box B for more details and resulting maps. 
+
+3.2. ℐO  indicator: Most critical status of the species in the assemblage 
+
+3.2.1. Global patterns
+
+(IDRIS). A full description of the model architecture, dataset spatial split 
+and training procedure can be found in supplementary information (SI) 
+Box A. Finally, the settings of our species assemblage model are sum-
+marised in the Fig. 1.
+
+2.1.2. Predictive features 
+
+A large environmental context around each observation is collected 
+and provided to the model: 64 × 64 2D tensors sampled at the kilometre- 
+scale  resolution  and  centred  on  the  observation.  Predictors  include 
+WorldClim2  bioclimatic  variables,  Soilgrids  pedological  variables, 
+human  footprint  rasters,  terrestrial  ecoregions  of  the  world  and  the 
+observation location (longitude and latitude), see SI Box E for details. 
+Examples of input are shown in Fig. S5 and the full list of predictors is 
+given in Table S2. 
+
+2.2. Species assemblage model 
+
+2.2.1. Definition
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit information about any specific preprocessing steps taken before training the deep learning model. However, based on general practices in machine learning and deep learning, some commonly used preprocessing techniques could have been applied. These may include data normalization, where the values of different features are scaled to a similar range; data cleaning, which involves handling missing values, outliers, or incorrect entries; and feature engineering, where additional relevant features are derived from existing ones to improve model performance. In this case, the authors mention using a large environmental context around each observation, including WorldClim2 bioclimatic variables, Soilgrids pedological variables, human footprint rasters, terrestrial ecoregions of the world, and the observation location (longitude and latitude). This suggests that they might have performed some form of feature extraction or selection during their preprocessing stage.

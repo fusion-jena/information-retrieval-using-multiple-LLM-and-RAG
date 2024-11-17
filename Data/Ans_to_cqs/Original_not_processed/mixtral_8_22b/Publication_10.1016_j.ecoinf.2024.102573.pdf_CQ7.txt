@@ -1,0 +1,129 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+datasets.  They  are  not  flexible  enough  to  address  current  open  chal-
+lenges unless used purposefully on a narrow task.
+
+test files 
+(duration) 
+
+87 (0.46 h) 
+249 (5.14 h) 
+222 (3.90 h) 
+144 (3.55 h) 
+
+315 (5.08 h) 
+274 (5.26 h) 
+
+279 (5.83 h) 
+185 (3.14 h) 
+
+five-second chunks with one second of overlap. Then, the model pre-
+dicted all five-second excerpts and averaged their outputs to indicate the 
+recording-level decision. Although suitable for the one-time run on the 
+test  set,  this  strategy  is  computationally  too  expensive.  Thus,  two 
+different  cropping  methods  were used  for  the  training  and  validation 
+recordings to facilitate the speed of experimentation.
+
+A good evaluation strategy without temporal information is to use 
+the whole recording. It requires windowing the lengthy recordings due 
+to limited machine memory. Hence, each test recording was split into 
+
+Table 1 
+Number of the recording files and their total duration in hours (h).  
+
+Species 
+
+train files 
+(duration) 
+
+validation files 
+(duration) 
+
+306 (2.51 h) 
+1032 (21.69 h) 
+861 (15.97 h) 
+553 (18.98 h) 
+
+43 (0.06 h) 
+147 (0.20 h) 
+122 (0.17 h) 
+79 (0.11 h) 
+
+1158 (18.23 h) 
+997 (13.00 h) 
+
+165 (0.23 h) 
+142 (0.20 h) 
+
+995 (26.13 h) 
+677 (13.73 h) 
+
+142 (0.20 h) 
+96 (0.13 h) 
+
+Cettia Cetti 
+Erithacus Rubecula 
+Fringilla Coelebs 
+Luscinia 
+
+Megarhynchos 
+
+Parus Major 
+Phylloscopus 
+Collybita 
+
+Sylvia Atricapilla 
+Troglodytes 
+
+Troglodytes 
+Turdus Merula 
+Turdus Philomelos 
+Total 
+
+1193 (47.58 h) 
+797 (29.74 h) 
+8569 (207.56 h) 
+
+170 (0.23 h) 
+113 (0.14 h) 
+1219 (1.67 h) 
+
+298 (7.73 h) 
+154 (4.53 h) 
+2207 (44.62 h)  
+
+test files 
+(duration)
+
+The  models  were  trained  for  100  epochs  using  Adam  optimizer 
+(Kingma and Ba, 2017) with the default hyper-parameters and a cosine 
+decay  scheduler  for  the  learning  rate.  The  loss  function  was  cross- 
+entropy for multi-class single-label classification. The macro-averaged 
+f1-score  on  the  validation  set  aided  in  monitoring  the  model  conver-
+gence. Macro averaging gives equal importance to all classes regardless 
+of the number of data points in each one.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The datasets were divided into three subsets: train, validation, and test sets. Each subset had its own specific purpose during the development and evaluation of the deep learning model.
+
+The train set was used to train the model by adjusting its parameters based on the input features and corresponding labels. This process involved feeding the model with examples from the train set multiple times, known as epochs, until it could accurately predict the output for unseen instances. In this case, the models were trained for 100 epochs using the Adam optimizer with default hyperparameters and a cosine decay scheduler for the learning rate.
+
+The validation set served as a tool to fine-tune the model's performance during the training phase. By evaluating the model on the validation set after each epoch or a few epochs, it was possible to monitor its convergence and prevent overfitting. Overfitting occurs when the model becomes too complex and starts memorizing the training data instead of generalizing patterns. To avoid this issue, the macro-averaged f1-score on the validation set was employed as a metric to track the model's progress.
+
+Lastly, the test set was utilized to assess the final performance of the fully trained model. Unlike the train and validation sets, which were seen by the model during the training phase, the test set contained entirely new and unseen examples. Therefore, the results obtained from testing the model on this dataset provided a more accurate estimation of how well it would perform in real-world scenarios.
+
+In summary, the criteria used to split the data for deep learning model training included separating the available data into distinct subsets for training, validating, and testing purposes. These subsets played crucial roles in guiding the model's learning process, ensuring optimal performance, and providing reliable estimates of its effectiveness in practical applications.

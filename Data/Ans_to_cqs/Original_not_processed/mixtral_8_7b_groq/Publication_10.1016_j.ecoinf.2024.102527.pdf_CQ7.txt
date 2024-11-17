@@ -1,0 +1,13 @@
+Answer:::
+
+The data splitting criteria for deep learning model training involve creating separate sets for training, validation, and testing. These sets are created based on the conceptual model of transfer learning, which involves five convolutional stages and a final fully connected stage (including softmax) of the ResNext-101 model.
+
+For the Source Domain data splitting on the SS dataset, the criteria involve using different subsets of the dataset for training and validation. Specifically, the SS dataset is divided into several subsets, including S_2_10, S_2_50, S_2_100, S_2_V, and S_2_T, where S_2_10, S_2_50, and S_2_100 represent training sets with 10,000, 50,000, and 100,000 images, respectively. S_2_V and S_2_T represent the validation and test sets, respectively, with 8095 and 8118 images.
+
+When the SS dataset serves as the target domain dataset, five different training sets are created by randomly selecting capture events from S_2_100. These training sets contain 2000, 5000, 8000, 10,000, and 20,000 samples, respectively, and are labeled as S_2, S_5, S_8, S_10, and S_20. The validation and test sets, S_V and S_T, are still used and refer to the same sets as before.
+
+For the ImageNet dataset, the pre-trained model on ImageNet-1k is used as the source model, so there is no need to split the dataset.
+
+The SS and LSM datasets are camera trap image datasets, and each time the camera is triggered, it captures multiple images in succession, called a capture event. To prevent poor generalization of the DCNN model, the integrity of events is kept during data splitting, putting all images of an event into the same dataset.
+
+The computing platform used for model training is a Dell PowerEdge C4130 rack server with two Tesla K80 GPUs and 256 GB of memory. The PyTorch 1.7.1 platform is utilized for the deep learning environment, and the Stochastic Gradient Descent (SGD) optimizer with a momentum value of μ = 0.9 is employed to train the model. Other hyper-parameter settings for model training are shown in Table S.4 of the Supporting Information.

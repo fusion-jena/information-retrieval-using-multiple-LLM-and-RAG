@@ -1,0 +1,7 @@
+After the model training, the postprocessing steps mentioned in the provided context include evaluating the performance of the Convolutional Neural Network (CNN) model on simulated datasets and placing the query sequences onto the phylogenetic tree.
+
+Firstly, the evaluation involves checking the training loss every 50 epochs and stopping the training when the value of the loss function fails to decrease in two consecutive checks. The model with the optimal objective function value is selected. This step ensures that the model is well-trained and performs optimally.
+
+Secondly, once the CNN model is trained, it is used to map a given query sequence to a vector of distances from the reference taxa. For data sets with missing data, two sets of distances are computed - one with gap reconstruction and another without it. The final distances are calculated as a weighted sum of both distances, reducing the impact of reconstructed bases on the final distance. These distances are then used to place the query onto the phylogenetic tree using distance-based placement, which employs dynamic programming to find the placement with the minimum total distance.
+
+Therefore, the postprocessing steps involve evaluating the model performance, calculating distances, and placing the query onto the phylogenetic tree based on those distances. No mention was made of other common postprocessing techniques such as saliency maps, metrics calculation, or confusion matrices.

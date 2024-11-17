@@ -1,0 +1,13 @@
+Answer:::
+
+The strategy implemented to monitor the model performance during training involves using a Support Vector Machine for regression (SVR) with a Gaussian radial basis function kernel, and building as many classifiers as there are classes. Each classifier discriminates one class against all the others. In the end, if none of the classifiers classify a window as a fish, it will be classified as “background”. 
+
+The performance of the model is evaluated by obtaining a clean separation for the training database. Specifically, over 85 % of background thumbnails have a regression score lesser than 0.5, and 85 % of fish thumbnails have a regression score greater than 0.5. 
+
+Additionally, the model's performance is monitored by using a technique called multi-resolution classification. This involves taking background thumbnails with random dimensions, from 40 × 60 pixels to 400 × 500 pixels, to ensure that the model can accurately classify fish at different resolutions. 
+
+Furthermore, the model's performance is also evaluated by using a diverse set of fish species in the learning database. The database includes species such as Acanthurus lineatus, Acanthurus nigrofuscus, Chromis ternatensis, Chromis viridis/Chromis atripectoralis, Pomacentrus sulfureus, Pseudanthias squamipinnis, and Zebrasoma scopas, among others. Each species has a varying number of thumbnails, ranging from a few hundred to several thousand, to ensure that the model is trained on a sufficient number of samples. 
+
+Moreover, the model's performance is also monitored by using a technique called data preprocessing. This involves cropping frames from videos and creating a training database composed of fish thumbnails. The thumbnail size varies from a minimum of 20 × 40 pixels to a maximum of 150 × 200 pixels. Each thumbnail contains only one labeled fish, ensuring that the model is trained on individual fish rather than groups of fish. 
+
+Overall, the strategy implemented to monitor the model performance during training involves using a combination of techniques such as multi-resolution classification, data preprocessing, and a diverse set of fish species in the learning database. These techniques ensure that the model is trained and evaluated on a wide range of samples, thereby improving its accuracy and performance.

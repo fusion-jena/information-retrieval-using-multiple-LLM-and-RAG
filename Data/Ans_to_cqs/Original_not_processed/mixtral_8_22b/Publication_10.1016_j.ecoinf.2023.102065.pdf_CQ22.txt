@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+average total precision of 81.2% below this point. In contrast, our CNN- 
+XC models had a total recall of over 20% at all thresholds; and, at the 
+0.99  threshold,  average  total  precision  was  77.1%  and  average  total 
+recall  was  28.2%  among  models  (Fig.  5B).  Since  BirdNET  was  not 
+trained with data from our domain, these comparisons are not strictly 
+appropriate, yet they provide assurance that our models perform well 
+overall relative to this well-developed standard. Our results also high-
+light  the  importance  of  using  BirdNET  with  a  geographic  filter  for 
+improved precision.
+
+Fig. 3. Total precision-recall curves for each CNN model architecture over a range of probability thresholds (0.65 to 0.99) for XC pre-trained and not pre-trained 
+CNNs, assessed using ROI test and soundscape data across all species. 
+
+EcologicalInformatics75(2023)1020658M.L. Clark et al.                                                                                                                                                                                                                                
+
+Fig. 4. Total precision over a range of probability thresholds (0.65 to 0.99) for each CNN-XC model architecture with test ROI and soundscape data, respectively, 
+across all species. 
+
+Fig. 5. Accuracy results for all species using soundscape data on study CNN-XC models and BirdNET with and without a geographic filter applied. A) Total precision 
+vs. probability thresholds (0.65 to 0.99). B) Total precision vs. recall.
+
+2.5. CNN fine-tuning data from ROIs 
+
+We randomly sampled 50 ROIs per species with “presence” to form a 
+held-out test set for accuracy assessment (Section 2.8.1). The remaining 
+ROIs with species presence were used to fine-tune the CNN models. We 
+randomly sampled 100 of these ROIs per species to form a validation set 
+and the remaining formed a training set, which had on average 887 per 
+species (min = 349, max = 3094). ROIs that were >2 s in duration were 
+used in their entirety. For those that were <2 s in duration, we expanded 
+the start/stop (i.e., padded) equally on each side of the ROI to total 2 s. 
+Different vocalizations for a given species were combined into a single 
+class per species. If any ROIs were overlapping in time from different 
+pattern-matching runs for a given species, we placed those ROIs in the 
+training set to avoid temporal autocorrelation in our validation and test 
+data.
+
+When  tested  against  soundscape  data,  all  three  of  our  CNN-XC 
+models  had  slightly  lower  total  precision  than  BirdNET  with  the 
+geographic filter (max = 81.8% at 0.65 threshold), and CNN-XC models 
+performed better than BirdNET without the filter (max = 69.6% at 0.74 
+threshold; Fig. 5A). However, all CNN-XC models had higher recall than 
+both  BirdNET  versions,  regardless  of  thresholds.  At  a  0.99  threshold, 
+CNN-XC models had an average 13.9% higher total precision and 27.6% 
+higher total recall than BirdNET with the geographic filter (Fig. 5B). We 
+found BirdNET total precision had very little sensitivity to thresholds up 
+to 0.90, while precision declined at higher thresholds as FN increased 
+more  than  FP  (Fig.  5A,  BirdNET).  The  BirdNET  classifier  with  a 
+geographic filter had sufficient total recall, which we set at 20% for our 
+application, only at thresholds at or below 0.71, with a corresponding
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The performance of the deep learning models is evaluated using several metrics such as total precision, recall, and accuracy. The total precision-recall curves for each CNN model architecture are presented over a range of probability thresholds (0.65 to 0.99) for both XC pre-trained and non-pre-trained CNNs. These evaluations are conducted using ROI test and soundscape data across all species. Additionally, total precision is measured over a range of probability thresholds for each CNN-XC model architecture with test ROI and soundscape data, respectively, across all species. Furthermore, accuracy results for all species using soundscape data are shown for study CNN-XC models and BirdNET with and without a geographic filter applied. Specifically, total precision versus probability thresholds and total precision versus recall are displayed.

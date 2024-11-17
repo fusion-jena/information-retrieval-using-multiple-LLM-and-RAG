@@ -1,0 +1,156 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Page 10 of 14
+
+Table 4 Results of the experiments related to cross-herbarium transfer learning
+
+Experiment
+
+Initialization
+
+Training
+
+Testing
+
+Top-1 accuracy
+
+Top-5 accuracy
+
+Cross-herbaria Transfer learning (France to Costa-Rica)
+
+H1K.H255.H255
+
+Herbarium1K
+
+Herbarium255
+
+Herbarium255
+
+H1KI.H255.H255
+
+ImageNet+Herbarium1K
+
+Herbarium255
+
+Herbarium255
+
+0.693
+
+0.745
+
+0.842
+
+0.872
+
+illustrated by less images, the low-level layers of the net-
+work benefit more from training on more visual contents
+beforehand.
+
+119M
+
+170M
+
+1072K
+
+54M
+
+1388K
+
+71M
+
+1000K
+
+1M
+
+the network. Therefore, a common practice is to initialize
+the network by pre-training it on a big available dataset
+and then fine-tune it on the scarcer domain-specific data.
+Concretely, the methodology we used in our experiment
+for transferring knowledge from dataset A to dataset B is
+the following:
+
+1. The network is first trained from scratch on dataset
+A by using a multinomial logistic regression on top
+of the SOFTMAX layer and the linear classification
+layer.
+
+2. The linear classification layer used for dataset A is
+then replaced by a new one aimed at classifying the
+classes in B. It is initialized with random weights.
+
+3. The other layers are kept unchanged so as to
+
+initialize the learning of dataset B with the weights
+learned from A.
+
+4. The network is trained on the images in B.
+
+• H255.CR.CR: The neural network was pre-trained on
+the Herbarium255 dataset to initialize the weights,
+fine-tuned on the Costa-Rica leaf scans training set
+(70%) and tested on the Costa-Rica leaf scans test set
+(30%).
+
+• H255I.CR.CR: The neural network was pre-trained
+on ImageNet and then on Herbarium255 before
+being fine-tuned on the Costa-Rica leaf scans training
+set (70%) and finally tested on the Costa-Rica leaf
+scans test set (30%).
+
+• R.PC.PC: The neural network was initialized
+
+randomly, trained on the PlantCLEF training set
+(80%) and tested on the PlantCLEF test set (20%).
+• I.PC.PC: The neural network was pre-trained on the
+generalist dataset ImageNet to initialize the weights,
+fine-tuned on the PlantCLEF training set (80%) and
+tested on the PlantCLEF test set (20%).
+
+• H1K.PC.PC: The neural network was pre-trained on
+the Herbarium1K dataset to initialize the weights,
+fine-tuned on the PlantCLEF training set (80%) and
+tested on the PlantCLEF test set (20%).
+
+very beginning the weights of ImageNet were used.
+For example, H1KI.PC.PC means the transfer
+learning was progressive, done from ImageNet, to
+Herbarium1K, to PlantCLEF, and tested with
+PlantCLEF data.
+
+• Initialization: weights used to initialize the model.
+• Training: training set used (e.g., Herbarium255
+
+training set, PlantCLEF training set, etc.)
+
+• Testing: test set used (e.g., Herbarium255 test set,
+
+PlantCLEF test set, etc.)
+
+• Top-1/Top-5: accuracy achieved with top-1 and
+
+top-5 best predictions, respectively.
+
+no collector was shared by the training and testing sets
+to avoid bias in the data. The following four experiments
+were conducted:
+
+• R.H255.H255: The neural network was initialized
+
+randomly, trained on the Herbarium255 training set
+(70%), and tested on the Herbarium255 test set (30%).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The context does not provide explicit information about the strategy implemented to monitor the model performance during training. However, based on standard machine learning practices, it can be inferred that the model performance might have been monitored through metrics such as loss or accuracy on validation datasets during each epoch of training. Additionally, techniques like early stopping could also have been employed to prevent overfitting and improve generalization.

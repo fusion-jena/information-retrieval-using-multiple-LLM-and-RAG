@@ -1,0 +1,189 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The result of this process was added to the dataset as a new cate-
+gorical binary variable that stored the existence of stratification or not 
+(took the value of 0 when the reservoir was not stratified and 1 when it 
+was stratified). 
+
+2.5.3. Forecasting ML models 
+
+A classification model was designed in order to detect if there existed 
+
+Table 1 
+Initial hyperparameters space.  
+
+Initial hyperparameters space 
+
+Hyperparameters 
+
+Values 
+
+Layers 
+
+Number of neurons of the dense layer 
+Dropout rate of the dropout layer 
+Learning rate 
+Batch size 
+
+1 dense layer, 1 dense layer +1 dropout 
+layer 
+32, 64 
+0.2, 0.4 
+(cid:0) 3, 10
+10
+32, 64  
+
+(cid:0) 4
+
+Predicted classes   
+
+Training  
+
+Not-stratified  
+
+True classes 
+
+Not-stratified 
+Stratified 
+
+549  
+53  
+
+Stratified  
+
+31  
+681  
+
+Testing   
+
+Not-stratified  
+
+115  
+2  
+
+Stratified 
+
+7 
+166  
+
+Fig. 6. Real and predicted values of thermocline presence with the optimal classification model. The points at the left of the dashed line belong to the training set 
+while those at the right belongs to the test set. 
+
+Table 4 
+Results from the training and testing of the selected regression model for each set of variables.   
+
+Hyperparameters 
+
+Variables 
+
+Topology* 
+
+Learning rate 
+
+Batch size 
+
+Epochs 
+
+t 
++ t-1 
++ t-2 
+þ t-3 
++ t-4 
++ t-5 
+
+32(0.4)16(0.2)8 
+32(0.4) 
+32(0.2)4(0.2) 
+32(0.2)4(0.2) 
+32(0.2)4(0.2) 
+32(0.4)16(0.2) 
+
+(cid:0) 3 
+
+(cid:0) 3 
+
+(cid:0) 3 
+
+¡3 
+
+(cid:0) 3 
+
+(cid:0) 3 
+
+10
+10
+10
+10
+10
+10
+
+32 
+32 
+32 
+32 
+32 
+32 
+
+500 
+80 
+250 
+280 
+280 
+240 
+
+Training 
+
+MAE 
+
+2.42 
+2.70 
+2.44 
+1.94 
+1.83 
+1.83 
+
+Percentile 
+
+67.6 
+66.9 
+70.4 
+70.3 
+70.0 
+70.6 
+
+P50
+
+Table 2 contains the best set of hyperparameters found for each set of 
+variables,  together  with  the  results  from  the  training  on  the  whole 
+training data set and test on unseen data. During the cross-validation 
+process,  there  were  no  discrepancies  among  the  three  metrics  used. 
+Generally, the best model for each set of variables was optimal regarding 
+the three metrics or the differences were <1%. In case of these small 
+discrepancies, the model with the highest AUC was chosen. The first row 
+in Table 2, represented as t in the column of variables, contains the re-
+sults of the model with only variables that are contemporaneous with 
+the target. The row represented as + t-1 contains the variables in t and 
+the 1-day lagged variables, and so on in the following rows. The number 
+of epochs was adjusted to the minimum number of epochs that guar-
+anteed the stabilization of the loss curve in the four folds of the cross- 
+validation.
+
+loss curves during the training. As optimizer, the Adam algorithm was 
+used, which is a stochastic gradient descent method. Then, one of the 
+hyperparameters was modified iteratively following the direction that
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: The criterion used to determine when training is complete is the stabilization of the loss curve in the four folds of the cross-validation. This means that the training continues until the loss curve stops changing significantly, indicating that the model has learned all it can from the training data. Additionally, the number of epochs was adjusted to the minimum number of epochs that guaranteed this stabilization, ensuring that the model does not overfit the training data by continuing to train after it has already converged.

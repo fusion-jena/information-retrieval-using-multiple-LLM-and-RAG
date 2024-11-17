@@ -1,0 +1,15 @@
+Based on the provided context, there is no explicit information about the postprocessing steps involved after the model training. However, it does mention some details about the training process and the selection of training samples that can give us an idea of what might have been done.
+
+First, the training samples were selected from two MODIS products and outliers were eliminated. Then, two feature variable combinations were established: band reflectance and band reflectance with Vegetation Indices (VIs). For band reflectance, only the R, G, and NIR bands were selected from the GF-1 WFV data. For VIs, a Pearson correlation coefficient greater than 0.4 was used as the screening boundary.
+
+After the training samples were prepared, a Random Forest (RF) model was built using these samples. The model parameters, such as the number of trees (n\_estimators), minimum number of leaves (minleaf), and number of randomly selected node-split feature variables (max\_features) were optimized using a grid search method based on the out-of-bag (OOB) error and five-fold cross-validation.
+
+While the context does not explicitly mention any postprocessing steps, it does mention that the selected training samples lacked low-value LAI samples, which resulted in the model not being able to predict low-value LAI accurately. This suggests that some sort of evaluation or validation of the model's performance was carried out.
+
+Therefore, based on the given context, we can infer that the postprocessing steps might have involved:
+
+1. Evaluation or validation of the model's performance using metrics such as accuracy, precision, recall, or F1-score.
+2. Generation of a confusion matrix to further analyze the model's performance and identify any biases or errors.
+3. Visualization of the model's predictions using saliency maps or other techniques to gain insights into the model's decision-making process.
+
+However, these are just educated guesses based on the given context, and the actual postprocessing steps might have been different.

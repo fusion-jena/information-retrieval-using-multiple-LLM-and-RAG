@@ -1,0 +1,11 @@
+The strategy implemented to monitor the model performance during training involves the use of two standard metrics: mean average precision (mAP) and recall. These metrics are used to evaluate the accuracy of the model's detection. Mean average precision is the average of the weighted mean of precision for each class, while recall is the percentage of correct detected objects out of all the correct targets. In other words, recall represents the capability of detecting all instances of the target class, and mean average precision shows how much we can trust the identified result.
+
+Furthermore, to ensure the model's performance during training, image augmentations such as flip, rotations, and affine transformation were included. These augmentations were used to increase the diversity of the training data, thereby improving the model's ability to generalize. After applying these augmentations, the same dataset was trained with a ResNet-101 network for 500 epochs.
+
+Additionally, the selection of image augmentations is of crucial importance to improve training performance. For this purpose, multiply, linear contrast, sharpen, emboss, flip in horizontal and vertical directions, rotations, and affine transformation were used for heavy augmentation.
+
+Moreover, a partial training strategy was implemented to prepare a larger dataset for the Greenland data. The model was partially trained to learn the data first, and then the model itself was used to annotate new data before training it further. The new dataset annotated by the partially trained model contains 540 training images and 141 validation images. This dataset was manually checked and edited by a human, resulting in a large dataset being prepared within a day.
+
+Finally, for the Kenyan data, a small dataset that only contained images from Kenya was used to fine-tune the model for this data. This was due to the lower image quality taken from the portable microscope in Kenya compared to the other two.
+
+Overall, the strategy implemented to monitor the model performance during training involves the use of standard metrics, image augmentations, and partial training to ensure the model's accuracy and generalization ability.

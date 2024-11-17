@@ -1,0 +1,13 @@
+During the training of the model for real-time pest detection and counting, a specific strategy was implemented to monitor the model's performance. The evaluation indices used for this purpose include Average Precision (AP), Mean Average Precision (mAP), and time. These metrics were calculated at different Intersection over Union (IoU) thresholds, ranging from 0.5 to 0.95 in increments of 0.05.
+
+The Average Precision (AP) is the area under the Precision-Recall curve, calculated as the integral of Precision concerning Recall. Precision is the ratio of True Positives (TP) to the sum of True Positives and False Positives (FP). Recall is the ratio of True Positives to the sum of True Positives and False Negatives (FN).
+
+Mean Average Precision (mAP) is the average AP across all classes. The time metric is the sum of the runtimes for preprocessing (Preprocess), network inference (Inference), and post-processing (NMS) stages.
+
+These evaluation indices were used to assess the model's performance during the experimental design phase, where a sequence of 10 ablation experiments were conducted. Among these experiments, the original YOLOv8 model was used as the baseline, and nine other models with different structures were modified based on YOLOv8.
+
+The experimental training parameter settings included a batch size of 16, an input image resolution of 640 × 640, and 150 epochs. The learning rate was set to 0.01, and the optimizer used was Adam. The depth_scale parameter was assigned a value of 0.33, and the width_scale parameter was set to 0.25.
+
+The results showed that YOLO_MRC outperformed the other models in terms of accuracy, speed, and model size. Specifically, YOLO_MRC achieved a mAP50 of 70.4%, a mAP50-95 of 3.6%, and a time of 2.4%, demonstrating its superiority over the other models.
+
+In conclusion, the strategy implemented to monitor the model performance during training involved the use of evaluation indices such as AP, mAP, and time, calculated at different IoU thresholds. These metrics were used to assess the model's performance during the experimental design phase, which included a sequence of 10 ablation experiments. The results showed that YOLO_MRC outperformed the other models, indicating its potential for real-time pest detection and counting.

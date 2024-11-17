@@ -1,0 +1,10 @@
+Answer:
+The context does not provide information about specific datasets such as MNIST, CIFAR, or ImageNet being used in the deep learning pipeline. However, it does mention that the dataset is created from scratch and annotated for custom training. A KaKaXi fixed camera is used to take images every hour within a fixed period of time each day, which are then saved in a database. This suggests that the dataset is likely to be specific to the use case of the system being discussed, and not a publicly available dataset.
+
+The system is most compatible with TensorFlow version 1.14.0 and Keras version 2.2.4 along with Python 3.6. The model has been implemented on a machine with 1 GPU, using Resnet 50 and Resnet 101 as backbone structures. Anchor boxes of ratio 32, 64, 128, 256, and 512 are used, and the width and height of images are fixed, resulting in an image shape of [a,640,640,3] and a mask shape of [a,640,640,1], where a is the number of training images and true masked images.
+
+The Mask R-CNN model is used for training, which combines Faster R-CNN and FCN models with some advancements. The model is trained for 20 epochs with 500 steps for training images and 100 steps for validation images. The learning rate, α used for heads layer training, is taken as 0.001, while during all layers training, α decays by 10.
+
+The loss values for training and validation dataset during Mask R-CNN training for epoch 20 are provided, which include rpn_class_loss, rpn_bbox_loss, mrcnn_class_loss, mrcnn_bbox_loss, and mrcnn_mask_loss. These losses are calculated separately and provide instance segmentation as output.
+
+Therefore, while specific datasets are not mentioned, the context provides information about the system's implementation, including the model used, backbone structures, anchor boxes, image shape, and loss values.

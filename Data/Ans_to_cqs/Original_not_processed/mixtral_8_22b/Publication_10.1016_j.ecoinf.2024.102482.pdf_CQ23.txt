@@ -1,0 +1,85 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+As a machine learning model capable of using diverse information 
+for  data  represented  as  a  graph,  the  Graph  Neural  Network  (GNN) 
+
+presents  a  potential  solution  (Zhou  et  al.,  2020).  Recently,  the  GNN 
+model has been increasingly applied in various fields of ecology, such as 
+studies on air quality prediction (Dun et al., 2022; Zhou et al., 2021) and 
+water quality prediction (Li et al., 2024). By representing the swimming 
+behavior of C. elegans as a UBN, a kind of graph, the GNN could incor-
+porate information, such as distinguishing the head and tail or the di-
+rection  of  movement.  Furthermore,  the  GNN  can  be  combined  with 
+LSTM, leading to the possibility of constructing a hybrid model (Con-
+cepcion et al., 2023; Zhao et al., 2020). This hybrid model could provide 
+a basis for the design of a biomonitoring system, offering expectations 
+for improved performance and utility.
+
+2.4.4. System structure 
+
+We endeavored to design the model structure as simple as possible to 
+ensure its usability on devices with limited computing power and enable 
+real-time predictions, as long as the performance was not significantly 
+reduced. Our aim was to create a model that balances performance and 
+efficiency.  The  selected  system's  structure  consists  of  an  input  layer, 
+three LSTM hidden layers, one dropout layer, and one dense layer. In the 
+case of binary classification, a dense layer with a single output is used, 
+and σ is employed as the activation function. For tasks involving more 
+than two classes, the dense layer has multiple outputs and the softmax 
+function is used as the activation function. The overall structure of the 
+model is depicted in Fig. 5.
+
+2.2. Feature extraction 
+
+To  solve  problems  using  the  machine  learning  method,  extracting 
+features from the raw data to be used as inputs for the machine learning 
+model is necessary. Although the importance of feature extraction has 
+decreased with the introduction of deep learning, there are still aspects 
+where features play a key role, such as considering the computing power 
+of devices, reducing training time, and ensuring real-time performance 
+in decision-making. 
+
+In  this paper,  we used  the BLS  entropy profile to  characterize the 
+swimming behavior of C. elegans, as in the work by Jeong et al. (2019). 
+The BLS profile has also been used to calculate the Levenshtein distance, 
+an indicator of how similar two sequences are, in order to illuminate the 
+similarities  and  differences  in  swimming  patterns  of  C.  elegans  in  a 
+controlled and chemical-contaminated water environment (Kang et al.,
+
+The features used as input vectors of the learning significantly impact 
+the performance of machine learning-based systems. The limited set of 
+patterns used as features in the paper is what the HMM requires, not 
+specific characteristics, as needed for LSTM. Using a finite number of 
+patterns  has  the  advantage  of  facilitating  the  analysis  of  C.  elegans 
+response behavior using statistical analysis or metrics like Levenshtein 
+distance  (Kang  et  al.,  2012).  However,  this  clustering  step  inevitably 
+leads to information loss, which may result in performance degradation 
+of water quality assessment methods. Conversely, the proposed LSTM- 
+based method can directly use the BLS profile without clustering, and 
+it can be expected to achieve relatively higher accuracy because it uses a 
+larger  feature  domain.  Additionally,  computational  measures  such  as 
+BLS entropy have limitations in capturing important information found
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there is no explicit mention of specific measures taken to ensure the generalizability of the deep learning model. However, some implicit indications suggest that certain practices might have been followed.
+
+Firstly, the context mentions that the Graph Neural Network (GNN) model has been applied in various fields of ecology, including studies on air quality prediction and water quality prediction. This suggests that the model has been tested on diverse datasets, which is a common practice to improve the generalizability of a model.
+
+Secondly, the context discusses the design of the model structure, emphasizing simplicity to ensure usability on devices with limited computing power and enable real-time predictions. While this does not directly address generalizability, it indicates a focus on practical applicability across different hardware platforms, which can contribute to the model's robustness and adaptability.
+
+Lastly, the context mentions the use of the BLS entropy profile to characterize the swimming behavior of C. elegans. This implies that the model was trained on a specific type of data, which might limit its generalizability if not validated on other types of data. However, the context also notes that the proposed LSTM-based method can directly use the BLS profile without clustering, suggesting a potential for broader applicability.
+
+In conclusion, while the context does not explicitly state any specific measures taken to ensure the generalizability of the deep learning model, the application of the model in diverse fields, the emphasis on simplicity and practicality in model design, and the direct use of the BLS profile indicate potential strategies towards achieving generalizability. However, further validation on diverse datasets would be required to confirm this.

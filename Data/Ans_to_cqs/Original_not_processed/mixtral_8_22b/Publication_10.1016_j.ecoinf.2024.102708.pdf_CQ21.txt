@@ -1,0 +1,223 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Model 
+
+F-score 
+
+Std Err Precision 
+
+CI_Precision Lower Limit 
+
+CI_Precision Upper Limit 
+
+Std Err Recall 
+
+CI_Recall Lower Limit 
+
+CI_Recall Upper Limit  
+
+FRCNN 
+TPH-YOLOv5 
+YOLOv5s 
+YOLOv5m 
+
+FRCNN 
+TPH-YOLOv5 
+YOLOv5s 
+YOLOv5m 
+
+FRCNN 
+TPH-YOLOv5 
+YOLOv5s 
+YOLOv5m 
+
+0.821 
+0.734 
+0.852 
+0.808 
+
+0.814 
+0.768 
+0.838 
+0.783 
+
+0.830 
+0.696 
+0.871 
+0.835 
+
+0.009 
+0.010 
+0.008 
+0.009 
+
+0.012 
+0.012 
+0.011 
+0.013 
+
+0.014 
+0.016 
+0.011 
+0.013 
+
+0.735 
+0.769 
+0.867 
+0.808 
+
+0.724 
+0.855 
+0.857 
+0.776 
+
+0.733 
+0.667 
+0.866 
+0.823 
+
+Both Sites 
+
+0.771 
+0.809 
+0.897 
+0.844 
+
+Collapit Mudflat (Site A) 
+
+0.772 
+0.901 
+0.899 
+0.826 
+
+Scoble Point Rocky Shore (Site B) 
+
+0.787 
+0.731 
+0.910 
+0.873 
+
+0.007 
+0.011 
+0.009 
+0.010 
+
+0.010 
+0.015 
+0.012 
+0.013 
+
+0.010 
+0.016 
+0.012 
+0.013 
+
+0.888 
+0.666 
+0.807 
+0.772 
+
+0.874 
+0.653 
+0.777 
+0.739 
+
+0.894 
+0.662 
+0.830 
+0.797 
+
+0.916 
+0.708 
+0.841 
+0.810  
+
+0.912 
+0.711 
+0.825 
+0.791  
+
+0.932 
+0.726 
+0.878 
+0.849
+
+This resulted in a dataset consisting of 3643 tiles for the Scoble site 
+(758 containing Pacific oysters, 2885 without Pacific oysters) and 7571 
+tiles  for  the  Collapit  site  (879  containing  Pacific  oysters  and  6692 
+without Pacific oysters). 
+
+2.3. Validation and training datasets 
+
+To create the training and validation datasets, the tiles containing 
+Pacific oysters were split into 70% training, and 30% validation. Data 
+augmentation  was  used  to  increase  the  size  of  the  training  dataset, 
+through random variations and manipulations to the data. Augmenta-
+tions  were  applied  in  a  random  order.  The  list  of  augmentations  is 
+described in Table 1. 
+
+The training data set had five augmented images created per original 
+tile  to  create  an  additional  5735  tiles  split  between  the  two  sites. 
+
+Table 1 
+Data Augmentations applied to training data.  
+
+Augmentation 
+
+Flip 
+Crop 
+Contrast Shift 
+Translation 
+Rotation 
+
+Minimum 
+
+Maximum 
+
+–
+
+adjusted when drafting a drone survey by entering the camera model or 
+camera parameters and the flight altitude in any of the most common 
+drone planning software tools including DJI GS PRO, Pix4D or Litchi.
+
+When taking the trained model for further inference, we selected the 
+best model, based on the validation loss curve metrics, which means that 
+the model selected was the one trained until epoch 6 (from the 50 epochs 
+trained). The full loss curve is included for completeness. 
+
+Using  the  two  independent  validation  dataset  for  each  study  site, 
+result metrics were calculated using Padilla et al. (2021) for each DL 
+model.  A  positive  detection  is  identified  where  the  Intersection  over 
+Union is greater than 0.5. As such, when detecting of a Pacific oyster, a 
+detection overlaps with a true Pacific oyster by more than 50% of the 
+bounding boxes. Consequently, we are able to classify each detection as 
+one of the three categories: 
+
+True Positive (TP): A successfully detected Pacific oyster. 
+
+Fig. 5. Plot of the Validation Loss curve for the YOLOv5s model.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: After the model training process, several postprocessing steps can be performed depending on the specific requirements of the project. In this case, some possible postprocessing steps include:
+
+1. Model selection: Based on the validation loss curve metrics, the best model is chosen from all the models trained during different epochs. This step helps ensure that the final model has optimal performance.
+
+2. Calculating result metrics: Using the validation dataset, various metrics like precision, recall, F-score, etc., are computed to evaluate the performance of the deep learning models. These metrics help quantify how well the models perform in terms of correctly identifying Pacific oysters.
+
+3. Classifying detections: Each detection made by the model is classified into one of three categories - True Positive (TP), False Positive (FP), or False Negative (FN). This classification allows for a better understanding of the strengths and weaknesses of the model.
+
+4. Visualizing results: To gain insights into the model's performance, visualizations like saliency maps or confusion matrices may be generated. However, these techniques are not explicitly mentioned in the given context.
+
+In summary, the postprocessing steps involved after the model training in this scenario primarily focus on selecting the best model, calculating relevant metrics, and categorizing detections. Additional visualization methods could also be employed if required.

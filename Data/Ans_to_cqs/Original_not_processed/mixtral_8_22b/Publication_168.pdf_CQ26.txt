@@ -1,0 +1,321 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+k
+
+1
+(cid:32)
+
+l
+
+(cid:32)
+
+0
+
+m
+
+(cid:32)
+
+0
+
+,
+l m
+w v
+,
+i j k
+,
+
+(
+x l
+(cid:14)
+( 1),
+i
+(cid:16)
+
+),(
+k
+
+y m
+(cid:14)
+
+)
+
+)
+
+ (4) 
+
+where bi,j is the bias,  Ki-1 is the number of the feature ma 
+in (i-1)th layer,  Li and  Mi are the height and width of 2 –D 
+f (cid:152) is the 
+convolutional kernel in the ith layer respectively,  
+ReLU activation function as shown in Eq. (2). 
+
+( )
+
+The pooling layer is mainly applied to compress the input 
+data,  which  often  follows  convolutional  layer.  The  max-
+pooling strategy is used in SSPCNN. 
+
+Table I Ground object classes and numbers of labeled pixels in 
+
+UAV hyperspectral image 
+
+Class 
+
+Samples 
+
+No. 
+
+Name 
+
+Train 
+
+Test 
+
+1 
+
+2 
+
+3 
+
+4 
+
+5 
+
+6 
+
+7 
+
+8 
+
+9 
+
+10 
+
+Osmanthus 
+
+1251 
+
+11262 
+
+Holly 
+
+1070 
+
+9629 
+
+Platanus orientalis 
+
+5378 
+
+48402 
+
+Cyclobalanopsis oak 
+
+420 
+
+3781 
+
+Willow 
+
+1434 
+
+12908 
+
+Camphor tree 
+
+4775 
+
+42973 
+
+Camellia2 
+
+Soil 
+
+Road 
+
+Water 
+
+  Toal 
+
+614 
+
+586 
+
+5529 
+
+5277 
+
+1810 
+
+16288 
+
+1525
+
+On the other hand, since the powerful feature extraction 
+capabilities, the deep learning methods have succeed in many 
+fields,  such  as  computer  vision  and  natural  language 
+processing. In recently, the deep learning based methods have 
+also  been  used  to  solve  the  HSI  classification  task  and 
+achieved remarkable achievements. Among the deep learning 
+methods,  the  Convolutional  Neural  Networks  (CNNs)  are 
+most widely explored to solve the HSI classification task. Hu 
+et  al.  [4]  designed  a  one-dimensional  convolutional  neural 
+network(1-D-CNN) for classification according to the spectral 
+feature  of  HSI.  Due  to  the  insufficient  training  data,  the 
+designed  1-D-CNN  just  includes  a  convolution  operation,  a 
+pooling operation and a fully connected operation. Although 
+the structure of  designed 1-D-CNN is simple, it achieved a 
+satisfactory  classification  performance.  The  classification
+
+(5) 
+
+(a)
+
+(b)
+
+IV. RESULTS AND DISCUSSION
+
+The  experiment  is  performed  on  the  UAV  hyperspectral 
+image  described  in  section  II.  There  are  ten  different  land-
+cover  classes  in  the  captured  UAV  hyperspectral  image  as 
+shown in Table I. Considering it is hard to label hyperspectral 
+image in the real world, we split the labeled pixels of UAV 
+hyperspectral image into the training set and test set with the 
+ratio 1:9. The training samples were used to learn the weights 
+and  biases  of  the  network,  and  the  test  samples  are  used  to 
+evaluate the classification performance.
+
+Flatten
+
+1f
+
+Spectral
+ij
+
+ijX
+
+d
+
+PCA
+
+s
+
+ijX
+
+s
+
+Spatial
+ij
+
+1
+Conv
+2D
+
+Pool
+
+1
+2D
+
+Conv
+
+2
+2D
+
+Pool
+
+2
+2D
+
+Flatten
+
+Concatenate
+
+Softmax
+
+3FC
+
+2FC
+
+1FC
+
+3f
+
+2f
+
+h
+
+w
+
+Fig.5 Framwork of the SSPCNN 
+
+III. PROPOSED METHOD
+
+h w d
+(cid:117) (cid:117)
+
+be  denoted  as 
+
+The  hyperspectral  image  can  be  represented  as  I
+(cid:143) (cid:92)
+ , where I is the raw input, and h,w,d correspond to
+the  height,  width,  and  the  number  of  channels  respectively. 
+The spectral information of the pixel at location (i,j) in I can 
+(cid:94)
+(cid:32)
+
+1
+2
+3
+d
+Spectral
+x x x
+x
+ij
+ij
+ij
+ij
+ij
+spatial 
+is  expressed  as 
+information  of  each  pixel 
+(cid:94)
+Spatial
+,...,
+(cid:32)
+, where wij is the square patch
+ij
+with size  s
+s(cid:117) centered at pixel xij ,  c represents the number
+of  channels  after  dimensionality  reduction.  The  Principal 
+Component  Analysis(PCA) 
+  is  applied  to  reduce  the 
+dimension of I along channel dimension in this paper. 
+
+1
+2
+w w
+,
+ij
+ij
+
+.  The
+
+,...,
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there is no explicit mention of any specific technique used to address data bias during preprocessing of the deep learning pipeline. However, some common techniques used to handle data imbalance or bias include stratified sampling, oversampling, undersampling, and diverse data collection. These techniques help ensure that the model does not become biased towards certain classes due to uneven distribution of data.
+
+In the case of the given context, the authors do mention that they use a ratio of 1:9 to split the labeled pixels of the UAV hyperspectral image into training and testing sets. This could potentially indicate that they are using stratified sampling to maintain class balance between the two sets. However, without further clarification from the authors, it cannot be confirmed if this was done specifically to address data bias.

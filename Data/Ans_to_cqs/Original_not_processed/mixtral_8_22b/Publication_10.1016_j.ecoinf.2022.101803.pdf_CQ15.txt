@@ -1,0 +1,90 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+While  the  ensemble  size  for  bagging  is  not  particularly  critical, 
+provided it is sufficiently large (500 is a widely used default value), it 
+does  matter  for boosting.  In  XGBoost, large  ensemble  sizes  can  cause 
+over-fitting because the gradient technique focuses on the most difficult 
+cases,  which  can  be  due  to  noise.  To  avoid  the  over-fitting  issue  in 
+XGBoost, we use a nested k-fold cross-validation scheme. We split each 
+dataset into 3 subsets: the tuning set (k-2 folds), validation set (1-fold), 
+and test set (1-fold). For each choice of number of iterations and each 
+fold, we train the model on the tuning set and monitor the performance 
+on the validation set by calculating the out-of-sample prediction accu-
+racy and taking the median of k-1 folds. This gives us k medians for each 
+number of iterations, as explained in Algorithm 1 and shown in Fig. S2 in 
+Supplement A.3.  
+
+Algorithm 1 Optimize the iteration number 
+
+for each k-1 folds do
+
+regularisation, confirming similar findings in Machine Learning litera-
+ture (Sollich and Krogh, 1996). The combination of the proposed RBF- 
+GFR  model  with  random  forests  (RBF-GFR-RF)  produced  the  best 
+model  overall,  consistently  achieving  a  place  in  the  top  three  perfor-
+mance rankings. An important additional finding was that almost all the 
+methods proposed in this study outperform the original GFR model from 
+Matthiopoulos et al. (2011), which was the initial aim motivating the 
+present work. As shown in Fig. 2, the GFR model never achieves a rank 
+better than 6. R2
+DEV  in Eq. (18) is generally a better behaved measure-
+ment than R2  in Eq. (17) for count data as described in Section 4.2. We 
+used R2
+DEV to calculate the out-of-sample predictive performance in these 
+datasets  as  shown  in  Fig. S9  in  Supplement A.9.  However,  the  overall 
+ranks using R2
+DEV  are not different from the overall ranks using R2  in Eq.
+
+Han, Hong, Guo, Xiaoling, Hua, Yu., 2016. Variable selection using mean decrease 
+accuracy and mean decrease gini based on random forest. In: 2016 7th ieee 
+international conference on software engineering and service science (icsess). IEEE, 
+pp. 219–224. 
+
+Hastie, Trevor, Tibshirani, Robert, 1993. Varying-coefficient models. J. Roy. Stat. Soc.: 
+Ser. B (Methodol.) 55 (4), 757–779. https://doi.org/10.1111/j.2517-6161.1993. 
+tb01939.x. 
+
+Hastie, Trevor, Tibshirani, Robert, Friedman, Jerome, 2008. The Elements of Statistical 
+
+Learning. Springer. 
+
+Hastie, Trevor, Qian, Junyang, Tay, Kenneth, 2016. An introduction to glmnet. 
+Heikkinen, Risto K, Marmion, Mathieu, Luoto, Miska, 2012. Does the interpolation 
+accuracy of species distribution models come at the expense of transferability? 
+Ecography 35 (3), 276–288. https://doi.org/10.1111/j.1600-0587.2011.06999.x. 
+
+Holbrook, Joseph D., Olson, Lucretia E., DeCesare, Nicholas J., Hebblewhite, Mark,
+
+for the creation of random forests, tend to outperform all other models as 
+a  class  (namely the  “class”  of  ensemble  methods,  as  opposed  to  indi-
+vidual models). In particular, the combination of the proposed RBF-GFR 
+and GFR models with bagging, as represented by the two models shown 
+in the top rows of Fig. 2, consistently achieve ranks in the top 40% of the 
+performance spectrum. This offers evidence of more stable performance 
+than the non-ensemble models, while the latter show higher variability, 
+as exemplified by the regularised RBF-GFR model, which appears as the 
+best  model  for  the  second  simulated  data  set,  but  as  the  third-worst 
+model for the first simulated data set. Regularization was not applied 
+to the individual models included in the ensembles, with the results thus 
+suggesting  that,  in  terms  of  improving  out-of-sample  generalisation 
+performance, model averaging over ensembles offers an alternative to
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information about specific optimization techniques such as Stochastic Gradient Descent (SGD) or Adaptive Moment Estimation (Adam) used in the deep learning pipeline. Instead, it discusses the application of ensemble methods like bagging and boosting in machine learning models, specifically focusing on Random Forests (RF) and Extreme Gradient Boosting (XGBoost).
+
+In the context of optimizing the iteration number for XGBoost, a nested k-fold cross-validation scheme is employed. This involves splitting datasets into three subsets - tuning, validation, and test sets. For each fold, the model is trained on the tuning set, and its performance is monitored on the validation set by calculating the out-of-sample prediction accuracy. The median of k-1 folds is taken to give k medians for each number of iterations.
+
+However, there is no mention of any optimization techniques typically associated with deep learning pipelines, such as SGD or Adam. These techniques are commonly used to update neural network weights during training to minimize loss functions. Therefore, based on the provided context, it cannot be determined what optimization techniques are applied in the deep learning pipeline.

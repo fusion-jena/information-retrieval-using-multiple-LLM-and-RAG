@@ -1,0 +1,11 @@
+After the model training, several postprocessing steps are involved, including generating prediction records, collecting weather data, and calculating various metrics and a confusion matrix.
+
+Firstly, after neural network training and validation, predictions for the entire unvalidated recording period are generated. Specifically, for each of the five training folds, a single prediction for every 8-second interval is made for the duration of the year. The five prediction records that result are then averaged together to create a single prediction record. These 8-second interval predictions are then aggregated into hourly prediction records, containing the number of instances that each particular sound stimuli was predicted per hour. This record is normalized by the number of 8-second intervals actually recorded during that hour, to account for the possibility that missing audio data would render a given prediction record artificially low (2.6).
+
+Secondly, weather data is collected. However, the context does not provide details about how this data is collected or used in the postprocessing steps (2.7).
+
+Lastly, various metrics are calculated to evaluate the model's performance. The average unweighted and category-weighted training classification accuracies are 98.9% and 97.4%, respectively. The F1-scores for the training and testing datasets are 0.980 and 0.907, respectively. Slightly lower testing accuracy scores are seen in categories like background noise, which potentially contain a very faint sound occurring in one of the other categories that is not readily detected by the human eye, or other such class ambiguities. Additionally, lower scores are seen for smaller classes with a fewer number of training examples, like the squirrel "kuk" and the white-breasted nuthatch call (3.1).
+
+However, the context does not mention any saliency maps or other visualizations of the model's predictions.
+
+In summary, after the model training, prediction records are generated, weather data is collected, and various metrics, including a confusion matrix, are calculated to evaluate the model's performance.

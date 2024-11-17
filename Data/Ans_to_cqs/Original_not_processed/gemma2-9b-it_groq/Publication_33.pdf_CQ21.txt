@@ -1,0 +1,19 @@
+Answer:::
+The provided text describes a post-processing step that involves setting a confidence threshold (τi) specific to each species class. 
+
+Here's how it works:
+
+1. **Model Output:** The trained CNN model produces an output {C(X), S(X)} for an image X, where C(X) is the predicted species (class) with the highest score, and S(X) is the classification score.
+
+2. **Ground Truth:** The system knows the actual species (ground truth) Y for the image.
+
+3. **Threshold Tuning:** Using a separate dataset (T1), the system determines an optimal threshold (τi) for each species. This threshold is based on a trade-off between accuracy and the proportion of images fully processed.
+
+4. **Post-Processing:** The model output is post-processed using the determined thresholds.  The text explains that this transforms the classification from two options (correct/wrong) to three:
+
+    * **Correct:** The model's prediction matches the ground truth.
+    * **Misclassified:** The model's prediction is incorrect.
+    * **Unsure:** The model's confidence score falls below the species-specific threshold.
+
+
+The text doesn't mention other post-processing steps like saliency maps or confusion matrix calculation. 

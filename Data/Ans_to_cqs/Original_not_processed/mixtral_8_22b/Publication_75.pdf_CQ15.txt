@@ -1,0 +1,75 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.2.2. Retrieval results 
+
+The retrieval experiments ensued the following strategy: every image 
+is used as a query image and is matched with every remaining image in 
+the database. Tables 6 and 7 present the retrieval performances of all the 
+networks in terms of the four considered measures by choosing the top 
+100 matches, i.e. η = 100, and the two chosen similarity distances. 
+
+3.3. Deep learning vs traditional machine learning comparison 
+
+A comparison of deep learning approaches with traditional machine
+
+Our study was mainly to propose a new model based on CNN, which 
+provides an efficient and effective approach for single seed classification 
+and retrieval. Our network architecture, SeedNet, contains six learnable 
+layers, 5 of which are convolutional, and the last is fully-connected. The 
+ReLU (Rectified Linear Unit) activation is applied to the output of every 
+convolutional  layer.  Moreover,  we  periodically  insert  a  pooling  layer 
+between successive convolutional layers, in order to reduce the amount 
+of parameters and computation in the network, and hence to also control 
+overfitting. More precisely, we employ a Max pooling strategy with a 
+3 × 3 filter size, and 1 × 1 stride. The input image size is 224 × 224 × 3. 
+According to the chosen dataset, the output of the last fully-connected 
+layer  is  fed  to  a  N-way  softmax,  which  produces  a  distribution  over 
+the N class labels to predict, i.e. 6 for the Canadian and 23 for the local
+
+During the experimentation, the most efficient solver for classifica-
+tion turned out to be Adam, as Sgdm experienced drops in performance. 
+The experimental results show a correlation between the number of CNN 
+levels and its performance, with some important exceptions. Above all, 
+VGG16 produced relatively low performances. Considering that it is now 
+commonly  used  as  a  backbone  network,  it  can  be  avoided  in  such  a 
+scenario. Secondly, our proposed model and ResNet18 obtained excel-
+lent performances in both experimentations, even though they do not 
+contain a high number of levels. They are both eligible as the best net-
+works  for  this  study.  Our  experiments  permit  us  to  deduce  that, 
+regarding the classification task, the best CNNs are our proposed model, 
+ResNet50  and  ResNet18,  achieving  outstanding  performances  with 
+acceptable stability, low training time, and high ability to manage the
+
+retrieval measurements. 
+
+To  sum  up,  SeedNet  seems  robust  for  both  tasks,  reaching 
+outstanding performance results with both datasets and having a low 
+training time if compared to the  other examined networks. However, 
+other CNNs obtained satisfactory results, like the Residual Networks (e. 
+g. ResNet18) in both tasks, or SqueezeNet in the retrieval one. The CNNs 
+are also generally preferable in performances with respect to the tradi-
+tional  methods,  even  though  the  last  ones  reached  interesting  results 
+with low training times. 
+
+4. Conclusions
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+In the given context, the optimization technique applied in the deep learning pipeline is mentioned during the experimentation phase. The most efficient solver for classification turned out to be Adam. This indicates that the Adam optimizer was used in the deep learning pipeline for the proposed model, SeedNet.
+
+Adam (Adaptive Moment Estimation) is an optimization algorithm that can be thought of as a combination of RMSprop and Stochastic Gradient Descent with momentum. It calculates adaptive learning rates for different parameters from estimates of first and second moments of the gradients. Adam has been shown to perform well in practice and is often a preferred choice for deep learning models due to its computational efficiency and little memory requirements.
+
+However, it should be noted that while Adam performed better than Sgdm (Stochastic gradient descent with momentum) in this particular case, the optimal optimization technique may vary depending on the specific problem and dataset. Other popular optimization techniques include RMSprop, Adagrad, and Adadelta. Each of these algorithms has its own strengths and weaknesses, and the choice of optimizer depends on factors such as convergence speed, generalization performance, and ease of hyperparameter tuning.

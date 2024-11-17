@@ -1,0 +1,11 @@
+Based on the provided context, there are several techniques employed to address data bias during the preprocessing stage of the deep learning pipeline. These include:
+
+1. Stratified Splitting: This technique ensures that each subset of the dataset maintains the same proportion of labels as the original dataset. It helps prevent overfitting and underfitting due to imbalanced datasets.
+
+2. Oversampling: To counteract the effects of having fewer examples of certain classes, oversampling involves duplicating existing instances of those classes. This can help balance out the distribution of classes within the dataset.
+
+3. Undersampling: On the other hand, if a particular class has too many instances compared to others, undersampling may be used to reduce the number of instances of that class. This can help achieve a better balance among different classes in the dataset.
+
+4. Diverse Data Collection: Collecting diverse data is essential to avoid bias towards specific features or characteristics. By gathering various types of images, such as different fish species, sizes, shapes, colors, and poses, the model becomes more robust and generalizable.
+
+In the case of coral reef fish detection and recognition, the authors have implemented several strategies to mitigate data bias. They collaborated with marine biologists to label numerous video frames, resulting in a large training database containing 13,000 fish thumbnails. Only species with more than 450 thumbnails were included, ensuring sufficient representation for each class. Additionally, they augmented their dataset by applying rotations and symmetries to capture all possible positions of the fishes. Furthermore, they introduced two new classes – 'part of fish' and 'fish' – to encourage the network to process the entire fish instead of focusing on distinct parts like fins or heads. The 'random/specific background' class was also incorporated to account for the highly textured natural environment.

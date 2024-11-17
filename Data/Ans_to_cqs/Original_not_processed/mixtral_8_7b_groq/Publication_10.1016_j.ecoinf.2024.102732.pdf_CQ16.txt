@@ -1,0 +1,14 @@
+Answer:::
+The context provided does not give specific criteria used to determine when training is complete in machine learning algorithms. However, it does mention some parameters that are tuned during the training process.
+
+For XGBoost, the maximum depth of a tree (max_depth) and the learning rate (eta) are adjustable parameters. The maximum depth determines the number of levels in the tree, and a larger value can lead to overfitting. The learning rate controls the contribution of each new tree, and a smaller value can result in slower convergence but potentially better generalization.
+
+In Support Vector Regression (SVR), the 'C' parameter is optimized. This parameter balances margin width and misclassification tolerance. A larger 'C' value implies a smaller margin and higher penalty for errors, which may lead to overfitting if set too high.
+
+In general, training of machine learning models is often stopped when a validation metric, such as loss or error, plateaus or shows only minimal improvement over a certain number of iterations or epochs. This approach is used to prevent overfitting, which occurs when the model learns the training data too well, including its noise, and performs poorly on unseen data.
+
+Early stopping is a common technique used to halt training when the model's performance on a validation set stops improving or starts degrading. This can be done by monitoring the performance on a validation set after each epoch and stopping the training when the performance does not improve for a predetermined number of epochs.
+
+Another method to determine when training should be stopped is by using cross-validation, where the data is divided into 'k' folds, and the model is trained 'k' times, each time leaving out one fold for validation. The average performance across all folds is then used as an indicator of the model's ability to generalize. Training is stopped when the cross-validation performance stops improving.
+
+While the context does not explicitly mention these criteria, they are common practices in machine learning for determining when training should be stopped.

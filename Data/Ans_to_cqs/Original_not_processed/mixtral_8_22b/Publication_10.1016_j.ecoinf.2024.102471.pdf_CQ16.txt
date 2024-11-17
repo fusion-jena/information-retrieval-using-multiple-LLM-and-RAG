@@ -1,0 +1,116 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Fig. 2. Wav2Vec pre-training phase.  
+
+quantized representation for the masked latent feature representation. 
+Diversity loss shown in (2) is also added to the objective function for 
+regularization during pre-training. 
+
+(
+
+Lm = (cid:0)
+
+log
+
+sim(ct ,qt )
+e
+k
+
+/
+
+∑
+
+q′∈Qt
+
+sim(ct ,q′)
+e
+k
+
+Ld =
+
+(cid:0)
+*
+
+1
+GV
+
+) )
+
+(cid:0)
+
+pg
+
+(cid:0) H
+
+(1)  
+
+(2) 
+
+In the supervised fine-tuning phase, the labelled dataset is used in 
+training the model to predict particular words or phonemes. Fig. 3 de-
+picts the process and components in the fine-tuning phase of wav2vec. 
+Phonemes are the smallest unit of sound, usually one or two letters, in 
+the language. During fine-tuning, the quantization module is removed. 
+Instead, a linear projection layer is added to the context network. Then 
+the model is fine-tuned on connectionist temporal classification (CTC) 
+loss for the Automatic Speech Recognition task. So, the wav2vec model 
+has a general understanding of phonemes present in human speech.
+
+The  loss  and  accuracy  plots  in  Fig.  12  and  Fig.  13  show  that  the 
+proposed  transfer  learning  using  the  wav2vec  approach  can  perform 
+very  well  with  fewer  epochs  due to  the  wav2vec model's  general  un-
+derstanding of the sounds which is learned during its pre-training phase 
+on the huge amount of audio dataset. Table 5 shows that in all three- 
+evaluation  metrics,  the  MFCC  features  outperform  Mel  spectrogram 
+features in the baseline model. Compared to the baseline models, the 
+recommended  transfer  learning  model  based  on  wav2vec  performs 
+better.
+
+The  self-supervised  training  phase  comprises  four  important  ele-
+ments: feature encoder, context network, quantization module, and pre- 
+training  objective.  Fig.  2  depicts  the  overall  pre-training  approach  of 
+wav2vec. Contrastive learning is the idea of recognizing whether two 
+different types of transformation of the input are the same or not. The 
+two transformations used in the Wav2vec model are the context repre-
+sentation from the context network and the final quantization vectors 
+
+EcologicalInformatics80(2024)1024713B. Swaminathan et al.                                                                                                                                                                                                                         
+
+Fig. 2. Wav2Vec pre-training phase.
+
+(
+
+m = 1127*log
+
+1 +
+
+)
+
+f
+700
+
+(4) 
+
+EcologicalInformatics80(2024)1024718B. Swaminathan et al.                                                                                                                                                                                                                         
+
+Fig. 11. GUI output for the audio sample with three bird species.  
+
+Fig. 12. Loss graph by varying epochs.  
+
+Fig. 13. Accuracy graph by varying epochs.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it appears that the criteria used to determine when training is complete involve monitoring the loss and accuracy graphs by varying epochs. In this case, the proposed transfer learning using the wav2vec approach is observed to perform very well with fewer epochs due to the wav2vec model's general understanding of sounds learned during its pre-training phase on a large audio dataset. This suggests that the completion of training might be determined by observing the performance of the model on the validation set and stopping the training once the performance reaches a satisfactory level or starts to plateau. However, the specific threshold values or criteria for determining the completion of training are not explicitly mentioned in the provided context.

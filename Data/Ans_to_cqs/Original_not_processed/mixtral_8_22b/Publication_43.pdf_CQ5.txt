@@ -1,0 +1,139 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Deep CNNs, such as ResNet and GoogLeNet, are generally trained based on the prediction loss
+minimization. Let x and y be the input images and corresponding output class labels, the objective of
+the training is to iteratively minimize the average loss deﬁned as
+
+J(w) =
+
+1
+N
+
+N
+∑
+i=1
+
+L( f (w; xi), yi) + λR(w)
+
+(1)
+
+This loss function measures how different is the output of the ﬁnal layer from the ground truth.
+N is the number of data instances (mini-batch) in every iteration, L is the loss function, f is the
+predicted output of the network depending on the current weights w, and R is the weight decay with
+the Lagrange multiplier λ. It is worth mentioning that in the case of GoogLeNet, the losses of the
+
+Remote Sens. 2017, 9, 1220
+
+6 of 22
+
+two auxiliary classiﬁers are weighted by 0.3 and added to the total loss of each training iteration.
+The Stochastic Gradient Descent (SGD) is commonly used to update the weights.
+
+wt+1 = µwt − α∆J(wt)
+
+(2)
+
+Ziziphus
+Bare soil
+
+80 img
+80 img
+
+20 img
+20 img
+
+22 poly
+22 poly
+
+0 poly
+0 poly
+
+52 poly
+52 poly
+
+40 poly
+40 poly
+
+Remote Sens. 2017, 9, 1220
+
+10 of 22
+
+Figure 3. The two top panels show examples of the 80 × 80-pixel image patches used to build the
+training dataset for the CNN model: (left) patches of Ziziphus lotus class, (right) patches of Bare soil
+with sparse vegetation class. The bottom panel shows the training-zone dataset with 100 Ziziphus lotus
+patches labeled with a green contour and 100 Bare soil and sparse vegetation patches labeled with
+yellow contour.
+
+5. Experimental Evaluation and Discussions
+
+4.2.3. Training Dataset for the CNN-Classiﬁer
+
+The design of the training dataset is key to the performance of a good CNN classiﬁcation model.
+From the 82 Ziziphus individuals georeferenced by botanic experts in the training-zone, we identiﬁed
+100 80 × 80-pixel image patches containing Ziziphus lotus shrubs and 100 images for Bare soil with
+sparse vegetation. Examples of the labeled classes can be seen in Figure 3. We distributed the
+100 images of each class into 80 images for training and 20 images for validating the obtained CNNs
+classiﬁers, as summarized in Table 1.
+
+Table 1. Training and testing datasets for both CNN and OBIA used for mapping Ziziphus lotus shrubs.
+Bare soil: Bare soil and sparse vegetation; Img: 80 × 80-pixel image patches; Poly: digitized polygons.
+
+CNN Classiﬁer
+
+OBIA Classiﬁer
+
+Class
+
+Training
+
+Validation
+
+Training
+
+Accuracy
+
+Assessment
+
+Training-Zone
+
+Test-Zone-1
+
+Test-Zone-2 Test-Zone-1
+
+Test-Zone-2
+
+Ziziphus
+Bare soil
+
+80 img
+80 img
+
+20 img
+20 img
+
+In this work, we considered the two most accurate CNNs, ResNet ([42]) and GoogLeNet ([43]).
+ResNet won the ﬁrst place on the 2015 ILSVRC (ImageNet Large Scale Visual Recognition Competition
+(ILSVRC)) and is currently the most accurate and deepest CNN available. It has 152 layers and
+25.5 million parameters. Its main characteristic with respect to the previous CNNs is that ResNet
+creates multiple paths through the network within each residual module. GoogLeNet won the ﬁrst
+place of the 2014 ILSVRC. GoogLeNet is based on inception v3 and has 23.2 million parameters and
+22 layers with learnable weights organized in four parts: (i) the initial segment, made up of three
+convolutional layers, (ii) nine inception v3 modules, where each module is a set of convolutional and
+pooling layers at different scales performed in parallel then concatenated together, (iii) two auxiliary
+classiﬁers, where each classiﬁer is actually a smaller convolutional network put on the top of the
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: In this study, the authors use their own custom dataset consisting of 80x80 pixel image patches of Ziziphus lotus shrubs and bare soil with sparse vegetation. They collected 100 images for each class, which were divided into 80 images for training and 20 images for validation. This dataset was used to train and validate the CNN models, specifically ResNet and GoogLeNet.

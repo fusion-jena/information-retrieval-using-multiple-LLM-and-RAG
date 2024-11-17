@@ -1,0 +1,118 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+N
+
+̂RMSE sim =
+
+̂MEC sim = 1 (cid:0)
+
+∑N
+
+i=1
+
+r(si)2
+
+∑N
+
+i=1
+
+(r(si) + ̂zm(si) (cid:0) μsim )2
+
+(9)  
+
+(10)  
+
+where μsim  is the mean of r(si) + ̂zm(si) over all nodes of the simulation 
+grid. 
+
+To allow comparison of accuracy estimates across different samples, 
+relative deviations of the accuracy estimates from their reference met-
+rics  were  expressed  as  percentages.  For  example,  the  relative  RMSE 
+(rRMSE) was computed by Eq. (11). The relative MEC was computed 
+similarly. 
+
+rRMSE = 100∙
+
+̂RMSE (cid:0) RMSE
+RMSE
+
+2.4. Case study implementation 
+
+(11)  
+
+The following two maps provided population reference data for the 
+target variables AGB and OCS (see Fig. 1), which were used for drawing 
+the sample datasets (for model training) and for computing the reference 
+map accuracy metrics:  
+
+√
+
+̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+∑N
+i=1(z(si) (cid:0) ̂zm(si) )2
+N
+
+RMSE =
+
+MEC = 1 (cid:0)
+
+∑N
+
+i=1(z(si) (cid:0) ̂zm(si) )2
+∑N
+z(si) (cid:0) zp
+i=1
+
+)2
+
+(cid:0)
+
+mapping probability samples that are exclusively used for map evalua-
+tion are often not available and therefore alternative methods have been 
+proposed.  In  machine  learning,  if  data  are  abundant,  a  common 
+approach is to randomly divide the full dataset used for modelling into 
+three parts: a training set, a validation set, and a test set (Hastie et al., 
+2009,  Chapter  7).  The  training  set  is  used  for  fitting  the  models,  the 
+validation set is used to estimate prediction error for model selection and 
+hyperparameter tuning, while the test set is used for assessing the ac-
+curacy of the final model. This paper addresses this latter testing phase, 
+with the specific aim to assess the accuracy of a thematic map produced 
+by a calibrated statistical prediction method. Data availability is often 
+limited  so that setting  aside a  test set  cannot always be afforded and 
+therefore resampling methods are used (Hastie et al., 2009; Steele et al.,
+
+Fig.  4. Reference  map  accuracy  metrics  computed  from  the  population  data  for  models  trained  on  100  realizations  of  each  sampling  design.  Boxes  denote  the 
+interquartile  range;  thick  horizontal  line  inside  boxes  are  medians;  whiskers  mark  the  full  range  and  points  indicate  the  means.  SRS  = simple  random;  syst  =
+systematic random; clustMed = moderately clustered; clustStr = strongly clustered; clustGap = strongly clustered, gapped sample. 
+
+EcologicalInformatics69(2022)1016657S. de Bruin et al.
+
+To support statistically convincing conclusions, it is important to also 
+estimate the uncertainty of map accuracy estimates. Currently, there is 
+no  universal  unbiased  estimator  of  the  variance  of  k-fold  cross- 
+validation  (Bengio  and  Grandvalet,  2004;  Yousef,  2021).  A  model- 
+based approach allows computing the model-variance of the predicted 
+RMSE and MEC and use these to compute prediction intervals for these 
+metrics. However, the model-variance of a predictor and the sampling 
+variance of an estimator are fundamentally different, as the source of 
+randomness differs between the approaches. In design-based estimation, 
+randomness concerns the selection of sampling units, whereas in model- 
+based prediction randomness is introduced via the statistical model of 
+the spatial variation (Brus, 2021). The latter randomness depends on the 
+model’s specification and identification. In general, estimation of con-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information about the evaluation metrics used for a deep learning model. However, it discusses the use of Root Mean Square Error (RMSE) and Mean Error Cost (MEC) as accuracy measures for evaluating the performance of a thematic map produced by a calibrated statistical prediction method. These metrics are used to compare the predicted values with the actual values in the target variable. Additionally, the context mentions the use of relative deviations of the accuracy estimates from their reference metrics, such as Relative RMSE (rRMSE), to express the differences as percentages.

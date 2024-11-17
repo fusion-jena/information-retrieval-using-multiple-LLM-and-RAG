@@ -1,0 +1,79 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The supervised learning workflow adheres to the steps outlined in 
+Sections 2.3.1–2.3.5. However, as detailed in Section 2.3.2, we deviated 
+by not generating 400 random points over the entire boundary. Instead, 
+we used the vegetation types described by Gertenbach (1983) to guide 
+the placement of our sampling plots, from which we then collected the 
+training and validation points (Fig. A.2). The creation of several small 
+sampling plots within each vegetation type, instead of using one large 
+area, also helped speed up the sampling process. Performing the data 
+collection  within  the  sampling  plots  ensured  that  we  had  training/ 
+validation  points  that  were  representative  of  the  diverse  vegetation 
+within each boundary. To determine the size of the sampling plots, we 
+first calculated 5% of the total area covered by the boundary, divided 
+that area by the number of vegetation types intersecting the boundary
+
+low, a completely random sampling protocol produced an unbalanced 
+training set and resulted in the misclassification of smaller woody plants 
+(i.e., shrubs). To address this issue, we created a separate geometry, ‘add 
+trees’ (LC property = 2), whereby well-defined examples of woody cover 
+elements  were  added  until  the  two  classes  had  the  same  number  of 
+training points. This new geometry was then merged with the randomly 
+allocated  woody points, ‘woody’  (LC  property = 2) + ‘add trees’  (LC 
+property = 2) = ‘merged woody’, as they are part of the same land cover 
+class. To assess model accuracy, we then randomly separated 80/20% of 
+the classified points to generate a training/validation dataset to be used 
+later in the accuracy assessments.
+
+Most  studies  dealing  with  data  sampling  recommend  the  use  of 
+random or stratified sampling approaches to generate training/valida-
+tion  points  (Hammond  and  Verbyla,  1996;  Millard  and  Richardson, 
+2015; Tassi et al., 2021). In this study, a set of 400 random points was 
+generated within the subplot, and subsequently the points were assigned 
+to one of the two LC classes. The number of random points was based on 
+trial-and-error classifications that were run in the same areas. Random 
+points that fell on a specific pixel were labeled by visual interpretation as 
+either ‘non-woody’ or ‘woody’. Important considerations while deciding 
+the  class  of  the  pixel  were (1) pattern  of  the  pixels within  which  the 
+random point fell, (2) shape of the object, and (3) grayness of the pixel. 
+However,  in  an  open  savanna  environment  like  KNP,  where  the 
+probability of a random point landing on a woody plant is exceptionally
+
+2.3.4. Woody cover classification 
+
+To  obtain  the  woody  cover  classification  we  chose  the  Random 
+Forest classifier, which is a supervised learning algorithm that produces 
+multiple decision trees using a randomly selected subset of training data 
+and  independent  variables  (Breiman,  2001).  It  has  received  much 
+attention in the last few years due to its excellent classification results, 
+fast-processing  speed,  ease  in  handling  different  types  of  data,  e.g., 
+
+shape  and  texture,  and  no  requirement  for  normally  distributed  data 
+(Belgiu and Dr˘agut¸, 2016; Rodriguez-Galiano et al., 2012; Vogels et al., 
+2017).  Another  advantage  of  the  Random  Forest  is  that  it  is  able  to 
+compute  variable  importance  measures  that  allow  us  to  identify  the 
+variables that exerted a substantial influence on the classification pro-
+cess (Rodriguez-Galiano et al., 2012).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't any explicit mention of strategies employed to handle randomness in the deep learning pipeline, such as managing random seed values. However, some relevant information can still be extracted regarding how randomness was handled during the data collection and processing stages.
+
+In the context provided, the authors discuss their approach to creating a balanced training set by adding well-defined examples of woody cover elements until both classes had the same number of training points. They also describe how they generated a set of 400 random points within the subplot and assigned them to one of the two land cover classes. These methods suggest that the researchers took deliberate actions to manage randomness during the data collection stage.
+
+Additionally, the text mentions the use of the Random Forest classifier, a supervised learning algorithm known for producing multiple decision trees using a randomly selected subset of training data and independent variables. While this does involve some level of randomness, it is inherent to the chosen method rather than being explicitly managed through strategies like setting random seed values.
+
+Therefore, based on the available context, it appears that the focus was more on addressing issues related to imbalance in the training set and ensuring representativeness of the sampled data, rather than directly tackling randomness in the deep learning pipeline itself.

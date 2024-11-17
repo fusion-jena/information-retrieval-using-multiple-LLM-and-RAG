@@ -1,0 +1,252 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1. Number of samples in the training, validation and test sets for Amazon database.
+
+Set
+
+Tiles
+
+Available Def.
+Samples
+
+Available No-def.
+Samples
+
+Balanced Samples
+(per Class)
+
+Total Samples
+
+Training
+
+Validation
+
+1, 7, 9, 13
+
+5, 12
+
+2706
+
+963
+
+78,431
+
+39,697
+
+Test
+
+2, 3, 4, 6, 8, 10, 11, 14, 15
+
+40,392
+
+1,675,608
+
+8118
+
+2889
+
+-
+
+16,236
+
+5778
+
+1,716,000
+
+The EF network architecture consisted of three convolutional layers (Conv) including the
+Rectiﬁed Linear Unit (ReLU), two Max-pooling layers (MaxPool), and two Fully Connected layers
+(FC), with a softmax layer at the end with two outputs, corresponding to “deforestation” and
+“no-deforestation” classes. The ﬁlter and output size of each layer are summarized in Table 3.
+
+132456789101112131415Remote Sens. 2020, 12, 910
+
+11 of 28
+
+Table 2. Number of samples in the training, validation and test sets for Cerrado database.
+
+Set
+
+Tiles
+
+Available Def.
+Samples
+
+Available No-def.
+Samples
+
+Balanced Samples
+(per Class)
+
+Total Samples
+
+20,306
+40,515
+59,102
+78,431
+
+717
+2127
+5421
+8118
+
+1434 + 5778
+4254 + 5778
+10,842 + 5778
+16,236 + 5778
+
+Table 7. Training tiles used for the Cerrado database.
+
+Training Set
+
+Tiles
+
+Available Def.
+Samples
+
+Available No-def.
+Samples
+
+Balanced Samples
+(per Class)
+
+Total Samples
+(tr + val)
+
+1 Tile
+2 Tiles
+3 Tiles
+4 Tiles
+
+5
+5, 13
+1, 5, 13
+1, 5, 12, 13
+
+671
+1240
+2287
+4182
+
+17,370
+33,760
+50,273
+65,717
+
+2013
+3720
+6861
+12,546
+
+4026 + 3,978
+7440 + 3,978
+13,722 + 3,978
+25,092 + 3978
+
+2.7. Accuracy Assessment
+
+The performance of the evaluated methods was expressed in terms of Overall Accuracy (OA),
+
+F1-Score, and Alarm Area (AA).
+
+•
+
+•
+
+•
+
+Overall Accuracy (OA): is a global metric that indicates the percentage of samples correctly
+classiﬁed in relation to the total samples. It is deﬁned by:
+
+OA =
+
+tp + tn
+P + N
+
+× 100
+
+(2)
+
+2.6. Inﬂuence of the Number of Training Samples
+
+To evaluate the inﬂuence of the number of training samples, four scenarios were considered.
+Speciﬁcally collecting samples from the training set of a one, two, three and four tiles, denoted as Ni,
+where i corresponds to the number of tiles used in each scenario. For EF and SN methods, the validation
+set (val) was used to stop training once the loss increased in 10 consecutive epochs (early stopping).
+As mentioned before, for CSVM and SVM the samples in this set were added to the training set (tr).
+The number of training samples in each scenario for the Amazon and Cerrado databases is presented
+in Tables 6 and 7, respectively.
+
+Table 6. Training tiles used for the Amazon database.
+
+Training Set
+
+Tiles
+
+Available Def.
+Samples
+
+Available No-def.
+Samples
+
+Balanced Samples
+(per Class)
+
+Total Samples
+(tr + val)
+
+1 Tile
+2 Tiles
+3 Tiles
+4 Tiles
+
+13
+1, 13
+1, 7, 13
+1, 7, 9, 13
+
+239
+709
+1807
+2706
+
+20,306
+40,515
+59,102
+78,431
+
+717
+2127
+5421
+8118
+
+6 of 28
+
+Figure 3. Procedure to train the SVMs ﬁlter bank. Mini-patches are extracted from input patches,
+and they are vectorized to compose the training set of SVMs.
+
+2.3.2. Training the SVMs Filter Bank
+
+After the global training set is built, m subsets of N random selected samples are created to train
+m SVMs ﬁlters. These m subsets are composed of n samples per class, which are randomly selected
+from the global training set. The weights of the SVMs ﬁlters are learned using a conventional forward
+supervised learning layer by layer in a greedy fashion. To make the most of available training samples
+and to avoid data duplication in the subsets, in our study, the value of n was set to the ratio between
+the number of training samples (N) and the amount (m) of SVM ﬁlters.
+
+2.3.3. Generation of Feature Maps
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What methods are utilized for collecting raw data in the deep learning pipeline (e.g., surveys, sensors, public datasets)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The information provided does not explicitly mention the specific methods or sources used for collecting raw data in the deep learning pipeline. However, it can be inferred that the data might have been collected through remote sensing techniques, given the focus on deforestation detection and the use of satellite imagery. Remote sensing involves obtaining information about the Earth's surface and atmosphere using sensors mounted on aircraft or satellites. This method allows for large-scale data collection over vast geographical areas, making it suitable for monitoring changes such as deforestation. Additionally, the tables indicate that the dataset consists of multiple tiles, suggesting that the data may have been obtained from various locations or time periods.

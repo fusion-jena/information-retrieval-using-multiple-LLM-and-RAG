@@ -1,0 +1,107 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+value gained by SPAD-502Plus (Fig. 6). Furthermore, modelling of the 
+SPAD  value  was  performed  by  a)  a  simple  linear  model  (LM),  b)  a 
+generalized linear model with a gamma distribution (GLM), and c) an 
+artificial neural network (ANN). The dataset contained 89 valid records 
+(outliers were removed according to the empirical rule), while one re-
+cord represented the mean value of the total 10 spot measurements on 
+one  leaf.  For  the  purpose  of  SPAD  value  modelling,  the  dataset  was 
+divided  into  a  “training  dataset”  containing  60  randomly  selected  re-
+cords and a “testing dataset” that contained the remaining 29 records. 
+All three models were then fitted using the “training dataset” and further 
+validated using the “testing dataset”.
+
+To achieve the utmost accuracy, a test was completed by engaging 
+the artificial ANN. Only Cb and Cr were used as the input variables since 
+they were considered the most sensitive variables during the two pre-
+ceding testing stages. Thus, the simple ANN was fitted with two inputs 
+and one output, as the addition of any hidden layers returned less ac-
+curacy of the prediction on the test data due to overfitting. The results 
+were  considered  comparable  in  terms  of  accuracy  as  the  previous 
+methods. The mean deviance of the model response from SPAD value 
+measurements  was  1.904  (95%  CI:  1.89–1.92),  while  the  best  “run” 
+showed a mean deviation of 1.70 (max. 2.22, 95% CI, one-sided t-test). 
+All three modelling approaches could be incorporated in the source 
+code at this stage to provide the SPAD value estimate for the following 
+rapeseed measurements. However, LM was concluded to be the simplest 
+method with a high level of accuracy. A complex overview of the plant
+
+Fig. 5. Technical specifications of the proposed sensor Rasp2SPAD as the low-cost alternative to the standard commercial handheld sensor SPAD-502Plus (Kon-
+ica Minolta). 
+
+Table 4 
+The best fitting simple linear model (LM) for SPAD value prediction was based 
+on parameters obtained by the Rasp2SPAD prototype.  
+
+Response: SPAD value 
+
+Coefficients     
+
+Estimate 
+
+Intercept 
+Cb 
+Cr 
+R-squared (training data): 0.81 
+Mean absolute difference (test data): 1.85  
+
+89.53762 
+0.47547 
+(cid:0) 0.76144 
+
+t value 
+
+7.56 
+10.18 
+(cid:0) 8.51 
+
+p value 
+
+< 0.001 
+< 0.001 
+< 0.001 
+
+Furthermore, the GLM approach applied on the dataset also achieved 
+significant  results  (Table  5),  although  only  slightly  better  than  LM. 
+Artificial R-squared = 0.81 on training data reached the same level as by 
+LM; nevertheless, lower mean absolute deviance of testing data = 1.79
+
+As  the  third  approach  for  SPAD  value  modelling  based  on  the 
+Rasp2SPAD indices, an artificial neural network was implemented. The 
+same predictors as in the previously described LM and GLM were uti-
+lized. All predictors were scaled prior to analysis. The ANN  was con-
+structed empirically, with the first layer containing two input nodes (one 
+per each of the two parameters that were found to be the most suitable 
+by LM and GLM) and the last layer containing only one node (predicted 
+SPAD value). As the fit of the ANN does not give the same output for 
+each run  (because of a random number generator used for numerical 
+optimization of the model), 100 successful runs were performed, and the 
+model residuals obtained in each run were analysed for a more reliable 
+evaluation of the model performance.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, several postprocessing steps can be taken depending on the type of model and the desired outcome. In the given context, three different models were trained - Linear Model (LM), Generalized Linear Model (GLM), and Artificial Neural Network (ANN) - to predict the SPAD value. After training these models, the following postprocessing steps were carried out:
+
+1. Validation: Once the models were trained using the 'training dataset', they were validated using the 'testing dataset'. This step helps evaluate how well the models perform on unseen data.
+
+2. Comparison: The performance of all three models was compared. The mean deviance of the model response from SPAD value measurements was calculated for each model. Additionally, the mean absolute difference between predicted and actual values was determined for the test data.
+
+3. Selection: Based on the validation and comparison, the best performing model was chosen. In this case, despite having similar levels of accuracy, the Linear Model (LM) was preferred because it is simpler and easier to implement.
+
+4. Analysis: Further analysis was conducted on the ANN model due to its inherent variability. Multiple runs of the ANN were executed, and the model residuals were analyzed to ensure reliability.
+
+These postprocessing steps help assess the quality of the models, select the best performing ones, and ensure their robustness before incorporating them into practical applications.

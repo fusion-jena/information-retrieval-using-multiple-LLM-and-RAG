@@ -1,0 +1,116 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+In  addition  to  calculating  MAE  values,  we  also  compared  the 
+inference-time to determine the most computationally efficient model. 
+We set the batch to 400 to achieve 100% GPU utilization of each model 
+and to measure the maximum queries per second (QPS) achieved under 
+real-world conditions (Ding et al., 2021). All models were tested under 
+the same experiment setting and the same GPU to make comparisons 
+between them fair. To do so, we first expand the dataset by a factor of 
+five (from 8002 to 40,010 images). Then, we fed batches of 50 images 
+into the model to warm up the hardware, before recording the inference- 
+time of batches of 100 to quantify QPS. 
+
+pi,j =
+
+(cid:0)
+exp
+
+)
+
+zi,j
+(cid:0)
+
+exp
+
+zi,m
+
+∑M
+
+m=1
+
+)
+
+(1)  
+
+3. Results
+
+L = (cid:0)
+
+1
+N
+
+∑N
+
+i=1
+
+yi,jlog(pi)
+
+(4)  
+
+where yi, j is a soft label of the i-th sample (the ground truth age is j), and 
+pi is vector of probability predicted from i-th sample based on Eq. (3). 
+
+2.5. Training
+
+different VGG nets, such as VGG-11, VGG-16, and VGG-19. VGG-16 has 
+been applied in many researches and it is often used to extract features in 
+the age estimation tasks Pan et al. (2018). In this study, we replaced the 
+last three Fully-Connected (FC) layers of the original VGG model with 
+one FC layer to reduce parameters. And we adopt Batch Normalization 
+(BN) (Ioffe and Szegedy, 2015) to accelerate the training of networks. 
+For this study, we selected VGG-11-BN and VGG-16-BN to extract the 
+features from panda facial images. 
+
+2.2.2. ResNet
+
+exp
+
+zi,m
+
+∑M
+
+m=1
+
+)
+
+(1)  
+
+3. Results 
+
+when i-th sample (the ground truth label is c) fed into the model, zi  is 
+logits of the output, zi, j is a value of zi, j ∈ {1, 2, …, M} indicates the class 
+labels (age). pi, j is the probability of i-th sample which belongs to class j. 
+Based on Eq. (1), we can compute the CE loss (Lce) as follow: 
+
+Seven  models  from  four  types  of  CNN  obtained  different  perfor-
+mances in our experiments (Table 2). The OR method achieved better 
+performance than the MC method based on different models. The results 
+suggested that ordinal age information can help models learn intraclass 
+and interclass relationships. Our results showed that RepVGG achieved a 
+
+EcologicalInformatics72(2022)1018924H.-X. Zang et al.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training process, several postprocessing steps can be performed depending on the specific requirements of the task. Some common postprocessing steps include:
+
+1. Model Evaluation: This involves evaluating the performance of the trained model using various metrics such as accuracy, precision, recall, F1 score, etc. These metrics provide insights into how well the model performs on unseen data.
+2. Confusion Matrix: A confusion matrix is a table that summarizes the performance of a classification algorithm. It shows the number of correct and incorrect predictions made by the model for each class.
+3. Saliency Maps: Saliency maps highlight the regions of an input image that contribute significantly to the final prediction made by the model. They can be useful for understanding what parts of the image the model focuses on when making its decision.
+4. Visualizing Weights: Visualizing the weights of the trained model can provide insights into how the model learned to recognize patterns in the input data.
+5. Hyperparameter Tuning: After training the model, hyperparameters such as learning rate, regularization strength, etc., can be fine-tuned to improve the model's performance further.
+
+In the given context, the authors mention that they calculated Mean Absolute Error (MAE) values and compared the inference time to determine the most computationally efficient model. They also expanded their dataset by a factor of five and recorded the inference time of batches of 100 to quantify Queries Per Second (QPS). However, there is no explicit mention of any other postprocessing steps such as saliency maps or confusion matrices. Therefore, it cannot be determined if these methods were employed in this particular study.

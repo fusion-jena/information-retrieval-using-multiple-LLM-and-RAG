@@ -1,0 +1,158 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Comparison with count‑ception
+
+The Count-ception network [30] uses Inception modules 
+to build a network for counting objects in an image. The 
+model  applies  a  fully  convolutional  architecture,  and  it 
+does not use any pooling layers to retain as much infor-
+mation as possible. After each convolutional layer, batch 
+
+Table 2  Performance comparison of Model-2, Model-K, and Count-ception
+
+Model
+
+Feature extractor
+
+Model-2
+
+Model-K
+
+Count-ception
+
+Eff.Net-B5
+
+VGG
+
+No
+
+SSL
+
+RMSE
+
+1.88
+
+2.17
+
+5.57
+
+MAE
+
+1.09
+
+1.43
+
+3.54
+
+Elephant
+
+RMSE
+
+0.60
+
+0.81
+
+1.59
+
+MAE
+
+0.34
+
+0.43
+
+0.84
+
+Parameters
+
+≈37M
+≈48M
+≈14M
+
+ Padubidri et al. Anim Biotelemetry            (2021) 9:27 
+
+Page 8 of 10
+
+normalization  and  leaky  ReLU  activation  are  applied 
+for  speeding  up  convergence.  The  model  takes  an  input 
+image and outputs a prediction map. The predicted count 
+is calculated using the following formula:
+
+count = (cid:31)x,y F (I)
+
+r2
+
+(6)
+
+Page 6 of 10
+
+EfficientNet-B5  feature  extractor  [27].  EfficientNet  is  a 
+CNN  developed  by  Google,  characterized  by  high  accu-
+racy  and  computational  efficiency.  Model-2  was  initial-
+ized  by  pre-trained  weights  based  on  the  Imagenet  data 
+set  [28].  All  the  parameters  were  optimized  using  the 
+Adam optimizer with a learning rate of 0.001.
+
+Training
+
+An  Nvidia  GeForce  RTX  2060  GPU  was  used  for  train-
+ing,  with  a  batch  size  of  8.  Model-1  (without  feature 
+extractor)  was  trained  for  7  h  and  Model-2  (with  a  fea-
+ture  extractor)  for  17  h.  Based  on  the  model’s  perfor-
+mance on the validation set, the early stopping technique 
+was  applied  to  avoid  over-fitting.  Model-2,  which  used 
+
+pre-trained  weights  and  thus  some  prior  relevant  infor-
+mation, converged faster than Model-1 (Fig. 3).
+
+Model evaluation: testing
+
+The  Model-K  architecture  is  a  regression  model  based 
+on  VGG16  without  the  feature  extractor  on  top.  The 
+output layer was flattened and given as input to 2 fully 
+connected  (FC)  layers  with  linear  output.  The  regres-
+sion  model  was  designed  to  predict  classwise  (five 
+categories)  count.  To  compare  it  with  the  proposed 
+solution,  we  modify  the  model  by  connecting  the  out-
+put  layer  with  a  fully  connected  one  output  neuron. 
+Model-K  was  initialized  with  pre-trained  Imagenet 
+weights  and  then  trained  using  our  training  data  set 
+with  a  Stochastic  Gradient  Descent  (SGD)  optimizer 
+and  an  MSE  loss  function.  The  proposed  Model-2 
+with  EfficientNet  feature  extractor  reached  an  RMSE 
+value  of  1.88  and  0.60  for  the  SLL  and  elephants’  data 
+sets,  respectively,  performing  better  than  the  Model-K 
+with  an  RMSE  of  2.17  and  0.81  for  SSL  and  elephants’
+
+The  solution  presented  here  made  use  of  the  Kaggle 
+competition  data  set,  but  was  not  submitted  to  that 
+
+competition.  To  verify  the  accuracy  of  the  proposed 
+model, we compared it with two different architectures: 
+(a)  the  SSL  Kaggle  competition  winning  regression 
+model  [29]  (named  Model-K)  and  (b)  Count-ception 
+[30],  a  counting  approach  based  on  Inception  mod-
+ules  and  a  fully  convolutional  network.  Both  models 
+were trained exactly with the same training images and 
+tested  on  the  same  test  images.  Table  2  shows  a  com-
+parison  of  the  RMSE  and  MAE  scores  for  actual  and 
+predicted  counts  obtained  by  Model-2  (used  in  this 
+paper) and the scores obtained by Model-K and Count-
+ception, using the same testing data sets.
+
+Comparison with Model‑K
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The performance of the deep learning models in this study is evaluated using Root Mean Square Error (RMSE) and Mean Absolute Error (MAE). These metrics measure the difference between the predicted values and the actual values. Lower values of RMSE and MAE indicate better performance of the model. For instance, Model-2 achieved an RMSE value of 1.88 and 0.60 for the SSL and elephants’ datasets, respectively, while Model-K had an RMSE of 2.17 and 0.81 for the same datasets.

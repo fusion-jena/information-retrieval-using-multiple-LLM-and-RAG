@@ -1,0 +1,134 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Appendix A. Supplementary data 
+
+Supplementary data to this article can be found online at https://doi. 
+
+org/10.1016/j.ecoinf.2023.102291. 
+
+References 
+
+Abadi, M., Agarwal, A., Barham, P., Brevdo, E., Chen, Z., Citro, C., Corrado, G.S., 
+
+Davis, A., Dean, J., Devin, M., 2016. Tensorflow: large-scale machine learning on 
+heterogeneous distributed systems arXiv preprint arXiv:160304467.  
+
+Allen, A.N., Harvey, M., Harrell, L., Jansen, A., Merkens, K.P., Wall, C.C., Cattiau, J., 
+
+Oleson, E.M., 2021. A convolutional neural network for automated detection of 
+humpback whale Song in a diverse, long-term passive acoustic dataset. Front. Mar. 
+Sci. 8 https://doi.org/10.3389/fmars.2021.607321. 
+
+Au, W.L., 2000. Hearing in whales and dolphins: An overview. In: Au, W.L., Richard, R.F. 
+(Eds.), Hearing by Whales and Dolphins. Springer, New York, pp. 1–42. https://doi. 
+org/10.1007/978-1-4612-1150-1_1.
+
+for the customised architecture (see Convolutional neural networks sec-
+tion),  and  the  smallest  one  comprised  3900  images  combining  two 
+seconds  window  size  and  90  dpi  for  the  transfer  learning  approach 
+(Table 1).
+
+d
+e
+s
+i
+
+m
+o
+t
+s
+u
+C
+
+g
+n
+i
+n
+r
+a
+e
+L
+
+r
+e
+f
+s
+n
+a
+r
+T
+
+1
+≥
+R
+N
+S
+
+y
+r
+a
+r
+b
+i
+L
+
+i
+p
+d
+
+e
+z
+i
+s
+w
+o
+d
+n
+i
+W
+
+size of 32. The most suitable architecture was chosen based on the best 
+validation accuracy (proportion of all correct predictions) and precision 
+(number of true positives divided by true positives and false positives) 
+obtained during training. The model training and prediction procedures 
+were  executed  on  Microsoft  Azure  using  instance  NV12s  v3  with  12 
+vCPUs and 112 GB RAM. The CNNs were implemented using Tensor-
+Flow (Abadi et al., 2016) and Python 3. The Ubuntu 20.04 operating 
+system was used and obtained via the Ubuntu 20.04 Data Science Virtual 
+Machine  on  Microsoft  Azure.  The  algorithm  scripts  are  available  in 
+Supporting Information B. 
+
+2.5. Inference and post-processing
+
+To test the efficacy of our models, we created several segments by 
+using  the  same  sliding  window  approach.  Namely,  we used  the  same 
+window size that was used in training, and thus multiple segments were 
+created  across  the  entire  testing  file  by  moving  the  window  by  one 
+second  in  the  moored  recording.  We  converted  each  of  these  testing 
+segments into spectrograms (FFT length = 1024; hop size = 128; Hann 
+window) which were used as input for subsequent model prediction. All 
+generated spectrogram images were created as 5 × 5 in. but varied in 
+their dpi configuration, ranging from 200 × 200 (40 dpi) to 500 × 500 
+(100 dpi) samples. The number of images used per class was constrained 
+by our computational resources, and we used the maximum number of 
+images possible in each case. We attempted a number of experiments 
+and varied the number of classes. The largest dataset built comprised 
+80,000 images when combining three seconds window size and 40 dpi
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about handling randomness in the deep learning pipeline, such as managing random seed values. However, it mentions that the authors used TensorFlow, a popular open-source library for machine learning, including deep learning applications. TensorFlow allows users to set random seeds for reproducibility purposes, ensuring consistent results across different runs or environments. By setting a specific random seed, researchers can control the random processes involved in their models, like weight initialization and shuffling datasets. This practice is essential for debugging, comparing results, and maintaining consistency in research projects.
+
+In summary, while the given context doesn't directly address how the authors handled randomness in their deep learning pipeline, it implies they might have utilized TensorFlow's functionality to manage random seeds for achieving reproducible results.

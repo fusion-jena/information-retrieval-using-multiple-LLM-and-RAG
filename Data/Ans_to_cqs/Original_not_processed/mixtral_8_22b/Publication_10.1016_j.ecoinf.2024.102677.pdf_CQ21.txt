@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.2. Landscape type classification 
+
+The  five  network  models  were  evaluated  using  the  performance 
+metrics  of  the  validation  and  test  sets.  The  model  accuracy  was 
+continuously assessed using the validation set during training, and the 
+performance of the testing set guided the final decision. Fig. 6 illustrates 
+the  learning  curves,  indicating  a  reduction  in  training  losses  as  the 
+number  of  epochs  increases  and  convergence  within  500  epochs. 
+Inceptionv3  converges  by  400  epochs,  while  the  other  networks 
+converge  within  150  epochs.  The  ResNet  architecture,  especially 
+ResNet50 and ResNet101, outperforms the others.
+
+To ensure the stability of the proposed models, we randomly divided 
+the  dataset  into  three  parts:  training  (60%),  validation  (20%),  and 
+testing  (20%)  (Meng  et  al.,  2022).  This  division  was  performed  in  a 
+stratified manner to maintain class proportions across all of the parts. 
+The dataset was randomly divided into a training set (2880 images), a 
+validation set (961 images), and a testing set (958 images). The models 
+were trained on an NVIDIA 3090 GPU with a 256 × 256 image input 
+size. After parameter tuning, the learning rate, batch size, and number of 
+epochs were set to 0.0001, 8, and 30, respectively.  
+
+(2)  Model selection
+
+Table 6 presents the accuracy, precision, recall, and F1-scores of the 
+five networks. ResNet50 surpasses the other models in terms of all of the 
+evaluation metrics, with an accuracy of 0.81, precision of 0.82, recall of 
+0.81, and F1-score of 0.81 for the testing set. Considering the challenge 
+of manual sample distinction, this result is commendable. Fig. 4 displays 
+the  F1-scores  of  the  five  categories  across  all  of  the  networks,  with 
+ResNet50 having the best values of the four categories, except for the 
+RRP. Therefore, ResNet50 was selected for the case validation. 
+
+After finalization, the model was applied to classify the case study 
+area. The classification results correspond to the actual situation (Fig. 7). 
+The RRP is primarily concentrated on the eastern and western edges of 
+the study area, reflecting the history of top-down planning and devel-
+opment in this area. The IRP is primarily situated in the central part of
+
+discriminant rules are illustrated in Fig. 3. Finally, we employed deep 
+learning techniques to predict the types of landscapes in the case study 
+area. The classification process based on deep learning encompasses the 
+following stages.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the given context, it appears that there isn't explicit information about specific postprocessing steps such as saliency maps or confusion matrices. However, some insights can be derived from the text regarding evaluation metrics used and the application of the finalized model.
+
+After training the five network models, their performances were evaluated using various metrics like accuracy, precision, recall, and F1-scores. These metrics helped determine which model had the best overall performance. In this case, ResNet50 was chosen due to its superior scores compared to the other models.
+
+Once the model was finalized, it was then applied to classify the landscape types in the case study area. The resulting classification corresponded well with the actual situation, demonstrating the effectiveness of the chosen model.
+
+While not explicitly mentioned, one could infer that calculating these performance metrics would involve creating a confusion matrix to compare predicted labels against true labels. Additionally, visualizing the output of the model through heatmaps or saliency maps might also be considered as a postprocessing step to better understand how the model makes decisions.

@@ -1,0 +1,241 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+With regards to the difference between the results of the original, 
+reduced,  and  augmented  datasets  applied  to  the  deep  learning 
+model, we found that the original and augmented datasets are only 
+under  a  few  specific  numbers  of  bands  and  data  formats  (e.g., 
+VGG19 + 8band_256_8bit, VGG19 + 72band_256_8bit, ResNet50 +
+8band_256_8bit, and ResNet50 + 36band_ 256_8bit). The classifica-
+tion accuracy rate reached more than 50%, and there was no regu-
+larity in the classification accuracy. However, the sampling action of 
+reducing the data had a very obvious and consistent impact on the 
+classification  accuracy,  especially  in  the  VGG19  model,  which  is 
+more  similar  to  the  traditional  CNN  model.  This  representative 
+sampling  action  resulted  in  incomplete  and  complete  feature 
+extraction,  and  some  key  features  were  ignored.  Given  the  above 
+reasons, it is recommended that sampling actions be avoided in the
+
+Table 11 
+Classification accuracy statistics of VGG 19 and ResNet50 using flattened convolution kernels (BATCH_SIZE =64 and use augmented datasets).  
+
+Dataset 
+
+36band_256_8bit 
+
+36band_256_16bit 
+
+72band_256_8bit 
+
+72band_256_16bit 
+
+Method 
+
+Combination 
+ResNet50 
+VGG19 
+Combination 
+ResNet50 
+VGG19 
+Combination 
+ResNet50 
+VGG19 
+Combination 
+ResNet50 
+VGG19 
+
+Accuracy 
+
+Precision 
+
+F1-score 
+
+Recall 
+
+0.93 
+0.74 
+0.32 
+0.99 
+0.85 
+0.53 
+0.98 
+0.81 
+0.37 
+1.00 
+0.82 
+0.61 
+
+0.94 
+0.74 
+0.41 
+0.99 
+0.85 
+0.52 
+0.98 
+0.80 
+0.37 
+1.00 
+0.82 
+0.58 
+
+0.93 
+0.74 
+0.32 
+0.99 
+0.85 
+0.53 
+0.98 
+0.81 
+0.37 
+1.00 
+0.82 
+0.61 
+
+0.94 
+0.73 
+0.28 
+0.99 
+0.82 
+0.45 
+0.98 
+0.79 
+0.36 
+1.00 
+0.78 
+0.55 
+
+Table 12 
+Classification accuracy statistics of VGG 19 and ResNet50 using flattened convolution kernels (BATCH_SIZE =128 and use augmented datasets).  
+
+Dataset 
+
+36band_256_8bit 
+
+36band_256_16bit 
+
+72band_256_8bit 
+
+72band_256_16bit 
+
+Method
+
+EcologicalInformatics80(2024)10250711F.-C. Lin et al.                                                                                                                                                                                                                                   
+
+Table 5 
+Accuracy statistics of ResNet50 in various number of bands and data formats.  
+
+Method 
+
+Dataset 
+
+Data 
+reduction 
+
+Original 
+data 
+
+Data 
+augmentation 
+
+ResNet50 
+
+3band_256_8bit 
+3band_256_16bit 
+4band_256_8bit 
+4band_256_16bit 
+8band_256_8bit 
+8band_256_16bit 
+36band_256_8bit 
+36band_256_16bit 
+72band_256_8bit 
+72band_256_16bit 
+
+0.33 
+0.25 
+0.44 
+0.25 
+0.28 
+0.12 
+0.31 
+0.38 
+0.47 
+0.19 
+
+0.40 
+0.40 
+0.49 
+0.35 
+0.50 
+0.43 
+0.50 
+0.37 
+0.49 
+0.36 
+
+0.46 
+0.20 
+0.57 
+0.38 
+0.65 
+0.28 
+0.70 
+0.36 
+0.66 
+0.40  
+
+Table 6 
+Accuracy statistics of VGG19 + ResNet50 in various numbers of bands and data 
+formats.  
+
+Method 
+
+Dataset 
+
+Data 
+reduction 
+
+Original 
+data 
+
+Data 
+augmentation 
+
+Combination
+
+EcologicalInformatics80(2024)1025078F.-C. Lin et al.                                                                                                                                                                                                                                   
+
+Table 2 
+Number of bands used in deep learning and the band numbers selected after SSDM.  
+
+Number of bands 
+
+Corresponding number 
+
+3 
+4 
+8 
+36 
+72 
+
+(13,20,32) 
+(2,5,38,41) 
+(2,5,8,38,41,52,63,66) 
+(1,2,3,4,5,6,7,8,9,10,11,36,37,38,39,40,41,42,43,49,51,52,53,55,59,61,62,63,64,65,66,67,69,70,71,72) 
+All bands  
+
+result is shown in Fig. 4.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The performance of the deep learning models, specifically VGG19 and ResNet50, is evaluated using several metrics such as Accuracy, Precision, F1-Score, and Recall. These metrics can be seen in Tables 11 and 12 for both models when using flattened convolution kernels with BATCH\_SIZE set to 64 and 128 respectively, and utilizing augmented datasets. Additionally, Table 5 shows the accuracy statistics of ResNet50 in various numbers of bands and data formats, while Table 6 presents the accuracy statistics of the combination of VGG19 and ResNet50 in different numbers of bands and data formats.

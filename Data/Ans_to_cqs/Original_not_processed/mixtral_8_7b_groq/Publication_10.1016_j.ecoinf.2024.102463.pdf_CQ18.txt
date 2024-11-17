@@ -1,0 +1,15 @@
+Answer:::
+
+The strategy implemented to monitor the model performance during training involves a combination of partial training, successive halving, and model optimization techniques.
+
+During the training of the model, the data is standardized, and the role of the training base and test base of each system is swapped. This allows for a more comprehensive evaluation of the model's performance.
+
+Specifically, the Hyperband algorithm is applied to each database to determine the best model (hyperparameters + parameters). This first treatment helps identify the most suitable database to be the training base.
+
+To monitor the model performance, two metrics are used: the Mean Absolute Error (MAE) and the Nash-Sutcliffe efficiency (NSE) score. The MAE measures the average magnitude of the errors in a set of predictions, while the NSE score measures the accuracy of the model's predictions by comparing the variance of the predicted values to the variance of the observed values.
+
+The strategy also involves monitoring the influence of the training base on the results. This is achieved by swapping the training base and test base of each system. By comparing the model's performance using different training bases, it is possible to identify which base yields the best results.
+
+Furthermore, the strategy includes determining the optimal size of the selected training base. This is done by using partial training and successive halving techniques. The models are partially trained on a small fraction of the data to quickly eliminate underperforming configurations. The remaining configurations are then grouped into sets of different sizes, and the associated models are trained further. The best-performing configurations in each set are promoted to the next stage, while the underperforming configurations are eliminated. This process is repeated until only one configuration remains, which is then considered the best configuration found.
+
+Overall, the strategy implemented to monitor the model performance during training involves a systematic and iterative approach that combines various techniques to evaluate the model's performance and optimize its hyperparameters and parameters. By using standardization, swapping of training and test bases, Hyperband algorithm, and monitoring of the training base influence and optimal training base size, the strategy ensures that the model's performance is thoroughly monitored and optimized.

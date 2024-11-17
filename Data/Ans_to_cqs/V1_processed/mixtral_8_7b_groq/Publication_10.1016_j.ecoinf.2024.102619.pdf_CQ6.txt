@@ -1,0 +1,11 @@
+Before training a deep learning model, such as a Convolutional Neural Network (CNN), several data preprocessing steps are involved. These steps are crucial to ensure that the model receives the data in a format it expects and can effectively learn from it.
+
+Firstly, the images need to be resized and cropped to a specific format. For instance, if you are using VGG16, which is trained on ImageNet, the RGB images should be of size 224 x 224 pixels. To achieve this, the images are first resized along the x-axis to 224 pixels, preserving their aspect ratio. After resizing, the center of the images is cropped to make them square.
+
+Secondly, RGB values need to be normalized. Normalization is a common practice in deep learning, which involves centering and scaling the pixel values to the training dataset. This is done to ensure that all the features have the same scale, which can help the model learn more effectively.
+
+Thirdly, the dataset is split into training and testing subsets. This is typically done in an 80-20 ratio, and the splits are stratified to preserve the class-ratio. This means that the distribution of classes in the training and testing sets is similar to the original dataset.
+
+Before training the CNN, there are additional steps related to data management and feature extraction. These steps can be complex due to the extensive literature available and the variety of frameworks and tools. However, libraries like PyTorch and scikit-learn provide tools for data pre-processing, model selection, and evaluation. To keep the model training and analysis pipelines comparable, a library like skorch can be used, which wraps PyTorch and allows the same scikit-learn training and evaluation procedure to be used for both models.
+
+In summary, the data preprocessing steps involved before training a deep learning model include resizing and cropping the images, normalizing the RGB values, splitting the dataset into training and testing subsets, and managing and extracting features from the data. These steps are crucial to ensure that the model receives the data in a format it can effectively learn from.

@@ -1,0 +1,59 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Owing to the insufficient clarity of underwater optical images, gen-
+eral deep learning networks have difficulty capturing accurate feature 
+information and cannot detect objects correctly. The original YOLOv8 
+network  uses  the  C2f  module  for  feature  extraction.  However,  this 
+module employs an split  operation on features after convolution. This 
+operation divides the input data into two non-overlapping parts, making 
+it  difficult  to  obtain  comprehensive  and  rich  feature  information 
+through half of the channel’s features. Specifically, the shape of features 
+F obtained after convolution is ℝN×H×W×C, where N represents the batch 
+size, C represents the channel number, and H and W denote the height 
+and width, respectively. The split  operation evenly divides F  into two 
+parts on the channel dimension with shapes of ℝN×H×W×0.5C, and these 
+two parts do not overlap. The original YOLOv8 convolves only half of
+
+enriching  the  semantic  representation  of  underwater  objects.  DP- 
+FishNet  (Liu  et  al.,  2024b)  combines  the  strengths  of  pyramid  vision 
+transformers  and  CNNs  in a  dual-path  approach to  effectively extract 
+both global and local features from underwater images, which signifi-
+cantly  improves  the  network  performance.  However,  these  methods 
+generally  require  a  significant  amount  of  underwater  image  data  for 
+training and have high computational costs, thus demanding substantial 
+computational resources.
+
+However,  using  large  kernel  convolutions  usually  leads  to  over-
+whelming computational complexity, resulting in a sharp increase in the 
+number  of  network  parameters  and  network  computational  load.  To 
+overcome this issue, we used dilated convolution (Yu and Koltun, 2016) 
+and depthwise separable convolution to reduce computations. Dilated 
+convolution can increase the receptive field of the convolution kernel by 
+inserting “holes”  without adding parameters or increasing the compu-
+tational load. The equation for calculating the receptive field of dilated 
+convolution  is  shown  in  Eq.  (4),  where  n  represents  the  size  of  the 
+receptive field and d represents the dilation rate. 
+
+EcologicalInformatics82(2024)1026806H. Zhou et al.
+
+the  feature  information,  leaving  the  other  half  unprocessed.  The  un-
+processed half is directly concatenated with the post-processed features. 
+To  avoid  information  loss  and  extract  more  complete  information
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide specific details about the data annotation techniques used in the deep learning pipeline. However, it mentions that general deep learning networks have difficulty accurately capturing feature information and detecting objects correctly due to insufficient clarity of underwater optical images. It also discusses improvements made to the original YOLOv8 network for better feature extraction and object detection. These improvements include using dilated convolution and depthwise separable convolution to reduce computations while maintaining accuracy. Additionally, the text mentions combining the strengths of pyramid vision transformers and CNNs in a dual-path approach to effectively extract both global and local features from underwater images. While these techniques improve network performance, they generally require a significant amount of underwater image data for training and demand substantial computational resources.
+
+Regarding data annotation techniques, common approaches in deep learning pipelines include bounding box annotation, instance segmentation, and semantic segmentation. Bounding box annotation involves drawing rectangles around objects of interest within an image, while instance segmentation requires outlining individual instances of objects. Semantic segmentation involves labeling each pixel in an image according to its class or category. Depending on the specific application and dataset, different annotation techniques may be more appropriate. For example, bounding box annotation might be sufficient for simple object detection tasks, whereas instance segmentation could be necessary for more complex applications requiring precise delineation of individual objects.

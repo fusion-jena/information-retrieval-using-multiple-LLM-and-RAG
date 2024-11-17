@@ -1,0 +1,53 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Grid view mode presents all five-second segments to the user as a grid
+shown in Fig. 7. Samples are again ordered by the recommender. This is
+an efficient method of quickly annotating recordings. The user can hover
+over the spectrogram to play the sample and define on-click keys to
+quickly apply labels.
+
+By default, this method assigns samples to training or validation sets,
+automatically maintaining an 80/20% training-validation split for each
+class. Model prototypes are updated automatically and the user can
+trigger model training and view training metrics through the training
+tab. Training is mostly automated to make the methodology accessible
+to all and does not require deep learning knowledge. We define seg-
+mentation and classification endpoints so that users wanting to adapt
+the pipeline can define their own segmentation and classification
+models.
+
+query set are negative. Liu et al. (Liu et al., 2019) propose transductive
+propagation that iteratively propagates labels from labelled instances to
+unlabelled instances according to the graph structure of the embeddings.
+Other semi-supervised learning techniques have been applied such as
+active learning. Wang et al. (Wang et al., 2022) combines a few-shot
+
+Feature extraction model selection is evaluated in Section 4.1.
+
+samples (red line) compared to randomly ordered samples, no active
+learning (blue line), and active learning using high-certainty samples
+(yellow line). The baseline accuracy is calculated using a 2-shot, 2-way
+test accuracy without fine-tuning (81.4%). The AST feature extraction
+model is fine-tuned on a subset of 500 training samples. Model perfor-
+mance is re-evaluated on the test set at 10 sample increments using each
+of the three sample orderings. Low certainty refers to queries with a
+similar Euclidean distance to prototypical embeddings and therefore lie
+along decision boundaries. For high-certainty samples, the order is
+reversed with query embedding in close proximity to prototypical em-
+beddings being prioritised for model fine-tuning.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The strategy implemented to monitor the model performance during training involves automatic updates to model prototypes and the ability for users to trigger model training and view training metrics through the training tab. This process is designed to be largely automated to ensure accessibility to users who may not possess extensive knowledge in deep learning. Additionally, segmentation and classification endpoints are defined to allow users to customize the pipeline with their own models if desired.

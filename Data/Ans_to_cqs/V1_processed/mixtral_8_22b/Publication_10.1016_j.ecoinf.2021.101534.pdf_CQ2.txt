@@ -1,0 +1,9 @@
+In the described deep learning pipeline, two main types of data formats are utilized: audio and image. Initially, the raw audio data is collected from community-contributed sources, which may vary in terms of recording equipment, settings, and environmental conditions. These audio files are then processed through several stages, such as standardization, segmentation, augmentation, and spectrogram conversion.
+
+Audio standardization involves setting a consistent sampling rate of 32 kHz and applying a 100 Hz high-pass filter to ensure uniformity across all recordings. Segmentation entails extracting specific segments or clips containing the labeled sounds from each recording. Augmentation techniques like scaling, color space adjustments, and Mosaic augmentation are applied to enhance the diversity of the dataset.
+
+Finally, the mixed audio clips are converted into spectrograms, which serve as input images for model training. This conversion is achieved by employing the short-time Fourier transform (STFT) with a window size of 1600 samples, a hop size of 400 samples (75% overlap), and 240 mel-scale frequency bins. As a result, each spectrogram has dimensions of 438 x 436 pixels.
+
+For model training, the Convolutional Neural Network (CNN) algorithm is employed due to its effectiveness in image recognition and classification tasks. Specifically, YOLOv5s, the smallest weight of YOLOv5, is chosen to build the sound identification model. During training, the input image dimension is set to 640 x 640 pixels, and default data augmentation methods are applied, including scaling, color space adjustments, and Mosaic augmentation.
+
+To summarize, the deep learning pipeline primarily uses audio and image data formats. Audio files are initially gathered, preprocessed, and eventually transformed into spectrograms, which function as input images for model training.

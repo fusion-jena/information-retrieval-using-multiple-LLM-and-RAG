@@ -1,0 +1,118 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+such as Reduc-
+the model, various callbacks
+eLROnPlateau, ModelCheckpoint, and EarlyStopping are included.
+These callbacks dynamically modify the learning rate while preserving
+the optimal model
+iteration according to the validation accuracy.
+Throughout the training phase, spanning 35 epochs with a batch size of
+16, that is meticulously recorded using metrics such as accuracy, pre-
+cision, recall, F1-score, AUC, model size, and analysis time providing a
+
+Refers to the size of the trained model, usually measured in terms of parameters or memory
+footprint.
+Measures the time taken by the model to process a single input and generate an output
+prediction.
+Represents the number of arithmetic operations performed by the model during inference or
+training.
+Measures the time taken by the model to process a given dataset or perform a specific task.
+
+CK = po (cid:0) pe
+1 (cid:0) pe
+
+where po is the observed agreement and pe is
+
+the expected agreement.
+
+Precision =
+
+True Positives
+True Positives + False Positives
+
+True Positives
+True Positives + False Negatives
+
+Recall =
+F1 = 2 × Precision × Recall
+Precision + Recall
+–
+
+–
+
+–
+
+–
+
+EcologicalInformatics82(2024)1027188A. Chakrabarty et al.
+
+Table 6
+Leaf Disease Classification Performance for PlantVillage Dataset (With Noise Added).
+
+Model
+
+ViT
+Xception
+Inception V3
+DenseNet 169
+VGG 16
+ResNet 50
+Proposed BEiT (12 M)
+
+Acc
+
+90.33
+88.69
+89.33
+91.26
+90.33
+92.82
+97.33
+
+Loss
+
+For our research reproducibility in Algorithm 1, the definitions
+include T and ℰ, denoting the paths to the training and testing dataset
+directories, respectively. The functions Dtrain and Dtest represent data
+generators for training and testing datasets, where parameters such as α,
+β, γ, and δ control aspects like rescaling and augmentation. The batch
+size for training and testing is denoted by B, while Gtrain and Gtest
+represent the respective data generators. The class weights computed for
+addressing class imbalance are denoted by wc, and M stands for our
+proposed model, encompassing its architecture and compilation pa-
+rameters. The number of training epochs is represented by n, and P and
+Q denote the steps per epoch for training and validation, respectively.
+Predicted outputs and their class labels from the model are represented
+by ̂y and ̂yc, while ytrue signifies the true class labels from the testing
+dataset. In our model reproducibility in the testing phase in Algorithm 2,
+
+In the BEiT model architecture, our initial steps involve loading the
+BEiT model and strategically freezing a substantial portion of its layers
+approximately 7 of the total layers. By doing so, the model freezes the
+weights in these layers, focusing the training process on fine-tuning the
+remaining layers. The model is then derived by isolating the output of a
+specific layer (‘out_ln’) from the BEiT architecture. To enhance training
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, several postprocessing steps can be employed depending on the requirements of the project. Some common postprocessing techniques include generating saliency maps, calculating evaluation metrics, and creating confusion matrices.
+
+Saliency maps help visualize which parts of the input image contribute most significantly towards the final prediction made by the model. This technique involves computing gradients of the predicted class score concerning the input pixels, highlighting areas of high importance.
+
+Calculating evaluation metrics is essential to assess the performance of the trained model accurately. Commonly used metrics include precision, recall, F1-score, area under the curve (AUC), Cohen's kappa coefficient, etc. These metrics provide insights into the model's ability to correctly identify positive instances, minimize false positives/negatives, and maintain a balance between precision and recall.
+
+Creating confusion matrices offers another way to evaluate the model's performance visually. A confusion matrix is a table layout that allows us to see if the system is confusing two classes (i.e., mislabeling one as another). It provides detailed information about actual vs. predicted values, enabling users to understand the types of errors produced by the model.
+
+In summary, postprocessing steps after model training may consist of generating saliency maps, calculating evaluation metrics, and constructing confusion matrices. Each method serves a unique purpose in evaluating the model's performance and understanding its strengths and weaknesses better.

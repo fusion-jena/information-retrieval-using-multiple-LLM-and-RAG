@@ -1,0 +1,86 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.4.1. Training database assembly 
+
+To assemble a training database, three randomly selected days from 
+each month of the calendar year (see Table 1) were selected for anno-
+tation. Select spectrogram images were manually labeled via visual in-
+spection by two trained graduate students into a set of sound categories 
+that evolved as the year progressed. On average, around 60 images could 
+be  annotated  per  minute,  which  corresponds  to  8  min  of  audio  data. 
+Therefore,  annotating  every  single  spectrogram  from  a  single  day 
+(10,800 images) would take 3 h. Assembling the training database took 
+less time in practice because only 10–15% of the spectrograms from each 
+of the selected days were actually annotated (many spectrograms which 
+contained only background noise were simply not needed). 
+
+In total, this database consists of over 40 k images of bio-, anthro- 
+and  geophonies.  The  full  contents  of  the  database  are  presented  in 
+Table 2.
+
+3. Results 
+
+3.1. Training database performance 
+
+The average unweighted and category-weighted training classifica-
+tion  accuracies  are  98.9%  and  97.4%,  respectively.  For  the  sake  of 
+brevity,  the  training  confusion  matrix  is  not  produced,  but  the  test 
+confusion matrix for all 19 sound classes is shown in Table 4. For the test 
+data, the average unweighted and weighted accuracies are 94.7% and 
+88.8%. The F1-scores for the training and testing datasets, respectively, 
+are.980 and.907 (Chinchor, 1992). 
+
+Slightly  lower  testing  accuracy  scores  are  seen  in  categories  like 
+background noise, which potentially contain a very faint sound occur-
+ring in one of the other categories that is not readily detected by the 
+human eye, or other such class ambiguities. Additionally, lower scores 
+are seen for smaller classes with a fewer number of training examples, 
+like the squirrel “kuk” and the white-breasted nuthatch call.
+
+2.6. Generating prediction record 
+
+After  neural  network  training  and  validation,  predictions  for  the 
+entire  unvalidated  recording  period  were  generated.  Specifically,  for 
+each of the five training folds, a single prediction for every 8 s-interval 
+was made for the duration of the year. The five prediction records that 
+resulted were then averaged together to create a single prediction re-
+cord.  To  summarize  this  data  more  succinctly,  these  8  s-interval  pre-
+dictions were then aggregated into hourly prediction records, containing 
+the number of instances that each particular sound stimuli was predicted 
+per  hour.  This  record  was  normalized  by  the  number  of  8-s  intervals 
+actually recorded during that hour, to account for the possibility that 
+missing audio data would render a given prediction record artificially 
+low. 
+
+2.7. Collecting weather data
+
+Five bird calls were detected in sufficient numbers (over 300 training 
+examples) to be included in the training database, and any birds without 
+sufficient numbers were placed in a generic category for miscellaneous 
+calls. Species present in this category include the American goldfinch 
+(Spinus  tristis),  the  song  sparrow  (Melospiza  melodia),  and  the  black- 
+capped  chickadee  (Poecile  atricapillus).  In  the  case  of  the  former  two, 
+less than 20 min of calling activity was detected during the annotation 
+phase, and in the case of the song sparrow it was quite faint and indis-
+tinct. Less than 5 min of chickadee calling activity was observed.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+During the training process, the authors used a cross-validation approach called fivefold cross-validation. They divided their dataset into five equal parts, using four parts for training and the remaining part for validation. This process was repeated five times, ensuring that each subset served once as the validation set. By doing so, they aimed to reduce bias and variance in the final model.
+
+Additionally, the authors calculated both unweighted and category-weighted classification accuracies for the training dataset. These metrics helped them evaluate the overall performance of the model across different sound categories. The reported average unweighted and category-weighted training classification accuracies were 98.9% and 97.4%, respectively. However, the actual training confusion matrix was not provided due to brevity considerations.
+
+For the test dataset, the authors also computed unweighted and weighted accuracies, achieving 94.7% and 88.8%, respectively. Furthermore, they calculated F1-scores for both the training and testing datasets, resulting in.980 and.907, respectively. Lower testing accuracy scores were observed in certain categories, such as background noise and smaller classes with fewer training examples, like the squirrel "kuk" and the white-breasted nuthatch call.

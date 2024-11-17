@@ -1,0 +1,66 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We  evaluated  the  performances  of  the  non-bootstrapped  GLM  by 
+calculating  the  Area  Under  the  ROC  Curve  (AUC),  Percent  Correctly 
+Classified  (PCC),  sensitivity,  specificity  and  True  Skill  Statistic  (TSS) 
+using the 20% camera traps retained from the training dataset. 
+
+To evaluate the bootstrapped GLM, for each of the 100 iterations, we 
+calculated  AUC,  PCC,  sensitivity,  specificity  and  TSS  using  the  data 
+retained from the model training, composed of 80% of the presence and 
+of the absence locations. We obtained the final metrics by averaging the 
+results  of  100  validation  iterations.  We  implemented  this  framework 
+independently  for  each  felid.  Validation  metrics  were  calculated  in  R 
+v3.5.1  (R  Core  Team,  2018)  using  the  package  PresenceAbsence 
+(Freeman and Moisen, 2007). 
+
+2.4. Random forest – scale optimisation and covariates selection
+
+To produce accurate SDMs, not just the effects of different algorithms 
+should be investigated, but also the effects of resampling techniques on 
+model's  training  data  (Efron,  1982;  Freedman,  1981).  Specifically, 
+bootstrapping (i.e., random subsampling with replacement) the training 
+data  has  been  shown  to  increase  models'  precision  by  providing  a 
+combination of models, which reduces stochastic errors in estimation (e. 
+g., Vaughan and Ormerod (2005); Hefley et al. (2014); Xu and Goodacre 
+(2018)).
+
+Among  machine  learning  techniques,  random  forest  (RF;  Breiman 
+(2001)) is the most commonly used algorithm (Stupariu et al., 2021). RF 
+are  Classification  and  Regression  Tree  (CART)  based  ensemble  ap-
+proaches,  which  overcome  limitations  of  CARTs  such  as  model  over- 
+fitting.  Additionally,  RF  can  handle  large  numbers  of  predictor  vari-
+ables  without  being  affected  by  multicollinearity,  and  can  readily 
+accommodate nonlinear relationships between predictor and response 
+variables  (Breiman,  2001;  Evans  and  Cushman,  2009;  Kumar  et  al., 
+2021). Furthermore, by permutation of variables, RF provides accessible 
+measures of variable importance (Cutler et al., 2007; Evans and Cush-
+man, 2009).
+
+Can, O.E., Campos-Arceiz, A., Channa, P., Clements, G.R., Hearn, A.J., Hedges, L., 
+Htun, S., Kamler, J.F., Macdonald, E.A., Moore, J., Naing, H., Onuma, M., 
+Rasphone, A., Rayan, D.M., Ross, J., Singh, P., Tan, C.K.W., Wadey, J., Yadav, B.P., 
+Cushman, S.A., 2020. Predicting biodiversity richness in rapidly changing 
+landscapes: climate, low human pressure or protection as salvation? Biodivers. 
+Conserv. 29, 4035–4057. 
+
+McGarigal, K., Cushman, S.A., Ene, E., 2012. FRAGSTATS v4: spatial pattern analysis 
+
+program for categorical and continuous maps. Computer software program produced 
+by the authors at the University of Massachusetts. Amherst, MA. Available: htt 
+p://www.umass.edu/landeco/research/fragstats/fragstats.html.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text does not provide explicit information about the criteria used to determine when training is completed for either the Generalized Linear Model (GLM) or Random Forest (RF) models. However, it mentions that the performance of the non-bootstrapped GLM was evaluated using metrics like Area Under the ROC Curve (AUC), Percent Correctly Classified (PCC), sensitivity, specificity, and True Skill Statistic (TSS) using 20% of the camera trap data retained from the training dataset. For the bootstrapped GLM, these same metrics were calculated for each of the 100 iterations using the data retained from the model training, composed of 80% of the presence and absence locations. The final metrics were then obtained by averaging the results of 100 validation iterations. This suggests that the completion of training might have been determined based on achieving stable or satisfactory values for these evaluation metrics. Similarly, while the text does not explicitly mention any stopping criterion for the RF model, it discusses the use of bootstrapping (random subsampling with replacement) to improve models' precision and reduce stochastic errors in estimation. This implies that the training process might continue until a certain level of precision or stability is achieved. However, without more specific details, it is difficult to definitively state what exact criteria were used to determine when training was complete for both models.

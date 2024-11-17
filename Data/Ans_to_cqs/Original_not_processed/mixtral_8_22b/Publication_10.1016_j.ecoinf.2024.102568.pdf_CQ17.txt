@@ -1,0 +1,60 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The LSTM model is trained using the mean squared error (MSE) as 
+loss function and the ADAM optimization (Kingma and Ba (2015)). To 
+avoid overfitting, a dropout layer is added. The dropout layer, described 
+¨
+by 
+Ozgür  and  Nar  (2020),  is  a  regularization  method  that  randomly 
+excludes some inputs from activation and weight updates while training 
+a network. Inputs not set to zero are scaled up by 1/(1 (cid:0) rate) such that 
+the  sum  over  all  inputs  remains  the  same.  The  training  set  is  pre-
+processed using a MinMaxScaler that transforms each feature by scaling 
+it  to  a  [0–1]  range.  The  dimension  of  the  temporal  window  must  be 
+selected  dynamically  considering  the  performance  obtained  with 
+different values on the available dataset. 
+
+In  the  specific  case  of  Modena,  an  Italian  city  spanning  183  km2, 
+
+there are two legal AQ stations denoted by red dots in Fig. 6.
+
+Moreover,  the  LSTM  model  was  not  able  to  predict  the  values  of 
+concentration in the 13% of test observations due to the absence of a 
+long enough sequence of previous observations without missing values 
+in  the  input  features.  VR  + SVR  instead  is  always  able  to  provide  a 
+prediction, satisfying the requirement of data completeness reported in 
+Williams  et  al.  (2014).  Therefore,  VR  + SVR  is  a  good  alternative  to 
+LSTM when there are frequent holes in the time series of measurements 
+and when there are not enough past observations to successfully employ 
+LSTM. 
+
+With VR + SVR we demonstrated how to overcome the problem of 
+
+EcologicalInformatics81(2024)10256814C. Bachechi et al.
+
+Zou, H., Hastie, T., 2005. Regularization and variable selection via the elastic net. J. R. 
+
+Stat. Soc. Ser. B 67, 301–320. 
+
+EcologicalInformatics81(2024)10256818
+
+approach zero rapidly. This occurrence impedes the network’s ability to 
+learn long-term dependencies effectively.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text mentions one regularization method used to prevent overfitting in the deep learning pipeline - dropout. Dropout is a technique where some neurons are randomly ignored or 'dropped out' during training, which helps to make the model more robust and prevents overfitting. In this case, it is applied to avoid overfitting in the LSTM model. Other common regularization techniques include L1 and L2 regularization, but these are not mentioned in the given context.
+
+Based on the information provided, the LSTM model uses the dropout layer for regularization to prevent overfitting. The dropout layer works by randomly excluding some inputs from activation and weight updates while training the network. Inputs not set to zero are scaled up by 1/(1 - rate) such that the sum over all inputs remains the same.

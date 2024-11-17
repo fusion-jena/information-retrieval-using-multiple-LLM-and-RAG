@@ -1,0 +1,107 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1. Training parameters used in DeepLabV3+.
+
+Training Parameter
+
+Value
+
+Learning policy
+Base learning rate
+Learning rate decay factor
+Learning rate decay step
+Learning power
+Training number of steps
+Momentum
+Train batch size
+Weight decay
+Train crop size
+Last layer gradient multiplier
+Upsample logits
+Drop path keep prob
+tf_initial_checkpoint
+initialize_last_layer
+last_layers_contain_logits_only
+slow_start_step
+slow_start_learning_rate
+ﬁne_tune_batch_norm
+min_scale_factor
+max_scale_factor
+scale_factor_step_size
+atrous_rates
+output_stride
+
+Poly
+0.0001
+0.1
+2000
+0.9
+≥100,000
+0.9
+2
+0.00004
+‘513,513’
+1
+True
+1
+deeplabv3_pascal_train_aug
+False
+True
+0
+1 × 10
+False
+0.5
+2
+0.25
+[6,12,18]
+16
+
+−4
+
+7 of 23
+
+Figure 4. Block diagram of DeepLabV3+ [42].
+
+A PC with Windows 10 operating system, a GPU card (RTX2070), and 16GB memory is
+used for DeepLabv3+ model training and testing which uses the TensorFlow framework to run.
+For training a land cover model using the training datasets, the weights of a pre-trained model
+with the exception of the logits are used as the starting point and these weights are ﬁne-tuned with
+further training. These initial weights belong to a pre-trained model for the PASCAL VOC 2012
+dataset (“deeplabv3_pascal_train_aug_2018_01_04.tar.gz”). This model was based on the Xception-65
+backbone [42]. Because the number of land covers in the Vasiliko and Kimisala dataset is diﬀerent from
+the number of classes in the PASCAL VOC-2012 dataset, the logit weights in the pre-trained model are
+excluded. The training parameters used for training a model with DeepLabv3+ in this work can be
+seen in Table 1.
+
+Table 1. Training parameters used in DeepLabV3+.
+
+14 of 23
+
+including a NIR band in addition to the RGB bands. This is because in order to build a satisfactory
+model, not only a lot of training data are needed that include the NIR band in addition to RGB color
+images but also signiﬁcant GPU power that can conduct a proper training with batch sizes larger than 16.
+This is because, for eﬃcient model training, larger batch sizes are recommended in DeepLabV3+ [49].
+Moreover, the DeepLabV3+ architecture, which is originally designed for three input channels, RGB,
+needs to be adjusted accordingly to accommodate four-channel input images. With four-channel input
+images, the existing pre-trained models, which are for RGB, cannot be used directly and there is a need
+for training a model from scratch or at least modifying the DeepLabV3+ architecture such that only the
+weights for the newly added image bands can be learned and the weights of RGB input channels can
+be initialized by pre-trained model weights via transfer learning [41].
+
+Remote Sens. 2020, 12, x FOR PEER REVIEW 7 of 23  Figure 4. Block diagram of DeepLabV3+ [42]. A PC with Windows 10 operating system, a GPU card (RTX2070), and 16GB memory is used for DeepLabv3+ model training and testing which uses the TensorFlow framework to run. For training a land cover model using the training datasets, the weights of a pre-trained model with the exception of the logits are used as the starting point and these weights are fine-tuned with further training. These initial weights belong to a pre-trained model for the PASCAL VOC 2012 dataset (“deeplabv3_pascal_train_aug_2018_01_04.tar.gz”). This model was based on the Xception-65 backbone [42]. Because the number of land covers in the Vasiliko and Kimisala dataset is different from the number of classes in the PASCAL VOC-2012 dataset, the logit weights in the pre-trained model are excluded. The training parameters used for training a model with DeepLabv3+ in this work can be seen in Table 1. Table 1. Training
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text mentions that the DeepLabv3+ model training and testing use the TensorFlow framework to run. Therefore, it can be concluded that the deep learning model is built using the TensorFlow framework.

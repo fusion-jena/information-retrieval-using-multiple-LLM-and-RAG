@@ -1,0 +1,88 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+by  subtracting  the mean  and dividing by  the standard deviation.  The 
+“add datepart” helper function of the library allows the specification of 
+the date column which generates additional predictors such as “Year”, 
+“DayofWeek”,  “DayOfYear”,  “Is  Month_End”  and  so  on.  Appendix  B 
+highlights the list of categorical and continuous variables in the dataset 
+after processing. 
+
+4.3.2. Validation set creation and training architecture 
+
+Model  training  is  typically  initiated  by  splitting  the  dataset  into 
+training, test and validation datasets. As the name implies, training data 
+is used for training, while validation data is used for selecting the model 
+that works best after verification using the test data. It is customary to 
+randomise the dataset before splitting when there is a class imbalance - 
+stratification; but since this problem is like a time-series problem where
+
+⃒
+⃒
+⃒
+⃒
+⃒
+
+2
+
+i=1
+
+(2)  
+
+(3) 
+
+Fig.  12  illustrates  the  model  training  and  validation  losses  after 
+20,000 epochs. It is noteworthy that the training loss gradually as the 
+number of epochs increased. The validation loss took a slightly different 
+pattern and dropped significantly after 2500 epochs but became steady 
+for the remaining training epochs. The final MAE and exponential RMSE 
+after training were 0.350 and 1.591 respectively. Fig. 13 captures the 
+actual NO2  concentration levels (highlighted in blue) and the model's 
+day ahead prediction (highlighted in red). The difference in the model's 
+predicted NO2 and actual values is slight, and the predicted values were 
+close to the actual. 
+
+EcologicalInformatics69(2022)10160912T.D. Akinosho et al.
+
+the  date  order  is  important,  the  validation  and  test  sets  cannot  be 
+randomly selected. The common practice is to select the last few weeks 
+or  months  of  the  dataset  for  validation  and  testing.  Our  dataset  of 
+991,662  rows  and  34  columns  had  no  class  imbalance  for  the  three 
+pollutants  which  meant  that  stratification  was  not  necessary.  An 
+experiment  with  different  numbers  of  last  days  was  carried  out  to 
+determine  the  best  validation  approach,  and  the  last  45  days  of  the 
+dataset from July and August were eventually chosen for validation (15 
+days) and test (30 days). Fastai's “TrainTestSplitter”  class was used to 
+implement this division.
+
+Suitable optimisers, loss functions and activation functions had to be 
+selected from an array of available options. Series of experimentation 
+were  carried  out  on  popular  optimisation  functions  such  as  SGD, 
+RMSProp,  LAMB,  LARS  and  Adam  and  regression  loss  functions  like 
+
+EcologicalInformatics69(2022)10160911T.D. Akinosho et al.                                                                                                                                                                                                                            
+
+Fig. 10. Auto-SQL generation to pre-process the dataset. An SQL command which generates 3-hour and 6-hour pollutant averages from the preceding readings 
+is depicted. 
+
+Fig.  11. The  model's  training  loss  against  the  learning  rate  to  determine  the 
+appropriate learning rate. The learning rate was fixed at the point where the 
+(cid:0)
+plot started dipping (i.e., 10
+
+4).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The completion of training can be determined based on various criteria, including the observation of a validation loss plateau. In the given context, the training process continued until 20,000 epochs were reached. During this period, both the training loss and validation loss were monitored. The training loss gradually decreased as the number of epochs increased, indicating improved performance. However, the validation loss exhibited a distinct pattern. After initially dropping significantly around 2500 epochs, it remained relatively constant for the remainder of the training epochs. This suggests that the model may have reached its optimal performance level, as further training did not result in significant improvements in validation loss. Therefore, observing the behavior of validation loss over time can serve as one criterion for determining when training should be stopped.

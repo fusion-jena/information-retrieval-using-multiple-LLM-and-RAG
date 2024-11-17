@@ -1,0 +1,88 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+the weights were obtained from an already trained implementation of 
+DeeplabV3+ (https://github.com/zllrunning/deeplab-pytorch-crf) with 
+the COCO dataset. COCO is a dataset that has 121,408 images and a total 
+of 883,331 object annotations divided in 184 classes. COCO is a widely 
+used  dataset  to  train  computer  vision  models  and  sets  a  baseline  to 
+benchmark their performance. Since we want to derive common objects 
+below the skyline, we inference without training the model directly on 
+the landscape photos. A typical example of the masks obtained with such 
+a semantic segmentation is provided in Fig. 3.
+
+To extract meaningful information for the purpose of our study, the 
+delineation  of  the  skyline  has  to  be  highly  detailed.  The  detection  of 
+edges or object boundaries in semantic segmentation tends to be blurry 
+as the loss of effective spatial resolution associated with the learning of 
+contextual  information  by  the  net  diminishes  high-frequency  details 
+(Hariharan et al., 2015; Shelhamer et al., 2017). We address this prob-
+lem by applying a Conditional Random Fields (CRF) (Kr¨ahenbühl and 
+Koltun,  2011).  The  ability  to  capture  fine  details  with  a  CRF 
+
+compensates the limited performance of these kind of nets to generate 
+precisely delineated objects. 
+
+To  measure  the  increase  in  detail  of  the  skyline  using  CRF,  we 
+calculated the length of the signals extracted with and without CRF and 
+evaluated the gain length as: 
+
+gCRF =
+
+(cid:0)
+
+len
+(
+
+)
+
+ysky[x]
+
+len
+
+ynoCRF
+sky
+
+[x]
+
+) (cid:0) 1
+
+(1)
+
+tion deep learning-based methods (Ulku and Akagündüz, 2022). Such 
+semantic  segmentation  or  pixel-wise  classification  was  used  to  locate 
+and  delineate  artificial  and  natural  objects  in  photos  it  a  study  by 
+Aghanaki, T. (Taghanaki et al., 2021). This operation was enabled by the 
+availability of open image datasets which have pushed the evolution of
+
+segmentation. IEEE Trans. Pattern Anal. Mach. Intell. 39 (4), 640–651. https://doi. 
+org/10.1109/tpami.2016.2572683. URL 10.1109/TPAMI.2016.2572683. 
+
+Taghanaki, S.A., Abhishek, K., Cohen, J.P., Cohen-Adad, J., Hamarneh, G., 2021. Deep 
+semantic segmentation of natural and medical images: a review. Artif. Intell. Rev. 54 
+(1), 137–178. 
+
+EcologicalInformatics70(2022)10175715L. Martinez-Sanchez et al.                                                                                                                                                                                                                    
+
+Tang, J., Gong, C., Guo, F., Yang, Z., Wu, Z., 2022a. Geo-localization based on cnn 
+
+Ulku, I., Akagündüz, E., 2022. A survey on deep learning-based architectures for 
+
+feature matching. Optoelectron. Lett. 18 (5), 300–306. 
+
+semantic segmentation on 2d images. Appl. Artif. Intell. 1–45.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit information about the specific preprocessing steps involved before training a deep learning model like DeeplabV3+. However, generally speaking, some common preprocessing steps include data normalization, scaling, cleaning, and augmentation. Data normalization involves rescaling the input features so they fall within a specific range, often between 0 and 1. Scaling can also help ensure that all features contribute equally to the final output. Cleaning refers to removing any irrelevant or redundant data points, while augmentation involves creating new samples through transformations like rotation, flipping, or cropping. These techniques aim to improve the model's generalizability and prevent overfitting. In the case of DeeplabV3+, the authors mention using an already trained implementation with the COCO dataset, but do not elaborate on any specific preprocessing steps applied to the dataset prior to training.

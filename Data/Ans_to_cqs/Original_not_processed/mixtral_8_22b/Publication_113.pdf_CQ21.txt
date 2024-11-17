@@ -1,0 +1,157 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+|  159
+
+because eventually both methods have sufficient constraints to learn 
+
+active  learning  pipeline  on  the  crops  produced  from  running  the 
+
+a good embedding.
+
+3.3.2 | Active learning strategies
+
+MegaDetector  model  over  the  NACTI  dataset.  We  employed  mar-
+
+gin-based active learning. After the first 30,000 active queries, the 
+
+classifier  achieves  93.2%  overall  accuracy  which  further  confirms 
+
+the usefulness of the suggested pipeline. More detailed results are 
+
+available in Table S3.
+
+Different strategies can be employed to select samples to be labelled 
+
+by the oracle. The most naive strategy is selecting queries at random. 
+
+Here  we  try  five  different  query  selection  strategies  and  compare 
+
+4 |  D I S CU S S I O N
+
+them against a control of selecting samples at random. In particular, 
+
+we try model uncertainty criteria (confidence, margin, entropy; Lewis 
+
+This  paper  demonstrates  the  potential  to  significantly  reduce
+
+1:
+
+2:
+
+3:
+
+4:
+
+5:
+
+6:
+
+7:
+
+8:
+
+9:
+
+10:
+
+11:
+
+12:
+
+Run a pre-trained object detection model on the images
+
+Run a pre-trained embedding model on the crops produced 
+
+by the objection detection model
+
+Select 1,000 random images and request labels from the 
+
+human oracle
+
+Run the embedding model on the labelled set to produce 
+
+feature vectors
+
+Train the classification model on the labelled feature vectors
+
+while Termination condition has not reached do
+
+Select 100 images using the active learning selection 
+strategy, pass these to the human oracle for labelling
+
+Fine-tune the classification model on the entire labelled 
+
+set of the target dataset
+
+if number of active queries % 2,000 == 0 then
+
+Fine-tune the embedding model on the entire labelled 
+
+set of the target dataset
+
+end if
+
+end while
+
+Our proposed method allows us to evaluate all data points in order 
+
+to  find  the  most  significant  examples  to  ask  humans  to  label,  while 
+
+3 |  R E S U LT S
+
+Xu, Z., Yu, K., Tresp, V., Xu, X., & Wang, J. (2003). Representative sampling 
+for  text  classification  using  support  vector  machines.  In  European 
+conference on information retrieval (pp. 393–407). Springer.
+
+Wiley & Sons.
+
+Sutskever, I., Vinyals, O., & Le, Q. V. (2014). Sequence to sequence learn-
+ing with neural networks. In Advances in neural information processing 
+systems (pp. 3104–3112).
+
+Swanson, A., Kosmala, M., Lintott, C., Simpson, R., Smith, A., & Packer, 
+C.  (2015).  Snapshot  serengeti,  high-frequency  annotated  camera 
+trap images of 40 mammalian species in an african savanna. Scientific 
+Data, 2, 150026.
+
+classification model.  We  start  the  active  learning  process  by  asking 
+
+1.  It  can  tell  us  if  an  image  is  empty  or  contains  animals;  any  image 
+
+the oracle to label 1,000 randomly selected images. We then train 
+
+with  no  detections  above  90%  confidence  is  marked  as  empty.
+
+our classification model using these 1,000 labelled images. At each 
+
+2.  It can count how many animals are in an image; we count animals 
+
+subsequent step, we select 100 unlabelled images that maximize our 
+
+by summing the number of detections above 90% confidence.
+
+image  selection  criteria  (we  will  discuss  different  image  selection 
+
+3.  By localizing the animals, it can be employed to crop the images 
+
+strategies  in  Section  3.3.2),  and  ask  the  oracle  to  label  those  100 
+
+to reduce the amount of background pixels; we crop detections 
+
+images;  the  classifier  model  is  re-trained  after  each  step.  Another
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The provided context does not explicitly mention any specific postprocessing steps after the model training. However, based on common practices in machine learning projects, some possible postprocessing steps could include evaluating the performance of the trained models using metrics such as accuracy, precision, recall, F1 score, etc. Additionally, confusion matrices might also be used to visualize the performance of the classifiers. Other techniques like saliency maps or GradCAM could potentially be applied to understand what parts of the input images were important for the model's predictions. Nevertheless, without explicit details about the project's goals and requirements, it is difficult to provide a definitive list of postprocessing steps.

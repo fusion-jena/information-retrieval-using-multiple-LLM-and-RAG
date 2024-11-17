@@ -1,0 +1,106 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+(3) 
+
+The MLP is configured with a filter size of 2 and is used 
+with Backpropagation as the learning algorithm and Adam as 
+the optimiser. A dropout value of 50% has been used in the 
+first  three  layers  to  improve  generalisation  and  reduce 
+overfitting. The first three layers are composed of 256 nodes 
+while the final layer is equal to the number of classes in our 
+dataset. The model summary is shown in figure 5. 
+
+overfitting.  This  section  concludes  the  methods  used  in  this 
+paper to train the model. 
+
+The  performance  of  the  trained  model  is  measured  using 
+Sensitivity,  Specificity,  Precision  and  Accuracy.  The 
+Sensitivity  describes 
+the 
+Specificity describes the true negative rate. Precision is used 
+to show the number of correctly classified species. 
+E.  Model Inferencing 
+
+true  positive  rate  while 
+
+the
+
+The results presented in this section were obtained over 100 
+epochs. Figure 9 shows the loss of the model using both the 
+test  and  validation  data  during  model  training.  The  figure 
+shows  that  there  was  no  overfitting  during  training  and  that 
+the dropout layers helped with model regularisation. Although 
+model convergence was achieved early in the training session 
+the loss shows continuing decreases throughout the specified 
+epochs. 
+
+Figure 10. Train and Validation Accuracy During the 
+Training Session. 
+
+Table 1 shows the performance metrics obtained using the 
+test data. The best performing class was the Eurasian Collard 
+Dove achieving a Sensitivity of 0.86 and a Specificity of 0.90. 
+The  worst  performing  class  was 
+the  Lesser  Spotted 
+Woodpecker  where  the  model  attained  a  Sensitivity  of  0.58 
+and a Specificity of 0.91. 
+
+Table 1. Performance Metrics for Test Set 
+
+Species 
+
+Sensitivity 
+
+Specificity
+
+III. 
+
+MATERIALS AND METHODS 
+
+In  this  section  the  dataset  used  in  the  study  is  presented 
+along with the modelling approach taken and the evaluation 
+metrics used to evaluate the trained model. The section also 
+discusses data pre-processing using the Librosa library. Keras 
+and TensorFlow 2.2 are utilised as the backend and an Nvidia 
+2070 super GPU with 8GB of memory is utilised to accelerate 
+model training. In addition, the proposed inferencing pipeline 
+is discussed along with the associated technologies. 
+A.  Data Collection and Description
+
+Figure 9. Train and Validation Loss 
+
+The model achieved an accuracy of 0.83 for the train split 
+and 0.74 for the test split. Figure 10 shows the accuracy for 
+both the train and validation data over 100 epochs. The results 
+illustrate that the accuracy of the model flattens towards the 
+end  of  the  training  session  and  shows  that  the  necessary 
+number  of  epochs  required  for  model  convergence  is 
+sufficient.  Increasing  the  number  of  epochs  would  achieve 
+minimal gains in accuracy and would likely lead to overfitting. 
+
+Figure 11. Sample Audio Detection from the ConservationAI 
+Platform 
+
+Each  of  the  8  classifications  returned  the  prediction  of 
+Common Wood Pigeon with an average confidence value of 
+0.71. The results from model inference match that of model 
+training. 
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on November 16,2023 at 09:46:32 UTC from IEEE Xplore.  Restrictions apply.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+To prevent overfitting in the deep learning pipeline, the authors have employed several regularization techniques. One such method is Dropout, which randomly sets a fraction of input units to 0 at each update during training time, helping to prevent complex co-adaptations on training data. In this paper, a dropout value of 50% has been applied in the first three layers of the Multi-Layer Perceptron (MLP). Additionally, although not explicitly mentioned, it can be assumed that other common practices like weight decay or L2 regularization might have been implemented implicitly through the choice of optimization algorithms such as Adam, which often includes these features by default. However, without explicit mention, we cannot confirm if any additional regularization methods beyond dropout were utilized.

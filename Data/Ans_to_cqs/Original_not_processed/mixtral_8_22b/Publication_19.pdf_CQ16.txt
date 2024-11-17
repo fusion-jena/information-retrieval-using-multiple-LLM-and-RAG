@@ -1,0 +1,264 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+TABLE II.  
+
+HYPERPARAMETERS DETERMINED USING GRID SEARCH 
+
+Model Name 
+
+Inception-V3 
+MobileNet-V2 
+ResNet-18 
+DenseNet-121 
+
+Batch 
+Size 
+48 
+32 
+32 
+16 
+
+Learning 
+Rate 
+0.05 
+0.01 
+0.005 
+0.001 
+
+Parameters 
+# of 
+Epochs 
+75 
+100 
+150 
+100 
+
+Input Image Size 
+
+299 (cid:3400) 299 (cid:3400) 3 
+224 (cid:3400) 224 (cid:3400) 3 
+224 (cid:3400) 224 (cid:3400) 3 
+224 (cid:3400) 224 (cid:3400) 3 
+
+C.  Results 
+
+  As  Table  III  show  all  models  performed  reasonably  well 
+with macro-F1 averages above 91%. Because the models are to 
+be deployed on IoT edge devices, the size of each model is an 
+important  consideration.  As  Table  III  shows 
+the  best 
+performing model was Inception-V3 with a macro Average F1 
+score of 0.93, and the smallest size of 175 MB.   
+
+TABLE III.  
+
+BEST RESULTS FOR EACH NN ARCHITECTURE 
+
+Model 
+
+InceptionV3 
+DenseNet-121 
+ResNet-18 
+MobileNetV2 
+
+Model Size 
+(MB) 
+175 
+446 
+480 
+507 
+
+Accuracy 
+
+94% 
+93% 
+92% 
+93%
+
+B.  The Training Regime 
+  A 60-20-20 train/validate/test regime was used to randomly 
+split the data into training, validation and testing sets.  Table I 
+shows the class-wise breakdown. As the Table shows, the data 
+was  unbalanced  and  the  ghost  images  accounted  for  40.15% 
+percentage  of  the  images.    Similarly,  the  “other”  class 
+accounted for only 5.2% of the total number of images.  In this 
+first stage, SMOTE [23], oversampling or class weights were 
+not used. These techniques will be pursued in a second phase of 
+this research.  
+
+TABLE I.  
+
+THE TRAINING BREAKDOWN OF DATA 
+
+Class 
+Name 
+
+Ghost 
+Goat 
+Fox 
+Donkey 
+Other 
+Sheep 
+Total 
+
+Training
+8,188 
+5,767 
+3,482 
+1,178 
+1,062 
+723 
+20,400 
+
+Number of Images 
+
+Validation 
+2,705 
+1,923 
+1,161 
+393 
+354 
+232 
+6,768 
+
+Testing  Total
+2,754 
+1,923 
+1,161 
+393 
+354 
+231 
+6,816 
+
+13,647 
+9,613 
+5,804 
+1,964 
+1,770 
+1,186 
+33,984 
+
+%
+40.15 
+28.28 
+17.07 
+5.77 
+5.20 
+3.48 
+100
+
+A.  The TFLite Model 
+
+The best trained Inception-V3 model was first converted to 
+TensorFlow  Lite 
+(https://www.tensorflow.org/lite).  The 
+resulting model had a reduced size of 87 MB (from175MB), but 
+the  accuracy  was  reduced  to  92%  (from  93%),  and  macro 
+average F1-score was reduced to 0.90 (from 0.93). F1-score for 
+all classes except ‘other’ remained above 0.92.  The F1-score 
+of ‘other’ was reduced to 0.71 (from 0.79).   Table V and Fig. 
+9 show the confusion  matrix  and ROC curves  for the TFLite 
+model respectively showing the model was still very capable.  
+
+TABLE V.  
+
+CONFUSION MATRIX FOR TFLITE INCEPTION-V3 MODEL  
+
+Predicted 
+
+Donkey 
+Fox 
+Goat 
+Sheep 
+Ghost 
+Other 
+
+Donkey 
+359 
+2 
+2 
+0 
+5 
+3 
+
+Fox 
+2 
+1051 
+8 
+0 
+10 
+5 
+
+Goat 
+16 
+8 
+1723 
+0 
+28 
+7 
+
+l
+a
+u
+t
+c
+A
+
+Sheep  Ghost  Other 
+3 
+0 
+1 
+230 
+2 
+5 
+
+11 
+90 
+185 
+1 
+2685 
+116 
+
+2 
+10 
+4 
+0 
+24 
+218
+
+(cid:21)(cid:19)(cid:21)(cid:19)(cid:3)(cid:44)(cid:40)(cid:40)(cid:40)(cid:3)(cid:42)(cid:79)(cid:82)(cid:69)(cid:68)(cid:79)(cid:3)(cid:38)(cid:82)(cid:81)(cid:73)(cid:72)(cid:85)(cid:72)(cid:81)(cid:70)(cid:72)(cid:3)(cid:82)(cid:81)(cid:3)(cid:36)(cid:85)(cid:87)(cid:76)(cid:73)(cid:76)(cid:70)(cid:76)(cid:68)(cid:79)(cid:3)(cid:44)(cid:81)(cid:87)(cid:72)(cid:79)(cid:79)(cid:76)(cid:74)(cid:72)(cid:81)(cid:70)(cid:72)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:44)(cid:81)(cid:87)(cid:72)(cid:85)(cid:81)(cid:72)(cid:87)(cid:3)(cid:82)(cid:73)(cid:3)(cid:55)(cid:75)(cid:76)(cid:81)(cid:74)(cid:86)(cid:3)(cid:11)(cid:42)(cid:38)(cid:36)(cid:44)(cid:82)(cid:55)(cid:12)
+
+Towards an IoT-based Deep Learning Architecture 
+for Camera Trap Image Classification 
+
+Imran A. Zualkernan  
+Comp. Science and Engineering 
+American University of Sharjah 
+Sharjah, UAE 
+izualkernan@aus.edu 
+
+Salam Dhou 
+Comp. Science and Engineering 
+American University of Sharjah 
+Sharjah, UAE 
+sdhou@aus.edu
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, it appears that the specific criteria used to determine when training is complete are not explicitly mentioned. However, we can infer from common machine learning practices that there could be several possible criteria used to decide when to stop training. Some examples include reaching a predefined number of epochs, observing a plateau in the validation loss, or achieving a desired level of performance on the validation set.
+
+From the table provided (Table II), we see that different hyperparameters have been determined using grid search for various models such as Inception-V3, MobileNet-V2, ResNet-18, and DenseNet-121. Among these parameters, one important factor is the number of epochs, which indicates how many times the entire dataset is passed through the neural network during training. For instance, Inception-V3 has been trained for 75 epochs, while ResNet-18 has been trained for 150 epochs. This suggests that the authors might have chosen to stop training based on reaching a certain number of epochs.
+
+Additionally, the paper mentions that a 60-20-20 train/validate/test regime was employed to split the data into training, validation, and testing sets. Monitoring the performance metrics on the validation set, such as validation loss or accuracy, can also help determine when to stop training. Although the exact stopping criterion is not specified, it is reasonable to assume that the authors may have considered factors like validation loss plateau or achieving a satisfactory level of performance on the validation set before deciding to halt the training process.

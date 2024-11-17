@@ -1,0 +1,60 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.2. Fine-tuning of the pretrained CNN backbone 
+
+Fine-tuning of the pretrained CNN backbone was performed using 
+classical meta-metric learning architectures adapted from the EasyFSL
+
+3.3. Comparative analysis of CNN backbones 
+
+Comparative  analysis  of  CNN  backbones  was  accomplished  to 
+determine  the  optimal  CNN  architecture  to  use.  Original  feature 
+extraction part of the meta-learning algorithms was replaced with four 
+CNN  pretrained  on  the  ImageNet  dataset,  that  is  ResNet18,  VGG16, 
+DenseNet121 and AlexNet. Recent work has shown that the addition of 
+pretrained networks can improve the classification (Yang et al., 2020). 
+The selection of pretrained CNNs was based on the ranking of standard 
+off-the-shelf CNN architectures used in the context of eco-acoustics with 
+DL  (Stowell,  2022)  to  highlight  their  energy  consumption.  Other  ar-
+chitectures  such  as  DNN  models  optimized  for  embedding  systems 
+requiring  low  power  consumption  (Velasco-Montero  et  al.,  2018)  or 
+traditional  audio  feature  extraction  (Lakdari  et  al.,  2024)  could  be 
+investigated further in the future.
+
+pretrained DenseNet might fit the Darksound dataset well, but there are 
+no  guarantees  that it  will  work  on  another  dataset in  the  exact  same 
+manner. All the CNN backbones used in this experiment were previously 
+trained on the ImageNet database, a large but very general dataset. It has 
+been recently shown that using features extracted from models trained 
+on smaller but more specific datasets, that bird sound datasets, leads to 
+higher quality classification (Ghani et al., 2023; McGinn et al., 2023). 
+Consequently, using features extracted from a model trained on spec-
+trograms of bird sounds (e.g.  BirdNET algorithm (Kahl et  al., 2021)), 
+could  improve  the  parameter  initialization  of  UML  algorithms  of  the 
+MEC method.
+
+Compared to no fine-tuning of a pretrained DenseNet, fine-tuning a 
+pretrained DenseNet on the Darksound dataset greatly improved clus-
+tering quality, achieving average scores of 80% for both ARI and AMI 
+compared  to  less  than  1%  for  no  fine-tuning.  This  illustrates  the 
+importance of fine-tuning the CNN backbone of the model for improving 
+
+clustering quality. Fine-tuning of the model on 5 way-1 shot tasks with 
+Prototypical Networks (PN) also enabled it to find a number of clusters 
+closer to the ground truth, with 25 out of 30 clusters found instead of 7 
+without fine-tuning (i.e. baseline) (Fig. 7).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The given context does not provide explicit information about the preprocessing steps involved before training a deep learning model. However, generally speaking, common preprocessing steps include data normalization, scaling, cleaning, augmentation, and encoding. Data normalization involves rescaling numeric columns to have a mean value of 0 and a standard deviation of 1. Scaling refers to transforming the range of independent variables or predictors to a certain scale, without distorting differences in the ranges of values or losing information. Cleaning involves handling missing values, removing duplicates, and correcting inconsistent entries. Augmentation includes techniques like rotation, zooming, flipping, cropping, padding, etc., which help increase the amount of training data. Encoding is converting categorical data into numerical form so that machine learning algorithms can process them.

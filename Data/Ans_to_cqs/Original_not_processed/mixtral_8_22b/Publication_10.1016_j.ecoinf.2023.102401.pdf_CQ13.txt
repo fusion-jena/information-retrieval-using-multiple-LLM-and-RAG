@@ -1,0 +1,186 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To extract the input information, the SRC3 block employs a parallel 
+analysis  of  the  input  feature  map  using  two  convolution  kernels.  In 
+contrast to the C3 block, the SRC3 block incorporates two convolution 
+kernels prior to the input of the bottleneck block. One of the kernels is 
+responsible  for  halving  the  dimension  of  the  feature  map,  while  the 
+other  maintains  the  dimension  unchanged.  This  approach  allows  for 
+more  comprehensive  processing  of  the  input  features,  enabling  the 
+model  to  capture  both  high-level  semantic  information  and  preserve 
+relevant details during the feature extraction process. The convolution 
+kernel size utilized is 3 × 3, which leads to a broader receptive field of 
+information and richer characteristics compared to the 1 × 1 convolu-
+tion kernel. The output semantic information can be augmented by the 
+action of two convolution kernels. The information output from the first
+
+4.2. Performance evaluation 
+
+The most important measures of a neural network model's efficacy 
+are accuracy, recall, F1 score, PR curve, and average mean accuracy. The 
+mean average precision (mAp), which is the average AP of all n cate-
+gories, measures the effect of accuracy and recall thoroughly. The mAp 
+was chosen as the major model evaluation in the study, comprehensively 
+analysing the model detection accuracy, recall, and F1 scores, which are 
+derived as follows: 
+
+P =
+
+TP
+TP + FP
+
+(13)  
+
+R =
+
+TP
+TP + FN
+
+F1 =
+
+2 × P × R
+P + R
+
+∫ 1
+
+AP =
+
+P(R)dR
+
+0
+
+(14)  
+
+(15)  
+
+(16)  
+
+where TP stands for the true positive, FP stands for the false-positive, TN 
+stands for the true negative and FN stands for the false-negative. 
+
+4.3. Datasets
+
+F' = Mc(F) ⊗ F.
+
+F'' = Ms(F') ⊗ F'.
+
+(1)  
+
+(2) 
+
+To increase attention to crucial channels, channel attention doubles 
+the weights of various channels by themselves. As shown in Fig. 3, the 
+input features are passed through the parallel MaxPool layer and Avg-
+Pool layer to transform the feature map from C × H × W  to C × 1 × 1 
+and then through the shared MLP module, in which the original number 
+of channels is compressed to1
+r  and then expanded to the original number 
+of channels, and two activation results are obtained through the ReLu 
+activation function. The two activation results are added together, and 
+then the model output is obtained by a sigmoid activation function. The 
+mathematical expression is as follows: 
+
+Mc(F) = σ(MLP(AvgPool(F) ) + MLP(MaxPool(F) ) )
+) )
+
+(
+
+(
+
+(
+
+(cid:0)
+
+(cid:0)
+
+= σ
+
+W1
+
+W0
+
+Fc
+
+avg
+
++ W1
+
+W0
+
+Fc
+
+max
+
+) ) )
+.
+
+(3)
+
+Datasets 
+
+Images 
+
+Category 
+
+Aquarium 
+Trash-ICRA19 
+VisDrone 
+NWPU VHR-10 
+HRSID 
+
+638 
+1144 
+1610 
+800 
+5604 
+
+7 
+3 
+12 
+10 
+1 
+
+Train 
+
+510 
+915 
+1288 
+640 
+4483 
+
+Test 
+
+128 
+229 
+322 
+160 
+1121  
+
+EcologicalInformatics79(2024)1024017P. Liu et al.                                                                                                                                                                                                                                       
+
+create a single image, enhancing the background of the identified object. 
+Table  2  presents  the  hyperparameters  used  for  data  augmentation, 
+specifying  the  ranges  and  probabilities  for  each  augmentation  tech-
+nique.  These  augmentation  techniques  introduce  diversity  into  the 
+training  dataset,  enabling  the  model  to  learn  robust  features  and 
+improve its performance in real-world scenarios. 
+
+Table 3 
+Comparison of networks using different attention mechanism modules.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Based on the given context, there is no explicit mention of the specific hyperparameters such as learning rate or optimizer used in the deep learning model. However, Table 2 does present the hyperparameters used for data augmentation, specifying the ranges and probabilities for each augmentation technique. These include rotation range, width shift range, height shift range, shear range, zoom range, horizontal flip, vertical flip, and fill mode. For example, the rotation range is set between -10 and 10 degrees with a probability of 0.5, indicating that half of the images will undergo random rotations within this range. Similarly, other parameters like width shift range, height shift range, etc., have their respective values mentioned in the table. Unfortunately, without additional context, it is not possible to provide further information about the learning rate, optimizer, or any other hyperparameters related to the training of the deep learning model.

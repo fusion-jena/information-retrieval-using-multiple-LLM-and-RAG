@@ -1,0 +1,82 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+CNN comes with the disadvantages of a huge number
+of labelled training samples requirement for weighting pa-
+rameters and powerful GPUs for a faster learning process.
+With limited training samples, learning too many parameters
+directly will result in overﬁtting even after using over-ﬁtting
+prevention techniques such as Dropout [7]. Overﬁtting of a
+machine learning model includes more terms and uses more
+complicated approaches than necessary [8]. To make deep
+CNN ﬁt for small datasets while keeping high accuracy is
+a challenge. To overcome this challenge, transfer learning [9]
+offers the solution, which implies reusing previously attained
+knowledge in similar tasks. Some studies analyzed the use
+of transfer learning for many deep learning algorithms. These
+evaluations [10] concluded that transfer learning improves the
+accuracy of deep learning models, which apply deep features
+and ﬁne-tuning.
+
+A. Transfer Learning from Pre-trained Models
+
+When data used to train deep learning networks is not
+enough, and it is expensive to create labelled data, transfer
+learning, a promising paradigm,
+is applied to acquire the
+knowledge learned in previous settings. The most common
+strategies of transfer learning are feature extraction and ﬁne-
+tuning. For feature extraction, input data is provided to the
+pre-trained model, and activation values of many layers are
+stored to use as features. For ﬁne-tuning, the initial layers
+of the model are ﬁxed, and the ﬁnal layers of the model
+
+Authorized licensed use limited to: Thueringer Universitaets. Downloaded on August 29,2024 at 05:51:17 UTC from IEEE Xplore.  Restrictions apply. 
+
+Fig. 1. Transfer Learning of MobileNet-based Model for Leaf Classiﬁcation.
+
+models, pre-trained on 1.4M images from 1000 classes. First,
+the intermediate layer of all the models was selected to use
+for feature extraction. For this purpose, the output of the last
+layer (bottleneck layer) is commonly used prior to the ﬂatten
+operation. The reason is that all the fully connected layers
+are specialized to the task network was trained on; thus, the
+features learned by these layers will not be useful for the new
+task. The bottleneck features are more generic. Therefore, the
+base models were frozen, loaded with weights trained on the
+ImageNet dataset and used as a feature extractor. We added
+a dropout layer with a dropout rate of 0.2 to reduce the
+overﬁtting of the model. Finally, the top classiﬁer softmax
+layer was added for predicting the class for an input image.
+The model with the base model of MobileNetV2 was compiled
+and optimized with Adam optimizer. The other with the base
+model of MobileNetV3 were optimized with Gradient descent
+
+Index Terms—MobileNet, CNN, plant identiﬁcation, mobile
+
+devices, transfer learning
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What methods are utilized for collecting raw data in the deep learning pipeline (e.g., surveys, sensors, public datasets)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information about the specific methods used for collecting raw data in the deep learning pipeline. However, generally speaking, there are several ways to collect raw data for deep learning applications. These include but are not limited to:
+
+1. Surveys or Questionnaires: This method involves gathering data through direct interaction with individuals. It can be done online or offline and is often used when human insights are required.
+
+2. Sensors: In various fields like IoT, robotics, autonomous vehicles, etc., sensor data is widely used. Sensors can capture real-time data, including visual, auditory, temperature, pressure, motion, etc.
+
+3. Public Datasets: Many organizations and institutions release their datasets publicly for research purposes. These datasets cover a wide range of topics and can be very beneficial for training deep learning models. Examples include ImageNet for computer vision tasks, MNIST for handwritten digit recognition, etc.
+
+4. Web Scraping: This technique involves automatically extracting large amounts of data from websites. It can be particularly useful when dealing with textual data.
+
+5. APIs: Application Programming Interfaces allow developers to access data from different platforms and services. They can be used to gather data from social media, search engines, databases, etc.

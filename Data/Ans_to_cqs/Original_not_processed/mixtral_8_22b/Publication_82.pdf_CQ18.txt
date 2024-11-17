@@ -1,0 +1,126 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Measurement of Performance
+To get a sense of how our approaches will perform on new unseen
+data, and also to keep a track of if any of our approaches are
+overﬁtting, we run all our experiments across a whole range
+of train-test set splits, namely 80–20 (80% of the whole dataset
+used for training, and 20% for testing), 60–40 (60% of the whole
+dataset used for training, and 40% for testing), 50–50 (50% of
+
+the whole dataset used for training, and 50% for testing), 40–60
+(40% of the whole dataset used for training, and 60% for testing)
+and ﬁnally 20–80 (20% of the whole dataset used for training,
+and 80% for testing). It must be noted that in many cases, the
+PlantVillage dataset has multiple images of the same leaf (taken
+from diﬀerent orientations), and we have the mappings of such
+cases for 41,112 images out of the 54,306 images; and during all
+
+Frontiers in Plant Science | www.frontiersin.org
+
+3
+
+September 2016 | Volume 7 | Article 1419
+
+Mohanty et al.
+
+trained using transfer
+
+60–40, we will use
+
+Each of these 60 experiments runs for a total of 30 epochs,
+where one epoch is deﬁned as the number of training iterations
+in which the particular neural network has completed a full pass
+of the whole training set. The choice of 30 epochs was made based
+on the empirical observation that in all of these experiments, the
+learning always converged well within 30 epochs (as is evident
+from the aggregated plots (Figure 3) across all the experiments).
+To enable a fair comparison between the results of all the
+experimental conﬁgurations, we also tried to standardize the
+hyper-parameters across all the experiments, and we used the
+following hyper-parameters in all of the experiments:
+• Solver type: Stochastic Gradient Descent,
+• Base learning rate: 0.005,
+
+• Learning rate policy: Step (decreases by a factor of 10 every
+
+To summarize, we have a total of 60 experimental
+
+conﬁgurations, which vary on the following parameters:
+
+1. Choice of deep learning architecture:
+
+AlexNet,
+GoogLeNet.
+
+2. Choice of training mechanism:
+
+Transfer Learning,
+Training from Scratch.
+
+3. Choice of dataset type:
+
+Color,
+Gray scale,
+Leaf Segmented.
+
+4. Choice of training-testing set distribution:
+
+Train: 80%, Test: 20%,
+Train: 60%, Test: 40%,
+Train: 50%, Test: 50%,
+Train: 40%, Test: 60%,
+Train: 20%, Test: 80%.
+
+this paper, we have used the notation of
+
+Throughout
+Architecture:TrainingMechanism:DatasetType:Train-Test-
+Set-Distribution to refer
+experiments. For
+to particular
+instance,
+to refer to the experiment using the GoogLeNet
+learning
+architecture, which was
+on the gray-scaled PlantVillage dataset on a train—test
+set distribution of
+the notation
+GoogLeNet:TransferLearning:GrayScale:60–40.
+
+trained using transfer
+
+60–40, we will use
+
+to
+
+To address the issue of over-ﬁtting, we vary the test set
+to train set ratio and observe that even in the extreme case
+of training on only 20% of the data and testing the trained
+model on the rest 80% of the data, the model achieves an
+overall accuracy of 98.21% (mean F1 score of 0.9820) in the case
+of GoogLeNet::TransferLearning::Color::20–80. As expected, the
+overall performance of both AlexNet and GoogLeNet do degrade
+if we keep increasing the test set to train set ratio (see Figure 3D),
+but the decrease in performance is not as drastic as we would
+expect if the model was indeed over-ﬁtting. Figure 3C also shows
+that there is no divergence between the validation loss and the
+training loss, conﬁrming that over-ﬁtting is not a contributor to
+the results we obtain across all our experiments.
+and GoogLeNet
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors implement a strategy to monitor the model performance during training by running their experiments across various train-test set splits. These include 80-20, 60-40, 50-50, 40-60, and 20-80 percentages of the entire dataset allocated for training and testing respectively. This approach allows them to evaluate how their models might perform on unseen data and helps detect potential overfitting issues. Each experiment is conducted for a total of 30 epochs, with one epoch defined as the number of training iterations required for the specific neural network to complete a full pass through the entire training set. The convergence of learning within this period is confirmed by observing the aggregated plots across all experiments. To ensure a fair comparison among different configurations, they maintain consistent hyperparameters throughout all experiments. These include stochastic gradient descent solver type, base learning rate of 0.005, step learning rate policy decreasing by a factor of 10 every certain number of steps, and momentum of 0.9. In summary, they employ a comprehensive strategy involving varying train-test set distributions, maintaining consistent hyperparameters, and monitoring learning convergence to effectively assess and manage model performance during training.

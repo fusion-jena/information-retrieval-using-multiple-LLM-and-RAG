@@ -1,0 +1,75 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Hoel, P.G., 1943. On indices of dispersion. Ann. Math. Stat. 14 (2), 155–162. https://doi. 
+
+org/10.1214/aoms/1177731457. 
+
+James, K., Bradshaw, K., 2020. Detecting plant species in the field with deep learning and 
+drone technology. Methods Ecol. Evol. 11 (11), 1509–1519. https://doi.org/ 
+10.1111/2041-210X.13473. 
+
+James, R.K., Christianen, M.J.A., van Katwijk, M.M., de Smit, J.C., Bakker, E.S., van der 
+Heide, T., Herman, P.M.J., Bouma, T.J., 2020. Seagrass coastal protection services 
+reduced by invasive species expansion and megaherbivore grazing. J. Ecol. https:// 
+doi.org/10.1111/1365-2745.13411. 
+
+Jupyter Team, 2015. Jupyter Notebook [Computer software]. https://jupyter.org. 
+K´efi, S., Rietkerk, M., Alados, C.L., Pueyo, Y., Papanastasis, V.P., ElAich, A., De Ruiter, P. 
+C., 2007. Spatial vegetation patterns and imminent desertification in Mediterranean 
+arid ecosystems. Nature 449 (7159), 213–217. https://doi.org/10.1038/ 
+nature06111.
+
+EcologicalInformatics81(2024)1025802R.K. James et al.                                                                                                                                                                                                                                
+
+Fig. 1. Workflow used to (a) select a deep learning model, (b) develop a ground-truth imagery dataset, (c) train the deep learning models, (d & e) evaluate model 
+performance and (f & g) obtain the data and analyse it to quantify the spatial patterns and resilience of the ecosystem. 
+
+2.3. Deep learning models 
+
+2.3.1. Semantic segmentation for vegetation mapping
+
+To  refine  the  predictions  and  remove  false  detections,  post- 
+processing  techniques  using  the  DBSCAN  algorithm  from  the  scikit- 
+learn library (v.0.24.2) were applied (Schubert et al., 2017). DBSCAN 
+was successful in correcting duplicate DETR predictions, a more detailed 
+description can be found in Supplementary S2D. The model underwent 
+300 training cycles with a batch size of two. The learning rate for the 
+(cid:0) 5 (Carion 
+model backbone was set to 10
+et  al.,  2020).  The  model  produced  bounding  box  predictions  and  the 
+probability that these bounding boxes contained turtles. A confidence 
+threshold, determining the optimal model performance, was established 
+by plotting Precision and Recall against the threshold on the validation 
+set.  The  chosen  threshold  balanced  the  two  metrics,  maximizing  per-
+formance  by  detecting  individuals  (Precision)  while  minimizing  false 
+detections (Recall). 
+
+(cid:0) 6 and the transformer set to 10
+
+training, which helped to reduce human error. Similar to the seagrass 
+semantic  segmentation  model,  the  resolution  of  the  images  in  the 
+ground-truth dataset was reduced to 1000 × 1333, and the three colour 
+channels of the images were normalised by subtracting the means and 
+dividing  by  the  standard  deviations  per  channel.  The  colour  channel 
+means and standard deviations were based on the ImageNet dataset used 
+in the training of the (pre-trained) RestNet-50 (the used mean values 
+were [0.485, 0.456, 0.406], and the standard deviations were [0.229, 
+0.224, 0.225]). The DETR model’s object queries parameter was set to 
+100, allowing for the detection of up to 100 turtles in an image, which 
+was sufficient for all case-study images.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about how the hyperparameters of the model were optimized. However, there is some indication that a form of manual tuning or trial-and-error approach may have been employed. For instance, the learning rate for the model backbone was set to 10, and the model underwent 300 training cycles with a batch size of two. Additionally, the DETR model’s object queries parameter was set to 100. These specific choices suggest that the authors might have experimented with different configurations before settling on these particular settings. Nevertheless, without further details, we cannot definitively state whether they used methods such as grid search or random search for hyperparameter optimization.

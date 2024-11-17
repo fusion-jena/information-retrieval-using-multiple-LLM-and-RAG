@@ -1,0 +1,149 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+(of 94.5%) using the deep learning–based CNN model. Martin-Abadal 
+et  al.  (Martin-Abadal  et  al.,  2018)  estimated  seagrass  meadows  by 
+applying  an  encoder  decoder-based  model  (VGG16FCN8).  They  ach-
+ieved a precision of 96.57% and an accuracy of 96.81% on their dataset. 
+Meanwhile,  Weidmann et  al.  (Weidmann et  al., 2019) found  that the 
+deep  learning–based  DeepLabv3+ model  achieves  the  highest  perfor-
+mance  (with  a  mean  intersection  over  union  (mIoU)  of  87.78%) 
+compared  to  the  fully  convolutional  networks,  dilated  convolution 
+networks (dilNets) and U-Net on the ‘LookingForSeagrass’ dataset.
+
+Cspnet: A new backbone that can enhance learning capability of cnn. In: Proceedings 
+of the IEEE/CVF Conference on Computer Vision and Pattern Recognition 
+Workshops, pp. 390–391. 
+
+Waycott, M., Duarte, C.M., Carruthers, T.J.B., Orth, R.J., Dennison, W.C., Olyarnik, S., 
+
+Calladine, A., Fourqurean, J.W., Heck, K.L., Hughes, A.R., Kendrick, G.A., 
+Kenworthy, W.J., Short, F.T., Williams, S.L., 2009. Accelerating loss of seagrasses 
+across the globe threatens coastal ecosystems. Proc. Natl. Acad. Sci. 106 (30), 
+12377–12381. 
+
+Weidmann, F., Jager, J., Reus, G., Schultz, S.T., Kruschel, C., Wolff, V., Fricke- 
+
+Neuderth, K., 2019. A closer look at seagrass meadows: Semantic segmentation for 
+visual coverage estimation. In: OCEANS 2019 Marseille, 1–6. 
+
+Xu, R., Lin, H., Lu, K., Cao, L., Liu, Y., 2021. A forest fire detection system based on 
+
+ensemble learning. Forests 12 (2), 217. 
+
+EcologicalInformatics76(2023)10204713
+
+1.  Unbounded fusion 
+
+∑
+
+O =
+
+wi.Ii
+
+(1) 
+
+i
+
+where wi  is a learnable weight that can be a scalar (per feature), a 
+vector (per channel) or a multi-dimensional tensor (per pixel) and Ii  is 
+the  number  of  layers.  However,  the  unbounded  scalar  weight  could 
+cause  training  instability,  Therefore,  weight  normalisation  is  used  to 
+bound the value range of each weight.  
+
+2.  Softmax-based fusion 
+
+∑
+
+O =
+
+ewi
+
+∑
+
+ewj
+
+i
+
+j
+
+.Ii
+
+(2) 
+
+The  softmax  activation  function  is  applied  to  each  weight  to 
+normalise  all  weights  to  be  a  probability  within  a  range  of  0  to  1. 
+However,  the  extra  softmax  function  leads  to  a  slowdown  on  GPU 
+hardware resources.  
+
+3.  Fast normalized fusion 
+
+where  P7
+
+td  presents  the  intermediate  feature  at  level  6  on  the  top- 
+out  presents the feature at level 6 on the bottom- 
+
+down pathway and P7
+up pathway.
+
+down pathway and P7
+up pathway. 
+
+A  novel  compound  scaling  method  was  proposed  in  EfficientNet, 
+which  uses  a  compound  coefficient  ϕ  to  scale  uniformly  and  adjust 
+dynamically three parameters’  depth α, width β  and resolution γ  in a 
+principled way: 
+
+depth : d = αϕ
+width : w = βϕ
+resolution : r = γϕ
+s.t. α.β2.γ2 ≈ 2 α ≥ 1, β ≥ 1, γ ≥ 1.
+
+(6) 
+
+where constant α, β and γ is determined by the grid search operation. 
+User-specified coefficient ϕ  controls the available resources for model 
+scaling, while constant α, β and γ identify the way to assign these extra 
+resources to network width, depth and resolution, respectively. 
+
+3. Methodology 
+
+The procedure of the proposed approach for H. ovalis detection can 
+be divided into four steps: dataset description; dataset processing and 
+labelling; model training; and performance evaluation. These steps are 
+described below: 
+
+O =
+
+∑
+
+wi
+∑
+
+ϵ +
+
+i
+
+wj
+
+.Ii
+
+(3)  
+
+j
+
+3.1. Datasets
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The provided context does not explicitly mention the specific hyperparameters such as learning rate or optimizer used in the deep learning models discussed. It primarily focuses on the architectures and performance metrics of various deep learning models used for tasks like seagrass meadow estimation and semantic segmentation for visual coverage estimation. To find out about the exact hyperparameters used in those studies, one would need to refer to the original research papers mentioned in the context.

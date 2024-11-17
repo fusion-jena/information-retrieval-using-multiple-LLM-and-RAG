@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Such fragmentation hinders the practical usability of deep learning 
+in bioacoustics, and thus in the life sciences at large. Indeed to date, the 
+success of deep neural networks in the supervised regime depends on the 
+availability of a massive corpus of audio examples for the sound events 
+of interest, paired with human annotations. Yet, temporally-precise and 
+fine-grained annotation of audio demands expertise, and is thus costly 
+and time-consuming. In many cases, the obstacle is not only to acquire 
+annotations, but also the audio examples themselves: e.g. for rare spe-
+cies,  remote  locations,  or  costly  equipment.  Furthermore,  these 
+numerous small-data scenarios remain outside the scope of digital bio-
+acoustic archives, such as Xeno-Canto and the Macaulay Library.
+
+Many machine learning systems have pragmatic design constraints 
+that  limit  the  range  of  durations  they  can  consider.  Our  template- 
+matching method uses ranges directly inherited from the 5 annotated 
+events, although there remain practical limits on very large templates, 
+such as computer memory. In deep learning, long audio files are usually 
+divided into shorter chunks (with fixed durations of e.g. 3 or 10 s), so 
+that a whole batch can fit inside the limited memory of GPUs. To detect 
+long  events,  detections  that  span  these  chunks  are  joined  together  in 
+post-processing. This as well as other considerations meant that post- 
+processing  of  outputs  was  an  important  aspect  of  all  strongly- 
+performing systems.
+
+Successful systems also commonly used explicit methods to control 
+the  duration  of  the  detected  events.  In  many  cases  this  consists  of 
+postprocessing  predictions  to  delete/merge  very  short  events,  or  esti-
+mating the typical duration from the examples. Du_NERCSLIP(23) and 
+Wolters et al. (2021) made use of neural network architectures specif-
+ically trained to infer and output region annotations. 
+
+Overall, the different approaches submitted illustrate the introduc-
+tion of ideas to address challenges related to this task: how to deal with 
+very different event lengths; how to construct a negative class when no 
+explicit  labels  are  given  for  this;  and  how  to  bridge  the  gap  between 
+classification and detection for few-shot sound event detection. These 
+challenges derive from the combination of few-shot learning with sound 
+event  detection,  and  hence  are  not  addressed  in  standard  few-shot 
+learning (Wang et al., 2020a).
+
+• Transductive  few-shot  learning  -  Meta  learning  methods  aim  to 
+learn on scarce data in order to generalise to unseen tasks,  which 
+makes the problem fundamentally difficult. In order to mitigate the 
+difficulty, transductive based methods utilise the information present 
+in the unlabeled examples from the query set to adapt the model and 
+improve its predictions. In Liu et al. (2018), the samples in support 
+and query set are jointly modelled as nodes of a graph and the pre-
+diction on query set is conducted by label-propagation algorithm. In 
+Hou  et  al.  (2019),  a  cross-attention  based  map  is  learnt  between 
+support set and query set in order to make predictions on individual 
+query examples.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text does not provide specific details about the data annotation techniques used in the deep learning pipeline. However, it mentions that the success of deep neural networks in the supervised regime depends on the availability of a massive corpus of audio examples for the sound events of interest, paired with human annotations. It also notes that temporally-precise and fine-grained annotation of audio demands expertise, and is thus costly and time-consuming. Additionally, the text discusses the use of neural network architectures specifically trained to infer and output region annotations. Therefore, while the exact techniques are not specified, we can infer that some form of temporal annotation or region annotation is likely being used in the deep learning pipeline for bioacoustics.

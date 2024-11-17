@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+As commonly done in deep learning, we iteratively learn the model
+parameters with stochastic gradient descend, starting from a random
+initialization. In each iteration, we randomly sample a batch of 𝐵 = 64
+reference data patches of size 15 × 15 pixels, where a patch is only
+considered for training if the center pixel is forested. We consider a
+pixel forested if and only if it contains vegetation points (points with
+𝐷𝑧 > 1.3 m, see Section 3.1) and also is considered forested based on
+NIBIO’s Norway-wide timber volume map (Astrup et al., 2019). We use
+the latter as an additional precautionary measure to avoid unnecessary
+noise from non-forested areas, as we are interested in learning forest
+characteristics only. For every reference data patch, we randomly pick
+an optical image from the correct year and two SAR images (one as-
+cending and one descending orbit) with acquisition dates near the one
+of the optical image. Using SAR with both ascending and descending
+
+Gast, J., Roth, S., 2018. Lightweight probabilistic deep networks. In: Proceedings of
+the IEEE Conference on Computer Vision and Pattern Recognition. pp. 3369–3378.
+Girshick, R., Donahue, J., Darrell, T., Malik, J., 2014. Rich feature hierarchies for
+accurate object detection and semantic segmentation. In: Conference on Computer
+Vision and Pattern Recognition (CVPR). pp. 580–587.
+
+Goodfellow, I., Bengio, Y., Courville, A., 2016. Deep Learning. MIT Press, http://www.
+
+deeplearningbook.org.
+
+Guo, C., Pleiss, G., Sun, Y., Weinberger, K.Q., 2017. On calibration of modern
+neural networks. In: Proceedings of the 34th International Conference on Machine
+Learning, Vol. 70. pp. 1321–1330.
+
+Gustafsson, F.K., Danelljan, M., Schon, T.B., 2020. Evaluating scalable bayesian
+deep learning methods
+the
+IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops. pp.
+1289–1298.
+
+robust computer vision.
+
+In: Proceedings of
+
+for
+
+to get blurred (as information over an increasingly larger receptive
+field is mixed through repeated convolutions). We visualize our model
+architecture in Fig. 5 and in the following, the data flow in the model
+is described in more detail.
+
+2.2. Deep learning in remote sensing
+
+In the last decade, deep learning has revolutionized the way infor-
+mation is extracted from images. In particular, convolutional neural
+networks (CNNs) have achieved unprecedented results in areas like
+image classification (Krizhevsky et al., 2012; Simonyan and Zisserman,
+2015; He et al., 2016), semantic segmentation (Long et al., 2015; Chen
+et al., 2016), object detection (Szegedy et al., 2013; Girshick et al.,
+2014; Redmon et al., 2016) and further perception tasks.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The given context does not provide explicit details about specific data annotation techniques such as bounding box annotation or instance segmentation. However, it mentions that the authors are using a deep learning approach to extract information from images, specifically focusing on forest characteristics. They use a combination of optical and Synthetic Aperture Radar (SAR) images for their analysis.
+
+The process involves sampling batches of reference data patches of size 15x15 pixels, considering only those patches where the central pixel is forested. This implies that some form of labeling or annotation might be involved to identify which pixels correspond to forests. However, the exact technique used for this purpose is not mentioned in the provided context.
+
+For each reference data patch, they select corresponding optical and SAR images. While this doesn't directly relate to traditional data annotation techniques like bounding boxes or instance segmentation, it suggests a form of data association or alignment between different types of images.
+
+In summary, while the context does not explicitly mention specific data annotation techniques like bounding box annotation or instance segmentation, it does suggest that some form of labeling or annotation is being used to identify forested areas in the images.

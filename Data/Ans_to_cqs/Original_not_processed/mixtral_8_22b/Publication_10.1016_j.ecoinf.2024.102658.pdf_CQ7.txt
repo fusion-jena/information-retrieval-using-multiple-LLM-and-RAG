@@ -1,0 +1,58 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.2.1. Baseline model: random forest 
+
+Random forest (Breiman, 2001) utilizes an ensemble of classification 
+or regression trees; each tree is grown from a bootstrap sample of the 
+training dataset, and represents a series of sequential decisions, in which 
+each node of the tree is a binary split made on a predictive feature (e.g., 
+whether  the  mean  annual  temperature  is  above  25 
+C).  Further,  a 
+random subset of features is considered when finding the optimal split at 
+each node (we use a value of sqrt(n), n being the number of potential 
+predictors, for the size of this subset). When used for classification, the 
+outputs from the component trees are put through a majority vote to 
+create a single output. This is known to be a simple but powerful method 
+of retaining the complex non-linearity of decision trees while avoiding 
+overfitting. 
+
+◦
+
+The  iterative  model  exploration  in  this  work  roughly  follows  the 
+Bayesian workflow described by Gelman et al. (Gelman et al., 2020). The 
+Bayesian and non-Bayesian model pairs are chosen so that one repre-
+sents  a  less  flexible  model  in  terms  of  possible  shapes  of  its  decision 
+boundary (Bayesian logistic regression and MLE logistic regression) and 
+one  represents  a  more  flexible  model  (Bayesian  GAM  and  random 
+forest).
+
+For  numerical  scores,  we  examined  both  training  scores  and  vali-
+dation scores to diagnose signs of overfitting. The training scores were 
+calculated from the models fit on all 7331 grid cells. Their outputs for 
+the area shown in Fig. 1a were compared to their true labels to compute 
+the values. The validation scores of the models were calculated through 
+a  10-fold  CV  using  one  fold  pattern  of  spatial-CV  feature  selection, 
+shown in Fig. 2. The scores are the average of the 10 validation folds.
+
+EcologicalInformatics82(2024)102658Availableonline5June20241574-9541/©2024TheAuthors.PublishedbyElsevierB.V.ThisisanopenaccessarticleundertheCCBYlicense(http://creativecommons.org/licenses/by/4.0/).R. Noda et al.                                                                                                                                                                                                                                    
+
+amount  of  data,  distribution  data  for  machine  learning  models  and 
+physiological data for process-based models. For both types of models, 
+the  data  is  difficult  and  costly  to  collect.  This  poses  a  bottleneck  for 
+building SDMs for practical use.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it appears that the authors have used a 10-fold cross-validation (CV) approach with one fold pattern of spatial-CV feature selection for calculating the validation scores of the models. However, the specific criteria used to split the data into training, testing, and validation sets are not explicitly mentioned in the provided text. In general, the data can be divided randomly or based on certain criteria such as time, location, or other relevant factors depending on the nature of the problem and the available data. It is also common practice to keep aside some portion of the data as a holdout set or test set to evaluate the final performance of the trained model.

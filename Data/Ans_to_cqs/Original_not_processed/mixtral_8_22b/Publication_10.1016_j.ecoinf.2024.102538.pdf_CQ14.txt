@@ -1,0 +1,184 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The  model’s  performance  was  assessed  using  the  mean  reciprocal 
+rank  (MRR),  accuracy  (ACC),  and  hierarchical  distance  of  a  mistake 
+(HDM) as metrics. The MRR (Go¨eau et al., 2018), an official evaluation 
+metric of the BirdCLEF2018 competition, was employed to assess pro-
+cesses that generate a list of potential responses to a sample of queries 
+which are ranked by their likelihood of correctness. Accuracy was used 
+to determine the proportion of correctly classified items, and an average 
+accuracy across all class hierarchies (avg_ACC) was calculated to eval-
+uate the efficacy of the hierarchical classification. The HDM (Bertinetto 
+et al., 2020) was used to quantify the degree of misclassification when 
+only  a  single  class  could  be  predicted.  For  example,  misclassifying 
+Garrulax canorus as  Leiothrix lutea may not incur the same penalty as 
+misclassifying Garrulax canorus as Caprimulgus jotaka. The mean height
+
+The model was trained over 200 epochs using the Adam optimizer 
+(cid:0) 5. The batch size 
+(Kingma and Ba, 2015), with a weight decay of 1 × 10
+was fixed at 16, and the loss function was updated as per Eq. (6). The 
+learning rate was initially set at 0.001 and was subsequently reduced by 
+a  factor  of  0.1  in  a  step-wise  manner  whenever  the  validation  loss 
+remained  constant  for  five  epochs.  The  minimum  learning  rate  was 
+(cid:0) 5. The hyper-parameter λ in Eq. (4) was set to 0.8, 
+established at 1 × 10
+Mk  in Eq. (5) was defined as 2k+1(k = 1, 2, …K), and β in Eq. (6) was set 
+to 0.4.
+
+of these methods degrades when the individual templates fail to capture 
+the  within-class  variation  present  in  the  test  set.  As  a  result,  these 
+methods  generally struggle to handle large-scale bird populations. To 
+address  this,  machine  learning  methods  have  focused  on  complex 
+feature  engineering  to  analyze  and  classify  bird  vocalizations  more 
+effectively. This includes the use of Gaussian mixture modeling (GMM) 
+to simulate the distribution of feature spaces, as described by Mohanty 
+et al. (2020) and Kalan et al. (2015). Traditional hidden Markov models 
+(HMMs) (Janˇcoviˇc et al., 2014; Stastny et al., 2018) utilize probability 
+density functions to represent features in each state and identify birds by 
+constructing a single model for each species. Discriminant methods such
+
+25.86 
+21.35 
+59.62 
+
+37.70 
+
+×
+×
+
+×
+×
+
+√ 
+
+√ 
+
+77.183 
+
+91.124 
+89.649 
+89.044 
+90.683 
+
+91.643 
+
+ACC(↑) 
+
+Order 
+
+81.456 
+
+92.797 
+91.365 
+90.688 
+92.519 
+
+93.394 
+
+Family 
+
+73.697 
+
+89.415 
+87.425 
+86.749 
+88.977 
+
+90.211 
+
+Species 
+
+71.429 
+
+87.465 
+85.476 
+85.117 
+86.669 
+
+88.301 
+
+avg_ACC(↑) 
+
+HDM(↓) 
+
+75.527 
+
+89.893 
+88.089 
+87.518 
+89.389 
+
+90.635 
+
+0.24473 
+
+0.10107 
+0.11911 
+0.12482 
+0.10611 
+
+0.09365  
+
+EcologicalInformatics80(2024)10253812Q. Wang et al.                                                                                                                                                                                                                                   
+
+Table 8 
+Comparison of the effectiveness of baseline model and PPNN on the BC-S dataset.  
+
+Model 
+
+Hier 
+
+MRR(↑) 
+
+Baseline 
+PPNN 
+
+×
+
+√ 
+
+91.053 
+95.110 
+
+ACC(↑) 
+
+Order 
+
+96.429 
+98.377 
+
+Family 
+
+92.208 
+93.506 
+
+Genus 
+
+90.909 
+92.857 
+
+Species 
+
+90.909 
+92.532 
+
+avg_ACC(↑) 
+
+HDM(↓)
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about how the hyperparameters were optimized, whether through grid search, random search, or another method. However, it is mentioned that the learning rate was initially set at 0.001 and then reduced by a factor of 0.1 in a step-wise manner whenever the validation loss remained constant for five epochs. Additionally, the minimum learning rate was established at 1 × 10^-5. The hyperparameter λ in Eq. (4) was set to 0.8, Mk in Eq. (5) was defined as 2^k+1(k = 1, 2,...K), and β in Eq. (6) was set to 0.4. These values suggest that some form of optimization process took place, but without further details, we cannot definitively say which specific method was used.

@@ -1,0 +1,86 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+10.4.1 Quantitative Results Analysis
+
+Table 10.3 provides the results obtained for all the evaluated models according to
+the three evaluation metrics. The four main conclusions that we can derive from that
+results are that (1) performances of LGL and mono-response DNN are lower than
+the one of MAXENT for all metrics, (2) multi-response DNN outperforms SNN in
+every version and for all metrics, (3) multi-response DNN outperforms MAXENT
+in test Rmse in every version, (4) CNN outperforms all the other models, in every
+versions (CNN50, 200, 1000), and for all metrics.
+
+192
+
+C. Botella et al.
+
+10.3.2 Species Selection
+
+For the genericity of our results and to make sure they are not biased by the choice
+of a particular category of species, we have chosen to work with a high number of
+randomly chosen species. From the 7626 initial species, we selected species with
+more than 300 observations. We selected amongst those a random subset of 1000
+species to constitute an ensemble E1000. Then, we randomly selected 200 species
+amongst E1000 to constitute E200, and ﬁnally randomly selected 50 in E200 which
+
+10 A Deep Learning Approach to Species Distribution Modelling
+
+183
+
+gave E50. E50 being the main dataset used to compare our model to the baselines, we
+provide in Fig. 10.1 the list of species composing it. The full dataset with species
+of E1000 contains 6,134,016 observations in total (see Table 10.1 for the detailed
+informations per species).
+
+10.3.3 Environnemental Data
+
+=
+
+The superiority of the CNN whatever the metric is a new and important result
+for species distribution modeling community. Something also important to notice,
+as for DNN, is the improvement of its performance for te.Loss and te.Rmse when
+the number of species in output increases. Those results suggest that the multi-
+response regularization is efﬁcient when the model is complex (DNN) or the input
+dimensionality is important (CNN) but has no interest for simple models and small
+dimension input (SNN). There should be an optimal compromise to ﬁnd between
+model complexity, in term of number of hidden layers and neurons, and the number
+of species set as responses.
+
+For the best model CNN1000, it is interesting to see if the performance obtained
+on E50 could be generalized at a larger taxonomic scale. Therefore, we computed
+the results of the CNN1000 on the 1000 plant species used in output. Metrics
+values are :
+
+1.275463 (minimum =
+
+• Test Loss =
+• Test Rmse = 2.579596
+• Test A10%DQ = 0.58
+
+propagating errors. Cognitive modeling, 5(3).
+
+19. Nair, V. & Hinton, G. (2010). Rectiﬁed linear units improve restricted boltzmann machines.
+Proceedings of the 27th international conference on machine learning (ICML-10), 807–814.
+20. Ioffe, S. & Szegedy, C. (2015). Batch normalization: Accelerating deep network training by
+reducing internal covariate shift. International Conference on Machine Learning. 448–456.
+21. Dutrève, B. & Robert, S. (2016). INPN - Données ﬂore des CBN agrégées par la FCBN.
+Version 1.1. SPN - Service du Patrimoine naturel, Muséum national d’Histoire naturelle, Paris.
+Occurrence Dataset https://doi.org/10.15468/omae84 accessed via GBIF.org on 2017-08-30.
+22. Karger, D. N., Conrad, O., Bohner, J., Kawohl, T., Kreft, H., Soria-Auza, R.W. & Kessler,
+M. (2016). Climatologies at high resolution for the earth’s land surface areas. arXiv preprint
+arXiv:1607.00217.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: To ensure the generalizability of their deep learning approach to species distribution modelling, several measures were taken. Firstly, the authors chose to work with a high number of randomly chosen species to avoid bias towards any specific category of species. They started with 7626 initial species and narrowed down to 1000 species, then further reduced to 200 and finally 50 species. This process ensured diversity within the dataset. Secondly, the authors used different subsets of these species (E50, E200, E1000) to evaluate their models, providing a more comprehensive understanding of how well the models perform across various scales. Lastly, while the paper does not explicitly mention cross-validation or stratified splitting techniques, the use of multiple datasets (E50, E200, E1000) suggests that some form of data partitioning was employed to validate the robustness of the proposed methodology.

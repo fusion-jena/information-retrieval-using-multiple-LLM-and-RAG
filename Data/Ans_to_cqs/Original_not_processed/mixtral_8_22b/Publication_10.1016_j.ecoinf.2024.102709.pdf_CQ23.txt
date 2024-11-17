@@ -1,0 +1,53 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To determine the ideal training–test split for our model, we used k- 
+fold  cross-validation  (k  = 5,  epochs  = 500,  imagesize  = 640).  The 
+epochs provide the number of repetitions for training, and the image size 
+is  expressed in  pixels. k-fold  cross-validation  (Rodriguez et  al., 2010) 
+was used to determine the best training test set for the model. Hereby, 
+the data are split into k different training–test sets. The model was not 
+trained on the entire dataset but on each training split. The result was an 
+investigation of the best data split. Functions of the Python library scikit- 
+learn  (scikit-learn  developers,  2023)  were  used  to  split  the  data  and 
+investigate the results of each trained model. In addition, YOLO training 
+losses and mAP50 values of each model were investigated. The split with 
+the  highest  mAP50  value  indicates  the  highest  number  of  correctly 
+predicted labels for the model trained on a specific split. We used the
+
+split  data  with  the  highest  mAP50  (0.987)  for  the  prediction  of  our 
+model.
+
+Three models (Models 4, 5, and 6) were trained using our own data 
+(clusters of extracted numbers), as described above, as input for training, 
+whereas the other three models (Models 1, 2, and 3) were trained with 
+the modified National Institute of Standards and Technology (MNIST) 
+dataset of handwritten digits, which can be used to train classification 
+models (Deng, 2012).
+
+Table  7  depicts  the  six  models  in  greater  detail  by  comparing 
+different loss training values, which indicate how well the model learned 
+during training. The goal of training was to minimize the loss value. The 
+YOLO loss function was divided into three parts (Zafar et al., 2018). 
+
+The box loss is a regression loss that measures the error in the pre-
+dicted bounding box coordinates and dimensions relative to the ground 
+truth. When the value is lower, the bounding boxes are more accurate (Li 
+et al., 2023; Wang et al., 2023). This value is computed by YOLO using 
+Intersection  over  Union  (IoU)  (Zheng  et  al.,  2016)  and  distributional 
+focal  loss  (DFL)  (X.  Li  et  al.,  2020b).  The  IoU  measures  the  distance 
+between the ground truth and the actual box (Zheng et al., 2016). DFL
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: To ensure the generalizability of their deep learning model, several measures were implemented. Firstly, they utilized diverse datasets for training. Specifically, Models 4, 5, and 6 were trained using their own data, while Models 1, 2, and 3 were trained with the MNIST dataset of handwritten digits. This approach allowed them to evaluate the performance of their model across different types of data. Secondly, they employed k-fold cross-validation to determine the optimal training-test split for their model. K-fold cross-validation involves dividing the data into 'k' subsets or folds, where one fold is used as the validation set and the remaining 'k-1' folds are used for training. This process is repeated 'k' times, ensuring that every subset serves as the validation set once. By doing so, they could assess the robustness of their model against variations in the training and testing data. Lastly, functions from the Python library scikit-learn were used to split the data and analyze the outcomes of each trained model. These functions likely included methods for stratified splitting, which ensures that the distribution of classes in the training and testing sets remains consistent with the original dataset. Overall, these strategies helped enhance the reliability and applicability of their deep learning model.

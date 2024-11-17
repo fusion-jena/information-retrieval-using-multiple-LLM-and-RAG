@@ -1,0 +1,11 @@
+Based on the provided context, there are different strategies used to monitor model performance during training for various network architectures.
+
+For the three ResNet variants mentioned in EcologicalInformatics61(2021)1012158, the performance is monitored by using a validation set, which consists of 20% of the video clips in each class that are not part of the training set. The learning rate is decreased every 10 epochs by multiplying it with a gamma (γ) value of 0.1. This allows for a gradual reduction in the learning rate, helping the model to fine-tune and avoid overfitting.
+
+In the case of the SlowFast architecture from Feichtenhofer et al. (2019), the performance is monitored using a similar validation set strategy, with 20% of the video clips in each class being used for validation. However, the learning rate is decreased with a cosine strategy, which is a different approach compared to the step-wise reduction used for the ResNet variants. The cosine strategy allows for a smoother decrease in the learning rate, which might help the model to converge to a better minimum.
+
+Additionally, Feichtenhofer et al. (2019) use a warmup strategy for the first few epochs, linearly increasing the learning rate from 0 to the base learning rate. This can help the model to escape from poor local minima and improve the final performance.
+
+For both architectures, the test set performance is reported at the end of the training process. The test set includes 20% of the video clips of each class and is used to evaluate the final model performance on unseen data.
+
+In summary, the strategies implemented to monitor model performance during training include using a validation set, decreasing the learning rate at regular intervals (either step-wise or with a cosine strategy), and using a warmup strategy for the learning rate. These strategies help to prevent overfitting, improve convergence, and evaluate the final model performance.

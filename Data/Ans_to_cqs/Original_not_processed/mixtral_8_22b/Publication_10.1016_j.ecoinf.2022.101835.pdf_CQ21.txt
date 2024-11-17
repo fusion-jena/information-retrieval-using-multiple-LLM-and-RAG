@@ -1,0 +1,168 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+et al., 2016), and LightGBM 3.2.1 (Ke et al., 2017) libraries. In building a 
+machine  learning  model,  the  structure  and  hyperparameters  of  the 
+model must be determined, such as the number of decision trees and the 
+depth of trees for RF models and the number of intermediate layers and 
+nodes for ANN models. We optimized the structure and hyperparameters 
+of the RF and ANN models using Optuna 2.10.0 (Akiba et al., 2019) with 
+the  parameters  and  ranges  shown  in  Table  1  as  candidates.  For  the 
+LightGBM models, we used Optuna's LightGBM Tuner (optuna.integra-
+tion.lightgbm)  for hyperparameter  fitting.  The  performance of  the  al-
+gorithms was evaluated by comparing the loss function (mean squared 
+error (MSE)) of the optimized models. In addition, the mean absolute 
+error (MAE) and the coefficient of determination (R2) were calculated 
+for reference.
+
+n_estimators = 92, 
+max_depth = 15 
+num_layer = 0, 
+units (initial layer) = 90, 
+units (middle layers) = 60, 
+activation = ReLu, 
+optimizer = Adam 
+num_leaves = 31, 
+lambda_l1 = 0 
+lambda_l2 = 0 
+feature_fraction = 0.5 
+bagging_fraction = 0.573 
+bagging_freq = 7 
+min_child_samples = 20 
+
+0.0530 
+
+0.175 
+
+0.942 
+
+0.0429 
+
+0.156 
+
+0.958 
+
+0.0381 
+
+0.148 
+
+0.964  
+
+0.0586 
+
+0.175 
+
+0.940 
+
+0.0485 
+
+0.170 
+
+0.951 
+
+0.0424 
+
+0.158 
+
+0.955  
+
+EcologicalInformatics71(2022)1018353Y. Masago and M. Lian                                                                                                                                                                                                                       
+
+0.965,  respectively),  followed  by  the  ANN  and  RF  models,  while  the 
+differences  were  not  significant.  The  optimized  ANN  models  did  not 
+have any intermediate layers, and the model with the input layer fol-
+lowed by the output layer was determined to be the best.
+
+bagging_freq 
+min_child_samples 
+
+int, 1 to 20 
+int, 0 to 5  
+int, 10, 20, … 
+100  
+int, 10, 20, … 
+100  
+ReLu or 
+linear  
+Adam or 
+RMSprop 
+
+Maximum depth of the tree 
+Number of middle layers 
+Number of nodes in the 
+input layer 
+Number of nodes in the 
+middle layers 
+Activation function in the 
+input and middle layers 
+Optimizer 
+
+Maximum tree leaves for 
+base learners   
+L1 regularization   
+L2 regularization   
+A subset of features on each 
+iteration (tree)   
+Randomly select a part of 
+data without resampling   
+Frequency for bagging   
+Minimal number of data in 
+one leaf   
+
+AA SHAPj =
+
+1
+ni
+
+∑
+⃒
+⃒SHAPi,j
+
+⃒
+⃒
+
+i
+
+(1)  
+
+where AA_SHAPj  is the average of the absolute SHAP values for input 
+variable j (i.e., the daily average temperature on day j), ni is the number 
+of response values (4844 for the first flowering date models and 4814 for 
+the full blossom date models), and SHAPi,j is the SHAP value for the jth 
+input parameter of the ith response value.
+
+Next, the first flowering and full blossom dates for each station and 
+year were calculated using the optimized models. Finally, the root mean 
+square error (RMSE) was calculated for all observation sites to evaluate 
+the overall performance of the optimized models, and the RMSE for each 
+observation  site  was  calculated  to  evaluate  the  performance  of  the 
+models for each site. 
+
+2.4. Understanding the machine learning models using SHAP values
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training process, several postprocessing steps can be performed depending on the specific requirements of the task. Some common postprocessing steps include:
+
+1. Model Evaluation: This involves calculating various metrics like Mean Absolute Error (MAE), Root Mean Square Error (RMSE), Coefficient of Determination (R^2), etc., to assess the performance of the trained model. These metrics help in understanding how well the model has learned from the given dataset and its ability to generalize to unseen data.
+
+2. Hyperparameter Optimization: After initializing the model with some default hyperparameters, it may be necessary to fine-tune these parameters to achieve better results. Techniques like Grid Search, Random Search, Bayesian Optimization, etc., can be employed to find the optimal set of hyperparameters.
+
+3. Feature Importance Analysis: To understand which features contribute most significantly towards predicting the target variable, feature importance analysis can be carried out. Methods like Permutation Importance, Gini Importance, SHAP Values, etc., can provide insights into the contribution of individual features.
+
+4. Visualizations: Various visualizations like Saliency Maps, GradCAM, LIME, etc., can be generated to interpret the predictions made by the model. These visualizations highlight important regions in the input space that influence the final prediction, thereby providing valuable insights into the working of the model.
+
+5. Ensemble Models: Combining multiple models to form an ensemble can often lead to improved performance compared to individual models. Techniques like Bagging, Boosting, Stacking, etc., can be applied to create ensembles of different types of models.
+
+In this particular case, after training the RF, ANN, and LightGBM models, the authors have performed hyperparameter optimization using Optuna library. They have also calculated MAE, R^2, and Loss Function (Mean Squared Error) to evaluate the performance of their models. Additionally, they have computed SHAP values to analyze the impact of individual features on the predicted outputs.

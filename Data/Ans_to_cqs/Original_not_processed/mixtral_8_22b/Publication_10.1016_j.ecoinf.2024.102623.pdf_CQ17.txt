@@ -1,0 +1,77 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+vancements in deep learning to enhance performance. Specifically, our 
+MLP architecture consists of four layers, each containing 512 neurons 
+and connected with residual connections (He et al., 2016). We employ 
+batch normalization (Ioffe and Szegedy, 2015) and the Rectified Linear 
+Unit (ReLU) activation function in all layers except the final one, where 
+instead a sigmoid function is used to enable multi-label classification. 
+The model is trained with a batch size of 256 for 30 epochs using the 
+AdamW optimizer (Loshchilov and Hutter, 2017). Both the weight decay 
+and learning rate are set to 0.0001. Additionally, we employ a learning 
+rate scheduler with exponential decay of 0.95, and introduce dropout
+
+2.2.1. Limitations of L full 
+
+Primarily, this loss function fails to adequately address the issue of 
+class  imbalance  within  datasets.  Two  key  aspects  of  class  imbalance 
+need to be tackled here: 
+
+EcologicalInformatics81(2024)1026233R. Zbinden et al.
+
+In  the  field  of  machine  learning,  training  a  model  often  involves 
+minimizing a loss function that quantifies the model’s error on training 
+data. Generally, deep learning-based SDMs are trained with the binary 
+cross-entropy loss (Benkendorf and Hawkins, 2020; Deneu et al., 2021; 
+Zbinden et al., 2023; Zhang et al., 2022), with the target-group back-
+ground points often used as the de facto negative samples when absence 
+data is unavailable. Nevertheless, the loss function can be modified to 
+reflect the specificities of the problem. In our case, we can adapt the loss 
+function to inform the model about how pseudo-absences are integrated. 
+This can be achieved by adjusting or assigning weights to the different 
+components of the loss function. Recently, Cole et al. (2023) introduced 
+the  following  full  assume  negative  loss,  designed  to  account  for  both 
+target-group background points and random background points: 
+
+⎡
+
+L full(y, ̂y) = (cid:0) 1
+S
+
+∑S
+
+s=1
+
+Edwards Jr., T.C., Guala, G.F., Howard, T.G., Morisette, J.T., et al., 2019. 
+Development and delivery of species distribution models to inform decision-making. 
+BioScience 69 (7), 544–557. 
+
+Srivastava, N., Hinton, G., Krizhevsky, A., Sutskever, I., Salakhutdinov, R., 2014. 
+
+Dropout: a simple way to prevent neural networks from overfitting. J. Machine 
+Learn. Res. 15 (1), 1929–1958. 
+
+Stokland, J.N., Halvorsen, R., Støa, B., 2011. Species distribution modelling—effect of 
+design and sample size of pseudo-absence observations. Ecol. Model. 222 (11), 
+1800–1809. 
+
+Teng, M., Elmustafa, A., Akera, B., Bengio, Y., Radi, H., Larochelle, H., Rolnick, D., 2023. 
+
+Satbird: a dataset for bird species distribution modeling using remote sensing and 
+citizen science data. In: In Thirty-seventh Conference on Neural Information 
+Processing Systems Datasets and Benchmarks Track.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text mentions two regularization techniques used to prevent overfitting in the deep learning pipeline. These include dropout and batch normalization. Dropout is a technique where randomly selected neurons are ignored during training, which helps prevent overfitting by making the network more robust to noise and variations in input data. This method was first proposed by Srivastava et al. (2014). On the other hand, batch normalization is a technique that standardizes the inputs to a layer for each mini-batch, allowing each layer of a network to learn by itself a little more independently of other layers. It was introduced by Ioffe and Szegedy (2015).

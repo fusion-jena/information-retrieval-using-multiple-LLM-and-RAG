@@ -1,0 +1,79 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Since BERT can only accept a maximum of 512 tokens as input, we 
+used smaller subsections of the longer web articles as classifier input, an 
+approach previously applied to long document classification (Fiok et al., 
+2021; Sun et al., 2019). To identify the sections of text most likely to be 
+relevant to the classification decision, documents were split into chunks 
+of 300 tokens using the NLTK word-tokenizer. Chunks that contained 
+any  of  our  original  query  terms  (i.e.  any  bat-related  or  exploitation- 
+related  term)  were  retained.  If  more  than  one  chunk  contained  key-
+words,  the  first  such  chunk  of  the  document  was  retained  for  use  in 
+model training and evaluation. Before being fed into the BERT model, 
+texts are tokenized using the BERT tokenizer. Here, we set the maximum 
+number of tokens as 400 for social media posts, as most were very short, 
+and 512 for web articles, meaning some texts would have been further 
+truncated at this step.
+
+After  data  collection  and  text  extraction,  the  collected  data  were 
+substantially filtered and deduplicated (See Fig.S2.1): All non-English 
+texts were removed using the language identification model (lid.176) 
+from  the  fastText  python  library  (Bojanowski  et  al.,  2017),  as  subse-
+quent  text  classification  relied  on  models pre-trained  on  only  English 
+text. Posts and web articles were also removed if they contained none of 
+the original search terms. Although search terms were used to collect 
+data,  this  step  was  necessary  to  remove  posts  in  which  search  terms 
+made  up  part  of  other  words  (e.g.  combat  contains  the  word  bat). 
+Duplicate posts were removed by identifying posts with the same ID, as 
+assigned by the API and, for web articles, with the same URL. The text of 
+posts  and  web  articles  was  then  deduplicated  using  cosine  similarity 
+scores,  as  outlined  by  Kulkarni  and  Di  Minin  (2021).  First,  texts  are
+
+Settles, B., Craven, M., 2008. An analysis of active learning strategies for sequence 
+labeling tasks. In: Proceedings of the 2008 Conference on Empirical Methods in 
+Natural Language Processing, pp. 1070–1079. 
+
+Seymour, E., Damle, R., Sette, A., Peters, B., 2011. Cost sensitive hierarchical document 
+
+classification to triage PubMed abstracts for manual curation. BMC Bioinform. 12 
+(1), 1–11. 
+
+Shinyama, Y., 2020. Pdfminer. https://pdfminersix.readthedocs.io/en/latest/. 
+Stringham, O., Moncayo, S., Hill, K., Toomes, A., Mitchell, L., Ross, J.V., Cassey, P., 
+
+2021a. Text classification to streamline online wildlife trade analyses. PLoS One 16 
+(7) e0254007.584.  
+
+Stringham, O., Toomes, A., Kanishka, A., Mitchell, L., Heinrich, S., Ross, J., Cassey, P., 
+2021b. A guide to using the internet to monitor and quantify the wildlife trade. 
+Conserv. Biol. 35 (4), 1130–1139.
+
+Examination of our initial dataset indicated that results relating to 
+COVID-19 were over-represented compared to other topics. To investi-
+gate how the over-representation of particular topics in the training data 
+influence classifier performance, we trained classification tasks 2 and 3 
+using both a randomly selected sample and a balanced stratified sample. 
+For the balanced stratified sample, data were grouped according to their 
+initial  exploitation-related  query  term (stemmed). This  resulted  in  19 
+groups,  from  each  of  which  110  texts  for  labelling  were  randomly 
+selected,  such  that  each  query  group  was  equally  represented  in  the 
+data.  Since  some query  terms  were more likely  to  be  associated  with 
+COVID-19  related  texts,  such  as  ‘market’  or  ‘trade’,  this  approach 
+effectively  under-sampled  these  texts,  allowing  the  classifier  to  be 
+trained with the full breadth of topics within the dataset.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information about the optimization of the hyperparameters of the model. Therefore, it is not possible to determine whether techniques like grid search or random search were employed for hyperparameter tuning based solely on the provided context.

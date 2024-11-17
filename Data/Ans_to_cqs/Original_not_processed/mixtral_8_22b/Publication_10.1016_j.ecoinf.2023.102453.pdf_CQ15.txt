@@ -1,0 +1,70 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Neural architecture search (NAS) was used for developing the Effi-
+cientNetV2B0 model, and for the optimization of parameter efficiency 
+and  training  speed  (Tan  and  Le,  2021).  The  model  performance  was 
+improved  using  progressive  learning  to  adapt  regularization  to  the 
+image size (Tan and Le, 2021). EfficientNetV2 is a family of models (B0 
+to B7), and B0 is the smallest variant in the family (Keras, n.d), with the 
+other  models  progressively  increasing  in  performance  going  up  to 
+EfficientNetV2B7.
+
+3.5. Hyperparameter optimization 
+
+The model training process determines the values for the trainable 
+parameters  of  a  model,  e.g.,  Table  4 shows  the  size  of  the  model pa-
+rameters. In addition, a DNN model also has other parameters that need 
+to be selected, e.g., batch size, that determines the model performance. 
+The  model  parameters  define  the  model  and  are  termed  as  hyper-
+parameters. Each hyperparameter has a range of values, from which an 
+optimum  selection  can  improve  the  model  performance.  The  model 
+hyperparameters could be in hundreds, presenting a very large search 
+space, but these differ in their relative importance. The common ones for 
+a DNN are learning rate, batch size, and dropout.
+
+The  transfer  learning  for  the  TensorFlow  models  used  the  three 
+possibilities,  feature  extraction,  fine  tuning  with  some  layers  trained, 
+and  fine  tuning  with  all  layers  trained.  The  results  have  shown  an 
+improvement in the classification performance with all layers trained. 
+However, it is important to note that with feature extraction most of the 
+pre-trained learning is preserved and used on newer tasks. The feature 
+extraction was also seen as achieving high accuracy especially for small 
+datasets with a reduced training time (Simoes et al., 2023; Willi et al., 
+2019).  A  performance  improvement  of  MobileNetV2  model  was  re-
+ported  with  the  model  fine-tuning  (Cunha  et  al.,  2021).  Similarly, 
+depending on how many layers are trained in fine tuning, this can affect 
+the  model  performance,  with  fine  tuning  of  more  layers  resulting  in 
+learning of more features from the new dataset. In comparison to other
+
+There are three variants of the MobileViT models from smallest to the 
+largest, MobileViT-XXS, MobileViT-XS, and MobileViT-S pre-trained on 
+the ImageNet-1 k validation set, with top-1 accuracy as 69.0, 74.7, and 
+78.3  respectively  (TensorFlow  Hub,  n.d).  An  implementation  can  use 
+any  of  these  transformer  models  depending  on  the  size  and  accuracy 
+requirements. 
+
+3.5. Hyperparameter optimization
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+While the given context does not explicitly mention specific optimization techniques such as Stochastic Gradient Descent (SGD) or Adaptive Moment Estimation (Adam), it does discuss various aspects of optimizing deep learning pipelines.
+
+Hyperparameter optimization is one crucial aspect mentioned in the context. This involves selecting optimal values for hyperparameters like learning rate, batch size, and dropout, among others. These hyperparameters significantly impact the performance of Deep Neural Networks (DNNs).
+
+Transfer learning is another optimization technique discussed in the context. It leverages pre-trained models to reduce training time and improve performance, particularly when dealing with smaller datasets. Three methods of transfer learning were employed: feature extraction, fine-tuning with some layers trained, and fine-tuning with all layers trained. The latter method showed improved classification performance.
+
+Progressive learning was also utilized to enhance the performance of the EfficientNetV2B0 model by adapting regularization to image size. Additionally, neural architecture search (NAS) was employed for developing the EfficientNetV2B0 model, focusing on optimizing parameter efficiency and training speed.
+
+In summary, while explicit optimization techniques like SGD or Adam are not directly mentioned, the context highlights several optimization strategies integral to deep learning pipelines. These include hyperparameter optimization, transfer learning, progressive learning, and NAS.

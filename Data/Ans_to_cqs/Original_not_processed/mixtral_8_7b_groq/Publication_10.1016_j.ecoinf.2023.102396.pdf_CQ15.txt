@@ -1,0 +1,19 @@
+The provided context does not directly discuss the optimization techniques used in deep learning pipelines such as Stochastic Gradient Descent (SGD) or Adam. However, it does describe the Dynamic Time Warping (DTW) algorithm used in time series data analysis.
+
+DTW is a technique to measure the similarity between two time series by stretching or compressing them to fit together, which is different from the typical Euclidean distance measurement. DTW uses dynamic programming to find the optimal alignment between the two time series, minimizing the total distance between them.
+
+The optimization technique in DTW is based on the following equation:
+
+d(i,j) = p * ((xi - yj)^2)^(1/p)
+
+where p = 2 for the Euclidean distance, xi and yj are the ith and jth elements of the two time series, and d(i,j) is the distance between them at the ith and jth elements.
+
+DTW finds the path with the minimum total cumulative cost or distance by traversing from d(1,1) to d(n,m) using dynamic programming. At each time step, DTW finds the least cost path forward using the following equation:
+
+D(i,j) = d(i,j) + min{D(i-1, j), D(i, j-1), D(i-1, j-1)}
+
+where D(i,j) is the accumulative cost matrix with D(i,j) as the element at the ith row and jth column.
+
+Moreover, the Sakoe-Chiba band is used to constrain the search for the shortest total cumulative distance within the band during the dynamic programming of dynamic time warping.
+
+In summary, the provided context discusses the optimization technique in DTW, which is different from the optimization techniques used in deep learning pipelines such as SGD or Adam.

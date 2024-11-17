@@ -1,0 +1,11 @@
+Answer:::
+
+The strategy implemented to monitor the model performance during training involves several steps. First, the training and validation losses, as well as the training and validation accuracies, were recorded at the end of each epoch. This allowed for tracking the progress of the model throughout the training process. The best model was then selected based on the minimal validation loss that occurred at epoch 448. This model showed a training loss of 0.256, a training accuracy of 0.899, a validation loss of 0.298 and a validation accuracy of 0.891.
+
+Additionally, the model's performance was evaluated based on an independent test set of 2060 images, as described in section 3.3 of the provided context. This test set consisted of 950 true positive red kite images.
+
+It is also worth noting that the model's performance was monitored during training by using a batch size of 64, and a learning rate of 10 with the ADAM optimizer. Furthermore, image augmentation was applied in the form of horizontal flip, 0.2 degree counter clock wise shear and a random zoom between 0 and 0.2, leading to 224 × 244 pixel RGB input tensors. This helped to increase the diversity of the training data and reduce overfitting.
+
+The authors also used ResNet50 as the base model, which is a commonly used architecture for transfer learning applications. This architecture offers a good trade-off between inference time and accuracy.
+
+In summary, the strategy implemented to monitor the model performance during training includes tracking the training and validation losses and accuracies, evaluating the model on an independent test set, and using a batch size of 64, a learning rate of 10 with the ADAM optimizer, and image augmentation to increase the diversity of the training data.

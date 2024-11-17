@@ -1,0 +1,109 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+72 
+72 
+128 
+64 
+
+DN-3 
+72 
+72 
+256 
+64 
+
+36 
+36 
+256 
+128 
+
+DN-4 
+36 
+36 
+512 
+128 
+
+18 
+18 
+512 
+256 
+
+DN-5  
+18  
+18  
+1024  
+256   
+
+9 
+9 
+512 
+256         
+
+networks often fail in extracting global information from shallow layers 
+because of the small receptive fields (Liu et al., 2019b; Liu et al., 2021). 
+For  creating  feature  maps  with  much  global  information,  multiple 
+dilated convolutions are used for shallow layers (Zhao et al., 2020)— 
+which, however, entail more computation resources. U2-Net defines a 
+two-level  nested  model  (i.e.,  a  stack  of  nested  encoder-decoder)  to 
+capture the contextual information in different scales at a moderate level 
+of computation cost.
+
+2.3. Model training 
+
+Our study can be categorized as a binary classification. We supervise 
+TrunkNet’s training with the Binary Cross-Entropy (BCE) loss function, 
+which  is  a  commonly  employed  loss  function  in  supervised  deep 
+learning (Zhao et al., 2019b). The BCE loss function measures the dif-
+ference between the predicted probability and the actual value. Mini-
+mizing this difference indicates a better training effect. Specifically, the 
+BCE loss function in use is expressed with 
+
+L BCE = (cid:0)
+
+∑H
+
+∑W
+
+x=1
+
+y=1
+
+G(x, y)logSpre(x, y) + (1 (cid:0) G(x, y))log(1 (cid:0) Spre(x, y)),
+
+(3)  
+
+where (x,y) is the pixel coordinate, H and W are the height and width of 
+the image, respectively, G is the ground-truth, and Spre  is the final pre-
+dicted saliency map.
+
+We  also  conduct  a  comparative  analysis  of  total  training  time, 
+average  inference  time,  model parameters,  and  FLOPs  between  Trun-
+kNet and the other 10 SOTAs, aiming to evaluate the time and compu-
+tational performance. The experimental results are presented in Table 5. 
+Noticeably, TrunkNet is built entirely on the proposed MIF block that 
+
+needs to be trained from scratch, so necessitates a longer training time in 
+comparison to models built on pre-trained backbones. Since TrunkNet 
+prioritizes competitive performance, there may be a limitation in terms 
+of  time  efficiency.  However,  TrunkNet  achieves  an  average  inference 
+time of only 58.41 ms per image, that is 17.12 frames per second (FPS), 
+which  is  still  above  average.  Furthermore,  TrunkNet  showcases
+
+of dilated convolution with various dilated rates to enlarge the receptive 
+field, which not only extracts richer global information but also saves 
+significant time and memory resources.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The context does not provide explicit details about how the dataset was divided into training, testing, or validation sets. However, it mentions that the study involves binary classification using TrunkNet, which is supervised by the Binary Cross-Entropy (BCE) loss function. This implies that the dataset has been labeled accordingly for the two classes involved in the binary classification task. Typically, datasets are randomly split into three subsets: training set, validation set, and test set. The training set is used to fit the model, while the validation set helps tune hyperparameters and prevent overfitting during the training process. Lastly, the test set evaluates the final model's performance after training and tuning have been completed. In summary, although the specific criteria used to split the data for deep learning model training are not mentioned in the given context, common practices include random splitting into training, validation, and test sets based on the requirements of the problem being addressed.

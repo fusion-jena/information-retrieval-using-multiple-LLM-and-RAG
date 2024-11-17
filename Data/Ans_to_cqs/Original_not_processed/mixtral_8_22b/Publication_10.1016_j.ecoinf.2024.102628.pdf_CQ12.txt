@@ -1,0 +1,77 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+both training and testing. A critical point to highlight is that models are 
+retrained  for  each  fold,  preventing  previous  fold’s  information  from 
+being transferred. We utilized the pretrained ResNet-34 (Which consists 
+of  a  34-layer  convolutional  neural  network)  architecture  which  is  a 
+variant of the ResNet (Residual Network) family, widely used for deep 
+learning tasks, particularly in computer vision (He et al., 2016). ResNet- 
+34 was used inside the fast.ai framework (Howard and Gugger, 2020) to 
+leverage  existing  knowledge,  this  is  particularly  useful  in  our  dataset 
+since its small size. Transfer learning generally consists in using a model 
+pre-trained  on  broad  datasets,  like  ImageNet  (Deng  et  al.,  2009),  to 
+specialized tasks with more limited data. As part of the cross-validation 
+of the Leave-One-Group-Out approach, the test directory containing the 
+multitemporal transect was temporarily moved to test, and DataLoaders
+
+2.5.1. Classification problem (Q1): Deep learning applied to 2D LiDAR 
+images for Forest classification 
+
+We  employed  the  fast.ai  platform  (Howard  and  Gugger,  2020)  to 
+train and validate models for the classification of 2D point cloud images, 
+utilizing  a  LOGO  (Leave-One-Group-Out)  cross-validation.  In  this 
+approach, our target classes were "Plateau", "White-sand", and "Ripar-
+ian",  designated  as  "p",  "w",  and  "r"  respectively.  In  each  iteration,  a 
+complete 450 m multitemporal transect was omitted from the training 
+process  (the  grouping  factor  giving  the  lack  of  independence  in  the 
+multi-temporal data) and subsequently tested. This approach ensured an 
+assessment  of  the  model’s  performance,  accounting  for  our  data  con-
+straints and guaranteeing that every multitemporal transect undergoes
+
+The Convolutional Autoencoder and its variations extracts the most 
+critical features and minimizes noise within the training data (Kingma 
+and Welling, 2019, Zhao et al., 2019, Bank et al., 2023). This process 
+results  in  a  compact  and  informative  feature  matrix,  which  is  subse-
+quently fed into the PLSR or any regression model. PLSR is particularly 
+suitable  for  datasets  that have  undergone  Convolutional Autoencoder 
+processing,  where  the  output  is  a  flattened  vector  representing  each 
+image, and each vector element is a variable in a tabular form. PLSR 
+excels in these scenarios with numerous correlated variables (Carrascal 
+et al., 2009). In our case the final matrix is transformed into a vector that 
+represents each image with a vector with over 8000 values, each one 
+representing one variable as a tabular form. The image dataset is orga-
+nized into 18 folders, one for each of the 450 m transects (150 m *3). The
+
+Bank, D., Koenigstein, N., Giryes, R., 2023. Autoencoders. In: Machine Learning for Data 
+Science Handbook: Data Mining and Knowledge Discovery Handbook, pp. 353–374. 
+Belgiu, M., Dr˘agut¸, L., 2016. Random forest in remote sensing: a review of applications 
+
+and future directions. ISPRS J. Photogramm. Remote Sens. 114, 24–31. 
+Carrascal, L.M., Galv´an, I., Gordo, O., 2009. Partial least squares regression as an 
+
+alternative to current regression methods used in ecology. Oikos 118 (5), 681–690. 
+Castilho, C.V., Magnusson, W.E., de Araújo, R.N.O., Luizao, R.C., Luizao, F.J., Lima, A.P., 
+
+Higuchi, N., 2006. Variation in aboveground tree live biomass in a central 
+Amazonian Forest: effects of soil and topography. For. Ecol. Manag. 234 (1–3), 
+85–96. 
+
+Chauvel, A., Lucas, Y., Boulet, R., 1987. On the genesis of the soil mantle of the region of 
+
+Manaus, Central Amazonia, Brazil. Experientia 43, 234–241.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, the type of deep learning model used in the pipeline is not explicitly mentioned by name. However, it can be inferred that a variant of the Residual Network (ResNet) family, specifically ResNet-34, is being used. ResNet-34 is a 34-layer convolutional neural network (CNN) architecture, which is widely used for deep learning tasks, particularly in computer vision. Therefore, the type of deep learning model used in the pipeline is a Convolutional Neural Network (CNN).

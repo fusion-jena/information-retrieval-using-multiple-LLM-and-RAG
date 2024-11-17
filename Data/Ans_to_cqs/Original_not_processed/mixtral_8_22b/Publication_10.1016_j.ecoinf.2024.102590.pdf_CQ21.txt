@@ -1,0 +1,119 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The supervised learning workflow adheres to the steps outlined in 
+Sections 2.3.1–2.3.5. However, as detailed in Section 2.3.2, we deviated 
+by not generating 400 random points over the entire boundary. Instead, 
+we used the vegetation types described by Gertenbach (1983) to guide 
+the placement of our sampling plots, from which we then collected the 
+training and validation points (Fig. A.2). The creation of several small 
+sampling plots within each vegetation type, instead of using one large 
+area, also helped speed up the sampling process. Performing the data 
+collection  within  the  sampling  plots  ensured  that  we  had  training/ 
+validation  points  that  were  representative  of  the  diverse  vegetation 
+within each boundary. To determine the size of the sampling plots, we 
+first calculated 5% of the total area covered by the boundary, divided 
+that area by the number of vegetation types intersecting the boundary
+
+Table 3 
+Statistics include percentage of Non-woody (NW) and Woody (W) cover (%), Overall accuracy, Producer’s accuracy (%), and User’s accuracy (%) per photojob.  
+
+Photojob 
+
+Non-woody cover (%) 
+
+Woody cover (%) 
+
+Overall accuracy (%) 
+
+Class 
+
+Producer’s accuracy (%) 
+
+User’s accuracy (%) 
+
+165A (1942) 
+
+165B (1942) 
+
+56p (1944) 
+
+155 (1940) 
+
+150 (1939) 
+
+81 
+
+71 
+
+72 
+
+77 
+
+78 
+
+19 
+
+29 
+
+28 
+
+23 
+
+22 
+
+92 
+
+87 
+
+89 
+
+91 
+
+83
+
+2.3.1. Data upload and script preparation 
+
+To perform a land cover (LC) classification, GEE requires two initial 
+inputs:  an  aerial  image  and  the  boundary  of  the  area  of  interest.  We 
+uploaded the subplot boundary and the aerial images of each subplot as 
+GEE  assets.  Once  the  assets  were  imported  into  our  JavaScript-based 
+program,  the  training/validation  datasets  could  be  created.  Since  we 
+were interested in extracting the woody cover, we divided our training 
+point features into two cover classes: ‘non-woody’ (LC property = 1) and 
+‘woody’  (LC  property  = 2).  Woody  cover  was  considered  to  be  all 
+vegetation  with  woody  stems  (i.e.,  excluding  grasses  and  forbs), 
+including  trees  that  were  shrubby  (i.e.,  multi-stemmed)  and  short  in
+
+To develop the supervised learning workflow to classify the woody 
+cover from the B&W aerial images we used GEE and applied the OBIA 
+methodology.  The  classification  workflow  to  obtain  the  OBIA  woody 
+cover classification is divided into five steps: (1) data upload and script 
+preparation  (Section  2.3.1),  (2)  training/validation  dataset  (Section 
+2.3.2), (3) image segmentation (2.3.3), (4) woody cover classification 
+(Section 2.3.4), and (5) accuracy, export, and land cover count (Section 
+2.3.5). An example of the GEE script is included in the Supplementary 
+material. 
+
+2.3.1. Data upload and script preparation
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training, there are several postprocessing steps involved in the supervised learning workflow. These steps are outlined in Sections 2.3.1-2.3.5. Specifically, Section 2.3.5 details the accuracy, export, and land cover count processes.
+
+Accuracy assessment is crucial to evaluate the performance of the trained model. This involves calculating metrics such as overall accuracy, producer's accuracy, and user's accuracy. These metrics can be found in Table 3 for each photo job. Additionally, a confusion matrix can be generated to visualize the performance of the model.
+
+Exporting the results is another important step in the postprocessing phase. In this case, the classified woody cover map was exported as a GeoTIFF file. This allows for further analysis and integration with other geospatial data.
+
+Finally, land cover counts were performed on the classified woody cover map. This involved counting the number of pixels belonging to each land cover class within the study area. This information can provide valuable insights into the distribution and abundance of different land cover types.

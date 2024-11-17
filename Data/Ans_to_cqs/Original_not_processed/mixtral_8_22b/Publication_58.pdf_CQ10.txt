@@ -1,0 +1,118 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+conv1
+conv2
+conv3
+conv4
+conv5
+maxpool
+
+Conv
+
+11 × 11
+5 × 5
+3 × 3
+3 × 3
+3 × 3
+2 × 2
+
+Kernels
+
+Stride
+
+Pad
+
+96
+256
+384
+384
+256
+Na
+
+4
+1
+1
+1
+1
+2
+
+0
+2
+1
+1
+1
+0
+
+ResNet (Deep Residual Network, [43]) is a Deep Learning architecture with many
+layers that use skip connections, as illustrated in Figure 4. These skip connections allow
+the bypassing of layers and add their activations to those of the skipped layers further
+down the sequence. The dotted arrows in Figure 4 denote skip connections through a linear
+projection to adapt to the channel depth.
+
+By skipping layers and thus shortening the back-propagation path, the problem of the
+“vanishing gradient” can be mitigated. Figure 4 represents a 34-layer ResNet architecture.
+The ﬁrst layer uses 7 × 7 convolutions, the remaining ones 3 × 3.
+
+Remote Sens. 2021, 13, 2257
+
+9 of 22
+
+Figure 4.
+architecture. The number of kernels is indicated at the bottom of each convolution layer.
+
+40.32%
+35.97%
+46.56%
+50.21%
+38.75%
+50.40%
+48.38%
+
+For the LU detection task, all deep learning techniques except AlexNet outperformed
+XGBoost. Differences were signiﬁcant, with up to 15 percent points in OA. As in the
+previous section, the best performing “single-pixel” architecture is DenseNet and the best
+“semantic labeling” network is DeepLab. Interestingly, DenseNet reached the best PA,
+although DeepLab dominated the remaining metrics.
+
+For the remainder of this study, the best performing “single-pixel” and “semantic
+labeling” were selected. There was little difference between the architectures, so the
+architectures with the best F1-score for the LU classiﬁcation were chosen arbitrarily.
+
+4.3. Inﬂuence of Neo-Channels and Land Cover as Input on the Learning
+
+Among comparisons of methods to classify LULC from satellite images on several
+benchmark datasets, Deep Learning has recently stood out as a particularly effective
+framework for automatic image interpretation [12]. Given large amounts of training data,
+Deep Learning is able to extract very complex decision rules [13]. In image processing in
+particular, Deep Learning is at the top of the state-of-the-art semantic image analyses [14]
+(described in the Methods section), greatly enhanced by the particular design of the
+convolutional deep networks. Indeed, on some tasks its performance matches or even
+exceeds that of humans [15]. Additionally in optical satellite remote sensing, Deep Learning
+has become a standard tool, as it appears to cope particularly well with the continuously
+varying imaging conditions (illumination, sensor properties, atmospheric composition,
+etc.) [16–18]. Deep Learning has been widely employed for remote sensing, including tasks
+
+We empirically compare a number of these promising Deep Learning architectures.
+Moreover we also include a standard machine learning baseline, XGboost, which has
+shown very good performances in several benchmarks related to classiﬁcation [23]. Since
+“neo-channels”, which are non-linear combinations of the raw channels, and texture ﬁlters
+derived by arithmetic combinations of the raw image channels are widely used in the ﬁeld
+of remote sensing [24], we also assess the interest of such additional information when
+using XGboost and Deep Learning, even if in the latter case, the technique is able to build
+its own internal features by combining the raw information.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the code repository link of the deep learning pipeline (e.g., Link to GitHub, GitLab, BitBucket)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, based on the given context, there is no mention of any specific code repository link for the deep learning pipeline used in this study. Therefore, I cannot provide the requested information.

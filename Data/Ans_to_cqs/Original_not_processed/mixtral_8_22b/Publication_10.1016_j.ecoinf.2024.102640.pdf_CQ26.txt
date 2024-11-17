@@ -1,0 +1,72 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Caesar, H., Uijlings, J., Ferrari, V., 2018. Coco-stuff: Thing and stuff classes in context. In: 
+
+Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 
+pp. 1209–1218. 
+
+Cai, B.Y., Li, X., Seiferling, I., Ratti, C., 2018. Treepedia 2.0: applying deep learning for 
+large-scale quantification of urban tree cover. In: 2018 IEEE International Congress 
+on Big Data (BigData Congress). IEEE, pp. 49–56. 
+
+Ca˜nas, I., Ayuga, E., Ayuga, F., 2009. A contribution to the assessment of scenic quality of 
+landscapes based on preferences expressed by the public. Land Use Policy 26, 
+1173–1181. 
+
+Chen, Z., Xu, B., Gao, B., 2015. Assessing visual green effects of individual urban trees 
+
+using airborne lidar data. Sci. Total Environ. 536, 232–244. 
+
+Chen, L.-C., Zhu, Y., Papandreou, G., Schroff, F., Adam, H., 2018. Encoder-decoder with 
+
+atrous separable convolution for semantic image segmentation. In: Proceedings of 
+the European Conference on Computer Vision (ECCV).
+
+5.2. Deep GVI learning 
+
+In  GreenCam,  we  measure  photo  GVI  by  SegFormer  (Xie  et  al., 
+2021),  a  state-of-the-art  Transformer-based  model  for  semantic  seg-
+mentation. As shown in Fig. 12, SegFormer follows the encoder-decoder 
+structure, which combines a Transformer-based encoder (i.e., MiT) with 
+a  lightweight  decoder  (i.e.,  ALL-MLP)  that  is  composed  entirely  of 
+multilayer perceptron (MLP) blocks.
+
+7.2. Diversity and balance of the dataset 
+
+The model in GreenCam is trained based on a customized dataset, 
+and the quality of the dataset will significantly affect the model's per-
+formance. When constructing our dataset, we expanded the geographic 
+scope  of  data  collection  to  include  a  wider  range  of  urban  settings, 
+including  different  types  of  green  spaces  (parks,  gardens,  campuses, 
+urban forests, etc.) and varying levels of urban green density. To address 
+underrepresented  classes  and  improve  the  balance  of  the  dataset,  we 
+have  implemented  data  augmentation  techniques,  including  random 
+rotations, scaling, and flipping of images, which help the model gener-
+alize better without compromising the diversity of the dataset.
+
+coder's output) can already represent a large receptive field, owning to 
+the usage of hierarchical transformers.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To address underrepresented classes and improve the balance of their dataset, the authors of GreenCam have implemented several data augmentation techniques. These techniques include random rotations, scaling, and flipping of images. By using these methods, they aim to help the model generalize better without compromising the diversity of the dataset. This approach aligns with common strategies used to mitigate data bias during preprocessing of deep learning pipelines.
+
+Stratified splitting is another technique often employed to ensure that each subset of the data contains roughly the same proportions of class labels or other features as the original dataset. This method helps prevent overfitting and ensures that the model performs well across all categories.
+
+Oversampling and undersampling are also frequently utilized to handle imbalanced datasets. Oversampling involves duplicating examples from the minority class, while undersampling removes instances from the majority class. Both approaches aim to create a more balanced distribution of samples among classes. However, it should be noted that oversampling may lead to overfitting if not managed carefully, while undersampling could result in loss of valuable information.
+
+Diverse data collection is yet another strategy to tackle data bias. Collecting data from various sources, locations, or scenarios can increase the overall representation of different groups within the dataset. This approach was adopted by the authors of GreenCam when expanding the geographical scope of their data collection to encompass diverse urban settings and varying levels of urban green density.
+
+In summary, the authors of GreenCam employ data augmentation techniques such as random rotations, scaling, and flipping of images to enhance the balance of their dataset. Other commonly used methods to counteract data bias during preprocessing include stratified splitting, oversampling, undersampling, and diverse data collection.

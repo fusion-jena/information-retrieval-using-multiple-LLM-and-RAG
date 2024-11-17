@@ -1,0 +1,176 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+equally biased (Phillips et al., 2009). This is achieved by transforming
+the model input data using four approaches which can be categorized
+according to two criteria: i) the dataset concerned with the transfor-
+mation (presence sites or background sites); and ii) the implementation
+spaces of the transformation (geographical or environmental space).
+When the presence dataset is considered, the authors aim at modifying
+its distribution to tend toward a uniform distribution, and the back-
+ground set is obtained via a uniform random selection. The im-
+plementation space of such an approach is either the geographical space
+(see for example Boria et al., 2014; Kramer-Schadt et al., 2013) or en-
+vironmental feature space (see Fourcade et al., 2014; Varela et al.,
+2014). This approach seems to be eﬀective, but requires many presence
+sites (Fourcade et al., 2014). When the background set is considered, it
+is built according to a selection bias that reﬂects the same sampling bias
+
+A R T I C L E I N F O
+
+A B S T R A C T
+
+Keywords:
+Sampling bias
+Data scarcity
+Species distribution models
+Maxent
+
+Species distribution models that only require presence data provide potentially inaccurate results due to sam-
+pling bias and presence data scarcity. Methods have been proposed in the literature to minimize the eﬀects of
+sampling bias, but without explicitly considering the issue of sample size.
+
+A new method developed to better take into account environmental biases in a context of data scarcity is
+proposed here. It is compared to other sampling bias correction methods primarily used in the literature by
+analyzing their absolute and relative impacts on model performances.
+
+Sampling bias can be due to heterogeneous geographical sampling
+by, notably, favoring easily accessible areas, and can induce a sig-
+niﬁcant environmental bias. Biased input data can lead to incorrect
+model outputs. Indeed, a model built with biased data corresponds
+more to a model of the survey eﬀort than a model of the actual species
+habitat distribution (Phillips et al., 2009). Theoretically, sampling bias
+is minimized when both the presence and the background datasets are
+
+⁎
+
+Corresponding author.
+E-mail addresses: moua.yi@yahoo.fr (Y. Moua), emmanuel.roux@ird.fr (E. Roux), frederique.seyler@ird.fr (F. Seyler).
+
+https://doi.org/10.1016/j.ecoinf.2020.101086
+Received 28 September 2019; Received in revised form 20 March 2020; Accepted 21 March 2020
+
+Available online 01 April 2020
+1574-9541/ © 2020 The Authors. Published by Elsevier B.V. This is an open access article under the CC BY-NC-ND license 
+(http://creativecommons.org/licenses/BY-NC-ND/4.0/).
+
+Y. Moua, et al.
+
+Three indexes were computed to quantify the relative impact of the
+
+bias correction methods on model performances, as follows:
+
+Δ
+
+AUC
+
+Cx
+
+Δ
+
+Denv
+
+Cx
+
+Δ
+
+Dgeo
+
+Cx
+
+=
+
+AUC
+(
+
+Cx
+
+–
+
+AUC
+B
+
+)/(1–
+
+AUC
+B
+
+)
+
+=
+
+Denv Denv
+–
+(
+B
+Cx
+
+)/(1–
+
+Denv
+
+)
+
+B
+
+=
+
+Dgeo Dgeo
+–
+(
+B
+Cx
+
+)/(1–
+
+Dgeo
+B
+
+)
+
+(6)
+
+(7)
+
+(8)
+
+where x∈{Fgeo, Fenv, Bggeo, Bgenv}.
+In the previous three equations, the value 1 stands for AUCUNB,
+DenvUNB and DgeoUNB, i.e. the evaluation of the unbiased model output
+compared with itself. In that sense, these indexes vary from −inf to 1. A
+negative value indicates that the biased model outperformed the cor-
+rected one, whereas a positive value indicates that the corrected model
+outperformed the biased one; 1 shows that the corrected model was
+perfectly corrected and was comparable to the unbiased one (Fourcade
+et al., 2014).
+
+3. Results
+
+The distributions of AUC, Denv, and Dgeo values for the 100 re-
+
+plicates are shown by boxplots in Fig. 5.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To address data bias during preprocessing of the deep learning pipeline, several techniques can be employed. These include stratified splitting, oversampling, undersampling, and diverse data collection.
+
+Stratified splitting involves dividing the dataset into training and testing sets while maintaining the original class proportions. This ensures that each subset has a similar distribution of classes, reducing any potential bias introduced by uneven representation.
+
+Oversampling is a technique where additional copies of minority class examples are added to the dataset to balance it. This helps prevent the model from being biased towards the majority class. Synthetic Minority Over-sampling Technique (SMOTE) is a popular oversampling method that generates synthetic samples based on the existing minority instances.
+
+Undersampling, on the other hand, reduces the number of majority class examples to achieve a more balanced dataset. Random Under-Sampling (RUS) is a simple undersampling method that randomly removes instances from the majority class until the desired balance is reached. However, this may result in loss of valuable information.
+
+Diverse data collection aims to gather a wide range of representative examples to reduce bias caused by limited or skewed data sources. Collecting data from various locations, times, and conditions can help ensure that the dataset accurately reflects real-world scenarios and avoids overfitting to specific patterns.
+
+These techniques should be carefully chosen and applied depending on the nature and characteristics of the dataset, as well as the specific requirements and constraints of the deep learning task.

@@ -1,0 +1,80 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+assigns different weights to each prefusion layer to facilitate adaptive 
+feature  fusion.  In  Fig.  6,  we  present  a  novel  feature  fusion  network 
+named  the  CRFPN,  which  combines  the  attention  mechanism  with 
+feature  fusion.  After  extracting  features  using  the  backbone  network, 
+three  output  layers  are  obtained  through  multiple  upsampling  and 
+downsampling operations. However, due to the depth of the network, 
+some information may be lost, leading to potential negative impacts. To 
+address these issues, we propose incorporating a feature layer derived 
+from the backbone network, processed by the attention module, as the 
+output  layer  for  feature  fusion.  This  approach  not  only  enhances  se-
+mantic  information  by  aggregating  additional  characteristics  but  also 
+mitigates  the  loss  of  original  information  caused  by  the  increasing 
+network depth.
+
+To extract the input information, the SRC3 block employs a parallel 
+analysis  of  the  input  feature  map  using  two  convolution  kernels.  In 
+contrast to the C3 block, the SRC3 block incorporates two convolution 
+kernels prior to the input of the bottleneck block. One of the kernels is 
+responsible  for  halving  the  dimension  of  the  feature  map,  while  the 
+other  maintains  the  dimension  unchanged.  This  approach  allows  for 
+more  comprehensive  processing  of  the  input  features,  enabling  the 
+model  to  capture  both  high-level  semantic  information  and  preserve 
+relevant details during the feature extraction process. The convolution 
+kernel size utilized is 3 × 3, which leads to a broader receptive field of 
+information and richer characteristics compared to the 1 × 1 convolu-
+tion kernel. The output semantic information can be augmented by the 
+action of two convolution kernels. The information output from the first
+
+4.4. Data augmentation 
+
+Data augmentation techniques play a crucial role in augmenting the 
+training dataset to enhance the learning effect and generalization per-
+formance of the network. This experiment uses various data augmen-
+tation methods, including HSV adjustment, rotation, scaling, cropping, 
+flipping, and mosaicking, to expand the dataset. Random probabilities 
+are used to determine whether each image should undergo augmenta-
+tion. HSV  adjustment involves modifying  the image's  hue, saturation, 
+and value components. And rotation randomly rotates the image within 
+a specific range. Moreover, scaling changes the size of the image while 
+maintaining its aspect ratio. Cropping randomly crops a portion of the 
+image.  Additionally,  Flipping  horizontally  flips  the  image.  Mosaic 
+combines  multiple  randomly  cropped,  resized,  and  rotated  images  to 
+
+Table 1 
+Detailed information of selected datasets.  
+
+Datasets 
+
+Images 
+
+Category
+
+The convolutional layer, batch normalization (BN) layer, and SiLU 
+activation function are combined to form the CBS block. The SPPF (Li 
+et  al.,  2021)  block  operates  three  maximum  pooling  layers,  and  then 
+each branch is aggregated to the concat layer. It is capable of combining 
+information  from  several  scales.  The  CRFPN  is  utilized  in  the  neck 
+portion to combine the extractive features and convey information to the 
+head  portion.  Finally,  the  head  predicts  and  presents  the  bounding 
+boxes, classes, and concordance scores. 
+
+3.1. The backbone of YWnet
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, there isn't any explicit mention of techniques used to address data bias during preprocessing of the deep learning pipeline such as stratified splitting, oversampling, undersampling, or diverse data collection. However, it does discuss data augmentation techniques used to improve the training dataset and enhance the learning effect and generalization performance of the network. These techniques include HSV adjustment, rotation, scaling, cropping, flipping, and mosaicking. While these techniques do not directly address data bias, they help increase the diversity of the dataset and potentially mitigate some forms of bias by introducing variations in the data. Nevertheless, addressing data bias typically requires more targeted strategies like those mentioned in the query.

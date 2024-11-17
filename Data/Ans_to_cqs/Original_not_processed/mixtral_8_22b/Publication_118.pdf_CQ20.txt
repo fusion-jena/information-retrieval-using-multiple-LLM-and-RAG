@@ -1,0 +1,82 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Guo, J., Qian, K., Schuller, B., Matsuoka, S., June 2017. Gpu-based training of 
+
+autoencoders for bird sound data processing. In: 2017 IEEE International Conference 
+on Consumer Electronics - Taiwan (ICCE-TW), pp. 145–146. 
+
+Himawan, I., Towsey, M., Roe, P., 2018. 3d Convolution Recurrent Neural Networks for 
+
+Bird Sound Detection. 
+
+Jansen, A., Plakal, M., Pandya, R., Ellis, D.P., Hershey, S., Liu, J., Moore, R.C., 
+Saurous, R.A., 2017. Towards learning semantic audio representations from 
+unlabeled data. Signal 2 (3), 7–11. 
+
+Japkowicz, N., Myers, C., Gluck, M., et al., 1995. A novelty detection approach to 
+
+classification. In: IJCAI, Vol. 1, pp. 518–523. 
+
+Japkowicz, N., Hanson, S.J., Gluck, M.A., 2000. Nonlinear autoassociation is not 
+
+equivalent to pca. Neural Comput. 12 (3), 531–545.
+
+At this timescale we found that our auto-encoders with smaller feature 
+representations were outperformed by MFCC. Our testing on data that 
+the model has not seen before, suggests that once it is likely to be able to 
+be  reused,  with  minimal  (or  without)  retraining.  Once  trained,  it  is 
+possible  to use our auto-encoder to  generate features on a  mid range 
+laptop. Computation times to generate acoustic indices, mfcc and our 
+feature representation can be seen in Table 4.
+
+Our experimental results show that the approach is feasible, as our 
+feature representation outperforms acoustic indices and has an execu-
+tion time comparable to MFCC. This would make it possible to calculate 
+a feature representation using our method for smaller datasets (up to a 
+few  days)  on  a  medium-range  laptop,  and  larger  datasets  on  a  high- 
+performance  PC.  Additionally  the  approach  is  quite  flexible,  with 
+many  different  auto-encoder  architectures  being  possible.  As  such,  a 
+viable useage scenario for our technique could be when:  
+
+1.  Annotated training data is not available  
+2.  MFCC is not viable for the species (The principal that is thought to 
+make MFCCs work well for human speech (Davis and Mermelstein, 
+1980) may not hold for all species (Eichinski, 2018)) 
+
+3. A small, fast to calculate feature representation is needed (for ma-
+
+chine learning with bigdata, for example) 
+
+5.2. Limitations 
+
+5.2.1. Time invariance
+
+3.3. Network architecture 
+
+The architecture used was a heavily modified version of that used in 
+“Unsupervised Deep Learning with Pytorch” by github user “eelxpeng” 
+(eelxpeng, 2018). As the size of our audio spectrograms has been con-
+strained to 128 × 128 pixel RGB images with values repeated in each 
+color channel to produce a greyscale image. For this initial experiment 
+testing  the feasibility of using an auto-encoder-generated feature rep-
+resentation for ecoacoustic analysis, we chose a basic auto-encoder ar-
+chitecture  to  minimise  the  complications  that  may  be  introduced  by 
+more advanced architectures. A rectified linear unit (ReLU) based acti-
+vation function was be used, to help mitigate the vanishing/exploding 
+gradient  problem  (Xu  et  al.,  2015).  Networks  using  implicit  pooling 
+(determined using pytorch) and explicit max-pooling were used.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which hardware resources are used for training the deep learning model (e.g., GPUs, TPUs)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The paper titled "GPU-Based Training of Autoencoders for Bird Sound Data Processing" by Guo, J., Qian, K., Schuller, B., and Matsuoka, S. (2017) indicates that GPU resources were utilized for training their deep learning models. However, the other papers do not explicitly mention which specific hardware resources were employed for training their respective deep learning models. Therefore, while it is known that GPUs were used in one case, there is no information regarding whether TPUs or any other specialized hardware resources were also involved in these studies.

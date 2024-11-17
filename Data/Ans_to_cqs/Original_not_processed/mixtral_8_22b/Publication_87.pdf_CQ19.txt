@@ -1,0 +1,115 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Paszke, Adam, Sam Gross, Francisco Massa, Adam Lerer, James Bradbury, Gregory Chanan, Trevor
+Killeen, et al. 2019. “PyTorch: An Imperative Style, High-Performance Deep Learning Li-
+brary.” In Advances in Neural Information Processing Systems 32, edited by H. Wallach, H.
+Larochelle, A. Beygelzimer, F. dAlché-Buc, E. Fox, and R. Garnett, 8024–35. Curran Associates,
+Inc. http://papers.neurips.cc/paper/9015-pytorch-an-imperative-style-high-performance-deep-
+learning-library.pdf.
+
+Rota, Christopher T., Marco A. R. Ferreira, Roland W. Kays, Tavis D. Forrester, Elizabeth L. Kalies,
+
+27
+
+William J. McShea, Arielle W. Parsons, and Joshua J. Millspaugh. 2016. “A Multispecies Occu-
+pancy Model for Two or More Interacting Species.” Methods in Ecology and Evolution 7 (10):
+1164–73. https://doi.org/https://doi.org/10.1111/2041-210X.12587.
+
+Then we get the model architecture. For the sake of illustration, we use a resnet18 here, but we used
+a resnet50 to get the full results presented in the main text.
+
+learn <- cnn_learner(dls = dls,
+
+arch = resnet18(),
+metrics = list(accuracy, error_rate))
+
+Now we are ready to train our model. Again, for the sake of illustration, we use only 2 epochs here,
+but used 20 epochs to get the full results presented in the main text. With all pictures and a resnet50,
+it took 75 minutes per epoch approximatively on a Mac with a 2.4Ghz processor and 64Go memory,
+and less than half an hour on a machine with GPU. On this reduced dataset, it took a bit more than
+a minute per epoch on the same Mac. Note that we save the model after each epoch for later use.
+
+one_cycle <- learn %>%
+
+fit_one_cycle(2, cbs = SaveModelCallback(every_epoch = TRUE,
+
+fname = 'model'))
+
+0.00%
+
+train_loss
+
+epoch
+------ -----------
+Epoch
+1/2
+|
+Epoch
+|
+Epoch
+|
+Epoch
+|
+
+valid_loss
+-----------
+:
+[0/36
+:
+[1/36
+:
+[2/36
+:
+[3/36
+
+References
+Allaire, JJ, Kevin Ushey, Yuan Tang, and Dirk Eddelbuettel. 2017. Reticulate: R Interface to Python.
+
+https://github.com/rstudio/reticulate.
+
+Baraniuk, Richard, David Donoho, and Matan Gavish. 2020. “The Science of Deep Learning.”
+Proceedings of the National Academy of Sciences 117 (48): 30029–32. https://doi.org/10.1073/pnas.
+2020596117.
+
+Beery, Sara, Grant van Horn, and Pietro Perona.
+arXiv:1807.04975. http://arxiv.org/abs/1807.04975.
+
+2018.
+
+“Recognition in Terra Incognita.”
+
+Botella, Christophe, Alexis Joly, Pierre Bonnet, Pascal Monestiez, and François Munoz. 2018. “Species
+Distribution Modeling Based on the Automated Identification of Citizen Observations.” Applica-
+tions in Plant Sciences 6 (2): e1029.
+
+Breitenmoser, Urs. 1998. “Large Predators in the Alps: The Fall and Rise of Man’s Competitors.”
+Biological Conservation, Conservation Biology and Biodiversity Strategies, 83 (3): 279–89. https:
+//doi.org/10.1016/S0006-3207(97)00084-0.
+
+2
+
+Here, we showcase a full why-what-how workflow in R using a case study on the structure of an
+ecological community (a set of co-occurring species) composed of the Eurasian lynx (Lynx lynx)
+and its two main preys. First, we introduce the case study and motivate the need for deep learning.
+Second we illustrate deep learning for the identification of animal species in large amounts of images,
+including model training and validation with a dataset of labelled images, and prediction with a
+new dataset of unlabelled images. Last, we proceed with the quantification of spatial co-occurrence
+using statistical models.
+
+2 Collecting images with camera traps
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Which frameworks are used to build the deep learning model (e.g., TensorFlow, PyTorch)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning model is built using PyTorch, which is an open source machine learning library based on Torch. This can be seen from the reference to the paper titled "PyTorch: An Imperative Style, High-Performance Deep Learning Library" published in Advances in Neural Information Processing Systems 32. Additionally, the code snippet uses the `resnet18()` function, which is part of the torchvision package, a computer vision library for PyTorch.

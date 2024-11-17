@@ -1,0 +1,103 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Recent years have seen impressive progress in bird species recogni-
+tion and related tasks (Stowell, 2022; Xie et al., 2023). It was foreseeable 
+that  deep  learning  would  emerge  as  the  most  successful  method  for 
+large-scale  bioacoustics  analysis  (Kahl  et  al.,  2021;  Stowell,  2022; 
+Stowell et al., 2019; Tang et al., 2023; Xie et al., 2023; Zsebok et al., 
+2019). The main advantage of neural networks is to avoid many brittle 
+and  difficult  choices  in  designing  manual  features  for  the  underlying 
+task. For example, Xie et al. (Xie and Zhu, 2019) compared three types of 
+features  for  bird  species  classification  consisting  of  hand-crafted 
+acoustic features, including features from Mel Frequency Cepstral Co-
+efficient (MFCC), visual features extracted from the Constant-Q Trans-
+form (CQT) time-frequency representation, and training a convolutional 
+network directly on the CQT. They also tested the fusion of classifiers
+
+This  experiment  used  both  learnable  frontends  with  80  filters  of 
+length  512  (16 ms)  that were  initialized  by  mel-filterbanks.  Gaussian 
+pooling  was  removed,  and  downsampling  happened  in  the  filtering 
+convolution layer by a stride of 320 (10 ms). Then, the outputs were log- 
+compressed  without  normalization.  These  plain  frontends  are  called 
+LEAF-P and SincNet-P, and Table 4 shows their test results.
+
+√
+
+t2
+2σ2
+
+1
+̅̅̅̅̅
+σ
+2π
+
+e(cid:0)
+
+(5)  
+
+where ω  is the frequency where the filter yields the greatest response 
+and σ  is the spread of the Gaussian window. Therefore, each filter re-
+quires  only  two  learnable  parameters  for  the  center  frequency  and 
+spread. 
+
+SincNet+ uses the band-pass sinc filter, 
+
+ϕsinc(t) = 2fhsinc(2πfht) (cid:0) 2flsinc(2πflt)
+
+(6)  
+
+where  fl  and  fh  are  learnable  parameters  determining  the  lower  and 
+higher frequencies of the band-pass filter. The sinc function is defined as, 
+
+sinc(x) =
+
+sin(x)
+x
+
+(7) 
+
+Finally, to smooth the discontinuities of the sinc filters at the edges, 
+they are multiplied by a Hamming window of length L, which is defined 
+as, 
+
+w(t) = 0.54 (cid:0) 0.46⋅cos
+
+)
+
+(
+
+2πt
+L
+
+2.6. Backend neural network 
+
+(8)
+
+trained on these features and found a slight performance improvement. 
+However, training a neural network directly on the CQT was, by far, the 
+best  choice  among  the  features.  The  other  successful  contemporary 
+works  have  explored  various types  of neural networks as  species rec-
+ognizers by leveraging Short-Time Fourier-Transform (henceforth STFT 
+or  spectrogram)  (Kahl  et  al.,  2021)  and  its  relatives,  such  as  mel- 
+filterbanks  applied  on  STFT  (henceforth  mel-spectrogram)  (Zhang 
+et al., 2019) and MFCC (Tang et al., 2023) as input feature.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the code repository link of the deep learning pipeline (e.g., Link to GitHub, GitLab, BitBucket)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information about the specific code repository link of any deep learning pipeline mentioned. However, based on the references cited in the text, it can be assumed that some of them might have publicly available code repositories. To find out more details, one could look into the respective papers or contact the authors directly. Here are some potential sources:
+
+* Xie et al.'s work on comparing different features for bird species classification (Xie and Zhu, 2019): This paper discusses using LEAF-P and SincNet-P as learnable frontends for bird species recognition. While no direct links to code repositories are provided in the context, searching for relevant publications by the same authors may lead to finding associated code repositories.
+* Kahl et al.'s research on large-scale bioacoustics analysis (Kahl et al., 2021): Although this reference is mentioned in the context, there is no explicit mention of a specific deep learning pipeline or code repository. Again, looking into the original publication or reaching out to the authors might reveal further information.
+* Stowell's work on deep learning methods for large-scale bioacoustics analysis (Stowell, 2022): Similar to the previous points, while this reference is mentioned in the context, there is no direct indication of a specific code repository. Investigating the original source material or getting in touch with the author could potentially uncover additional resources.

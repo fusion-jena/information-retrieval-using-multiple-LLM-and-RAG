@@ -1,0 +1,85 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Fig.  6. Performance  of  the  models  trained  with  all  annotation  sets  provided 
+from the annotation campaign. Red line corresponds to the model trained with 
+the annotations from the expert. Blues lines with low opacity correspond to the 
+model  trained  with  the  annotations  from  the  novices.  Blue  line  with  high 
+opacity is the mean curve for all novice lines. 
+
+blues curves are 0.85 +/(cid:0) 0.05 and 0.77 +/(cid:0) 0.17 respectively, while 
+they reach 0.90 and 0.85 with the model trained from the expert an-
+notations. For the blue whale’s Dcall, 13 models out of 19 trained from 
+novice annotations showed performance close to the model trained on 
+expert annotations with AUC and mAP metrics at 0.92 +/(cid:0) 0.02 and 
+0.87 +/(cid:0) 0.3 while the model trained with the expert got 0.96 and 0.94. 
+However, 6 curves show very low performances in comparison to the 
+others, with AUC and mAP of 0.56 +/(cid:0) 0.21 and 0.57 +/(cid:0) 0.17.
+
+Each 50-s section was then characterized as a positive section (i.e., a 
+section with a vocalization) or a negative section (i.e., a section without 
+vocalization). As some annotations overlapped between two 50-s sec-
+tions, a minimal threshold in the percentage of the annotation present 
+within  the  50-s  section  is  set  to  avoid:  (i)  an  incomplete  but  still 
+consequent  part  of  vocalization  in  negative  sections,  and  (ii)  positive 
+sections which only contains a small part of an annotation and therefore 
+of a vocalization. Above this threshold, the section is considered posi-
+tive, otherwise, it is considered negative. Taking the margin between the 
+vocalization on the spectrogram and the time-frequency boxes drawn 
+around into account, this threshold is set at 20%.
+
+To  ensure  comparability  across  trained  models,  we  maintained 
+consistent hyperparameters across all training instances for each task (i. 
+e.,  SEIO  PBW  vocalization  and  Dcall).  Specifically,  for  SEIO  PBW 
+
+vocalization  training  and  blue  whale  Dcall  training,  we  set  the  batch 
+sizes to 5 and 4, and the learning rates to 1e-4 and 1e-3, respectively. 
+This decision was based on the fact that more samples were used for 
+SEIO PBW vocalization training. The models were trained for 40 and 25 
+epochs  respectively.  However  an  early  stopping  method  was  used  to 
+keep  the  model  weights  before  the  models  overfitted.  The  patience 
+parameter is set at 10 epochs for all training phases. 
+
+2.4. Evaluation metrics 
+
+Considering  the  absence  of  absolute  ground  truth  for  identifying 
+audio events within underwater acoustic recordings, the annotation sets 
+proposed by the annotators, expert or novice, are called pseudo ground 
+truth in the present study.
+
+2. Materials and methods 
+
+2.1. Datasets 
+
+Audio  recordings  used  in  this  study  originally  came  from  three 
+different datasets presented below. The first one, named AmStP here, is 
+annotated by one expert and 19 novice annotators and is used as the 
+development  set  for  the  training  stage  only.  The  second  and  third 
+datasets, SWAMS and ElephantIsland2013 respectively, are used only as 
+evaluation  sets  and  were  annotated  by  two  different  experts  (and  no 
+novices), differents from the one that has annotated AmStP. 
+
+2.1.1. Development set – AmStP 
+
+The dataset annotated used for the present study is made of 762 h of 
+audio signal recorded off Amsterdam and Saint Paul, two French sub- 
+Antarctic  islands  in  the  Indian  Ocean  from  February  28  to  April  5, 
+2019  [Torterotot  et  al.,  2022].  The  acoustic  signals  were  recorded 
+continuously using a HTI92 WB hydrophone mounted on a SeaExplorer 
+glider, sampled at 48 kHz and coded on 16 bits.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Answer: The training process uses an early stopping method to determine when training is complete. This method keeps the model weights before the models overfit. The patience parameter for this early stopping method is set at 10 epochs for all training phases. Additionally, the models are trained for a specific number of epochs, which are 40 and 25 epochs for SEIO PBW vocalization training and blue whale Dcall training, respectively.

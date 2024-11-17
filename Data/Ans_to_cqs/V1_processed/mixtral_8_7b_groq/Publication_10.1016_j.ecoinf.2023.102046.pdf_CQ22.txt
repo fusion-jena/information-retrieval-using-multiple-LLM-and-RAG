@@ -1,0 +1,17 @@
+The performance of the deep learning models is evaluated using several metrics, including accuracy, precision, recall, and F1-score. These metrics are calculated based on the number of true positives (TP), true negatives (TN), false positives (FP), and false negatives (FN).
+
+Accuracy is the ratio of the number of correct predictions to the total number of predictions. It is calculated as the sum of true positives and true negatives divided by the sum of true positives, true negatives, false positives, and false negatives.
+
+Precision is the ratio of the number of true positives to the total number of positive predictions. It is calculated as the number of true positives divided by the sum of true positives and false positives.
+
+Recall is the ratio of the number of true positives to the total number of actual positives. It is calculated as the number of true positives divided by the sum of true positives and false negatives.
+
+F1-score is the harmonic mean of precision and recall, which gives equal weight to both measures. It is calculated as twice the product of precision and recall divided by the sum of precision and recall.
+
+In addition to these metrics, the Root Mean Squared Error (RMSE) is also used as an alternative performance metric.
+
+These metrics are reported separately for each defined class, and averages over all classes are also reported.
+
+For the deep learning models used in the study, the Inception-V3 model accepts images resized to (299, 299) pixels, while the ViT and ResNet models resize to (224, 224) pixels. The class weights were included in the cross-entropy loss function to deal with the dataset imbalance. The batch size was set to 16 examples, and the learning rate was set to 1e-4 for Vanilla Inception-V3 and ViT, and 4e-5 for Deep Otolith ResNet.
+
+The HuggingFace implementations of ViT and ResNet, as well as the Keras implementation of Inception-V3, were used for fine-tuning. The classifier head was replaced on all models, and additional dropout and dense layers were added at the end of the Inception model. The model with the smallest validation loss was used for evaluation on the test set.

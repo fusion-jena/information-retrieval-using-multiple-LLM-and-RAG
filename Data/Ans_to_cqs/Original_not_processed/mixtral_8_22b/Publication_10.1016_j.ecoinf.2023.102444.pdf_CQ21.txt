@@ -1,0 +1,75 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Once  the  UMAP  model  was  constructed,  the  testing  data  was 
+embedded  into  the  model  for  projection  in  the  latent  space.  For  the 
+training  and  test  data,  we  computed  the  nearest  neighbor  Euclidean 
+distance  between  species-species  (Dss)  and  background-species  (Dsb). 
+We then calculated Pss, the cumulative empirical distribution function 
+of the intra-species distance Dss. Calculation of Pss was according to the 
+following equation (R Core Team, 2022): 
+
+Pssn(D) =
+
+(
+1
+n
+
+)∑n
+
+i=1
+
+1[di≤D]
+
+where the step function Pss is the proportion of observations less than or 
+equal to a given distance D, n is the number of distance measures, and di 
+is the distance value. Once the Pss function was determined, we calcu-
+lated S = (1- Pss) for the distances between the background and species 
+
+Fig. 1. Workflow to analyze the similarity between a target species and its environment.
+
+3.4. Assessment of UMAP as a binary classifier
+
+is presented in Fig. 8A for the UMAP model and in Fig. 8B for the MaxEnt 
+model and shows a departure from the random prediction in both cases. 
+Finally, the mutual information coefficient (Fig. 9) shows the relative 
+importance of the bioclimatic variables as related to latent distance. For 
+A. cephalotes, BIO01, BIO04, and BIO12 share more information and are 
+more clearly related to distance. In the case of the MaxEnt model, the 
+highest contributions were made by BIO04 (45.7%), BIO12 (42.6%), and
+
+distance  and  each  of  the  original  features  of  the  background  points 
+(Fig. 1-D). The MIC measures the amount of information shared by each 
+pair (Hausser and Strimmer, 2021). One advantage of using the MIC is 
+that it considers a diverse array of relationships, not simply a linear one 
+(Kraskov et al., 2004; Zeng, 2015). Another group of indices was esti-
+mated with the package PresenceAbsence (Freeman and Moisen, 2008) 
+to evaluate the performance of UMAP as a binary classifier; i.e., with 
+probabilities for presence (species points, Sss) and absence (background 
+points,  Ssb),  we  calculated  the  area  under  the  curve  (AUC),  receiver 
+operating  characteristics  (ROC)  (Valavi  et  al.,  2022),  kappa  index  K 
+(Cohen, 1960), and the point-biserial correlation (COR) index (Fig. 1-D). 
+The AUC ranges between 0 and 1, in which the closer to 1 the value, the 
+better the model (Valavi et al., 2022). The kappa index ranges between
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: After constructing the UMAP model, several postprocessing steps were performed on the testing data embedded into the model. These included computing the nearest neighbor Euclidean distance between species-species (Dss) and background-species (Dsb) for both training and test data. The cumulative empirical distribution function of the intra-species distance Dss, denoted as Pss, was also calculated. This was done using a step function where the proportion of observations less than or equal to a given distance D was determined.
+
+After calculating Pss, the value of S = (1 - Pss) was determined for the distances between the background and species. Additionally, the workflow to analyze the similarity between a target species and its environment was presented in Figure 1.
+
+To assess the performance of UMAP as a binary classifier, several metrics were estimated. These included the area under the curve (AUC), receiver operating characteristics (ROC), kappa index K, and the point-biserial correlation (COR) index. The AUC ranges between 0 and 1, with values closer to 1 indicating better model performance. The kappa index ranges between -1 and +1, with positive values indicating agreement beyond chance and negative values indicating disagreement beyond chance.
+
+Mutual information coefficients were also used to measure the relative importance of bioclimatic variables as related to latent distance. For example, in the case of A. cephalotes, BIO01, BIO04, and BIO12 shared more information and were more clearly related to distance.
+
+In summary, the postprocessing steps involved after model training include computing nearest neighbor Euclidean distances, calculating the cumulative empirical distribution function of intra-species distance, determining the value of S, presenting the workflow to analyze similarity between a target species and its environment, estimating various metrics such as AUC, ROC, kappa index K, COR index, and calculating mutual information coefficients.

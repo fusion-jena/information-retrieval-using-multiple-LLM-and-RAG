@@ -1,0 +1,67 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The input layer receives two-dimensional data of size [observation 
+time (s) × 4, 1]. As mentioned (section 2.4.3), the output vector sizes of 
+the three LSTM layers were set to 32, 32, and 16, respectively, and a 
+dropout rate of 50% was applied during training. The number of stacked 
+LSTM layers, the size of the output vectors, and other necessary model 
+hyperparameters were selected through various experiments to achieve 
+optimal performance. 
+
+We have summarized the components of the proposed system into an 
+overall  learning  and  testing  procedure  of  the  monitoring  system  in 
+Fig. 6. During the learning stage, features are extracted from the training 
+data set using the previously introduced feature extraction algorithm, 
+and the  model is  trained. After the training is  completed, the trained 
+model  is  used  to  predict  water  conditions  and  analyze  performance 
+using the test data set that was not employed during the learning stage. 
+
+2.4.5. Performance metrics
+
+2.4.4. System structure 
+
+We endeavored to design the model structure as simple as possible to 
+ensure its usability on devices with limited computing power and enable 
+real-time predictions, as long as the performance was not significantly 
+reduced. Our aim was to create a model that balances performance and 
+efficiency.  The  selected  system's  structure  consists  of  an  input  layer, 
+three LSTM hidden layers, one dropout layer, and one dense layer. In the 
+case of binary classification, a dense layer with a single output is used, 
+and σ is employed as the activation function. For tasks involving more 
+than two classes, the dense layer has multiple outputs and the softmax 
+function is used as the activation function. The overall structure of the 
+model is depicted in Fig. 5.
+
+curacy  below  70%  in  all  experiments,  and  it  does  not  significantly 
+benefit from increasing observation time in terms of classification per-
+formance. Furthermore, as shown in Fig. 7(a, b), the SD values of the 
+accuracy of our LSTM model are much smaller than those of the HMM.
+
+2.4.5. Performance metrics 
+
+To evaluate the performance of the proposed methods, we used four 
+performance metrics: accuracy, recall, precision, and the F1 score. The 
+
+Fig. 5. Structure of the biomonitoring system based on the Long Short-Term Memory (LSTM) model. The system's structure consists of an input layer, three LSTM 
+hidden layers, one dropout layer, and one dense layer. 
+
+EcologicalInformatics80(2024)1024827S.-H. Kang et al.                                                                                                                                                                                                                                
+
+Fig. 6. Overall procedure of the proposed method: The model is trained using the training data that has undergone the feature extraction algorithm. The trained 
+model undergoes a performance evaluation using the test data, which goes through the same feature extraction process as the training stage.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The strategy implemented to monitor the model performance during training involves extracting features from the training dataset using a feature extraction algorithm. Once the features are extracted, they are used to train the model. After the training phase, the trained model is then utilized to predict water conditions and assess its performance using a separate test dataset that wasn't involved in the training stage. This approach allows for evaluating the effectiveness of the model in accurately classifying different water conditions. Additionally, the authors mention employing several performance metrics such as accuracy, recall, precision, and the F1 score to further gauge the model's efficiency.

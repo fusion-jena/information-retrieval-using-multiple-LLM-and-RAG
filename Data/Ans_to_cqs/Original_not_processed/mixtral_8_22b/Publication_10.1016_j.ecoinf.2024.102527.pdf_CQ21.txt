@@ -1,0 +1,57 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+computing resources when building source models for transfer learning 
+tasks.
+
+respectively.  N  represented  the  number  of  images  in  the  test  set  or 
+validation set. 
+
+2.2.6. Model training and hyper-parameters 
+
+We  trained  models  on  the  training  sets  and  tracked  the  model 
+training process on the validation set. The training process was stopped 
+when  the  loss  value  of  the  model  on  the  validation  set  no  longer 
+decreased. We then tested the model performance on the test set. Our 
+computing platform was a Dell PowerEdge C4130 rack server with two 
+Tesla  K80  GPUs  and  256  GB  of  memory.  For  the  deep  learning  envi-
+ronment,  we  utilized  the  PyTorch  1.7.1  platform.  We  employed  the 
+Stochastic Gradient Descent (SGD) optimizer with a momentum value of 
+μ  = 0.9 to train the model. Other hyper-parameter settings for model 
+training were shown in Table S.4 of the Supporting Information. 
+
+3. Results 
+
+3.1. Experiment results of transfer strategy optimization
+
+Fig. 7. The accuracies of transfer learning models on the test set and the corresponding binomial test probability value when models were transferred from the S_2_10 
+dataset to the LSM dataset. (a) Accuracies of models under different transfer strategies. The abscissa represented the training set sample size (in thousands of images). 
+(b) The binomial test probability values between the best-performing transfer strategy and other transfer strategies. The TFS meant that the model was trained from 
+scratch. The TLS_i (i = 1, 2, …, 5) represented that different layers of the ResNext-101 model were selected for updating. A probability value <0.05 indicated a 
+significant difference.
+
+Fig. 8. The accuracies of transfer learning models on the test set and the corresponding binomial test probability value when models were transferred from the 
+S_10_10 dataset to the LSM dataset. (a) Accuracies of models under different transfer strategies. The abscissa represented the training set sample size (in thousands of 
+images). (b) The binomial test probability values between the best-performing transfer strategy and other transfer strategies. The TFS meant that the model was 
+trained from scratch. The TLS_i (i = 1, 2, …, 5) represented that different layers of the ResNext-101 model were selected for updating. A probability value <0.05 
+indicated a significant difference. 
+
+3.2. Experimental results of source model optimization 
+
+(100,000, 500,000, and 1 million) and number of classes (binary-class 
+and ten-class) on the SS dataset.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit information about the specific postprocessing steps involved after the model training. However, based on common practices in machine learning and deep learning, some possible postprocessing steps could include generating saliency maps, calculating metrics such as accuracy, precision, recall, F1 score, etc., creating confusion matrices, and performing statistical tests like binomial tests to compare the performance of different models or strategies. In this case, the context mentions that the authors used binomial tests to determine if there is a significant difference between the best-performing transfer strategy and other transfer strategies. Additionally, they evaluated the performance of their models by testing them on a separate test set and tracking the model training process using a validation set. Therefore, it can be inferred that these might be some of the postprocessing steps taken by the authors after the model training phase.

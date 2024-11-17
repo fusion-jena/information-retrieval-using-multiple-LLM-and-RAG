@@ -1,0 +1,51 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+As stated in the Introduction, there exist many different CNNs for different applications, and it is
+important to ﬁnd the appropriate solution for a speciﬁc task. Retraining existing powerful architectures
+such as VGG19 [27], ResNet, or Inception Net to solve other problems by transfer learning is one
+approach that is often used. However, this was not an option in our four-band setting and very
+particular segmentation task with features that might differ signiﬁcantly from features learned by
+networks trained on common image datasets such as ImageNet. Thus, we opted to implement a U-Net
+architecture, which is a particular implementation of a CNN ﬁrst developed by Ronneberger [19] for
+biomedical image segmentation. One major advantage of CNNs is the ability to extract spatial features
+and to detect patterns independently of their position on the input image. The U-Net architecture is
+
+encoding and decoding blocks and are summarized in Table 1. These experiments were monitored
+using TensorBoard and validated on the validation portion of the dataset.
+
+The overall workﬂow of preprocessing, network design, and prediction are shown in Figure 2.
+Due to the size of the orthophotos and due to memory limitations when doing computations, it is
+intuitive to process the orthophotos into relatively small labeled tiles (or rather small image cubes) and
+feed them into the CNN. Each orthophoto of size 10,000 × 10,000 pixels was divided into 1525 tiles of
+256 × 256 pixels. The data (orthophoto and corresponding labels) were then split into three datasets:
+training (80%), validation (20%), and test (two full images of 10,000 × 10,000 pixels). The training
+data were used for optimizing the neural network, while the validation dataset was used to assess the
+performance during the training process. The test dataset was used to assess the performance of the
+ﬁnal optimized neural network. The training and validation images were read into arrays with the
+
+process. Once the network is trained, predictions on further datasets can be computed within seconds,
+depending on the size of the input raster and the computational power used. The overall accuracy
+on our test dataset was 92%. During visual validation, labeling errors were found in the reference
+data that somewhat biased the results because the algorithm in some instance performed better than
+the human labeling procedure, while missing areas affected by shadows. Our results are very good
+in terms of precision, and the methods introduced in this paper have several additional advantages
+compared to traditional methods: CNNs automatically detect high- and low-level features in the data,
+leading to high classiﬁcation accuracies, while only one after-storm image is needed in comparison to
+two images for approaches based on change detection. Furthermore, ﬂight parameters do not affect
+the results in the same way as for approaches that require DSMs and DTMs as the classiﬁcation is only
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In this study, the authors did not use any standard datasets like MNIST, CIFAR, or ImageNet. Instead, they created their own custom dataset using orthophotos. They divided each orthophoto of size 10,000 x 10,000 pixels into 1525 tiles of 256 x 256 pixels. This resulted in a large number of small image cubes that could be fed into the Convolutional Neural Network (CNN). The data (orthophoto and corresponding labels) were then split into three datasets: training (80%), validation (20%), and test (two full images of 10,000 x 10,000 pixels). The training data were used for optimizing the neural network, while the validation dataset was used to assess the performance during the training process. The test dataset was used to assess the performance of the final optimized neural network.

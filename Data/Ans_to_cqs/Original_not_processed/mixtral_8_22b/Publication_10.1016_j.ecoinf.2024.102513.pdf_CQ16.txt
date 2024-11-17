@@ -1,0 +1,334 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.7. Training configuration 
+
+The calculations were performed on an ASUS laptop with an Intel i7- 
+11370H CPU (4 cores, 3.30 GHz), 16 GB DDR4 memory, and an NVIDIA 
+GeForce RTX 3050 graphics card (4 GB). The dataset for each period was 
+divided into training, testing, and validation sets in a ratio of 70:20:10, 
+respectively. 
+
+2.8. Classification accuracy 
+
+The accuracy calculation was performed for each model trained on 
+the corresponding period and was computed using the sklearn library for 
+
+Table 2 
+List of spectral indices used in the study.  
+
+Name 
+
+Normalized Difference Vegetation 
+
+Index (NDVI) 
+
+Normalized Difference Built-up 
+
+Index (NDBI) 
+
+Green-Red Vegetation Index (GRVI) 
+
+Built-up Index (BU) 
+
+Normalized Difference Water Index 
+
+(NDWI) 
+
+Calculation 
+Formula 
+
+Nir (cid:0) Red
+Nir + Red 
+SWIR (cid:0) Nir
+SWIR (cid:0) Nir 
+Green (cid:0) Red
+Green + Red 
+NDBI (cid:0) NDVI 
+
+Green (cid:0) Nir
+Green + Nir  
+
+Reference 
+
+(Huang et al., 2021) 
+
+(Zha et al., 2003)
+
+CPL 
+GSL 
+HV 
+BL 
+SBL 
+BSL 
+URL 
+WTR 
+
+CPL 
+
+174.33 
+185.06 
+34.64 
+0.66 
+205.51 
+153.17 
+0.20 
+0.20 
+
+GSL 
+
+151.68 
+281.29 
+24.92 
+0.12 
+238.31 
+160.93 
+0.17 
+0.04 
+
+HV 
+
+1.53 
+0.98 
+10.72 
+0.00 
+23.11 
+0.27 
+0.18 
+0.00 
+
+BL 
+
+9.50 
+3.92 
+1.25 
+20.05 
+2.14 
+3.86 
+5.91 
+1.98 
+
+SBL 
+
+69.35 
+251.62 
+10.53 
+0.20 
+195.86 
+114.58 
+1.58 
+0.17 
+
+BSL 
+
+77.89 
+138.29 
+19.76 
+0.36 
+126.44 
+73.60 
+0.43 
+0.49 
+
+URL 
+
+8.08 
+5.41 
+0.40 
+2.60 
+1.46 
+1.53 
+2.08 
+0.27 
+
+WTR 
+
+1.03 
+0.28 
+0.09 
+21.98 
+0.30 
+0.34 
+0.76 
+73.83 
+
+Abbreviations: CPL - Croplands, GSL - Grass lands, HV - High vegetation, BL - Bare lands, SBL - Shrublands, BSL - Bare soils, URL - Urban lands, WTR - Water. 
+
+EcologicalInformatics80(2024)10251317D. Krivoguz
+
+Furthermore, the integration of ancillary data, such as meteorolog-
+ical records and field-based agricultural information, can contribute to 
+the  refinement  of  classification  accuracy.  Meteorological  data  can 
+elucidate  the  temporal  patterns  of  moisture  stress  on  steppe  grasses 
+during the desiccation phase. Agricultural records, detailing the crop-
+ping cycles of winter wheat, provide valuable insights to differentiate 
+cultivated areas from natural grasslands. 
+
+4.1.2. Misclassification between urban lands and bare lands 
+
+The  “Bare  Lands”  class  includes  a  diverse  range  of  areas, 
+
+EcologicalInformatics80(2024)10251319D. Krivoguz
+
+GSL 
+
+127.67 
+698.02 
+50.47 
+0.14 
+312.66 
+226.50 
+0.67 
+0.01 
+
+HV 
+
+0.04 
+0.87 
+28.23 
+0.33 
+39.65 
+0.39 
+0.03 
+0.02 
+
+BL 
+
+15.89 
+8.25 
+1.42 
+19.32 
+0.89 
+10.40 
+11.38 
+3.44 
+
+SBL 
+
+38.75 
+224.88 
+44.69 
+0.46 
+160.01 
+83.70 
+0.36 
+0.01 
+
+BSL 
+
+64.72 
+134.46 
+15.92 
+4.45 
+70.44 
+93.31 
+4.95 
+0.28 
+
+URL 
+
+0.07 
+0.09 
+7.19 
+0.46 
+12.40 
+0.70 
+0.14 
+0.04 
+
+WTR 
+
+0.00 
+0.00 
+0.13 
+14.12 
+0.02 
+0.02 
+0.06 
+77.89 
+
+Abbreviations: CPL - Croplands, GSL - Grass lands, HV - High vegetation, BL - Bare lands, SBL - Shrublands, BSL - Bare soils, URL - Urban lands, WTR - Water. 
+
+Table 7 
+Land use and land cover change matrix for 2005–2015 (in km2).  
+
+From/To 
+
+CPL 
+GSL 
+HV 
+BL 
+SBL 
+BSL 
+URL 
+WTR 
+
+CPL 
+
+67.16 
+234.22 
+1.14 
+13.42 
+78.53 
+85.90 
+0.19 
+0.06 
+
+GSL 
+
+115.87 
+708.79 
+5.04 
+4.82 
+270.71 
+160.64 
+10.17 
+0.54 
+
+HV 
+
+2.16 
+13.20 
+31.67 
+0.07 
+25.70 
+3.21 
+7.46 
+0.07 
+
+BL 
+
+2.35 
+2.11 
+0.15 
+22.11 
+1.29 
+3.33 
+0.11 
+15.85 
+
+SBL 
+
+21.11 
+228.85 
+29.03 
+0.37 
+96.68 
+38.17 
+1.53 
+0.05
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it does not explicitly state the specific criteria used to determine when training is complete. However, typically, machine learning models stop training based on certain conditions like reaching a maximum number of epochs or iterations, early stopping if the performance on a validation set stops improving, or achieving a target metric value. In this case, since the text mentions the use of sklearn library for accuracy calculation, one possible criterion could be reaching a desired level of accuracy on the validation set. But without explicit mention of these details, we cannot definitively confirm the exact criteria used in this particular study.

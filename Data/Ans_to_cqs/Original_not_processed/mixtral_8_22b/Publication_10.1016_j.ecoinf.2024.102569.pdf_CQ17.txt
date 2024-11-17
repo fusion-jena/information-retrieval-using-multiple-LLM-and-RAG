@@ -1,0 +1,235 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To simultaneously carry out shrinkage estimation and variable se-
+lection,  we  employ  the  penalized  loss  function  with  an  L1  penalty 
+(Tibshirani, 1996), defined as follows: 
+
+lϕ
+Ξ(θ) = lΞ(θ) +
+
+∑p
+
+k=0
+
+ϕk∣βk∣,
+
+(5)  
+
+where lΞ  is the loss function minimized by solving the estimating eqs. (2) 
+=
+and (3), and is given by eq. (10) in Appendix A. We set ϕ0
+ϕ (k ∕= 0, ϕ ≥ 0) as a constant tuning parameter. The loss function has no 
+penalties for the intercept parameter β0 of the intensity function and the 
+coefficient  paramter  α  for  the  detection  probability  model.  We  can 
+compute the L1  penalized estimates using the gradient ascent method 
+(Goeman,  2010).  The  detailed  computation  algorithm  is  provided  in 
+Appendix C. 
+
+= 0, and ϕk
+
+= 0, and ϕk
+
+The root trimmed mean squared prediction error (RTMSPE) is uti-
+lized to select the appropriate values for the tuning parameters τ and ϕ, 
+removing  the  impact  of  heterogeneous  observations.  The  RTMSPE  is 
+defined as follows: 
+
+√
+√
+√
+√
+
+RTMSPEδ =
+
+̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+∑hδ
+
+1
+hδ
+
+i=1
+
+e2
+[i]
+
+(0 < δ < 1),
+
+(6)  
+
+(cid:0)
+
+2 
+
+s[1]
+
+2, …,
+
+[1] and e2
+
+[n] are  the  order  statistics  of
+
+Liu, C., White, M., Newell, G., 2018. Detecting outliers in species distribution data. 
+
+maximum entropy density estimation. Adv. Neural Inf. Proces. Syst. 17, 323–330. 
+
+J. Biogeogr. 45, 164–176. 
+
+Eguchi, S., Komori, O., 2022. Minimum Divergence Methods in Statistical Machine 
+
+Louvrier, J., Papaìx, J., Duchamp, C., Gimenez, O., 2020. A mechanistic–statistical 
+
+Learning: From an Information Geometric Viewpoint. Springer Japan KK, part of 
+Springer Nature, Tokyo.  
+
+species distribution model to explain and forecast wolf (Canis lupus) colonization in 
+south-eastern France. Spatial Stat. 36, 100428. 
+
+Feng, S., Yang, Q., Hughes, A., Chen, J., Qiao, H., 2021. A novel method for multi- 
+
+Meier, L., van de Geer, S., Buhlmann, P., 2008. The group lasso for logistic regression. 
+
+trajectory reconstruction based on LoMcT for avian migration in population level. 
+Eco. Inform. 63, 101319. 
+
+Fithian, W., Hastie, T., 2013. Finite-sample equivalence in statistical models for
+
+Appendix D. Estimating equations based on two divergences 
+
+The loss function based on the density power divergence (Basu et al., 1998) may be considered as 
+
+lκ(θ) = (cid:0)
+
+1
+κ
+
+∑m
+
+i=1
+
+{λθ(si)κ (cid:0) 1 } +
+
+1
+1 + κ
+
+λθ(s)(1+κ)ds,
+
+A
+
+∫
+
+where κ is a constant tuning parameter. The estimating equations are derived from lκ(θ), which is approximately expressed as 
+
+∂
+∂β
+
+lκ(θ) ≈
+
+∂
+∂α
+
+lκ(θ) ≈
+
+∑r
+
+i=1
+
+∑r
+
+i=1
+
+λθ(si)κ{di (cid:0) wiλθ(si) }x(si) = 01+p,
+
+λθ(si)κ
+1 + exp(αΤz(si) )
+
+{di (cid:0) wiλθ(si) }z(si) = 0q.
+
+The loss function based on the γ-divergence (Fujisawa and Eguchi, 2008) may be considered as 
+
+lγ(θ) = (cid:0)
+
+1
+γ
+
+{∫
+
+∑m
+
+i=1λθ(si)γ
+A λθ(s)(1+γ)ds
+
+,
+
+} γ
+1+γ
+
+where γ is a constant tuning parameter. The estimating equations based on lγ(θ) are approximately given by 
+
+{
+
+}
+
+∂
+∂β
+
+lγ(θ) ≈
+
+∂
+∂α
+
+lγ(θ) ≈
+
+∑r
+
+i=1
+
+∑r
+
+i=1
+
+λθ(si)γ
+
+di∑r
+j=1djλθ
+
+(cid:0)
+
+sj
+
+)γ (cid:0)
+
+∑r
+
+wiλθ(si)
+sj
+
+j=1wjλθ
+
+(cid:0)
+
+)1+γ
+
+x(si) = 01+p,
+
+λθ(si)γ
+1 + exp(αΤ z(si) )
+
+{
+di∑r
+j=1djλθ
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In this study, the authors use the L1 penalty, also known as LASSO (Least Absolute Shrinkage and Selection Operator) regularization, to perform simultaneous shrinkage estimation and variable selection. This regularization technique adds a penalty term to the loss function, encouraging smaller weights and thus preventing overfitting. Unlike L2 regularization or Ridge Regression, which uses the sum of the squares of the weights as the penalty term, L1 regularization uses the absolute value of the weights. This often results in sparse solutions where many weights become zero, effectively performing feature selection. However, it should be noted that other regularization techniques such as Dropout, Batch Normalization, and Early Stopping could also be employed in deep learning pipelines to prevent overfitting. These methods work differently but share the common goal of reducing complexity and improving generalization performance.

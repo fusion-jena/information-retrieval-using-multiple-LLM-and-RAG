@@ -1,0 +1,10 @@
+Answer:::
+The metrics used to evaluate the performance of the deep learning model in this study are not explicitly listed as accuracy, precision, and recall. However, it is mentioned that the prediction accuracy was evaluated by commonly used mean average (MA) methods. Specifically, the MA average top-1 accuracy measures the distance between predicting labels and labeled classes. 
+
+The average accuracy is calculated by averaging the outcomes of multiple samples fed into the test model, and their inference labels according to the highest score are exported as their prediction labels. The formula for calculating the average accuracy is provided as:
+
+Average = 1/n ∑ ∑ L(F(x_i) = y_i)
+
+where L(.) is a logic function to verify if argmax index equals to instance label, which means that L(.) is 1 if F(x_i) = y_i otherwise L(.) is 0. Function F(.) means to find the highest score of classify output.
+
+Additionally, the model loss is computed by compound loss, which is added by softmax cross-entropy and regularization loss. The softmax cross-entropy loss measures the distance between two distributions, and the regularization loss is inserted to reduce overfitting, balancing model performance and model complexity.

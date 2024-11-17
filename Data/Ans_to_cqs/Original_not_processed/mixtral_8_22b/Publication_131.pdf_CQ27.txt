@@ -1,0 +1,71 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+proper databases for CNN training.
+
+On the cyber system side, implementation was based on a workstation with an AMD
+Threadripper Pro 3955WX processor with 32 GB RAM and GPU NVIDIA Quadro P620,
+running Windows 10 Pro. The communication between the cyber and the physical system
+was made using the TCP/IP protocol. A Python application was designed to train the
+CNN based on a selected dataset. This cyber system is responsible for interacting with a
+ﬁnal user (biologist) who is responsible for ordering the new trainings of the CNNs and
+new updates of the trained CNNs on the physical nodes or on their digital twins to carry
+out simulations or cooperative classiﬁcations.
+
+As mentioned in the data augmentation section above, a CNN was ﬁrst trained for
+the 4 sound classes covered in the classiﬁcation model developed in previous work [20–23].
+Later, a second CNN was trained to expand the classiﬁcation system to the total of the
+5 classes detailed in Table 1.
+
+For the ﬁrst network, the best results were obtained with training in only 8 epochs
+(number of passes of the entire training dataset) and a batch size (number of samples
+utilized in one training iteration) equal to 32. For the second network, the best training was
+achieved with 6 epochs and, again, a batch size equal to 32. For both networks, the initial
+learning rate [33] with 0.001 and the “adam” optimizer [34] were the parameters used in
+the training process.
+
+3. Results
+3.1. CPS Performance
+
+11 of 19
+
+2.2. CNN Classiﬁcation System
+
+In order to carry out the design of the CNN classiﬁcation system, a set of stages
+were followed. These stages are represented in Figure 9 and described in the following
+subsections.
+
+Figure 9. Stages in the classiﬁcation system.
+
+Each of the stages was programmed with Python using the Keras library [30] for CNNs.
+
+2.2.1. Data Augmentation
+
+In order to generate a more robust training set, an augmentation process was carried
+out using the sound database. When one deals with CNN and images, data augmenta-
+tion consists of extending the set of images from their transformations (rotations, size
+modiﬁcations, etc.). For the purpose of the present work on sounds, the transformations
+must be made on the audios, and later these transformations will be reﬂected in the
+mel-spectrogram images.
+
+In this way, for each of the 865 audio samples in the database, 10 additional audios
+
+were generated:
+•
+•
+•
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the deployment process of the trained deep learning models. However, it can be inferred that the Python application designed to train the CNN might also handle the deployment process since it interacts with the final user (biologist). Additionally, the mention of updating the trained CNNs on the physical nodes or their digital twins suggests some form of model serialization and platform selection. But without specific details, it cannot be definitively stated what exact process was followed to deploy the trained deep learning models.

@@ -1,0 +1,13 @@
+To monitor the model performance during training, a benchmark model with default parameters was established for each of the five evaluated machine learning models, namely RF, GBDT, LightGBM, XGBoost, and CatBoost. This allowed for an assessment of whether parameter adjustments had a beneficial impact on model performance.
+
+Hyperparameter optimization was carried out using both random grid search, implemented using GridSearchCV from Scikit-learn, and Bayesian optimization, implemented using the Hyperopt library (version 0.2.7). The best parameters for each model were selected and compared to determine the optimal model for estimating water Chla concentration and turbidity in Nansi Lake.
+
+The performance of each model was evaluated using four metrics: R2 (coefficient of determination), RMSE (root mean square error), Slope, and MAE (mean absolute error). These metrics were used to compare the measured and predicted values for each model.
+
+For the Chla concentration, LightGBM and XGBoost achieved the best performance using 20 spectral bands as training features. LightGBM achieved the highest R2 (0.8390) and Slope (0.8126), while XGBoost had the lowest RMSE (5.0617 μg/L) and MAE (3.9776 μg/L).
+
+For turbidity, XGBoost achieved the best theoretical generalization ability in five-fold cross-validation using 17 spectral bands as training features. XGBoost had a slightly better performance than LightGBM for R2 (0.7927 vs. 0.7915), RMSE (2.1747 vs. 2.1816 μg/L), Slope (0.7791 vs. 0.7812), and MAE (1.6791 vs. 1.7091 μg/L).
+
+The training and hyperparameter optimization times for CatBoost were significantly longer than those of the other models, which may be due to the complex internal feature processing of the model and the fact that a GPU was not used for training.
+
+In summary, the strategy implemented to monitor the model performance during training involved establishing a benchmark model, optimizing hyperparameters using random grid search and Bayesian optimization, and evaluating model performance using four metrics. The results showed that XGBoost had the highest robustness for estimating the water Chla concentration and turbidity in Nansi Lake.

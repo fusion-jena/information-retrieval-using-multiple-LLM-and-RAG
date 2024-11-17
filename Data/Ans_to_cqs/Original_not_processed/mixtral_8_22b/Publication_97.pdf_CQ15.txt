@@ -1,0 +1,53 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Remote Sens. 2020, 12, 1145
+
+8 of 17
+
+subset of images to the network. Therefore, there was only one step per epoch when training. All of
+that led to ambiguities in the objective function being minimized and likely caused the high values
+of variance. We also tried to change the default learning rate parameter for the Adam algorithm. Its
+decrease did not lead to a signiﬁcant reduction of loss function ﬂuctuations but increased the number
+of epochs required for network training. At the end of the learning process (after 1500 epochs), we
+obtained average values for the loss function that were less than 0.1.
+
+Figure 2. Loss function (blue) of the model for training (a) and testing (b) data with a rolling average
+(orange).
+
+2.6. Comparison to Traditional Machine Learning Algorithms
+
+2.5. Neural Network Implementation and Tuning
+
+The U-Net-like CNN described in Algorithm A1 was implemented in a Python-based (Python
+3.7.3 was used) computational environment, which was built on top of the Keras framework [54] using
+Tensorﬂow [62] as a backend. All computations were performed on a PC with 1 GPGPU Nvidia Tesla
+K80 with 16 GB of RAM and required up to 10 h to train one CNN architecture.
+
+To tune the architecture of the neural network, we tested the following combinations of parameters
+(Algorithm A1, line #24), which correspond to diﬀerent U-Net architectures: num_layers = {64, 32, 16},
+depth = {2, 3, 4}, layer_rate = {2, 1.5, 1.2}, batch_norm = {True, False}, residual = {True, False}, dropout
+= {0, 0.5}. Thus, we performed a grid search over 216 diﬀerent U-Net-like architectures and found
+several of the best ones which are suitable for forest damage segmentation.
+
+All of the best results corresponded to the conﬁguration when the number of layers was equal to
+64, and dropout was applied. The best one, whereby an additional batch normalization is applied,
+corresponds to the following parameters: num_layers = 64, depth = 4, layer_rate = 2, batch_norm =
+True, residual = False, dropout = 0.5.
+
+1 (we randomly cropped source images to 256 × 256 resolution and applied augmentation), and we never showed exactly the same subset of images to the network. Therefore, there was only one step per epoch when training. All of that led to ambiguities in the objective function being minimized and likely caused the high values of variance. We also tried to change the default learning rate parameter for the Adam algorithm. Its decrease did not lead to a significant reduction of loss function fluctuations but increased the number of epochs required for network training. At the end of the learning process (after 1500 epochs), we obtained average values for the loss function that were less than 0.1.  Figure 2. Loss function (blue) of the model for training (a) and testing (b) data with a rolling average (orange).   Remote Sens. 2020, 12, 1145
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In this study, the authors use the Adam optimization algorithm for their deep learning pipeline. They mention trying to change the default learning rate parameter for the Adam algorithm, indicating its application in their work. However, they do not provide details about other optimization techniques like Stochastic Gradient Descent (SGD) or any comparisons between different optimization methods.

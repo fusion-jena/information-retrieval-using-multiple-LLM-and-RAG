@@ -1,0 +1,13 @@
+To monitor the model's performance during training, a comprehensive strategy was implemented. This involved a combination of techniques such as cross-validation, cumulative evaluation, and the use of a validation set.
+
+Firstly, a conservative testing strategy was adopted, where three transects (approximately 17% of the data) were excluded for testing in each iteration. These transects were selected from each target class - "Plateau", "White-sand", and "Riparian". The cross-validation process was similar to that used in the classification problem mentioned earlier.
+
+In addition to this, a cumulative evaluation was performed to assess the model's performance across all transects. Instead of analyzing each iteration separately, the model was evaluated using the coefficient of determination (R2) between true vs predicted values for all 648 multitemporal transects predictions.
+
+Furthermore, a validation set consisting of one entire multitemporal transect was left out of the training process. The model's performance was then evaluated on this validation set. The confusion matrix for this evaluation showed a classification accuracy of 83% when the majority voting strategy was applied. The weighted F1 score was also 0.83.
+
+The mtry hyper-parameter was tuned using the caret package in R, while other hyperparameters were kept at their default values. Variations in the ntree parameter were explored, with settings of 500, 1000, 5000, and 10,000. A cutoff of 0.7 was used, and models were tested in which features were selected prior to training using the findCorrelation function in the Caret package in R.
+
+A majority voting strategy was used for classification, and the median was used for regression. Each 5-m segment within a 450 m multitemporal transect was assigned a predicted class or a continuous value for regression. This side-by-side analysis allowed for the relative performance, effectiveness, and accuracy of the novel image-based machine-learning approach to be assessed in contrast to 'traditional' metrics-based methods.
+
+Therefore, the strategy implemented to monitor the model's performance during training involved a rigorous testing process, cumulative evaluation, and the use of a validation set. This comprehensive approach ensured that the model's performance was thoroughly evaluated at each stage of the training process.

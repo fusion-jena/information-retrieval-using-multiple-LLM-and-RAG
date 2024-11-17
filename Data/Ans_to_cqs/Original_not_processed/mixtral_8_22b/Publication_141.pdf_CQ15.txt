@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The implementation of the CNN classiﬁer was done in Python
+programming language (https://www.python.org/), using the
+Keras high level deep learning library (https://keras.io/), and Ten-
+sorFlow with graphical processing unit (GPU) execution as the
+back-end engine (https://www.tensorﬂow.org/). The regions of
+the images most informative for the decision making process in
+the deep learning model were visualized using Gradient-
+weighted Class Activation Mapping (Grad-CAM; (Selvaraju et al.,
+2017)). As an output, heatmaps were generated that indicated
+important aspects of the each head capsule used to determine
+the taxonomic decision-making process of the model.
+
+3. Results
+
+3.1. Classiﬁcation results
+
+2014), which is suggested for relatively small datasets such as ours
+(Ng et al., 2015; Peng et al., 2018). The CNN model (Fig. 2) is trained
+using a two-stage process. In the ﬁrst stage only a top classiﬁer
+(fully connected layer) is trained based on features extracted from
+processing images with a pretrained convolutional part of the net-
+work. In the second stage, an adjustment of the network in a ﬁne-
+tuned manner (using smaller learning rates) is done by training it
+as a whole. A two phase approach was used to speed up the process
+by preserving pretrained encoder weights in the ﬁrst phase of the
+training and achieve optimal model performance using the second
+phase. We also applied data augmentation by randomly deforming
+input images in each training cycle due to the small sample size.
+Additionally, dropout techniques (Hinton et al., 2012) were applied
+to extracted features to enhance model robustness.
+
+identiﬁcation. Methods Ecol. Evol. 9, 2216–2225.
+
+Yosinski, J., Clune, J., Bengio, Y., Lipson, H. How transferable are features in deep
+neural networks? Advances in neural information processing systems, 2014, pp.
+3320–3328.
+
+cies level (Table 2). The network performed surprisingly well con-
+sidering the ImageNet dataset does not contain any similar object
+(e.g., does not contain non-biting midges). As expected, the results
+further improved when ﬁne-tuning was applied in the second
+training phase, where the whole network was trained allowing
+the model to learn additional features speciﬁc to our dataset.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The text does not explicitly mention the specific optimization technique used in the deep learning pipeline. However, it does provide some clues about the methods employed to improve the model's performance. For instance, the authors use a two-stage training process, where the first stage involves training only a top classifier (fully connected layer) based on features extracted from processing images with a pretrained convolutional part of the network. This suggests that they might have used transfer learning, leveraging pretrained models like VGG or ResNet, which often employ optimizers like Stochastic Gradient Descent (SGD) or Adaptive Moment Estimation (Adam).
+
+In the second stage, the network undergoes fine-tuning with smaller learning rates, indicating that the initial learning rate could be higher during the first stage. Fine-tuning allows the model to learn additional features specific to their dataset, improving its overall performance. Although the exact optimization technique isn't mentioned, this process implies the usage of adaptive learning rate algorithms like Adam or RMSprop.
+
+Moreover, the authors apply data augmentation by randomly deforming input images in each training cycle to address the issue of having a small sample size. Data augmentation helps prevent overfitting and improves the model's generalization capabilities. Additionally, dropout techniques are utilized to enhance model robustness by preventing complex co-adaptations between neurons. Dropout can be considered a regularization method rather than an optimization technique, but it still contributes significantly to enhancing the model's performance.
+
+In conclusion, while the text doesn't directly state the optimization techniques used, it hints at possible methods like SGD, Adam, or other adaptive learning rate algorithms through the application of transfer learning, fine-tuning, and data augmentation.

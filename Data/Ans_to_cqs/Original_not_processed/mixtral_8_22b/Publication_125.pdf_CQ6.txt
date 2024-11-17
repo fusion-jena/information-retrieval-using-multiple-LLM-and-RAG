@@ -1,0 +1,190 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 3. CNN Architecture.
+
+No.
+
+Layers
+
+Output Shape
+
+Parameters
+
+Dropout Rate
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+
+Input
+Convolutional
+Activation (ReLu)
+MaxPooling
+Convolutional
+Activation (ReLu)
+MaxPooling
+Convolutional
+Activation (ReLu)
+MaxPooling
+Dropout
+Flatten
+Fully Connected
+Activation (ReLu)
+Fully Connected
+Activation (softmax)
+
+128 × 128 × 3
+128 × 128 × 32
+—
+64 × 64 × 32
+64 × 64 × 32
+—
+32 × 32 × 32
+32 × 32 × 64
+—
+16 × 16 × 64
+16 × 16 × 64
+16,384
+64
+—
+4
+—
+
+—
+896
+—
+—
+9248
+—
+—
+18,496
+—
+—
+—
+—
+1,048,640
+—
+—
+260
+
+—
+—
+—
+—
+—
+—
+—
+—
+—
+—
+0.4
+—
+—
+—
+—
+—
+
+4.2.1. Data Augmentation
+
+Transfer Learning
+
+Transfer learning (TL) is a DL approach for transferring knowledge from one pre-
+trained model to another [18]. TL is commonly used when training a small dataset where
+the CNN’s weights are initialized before being ﬁne-tuned with the new dataset [19]. TL
+aids in adapting current models trained on large datasets to work in a speciﬁc context [20].
+There are several pre-trained models approaches based on this research, including VGG16,
+ResNet-50, Xception and DenseNet121. Each of these common TL approaches is de-
+scribed below:
+
+•
+
+•
+
+•
+
+•
+
+Execution Time
+
+All runtimes reported in this section were measured on the Google Colab repository
+with a CPU running at 2.30GHz. Table 10 presents a detail of the runtime for each CNN
+model. The training runtime for VGG16, Xception, and ResNet50 is 22.27, 21.26, and
+30.8 min, respectively. Additionally, the prediction runtime for these models is 0.803,
+0.827, and 1.835 s, respectively. The training runtime for DenceNet121 and the proposed
+model is 18.34 and 16.43 min, and the prediction runtime is 4.134 and 0.976 s, respectively.
+Accordingly, the computation overhead varies from one model to another. However,
+PHE data are signiﬁcantly fast during both training and prediction and therefore the
+computation overhead of the proposed encryption schema is low.
+
+Remote Sens. 2021, 13, 2221
+
+21 of 26
+
+Figure 9. Training accuracy of different CNN models.
+
+Table 10. CNN models’ run-time.
+
+CNN Models
+
+Training Run-Time
+
+Prediction Run-Time
+
+Training Run-Time
+
+Prediction Run-Time
+
+VGG16
+Xception
+ResNet50
+DenseNet121
+The proposed model
+
+22 min 27 s
+21 min 26 s
+30 min 8 s
+18 min 34 s
+16 min 43 s
+
+0.803 s
+0.827 s
+1.835 s
+4.134 s
+0.976 s
+
+5.5. Discussion
+
+Recent years have seen increasing concerns about protecting the privacy of conﬁdential
+information when processing data using models. This leads to the need for cryptographic
+techniques to solve privacy concerns in data-driven models. Several PPDL techniques have
+been proposed in the literature to solve these concerns. This research is, to the best of our
+knowledge, the ﬁrst work that investigates PPDL for satellite image classiﬁcation.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't explicit information regarding specific preprocessing steps such as normalization, scaling, or cleaning before training a deep learning model. However, it does mention the use of Transfer Learning (TL), which involves initializing the CNN's weights before fine-tuning them with a new dataset. Furthermore, the context discusses data augmentation, which can be considered a form of preprocessing. Data augmentation is a strategy that enables practitioners to significantly increase the diversity of data available for training models without actually collecting new data. It involves creating modified versions of images in the dataset by applying random transformations that yield believable-looking images. These transformations might include rotating the image, zooming into the image, shifting the image slightly, etc. In summary, while the exact preprocessing steps aren't mentioned, the context suggests the use of data augmentation and transfer learning as part of the process before training a deep learning model.

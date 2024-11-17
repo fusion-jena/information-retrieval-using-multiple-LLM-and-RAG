@@ -1,0 +1,102 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Our  deep-learning  models  used  NASnet  architecture  (Zoph  et  al., 
+2017) with a Faster-rcnn backbone (Ren et al., 2015) implemented in 
+Tensorflow2. The parameters of the model can be found on TensorFlow 
+model zoo1 under the name “faster_rcnn_nas”. All images were resized to 
+1333 × 800 pixels to match with the pre-training data (COCO dataset 
+(Lin et al., 2014)) used to prepare the first layers of our model and save 
+computing time during the training phase). We used a learning rate of 
+0.008 with a cosine learning rate decay. For each K-fold, the model was 
+trained on its own version of Trainingclips  through 200,000 iterations, 
+with a batch size of 16 images per iteration. The training was completed 
+in 96 h  per model using a GPU-cluster equipped with 4 RTX8000. In 
+order  to  evaluate  the  performance  of  our  deep-learning  models,  we 
+computed the recall, precision, and F-measure for each model. Briefly, a
+
+Fig. 1. Boxplot representations of precision, recall and F-measure metrics obtained for the 5 CNN models build through cross-validation. The results obtained on 
+models trained with only the 3 common shark species of interest are in blue, and the results obtained with models trained on 27 species are shown in green. (For 
+interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.) 
+
+(Testingclips) and 1-h videos (Testingstations) datasets. Pooling all species, 
+the correlation coefficients R were 0.88 and 0.85 for the video clips and 
+1-h  video  datasets,  respectively.  The  correlation  was  highest  for 
+C.  amblyrhynchos  (R  = 0.90),  followed  by  T.  obesus  (R  = 0.72)  and 
+C. melanopterus (R = 0.40) using the video clips dataset. Lower R values 
+were  observed  with 
+for 
+C. amblyrhynchos, 0.35 for C. melanopterus, 0.44 for T. obesus). 
+
+full-hour  video  dataset 
+
+(0.88 
+
+the
+
+F-measure 
+
+Precision 
+
+Semi-Automated  
+
+0.83 
+0.52 
+0.32 
+
+1 
+1 
+1 
+
+Recall 
+
+0.93 
+0.75 
+0.69 
+
+F-measure 
+
+0.97 
+0.86 
+0.82
+
+Recalli =
+
+Tpi
+Tpi + Fni  
+
+Precisioni =
+
+Tpi
+Tpi + Fpi  
+
+Fmeasurei = 2.
+
+Recalli.Precisioni
+Recalli + Precisioni  
+
+with Tpi  the number of true positives, Fpi  the number of false positives 
+and Fni  the number of false negatives for species i. 
+
+2.2. Estimating shark abundance on video 
+
+Fitted deep-learning models were used to estimate shark abundance 
+(MaxN) on both video clips and complete one-hour videos. For video 
+clips,  each  frame  of  the  Testingclips  dataset  was  considered  indepen-
+dently. For each species, the predicted MaxN value corresponded to the 
+predicted number of individuals in each frame. For full one-hour videos,
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The performance of the deep learning model is evaluated using three main metrics: recall, precision, and F-measure. Recall measures the proportion of actual positive instances that are correctly identified by the model. It is calculated as the ratio of true positives to the sum of true positives and false negatives. Precision measures the proportion of predicted positive instances that are actually correct. It is calculated as the ratio of true positives to the sum of true positives and false positives. The F-measure is a harmonic mean of precision and recall, providing a single metric that balances these two aspects of classification performance. A higher F-measure indicates better overall performance.

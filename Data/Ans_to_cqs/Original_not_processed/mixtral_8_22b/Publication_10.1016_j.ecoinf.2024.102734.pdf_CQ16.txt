@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Grid view mode presents all five-second segments to the user as a grid
+shown in Fig. 7. Samples are again ordered by the recommender. This is
+an efficient method of quickly annotating recordings. The user can hover
+over the spectrogram to play the sample and define on-click keys to
+quickly apply labels.
+
+By default, this method assigns samples to training or validation sets,
+automatically maintaining an 80/20% training-validation split for each
+class. Model prototypes are updated automatically and the user can
+trigger model training and view training metrics through the training
+tab. Training is mostly automated to make the methodology accessible
+to all and does not require deep learning knowledge. We define seg-
+mentation and classification endpoints so that users wanting to adapt
+the pipeline can define their own segmentation and classification
+models.
+
+samples (red line) compared to randomly ordered samples, no active
+learning (blue line), and active learning using high-certainty samples
+(yellow line). The baseline accuracy is calculated using a 2-shot, 2-way
+test accuracy without fine-tuning (81.4%). The AST feature extraction
+model is fine-tuned on a subset of 500 training samples. Model perfor-
+mance is re-evaluated on the test set at 10 sample increments using each
+of the three sample orderings. Low certainty refers to queries with a
+similar Euclidean distance to prototypical embeddings and therefore lie
+along decision boundaries. For high-certainty samples, the order is
+reversed with query embedding in close proximity to prototypical em-
+beddings being prioritised for model fine-tuning.
+
+Future work will improve the usability of this method. Due to the
+pretrained AST model being designed for human-perceivable sounds,
+data must currently be downsampled to 16 kHz. This is a limitation
+when analysing higher-frequency vocalisations and a common limita-
+tion when using pretrained models developed for human-perceivable
+hearing ranges. Future work will investigate techniques to extend this
+
+Fig. 9. Demonstrating training cycle (first epoch) using active learning pri-
+oritising low-certainty samples (red), active learning using high-certainty
+samples (yellow) and randomly presented sample i.e. no active learning
+(blue). (For interpretation of the references to colour in this figure legend, the
+reader is referred to the web version of this article.)
+
+The results in Fig. 9 demonstrate the efficacy of active learning using
+low-certainty sampling as implemented in the audio annotation meth-
+odology. Active learning (low-certainty) achieved 90% test accuracy
+using 20 training samples compared to random sampling which required
+80 samples to reach 90% test accuracy. Active learning using high-
+certainty samples performed the worst and failed to converge within
+the first epoch. Active learning using low-certainty samples resulted in
+improved training efficiency.
+
+4.3. Noise reduction
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, it appears that the training process is evaluated based on the test accuracy rather than specific criteria such as validation loss plateau. In Figure 9, the performance of different methods is demonstrated during the first epoch of training. It shows that active learning using low-certainty sampling achieves 90% test accuracy using only 20 training samples, while random sampling requires 80 samples to achieve the same level of accuracy. However, there is no mention of any specific criteria used to determine when training should stop. Therefore, it seems that the completion of training may depend on factors like achieving desired accuracy levels or reaching a satisfactory number of iterations.

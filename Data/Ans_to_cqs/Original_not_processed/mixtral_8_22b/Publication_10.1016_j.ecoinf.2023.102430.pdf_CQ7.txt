@@ -1,0 +1,61 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.3. Algorithm training and testing 
+
+We trained all algorithms on a random subset of 5256 pictures (80% 
+
+of  the  6570-picture  dataset).  To  gauge  performance  consistency,  the 
+training-testing  process  was  repeated  10  times  for  each  algorithm;  in 
+each of these (pseudo-)replicate runs, all five algorithms used the same 
+training and testing picture subsets.
+
+AN  was  implemented  in  MATLAB  (www.mathworks.com).  For 
+training,  we  used  the  stochastic  gradient  descent  with  momentum 
+optimizer with default settings except for the initial learning rate (which 
+we set to 0.001) and the maximum number of epochs (which we set to 15 
+after  preliminary  tests).  The  ‘classical’  machine-learning  algorithms 
+(AB, GB, HB, and LD) were run in Python (www.python.org) using the 
+scikit-learn toolbox (Pedregosa et al., 2011). We left hyperparameters at 
+scikit-learn  default  values,  except  for  the  learning  rate  of  GB  and  HB 
+(which we set to 0.15) and the tolerance threshold value for LD (set to 1 
+× 10
+
+database into training (80%) and testing sets (20%), and then trained and tested a convolutional neural network 
+(AlexNet,  AN);  three  boosting-based  classifiers  (AdaBoost,  AB;  Gradient  Boosting,  GB;  and  Histogram-based 
+Gradient Boosting, HB); and a linear discriminant model (LD). We assessed identification accuracy and speci-
+ficity with logit-binomial generalized linear mixed models fit in a Bayesian framework. Differences in perfor-
+mance across algorithms were mainly driven by AN’s essentially perfect accuracy and specificity, irrespective of 
+picture angle or bug position. HB predicted accuracies ranged from ~0.987 (Panstrongylus, dorsal-oblique) to 
+>0.999  (Triatoma,  dorsal-flat).  AB  accuracy  was  poor  for  Rhodnius  (~0.224–0.282)  and  Panstrongylus 
+(~0.664–0.729), but high for Triatoma (~0.988–0.991). For Panstrongylus, LD and GB had predicted accuracies
+
+2.2. Algorithms 
+
+We used five machine-learning algorithms based on three different 
+principles: a pre-trained convolutional neural network (AlexNet); three 
+boosting-based  classifiers  (AdaBoost  Adaptive  Boosting,  Gradient 
+Boosting,  and  Histogram-based  Gradient  Boosting);  and  a  linear 
+discriminant  model.  Here,  we  briefly  describe  the  characteristics  of 
+these algorithms and the inputs that they require; further details can be 
+found in the references provided below. 
+
+The  architecture  of  AlexNet  (‘AN’  hereafter),  which  includes  five 
+convolutional  layers  and  three  fully-connected  layers,  has  60  million 
+
+EcologicalInformatics79(2024)1024302V.L. de Miranda et al.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors used a random subset of 5256 pictures (80% of the total dataset) for training their deep learning models. This means that they randomly selected 80% of the images from the entire dataset to use for training purposes. They did not explicitly mention any separate validation set, so it is assumed that they only used a single split for training and testing. However, they mentioned repeating the training-testing process 10 times for each algorithm, ensuring that all five algorithms used the same training and testing picture subsets in each replicate run. This suggests that they might have been using cross-validation techniques to evaluate the performance of their models. In summary, the criteria used to split the data for deep learning model training were a random selection of 80% of the dataset for training and the remaining 20% for testing, without any explicit mention of a separate validation set.

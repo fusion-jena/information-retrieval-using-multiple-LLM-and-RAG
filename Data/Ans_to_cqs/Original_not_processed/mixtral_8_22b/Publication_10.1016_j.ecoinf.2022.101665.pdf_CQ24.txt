@@ -1,0 +1,70 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+mapping probability samples that are exclusively used for map evalua-
+tion are often not available and therefore alternative methods have been 
+proposed.  In  machine  learning,  if  data  are  abundant,  a  common 
+approach is to randomly divide the full dataset used for modelling into 
+three parts: a training set, a validation set, and a test set (Hastie et al., 
+2009,  Chapter  7).  The  training  set  is  used  for  fitting  the  models,  the 
+validation set is used to estimate prediction error for model selection and 
+hyperparameter tuning, while the test set is used for assessing the ac-
+curacy of the final model. This paper addresses this latter testing phase, 
+with the specific aim to assess the accuracy of a thematic map produced 
+by a calibrated statistical prediction method. Data availability is often 
+limited  so that setting  aside a  test set  cannot always be afforded and 
+therefore resampling methods are used (Hastie et al., 2009; Steele et al.,
+
+1.  Simple random sample. This corresponds to a simple random sample 
+—without replacement— of the study area, where each location (i.e., 
+grid  cell)  has  equal  inclusion  probability.  Note  that  by  nature,  a 
+spatial simple random sample exhibits some degree of clustering and 
+hence differentiation in sampling intensity. This sample was added 
+as a reference case, and it was analysed the same way as the other 
+samples.  
+
+2.  Systematic random sample. This refers to sampling on a regular grid 
+producing equal density over the study area (cf. Su et al., 2020). The 
+grid  nodes  were  obtained  by  randomly  shifting  an  initial  square 
+sampling grid that was spaced so as to achieve the desired sample 
+size  (here  5000).  Next,  shifts  in  x  and  y  directions  were  applied, 
+where the shifts were sampled from a uniform distribution between
+
+Fig.  3  shows  example  maps  of  AGB  predictions  made  by  random 
+forest  models  trained  on  samples  as  per  four  of  the  five  designs 
+compared in this study. At first sight, the maps (a-c) are very similar to 
+the proxy of exhaustive ground truth provided in Fig. 1(a) but closer 
+inspection reveals some dissimilarities. Perhaps the most apparent dif-
+ference is a reduction of the largest AGB values along Europe’s mountain 
+ranges in Fig. 3(c). The latter map shows predictions based on a strongly 
+clustered  sample  whose  locations  are  shown  in  Fig.  2(f).  It  can  be 
+observed that this sample had few sampling sites in the high biomass 
+areas, which may partly explain the observed tendency. The predictions 
+in Fig. 3(d) differ considerably from those in Fig. 3(a-c). These are based 
+on the strongly clustered, gapped sample shown in Fig. 2(h) which fails 
+to cover the major part of the study area including the regions with large
+
+Fig. 2. Examples of studied spatial samples. (a-b) simple random samples; (c) systematic random sample; (d-e) moderately clustered samples; (f-g) strongly clustered 
+samples; (h-i) strongly clustered, gapped samples. Except for the systematic sample (c), the sample size always amounted to 5000. The systematic sample had an 
+expected size of 5000 but realized samples varied in size between 4998 and 5056.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide direct information about handling randomness in the deep learning pipeline. However, it discusses related concepts in machine learning, specifically addressing limited data availability and evaluation of predictive models.
+
+In machine learning, when data is abundant, a common approach is to split the dataset into three parts: a training set, a validation set, and a test set. The training set is used for fitting the models, the validation set is used to estimate prediction errors for model selection and hyperparameter tuning, and the test set is used for assessing the accuracy of the final model.
+
+When data availability is limited, setting aside a test set might not be feasible. In such cases, resampling methods like cross-validation or bootstrapping are used. Cross-validation involves partitioning the original sample into subsamples, using one subsample for training and another for validation, repeating the process multiple times, and averaging the results. Bootstrapping involves creating multiple datasets by drawing observations with replacement from the original dataset, then aggregating the results across these datasets.
+
+These techniques help manage variability due to randomness in the data and improve the robustness of the model. While they do not directly address managing randomness in the deep learning pipeline, such as controlling the random seed value, they offer insights into how to deal with uncertainty and variability in machine learning tasks.

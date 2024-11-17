@@ -1,0 +1,9 @@
+Answer: To ensure the generalizability of the deep learning model, several measures were taken. Firstly, a 10-fold cross-validation was performed, where the dataset was split into 10 sets by placing a 3 × 3 grid over the map. This division was done in such a way that the terrain and style of the maps differed in each set, allowing the model to generalize well to new, unseen data. 
+
+Additionally, 20% of the training samples were used as a validation set to prevent overfitting. This validation set was randomly selected from all areas of the training set and was never used to fit the model. 
+
+Furthermore, the model was trained with dropout (with a rate of 0.3) to make it more stable and prevent overfitting. The ADAM optimization algorithm was used with a learning rate of 0.0001 to find optimal weights in the neural network.
+
+The data was also pre-processed by splitting it into smaller blocks based on coordinates, and then further divided into smaller areas of 80 × 80 pixels. A padding of 27 pixels was added around each area to counter the size reduction that occurs within the CNN. This process created 41,601 smaller segments that were handled independently by the model.
+
+Overall, the combination of cross-validation, validation set, dropout, and data pre-processing measures helped to ensure the generalizability of the deep learning model.

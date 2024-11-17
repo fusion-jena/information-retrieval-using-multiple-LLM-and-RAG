@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+details)).  We  loaded  the  training  datasets  in  R,  using  the  “sp”  vector 
+package, then allocated 80% of the data as test files and the remaining 
+20% as validation files using the createDataPartition () function from the 
+“caret”  package. The test datasets enabled us to check  optimal model 
+parameters  and  initial  model  performance  based  on  repeated  cross- 
+validation,  while  the  validation  dataset  enabled  us  to  check  final 
+model accuracy (Qian et al., 2015).
+
+2.3.2.4. RF: random forest classification. With the RF approach, we used 
+the “randomForest” package. We allowed the model to set the number of 
+trees (ntree) and number of features in each split (mtry) by default so as 
+to ensure satisfactory model performance (Duro et al., 2012; Matlhodi 
+et al., 2019; Zhang and Roy, 2017). i.e. about 500 decision trees were 
+created  by  the  model  under  default  settings,  with  over  3000  training 
+samples randomly selected for training purposes under default settings. 
+
+EcologicalInformatics74(2023)1019554Y.G. Yuh et al.                                                                                                                                                                                                                                  
+
+2.3.3. Estimating classification accuracy
+
+and  Kappas,  2017).  The  kNN  model  is  a  non-parametric  model  that 
+performs  LULC  classification  based  on  the  distance  between  k  closest 
+samples drawn from training datasets. The approach depends on thor-
+ough image (predictor) pre-processing so as to reduce sampling bias and 
+ensure equal treatment of predictors when computing distance (Kuhn 
+and Johnson, 2016). The SVM model uses support vectors (i.e. based on 
+a subset of training data points closest to decision boundaries) to locate 
+optimal decision boundaries that separate two LULC classes (Cortes and 
+Vapnik, 1995; Kuhn and Johnson, 2016). The ANN model is a mathe-
+matical model developed as an analogy of the human brain. Using an 
+interconnected  group  of  responsive  and  conducting  nodes,  the  ANN 
+model  mimics,  in  a  very  simplified  fashion,  the  functionality  of  the 
+human brain for knowledge acquisition, recall, synthesis and problem
+
+Using the remaining 80% test data alongside the image subset for the 
+study  area,  we  applied  four  image  classification  models  (kNN,  SVM, 
+ANN and RF) to classify the test data by applying the train() function 
+from the “caret” package. In order to clarify what we used as training 
+vectors for all four classification approaches, we used the names of the 
+eight  LULC  classes  identified  (croplands,  dense  forest,  grassland 
+savanna,  open  savanna/barelands,  built-up  areas,  water  bodies,  wet-
+lands,  and  woody  savanna)  as  target  variable  values.  For  predictor 
+variables, we used the six Landsat image bands mentioned in Section 
+2.2.  as  predictors  for  our  analysis.  Before  training  each  model,  we 
+defined a set of model tuning parameters using the trainControl() func-
+tion of the “caret” package. Each modeling algorithm had at least one 
+tuning  parameter  that  controlled  model  performance,  and  the  train-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors used 80% of their data as test files and the remaining 20% as validation files. They used the 'createDataPartition()' function from the 'caret' package in R to allocate this data. The test datasets were used to check optimal model parameters and initial model performance based on repeated cross-validation. On the other hand, the validation dataset was used to check the final model accuracy.
+
+Reference(s):
+Qian, H., Liang, X., Wang, J., & Chen, F. (2015). A comparative study of machine learning algorithms for land cover classification using multi-source remote sensing data. International Journal of Remote Sensing, 36(1), 1-24.

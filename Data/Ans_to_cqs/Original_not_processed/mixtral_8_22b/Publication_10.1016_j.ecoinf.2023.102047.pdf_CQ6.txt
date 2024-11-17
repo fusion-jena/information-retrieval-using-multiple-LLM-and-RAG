@@ -1,0 +1,166 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+1.  Unbounded fusion 
+
+∑
+
+O =
+
+wi.Ii
+
+(1) 
+
+i
+
+where wi  is a learnable weight that can be a scalar (per feature), a 
+vector (per channel) or a multi-dimensional tensor (per pixel) and Ii  is 
+the  number  of  layers.  However,  the  unbounded  scalar  weight  could 
+cause  training  instability,  Therefore,  weight  normalisation  is  used  to 
+bound the value range of each weight.  
+
+2.  Softmax-based fusion 
+
+∑
+
+O =
+
+ewi
+
+∑
+
+ewj
+
+i
+
+j
+
+.Ii
+
+(2) 
+
+The  softmax  activation  function  is  applied  to  each  weight  to 
+normalise  all  weights  to  be  a  probability  within  a  range  of  0  to  1. 
+However,  the  extra  softmax  function  leads  to  a  slowdown  on  GPU 
+hardware resources.  
+
+3.  Fast normalized fusion 
+
+where  P7
+
+td  presents  the  intermediate  feature  at  level  6  on  the  top- 
+out  presents the feature at level 6 on the bottom- 
+
+down pathway and P7
+up pathway.
+
+image,  and  the  produced  feature  maps  are  cropped  upon  the  object 
+proposal. An RoI pooling layer is applied to extract a fixed length vector. 
+This  feature  vector  is  processed  through  fully  connected  networks  to 
+predict class probabilities and refine the bounding boxes. Faster R-CNN 
+(Ren et al., 2015) is the most popular object detection algorithm. In the 
+Faster R-CNN model, the input images are fed into a CNN, which pro-
+duces feature maps from the input images. A different neural network, 
+RPN, is applied to predict the candidate bounding boxes. RoI pooling 
+layers are applied to reshape the inputs. These properties render these 
+two-stage  detectors  superior  to  one-stage  detectors.  Among  the  two- 
+stage  detector,  EfficientDet  (Tan  et  al.,  2020)  architecture  is  gaining 
+popularity owing to its excellent detection performance as  well as its 
+relatively lower FLOPS (floating point operations per second) than in 
+other object detection models.
+
+Fig. 2. YOLOv5 Architecture.  
+
+EcologicalInformatics76(2023)1020474M.K. Noman et al.                                                                                                                                                                                                                              
+
+Fig. 3. EfficientDet architecture (adopted from (Tan et al., 2020)).  
+
+output feature. Each input layer is given an additional weight, which 
+allows the network to learn the important features. Three weight fusion 
+approaches are considered:  
+
+(
+
+w
+
+Pout
+6 = Conv
+
+′
+
+1.Pin
+
+′
+
+′
+
+2.Ptd
+6 + w
+1 + w′
+w′
+
+6 + w
+2 + w′
+
+3.Resize
+3 + ϵ
+
+(cid:0)
+
+)
+
+Pout
+5
+
+(5) 
+
+1.  Unbounded fusion 
+
+∑
+
+O =
+
+wi.Ii
+
+(1) 
+
+i
+
+Recently,  attention  has  focused  on  machine  learning  and  deep- 
+learning algorithms to achieve these goals. Deep learning is a branch 
+of machine learning and uses algorithms inspired by the function and 
+structure of neural networks in the human brain (LeCun et al., 2015). An 
+important  part  of  machine  learning  is  feature  engineering,  which  in-
+creases  accuracy  and  requires  expertise  in  the  specific  domain  of  the 
+problem. The deep learning approaches can perform feature engineering 
+independently  by  itself  (Goodfellow  et  al.,  2016;  Jalali  et  al.,  2022). 
+Deep-learning are providing state-of-the-art performances of computer 
+vision tasks such as classification, detection or segmentation (Kamilaris 
+and Prenafeta-Boldu, 2018; Pouyanfar et al., 2018).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model, several preprocessing steps may be required depending on the nature of the data and the problem being solved. Some common preprocessing techniques include:
+
+1. Normalization: This involves transforming the data so that it falls within a certain range, typically between 0 and 1 or -1 and 1. This helps prevent any single feature from dominating the others during training. For example, image pixels are often scaled to lie between 0 and 1 for this purpose.
+
+2. Scaling: Similar to normalization, scaling involves adjusting the values of features so they fall within a specified range. However, unlike normalization, scaling does not necessarily involve changing the distribution of the data. Instead, it simply scales the values proportionally.
+
+3. Cleaning: Data cleaning involves removing noise, outliers, missing values, and other inconsistencies from the dataset. This step is crucial to ensure that the model is trained on accurate and reliable data.
+
+4. Augmentation: Data augmentation involves creating new samples by applying various transformations to existing ones. This technique is commonly used in computer vision tasks where there may be limited labeled data available. By artificially increasing the size of the dataset, data augmentation can help improve the generalizability of the model.
+
+5. Encoding: Categorical variables need to be converted into numerical form before feeding them into a deep learning model. One way to do this is through encoding, where each category is assigned a unique integer value. Another approach is one-hot encoding, where each category is represented as a binary vector with a single '1' indicating its presence.
+
+These preprocessing steps are essential to prepare the data for training a deep learning model effectively. They help ensure that the model can accurately capture patterns in the data and generalize well to new examples.

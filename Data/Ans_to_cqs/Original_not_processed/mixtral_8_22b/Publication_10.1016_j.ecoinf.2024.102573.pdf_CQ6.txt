@@ -1,0 +1,76 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+This  experiment  used  both  learnable  frontends  with  80  filters  of 
+length  512  (16 ms)  that were  initialized  by  mel-filterbanks.  Gaussian 
+pooling  was  removed,  and  downsampling  happened  in  the  filtering 
+convolution layer by a stride of 320 (10 ms). Then, the outputs were log- 
+compressed  without  normalization.  These  plain  frontends  are  called 
+LEAF-P and SincNet-P, and Table 4 shows their test results.
+
+81.79 
+86.93  
+
+3.3. Noise tolerance 
+
+Large  neural  networks  can  handle  minor  variations  in  the  input 
+caused by different compression schemes (Sainath et al., 2015). Thus, 
+changing  the  range  and  scale  of  the  inputs  is  unlikely  to  make  a 
+noticeable difference. Yet, it is readily evident in Table 2 that combining 
+the compression with normalization is significantly better regardless of 
+the frontend, whether through PCEN or conventional methods. 
+
+Lostanlen  et  al.  (2018)  showed  that  PCEN  whitens  the  data  by 
+Gaussianizing the magnitudes and decorrelating the frequency bands. 
+Thus, it alleviates stationary background noise. The following analyses 
+confirm  this  result  for  species  recognition  from  outdoor  recordings. 
+Furthermore,  it  shows  that  other  combinations  of  compression  and 
+normalization will also suppress noise.
+
+Efficacy  of  normalization:  The  remarkable  improvement  of  the 
+(mel-)spectrogram and learnable frontends from a simple normalization 
+was  partly  unexpected  since  input  normalization  usually  results  in 
+different  parameter  values  but  similar  performance.  We  remind  the 
+readers  that  the  normalization  was  applied  on  the  backend’s  input, 
+which  is  the  frontend’s  output.  Maybe  a  comparable  accuracy  is 
+attainable  without  normalization  but  requires  an  optimal  training 
+regime,  extensive  hyper-parameter  tuning,  and  potentially  modifying 
+the backend classifier. Therefore, input normalization at least made the 
+learning  much  easier  since  all  models  used  the  same  backend  and 
+optimization  setting. Another  reason  for performance  gain  is that the 
+PCEN and normalization schemes strengthened the models against un-
+seen  natural  and  urban  noise  (section  3.3).  It  is  a  desirable  property
+
+3.1. Main results 
+
+Table 2 shows the test results. The largest performance gap between 
+the learnable and traditional frontends stems from using PCEN instead 
+of log compression. When combined with PCEN, the (mel-)spectrogram 
+is on par with the learnable frontends. Noticeably, a proper normaliza-
+tion on top of the log compression produced similar results to the PCEN 
+version of the models. It is hard to eyeball some of these effects, espe-
+cially for the data augmentation. Therefore, a performance summary for 
+the 48 models is depicted in Fig. 3 to comprehend the importance of 
+each component. Fig. 4 shows the confusion matrices of the base and the 
+best configuration for each frontend.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text mentions several preprocessing steps taken before training a deep learning model. One such step is initializing the frontends with mel-filterbanks. This could be considered a form of feature extraction, where relevant features are extracted from raw audio signals to improve the performance of the model.
+
+Another preprocessing step mentioned is log-compressing the outputs without normalization. Log compression is often used to reduce the dynamic range of the input signal, making it more suitable for processing by a neural network. In this case, it appears that no further normalization was performed after log compression.
+
+The text also discusses the use of PCEN (Per-Channel Energy Normalization), which is a type of normalization technique. PCEN is described as being able to whiten the data by Gaussianizing the magnitudes and decorrelating the frequency bands. This helps to alleviate stationary background noise and makes the model more robust to changes in the input caused by different compression schemes.
+
+Finally, the text notes that input normalization was applied on the backend's input, which is the frontend's output. Input normalization is a common preprocessing step in machine learning, where the input data is scaled or transformed so that it has zero mean and unit variance. This helps to ensure that the model converges faster during training and improves its overall performance.

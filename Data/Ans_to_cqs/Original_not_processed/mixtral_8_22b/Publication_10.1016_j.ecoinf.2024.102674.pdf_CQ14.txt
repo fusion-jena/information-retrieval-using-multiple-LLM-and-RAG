@@ -1,0 +1,113 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+over five decays (0, 0.2, 0.4, 0.6, 0.8, 1) and sizes (1, 2, 3, 4, 5). We fitted 
+RFs using the RANDOMFOREST R package (Liaw and Wiener, 2002) with 500 
+trees, five as the minimum size of terminal nodes, and by sampling all 
+descriptors for splitting at each node; these RFs were thus equivalent to 
+bagged decision trees. Finally, we fitted GBMs via the  GBM  R package 
+(Greenwell et al., 2020) by ensembling a maximum of 10,000 trees, with 
+shrinkage and interaction parameters equal to 0.01 and 1, respectively; 
+each  tree  was  thus  equivalent  to  a  decision  stump.  After  model  cali-
+bration, we identified the most relevant physiographic descriptors for 
+each algorithm and each month. For GAMs, we evaluated the predictors’ 
+relative importance by considering their F statistics. We assessed vari-
+able importance in ANNs by employing the Olden method (Olden et al., 
+2004)  implemented  in  the  NEURALNETTOOLS  R  package  (Beck,  2018).
+
+PC 4 
+
+59.50% 
+19.19% 
+87.29% 
+19.33% 
+71.69% 
+18.39% 
+73.47% 
+17.68% 
+74.88% 
+17.63% 
+74.13% 
+16.86% 
+74.66% 
+17.53% 
+74.12% 
+17.52% 
+72.32% 
+17.90% 
+69.60% 
+18.85% 
+58.61% 
+19.21% 
+56.78% 
+18.94% 
+
+PC 5 
+
+64.51% 
+6.22% 
+63.33% 
+6.26% 
+63.02% 
+6.34% 
+63.02% 
+6.40% 
+62.50% 
+6.39% 
+62.08% 
+6.48% 
+62.53% 
+6.40% 
+62.45% 
+6.41% 
+63.21% 
+6.38% 
+62.97% 
+6.32% 
+63.98% 
+6.23% 
+64.68% 
+6.14%   
+
+EcologicalInformatics82(2024)10267410D. Delle Monache et al.
+
+◦
+
+in Appendices). Like KGE scores, MAE and RMSE increased for all the 
+algorithms during the hot season, although both metrics showed limited 
+variability  (0.4–1.3 
+C;  Fig.  A.10c  and  Fig.  A.10d  in  Appendices). 
+Percent biases were always remarkably close to zero, with little differ-
+ences between algorithms (Fig. A.10b in Appendices). Altitude was the 
+most relevant physiographic descriptor; however, in all algorithms but 
+ANN, its relative importance decreased during the hot season. In these 
+same  months,  the  relative  importance  of  the  remaining  descriptors 
+generally increased (Fig. A.11 in Appendices).
+
+The  growing  availability  of  macroclimate  grids  is  also  coming  in 
+handy.  These  products  provide  information  about  free-air  macro-
+climates  concerning  large  shares  of  the  Earth’s  surface  and  are 
+commonly used to model species distributions over large spatial extents 
+(Elith  and  Leathwick,  2009).  Unfortunately,  macroclimate  grids  are 
+usually  too  coarse  to  capture  the  range  of  microclimates  available  at 
+smaller scales (Potter et al., 2013). Thus, macroclimate grids might need 
+to be downscaled to the appropriate spatial scales before they can be 
+effectively used (Lenoir et al., 2017). High-resolution free-air tempera-
+ture  products  are  routinely  obtained  by  linking  macroclimates  to  the 
+physiographic descriptors that drive local climatic conditions (McCul-
+lough et al., 2016). Then, after modeling the offset between local cli-
+mates and microclimates (Lenoir et al., 2017; Maclean et al., 2019) or
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The text does not explicitly mention how the hyperparameters of the models were optimized. However, it provides some details on the specific values chosen for certain hyperparameters. For instance, Random Forests were trained using 500 trees, with a minimum size of terminal nodes set to five, and all descriptors were sampled for splitting at each node. Gradient Boosting Machines were trained by ensembling a maximum of 10,000 trees, with shrinkage and interaction parameters set to 0.01 and 1, respectively. It appears that these hyperparameter choices were made based on the authors' experience and knowledge rather than through a systematic optimization process like grid search or random search.

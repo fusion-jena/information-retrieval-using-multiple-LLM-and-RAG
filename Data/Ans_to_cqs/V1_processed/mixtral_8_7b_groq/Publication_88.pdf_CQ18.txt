@@ -1,0 +1,11 @@
+During the training of the EF and SN models, a strategy was implemented to monitor the model performance and prevent overfitting. This was achieved through a combination of early stopping, validation set usage, and dropout.
+
+Early stopping is a technique used to halt the training process once the loss increases in 10 consecutive epochs when evaluated on the validation set. This set, which consists of a portion of the training data, is used to provide an unbiased evaluation of the model's performance during training. By using the validation set for early stopping, the model's generalization ability is improved, and overfitting on the training set is reduced.
+
+Additionally, a dropout rate of 0.2 was applied in the final fully connected layer. Dropout is a regularization technique that randomly sets a fraction rate of input units to 0 during training, which helps in preventing over-dependence on individual neurons and reducing overfitting.
+
+The Adam optimizer was employed with a weight decay of 0.9 and a learning rate of 10−3. Weight decay, also known as L2 regularization, was used to discourage large weights, which can lead to overfitting. The learning rate controls the size of the steps in the gradient descent optimization process. A smaller learning rate was chosen to ensure stable convergence and avoid overshooting the optimal solution.
+
+Lastly, the binary cross-entropy loss function was used for training. This loss function is suitable for binary classification problems, such as the "deforestation" and "no-deforestation" classes in this study. By minimizing the cross-entropy loss, the model learns to distinguish between the two classes effectively.
+
+In summary, the strategy implemented to monitor the model performance during training includes early stopping, validation set usage, dropout, weight decay, and the Adam optimizer with a carefully selected learning rate. These techniques work together to prevent overfitting and improve the model's generalization ability.

@@ -1,0 +1,18 @@
+Based on the provided context, there is no information about the specific criteria used to split the data for deep learning model training. However, it does describe a data splitting approach used in the context of XGBoost, a popular machine learning algorithm, but not exactly for deep learning. I will summarize the data splitting approach used in XGBoost for your understanding.
+
+In the XGBoost model, a nested k-fold cross-validation scheme is used to optimize the iteration number and avoid overfitting. The dataset is split into three subsets:
+
+1. Tuning set: This consists of k-2 folds used to train the model.
+2. Validation set: This is a 1-fold set used to monitor the model's performance by calculating the out-of-sample prediction accuracy.
+3. Test set: Another 1-fold set, used separately to evaluate the final model's performance.
+
+For each choice of number of iterations and each fold, the model is trained on the tuning set, and the performance is monitored on the validation set. The median of k-1 folds' performance is then calculated for each number of iterations. This process results in k medians for each number of iterations.
+
+This data splitting approach is specific to the XGBoost algorithm and the study's objective of optimizing the iteration number. In general, data splitting criteria for deep learning models can include:
+
+1. Train-test split: Splitting the data into a training set and a test set to evaluate the model's performance on unseen data.
+2. Cross-validation: Splitting the data into multiple folds, where each fold is used as the validation set while the remaining folds form the training set. This process is repeated for each fold, providing a more robust estimation of the model's performance.
+3. Stratified sampling: Ensuring that the data split maintains the same class distribution, especially when dealing with imbalanced datasets.
+4. Time series split: When dealing with time series data, splitting the data based on time, using past data for training and future data for testing.
+
+These are some common data splitting criteria used in machine learning and deep learning. The specific criteria to use depend on the problem, dataset, and model at hand.

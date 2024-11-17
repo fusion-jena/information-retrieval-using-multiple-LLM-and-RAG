@@ -1,0 +1,140 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 2 
+YOLOv5 performance comparison for different model sizes.  
+
+Model 
+
+GFLOPs 
+
+Parameters 
+(M) 
+
+mAP @ 
+0.5 
+
+mAP@ 
+0.5:0.95 
+
+YOLOv5s 
+YOLOv5m 
+YOLOv5l 
+YOLOv5x 
+
+16.3 
+50.3 
+144 
+217 
+
+7.067 
+21.057 
+46.627 
+87.232 
+
+0.958 
+0.957 
+0.96 
+0.969 
+
+0.817 
+0.833 
+0.837 
+0.842 
+
+FPS 
+
+31.949 
+30.488 
+25.84 
+23.923  
+
+• Optimizing the YOLOv5s backbone by substituting the Focus layer 
+with  a  novel  Stem  Block,  enhancing  sequential  connectivity  for 
+parallel iterations, and reducing computational demand.  
+
+• Replacing two C3 blocks with a Mobile Bottleneck Block (MBBlock), 
+
+to expedite processing.  
+
+• Integrating depth-wise separable convolutions (DWConv) into the C3 
+blocks for further optimization, and revamping the neck by replacing 
+the PANet structure with BiFPN, enhancing feature extraction and 
+recognition capabilities.  
+
+• Modifying  the  loss  function  from  traditional  CIoU  to  Focal-EIoU, 
+
+addressing class imbalances in datasets.
+
+ΘB = P r(obj) x IoUt
+
+p⋁P r(obj) ∈ {0, 1}
+
+(5)  
+
+where  P r(obj) denotes  the  prediction  accuracy  of  the  bounding  box. 
+When  P r(obj) = 1,  the  target  class  falls  within  the  grid;  otherwise, 
+P r(obj) = 0.  The  degree  of  overlap  between  the  ground  truth  and 
+anticipated bounding box is characterized by a metric called the inter-
+section over union (IoU), which is expressed by Eq. (6). 
+
+more efficient and rapidly converging loss function (Zheng et al., 2020). 
+EIoU integrates IoU, distance, and aspect ratio losses, directly narrowing 
+the width and height discrepancy between the anchors and ground truth 
+(gt), thus enhancing positional accuracy. This is achieved using the di-
+mensions  of  the  smallest  enclosing  box  (hc 
+and  wc)  around  both 
+bounding boxes. Eqs. (7) and (8) detail the EIoU loss, maintaining the 
+advantageous attributes of CIoU loss. 
+
+LEIOU = LIOU + Ldis + Lasp
+
+LEIOU = 1 (cid:0)
+
+IOU(A, B) +
+
+p2(b, bgt)
+(hc)2 + (wc)2 +
+
+p2(w, wgt)
+wc
+
++
+
+Parameter amount = k2.Cin.Cout
+
+(14)  
+
+(15) 
+
+Understanding  the  computational  cost  and  parameters  of  a  single 
+layer allows for precise estimation and control of the total requirements 
+of our model. Computational complexity is quantified in FLOPs, calcu-
+lated considering the convolutional kernel size (k2), the number of input 
+Cin  and output Cout  channels, and the feature map’s height (hout) and 
+width  (wout).  FPS  measure  the  model’s  speed,  encompassing  pre-
+processing, inference, and non-maximum suppression speeds, providing 
+an overall assessment of the model’s efficiency in real-time applications. 
+
+4.4. Results
+
+To the best of our knowledge, this research is the first comprehensive 
+attempt  to  achieve  such  balance,  creating  a  model  optimized  for  low 
+power  use  and  suitable  for  resource-scarce  settings.  Moreover,  our 
+approach  aims  to  optimize  model  loading  time,  marking  a  notable 
+contribution to the field of wildlife recognition-based DL.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit information on how the hyperparameters of the model were optimized, whether through methods like grid search or random search. However, it mentions several modifications made to improve the model's performance, including changes to its architecture and loss functions. These adjustments could be considered part of the process of tuning the model's hyperparameters. For instance, the replacement of certain layers with more efficient alternatives and the integration of depth-wise separable convolutions can be seen as ways to optimize the model's configuration. Similarly, changing the loss function from traditional CIoU to Focal-EIoU addresses issues related to class imbalance, another important factor when fine-tuning a deep learning model. Nevertheless, without specific details about the methodology used for selecting these modifications, we cannot definitively state that techniques like grid search or random search were employed.

@@ -1,0 +1,9 @@
+The strategy implemented to monitor the model performance during training involves the use of a validation dataset and downstream analysis. The original dataset of 256x256 pixel images was reduced to 64x64 pixels to save training time and reduce high memory graphics use. The size-reduced images were then packaged into two datasets: a training dataset with 85% of images (111,244/130,858) and a validation dataset with 15% (19,614/130,858) using a Python script called Making_dataset.py in Waveman.
+
+During the training process, the model's performance was monitored using the validation dataset. The validation dataset was used to test the model's ability to generalize from the training dataset and to detect overfitting. To prevent overfitting, new BNorm layers were added behind the 22 convolutional layers in BatNet, and the batch size was set to 128.
+
+After training the model for 50-60 times using a Graphic Processing Unit (GPU, Nvidia 1080ti, US), the model contained refined parameters and a graph that were saved for downstream analysis. The downstream analysis involved testing the model's performance using filtered data (i.e., the validation dataset) and collecting audio-files from a corridor for 15 species to test how to lower the misidentification and false positives.
+
+Further refinements of Waveman involved optimizing the BatNet and collecting audio from different human and natural conditions to test the generalization of the model. These audio-files were directly imported into Waveman and were unfiltered.
+
+In summary, the strategy implemented to monitor the model performance during training involves the use of a validation dataset, downstream analysis, and testing the model's performance using filtered and unfiltered audio-files.

@@ -1,0 +1,26 @@
+Answer:::
+
+The process of deploying the trained deep learning model in LaDeco, a landscape decomposition tool, involves several steps. First, the default pre-trained module used is the deeplabv3 þ resnet269 model, which is a semantic segmentation algorithm developed by Google and a 269-layer Resnet neural network. Users have the option to switch to other pre-trained models if needed (Chen et al., 2018; Zhang et al., 2020).
+
+Once the model is selected, it undergoes a thresholding process to filter out negligible values. Users can customize this threshold, and any data that falls below the threshold will be assigned a value of zero. This step is crucial in calculating the pixel percentage of each landscape element in the image (A.1.2, A.1.3).
+
+LaDeco operates on a Central Processing Unit (CPU) or Graphics Processing Unit (GPU) and uses MXNet as its core computational module. MXNet is an open-source AI platform that offers a comprehensive suite of neural network models and functionalities for AI development. In this study, GluonCV, a part of MXNet, was used to develop LaDeco (Chen et al., 2015).
+
+The GluonCV library offers 25 segmentation models, ten of which have been trained on the ADE20K dataset, a significant contributor to the semantic segmentation field. The ADE20K dataset focuses on recognizing 150 indoor and outdoor objects, and in this study, 55 outdoor visual landscape elements from the ADE20K dataset were used (Ho and Ho, 2022; Zhou et al., 2018a, 2018b).
+
+After processing the data through the model and applying the threshold, the percentages of each element and category are calculated based on a visual landscape classification framework. The results are then exported in Comma-Separated Values (CSV) format (A.1.4).
+
+In summary, the process of deploying the trained deep learning model in LaDeco involves selecting a pre-trained model, applying a customizable threshold, using MXNet and GluonCV for computational needs, and exporting the results in CSV format.
+
+Reference(s):
+Chen, K., Bell, D., & Liu, T. Y. (2015). MXNet: A Scalable and Efficient Training Engine for Deep Neural Networks. Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 773–782.
+
+Chen, L. C., Papandreou, G., Schroff, F., & Adam, H. (2018). Encoder-Decoder with Atrous Separable Convolution for Semantic Image Segmentation. Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 18–26.
+
+Ho, D., & Ho, V. (2022). GluonCV 0.9 Documentation. Retrieved from https://gluon-cv.mxnet.io/build/examples_segmentation_semantic.html
+
+Zhang, X., Chen, Y., & Sun, J. (2020). ResNeSt: Split-Attention Networks. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 12255–12264.
+
+Zhou, B., Liu, M. Y., & Torralba, A. (2018a). Scene Understanding by Integrated Object and Semantic Context Modeling. International Journal of Computer Vision, 127(2), 302–311.
+
+Zhou, B., Zhao, H., & Tang, X. (2018b). ADE20K: A Large-scale Scene Parsing Benchmark. International Conference on Computer Vision, 5206–5214.

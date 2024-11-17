@@ -1,0 +1,100 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+0.85
+
+1
+
+0.87
+
+0.75
+
+0.9
+
+0.98
+
+1
+
+0.97
+
+0.8
+
+0.91
+
+0.94
+
+0.98
+
+0.8
+
+0.93
+
+0.07
+
+Table 3.   Accuracy of the model without post-processing, and with post processing according to our goals, on 
+the cross-validation, with thresholds tuned on T1 and applied on T2. Each line shows the result for a species, 
+with: the species name, the accuracy of the model without post processing, and the accuracy of the model with 
+post processing according to the 3 goals defined earlier.
+
+training datasets.
+
+•  In the first phase, a classification model is built by training a CNN on a given database T0 (Fig. 2a)
+•  Then, the second phase consists of tuning a risk threshold τi specific to each class (i.e. each species in our 
+
+case), noted i, with i ∈ {1, ..., n} , using a second and independent database noted T1 (Fig. 2b).
+
+In terms of classification, it means we transform the 2 classification options (correct, wrong) in 3 options 
+
+(Fig. 3) by applying Eqs. (15, 16).
+
+Computing the confidence thresholds.  After the phase 1 (model training phase), for an image X of the 
+threshold tuning dataset processed by the classifier, we obtain an output {C(X), S(X)} , where C(X) is the class 
+(i.e. species, belonging to the trained set of species) with the highest classification score S(X). For this image, we 
+know the ground truth Y in {1, .., n} belonging to the same set of species classes.
+
+Scientific RepoRtS  |        (2020) 10:10972  | 
+
+https://doi.org/10.1038/s41598-020-67573-7
+
+5
+
+Vol.:(0123456789)www.nature.com/scientificreports/Figure 3.   Impact of the post-processing framework on classification of images for a given species and a given 
+threshold. Usually, the classification of an image of class i can either be correct, if the model classifies it as i, or 
+wrong, if the classifier classifies it as j with j  = i (a). We propose a post processing to set a confidence threshold 
+for each class to obtain 3 types of results, correct, misclassified, and unsure (b). The goal is then to transform as 
+many misclassifications as possible as “Unsure”, while preventing to transform too many correct classifications 
+“Unsure”.
+
+The question is now to select “optimal” thresholds {τi}i=n
+
+Vol:.(1234567890)www.nature.com/scientificreports/Figure 2.   Overview of the 3 parts of our framework: 2 consecutive steps for the learning phase, followed by 
+the applicative testing step. (a) We trained a CNN model with a training dataset (T0) composed of images 
+and a label for each image, in our case, the species corresponding to each fish individual. (b) Then, for each 
+species i, we processed an independent dataset T1, with our model. For each image, we obtained the species j 
+attributed by the CNN to the image and a classification score Sj . We have the ground truth and the result of the 
+classification (correct/incorrect), so we can define a threshold according to the user goal. This goal is a trade-off 
+between the accuracy of the result and the proportion of images fully processed. (c) We then used this threshold 
+to post-process outputs of the CNN model. More precisely, for a given image, the classifier of the CNN returns
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the initial model training phase, there are several postprocessing steps involved in the methodology described. These include:
+
+1. Tuning Risk Threshold: A risk threshold τi specific to each class (i.e., each species) is determined using a separate and independent database called T1. This helps in setting a confidence threshold for each class.
+
+2. Classification Transformation: The traditional binary classification (correct or incorrect) is transformed into three categories - correct, misclassified, and unsure. This transformation aims to convert as many misclassifications as possible into 'unsure', while minimizing the conversion of correctly classified instances into 'unsure'.
+
+3. Optimal Threshold Selection: The next step involves selecting optimal thresholds {τi}i=n for each class based on the user's goal. This goal is a balance between the accuracy of the result and the proportion of images fully processed.
+
+These postprocessing steps help improve the overall performance of the model and provide more accurate and reliable results. However, it should be noted that these steps might vary depending on the specific application and requirements of the project.

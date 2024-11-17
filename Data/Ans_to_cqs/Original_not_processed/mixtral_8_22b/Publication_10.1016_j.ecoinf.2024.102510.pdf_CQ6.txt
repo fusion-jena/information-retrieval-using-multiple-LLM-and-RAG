@@ -1,0 +1,188 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Proposed pre-trained 
+models in this work    
+MobileNetV2    
+a. Feature extractor 
+b. Fine tunner 
+EfficientNetB0    
+a. Feature extractor 
+b. Fine tunner 
+GoogleNet    
+a. Feature extractor 
+b. Fine tunner 
+DenseNet201    
+a. Feature extractor 
+b. Fine tunner 
+InceptionV3    
+a. Feature extractor 
+b. Fine tunner 
+ResNet18    
+a. Feature extractor 
+b. Fine tunner 
+InceptionResNetV2    
+a. Feature extractor 
+b. Fine tunner 
+NASNetMobile    
+a. Feature extractor 
+b. Fine tunner 
+
+96.38%   
+98.25%   
+
+97.52%   
+99.12%   
+
+94.62%   
+96.13%   
+
+96.47%   
+98.54%   
+
+96.25%   
+97.34%   
+
+91.47%   
+93.24%   
+
+95.83%   
+97.12%   
+
+96.62%   
+98.54%
+
+Remarks 
+
+Initial Learning Rate 
+
+Learn Rate Drop 
+Factor 
+Learn Rate Drop 
+Period 
+Learn Rate 
+Scheduling Method 
+
+The initial learning rate 
+used at the beginning 
+Factor by which the 
+learning rate is dropped 
+Number of epochs between 
+each learning rate drop 
+Method for scheduling the 
+learning rate 
+
+Shuffle 
+
+Optimizer 
+
+Activation function 
+
+Shuffle the training data 
+before each epoch 
+The optimization 
+algorithm used for training 
+To introduce non-linearity 
+into the output of neurons 
+
+1 
+
+2 
+
+3 
+
+4 
+
+5 
+
+6 
+
+7 
+
+8 
+
+Real numbers >0 
+
+Real numbers 
+
+0.0001, 0.001, 
+0.01, 0.1 
+0.1, 0.5, 0.9 
+
+Higher values can result in faster convergence, but too high can 
+lead to instability 
+Higher values lead to larger drops in the learning rate 
+
+Positive integers 
+
+5, 10, 20 
+
+Smaller values lead to more frequent drops in the learning rate 
+
+Fixed, Step, 
+Exponential, 
+Polynomial 
+Boolean (True, False) 
+
+fixed 
+
+True, False
+
+95.83%   
+97.12%   
+
+96.62%   
+98.54%   
+
+models as feature extractors and fine tuners along with a visual repre-
+sentation of the time, measured in minutes, required by each model to 
+complete its computational tasks. The experimental results demonstrate 
+that fine-tuning pre-trained models leads to a significant improvement 
+in performance. Table 12 depicts the performance of existing and pro-
+posed  methods,  with  EfficientB0  achieving  higher  accuracy  than 
+compared to other existing models. This can be attributed to the effec-
+tive  selection  of  optimal  hyperparameters  during  transfer  learning, 
+which significantly enhanced the performance. Additionally, fine-tuning 
+the top layers of the convolutional base on our dataset further contrib-
+uted to the overall success of our method.
+
+3.1.2. Hyperparameter tuning 
+
+In this study, we utilized HHOS for hyperparameter tuning, aiming to 
+discover  optimal  values  for  selected  hyperparameters  to  improve  the 
+performance of the selected pre-trained models. The hyperparameters 
+considered for tuning included the optimizer, activation function, initial 
+learning rate, learning rate drop period, learning rate drop factor, and 
+the number of neurons. We established a search space for each hyper-
+parameter by selecting a set of values that had shown good results in 
+previous studies. HHOS systematically explored various hyperparameter 
+combinations  within  the  specified  range  through  random  sampling, 
+allowing a comprehensive parameter space search.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Before training a deep learning model, several preprocessing steps may be necessary depending on the specific application and dataset. These steps help prepare the input data so it can be effectively processed by the neural network. Some common preprocessing techniques include:
+
+1. Data Cleaning: Removing or correcting erroneous, missing, or inconsistent data points from the dataset. This step ensures that the model learns from accurate information.
+
+2. Normalization/Scaling: Scaling the input features to have similar ranges helps prevent any single feature from dominating the learning process due to differences in scales. Common methods include Min-Max scaling, Z-score normalization, and unit length normalization.
+
+3. Image Augmentation (for image datasets): Applying transformations such as rotation, flipping, zooming, cropping, etc., to increase the size of the dataset artificially and improve the model's robustness against variations in the input images.
+
+4. Encoding Categorical Variables: Converting categorical variables into numerical representations using techniques like one-hot encoding, label encoding, or ordinal encoding. This allows the model to handle both numeric and categorical inputs.
+
+5. Splitting Dataset: Dividing the dataset into separate subsets for training, validation, and testing purposes. This enables evaluating the model's performance accurately and preventing overfitting.
+
+These preprocessing steps ensure that the input data is well-structured and suitable for consumption by the deep learning model, leading to better performance and generalization capabilities.

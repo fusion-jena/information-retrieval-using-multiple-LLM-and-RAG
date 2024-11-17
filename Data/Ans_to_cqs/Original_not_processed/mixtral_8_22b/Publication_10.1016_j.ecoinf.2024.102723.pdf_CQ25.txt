@@ -1,0 +1,63 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Fig. 4. Neural networks architecture consists of: an input layer with two nodes, one for DOY and the other for GDD; two hidden layers with 32 nodes each, Dense
+layers with Monte Carlo Dropout in the MCD approach, DenseVariational layers in the VBI approach; an output layer which is the combination of a Dense layer with
+two nodes and a DistributionLambda layer that maps the values of these two nodes into the parameters of a Gaussian distribution, used to predict the BBCH value.
+
+Fig. 5. Prediction, over 1000 runs, of the BBCH_res value of a single test point. The actual value is BBCH_res = 4. In blue we have the result of the VBI approach, in
+red that of the MCD approach. (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+
+Fig. 6. Performance of the two different architectures during the prediction phase on test set. Temperature threshold, Tbase, is set to 0
+interval is shown using the percentiles.
+
+◦
+
+Deep Neural Networks are architectures that present remarkable
+advantages and can potentially map every possible function, but they
+are often affected by many issues such as overfitting. The main draw-
+back of standard Deep Learning is that Neural Networks compute single
+values of their parameters and therefore they are incapable of correctly
+assessing the uncertainty related to the data (aleatoric uncertainty) or to
+the model itself (epistemic uncertainty); in fact they often produce
+overly confident decisions about the correct class, prediction or action to
+take, even if the sample is very far from the training data we provided.
+The purpose of Bayesian Neural Networks is to use probability theory
+to express uncertainty, especially in the prediction phase. The advantage
+is clear in areas where decision making plays a fundamental role. To be
+more specific, a Probabilistic Neural Network handles the aleatoric
+uncertainty by placing a probability distribution (whose parameters can
+
+The Neural Networks were built from scratch, implemented using
+TensorFlow (tf) (Abadi et al., 2015) and Keras (Chollet et al., 2015).
+Coupled with TensorFlow, an open-source framework developed by
+Google, Keras serves as a high-level Neural Networks API, offering a
+seamless and user-friendly approach to building, training, and deploying
+deep learning models. The MCD layers consist of a modification of the
+Keras Dropout class, while the layers based on the VBI method derive
+from the TensorFlow Probability (tfp) module (in particular, we used the
+DenseVariational type of layers). These two architectures have the same
+input and output layers, they differ for the structure of the hidden layers.
+The size of the input layer depends on the problem we are facing: it has
+two nodes, one for DOY and the other for GDD. As our focus will be on
+dealing with regression problems, the output layer is actually a combi-
+nation of a fully-connected layer (or Dense layer) with two nodes and a
+
+siderations made earlier, a Bayesian Deep Learning model, if properly
+configured and trained, can return satisfactory results even with limited
+datasets, which is the scenario studied in the present work.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the purpose of the deep learning model (e.g., classification, segmentation, detection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The purpose of the deep learning model discussed here is not explicitly stated as either classification, segmentation, or detection. However, given the context, it appears that the primary goal of the neural network architecture described is to perform regression tasks. This is evident from several clues throughout the text. Firstly, the output layer of the network is designed to handle regression problems, as indicated by its composition of a dense layer with two nodes and a DistributionLambda layer that maps the outputs into the parameters of a Gaussian distribution. Secondly, the figures presented show predictions of continuous variables rather than discrete classes or object locations, further supporting the idea that the model is intended for regression tasks. Lastly, the discussion around Bayesian Neural Networks emphasizes their ability to quantify uncertainty in predictions, which is particularly relevant when dealing with regression problems. Therefore, although not directly mentioned, it can be inferred that the purpose of the deep learning model is to perform regression tasks.

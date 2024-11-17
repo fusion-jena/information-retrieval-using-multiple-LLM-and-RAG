@@ -1,0 +1,177 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Table 1. Number of samples in the training, validation and test sets for Amazon database.
+
+Set
+
+Tiles
+
+Available Def.
+Samples
+
+Available No-def.
+Samples
+
+Balanced Samples
+(per Class)
+
+Total Samples
+
+Training
+
+Validation
+
+1, 7, 9, 13
+
+5, 12
+
+2706
+
+963
+
+78,431
+
+39,697
+
+Test
+
+2, 3, 4, 6, 8, 10, 11, 14, 15
+
+40,392
+
+1,675,608
+
+8118
+
+2889
+
+-
+
+16,236
+
+5778
+
+1,716,000
+
+The EF network architecture consisted of three convolutional layers (Conv) including the
+Rectiﬁed Linear Unit (ReLU), two Max-pooling layers (MaxPool), and two Fully Connected layers
+(FC), with a softmax layer at the end with two outputs, corresponding to “deforestation” and
+“no-deforestation” classes. The ﬁlter and output size of each layer are summarized in Table 3.
+
+132456789101112131415Remote Sens. 2020, 12, 910
+
+11 of 28
+
+Table 2. Number of samples in the training, validation and test sets for Cerrado database.
+
+Set
+
+Tiles
+
+Available Def.
+Samples
+
+Available No-def.
+Samples
+
+Balanced Samples
+(per Class)
+
+Total Samples
+
+For training the EF and SN models, we selected the following setup empirically: batch size equal
+to 32 with 100 number of epochs, early stopping after 10 epochs with no improvement (over the
+validation set) and a dropout rate of 0.2 in the ﬁnal FC layer. Additionally, Adam optimizer was
+selected empirically with weight decay equal to 0.9 and learning rate equal to 10−3. As loss function,
+we used the binary cross-entropy.
+
+2.6. Inﬂuence of the Number of Training Samples
+
+To evaluate the inﬂuence of the number of training samples, four scenarios were considered.
+Speciﬁcally collecting samples from the training set of a one, two, three and four tiles, denoted as Ni,
+where i corresponds to the number of tiles used in each scenario. For EF and SN methods, the validation
+set (val) was used to stop training once the loss increased in 10 consecutive epochs (early stopping).
+As mentioned before, for CSVM and SVM the samples in this set were added to the training set (tr).
+The number of training samples in each scenario for the Amazon and Cerrado databases is presented
+in Tables 6 and 7, respectively.
+
+Table 6. Training tiles used for the Amazon database.
+
+Training Set
+
+Tiles
+
+Available Def.
+Samples
+
+Available No-def.
+Samples
+
+Balanced Samples
+(per Class)
+
+Total Samples
+(tr + val)
+
+1 Tile
+2 Tiles
+3 Tiles
+4 Tiles
+
+13
+1, 13
+1, 7, 13
+1, 7, 9, 13
+
+239
+709
+1807
+2706
+
+20,306
+40,515
+59,102
+78,431
+
+717
+2127
+5421
+8118
+
+a) T1 (2016)b) T2 (2017)c) Referenced) SVM-1Te) EF-1Tf) SN-1Tg) CSVM-1Th) SVM-2Ti) EF-2Tj) SN-2Tk) CSVM-2Tl) SVM-3Tm) EF-3Tn) SN-3To) CSVM-3Tp) SVM-4Tq) EF-4Tr) SN-4Ts) CSVM-4TRemote Sens. 2020, 12, 910
+
+17 of 28
+
+contained in 10% of the image. Hence, instead of looking at the entire image, the analyst would focus
+on 10% of it, reducing human work by 90%. As expected, as Recall increased, the area to be observed
+also increased, but, in this particular case, CSVM (with three layers) presented the best results (see
+Figure 13a). For Recall beyond 96%, the threshold values were very close to zero, most pixels tended
+to be classiﬁed as deforestation, and the area to be observed went up to 100%, as can be observed in
+Figure 13b.
+
+Figure 12. Predicted maps for tile 14 computed by SVM, EF, SN, and CSVM using one, two, three,
+and four tiles for training.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't enough information available to provide a detailed response regarding the deployment process of the trained deep learning model. However, based on common practices in machine learning projects, the following steps might have been taken:
+
+1. Model Serialization: After training the EF or SN models, they could have been serialized into a format such as.h5 (HDF5) or.pt (PyTorch) to save their weights and architectures. This allows for easy loading and use of the models later during deployment.
+
+2. Platform Selection: Depending on the requirements and constraints of the project, different platforms could have been chosen for deploying the models. Some popular options include cloud services like AWS, Google Cloud, or Azure; edge devices like NVIDIA Jetson or Raspberry Pi; or custom servers built specifically for running AI applications.
+
+3. Deployment: Once the platform has been selected, the next step would involve setting up the necessary infrastructure to run the models. This may include installing required libraries, configuring hardware resources, and creating APIs or web interfaces for users to interact with the deployed models.
+
+Without further details about the specific implementation of this project, these general steps serve as a possible outline for how the trained deep learning models might have been deployed.

@@ -1,0 +1,80 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Ensemble modeling capitalizes on the strengths of multiple models to 
+enhance predictive accuracy, increase stability, improve generalization, 
+provide  robustness  against  overfitting,  and  increase  model  interpret-
+ability  (Ganaie  et  al.,  2022).  Combining  the  predictions  of  diverse 
+models, ensemble modeling achieves more accurate and reliable results 
+by  mitigating  the  risks  of  errors  and  biases,  resulting  in  stable  pre-
+dictions that generalize well to unseen data (Ganaie et al., 2022). All the 
+fitted models obtained from the five ML algorithms exhibited favorable 
+performance measures. The AUC for all models surpassed 0.75, while 
+the TSS exceeded 0.45. We used these results to build the final ensemble 
+model,  employing  the  AUC-weighted  ensemble  method  (Achu  et  al., 
+2021;  Tehrany  et  al.,  2019).  This  technique  utilizes  the  performance 
+metrics to effectively combine the predictions from all models, ensuring
+
+By default, we utilized the recommended parameters for all MLMs, 
+except for Random Forest (RF), where we expressly set the number of 
+trees to 500 as an additional parameter. A higher number of trees helps 
+reduce  the  resulting  model’s  bias.  We  calibrated  and  validated  each 
+model after fitting each MLM with optimized parameters using a 10-fold 
+cross-validation (CV) design. For each run of the cross-validation pro-
+cedure, we reserved 30% of the forest fire occurrence data as a valida-
+tion  set,  with  the  remaining  70%  of  the  data  being  used  to  train  the 
+model. This rigorous validation methodology was adopted following the 
+method explained by Eskandari et al. (2021). The approach generated 
+50 resulting models, consisting of 10 models for each machine learning 
+algorithm.
+
+3.2. Model performance MLMs comparisons 
+
+The performance of each MLM was assessed using several metrics, 
+such as AUC, TSS, Kappa, and phi. The outcomes of these evaluations are 
+presented  in  Table  3.  Additionally,  Fig.  4  visually  illustrates  the  pre-
+dictive performance of each model with AUC values for both training 
+and test datasets. Upon analysing the four performance metrics, it was 
+evident that the selected models exhibited high consistency, except for 
+the  CART.  The  performance  of  the  remaining  models  displayed  only 
+slight variations within a small range, as shown in Table 3. Additionally, 
+there was no discernible variation in the classifiers’ prediction accuracy 
+according to the Kruskal-Wallis statistic (p > 0.05).
+
+Validation of MLMs is a critical step in assessing each model’s pre-
+dictive capabilities, as Mohammadi et al. (2014) emphasized. To eval-
+uate  the  accuracy  and  reliability  of  each  MLM,  we  employed  robust 
+statistical  measures  provided  by  the  ‘sdm  1.1–8’  package.  These  are 
+kappa (Allouche et al., 2006), true skill statistics (TSS; Allouche et al., 
+2006), and area under the receiver operator characteristics (ROC) curve 
+(AUC; Hanley and McNeil, 1982). Model complexity was evaluated for 
+each case by computing the difference between the AUC (train) and AUC 
+
+(CV), represented as Δ AUC (Jarnevich et al., 2018). The Δ AUC scores 
+from each model offer insights into their sensitivity to the training data 
+(Jarnevich  et  al.,  2018).  Moreover,  the  Kruskal-Wallis  test  was  con-
+ducted to determine whether a significant difference in prediction ac-
+curacy exists among the classifiers. 
+
+2.5. Ensemble model
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of the deep learning model, several measures were implemented. Firstly, a diverse dataset was used, which included various features related to forest fires. This diversity helped in capturing different patterns and relationships present in the data, thereby improving the model's ability to generalize to new, unseen data.
+
+Secondly, a 10-fold cross-validation (CV) design was employed during the model fitting process. Cross-validation involves dividing the dataset into 'k' subsets or folds, where one fold is used for testing and the rest for training. This process is repeated 'k' times, such that each fold serves as the test set once. In this study, a 10-fold CV design was used, meaning that the dataset was divided into ten equal parts, and the model was trained and tested ten times, each time with a different subset serving as the test set. This approach allowed for a comprehensive evaluation of the model's performance across different portions of the dataset, further enhancing its generalizability.
+
+Thirdly, stratified sampling was applied when creating the folds for cross-validation. Stratification ensures that the distribution of classes in each fold remains similar to that in the original dataset. This is particularly important when dealing with imbalanced datasets, as it prevents any single fold from having too many instances of a particular class, thus maintaining the overall balance and representation of classes in the dataset.
+
+Lastly, the performance of each machine learning algorithm was thoroughly evaluated using various metrics like AUC, TSS, Kappa, and phi. This enabled the identification of the best performing models, which were then combined using the AUC-weighted ensemble method to create the final ensemble model. By utilizing the performance metrics to effectively combine the predictions from all models, this technique ensured that the final ensemble model would be capable of providing accurate and reliable results even when presented with new, unseen data.

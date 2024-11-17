@@ -1,0 +1,5 @@
+The strategy implemented to monitor the model performance during training involves using a validation set to provide an unbiased evaluation of the model fit on the training set. This validation set is used to tune model hyperparameters, such as the network layer size and the number of hidden units, and to regularize the model. 
+
+Additionally, k-fold cross-validation is used to avoid overfitting, where the training set is divided into k groups and the model is trained on (k-1) folds and evaluated on the remaining kth fold. This process is repeated until every k-fold is used as the test set.
+
+Furthermore, a multistage training approach is adopted, where the training and validation datasets are used to better predict the test dataset. The model is also retrained by swapping the training and validation misclassified datasets until it yields the highest accuracy possible on the validation and test datasets. Five-fold cross-validation is also employed to verify the predictive performance of the model.

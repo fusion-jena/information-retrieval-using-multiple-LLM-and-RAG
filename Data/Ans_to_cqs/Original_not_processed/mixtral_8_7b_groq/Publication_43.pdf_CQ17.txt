@@ -1,0 +1,9 @@
+Answer:::
+
+The regularization methods used to prevent overfitting in deep learning pipelines include dropout and L2 regularization. While the text provided does not explicitly mention dropout, it does discuss L2 regularization as part of the loss function in equation (1) in the form of weight decay, denoted as R(w) and controlled by the Lagrange multiplier λ.
+
+L2 regularization, also known as weight decay, adds a penalty term to the loss function, which is the sum of the squares of all the model's weights multiplied by a regularization parameter (λ). This penalty term discourages large weight values, promoting smaller, more conservative weights that reduce overfitting.
+
+Dropout is another widely used regularization technique in deep learning. It works by randomly dropping out, or setting to zero, a proportion of neurons in each layer during training. This prevents over-reliance on any single neuron, encouraging the network to learn more robust features and reducing overfitting. Although the text provided does not explicitly mention dropout, it is a standard regularization method used in conjunction with deep convolutional neural networks (CNNs) like ResNet and GoogLeNet.
+
+In the context of this work, the authors use fine-tuning on ResNet and GoogLeNet, initializing the networks with pre-trained weights from ImageNet. Fine-tuning is a form of transfer learning that can help prevent overfitting on smaller datasets by leveraging pre-trained weights. These weights have already been trained on a large dataset (ImageNet), capturing general features that can be adapted to new tasks. By fine-tuning, the authors gradually adjust the last learnable layers of the CNNs to the particularities of their problem, while keeping the initial layers (which capture low-level features) fixed. This approach helps prevent overfitting and improves the model's performance on the target task.

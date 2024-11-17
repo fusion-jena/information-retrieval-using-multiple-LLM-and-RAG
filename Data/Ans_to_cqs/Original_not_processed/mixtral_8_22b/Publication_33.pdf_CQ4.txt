@@ -1,0 +1,49 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+In order to improve our model, we used data  augmentation41 on native biodiversity and ecosystem. Each 
+“natural” image yielded 4 more images: 2 with increased contrast (120% and 140%) and 2 with decreased contrast 
+(80% and 60%) (Supplementary Fig. S2). We then horizontally flipped all images to obtain our final training 
+dataset (T0) composed of 691,690 images (Supplementary Table S1).
+
+training datasets.
+
+•  In the first phase, a classification model is built by training a CNN on a given database T0 (Fig. 2a)
+•  Then, the second phase consists of tuning a risk threshold τi specific to each class (i.e. each species in our 
+
+case), noted i, with i ∈ {1, ..., n} , using a second and independent database noted T1 (Fig. 2b).
+
+In terms of classification, it means we transform the 2 classification options (correct, wrong) in 3 options 
+
+(Fig. 3) by applying Eqs. (15, 16).
+
+Computing the confidence thresholds.  After the phase 1 (model training phase), for an image X of the 
+threshold tuning dataset processed by the classifier, we obtain an output {C(X), S(X)} , where C(X) is the class 
+(i.e. species, belonging to the trained set of species) with the highest classification score S(X). For this image, we 
+know the ground truth Y in {1, .., n} belonging to the same set of species classes.
+
+they apply convolutions, i.e. they modify the value of one pixel according to a linear weighted combination of the 
+values of the neighbor pixels. In our case, each image used to train the CNN is coded as 3 matrices with numeric 
+values describing the color component (R, G, B) of the pixel. The optimization of the parameters of the CNN is 
+achieved during the training through a process called back-propagation. Back-propagation consists of automati-
+cally changing parameters of the CNN through the comparison between its output and the correct class of the 
+training element to eventually improve the final classifications rate. Here we used a 100-layer CNN based on the 
+ TensorFlow43 implementation of  ResNet44. The ResNet architecture achieved the best results on ImageNet Large
+
+to calibrate Deep Learning models using a single parameter for all  classes35. This parameter is used, instead of 
+the traditional softmax function, to convert the vector output from the neural network into a real probability.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors have mentioned that they used data augmentation techniques to improve their model. Specifically, they generated four additional images from each original "natural" image. Two of these new images were created by increasing the contrast to 120% and 140%, while the other two were made by reducing the contrast to 80% and 60%. Additionally, they also horizontally flipped all images to further increase the size of their training dataset. However, there was no mention of any rotation or scaling being applied to the images. Therefore, the data augmentation techniques applied in this deep learning pipeline include contrast adjustment and horizontal flipping.

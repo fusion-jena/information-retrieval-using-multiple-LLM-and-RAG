@@ -1,0 +1,60 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+LeBien et al., 2020; Ruff et al., 2021; Stowell et al., 2019; Zhong et al., 
+2020). Tuning of the network hyperparameters and convolutional filters 
+provides automated feature learning, thereby removing an obstacle of 
+earlier  machine  learning  methods  (Gupta  et  al.,  2021).  Sound  data 
+include frequency, amplitude and temporal information, and there are 
+different  approaches  to  express  these  data  in  CNN  architectures.  One 
+approach is to represent sound data as amplitude-time waveforms, then 
+train  1-dimensional  neural  network  architectures,  such  as  Recurrent 
+Neural Networks (RNNs) to identify distinct patterns (Sang et al., 2018; 
+Weninger and Schuller, 2011; Zhang et al., 2021). Another approach is 
+to  train  CNNs  to  classify  2D  image  spectrograms  (Kahl  et  al.,  2021; 
+LeBien et al., 2020; Ruff et al., 2021; Stowell et al., 2019; Zhong et al., 
+2020).  A  popular  extension  is  to  use  mel-spectrograms  from  human
+
+Many 2D CNNs use well-labeled training and validation data from 
+the study domain intended to optimize weights in existing image-based 
+architectures (e.g., ResNet, VGGish, MobileNet), i.e., transfer learning. 
+These data are usually hard to acquire and thus have low sample sizes. 
+This often leads to the use of larger labeled data from outside the study 
+domain.  Recent  BirdCLEF  competitions  use  weakly-labeled  audio 
+
+EcologicalInformatics75(2023)1020652M.L. Clark et al.
+
+ence data available for training were limited, so we sought to explore 
+different network sizes in conjunction with pre-training with additional 
+acoustic reference data from outside of our audio domain, followed by 
+fine-tuning with ROI data from our study site.
+
+The  recordings  for  each  ROI  were  cut  using  start/stop  times  and 
+sequentially appended to create a single merged .wav file for each spe-
+cies and set (i.e., train, validation) combination. Each merged .wav file 
+was  then  sliced  into  2-s  increments  and  mel-spectrograms  computed. 
+Note that since there were some ROIs from the pattern matching that 
+were >2 s, some 2-s recording clips included parts from different ROIs. 
+Performing data augmentation on training datasets is a widely used 
+technique in deep learning, including sound classification applications, 
+to  regularize  models  and  provide  more  robust  features  (Salamon  and 
+Bello, 2017). We performed data augmentation by splitting the merged . 
+wav  training  file  for  each  species  in  half  and  then  adding  these  two 
+halves sample-wise. This augmented .wav file was similarly split into 2-s 
+increments as above and mel-spectrograms were computed. The training
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The deep learning pipeline uses both audio and image data formats. Initially, sound data is represented as amplitude-time waveforms, which can be trained using 1-dimensional neural network architectures like Recurrent Neural Networks (RNNs) to identify distinct patterns. Additionally, Convolutional Neural Networks (CNNs) are employed to classify 2D image spectrograms, specifically mel-spectrograms derived from the sound data. These mel-spectrograms serve as input for various 2D CNN architectures, such as ResNet, VGGish, and MobileNet. In this process, well-labeled training and validation data from the study domain are utilized to optimize weights in existing image-based architectures through transfer learning. However, acquiring large amounts of labeled data within the study domain can be challenging, leading to the incorporation of larger labeled data from external sources. For instance, recent BirdCLEF competitions employ weakly-labeled audio data from outside the study domain for training purposes.

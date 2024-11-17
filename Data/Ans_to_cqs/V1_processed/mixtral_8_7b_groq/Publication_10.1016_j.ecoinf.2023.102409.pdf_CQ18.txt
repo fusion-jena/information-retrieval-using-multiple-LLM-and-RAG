@@ -1,0 +1,13 @@
+The strategy implemented to monitor the model performance during training involves the use of several evaluation metrics. These metrics include Mean Intersection over Union (MIoU), Mean Pixel Accuracy (MPA), Accuracy, Precision, Recall, and F1 score. 
+
+MIoU is a measure of the overlap between the predicted and actual segmentation masks. It is calculated as the mean of the Intersection over Union (IoU) for all classes, including the background. IoU for a class is the ratio of the intersection of the predicted and actual masks for that class to their union.
+
+MPA is the average of the pixel accuracy for all classes. Pixel accuracy for a class is the ratio of the correctly predicted pixels for that class to the total number of pixels in that class.
+
+Accuracy is the ratio of the correctly predicted pixels to the total number of pixels. Precision is the ratio of the correctly predicted pixels for a class to the total number of pixels predicted for that class. Recall is the ratio of the correctly predicted pixels for a class to the total number of actual pixels for that class. F1 score is the harmonic mean of Precision and Recall.
+
+These metrics are calculated after every iteration during the training process. This allows for real-time monitoring of the model's performance and adjustment of the training parameters if necessary. For instance, the initial learning rate of 0.01 was refined via iterative testing, suggesting that the model performance was being monitored and the learning rate was adjusted to optimize the performance.
+
+In addition, the use of a batch size of 4 and a downsampling multiplier set at 8 indicates that the model's performance is being monitored at different scales. This is crucial in segmentation tasks where the objects of interest can vary significantly in size.
+
+Therefore, the strategy to monitor the model performance during training involves the use of various evaluation metrics, real-time calculation after every iteration, and adjustment of training parameters based on the performance.

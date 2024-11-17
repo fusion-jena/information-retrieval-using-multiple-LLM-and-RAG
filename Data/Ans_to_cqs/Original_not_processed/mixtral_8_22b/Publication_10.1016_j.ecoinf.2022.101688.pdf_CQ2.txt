@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The software code was written in Python 3 for audio pre-processing 
+and  the  general  methodology,  and  the  CNNs  were  implemented  in 
+Tensorflow 2 (Abadi et al., 2015). Each CNN was trained for 50 epochs 
+(number of iterations of the CNN learning algorithm) using the Adam 
+optimiser  (Kingma  and  Ba,  2014)  and  a  batch  size  of  32.  The  hyper- 
+parameters  were  obtained  by  conducting  a  random  search  using 
+similar values to that in the study of Dufourq et al. (2021). Spectrograms 
+were generated using the Librosa library (McFee et al., 2020). 
+
+4. Results
+
+To create the input for the CNNs we performed four pre-processing 
+steps;  similar  to  the  approach  used  in  Dufourq  et  al.  (2021).  Firstly, 
+we applied a low pass filter on each audio file. This was done as a means 
+of reducing aliasing artefacts which can arise when downsampling an 
+audio file. The cut-off rate associated with the filter was different for 
+each dataset and was selected based on the maximum frequency of the 
+respective species’  call within the presence class. Secondly, we down-
+sampled each audio file as a means of reducing the computational re-
+quirements for processing all of the files as higher frequencies were not 
+needed.  We  set  the  nyquist  rate  to  the  maximum  frequency  for  each 
+species’ call and set the downsampling rate to be twice the nyquist rate. 
+Thirdly, we extracted a number of audio segments from each training 
+audio file based on the annotations for both classes. The length, l, of the
+
+execution the weights in the output layer of the CNN were randomly 
+initialised. We split each dataset into training (60%) and testing (40%) 
+by  randomly  selecting  entire  audio  files  –  similar  to  other  machine 
+learning studies. To ensure a fair evaluation, we split the data in such a 
+way that the training audio files were mutually exclusive to the testing 
+audio  files.  The  testing  files  were  generally  recordings  over  different 
+days. For testing, the CNNs predicted two softmax outputs on each entire 
+testing file. The final class was assigned based on the softmax output 
+which  had  a  value  greater  than  0.5.  This  decision  threshold  was  not 
+optimised to keep the resulting models as accessible and easy-to-use as 
+possible. This process was done using a sliding window of constant time 
+duration.  The  window  is  shifted  by  1  second  until  the  network  had 
+predicted on the entire file. The testing files were manually annotated
+
+The fourth experiment holds the input representation and architec-
+ture  constant  at  the  best  values  found  in  experiment  1  and  2  respec-
+tively. This experiment was conducted to determine the performance on 
+the  four  datasets  when  using  25,  50,  100  and  200  samples.  Due  to 
+computational restrictions we only used three datasets in the first three 
+experiments. For each dataset and input size configuration we compared 
+the performance of the CNNs when the feature extractor was frozen and 
+when fine-tuned. This was done to determine which approach is most 
+suitable for bioacoustic problems for which there are data scarcity is-
+sues. The results were collected over 15 unique executions.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+In this case, the primary data format used in the deep learning pipeline is audio. The software code was specifically written for audio pre-processing, indicating that the main focus of the project involves working with audio data. Furthermore, several steps in the pre-processing stage involve manipulating audio files, including applying a low pass filter, downsampling, and extracting audio segments. Additionally, spectrograms were generated using the Librosa library, further emphasizing the use of audio data in the project. Therefore, it can be concluded that the primary data format utilized in the deep learning pipeline is audio.

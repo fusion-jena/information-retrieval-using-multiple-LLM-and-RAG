@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Suitable optimisers, loss functions and activation functions had to be 
+selected from an array of available options. Series of experimentation 
+were  carried  out  on  popular  optimisation  functions  such  as  SGD, 
+RMSProp,  LAMB,  LARS  and  Adam  and  regression  loss  functions  like 
+
+EcologicalInformatics69(2022)10160911T.D. Akinosho et al.                                                                                                                                                                                                                            
+
+Fig. 10. Auto-SQL generation to pre-process the dataset. An SQL command which generates 3-hour and 6-hour pollutant averages from the preceding readings 
+is depicted. 
+
+Fig.  11. The  model's  training  loss  against  the  learning  rate  to  determine  the 
+appropriate learning rate. The learning rate was fixed at the point where the 
+(cid:0)
+plot started dipping (i.e., 10
+
+4).
+
+up its resources according to the computation/storage requirements. For 
+the  database  performance,  the  test  was  run  between  November  2020 
+and  Jan  2021  on  the  GPU  instance  and  evaluated  for  utilisation, 
+execution count, number of running statements and number of sessions 
+metrics as shown in Fig. 15. The maximum GPU utilisation was under 
+20% even with over 1.5 million execution queries.
+
+by  subtracting  the mean  and dividing by  the standard deviation.  The 
+“add datepart” helper function of the library allows the specification of 
+the date column which generates additional predictors such as “Year”, 
+“DayofWeek”,  “DayOfYear”,  “Is  Month_End”  and  so  on.  Appendix  B 
+highlights the list of categorical and continuous variables in the dataset 
+after processing. 
+
+4.3.2. Validation set creation and training architecture 
+
+Model  training  is  typically  initiated  by  splitting  the  dataset  into 
+training, test and validation datasets. As the name implies, training data 
+is used for training, while validation data is used for selecting the model 
+that works best after verification using the test data. It is customary to 
+randomise the dataset before splitting when there is a class imbalance - 
+stratification; but since this problem is like a time-series problem where
+
+4.3. Forecasting model training and evaluation 
+
+Fastai was used for data pre-processing and model training. The li-
+brary is built on the PyTorch framework and allows quick analysis using 
+its  readily  encoded  best  practices.  The  aim  was  to  develop  a  model 
+capable of efficiently making hourly predictions of the pollutant of in-
+terest. This section introduces the data processing procedure, the net-
+work's architecture used for training and the validation method. 
+
+4.3.1. Meteorology data integration and dataset pre-processing
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The strategy implemented to monitor the model performance during training involves creating a validation set and utilizing it to select the best performing model. The dataset is split into training, test, and validation sets. Training data is used for training the model, while validation data is employed to choose the most effective model after confirmation using the test data. In cases where there is a class imbalance, randomizing the dataset prior to splitting is recommended. However, since this particular problem resembles a time-series issue, stratification may not be necessary.

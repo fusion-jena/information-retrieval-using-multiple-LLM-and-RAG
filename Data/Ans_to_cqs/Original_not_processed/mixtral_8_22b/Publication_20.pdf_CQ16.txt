@@ -1,0 +1,82 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+A link to a depository with architecture details is given at the end of
+references. We stopped the network training after 70 epochs (i.e. a
+complete scope of the dataset where each image is used only once), to
+−5, an exponential
+prevent overﬁtting. We used a learning rate of 10
+learning decay with a Gamma of 0.95, a dropout of 50% and an Adam
+Solver type as learning parameters. Those are classic hyper-parameters
+for a fast convergence of the network without over-ﬁtting (Srivastava
+et al., 2014). The weight initialization is also classic with a random
+Gaussian initialization. The training lasted 8 days on our conﬁguration;
+we trained and ran our code on a computer with 64GB of RAM, an i7
+3.50GHz CPU and a Titan X GPU card for 900,000 images.
+
+We used at least 2200 thumbnails per ﬁsh species class, and batches
+
+240
+
+S. Villon et al.
+
+Ecological Informatics 48 (2018) 238–244
+
+Adding decision rule r2 (i.e. identiﬁcation of a part of a species
+considered as a correct answer) increased this success rate to 94.1%
+(Table 2). Hence, post-processing raw outputs of the model trained with
+the most complete dataset provided the best identiﬁcation rate. Among
+the 18 species, success rate ranged from 85.2 to 100%, with only 3
+species being correctly identiﬁed in < 90% of cases and 9 species being
+correctly identiﬁed in > 95% of cases, including 3 with a correct
+identiﬁcation rate > 99%.
+
+Confusions between 2 ﬁsh species were lower than 4% (Table 3).
+Confusion between a ﬁsh and the environment was common when no
+post-processing was applied with for instance up to 20.9% of Poma-
+centrus sulfureus individuals misidentiﬁed as environment (Tables S4,
+S5). However, applying decision rule r1 decreased this error rate
+to < 4% (Table 3).
+
+3.2. Performance of CNN models vs. humans
+
+2.4. Testing the performance of models
+
+We ﬁrst compared the performance of the 4 models trained using
+each of the 4 training datasets. In addition, we tested the performance
+of models after correcting their raw outputs using two a posteriori de-
+cision rules. First, since the networks trained with T2, T3 or T4 are
+likely to recognize environment samples with a high conﬁdence score
+(over 99%) they could thus classify some ﬁsh as an environment class
+(i.e. false positive). We therefore deﬁned a decision rule (r1): when the
+ﬁrst proposition of the network was ‘environment’ with a conﬁdence
+lower than 99% we provide, as ﬁnal output, the ﬁsh class with the
+highest probability.
+
+Similarly, as “part of species” classes present in T4 were just a
+methodological choice to improve model performance (and hence were
+absent from the test database), we deﬁned a second decision rule (r2):
+when the result given by the network is “part of species X", we provide,
+as ﬁnal output, “species X".
+
+The fourth training dataset T4 contained thumbnails from T3 minus
+the “part of ﬁsh”, which is replaced by 20 classes “part of species”
+obtained by splitting thumbnails from each species. The diﬀerence
+between T3 and T4 was that T3 contained only one global class “part of
+ﬁsh” whereas T4 contained as many “part of species” classes as there
+were “ﬁsh” species.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: The authors mention that they stopped the network training after 70 epochs to prevent overfitting. An epoch refers to a single pass through the entire training dataset. Therefore, it appears that the criterion used to determine when training is complete is based on the number of epochs rather than other metrics such as validation loss plateau.

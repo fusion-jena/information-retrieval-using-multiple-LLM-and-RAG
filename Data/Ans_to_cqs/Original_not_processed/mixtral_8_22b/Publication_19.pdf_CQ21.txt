@@ -1,0 +1,258 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+TABLE II.  
+
+HYPERPARAMETERS DETERMINED USING GRID SEARCH 
+
+Model Name 
+
+Inception-V3 
+MobileNet-V2 
+ResNet-18 
+DenseNet-121 
+
+Batch 
+Size 
+48 
+32 
+32 
+16 
+
+Learning 
+Rate 
+0.05 
+0.01 
+0.005 
+0.001 
+
+Parameters 
+# of 
+Epochs 
+75 
+100 
+150 
+100 
+
+Input Image Size 
+
+299 (cid:3400) 299 (cid:3400) 3 
+224 (cid:3400) 224 (cid:3400) 3 
+224 (cid:3400) 224 (cid:3400) 3 
+224 (cid:3400) 224 (cid:3400) 3 
+
+C.  Results 
+
+  As  Table  III  show  all  models  performed  reasonably  well 
+with macro-F1 averages above 91%. Because the models are to 
+be deployed on IoT edge devices, the size of each model is an 
+important  consideration.  As  Table  III  shows 
+the  best 
+performing model was Inception-V3 with a macro Average F1 
+score of 0.93, and the smallest size of 175 MB.   
+
+TABLE III.  
+
+BEST RESULTS FOR EACH NN ARCHITECTURE 
+
+Model 
+
+InceptionV3 
+DenseNet-121 
+ResNet-18 
+MobileNetV2 
+
+Model Size 
+(MB) 
+175 
+446 
+480 
+507 
+
+Accuracy 
+
+94% 
+93% 
+92% 
+93%
+
+B.  The Training Regime 
+  A 60-20-20 train/validate/test regime was used to randomly 
+split the data into training, validation and testing sets.  Table I 
+shows the class-wise breakdown. As the Table shows, the data 
+was  unbalanced  and  the  ghost  images  accounted  for  40.15% 
+percentage  of  the  images.    Similarly,  the  “other”  class 
+accounted for only 5.2% of the total number of images.  In this 
+first stage, SMOTE [23], oversampling or class weights were 
+not used. These techniques will be pursued in a second phase of 
+this research.  
+
+TABLE I.  
+
+THE TRAINING BREAKDOWN OF DATA 
+
+Class 
+Name 
+
+Ghost 
+Goat 
+Fox 
+Donkey 
+Other 
+Sheep 
+Total 
+
+Training
+8,188 
+5,767 
+3,482 
+1,178 
+1,062 
+723 
+20,400 
+
+Number of Images 
+
+Validation 
+2,705 
+1,923 
+1,161 
+393 
+354 
+232 
+6,768 
+
+Testing  Total
+2,754 
+1,923 
+1,161 
+393 
+354 
+231 
+6,816 
+
+13,647 
+9,613 
+5,804 
+1,964 
+1,770 
+1,186 
+33,984 
+
+%
+40.15 
+28.28 
+17.07 
+5.77 
+5.20 
+3.48 
+100
+
+Keywords—deep  learning,  transfer  learning,  convolutional 
+neural  networks,  animal  classification,  camera  trap,  wildlife 
+monitoring, edge computing, TensorFlow lite, raspberry pi, IoT 
+
+I.  INTRODUCTION
+
+A.  The TFLite Model 
+
+The best trained Inception-V3 model was first converted to 
+TensorFlow  Lite 
+(https://www.tensorflow.org/lite).  The 
+resulting model had a reduced size of 87 MB (from175MB), but 
+the  accuracy  was  reduced  to  92%  (from  93%),  and  macro 
+average F1-score was reduced to 0.90 (from 0.93). F1-score for 
+all classes except ‘other’ remained above 0.92.  The F1-score 
+of ‘other’ was reduced to 0.71 (from 0.79).   Table V and Fig. 
+9 show the confusion  matrix  and ROC curves  for the TFLite 
+model respectively showing the model was still very capable.  
+
+TABLE V.  
+
+CONFUSION MATRIX FOR TFLITE INCEPTION-V3 MODEL  
+
+Predicted 
+
+Donkey 
+Fox 
+Goat 
+Sheep 
+Ghost 
+Other 
+
+Donkey 
+359 
+2 
+2 
+0 
+5 
+3 
+
+Fox 
+2 
+1051 
+8 
+0 
+10 
+5 
+
+Goat 
+16 
+8 
+1723 
+0 
+28 
+7 
+
+l
+a
+u
+t
+c
+A
+
+Sheep  Ghost  Other 
+3 
+0 
+1 
+230 
+2 
+5 
+
+11 
+90 
+185 
+1 
+2685 
+116 
+
+2 
+10 
+4 
+0 
+24 
+218
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: After the model training process, several postprocessing steps can be taken to evaluate the performance of the model and gain insights into its predictions. Some common postprocessing steps include:
+
+1. Calculating metrics: Various evaluation metrics such as accuracy, precision, recall, F1 score, etc., can be calculated to assess the overall performance of the model. For example, in the given context, the macro average F1 scores and accuracies of different models have been reported.
+
+2. Creating confusion matrices: Confusion matrices provide a visual representation of the performance of the model by comparing actual vs predicted labels. They help identify which classes are being confused with others and where the model might need improvement. In the given context, a confusion matrix has been created for the TFLite Inception-V3 model.
+
+3. Generating saliency maps: Saliency maps highlight the regions of input images that contribute most towards the final prediction made by the model. This helps understand what features the model is focusing on while making decisions. However, no information about generating saliency maps is available in the given context.
+
+4. Converting models to other formats: Depending upon the deployment requirements, models may need to be converted to specific formats like TensorFlow Lite, ONNX, etc. In the given context, the best trained Inception-V3 model has been converted to TensorFlow Lite format.
+
+These postprocessing steps aid in understanding the strengths and weaknesses of the model, thereby helping improve it further if needed.

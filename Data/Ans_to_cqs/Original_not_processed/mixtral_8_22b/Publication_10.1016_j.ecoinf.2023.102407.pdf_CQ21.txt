@@ -1,0 +1,85 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+within the study area for MaxEnt and set up the hyperparameters as in 
+Bean et al. (2012). The training settings and hyperparameters used for 
+each SDM are described in Table 3.
+
+The proposed incremental PL was also investigated in terms of AUC 
+in Section 3.3. Although Figs. 4, 5, and 6 show different shapes of per-
+formance  curves,  it  can  be  seen  that  incremental  PL  contributes  to 
+effective training of the student model. In addition, the results showed 
+that the degree to which model performance improves varies depending 
+on K, and in general, model performance improves more when K is in the 
+50 to 400 range rather than in the 600 to 800 range. This suggests that 
+allowing the initial teacher model to generate too many pseudo-labeled 
+data  points  adversely  affects  the  subsequent  training  of  the  teacher 
+model, producing inaccurate student models. Therefore, the number of 
+data points added in each PL iteration should be determined carefully to 
+ensure the accuracy of SDP-EPL, and K = 200 performed optimally for 
+most cases in our study.
+
+In particular, we construct an ensemble teacher model by grouping 
+the ANN, RF, GBM, XGB, and LGBM models, and a student model using 
+ANNs that are commonly used in PL approaches (Ali et al., 2022; Asghar 
+et al., 2020). We train our SDP-EPL model for up to 400 epochs, incre-
+mentally  generating  PL  presence  data  and  PL  absence  data  using  the 
+teacher model with K = 200 every 100 epochs. K was selected empiri-
+cally based on the AUC of SDP-EPL on the validation set.
+
+SDM 
+
+Training setup 
+
+Modeling package 
+
+threshold values from 0 to 1. Table 5 summarizes the evaluation criteria 
+for the AUC and TSS metrics for the objective comparison of the per-
+formances of the SDMs. 
+
+Elapid (Anderson, 2023) 
+
+3. Results 
+
+SRE 
+
+GLM 
+
+GAM 
+
+MaxEnt 
+
+RF 
+
+GBM 
+
+XGB 
+
+LGBM 
+
+ANN 
+
+SDP- 
+
+EPL
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training process, several postprocessing steps can be taken to evaluate and analyze the performance of the models. Based on the given context, some possible postprocessing steps include calculating metrics such as Area Under Curve (AUC) and True Skill Statistic (TSS), comparing performances of different Species Distribution Models (SDMs), and creating ensembles of multiple models.
+
+To calculate the AUC and TSS metrics, one could use packages like Elapid (Anderson, 2023) or other suitable modeling tools. These metrics help objectively compare the performance of various SDMs, including Generalized Linear Model (GLM), Generalized Additive Model (GAM), Random Forest (RF), Gradient Boosting Machine (GBM), Extreme Gradient Boosting (XGB), Light Gradient Boosting Machine (LGBM), Artificial Neural Network (ANN), and Self-Distilled Pseudo-Label Ensemble Learning (SDP-EPL).
+
+Additionally, the context mentions the creation of an ensemble teacher model by combining ANN, RF, GBM, XGB, and LGBM models, along with a student model using ANNs. This implies that another potential postprocessing step involves building ensembles of multiple models to improve overall prediction accuracy.
+
+However, the context does not explicitly mention any specific techniques for visualizing model outputs, such as saliency maps or confusion matrices. Nevertheless, these methods could still be employed as part of the postprocessing analysis to gain further insights into the strengths and weaknesses of individual models or ensembles.

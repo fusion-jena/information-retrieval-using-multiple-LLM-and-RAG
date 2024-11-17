@@ -1,0 +1,9 @@
+Answer:::
+
+The deep learning pipeline for bioacoustic event detection typically uses audio files as input data. In this process, long audio files are divided into shorter chunks or segments of fixed durations, such as 3 or 10 seconds, to fit inside the limited memory of Graphics Processing Units (GPUs). This fragmentation allows deep neural networks to handle large audio files by joining detections that span these chunks in post-processing.
+
+In the context of the public challenge mentioned, most systems use Mel spectrograms with Per-Channel Energy Normalization (PCEN) as the acoustic feature format. These features are then fed into standard Convolutional Neural Networks (CNNs) for training and event detection. However, there is an exception in the work of You et al. (2023), where the CNN is replaced by the Audio Spectrogram Transformer (AST).
+
+While the primary data format is audio, there are other formats involved in the deep learning pipeline. For instance, annotations of audio examples are necessary for supervised learning, and they are usually stored in a structured format like CSV files. These annotations contain temporally-precise and fine-grained information about sound events, which are essential for training and evaluating machine learning models.
+
+In summary, the deep learning pipeline for bioacoustic event detection primarily uses audio files as input data. These audio files are preprocessed into chunks and transformed into Mel spectrograms with PCEN as the acoustic feature format. The features are then fed into CNNs or other neural network architectures for training and event detection. Additionally, structured formats like CSV files are used for storing annotations associated with audio examples.

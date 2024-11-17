@@ -1,0 +1,243 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The data of a certain year are used as the test set, and the remaining data are the training and
+validation set. The training and validation set ia divided into ten parts using the 10-fold cross-validation
+method, in which nine of the parts are used as a training set and one is used for the validation set.
+The percentage of the training, validation, and testing sets is 5.4:0.6:1. The training set is the data
+sample used for model ﬁtting. The validation set is a set of samples set aside separately during the
+model training. It can be used to adjust the hyperparameters of the model and to conduct a preliminary
+evaluation of the model’s capabilities. The testing set is used to evaluate the generalization ability of
+the ﬁnal model. However, it cannot be used as a basis for algorithm-related selection such as parameter
+tuning and selection of features. The mean value of the ten results is used to estimate the accuracy of
+
+σ(x) =
+
+1
+1 + e−x
+
+(1)
+
+Input Data
+
+In this paper, the input data are 40-dimensional data. Due to the large time span and large land
+area in the training data, there are large diﬀerences in the distribution between diﬀerent batches of
+training data in the training stage, and there is a certain distribution diﬀerence between the training set
+and the test set. Therefore, batch normalization is performed on the input data, where the speciﬁc
+calculation/transformation of BatchNorm (Algorithm 1) is shown below. First, the mean of each
+channel in the current batch is calculated, and then, the variance of each channel in the current batch is
+calculated. The mean is subtracted from the input, and the result is divided by the standard deviation
+to obtain the normalized output ˆχ
+i is multiplied by the scale parameter γ, and the shift
+parameter β is added to obtain the ﬁnal output yi:
+
+i; then, ˆχ
+
+Table 4. Prediction correctness and error (Appendix A).
+
+2013
+
+2010
+
+2008
+
+2005
+
+2000
+
+1986
+
+Average
+
+hits
+
+2.02%
+
+2.75%
+
+1.38%
+
+3.96%
+
+4.11%
+
+2.51%
+
+2.79%
+
+null success
+
+93.20% 91.59% 91.67% 91.35% 88.32% 88.21%
+
+90.72%
+
+misses
+
+0.62%
+
+false alarms
+
+4.17%
+
+hits
+
+1.88%
+
+1.63%
+
+4.02%
+
+2.92%
+
+1.88%
+
+5.07%
+
+2.33%
+
+0.57%
+
+4.12%
+
+4.30%
+
+2.01%
+
+5.57%
+
+4.29%
+
+3.61%
+
+5.67%
+
+2.22%
+
+1.72%
+
+4.77%
+
+2.99%
+
+null success
+
+86.53% 85.82% 85.75% 83.61% 82.08% 82.78%
+
+84.43%
+
+misses
+
+0.75%
+
+1.47%
+
+0.93%
+
+0.23%
+
+1.83%
+
+3.90%
+
+1.52%
+
+false alarms
+
+10.84%
+
+9.79%
+
+10.99% 11.86% 11.80% 11.10%
+
+11.06%
+
+hits
+
+0.13%
+
+0.23%
+
+0.30%
+
+0.22%
+
+1.18%
+
+0.70%
+
+0.46%
+
+DLURM
+
+HLURM
+
+CA-Markov
+
+null success
+
+89.68% 88.89% 89.30% 86.33% 79.80% 77.71%
+
+85.29%
+
+misses
+
+2.50%
+
+false alarms
+
+7.69%
+
+4.16%
+
+6.72%
+
+2.96%
+
+7.44%
+
+4.29%
+
+4.92%
+
+5.40%
+
+4.04%
+
+9.15%
+
+14.09% 16.19%
+
+10.21%
+
+Remote Sens. 2020, 12, 3314
+
+14 of 22
+
+Figure 11. Prediction correctness and error.
+
+Because there are diﬀerent numbers of samples of the ﬁve types of LU suitability samples in the
+training data, with a ratio of 7:14:1:5:7, there is an imbalance in the categorical data. In the training
+process, a relatively large weight is generated for the categories that have fewer samples, and a
+small weight is generated for the categories that have more samples, which solves the problem of the
+performance of the model being poor for the categories that have small sample sizes.
+
+2.4. Reconstruction Procedure
+
+In the following, the LUCC reconstruction of Zhenlai County in 2000 is used as an example to
+present the DLURM reconstruction process (the data of the year 2000 should be removed from the
+training set).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To monitor the model performance during training, the authors use a 10-fold cross-validation method. This involves dividing the training and validation set into ten equal parts or folds. Nine of these folds are used for training the model, while the remaining fold serves as the validation set. This process is repeated ten times, ensuring that each fold gets a chance to act as the validation set once. The mean value of the ten results is then used to estimate the accuracy of the model. Additionally, the authors perform batch normalization on the input data due to the large differences in the distribution between different batches of training data and between the training set and the test set. This helps improve the stability and speed of the learning process.

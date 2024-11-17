@@ -1,0 +1,85 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Deep CNNs, such as ResNet and GoogLeNet, are generally trained based on the prediction loss
+minimization. Let x and y be the input images and corresponding output class labels, the objective of
+the training is to iteratively minimize the average loss deﬁned as
+
+J(w) =
+
+1
+N
+
+N
+∑
+i=1
+
+L( f (w; xi), yi) + λR(w)
+
+(1)
+
+This loss function measures how different is the output of the ﬁnal layer from the ground truth.
+N is the number of data instances (mini-batch) in every iteration, L is the loss function, f is the
+predicted output of the network depending on the current weights w, and R is the weight decay with
+the Lagrange multiplier λ. It is worth mentioning that in the case of GoogLeNet, the losses of the
+
+Remote Sens. 2017, 9, 1220
+
+6 of 22
+
+two auxiliary classiﬁers are weighted by 0.3 and added to the total loss of each training iteration.
+The Stochastic Gradient Descent (SGD) is commonly used to update the weights.
+
+wt+1 = µwt − α∆J(wt)
+
+(2)
+
+In general, ﬁne-tuning the entire network (i.e., updating all the weights) is only used when the
+new dataset is large enough, otherwise, the model could suffer overﬁtting especially among the
+ﬁrst layers of the network. Since these layers extract low-level features, e.g., edges and color,
+they do not change signiﬁcantly and can be utilized for several visual recognition tasks. The last
+learnable layers of the CNN are gradually adjusted to the particularities of the problem and
+extract high level features.
+
+In this work, we have used ﬁne-tuning on ResNet and GoogleNet. We initialized the used CNNs
+with the pre-trained weights of the same architectures on ImageNet dataset (around 1.28 million
+images over 1000 generic object classes) ([13]).
+
+for LVCSR. In Proceedings of the 2013 IEEE International Conference on Acoustics, Speech and Signal
+Processing, Vancouver, BC, Canada, 26–31 May 2013; pp. 8614–8618.
+Zhu, X.X.; Tuia, D.; Mou, L.; Xia, G.S.; Zhang, L.; Xu, F.; Fraundorfer, F. Deep learning in remote sensing:
+A review. arXiv Prepr. 2017, arXiv:1710.03959.
+Abadi, M.; Agarwal, A.; Barham, P.; Brevdo, E.; Chen, Z.; Citro, C.; Corrado, G.; Davis, A.; Dean,
+J.; Devin, M.; et al. Tensorﬂow: Large-scale machine learning on heterogeneous distributed systems.
+arXiv Prepr. 2016, arXiv:1603.04467.
+Tirado, R. 5220 Matorrales arborescentes con Ziziphus (*). In VV. AA., Bases ecológicas Preliminares Para
+la Conservación de Los Tipos de Hábitat de Interés Comunitario en Espana; Ministerio de Medio Ambiente,
+Medio Rural y Marino: Madrid, Spain, 2009.
+Zhao, W.; Du, S.; Emery, W. Object-Based Convolutional Neural Network for High-Resolution Imagery
+Classiﬁcation. IEEE J. Sel. Top. Appl. Earth Observ. Remote Sens. 2017, 10, 3386–3396.
+
+In this work, we considered the two most accurate CNNs, ResNet ([42]) and GoogLeNet ([43]).
+ResNet won the ﬁrst place on the 2015 ILSVRC (ImageNet Large Scale Visual Recognition Competition
+(ILSVRC)) and is currently the most accurate and deepest CNN available. It has 152 layers and
+25.5 million parameters. Its main characteristic with respect to the previous CNNs is that ResNet
+creates multiple paths through the network within each residual module. GoogLeNet won the ﬁrst
+place of the 2014 ILSVRC. GoogLeNet is based on inception v3 and has 23.2 million parameters and
+22 layers with learnable weights organized in four parts: (i) the initial segment, made up of three
+convolutional layers, (ii) nine inception v3 modules, where each module is a set of convolutional and
+pooling layers at different scales performed in parallel then concatenated together, (iii) two auxiliary
+classiﬁers, where each classiﬁer is actually a smaller convolutional network put on the top of the
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: In the given context, there is no explicit mention of specific regularization methods like dropout or L2 regularization. However, it does discuss the use of weight decay with the Lagrange multiplier λ in the loss function, which is another form of regularization. Weight decay is equivalent to L2 regularization, where the goal is to reduce the size of the weights to avoid overfitting. This method adds a penalty term to the loss function, encouraging smaller weights. Additionally, the text mentions fine-tuning the entire network only when the new dataset is large enough, suggesting that transfer learning and freezing early layers might also help prevent overfitting. These techniques allow the reuse of learned features from larger datasets while avoiding significant changes to the first layers, which may lead to overfitting if updated with small datasets.

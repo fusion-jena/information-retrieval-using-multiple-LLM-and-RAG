@@ -1,0 +1,165 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+PConv networks 
+
+256 × 256/512 × 512 
+
+1 
+2e-4 
+
+Adam optimizer 
+per-pixel loss, perceptual 
+loss, style loss and total 
+variation loss 
+50 
+Pre-trained on ImageNet 
+
+Pix2Pix 
+networks 
+
+256 × 256/512 
+× 512 
+1 
+9e-5 
+
+Classification 
+networks 
+
+256 × 256/512 
+× 512 
+32 
+0.03 
+
+Adam optimizer 
+Adversarial loss 
+and L1 loss 
+
+Adam optimizer 
+Cross-entropy 
+loss 
+
+50 
+Trained from 
+Scratch 
+
+20 
+Pre-trained on 
+ImageNet  
+
+Input 
+
+dimension 
+
+Batch size 
+Learning 
+rate 
+Optimizer 
+Loss function 
+
+Epochs 
+Pre-trained 
+network 
+
+applied.  All  input  images  were  preprocessed  by  mean  centering  the 
+image with ImageNet values and then rescaled between 0 and 1. Since 
+our dataset was balanced, both networks were trained with a learning 
+rate of 0.03, cross-entropy loss as a loss function optimized by Adam 
+optimizer (Kingma and Ba, 2014). Table 2 summarizes the parameter 
+used for training each model. 
+
+3.4. Performance evaluation
+
+3.3.3. Classification 
+
+Pretrained classification models such as VGG16 have demonstrated 
+to perform well on various plant species identification tasks (Pang and 
+Lim,  2019).  To  train  our  classification  model,  we  adapted  the  vgg16 
+network  pre-trained  on  ImageNet  dataset  (Simonyan  and  Zisserman, 
+2014). The fully connected layers of the networks were replaced with a 
+global max-pooling layer, a dropout layer with a dropout ratio of 0.5 as a 
+network regularizer and single hidden layer with a total of 256 units for 
+a larger image sized model(512 × 512) and 128 units for a smaller image 
+size model (256 × 256). Both networks were trained for 20 epochs with 
+a  batch  size  of 32  and  various data augmentation  techniques such as 
+height and width shift, flipping, zooming and brightness changes were 
+
+Table 2 
+Summary of the model parameters.   
+
+PConv networks 
+
+256 × 256/512 × 512 
+
+1 
+2e-4
+
+⎧
+⎪⎨
+
+⎪⎩
+
+′ =
+
+X
+
+W T (X*M)
+
+sum(1)
+sum(M)
+
++ b, if sum(M) > 0
+
+0, otherwise
+
+where * denotes the element-wise multiplication, ‘1’ represents the same 
+shape as M with all ones, and W and b represent the weights and bias of 
+the  convolution  filter,  respectively.  The  sum(1)/sum(M)  is  used  as  a 
+scaling factor to adjust for a varying amount of valid (unmasked) input. 
+The value ‘0’ in eq. 1 indicates the input mask with no valid pixel i.e. a 
+pixel with no information that can be used in inpainting other regions. 
+From Eq. (1), it can be seen that the output of the partial convolution 
+layer depends on the valid inputs of the image i.e. pixels of the image 
+that  can be  used to  in  paint  other  masked  regions. After  each  partial 
+convolution operation, the mask is then updated by marking the location 
+to be valid if the convolution was able to condition its output on at least 
+one valid input values which are expressed as: 
+
+{
+
+′ =
+
+m
+
+1, if sum(M) > 0
+0, otherwise
+
+The original implementation of PConv network required a two-phase 
+training process (Liu et al., 2018). This is because the generated holes 
+presented  a  problem  for  batch  normalization  layer  when  computing 
+mean  and  variance  of  the  hole  pixels.  In  this  study,  all  models  were 
+trained in a single process while freezing the batch normalization layer 
+in the encoder part as the network used pre-trained weights with a small 
+batch size of 1. The models were optimized using Adam optimizer with a 
+learning rate of 0.0002 while using relu activation for encoder part and 
+leakyRelu  activation  for  the  decoder  part  of  the  network.  All  models 
+were  trained  for  50  epochs.  For  each  training  epoch,  a  model  was 
+evaluated using the validation set and was saved as the best model based 
+on a validation loss. 
+
+3.3.2. Pix2Pix network
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there is no explicit mention of any specific technique used to address data bias during preprocessing of the deep learning pipeline. However, it does state that the input images were preprocessed by mean centering the image with ImageNet values and then rescaled between 0 and 1. Additionally, since the dataset was balanced, both networks were trained with a learning rate of 0.03, cross-entropy loss as a loss function optimized by Adam optimizer. Various data augmentation techniques such as height and width shift, flipping, zooming and brightness changes were also applied. These methods could potentially help mitigate some forms of data bias but they do not directly address issues like class imbalance or lack of diversity in the dataset. Therefore, without further context, it cannot be determined what specific techniques are used to address data bias during preprocessing of the deep learning pipeline.

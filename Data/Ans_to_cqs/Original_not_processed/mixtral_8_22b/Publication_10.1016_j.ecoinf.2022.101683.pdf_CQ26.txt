@@ -1,0 +1,72 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+kernel range). The threshold used was the 10th percentile training presence. For each metric the best model is highlighted in bold where higher was better for AUC, TPR, TSS and Kappa and lower better for Omission.
+
+4. Discussion 
+
+Despite sampling bias being widely acknowledged as a concern in 
+invasive  Species  Distribution  Models  (iSDM)  and  a  large  number  of 
+studies  attempting  to  address  the  problem,  no  conclusion  has  been 
+drawn as to the best method to deal with it (Kramer-Schadt et al., 2013; 
+Verbruggen et al., 2013). Here, three very different options to reduce 
+sampling bias were examined i) weighted background points, ii) filtered 
+(pre-thinned)  records  and  iii)  targeted  background  points,  fitted  to 
+various  spatial  extents.  AUC  values  were,  in  the  main,  higher  when 
+adopting more expansive input extents than restricted extents. However, 
+it is known that these can be misleading; reflecting artificial inflation as
+
+Sampling bias using presence-only data can be addressed using three 
+different  methods:  i)  spatial  filtering  of  the  input  data  (Engler  et  al., 
+2004), ii) weighting background points (Elith et al., 2010) and iii) tar-
+geting background points (Phillips et al., 2009). Spatial filtering of input 
+data  (reducing  either  the  spatial  resolution  i.e.,  cell  or  pixel  size  or 
+reducing  the  density  of  species  records  in  densely  recorded  clusters) 
+helps  to  control  potential  spatial  autocorrelation  bias  prior  to  model 
+building. Kramer-Schadt et al. (2013) found that reducing the resolution 
+of  species  records,  to  one  record  per  10km2,  increased  the  predictive 
+power of their model. Taking one record within a cell or pixel at a lower 
+spatial resolution than the original species record data is often used to 
+filter  spatial  bias  but  also  reduces  fine-scale  environmental  variation
+
+Each of the iSDMs at the four different spatial extents were further 
+subject to five treatments to test the impact of potential biases and error: 
+a) Random backgrounds where 100% of training records were used, and 
+background points were selected at random from the full extent of the 
+model.  b)  Spatial  filtering  input  data  to  reduce  problems  of  spatial 
+autocorrelation, where all species records were thinned using the soft-
+ware OccurrenceThinner (Verbruggen et al., 2013), in a manner to filter 
+out a greater proportion of sightings where the density of records was 
+highest  based  on  their  kernel  density  (Fig.  1c;  with  densities  per  cell 
+rescaled  to  an  index  from  0  to  1).  Species  records  were  selected  for 
+deletion randomly from those cells with a kernel density index between 
+0.5 and 1.0 giving an increased chance of removing records from the 
+highest density areas. Over 10 cross-validated model runs, an average of
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text discusses various techniques used to address sampling bias in Invasive Species Distribution Models (iSDMs) which can be considered as part of the preprocessing stage in a machine learning pipeline. Three primary methods are mentioned:
+
+1. Weighted Background Points: This technique involves assigning weights to background points to account for uneven sampling efforts across the study area. By doing so, models can give more importance to underrepresented regions, thus reducing the effect of sampling bias.
+
+2. Filtered Records: Also referred to as spatial filtering, this approach aims to mitigate potential spatial autocorrelation bias by reducing the spatial resolution of species records or decreasing the density of species records in densely populated clusters. Reducing the resolution of species records to one record per 10 km² has shown to increase the predictive power of models.
+
+3. Targeted Background Points: This method selects background points based on specific criteria, such as proximity to observed presences or similar environmental conditions. By carefully selecting background points, models can focus on relevant areas and minimize the influence of unimportant locations.
+
+In addition to these methods, the text mentions other treatments applied to iSDMs to test the impact of potential biases and errors:
+
+- Random backgrounds: Using 100% of training records and selecting background points randomly from the entire modeling extent.
+- Spatial filtering input data: Thinning out species records based on their kernel density to remove a larger proportion of sightings from high-density areas.
+
+These techniques help improve the quality of input data and reduce the effects of sampling bias, ultimately leading to more accurate and reliable models.

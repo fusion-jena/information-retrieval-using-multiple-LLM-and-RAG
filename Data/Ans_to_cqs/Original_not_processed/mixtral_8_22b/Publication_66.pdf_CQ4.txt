@@ -1,0 +1,119 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+ing	(ML)	methods	(where	a	labelled	dataset	is	used	to	learn	to	identify	
+
+et	al.,	2008,	2009;	Kotzerka,	Garthe,	&	Hatch,	2009).	Early	methods	
+
+known	classes)	to	predict	animal	behaviours	from	accelerometry	data	
+
+of	 determining	 depth	 use	 by	 seabirds	 only	 allowed	 the	 maximum	
+
+such	 as	 in	 cows	 (Martiskainen	 et	al.,	 2009),	 cheetahs	 (Grünewälder	
+
+depths	reached	to	be	recorded.	More	recently,	however,	time–depth	
+
+et	al.,	 2012)	 and	 penguins	 (Carroll,	 Slip,	 Jonsen,	 &	 Harcourt,	 2014).	
+
+recorder	(TDR)	devices	have	been	used	to	record	dive	profiles	contin-
+
+Nathan	 et	al.	 (2012)	 compare	 five	 supervised	 learning	 algorithms—
+
+uously	(Dean	et	al.,	2012;	Shoji	et	al.,	2015;	Wanless,	Harris,	Burger,	&	
+
+SVMs,	 linear	 discriminant	 analysis,	 random	 forest	 (RF),	 classification	
+
+Buckland,	1997).
+
+and	regression	trees	and	artificial	neural	networks	(ANN)—to	predict	
+
+Much	 of	 the	 information	 about	 foraging	 behaviour	 has	 been
+
+produced	 poorer	 behavioural	 predictions,	 further	 demonstrating	 the	
+
+structed	the	deep	learning	models	in	r	using	H2O	and	conducted	the	
+
+BROWNING et al. 2041210x, 2018, 3, Downloaded from https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12926 by Thuringer Universitats- Und, Wiley Online Library on [16/11/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons Licensecomparative	modelling.	E.B.	and	R.F	wrote	the	manuscript.	All	authors	
+
+contributed	to	editing	of	the	manuscript.	R.F.	and	M.B.	supervised	this	
+
+work.
+
+DATA ACC ESSI BILITY
+
+GPS	track	data	used	in	the	analysis	are	available	at	(http://seabirdtrack-
+
+ing.org/mapper/contributor.php?contributor_id=950).	Other	data		used	
+
+within	 the	 analysis	 (GPS	 &	 dive	 data,	 and	 associated	 matrices	 used
+
+each	species.	The	models	were	then	used	to	predict	the	diving	loca-
+
+tions	of	birds	monitored	with	only	GPS	devices.
+
+2.4 | Alternative prediction methods
+
+To	 compare	 predictions	 obtained	 from	 deep	 learning	 models	 with	
+
+methods	 used	 in	 previous	 studies	 classifying	 foraging	 behaviour	 in	
+
+seabirds	HMMs,	a	naïve	Bayes	classifier	and	speed	and	tortuosity	pre-
+
+dictions	were	implemented	on	the	data	(see	Appendix	S8,	supporting	
+
+information	for	details	of	the	latter).	The	Naïve	Bayes	classification,	a	
+
+supervised	 learning	 method,	 was	 implemented	 in	 r	 using	 the	 e1071	
+
+package	 (Meyer,	 Dimitriadou,	 Hornik,	 Weingessel,	 &	 Leisch,	 2015).	
+
+The	inputs	were	the	same	as	used	in	the	H2O	model,	and	the	depend-
+
+ent	 variable	 (variable	 to	 be	 predicted)	 was	 the	 binary	 dive/not	 dive	
+
+column.
+
+HMMs	 are	 an	 unsupervised	 learning	 method	 that	 identifies	 dis-
+
+crete	 states	within	 time-	series	 data	 and	 have	 been	 used	 extensively
+
+individuals	by	training	deep	learning	models	to	predict	diving	in	European	shags,	
+
+common	guillemots	and	razorbills.	We	validate	our	predictions	using	withheld	data,	
+
+producing	 quantitative	 assessment	 of	 predictive	 accuracy.	 The	 variables	 used	 to	
+
+Handling	Editor:	Jana	McPherson
+
+train	these	models	are	those	recorded	solely	by	the	GPS	device:	variation	in	longi-
+
+tude	and	latitude,	altitude	and	coverage	ratio	(proportion	of	possible	fixes	acquired	
+
+within	a	set	window	of	time).
+
+3.	 Different	combinations	of	these	variables	were	used	to	explore	the	qualities	of	differ-
+
+ent	models,	with	the	optimum	models	for	all	species	predicting	non-diving	and	diving	
+
+behaviour	correctly	over	94%	and	80%	of	the	time,	respectively.	We	also	demonstrate	
+
+the	superior	predictive	ability	of	these	supervised	deep	learning	models	over	other	
+
+commonly	used	behavioural	prediction	methods	such	as	hidden	Markov	models.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there is no explicit mention or discussion of specific data augmentation techniques such as flipping, rotation, scaling, etc., applied within a deep learning pipeline. Therefore, I cannot provide a direct answer based solely on this context. However, these techniques are commonly employed in image processing tasks to increase the size of training datasets artificially, thereby improving model performance and generalization.
+
+Flipping involves creating new images by horizontally or vertically reversing existing ones. Rotation generates additional samples by rotating images through various angles. Scaling resizes images to different dimensions while preserving their original aspect ratio. Other popular data augmentation techniques include cropping, translation, shearing, brightness adjustment, contrast manipulation, and noise injection. These methods help expose machine learning models to more diverse input variations during training, enhancing their ability to recognize patterns and features across multiple scales, orientations, and lighting conditions.

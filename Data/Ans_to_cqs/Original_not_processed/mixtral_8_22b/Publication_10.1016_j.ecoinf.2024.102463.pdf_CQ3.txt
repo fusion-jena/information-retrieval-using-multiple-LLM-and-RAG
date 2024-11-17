@@ -1,0 +1,70 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+structure as the one present in the encoder 
+
+For more details on the theory of the elements discussed we refer the 
+reader to the reference book (Goodfellow et al., 2016). This architecture 
+involves  a  large  number  of  hyperparameters  related  to  the  different 
+types of layers (convolutional or recurrent) and therefore a large number 
+of  parameters.  As  a  reminder,  a  parameter  is  internal  to  the  neural 
+network.  It  will  evolve  during  the  whole  training  process  A  hyper-
+parameter is external to the training process, it defines the properties of 
+the network. It remains static during the training process. 
+
+The  HyperBand  algorithm  is  proposed  for  optimisation  and  is 
+
+described in the next section.
+
+hyperparameters for model architectures.  
+
+2.  Partial training: Models are partially trained (on a small fraction of 
+the data) to quickly eliminate underperforming configurations.  
+3.  Successive Halving: The remaining configurations are grouped into 
+sets of different sizes, and the associated models are trained further. 
+The best-performing configurations in each set are promoted to the 
+next  stage,  while 
+the  under-performing  configurations  are 
+eliminated. 
+
+4. Repeat: Steps 2 and 3 are repeated until only one configuration re-
+mains, which is then considered the best configuration found.
+
+• CNN  window  size  (dim-filter-cnn)  ∈ [3, 4, 5, 6, 7].  The  convolution 
+window size determines the size of the region over which convolu-
+tion  is  applied  at  each  time  step.  It  is  important  to  choose  an 
+appropriate window size to capture the relevant temporal patterns in 
+the data.  
+
+• the  number  of  filters  (nbr-filters-cnn)  ∈ [8, 16, 24, 32, 40, 48, 56, 64,
+72, 80, 88, 96, 104, 112, 120, 128].The  number  of  filters  determines 
+how many different patterns the network can learn. The higher the 
+number of filters, the more complex the network can be, but this can 
+also make training more difficult.
+
+The key idea behind Hyperband is to explore several configurations 
+in parallel while allocating more training resources to promising con-
+figurations. This enables a more efficient search of the hyperparameter 
+space, particularly when computational resources are limited. In sum-
+mary, Hyperband combines an initial random search with a ‘successive 
+halving’  strategy  to  quickly  identify  promising  configurations  while 
+eliminating those that show inferior performance. 
+
+The  detail  of  the  grid  of  possible  combinations  is  presented.  The 
+number of convolution layers is lower than that given in the article, the 
+network has two convolution layers. Their size and the associated max- 
+pooling will be determined in the following interval for each:
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: I apologize, but there isn't any information about specific data annotation techniques used in the deep learning pipeline within the provided context. However, generally speaking, common data annotation techniques include bounding box annotation, semantic segmentation, instance segmentation, polygon annotation, landmark annotation, and key point annotation. These techniques help label various types of datasets, such as images, videos, text, and audio, enabling machine learning algorithms to understand and interpret them effectively.

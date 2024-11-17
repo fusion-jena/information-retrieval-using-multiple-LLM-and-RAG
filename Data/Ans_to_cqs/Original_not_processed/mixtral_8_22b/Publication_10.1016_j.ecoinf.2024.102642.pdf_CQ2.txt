@@ -1,0 +1,61 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To  evaluate  the  performance  of  the  CNNs  trained  on  different 
+annotation sets, datasets containing other SEIO PBW vocalizations and 
+blue whale’s Dcall were chosen. Only a small portion of those datasets 
+were used to reduce computational time, as hundreds of networks were 
+trained and compared. 
+
+For the evaluation of the SEIO PBW vocalizations, 7 h of audio sig-
+nals recorded during the OHASISBIO program were used [Royer, 2009; 
+Torterotot et al., 2020]. These recordings were collected at the SWAMS 
+site, located in the Indian Ocean’s oceanic zone, between Kerguelen and 
+Amsterdam Island. This dataset is called SWAMS in this paper. The re-
+cordings were made in March 2015 using a hydrophone deployed at a 
+depth of 1000 m. The sampling rate was 240 Hz. A total of 102 vocali-
+zations were manually annotated by a second expert.
+
+2.3.3. Architecture of the model used 
+
+Because  the  training  sets  for  both  cases  were  relatively  small 
+(Table 1), we implemented a CNN comprising three convolutional layers 
+followed by three fully connected layers (Fig. 4). The training for each 
+vocalization’s  type  was  done  independently.  In  order  to  mitigate  the 
+impact of noisy labels on the robustness of the model, a dropout layer 
+(with a  dropout rate of 0.25) was incorporated to prevent overfitting 
+[Jindal et al., 2017]. During the training process, we employed a binary 
+cross-entropy  loss  function  that  computed  the  disparity  between  the 
+annotated binary label and the network’s output. The Adam optimizer 
+was  used as  the gradient descent algorithm. The implementation was 
+carried out using PyTorch [Paszke et al., 2019].
+
+distinctive  annotation  profiles  influenced  by  the  complexity  of  vocalizations  and  the  annotators’  strategies, 
+ranging from conservative to permissive. To address the challenges of annotation discrepancies, Convolutional 
+Neural Networks (CNNs) are trained on annotations from both novices and the expert. The results show varia-
+tions in model performance. Our work highlights the importance of annotation guidelines encouraging a more 
+conservative  approach  to  improve  overall  annotation  quality.  In  an  effort  to  optimize  the  potential  of  multi- 
+annotation  and  mitigate  the  presence  of  noisy  labels,  two  annotation  aggregation  methods  (majority  voting 
+and  soft  labeling)  are  proposed  and  tested.  The  results  demonstrate  that  both  methods,  particularly  when  a 
+sufficient number of annotators are involved, significantly improve model performance and reduce variability:
+
+CNN  models  were  trained  using  each  annotation  set  to  study  the 
+impact  of  inter-annotator  variability  on  the  performance  of  deep 
+learning models. All trained models were evaluated on different data-
+sets, in different areas with different recording devices and with multiple 
+expert annotations.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The data format used in the deep learning pipeline is audio signals. Specifically, the training sets consist of audio signals recorded during the OHASISBIO program, which includes 7 hours of audio signals recorded in March 2015 using a hydrophone deployed at a depth of 1000 meters. The sampling rate was 240 Hz. The goal of the deep learning pipeline is to classify these audio signals into different types of vocalizations produced by SEIO PBW and blue whales.

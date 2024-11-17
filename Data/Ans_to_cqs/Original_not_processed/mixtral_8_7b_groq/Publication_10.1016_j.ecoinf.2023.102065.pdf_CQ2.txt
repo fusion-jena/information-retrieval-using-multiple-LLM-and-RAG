@@ -1,0 +1,11 @@
+Answer:::
+
+The deep learning pipeline in the given context uses audio data format. The audio data is represented in two different formats during the training process. Initially, sound data is represented as amplitude-time waveforms, and then, 1-dimensional neural network architectures, such as Recurrent Neural Networks (RNNs), are trained to identify distinct patterns. Later, the sound data is transformed into a 2D image spectrogram and used to train Convolutional Neural Networks (CNNs) for sound classification. Moreover, a popular extension of this approach is to use mel-spectrograms from human auditory perception.
+
+The audio data is processed in the following steps:
+
+1. The recordings for each Region of Interest (ROI) are cut using start/stop times and sequentially appended to create a single merged .wav file for each species and set (i.e., train, validation) combination.
+2. Each merged .wav file is then sliced into 2-second increments, and mel-spectrograms are computed.
+3. Data augmentation is performed on training datasets by splitting the merged .wav training file for each species in half and then adding these two halves sample-wise. The augmented .wav file is similarly split into 2-second increments, and mel-spectrograms are computed.
+
+Therefore, the deep learning pipeline in this context uses audio data formats, specifically amplitude-time waveforms, spectrograms, and mel-spectrograms.

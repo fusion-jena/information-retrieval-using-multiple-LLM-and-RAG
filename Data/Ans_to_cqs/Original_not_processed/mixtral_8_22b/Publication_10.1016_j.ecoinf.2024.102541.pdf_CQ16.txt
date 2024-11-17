@@ -1,0 +1,205 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+ΘB = P r(obj) x IoUt
+
+p⋁P r(obj) ∈ {0, 1}
+
+(5)  
+
+where  P r(obj) denotes  the  prediction  accuracy  of  the  bounding  box. 
+When  P r(obj) = 1,  the  target  class  falls  within  the  grid;  otherwise, 
+P r(obj) = 0.  The  degree  of  overlap  between  the  ground  truth  and 
+anticipated bounding box is characterized by a metric called the inter-
+section over union (IoU), which is expressed by Eq. (6). 
+
+more efficient and rapidly converging loss function (Zheng et al., 2020). 
+EIoU integrates IoU, distance, and aspect ratio losses, directly narrowing 
+the width and height discrepancy between the anchors and ground truth 
+(gt), thus enhancing positional accuracy. This is achieved using the di-
+mensions  of  the  smallest  enclosing  box  (hc 
+and  wc)  around  both 
+bounding boxes. Eqs. (7) and (8) detail the EIoU loss, maintaining the 
+advantageous attributes of CIoU loss. 
+
+LEIOU = LIOU + Ldis + Lasp
+
+LEIOU = 1 (cid:0)
+
+IOU(A, B) +
+
+p2(b, bgt)
+(hc)2 + (wc)2 +
+
+p2(w, wgt)
+wc
+
++
+
+75.1     
+62.6     
+67.9 
+72.7     
+61.1     
+71.9     
+92.30     
+91.83     
+93.06 
+90.50     
+88     
+89.44     
+63.048     
+46.147     
+45.119 
+57.611     
+63.382     
+72.518     
+73.9     
+66.9     
+68.2 
+77.9     
+61     
+76.9     
+98.3     
+94.7     
+97.2 
+94.3     
+92.3     
+97.7     
+97.9     
+95.5     
+96.5 
+94.5     
+91.5     
+96.2     
+94.5     
+98.4     
+94.9 
+93.8     
+92.4     
+95.3     
+97.4     
+95.2     
+94.5 
+94     
+90.8     
+95.2      
+
+19.010 
+
+363.07 
+
+41,102,386 
+
+0.46 
+
+33.952 
+
+1.735 
+
+6204 
+
+0.12 
+
+28.89 
+
+6.629 
+
+8,852,366 
+
+0.25 
+
+39.22 
+
+6.782 
+
+3,073,190 
+
+0.19 
+
+31.949 
+
+16.3 
+
+7,067,395 
+
+0.17 
+
+32.895 
+
+4.2 
+
+1,767,283 
+
+0.13 
+
+33.898 
+
+2.8 
+
+1,824,075 
+
+0.11 
+
+37.594 
+
+8.0 
+
+5,049,932 
+
+0.15
+
+ground-truth annotations, with a histogram in the top-left showing class 
+distribution  and  additional  visualizations  including  label,  mask,  and 
+heat maps, offering comprehensive insights into the dataset’s structure 
+and diversity.
+
+p2(b, bgt)
+(hc)2 + (wc)2 +
+
+p2(w, wgt)
+wc
+
++
+
+p2(h, hgt)
+hc
+
+(7)  
+
+(8) 
+
+Eq. (9) was proposed in (Zhang et al., 2022a) to make high-quality 
+anchors more beneficial for training. This equation includes a gamma 
+(γ) parameter, which regulates the degree of outlier inhibition. For our 
+model design, γ = 1.5 improved accuracy was obtained, which was like 
+the  YOLOv5s  original  accuracy  for  only  one  metric  (precision).  The 
+parameter functions as an exponent to the IoU term; thus, high values 
+stress  the  relevance  of  high-quality  anchors  even  more,  whereas  low 
+values allow low-quality anchors to contribute more to the loss function. 
+
+(6) 
+
+LFocal(cid:0) EIOU = IOUγLEIOU
+
+(9)  
+
+IOU =
+
+|A ∩ B|
+|A ∪ B|
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The context does not provide explicit information on the specific criteria used to determine when training is complete. However, based on common practices in machine learning, some possible criteria include reaching a certain number of epochs or iterations, achieving a desired level of performance on a validation set (such as a minimum threshold for precision, recall, F1 score, etc.), observing a plateau or decrease in the validation loss, or meeting other predefined stopping conditions. It should be noted that these criteria may vary depending on the specific model architecture, task requirements, and available resources.

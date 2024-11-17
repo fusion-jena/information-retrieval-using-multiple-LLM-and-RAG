@@ -1,0 +1,87 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+For the ML model, training and testing datasets were generated
+through reference to existing field datasets and VHR images (Section
+2.4.3, Table 2). Areas dominated by the target communities were digi-
+tised as polygons and all pixels contained were extracted. These poly-
+gons were then split into calibration and validation sets, with ~30% of
+pixels for each VT reserved for independent model validation. Splitting
+polygons rather than pixels minimises the effect of spatial autocorrela-
+tion on model accuracies (Karasiak et al., 2022). We used a python
+implementation of the XGBoostClassifier (Chen and Guestrin, 2016) to
+classify the VTs, given optimised random trees can be developed
+whereby each new tree learns from the errors of those previous. As input
+to the ML algorithm, the seasonal vegetation index composites from S2,
+backscatter composites from S1, elevation and slope were used, totalling
+up to 54 features (Appendix-A). The compositing periods were chosen
+
+a) Step-1: Comparing LWHabmod and GMEPmod (actual accuracies)
+b) Step-2: Applying decision rules based on the peat depth, particularly
+those affecting wetland/bog classes, to modify GMEPmod data labels.
+c) Step-3: Applying decision rules (in addition to Step-2) based on the
+Phase-1 Habitat map, and particularly those impacting on the clas-
+sification of grassland, heathland, and scrub classes, to modify the
+GMEPmod data labels.
+
+These exercises were repeated for the broad habitat classes by
+
+modifying the GMEPBHmod labels through Step-2 and Step-3.
+
+2.6.2. Accuracy assessment for Pembrokeshire County
+
+We undertook a dedicated survey of vegetated semi-natural habitats,
+in Pembrokeshire in 2022 (Fig. 2) using the EarthTrack mobile appli-
+cation developed through Living Wales (https://earthtrack.aber.ac.uk/)
+
+2.6.1. National-level assessment
+
+The GMEP dataset represents the only recent field survey for habitats
+available across Wales that could be utilised for national-level accuracy
+assessment and has appropriate representation of classes occupying
+large areas of Wales (e.g., improved grassland, which is regarded as
+cultivated/managed). However, inconsistencies between the GMEP and
+the Phase-1 taxonomy, and by association LWHab, posed a key challenge
+in the accuracy assessment.
+
+The LWHabmod was clipped with the harmonised GMEPmod squares.
+Given the marginal coverage of calcareous grassland and raised bog in
+GMEP, these classes were omitted leaving 15 classes to compare.
+Stratified random sampling points were generated using QGIS’ ACa-
+TAMa plug-in (Llano, 2023). The number of points per class was
+increased by 5-fold (to 1500) based on the minimum deemed necessary
+in guidelines given by (Olofsson et al., 2014; see Eq. 3) to account for
+bias associated with restricted inclusion probabilities that result from
+the pre-defined distribution of GMEP squares. The initial validation
+label for every point was sourced from GMEPmod and every point
+
+EcologicalInformatics82(2024)1027146S.M. Punalekar et al.
+
+Table 3
+Summary of harmonisation process resulting in 17 comparable classes in GMEPmod and LWHabmod, generated from GMEP and LWHab, respectively.
+
+GMEP habitat classes
+(UK-BAP)
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of the deep learning model, several measures were implemented during its development. Firstly, diverse datasets were utilized for both training and testing purposes. These datasets were generated through references to existing field datasets and Very High Resolution (VHR) images. Polygon areas dominated by target communities were digitized, and all pixels within them were extracted. To minimize the effects of spatial autocorrelation on model accuracies, these polygons were split into calibration and validation sets, reserving approximately 30% of pixels for each Vegetation Type (VT) for independent model validation. This approach helped maintain the diversity of the dataset while ensuring robustness against potential biases caused by spatial dependencies.
+
+Furthermore, the Python implementation of the XGBoostClassifier was employed to develop optimized random trees where each new tree learned from the errors of those preceding it. This method allowed for continuous improvement and adaptation of the model to better handle complex patterns and relationships within the data.
+
+As inputs to the machine learning algorithm, various features such as seasonal vegetation index composites from Sentinel-2 (S2), backscatter composites from Sentinel-1 (S1), elevation, and slope were incorporated. In total, up to 54 features were considered, contributing to the richness and variability of the dataset. By incorporating this wide range of features, the model was able to capture more nuanced aspects of the environment, thereby enhancing its ability to generalize well to unseen data.
+
+Lastly, the use of stratified splitting techniques further ensured the representativeness of the dataset. Stratified random sampling points were generated using the QGIS ACA_TAMA plugin, increasing the number of points per class to account for bias associated with restricted inclusion probabilities resulting from the pre-defined distribution of GMEP squares. This step aimed to mitigate any imbalances or skewness in the dataset, ultimately promoting fair and accurate representation of different classes.
+
+Overall, these measures collectively contributed to improving the generalizability of the deep learning model, enabling it to perform effectively across diverse landscapes and conditions.

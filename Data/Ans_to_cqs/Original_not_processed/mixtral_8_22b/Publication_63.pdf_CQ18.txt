@@ -1,0 +1,61 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+For the training process, a batch size of 20 images and an RMSprop optimiser with a learning rate of 0.001 and 
+a learning rate decay of 0.0001 was used. The chosen loss function was mean squared error, while the prediction 
+accuracy was quantified by the MAE of the respective dataset. The MAE of the validation dataset was computed 
+after each epoch. Models were trained until the validation MAE did not further improve compared to the preced-
+ing epochs and diverged from the training MAE (’overfit’). The trained model was then applied to the test dataset.
+All CNN were implemented using the Keras API version (2.3.0.0)54 and the TensorFlow backend (version 
+2.2.0)55 in R (version 3.6.3)23. Model training was undergone on a workstation with two CUDA-compatible 
+NVIDIA GPUs (GeForce RTX 2080 Ti, CUDA version 11.0).
+
+extracted a random sample of 10% of the dataset of each trait before model training. This ‘test dataset’ was not 
+involved in the training process and exclusively served for the independent evaluation of the trained models. 
+The remaining data was split into ’training dataset’ and ’validation dataset’ by a ratio of 4:1 (Table 1). The train-
+ing dataset was employed to train the weights of the CNN model, whereas the validation dataset indicated the 
+training progress after each full training cycle (’epoch’).
+
+Vol.:(0123456789)www.nature.com/scientificreports/Training  process  and  hyperparameters. 
+In  order  to  build  upon  a  pre-existing  knowledge  base,  we 
+employed  ’transfer  learning’  by  using  pre-trained  layer  weights  (the  storage  of  the  model’s  knowledge)  from 
+a classification task on a dataset on www. image- net. org38 for all CNN models used in this study. The regressor 
+following the basic CNN consisted of a global average pooling layer followed by two dense layers with 512 and 1 
+output units. The latter forces the CNN to output exactly one prediction (trait) value. In case of the mixed data 
+model (setups (3) and (4)), the CNN consisted of parallel branches to incorporate the different input data types. 
+The branch processing the bioclimatic data consisted of three dense layers with 64, 32 and 4 output units, and 
+the last layer of the CNN regressor contained 4 output units. After concatenating the two branches (image and
+
+Scientific Reports |        (2021) 11:16395  | 
+
+https://doi.org/10.1038/s41598-021-95616-0
+
+11
+
+Vol.:(0123456789)www.nature.com/scientificreports/ 41.  Mahecha, M. D. et al. Crowd‐sourced plant occurrence data provide a reliable description of macroecological gradients. Ecography 
+
+44, 1–12 (2021).
+
+ 42.  Zhou, Z.-H. A brief introduction to weakly supervised learning. Natl. Sci. Rev. 5, 44–53. https:// doi. org/ 10. 1093/ nsr/ nwx106 (2018).
+ 43.  Cao, Y. et al. Predicting pathogenicity of missense variants with weakly supervised regression. Hum. Mutat. 40, 1579–1592 (2019).
+ 44.  Wüest, R. O. et al. Macroecology in the age of big data-where to go from here?. J. Biogeogr. 47, 1–12 (2020).
+ 45.  Seyednasrollah, B. et al. Tracking vegetation phenology across diverse biomes using version 2.0 of the phenocam dataset. Sci. Data 
+
+6, 1–11 (2019).
+
+ 46.  Estes, L. et al. The spatial and temporal domains of modern ecology. Nat. Ecol. Evol. 2, 819–826. https:// doi. org/ 10. 1038/ s41559-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+During the training process, the authors monitored the model performance by splitting their dataset into 'training', 'validation', and 'test' datasets. They used a 4:1 ratio to divide the remaining data into 'training' and 'validation' datasets after extracting a random sample of 10% of the dataset for the 'test' dataset. The 'training' dataset was utilized to train the weights of the Convolutional Neural Network (CNN) model, while the 'validation' dataset helped indicate the training progress after each complete training cycle or 'epoch'. To evaluate the performance of the trained models independently, they used the 'test' dataset, which was not involved in the training process. Furthermore, the authors employed transfer learning by utilizing pre-trained layer weights from a classification task on a dataset available at [www.imagenet.org](http://www.imagenet.org), enabling them to leverage existing knowledge bases for their CNN models.

@@ -1,0 +1,111 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Deep CNNs, such as ResNet and GoogLeNet, are generally trained based on the prediction loss
+minimization. Let x and y be the input images and corresponding output class labels, the objective of
+the training is to iteratively minimize the average loss deﬁned as
+
+J(w) =
+
+1
+N
+
+N
+∑
+i=1
+
+L( f (w; xi), yi) + λR(w)
+
+(1)
+
+This loss function measures how different is the output of the ﬁnal layer from the ground truth.
+N is the number of data instances (mini-batch) in every iteration, L is the loss function, f is the
+predicted output of the network depending on the current weights w, and R is the weight decay with
+the Lagrange multiplier λ. It is worth mentioning that in the case of GoogLeNet, the losses of the
+
+Remote Sens. 2017, 9, 1220
+
+6 of 22
+
+two auxiliary classiﬁers are weighted by 0.3 and added to the total loss of each training iteration.
+The Stochastic Gradient Descent (SGD) is commonly used to update the weights.
+
+wt+1 = µwt − α∆J(wt)
+
+(2)
+
+4.2.3. Training Dataset for the CNN-Classiﬁer
+
+The design of the training dataset is key to the performance of a good CNN classiﬁcation model.
+From the 82 Ziziphus individuals georeferenced by botanic experts in the training-zone, we identiﬁed
+100 80 × 80-pixel image patches containing Ziziphus lotus shrubs and 100 images for Bare soil with
+sparse vegetation. Examples of the labeled classes can be seen in Figure 3. We distributed the
+100 images of each class into 80 images for training and 20 images for validating the obtained CNNs
+classiﬁers, as summarized in Table 1.
+
+Table 1. Training and testing datasets for both CNN and OBIA used for mapping Ziziphus lotus shrubs.
+Bare soil: Bare soil and sparse vegetation; Img: 80 × 80-pixel image patches; Poly: digitized polygons.
+
+CNN Classiﬁer
+
+OBIA Classiﬁer
+
+Class
+
+Training
+
+Validation
+
+Training
+
+Accuracy
+
+Assessment
+
+Training-Zone
+
+Test-Zone-1
+
+Test-Zone-2 Test-Zone-1
+
+Test-Zone-2
+
+Ziziphus
+Bare soil
+
+80 img
+80 img
+
+20 img
+20 img
+
+for LVCSR. In Proceedings of the 2013 IEEE International Conference on Acoustics, Speech and Signal
+Processing, Vancouver, BC, Canada, 26–31 May 2013; pp. 8614–8618.
+Zhu, X.X.; Tuia, D.; Mou, L.; Xia, G.S.; Zhang, L.; Xu, F.; Fraundorfer, F. Deep learning in remote sensing:
+A review. arXiv Prepr. 2017, arXiv:1710.03959.
+Abadi, M.; Agarwal, A.; Barham, P.; Brevdo, E.; Chen, Z.; Citro, C.; Corrado, G.; Davis, A.; Dean,
+J.; Devin, M.; et al. Tensorﬂow: Large-scale machine learning on heterogeneous distributed systems.
+arXiv Prepr. 2016, arXiv:1603.04467.
+Tirado, R. 5220 Matorrales arborescentes con Ziziphus (*). In VV. AA., Bases ecológicas Preliminares Para
+la Conservación de Los Tipos de Hábitat de Interés Comunitario en Espana; Ministerio de Medio Ambiente,
+Medio Rural y Marino: Madrid, Spain, 2009.
+Zhao, W.; Du, S.; Emery, W. Object-Based Convolutional Neural Network for High-Resolution Imagery
+Classiﬁcation. IEEE J. Sel. Top. Appl. Earth Observ. Remote Sens. 2017, 10, 3386–3396.
+
+A natural conclusion of this work is that including CNN-models as classiﬁers in OBIA software,
+e.g., a ResNet-classiﬁer in eCognition, could make the users take advantage from the beneﬁts of both
+methods, e.g., OBIA segmentation to quantify areas and CNNs for detection and classiﬁcation.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the purpose of the deep learning model (e.g., classification, segmentation, detection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The purpose of the deep learning model discussed in the given context is for classification. Specifically, it is designed to classify between two types of land cover: Ziziphus lotus shrubs and bare soil with sparse vegetation. This is evident from the statement "We identified 100 80 × 80-pixel image patches containing Ziziphus lotus shrubs and 100 images for Bare soil with sparse vegetation." Furthermore, the table presented in the text also indicates that the model was trained and tested using these two classes. Therefore, the primary goal of this deep learning model is to accurately distinguish between these two types of land cover.

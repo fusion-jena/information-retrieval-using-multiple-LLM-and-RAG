@@ -1,0 +1,7 @@
+The deep learning pipeline in the given context uses the Adam optimization technique for training the model. The EfficientNet B0 network, which forms the base model, is pre-trained for generic image classification. When fine-tuning the model for a new task (classifying PAM data frames into specified sound source classes), the feature extractor remains frozen. Only the weights of the final dense classification layers are updated during training.
+
+The Adam optimizer is employed to manage gradient descent during the training process. Specifically, the learning rate is set to 0.001, the decay factor is set to 0.75, and the step size is not explicitly mentioned but can be inferred to be the default value of 1.
+
+Additionally, during the fine-tuning phase, a cyclical learning rate of 0.0004 is applied, and the model is set to run for 50 epochs with early stopping if the validation loss does not improve within 10 epochs. Dropout and DropConnect techniques are also utilized during fine-tuning to prevent overfitting.
+
+In summary, the Adam optimization technique is the primary method used in the deep learning pipeline, with additional techniques such as cyclical learning rates, early stopping, and dropout methods applied during the fine-tuning phase.

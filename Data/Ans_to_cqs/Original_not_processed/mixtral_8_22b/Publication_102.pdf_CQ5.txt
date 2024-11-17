@@ -1,0 +1,96 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+layers  of  the  DL  models  employed.  Specifically,  the 
+feed-forward  regression  networks  in  [11,  26]  compress 
+and  encode  images  into  smaller  representation  vectors, 
+while the combination of CCNN and ResNeXt models in 
+[11]  takes  an  input  image  of  size 72 × 72  and  produces 
+an  output  density  map  of  size  18 × 18 .  To  overcome 
+this  potential  information  loss,  the  UNet  model  was 
+employed  as  the  learning  model  [24].  UNet  is  a  CNN 
+architecture  originally  proposed  for  biomedical  image 
+segmentation,  based  on  an  encoder–decoder-type  net-
+work.  The  name  of  the  architecture  is  derived  from  its 
+distinctive ‘U’ shape. The down-sampling/encoder block 
+encodes the input images into feature representations at 
+multiple  level,  capturing  the  context  information  from 
+the  image. The  up-sampling/decoder  block  decodes  the 
+feature  maps  learned  from  the  encoder.  The  symmet-
+
+The  Model-K  architecture  is  a  regression  model  based 
+on  VGG16  without  the  feature  extractor  on  top.  The 
+output layer was flattened and given as input to 2 fully 
+connected  (FC)  layers  with  linear  output.  The  regres-
+sion  model  was  designed  to  predict  classwise  (five 
+categories)  count.  To  compare  it  with  the  proposed 
+solution,  we  modify  the  model  by  connecting  the  out-
+put  layer  with  a  fully  connected  one  output  neuron. 
+Model-K  was  initialized  with  pre-trained  Imagenet 
+weights  and  then  trained  using  our  training  data  set 
+with  a  Stochastic  Gradient  Descent  (SGD)  optimizer 
+and  an  MSE  loss  function.  The  proposed  Model-2 
+with  EfficientNet  feature  extractor  reached  an  RMSE 
+value  of  1.88  and  0.60  for  the  SLL  and  elephants’  data 
+sets,  respectively,  performing  better  than  the  Model-K 
+with  an  RMSE  of  2.17  and  0.81  for  SSL  and  elephants’
+
+Page 6 of 10
+
+EfficientNet-B5  feature  extractor  [27].  EfficientNet  is  a 
+CNN  developed  by  Google,  characterized  by  high  accu-
+racy  and  computational  efficiency.  Model-2  was  initial-
+ized  by  pre-trained  weights  based  on  the  Imagenet  data 
+set  [28].  All  the  parameters  were  optimized  using  the 
+Adam optimizer with a learning rate of 0.001.
+
+Training
+
+An  Nvidia  GeForce  RTX  2060  GPU  was  used  for  train-
+ing,  with  a  batch  size  of  8.  Model-1  (without  feature 
+extractor)  was  trained  for  7  h  and  Model-2  (with  a  fea-
+ture  extractor)  for  17  h.  Based  on  the  model’s  perfor-
+mance on the validation set, the early stopping technique 
+was  applied  to  avoid  over-fitting.  Model-2,  which  used 
+
+pre-trained  weights  and  thus  some  prior  relevant  infor-
+mation, converged faster than Model-1 (Fig. 3).
+
+Model evaluation: testing
+
+Lafferty JD, Williams CKI, Shawe-Taylor J, Zemel RS, Culotta A, editors. 
+Advances in neural information processing systems 23. Curran Associates 
+Inc; 2010. p. 1324–32. http:// papers. nips. cc/ paper/ 4043- learn ing- to- 
+count- objec ts- in- images. pdf
+
+ 23.  Naudé JJ, Joubert D. The aerial elephant dataset Zenodo. 2019. https:// 
+
+doi. org/ 10. 5281/ zenodo. 32347 80.
+
+ 24.  Ronneberger O, Fischer P, Brox T. U-net: convolutional networks for 
+biomedical image segmentation; 2015. CoRR arXiv: 1505. 04597.
+
+ 25.  Naude J, Joubert D. The aerial elephant dataset: A new public benchmark 
+for aerial object detection. In: Proceedings of the IEEE/CVF conference on 
+computer vision and pattern recognition (CVPR) Workshops; 2019.
+ 26.  Oñoro D, López-Sastre R. Towards perspective-free object counting with 
+deep learning, vol. 9911. Berlin: Springer; 2016. https:// doi. org/ 10. 1007/ 
+978-3- 319- 46478-7_ 38.
+
+ 27.  Tan M, Le QV. Efficientnet: Rethinking model scaling for convolutional
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Two datasets were mentioned in the provided context: the SSL dataset and the Elephants dataset. However, no specific details about these datasets were provided. Additionally, two references were cited regarding the datasets: Lafferty et al. (2010) and Naudé & Joubert (2019), but their relevance to the datasets used in this study is not clear without further context or access to those sources. Therefore, more information would be needed to provide a complete answer to this query.

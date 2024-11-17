@@ -1,0 +1,175 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+306 
+
+195 
+533 
+424 
+
+449 
+416 
+425 
+528 
+3276  
+
+training  data  set. The  models were  trained on  a  cloud  service  with  1 
+GPU,  4  CPUs  and  16  GB  RAM  provided  by  Sigma2  -  the  National 
+Infrastructure  for  High  Performance  Computing  and  Data  Storage  in 
+Norway. 
+
+We evaluated the model performance on the validation data set and 
+the  out-of-sample  test  data  set  by  calculating  model  accuracy  as  the 
+number of correct predictions divided by the number of all images as 
+well as precision, recall and F1 score for each class (Appendix B): 
+
+Precision =
+
+Recall =
+
+TP
+TP + FP
+TP
+TP + FN
+precision*recall
+precision + recall
+
+F1 = 2*
+
+(TP = Truepositives)
+
+(FP = Falsepositives)
+
+(FN = Falsenegatives)
+
+The complete workflow is performed in the statistical software R (R 
+Core Team, 2022), a programming language used by most ecologists (Lai 
+et  al.,  2019).  Thus,  the  use  of  R  instead  of  python,  the  leading  pro-
+gramming language for deep learning tasks (Raschka et al., 2020), will 
+likely  lower  the  threshold  for  ecologist  of  implementing  automatic 
+image classification in their workflows. Most available frameworks for 
+automatic  image  classification  come  as  tools  with  a  graphical  user 
+interface or as R packages. Such tools and packages are designed to be 
+user-friendly with the aim to make machine learning models available 
+for  ecologists  without  programming  experience  (Tabak  et  al.,  2020). 
+However,  they  are  often  difficult  to  modify  and  researchers  are  then 
+obliged to develop their own tool for their specific needs instead of using 
+existing ones. Thus, we provide R-scripts for all steps of the workflow,
+
+Table 1 
+Number of training images, validation images (used for model validation during 
+model  training)  and  out-of-sample  test  images  (used  for  external  model  vali-
+dation after training was finished) as well as number of new images selected 
+from  the  images  taken  between  summer  2020  and  summer  2021  for  model 
+retraining.  
+
+Class 
+
+Number of 
+training 
+images 
+
+Number of 
+validation 
+images 
+
+Number of 
+out-of-sample 
+test images 
+
+Number of new 
+training images 
+for model 
+retraining 
+
+Bad 
+
+6453 
+
+quality 
+
+Bird 
+Empty 
+Least 
+
+weasel 
+Lemming 
+Shrew 
+Stoat 
+Vole 
+TOTAL 
+
+3382 
+9444 
+1725 
+
+9449 
+9265 
+4024 
+9894 
+53636 
+
+677 
+
+219 
+979 
+98 
+
+967 
+962 
+438 
+1024 
+5364 
+
+549 
+
+119 
+3301 
+69 
+
+647 
+584 
+64 
+919 
+6252 
+
+306 
+
+195 
+533 
+424 
+
+449 
+416 
+425 
+528 
+3276
+
+To overcome the challenge of manually processing huge amounts of 
+data, artificial intelligence is increasingly used in ecology, for example 
+to  automate  the  classification  of  camera  trap  images  (Christin  et  al., 
+2019). Deep neural networks are a type of machine learning models that 
+have proven to be especially useful for image recognition (Krizhevsky 
+et al., 2012) and have been applied for animal detection and classifi-
+cation with great success (e.g. Norouzzadeh et al., 2018; Tabak et al., 
+2019; Willi et al., 2019; Zualkernan et al., 2022). These models can for 
+example separate empty images from images containing an animal (e.g. 
+Beery et al., 2019), identify species, count individuals, and categorize 
+animal behaviour with an accuracy that matches or even outperforms 
+humans (Norouzzadeh et al., 2018). However, developing and training 
+neural  networks require  programming  skills  and  have  therefore  often
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, it appears that the deep learning pipeline primarily uses image data. This is evident from several mentions of images throughout the text, such as references to camera trap images, true positives, false positives, and false negatives, which are common terms used in image analysis. Additionally, there are no explicit mentions of other data formats like audio, video, or CSV files. Therefore, it can be concluded that the primary data format used in this deep learning pipeline is image data.

@@ -1,0 +1,58 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+dataset  recorded  at  a  different  location  and  was  gradually  expanded 
+until  reconstructions  were  sufficiently  good.  In  order  to  visualize  the 
+latent  representation,  the  size  of  the  bottleneck  of  the  model  (latent 
+dimension) was limited to two. Details of the network architecture are 
+reported in Table 1.
+
+Fig. 1, and since a higher β term favours a well generalised latent space 
+over good reconstructions, a reduction in clustering performance could 
+be expected. Additionally, the non-adaptive VAE was more cumbersome 
+to train as the model collapsed frequently during training. 
+
+5.4. Selection of number of clusters
+
+5.6. Exploring the latent space 
+
+Samples  generated  from  the  latent  space  of  the  semi-supervised 
+model  are  shown  as  a  latent  space  cart-wheel  in  Fig.  5.  Traversing 
+different  lines  in  the  latent  space  results  in  samples  that  smoothly 
+transition between different spectra types. As a side note, we point that 
+the two latent features do not appear to be entirely disentangled; this is 
+manifested as dense islands and sparse spaces of spectra in the latent 
+space. For our downstream clustering task, fully disentangled features 
+are  not  required.  However,  one  could  introduce  an  additional  loss 
+component that enforces orthogonality between the different latent di-
+mensions to achieve improved disentanglement.
+
+Including  the  additional  loss  term  scaling  term  γ(t)ℒcls  in  Eq.  (9) 
+further  improved  the  clustering  performance  of  the  model.  In  this 
+implementation γ  was cycled between 0.01 and 2 in order to keep the 
+contribution from ℒcls  in a similar range as ℒrec  and ℒreg. A logical next 
+step could be to expand Eq. (4) to include a dynamically adjusted γ(t)ℒcls 
+term.  This  would  however  make  the  model  less  generalized  to  other 
+tasks. 
+
+5.3. Performance comparison
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The provided context does not explicitly mention any specific postprocessing steps after the model training such as saliency maps, metrics calculation, or confusion matrices. However, it can be inferred that there might have been some postprocessing steps based on the information given.
+
+For instance, the text mentions exploring the latent space (Section 5.6), which suggests that there may have been some form of analysis or visualization performed on the learned representations. Furthermore, the discussion about selecting the number of clusters (Section 5.4) implies that some sort of clustering algorithm was applied to group the data points in the latent space.
+
+Additionally, the context discusses improving the clustering performance by including an additional loss component (Eq. (9)) and adjusting the contribution from the classification loss (ℒcls). These modifications suggest that the authors evaluated the model using certain metrics related to its clustering performance.
+
+However, without further details regarding the exact postprocessing steps taken, it is difficult to provide a comprehensive list of all the possible techniques used. Therefore, I cannot definitively state what specific postprocessing steps were involved after the model training.

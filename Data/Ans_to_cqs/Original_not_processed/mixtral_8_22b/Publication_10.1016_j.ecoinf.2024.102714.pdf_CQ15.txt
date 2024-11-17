@@ -1,0 +1,71 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+a) Step-1: Comparing LWHabmod and GMEPmod (actual accuracies)
+b) Step-2: Applying decision rules based on the peat depth, particularly
+those affecting wetland/bog classes, to modify GMEPmod data labels.
+c) Step-3: Applying decision rules (in addition to Step-2) based on the
+Phase-1 Habitat map, and particularly those impacting on the clas-
+sification of grassland, heathland, and scrub classes, to modify the
+GMEPmod data labels.
+
+These exercises were repeated for the broad habitat classes by
+
+modifying the GMEPBHmod labels through Step-2 and Step-3.
+
+2.6.2. Accuracy assessment for Pembrokeshire County
+
+We undertook a dedicated survey of vegetated semi-natural habitats,
+in Pembrokeshire in 2022 (Fig. 2) using the EarthTrack mobile appli-
+cation developed through Living Wales (https://earthtrack.aber.ac.uk/)
+
+grass rush pasture in GMEP. However, if contextual datasets were pro-
+vided, these classes could be absorbed in appropriate wetland classes in
+the mapping, thus reducing discrepancies with GMEP data.
+
+Living Wales data products: https://earthtrack.aber.ac.uk/livingwales/maps.html
+Peat depth map: Vector dataset (2022) (https://datamap.gov.wales/layers/geonode:peatlands
+_of_wales_scg8)
+Phase-1 map: Vector dataset (https://datamap.gov.wales/layers/geonode:nrw_terrestrial_phase
+_1_habitat_survey)
+Digital Elevation Model (DEM, slope, ~10 m): derived from multiple LIDAR flights between 2006
+and 2015.
+Saltmarsh layer: Vector dataset (2017) (https://datamap.gov.wales/layers/inspire-nrw:NRW_S
+ALTMARSH_EXTENTS)
+Mean High Water Spring Tides: Vector dataset (2019) utilised to define intertidal zone
+(https://datamap.gov.wales/)
+National Forest Inventory Data: Vector dataset (2018) utilised to identify young/felled/failed
+plantation blocks (https://data-forestry.opendata.arcgis.com/)
+1Planque et al., 2020, 2Punalekar et al., 2021, 3Planque et al., 2021.
+
+For the ML model, training and testing datasets were generated
+through reference to existing field datasets and VHR images (Section
+2.4.3, Table 2). Areas dominated by the target communities were digi-
+tised as polygons and all pixels contained were extracted. These poly-
+gons were then split into calibration and validation sets, with ~30% of
+pixels for each VT reserved for independent model validation. Splitting
+polygons rather than pixels minimises the effect of spatial autocorrela-
+tion on model accuracies (Karasiak et al., 2022). We used a python
+implementation of the XGBoostClassifier (Chen and Guestrin, 2016) to
+classify the VTs, given optimised random trees can be developed
+whereby each new tree learns from the errors of those previous. As input
+to the ML algorithm, the seasonal vegetation index composites from S2,
+backscatter composites from S1, elevation and slope were used, totalling
+up to 54 features (Appendix-A). The compositing periods were chosen
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What optimization techniques are applied in the deep learning pipeline (e.g., SGD, Adam)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide information about specific optimization techniques such as Stochastic Gradient Descent (SGD) or Adaptive Moment Estimation (Adam) being used in the deep learning pipeline. However, it mentions the use of an optimized random trees approach where each new tree learns from the errors of those previous. This suggests that some form of optimization is indeed employed, but the exact technique remains unspecified within the provided context.
+
+Answer:::

@@ -1,0 +1,165 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+IUC-NN all features
+not threatened
+possibly threatened
+
+Spatial
+cleaning
+
+full
+full
+medium
+medium
+raw
+raw
+
+full
+full
+
+full
+full
+
+full
+full
+
+full
+full
+
+IUCN designation
+
+not
+threatened
+
+possibly
+threatened
+
+Method type∗
+
+75.1
+38.8
+75.1
+36.4
+73.8
+35.3
+
+68.3
+32.5
+
+68.5
+32.4
+
+78.9
+11.8
+
+81.6
+29.4
+
+24.9
+61.2
+24.9
+63.6
+26.2
+64.7
+
+31.7
+67.5
+
+31.5
+67.6
+
+21.1
+88.2
+
+18.4
+70.6
+
+index
+index
+index
+index
+index
+index
+
+index
+index
+
+index
+index
+
+prediction
+prediction
+
+prediction
+prediction
+
+∗For index-based methods, the results are for all species with digitally available occurrence records (n = 866). For prediction-based methods
+(IUC-NN), results are from the test data set (n = 89).
+
+Keywords: biodiversity, data quality, IUC-NN, IUCN Red List, machine learning, Orchidaceae, sampling bias
+
+Evaluación Automatizada de la Conservación de la Familia Orchidaceae mediante Aprendizaje Profundo
+
+Pfab MF, Victor JE, Armstrong AJ. 2011. Application of the IUCN Red
+Listing system to setting species targets for conservation planning
+purposes. Biodiversity and Conservation 20:1001–1012.
+
+R Core Team. 2019. R: a language and environment for statisti-
+cal computing. R Foundation for Statistical Computing, Vienna,
+Austria.
+
+Rivers MC, Taylor L, Brummitt NA, Meagher TR, Roberts DL, Lughadha
+EN. 2011. How many herbarium specimens are needed to detect
+threatened species? Biological Conservation 144:2541–2547.
+
+Roberts DL, Taylor L, Joppa LN. 2016. Threatened or data deficient: as-
+sessing the conservation status of poorly known species. Diversity
+and Distributions 22:558–565.
+
+Rodrigues ASL, Pilgrim JD, Lamoreux JF, Hoffmann M, Brooks TM.
+2006. The value of the IUCN Red List for conservation. Trends in
+Ecology & Evolution 21:71–76.
+
+We trained IUC-NN on all species with an IUCN RL as-
+sessment and available occurrence records. Prior to the
+training, we randomly split the data set into a training
+set (90% of the entries) and a test set (10%). We used
+20% of the training set for validation. Because the size
+of the data set was comparatively small, we performed
+cross-validation by shifting the validation set 5 times to
+quantify the average validation cross-entropy loss and ac-
+curacy. We then used the neural network with the lowest
+cross-entropy loss across a range of models with differ-
+ent numbers of hidden layers and subsets of features to
+predict the conservation status of all orchid species at
+2 levels: binary (possibly threatened vs. not threatened)
+and detailed (CR, EN, VU, NT, and LC). See Supporting
+Information for details on the network architecture and
+training. We combined the IUC-NN assessments with dis-
+tribution data from WCSP to show the number and pro-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training process, several postprocessing steps can be taken to evaluate the performance of the model and gain insights into its predictions. Some common postprocessing steps include:
+
+1. Calculating metrics: Various evaluation metrics such as accuracy, precision, recall, F1 score, ROC curve, etc., can be calculated to measure the performance of the model. These metrics help in understanding how well the model is performing and where it needs improvement.
+
+2. Creating confusion matrices: A confusion matrix is a table that summarizes the performance of a classification algorithm. It shows the number of correct and incorrect predictions made by the model for each class. This helps in identifying any biases or imbalances in the dataset.
+
+3. Generating saliency maps: Saliency maps highlight the regions in the input image that contribute most to the output prediction. They provide insight into which parts of the image were important for making the decision.
+
+4. Visualizing feature importance: Feature importance plots display the relative importance of different features in determining the final outcome. This helps in understanding which features have the greatest impact on the model's predictions.
+
+In this study, the authors used IUC-NN to predict the conservation status of all orchid species at two levels: binary (possibly threatened vs. not threatened) and detailed (CR, EN, VU, NT, and LC). After training the model, they likely evaluated its performance using some combination of these postprocessing techniques. However, since the paper does not explicitly mention any specific postprocessing steps, it is difficult to determine exactly what steps were taken.

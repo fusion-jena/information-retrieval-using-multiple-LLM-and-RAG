@@ -1,0 +1,71 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3. Materials and methods 
+
+3.1. Dataset curation
+
+jitter and mosaic augmentations, while DINO implements random crop 
+and scale augmentation. The original weed images, which were mostly 
+with high resolutions (over 10 megapixels), were resized to the input of 
+800  × 800  pixels,  which  is  compatible  with  model  architectures  and 
+training efficiency. The resizing was done by rescaling the long side of 
+each image to 800 and adding padding to the short side to maintain the 
+original image aspect ratio. All models were trained for 40 epochs with 
+batch  size  8,  which  could  adequately  converge  based  on  empirical 
+observations.
+
+different modules of I3Net.  Unlike training the YOLO models without 
+domain adaptation, a different learning rate scheme was implemented to 
+train the I3Net modules. Considering the embedded noise in unpaired 
+target  domain  images  may  adversely  affect  early-stage  training,  the 
+initial  learning  rate  was  set  to  0.001  for  training  the  I3Net  modules, 
+which  aimed  to  ensure  the  effective  learning  of  source-domain  infor-
+mation, being less disturbed by the target domain images, and thereafter 
+the learning rate was reinitialized to 0.01 to enhance feature adaptation 
+to  the  target  domain.  Other  hyperparameter  settings  remained  as 
+described in Table 2. 
+
+4. Results 
+
+4.1. In-season and cross-season weed detection
+
+Contents lists available at ScienceDirect 
+
+Ecological Informatics 
+
+journal homepage: www.elsevier.com/locate/ecolinf 
+
+Weed database development: An updated survey of public weed datasets 
+and cross-season weed detection adaptation 
+
+Boyang Deng , Yuzhen Lu *, Jiajun Xu 
+
+Department of Biosystems & Agricultural Engineering, Michigan State University, East Lansing, MI 48824, United States of America   
+
+A R T I C L E  I N F O    
+
+A B S T R A C T    
+
+Keywords: 
+Deep learning 
+Domain adaptation 
+Machine vision 
+Precision agriculture 
+Robustness 
+Weed detection
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning pipeline used jitter and mosaic augmentations. Additionally, DINO implemented random crop and scale augmentation. These techniques help improve the robustness and generalization capabilities of the models by introducing variations into the dataset during training. Jitter involves randomly perturbing the pixel values within an image, while mosaic augmentation combines multiple images into one to create new training samples. Random cropping extracts smaller regions from the original images, and scaling adjusts the size of the images.

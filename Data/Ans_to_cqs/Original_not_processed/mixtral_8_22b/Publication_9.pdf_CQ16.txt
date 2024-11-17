@@ -1,0 +1,118 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+tract the foreground pixels from the background pixels at the bound-
+
+aries of the target. Such model training may require hundreds or even 
+
+thousands of relevant example images and may possibly require addi-
+
+tional generations of training. Users should also consider the quality 
+
+of their supplied mask annotations for training dataset images. Care 
+
+should be taken during manual annotation to ensure coordinates re-
+
+flect a smooth boundary delineating the background pixels from the 
+
+foreground  pixels,  rather  than  a  more  jagged,  rough  approximation 
+
+of the target's location within the image. In sum, users interested in 
+
+refining the model for different use cases should anticipate iteratively 
+
+training models with different sized training datasets and parameters 
+
+until suitable performance is achieved.
+
+Overall,  Sashimi  provides  an  extensible  toolkit  for  automating 
+
+and  evaluating  image  segmentation  performance  using  the  power-
+
+specific segmentation models. The full instructions and options are 
+
+cluded in model training are shown in Figure 1.
+
+provided on the GitHub repository.
+
+2.3 | Model training procedure
+
+2.5 | Sashimi online model repository
+
+We first used the VGG Image Annotator Version 1.0.6 (https://www.
+
+We constructed a website to serve as a repository for the fish seg-
+
+robots.ox.ac.uk/~vgg/softw are/via/via- 1.0.6.html;  Dutta  et  al., 
+2016) to manually annotate pixel coordinates to create precise po-
+
+mentation model (presented here) and future, community generated 
+
+organismal  segmentation  models  (https://sashi mi.shawn tyler schwa 
+
+lygonal mask contours directly around the fish body boundary (i.e. 
+
+rtz.com). We aim to inspire other biologists interested in automated 
+
+where the foreground pixels of the target fish body meet those of 
+
+segmentation to create pre- trained models for their organism(s) of 
+
+the background). We intentionally assigned all segmentation masks
+
+All 190 validation images had mean IoU scores >50% (M = 93.8%, 
+SD = 1.4%, minimum = 87.5%, maximum = 96.9%), indicating excellent 
+
+ric on accuracy, F(1.79, 336.75) = 739.53, padj. < 0.001, suggesting 
+that independent of image source (iNaturalist, J.E. Randall), accuracy 
+
+metrics  varied  significantly  from  one  another  (Figure  7).  We  also 
+
+found a significant main effect of image source, F(1, 188) = 60.70, 
+p < 0.001, such that regardless of accuracy metric, images from iNat-
+uralist were generally segmented with higher accuracy (M = 96.5%, 
+SD = 1.1%) than were J.E. Randall's images (M = 95.2%, SD = 0.8%), 
+t(188) = 7.79, Cohen's d = 0.57, padj. < 0.001. Lastly, we uncovered a 
+
+et al.,
+
+select both common and rarer examples of digitized organismal im-
+
+ages reflecting a diverse set of appearances, backdrops, and contexts. 
+
+Gathering images representing high phenotypic and contextual visual 
+
+diversity  should  help  enhance  model  generalizability  and  perfor-
+
+mance in most cases. Over and above training dataset construction is 
+
+considering the iterative nature of model training required to achieve 
+
+performance  suitable  for  one's  specific  needs.  For  instance,  if  an 
+
+ecologist aims to segment the bodies of organisms for a color pattern 
+
+analysis,  images  with  small  visual  artifacts  along  the  boundaries  of 
+
+the body should not expectedly impact downstream analytical goals. 
+
+However, a morphometric analysis aiming to measure landmarks on 
+
+regions at the edge of the body may require more fine- grained model 
+
+tuning  such  that  predicted  segmentation  masks  more  carefully  ex-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about the criteria used to determine when training is complete. However, it can be inferred that the Mean Intersection over Union (IoU) score is used as a metric to evaluate the performance of the model. A threshold of >50% was considered as an indicator of excellent performance. Additionally, the text mentions that the iterative nature of model training is required to achieve performance suitable for one's specific needs, which suggests that the completion of training might depend on achieving satisfactory performance according to the user's requirements.

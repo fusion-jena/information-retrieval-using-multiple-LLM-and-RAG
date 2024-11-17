@@ -1,0 +1,8 @@
+Answer:::
+The deep learning models used in the pipeline are Unet and DeepLabv3+. Both of these models are convolutional neural networks (CNNs) that are widely used for image segmentation tasks.
+
+Unet is a CNN model that incorporates an encoder-decoder structure with shortcut connections, extending upon the end-to-end concept of FCN (Ronneberger et al., 2015). The encoder downsamples the input tensor and encodes it into a vector with reduced dimensions, while the decoder upsamples the tensor back to the original dimensions. The model consists of multiple convolutional blocks, each including a 3 × 3 convolutional kernel layer, batch normalization, and an activation function.
+
+DeepLabv3+, on the other hand, is a CNN model that integrates an asymmetric spatial pyramid pooling (ASPP) architecture within an encoder-decoder framework (Chen et al., 2018b). The encoding stage of the model uses a Mobilenetv2 network featuring expanded convolution, which ensures higher accuracy and enhances the model's lightweight nature. The ASPP module obtains five sets of feature maps using four atrous convolution blocks with varied dilation rates and a global average pooling block. These feature maps are concatenated and passed through a 1 × 1 convolution block before being inputted into the Decoder module.
+
+In summary, Unet and DeepLabv3+ are both CNN models that are commonly used for image segmentation tasks. Unet is known for its ability to achieve accurate results with a smaller number of training samples, while DeepLabv3+ effectively merges multi-scale information using an ASPP architecture.

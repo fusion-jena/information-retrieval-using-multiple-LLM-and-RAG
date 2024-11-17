@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.1. Database structure 
+
+The structure of the database for storing information related to the 
+air quality sensors and the legal stations is shown in Fig. 3. The data 
+model  was  implemented  following  the  standard  “ISO  19156:2011 
+Geographic  information  -  Observations  and  Measurements”  (ISO 
+(2011))  and  the  TAQE  model  defined  for  Traffic  and  Air  Quality  Ap-
+plications in Smart Cities by Martínez et al. (2022). The database is a 
+PostgreSQL database with PostGIS extension to handle geospatial data 
+and Timescale extension to make SQL scalable for time-series data (i.e., 
+sensor measurements). 
+
+At each moment, every device is described by a status and is located 
+at a specific point in the city. The status changes when a device is moved 
+from one location to another to collect measurements in the new loca-
+
+4  https://codeocean.com/capsule/0864495/tree  
+5  https://github. 
+
+com/ChiaraBachechi/AQCalibrationFramework
+
+Fig.  8. Comparison  of  distribution  ranges  of  O3  concentrations  in  the  train 
+(blue)  and  test  (orange)  datasets  for  Exp.1  (on  the  left)  and  Exp.2  (on  the 
+right). (For interpretation of the references to color in this figure legend, the 
+reader is referred to the web version of this article.) 
+
+EcologicalInformatics81(2024)10256813C. Bachechi et al.                                                                                                                                                                                                                               
+
+tree-based ensemble regressors unable to predict the values whose fea-
+tures are outside the training range. However, the VR + SVR model is 
+affected  by  a  more  evident  degradation of  performance through  time 
+and may need more frequent re-calibrations. 
+
+7.2. Out-of-range values
+
+its  past  values  have  decreasing 
+
+For  the  configuration  of  LSTM,  after  evaluating  6,  12,  24,  and  48 
+previous observations in Casarotti (2021), we decided to fix the tem-
+poral window to 12 previous observations (i.e., 2 h of observations) for 
+our use case. Given the selected dimension of the temporal window (x) 
+and the number of features (y), the dataset is reshaped such that each 
+observation consists of x rows and y columns. LSTM was also compared 
+with different RNN architectures such as Multilayer Perceptron (Marius 
+et al. (2009)) and Gate Recurrent Unit (Cho et al. (2014)). LSTM proved 
+to  have  better  results  than  Multilayer  Perceptron,  reducing  RMSE  by 
+5.70% for NO and by 15.23% for NO2, as shown in Casarotti (2021).
+
+In our final model, we combine the VR with the SVR algorithm to 
+manage  out-of-range  observations.  The  SVR  algorithm  is  employed 
+when there is at least one feature out of the range of the training set, 
+while the VR is used in the other cases. An exemplar demonstration of 
+the advantage of using the combination of VR and SVR is reported in 
+
+Fig. 4, where six out-of-range predictions performed by the VR and the 
+SVR model are compared. As can be observed, SVR generally predicts a 
+value more similar to the actual concentration. However, we conducted 
+several tests showing that even if SVR shows better performances for 
+out-of-range observations, VR has generally a lower  RMSE for all the 
+other observations.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Where is the data repository of the deep learning pipeline available (e.g., Zenodo, Figshare, Dryad, GBIF)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: The data repository of the deep learning pipeline is not explicitly mentioned in the given context. Therefore, I cannot provide a direct answer to the query based on the provided information. It would require additional resources or knowledge beyond what is currently presented.

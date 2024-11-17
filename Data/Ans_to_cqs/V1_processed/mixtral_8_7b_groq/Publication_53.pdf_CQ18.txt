@@ -1,0 +1,11 @@
+During the training of the image classification model to identify farm dams, a specific strategy was implemented to monitor the model's performance. This strategy included several steps to ensure the model's accuracy and generalizability.
+
+First, a random subsample of 400 images was manually labeled as "dam" or "not dam" to create a labeled dataset. Then, a classification model was trained using transfer learning, with an ImageNet pre-trained ResNet34 model as the starting point. The labeled data was split into 80% for training and 20% for validation.
+
+To help the model generalize better, data augmentation was applied using the fastai get_transforms function. This function allowed for vertical flipping of images, limiting overexposure, and disabling zooming augmentation. The batch size was set to 300 images, and the model was trained with a learning rate of 10−3 for ten epochs.
+
+At epoch 5, the model's performance was evaluated, achieving an error rate of 0.1538 (15.38%), a validation loss of 0.4211, and a training loss of 0.3521. This evaluation provided insights into the model's performance and helped identify any potential issues or biases in the model's predictions.
+
+Additionally, the model's performance was further monitored by manually checking and fixing any mistakes in the classification of 500 images from the unlabeled training dataset. This process was repeated for all 7362 downloaded images until they were all labeled. This iterative approach allowed for continuous improvement and refinement of the model's performance.
+
+In summary, the strategy to monitor the model's performance during training involved data augmentation, evaluating the model's performance at specific epochs, and manually checking and correcting the model's predictions. This approach helped ensure the model's accuracy and generalizability in classifying farm dams in the images.

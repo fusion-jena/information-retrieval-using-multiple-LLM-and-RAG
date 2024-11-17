@@ -1,0 +1,73 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+EcologicalInformatics82(2024)1027339N. Canovi et al.
+
+Various parameter values, including learning rate (i.e., 0.0001, 0.001,
+0.01, and 0.1), batch size (i.e., 32, 64, 128, 256, and 512), and latent
+dimension (i.e., 128, 256, 512, 2048), have been explored and
+evaluated.
+
+Various combinations of Pmean and Pstd values, along with typical
+hyperparameters of neural networks such as learning rate, batch size,
+and weight decay, were tested and explored. These values were assigned
+using random generators to ensure a more comprehensive evaluation of
+the model's performance. The parameter ranges considered are as fol-
+lows: learning rate = [0.00001, 0.001], batch size = [64, 8192], weight
+decay = [0, 0.59], Pmean = [ (cid:0) 4, 1.8], and Pstd = [0.5, 1.68].
+
+4.4. Recognition with a multilayer perceptron
+
+After training the proposed diffusion model in an unsupervised pre-
+
+During the training of the MLP, Adam optimizer (Kingma and Ba,
+2015) is used, as well as the scheduler which adjusts the learning rate
+when the network reaches a plateau. For the training, various parameter
+values and different regularization techniques were explored, with the
+option of using either Cross-Entropy or Focal Loss (Lin et al., 2017). In
+detail, the learning rate was set to 0.00001 and 0.0001, batch sizes of 8,
+16, 32, and 64 were tested, and weight decay was varied between
+0.0001 and 0.001 with a dropout of 0.1. Additionally, Focal Loss (Lin
+et al., 2017) introduce additional parameters to investigate: α and γ. The
+former serves as a balancing factor, either as a fixed value for all classes
+or as the inverse of each class frequency. The latter regulates the impact
+of the scaling factor; specifically, when set to zero, Focal Loss is equiv-
+alent to Cross-Entropy Loss. We experimented with α set as the inverse of
+
+The results of the 1D-CNN, autoencoder, and the proposed method
+reveal that the models trained with plain Cross-Entropy Loss consistently
+achieve a lower or comparable performance in every metric. This aligns
+with expectations, as both Focal Loss and SMOTE are specifically
+designed to address imbalanced datasets. The models exploiting SMOTE
+obtain the best performance across all metrics. On the other hand, the
+features from (Beyan and Fisher, 2013a; Beyan and Fisher, 2013b)
+combined with SVM yield the lowest results across all combinations.
+
+Table 3
+The best results of each method. CE, FL, F1, and G-mean denote cross-entropy
+loss, focal loss (Lin et al., 2017), F1-score, and the geometric mean of true
+positives and negatives, respectively. Proposed can also refer to “Diffusion +
+MLP”. The best of all results for each metric are given in bold while the second
+best is presented underlined.
+
+Method
+
+Features (Beyan and Fisher,
+2013a; Beyan and Fisher,
+2013b) w/ SVM
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The paper evaluates the performance of the deep learning models using several metrics. These include Cross-Entropy Loss, Focal Loss, F1-score, and the geometric mean of true positives and negatives (G-mean). The results show that the models trained with plain Cross-Entropy Loss achieve lower or comparable performance in every metric compared to those trained with Focal Loss or SMOTE. The models exploiting SMOTE obtain the best performance across all metrics. However, the features from (Beyan and Fisher, 2013a; Beyan and Fisher, 2013b) combined with SVM yield the lowest results across all combinations.

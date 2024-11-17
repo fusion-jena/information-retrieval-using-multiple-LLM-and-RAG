@@ -1,0 +1,85 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+√
+̅̅̅
+ρ
+
+Table 1 
+Benchmarks (in percentage) of our best model without post image processing. 
+Minimum detection confidence scores 0.7 is used.  
+
+Iou threshold = 0.5 
+
+Greenland 
+
+Sweden 
+
+Average precision 
+Average recall 
+
+90% 
+94% 
+
+91% 
+95% 
+
+Kenya 
+
+89% 
+96%  
+
+more the index of aggregation approaches zero. 
+
+3. Results 
+
+3.1. Bacterial abundance
+
+Annotating  dataset  images  is  one  of  the  most  tedious  and  time- 
+consuming  parts  of  the  modelling  process.  The  size  of  the  dataset  is 
+important - a large dataset is needed for model success but it takes a lot 
+more time to label. In order to prepare a larger dataset to generalize the 
+model for the Greenland data, the model was partially trained to learn 
+the data first and then the model itself was used to annotate new data 
+before training it further.  The new  dataset annotated by the  partially 
+trained model contains 540 training images and 141 validation images. 
+The  self-annotation  dataset  was  manually  checked  and  edited  by  a 
+human. As a result, a large dataset can be prepared within a day. Since 
+the  image  quality  taken  from  the  portable  microscope  in  Kenya  was 
+much lower compared to the other two, a small dataset that only con-
+tained images from Kenya was used to fine tune the model for this data.
+
+For  the  purpose  of  evaluating  the  performance  of  the  model,  two 
+standard  metrics  are  used  to  evaluate  the  accuracy  of  the  detection: 
+mean average precision (mAP) and recall. Mean average precision is the 
+average of the weighted mean of precision of each class, and recall is the 
+percentage of correct detected objects out of all the correct targets. In 
+
+EcologicalInformatics81(2024)1025623H. Zou et al.                                                                                                                                                                                                                                     
+
+other words, recall represents the capability of detecting all the all in-
+stances of the target class and mean average precision shows how much 
+we can trust the identified result.
+
+include  flip, rotations  and  affine  transformation. We  then  trained the 
+same dataset with ResNet-101 network with heavier augmentation for 
+500 epochs. It is worth noting that the selection of image augmentations 
+is  of  crucial  importance  to  improve  training  performance.  Multiply, 
+linear  contrast,  sharpen,  emboss,  flip  in  horizontal  and  vertical  di-
+rections,  rotations  and  affine  transformation  were  used  for  heavy 
+augmentation.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't explicit information about the specific strategy implemented to monitor the model performance during training. However, we do have some clues regarding the evaluation methods used after the training phase. Two standard metrics are mentioned for evaluating the performance of the model: mean average precision (mAP) and recall. These metrics help assess the accuracy of object detection. Additionally, the text mentions using a minimum detection confidence score of 0.7 and an IoU (Intersection over Union) threshold of 0.5. While these details provide insight into the evaluation process, they do not directly address the monitoring strategy during training. Therefore, based on the available context, I cannot provide a definitive answer to the query.

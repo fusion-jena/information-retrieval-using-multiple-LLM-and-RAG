@@ -1,0 +1,176 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+All the collected data is divided into three parts: data from 2003 to 
+2020 for training, 2021 data for validation, and 2022 data for testing. 
+We  determine  the  structure  and  hyperparameters  of  the  model  by 
+assessing the effectiveness of validation data forecasts using data from 
+points  A,  B,  and  C.  The  structure  of  all  models,  including  hyper-
+parameters such as kernel size and number of nodes, is determined using 
+a method that controls variables. This involves keeping other variables 
+constant and selecting the parameters that optimize the validation data 
+forecast results as the model’s hyperparameters. Table 1 illustrates the 
+adjustment process of the solver for training the network and the input 
+time  series  length  for  all  models.  In  the  vast  majority  of  cases,  when 
+using  Adam  as  the  solver  for  training  the  network,  the  RMSE  of  the 
+validation data forecasting results is lower. Adam combines the benefits
+
+Table 1 
+The  adjustment  process  of  solver  for  training  network  and  input  time  series 
+length for all deep learning models.  
+
+RMSE (10 μg/L) 
+
+Solver for training network (5 Days) 
+
+Input time series length 
+
+adam 
+
+sgdm 
+
+RMSProp 
+
+3 Days 
+
+7 Days 
+
+CNN 
+
+LSTM 
+
+CNN-LSTM 
+
+A 
+B 
+C 
+A 
+B 
+C 
+A 
+B 
+C 
+
+3.17 
+0.62 
+0.43 
+2.09 
+0.54 
+0.33 
+2.19 
+0.56 
+0.35 
+
+3.23 
+0.67 
+0.44 
+2.13 
+0.55 
+0.33 
+2.20 
+0.57 
+0.38 
+
+3.22 
+0.63 
+0.42 
+2.18 
+0.55 
+0.37 
+2.27 
+0.60 
+0.36 
+
+2.69 
+0.64 
+0.46 
+2.13 
+0.65 
+0.48 
+2.18 
+0.61 
+0.36 
+
+3.32 
+0.63 
+0.41 
+2.13 
+0.57 
+0.73 
+2.21 
+0.52 
+0.34
+
+Season 
+
+Chl (μg/L) 
+
+R2 (n = 3130) 
+
+Winter 
+Spring 
+Summer 
+Autumn 
+
+mean 
+
+1.97 
+2.64 
+2.59 
+2.00 
+
+std 
+
+0.59 
+0.79 
+0.77 
+0.41 
+
+mean 
+
+0.46 
+0.54 
+0.60 
+0.58 
+
+std 
+
+0.26 
+0.21 
+0.16 
+0.18  
+
+However, it is important to acknowledge the limitations of the CNN- 
+LSTM  model.  One  significant  limitation  is  its  potential  difficulty  in 
+handling  complex  sequential  patterns  or  long-range  dependencies, 
+which can hinder its performance, particularly when precise predictions 
+are crucial (Moghimi et al., 2024). Addressing these limitations through 
+the  integration  of  additional  data  sources,  advanced  model  architec-
+tures, and further optimization could pave the way for future improve-
+ments in algal bloom forecasting. 
+
+5. Conclusions
+
+performance compared to other optimizers. This could be a significant 
+reason for the superior performance of Adam. Specifically, in most in-
+stances where Adam is used as the solver and the input time series length 
+is set to 5 days, the RMSE of the validation data forecasting results is 
+lower. Therefore, we adopt Adam as the solver for training the network, 
+with the input time series length set to 5 days. 
+
+2.4. Model training and forecast
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given information, the criteria used to determine when training is complete involve assessing the effectiveness of validation data forecasts. The structure of all models, including hyperparameters such as kernel size and number of nodes, is determined using a method that controls variables. This involves keeping other variables constant and selecting the parameters that optimize the validation data forecast results as the model’s hyperparameters. It is also mentioned that in most instances where Adam is used as the solver and the input time series length is set to 5 days, the RMSE of the validation data forecasting results is lower. However, there is no explicit mention of specific criteria such as validation loss plateau being used to determine when training is complete.

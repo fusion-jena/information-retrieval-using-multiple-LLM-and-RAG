@@ -1,0 +1,64 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+53.  Hernández-García, A. & König, P. Further advantages of data augmentation on convolutional neural networks. ICANN 95–103, 
+
+(2018).
+
+ 54.  Allaire, J. & Chollet, F. keras: R Interface to ’Keras’. R package version 2.3.0.0 (2020).
+ 55.  Allaire, J. & Tang, Y. tensorflow: R Interface to ’TensorFlow’. R package version 2.2.0.9000 (2020).
+ 56.  Hijmans, R. J. raster: Geographic Data Analysis and Modeling. R package version 3.4–5 (2020).
+ 57.  Wei, T. & Simko, V. corrplot: Visualization of a Correlation Matrix. R package version 0.84 (2017).
+
+Author contributions
+T.K. conceived the study and assisted in conducting the experiments. C.S. planned and conducted the experi-
+ments, performed the analyses, and wrote the manuscript. T.K. and S.S. assisted in the analysis and in writing 
+the manuscript. C.B. and A.M.-M. contributed data and helped to interpret the results. All authors provided 
+edits and reviewed the manuscript.
+
+(3)  As a contextual constraint, bioclimatic data (see above) was fed into the CNN with the same model and 
+data configuration including Plasticity in a mixed data approach (‘Worldclim’ in Fig. 2, setup 3 in Fig. 1). 
+4) We tested an Ensemble approach, in which two more state-of-the-art model architectures, namely 
+ Xception51 and MobileNetV2, the latter with halved number of trainable  parameters52, were trained on the 
+configuration of setup 3, and their predictions were subsequently averaged (’Ensemble’ in Fig. 2, setup 4 in 
+Fig. 1). These models differed strongly in their number of trainable weights, resulting in a different depth. 
+The final model performance was assessed using a 3-fold cross-validation, with three different training, 
+validation and test splits. To enable a comparison of model performance across traits, the resulting mean 
+absolute error (MAE) was normalised by division over the range of the target values of the respective test
+
+Currently, this approach is hampered by the lack of a dataset comprising plant photographs with matching 
+trait measurements that cover the global plant functional spectrum. In recent years, however, global data initia-
+tives and citizen science projects have emerged as a strongly growing data source, which builds upon the collec-
+tive effort of the scientific  community14,15. Consequently, we employ a weakly supervised learning approach that 
+combines the independent data sources of (1) the iNaturalist database providing a worldwide record of millions 
+of plant photographs including taxa and  geolocations16 and (2) the TRY database containing more than 11 mil-
+lion trait measurements across more than 270,000  taxa7.
+
+Vol.:(0123456789)www.nature.com/scientificreports/Training  process  and  hyperparameters. 
+In  order  to  build  upon  a  pre-existing  knowledge  base,  we 
+employed  ’transfer  learning’  by  using  pre-trained  layer  weights  (the  storage  of  the  model’s  knowledge)  from 
+a classification task on a dataset on www. image- net. org38 for all CNN models used in this study. The regressor 
+following the basic CNN consisted of a global average pooling layer followed by two dense layers with 512 and 1 
+output units. The latter forces the CNN to output exactly one prediction (trait) value. In case of the mixed data 
+model (setups (3) and (4)), the CNN consisted of parallel branches to incorporate the different input data types. 
+The branch processing the bioclimatic data consisted of three dense layers with 64, 32 and 4 output units, and 
+the last layer of the CNN regressor contained 4 output units. After concatenating the two branches (image and
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data annotation techniques used in the deep learning pipeline (e.g., bounding box annotation, instance segmentation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there is no explicit mention of specific data annotation techniques such as bounding box annotation or instance segmentation being used in the deep learning pipeline. However, it can be inferred that some form of labeling or annotation must have been applied to the datasets used in the study, considering they employed various machine learning models like CNNs, Xception51, and MobileNetV2.
+
+Moreover, the text mentions the use of transfer learning, where pre-trained layer weights from a classification task on ImageNet were utilized for all CNN models. This implies that the original ImageNet dataset had undergone some sort of annotation process beforehand. Additionally, the study employs a weakly supervised learning approach combining data from the iNaturalist database and the TRY database, suggesting that these databases contain labeled information about plant photographs and trait measurements respectively.
+
+However, without further details regarding the exact nature of the labels or annotations used in the mentioned databases, it is not possible to provide a definitive list of data annotation techniques used in the deep learning pipeline.

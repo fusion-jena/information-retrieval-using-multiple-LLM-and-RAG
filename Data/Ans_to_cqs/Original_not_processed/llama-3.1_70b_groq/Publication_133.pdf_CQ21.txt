@@ -1,0 +1,16 @@
+Answer:::
+
+The provided context does not explicitly mention postprocessing steps such as saliency maps. However, it does describe the calculation of metrics and the construction of a confusion matrix.
+
+After model training, the context mentions that the model's quality is evaluated by comparing its predictions with the ground truth. The metrics of model quality are based on the class labels and their associated confidence scores. Specifically, the context mentions that three out of the four elements of a confusion matrix are calculated: false positives (FP), false negatives (FN), and true positives (TP).
+
+To calculate these metrics, the context describes the following steps:
+
+1. Counting boxes labeled either by the model, the expert, or both of them.
+2. Defining two thresholds: TIoU (the lowest IoU that is considered meaningful object detection) and Tcs (the lowest confidence score that is considered reliable).
+3. Varying Tcs over the 0 to 1 range to obtain different TP, FP, and FN values, depending on how restrictive the prediction is.
+4. Considering a prediction as TP if it shares a label with an observed box and meets the defined thresholds.
+
+Additionally, the context mentions that the model's average precision (AP) is calculated and plotted over the number of training epochs. The mean AP (mAP) over the three insect classes is also calculated and plotted.
+
+Overall, the postprocessing steps mentioned in the context are primarily focused on evaluating the model's performance using metrics such as TP, FP, FN, AP, and mAP.

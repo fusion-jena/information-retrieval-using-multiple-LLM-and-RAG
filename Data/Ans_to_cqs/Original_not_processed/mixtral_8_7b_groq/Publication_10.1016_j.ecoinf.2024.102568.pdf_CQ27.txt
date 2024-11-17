@@ -1,0 +1,9 @@
+The text provided does not give a detailed description of the process followed to deploy the trained deep learning model. However, it does give some insights into the steps that could have been taken.
+
+First, the LSTM model was trained using the mean squared error as the loss function and the ADAM optimization. To avoid overfitting, a dropout layer was added as a regularization method. The training set was pre-processed using a MinMaxScaler that transformed each feature to a [0–1] range. The temporal window dimension was selected dynamically based on the performance obtained with different values on the available dataset.
+
+After training, the model could have been serialized for deployment. Model serialization is the process of saving the model architecture and learned parameters to disk, so that it can be loaded and used later without having to retrain the model. There are several libraries and frameworks that can be used for model serialization, such as TensorFlow's SavedModel or PyTorch's torch.save().
+
+As for platform selection, the text does not provide specific details about where the model was deployed. However, it does mention that the database used to store the air quality information is a PostgreSQL database with PostGIS extension to handle geospatial data and Timescale extension to make SQL scalable for time-series data. It is possible that the model was deployed on a server or cloud infrastructure, where it could receive real-time data from the air quality sensors and legal stations, process the data using the trained model, and store the results in the database.
+
+In summary, while the text does not provide a detailed description of the process followed to deploy the trained deep learning model, it does suggest that the model was serialized for later use and deployed on a server or cloud infrastructure with a PostgreSQL database for storing the results.

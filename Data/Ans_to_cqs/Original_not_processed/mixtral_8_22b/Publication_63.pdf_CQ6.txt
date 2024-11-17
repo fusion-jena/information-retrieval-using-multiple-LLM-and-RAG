@@ -1,0 +1,52 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Vol.:(0123456789)www.nature.com/scientificreports/Training  process  and  hyperparameters. 
+In  order  to  build  upon  a  pre-existing  knowledge  base,  we 
+employed  ’transfer  learning’  by  using  pre-trained  layer  weights  (the  storage  of  the  model’s  knowledge)  from 
+a classification task on a dataset on www. image- net. org38 for all CNN models used in this study. The regressor 
+following the basic CNN consisted of a global average pooling layer followed by two dense layers with 512 and 1 
+output units. The latter forces the CNN to output exactly one prediction (trait) value. In case of the mixed data 
+model (setups (3) and (4)), the CNN consisted of parallel branches to incorporate the different input data types. 
+The branch processing the bioclimatic data consisted of three dense layers with 64, 32 and 4 output units, and 
+the last layer of the CNN regressor contained 4 output units. After concatenating the two branches (image and
+
+extracted a random sample of 10% of the dataset of each trait before model training. This ‘test dataset’ was not 
+involved in the training process and exclusively served for the independent evaluation of the trained models. 
+The remaining data was split into ’training dataset’ and ’validation dataset’ by a ratio of 4:1 (Table 1). The train-
+ing dataset was employed to train the weights of the CNN model, whereas the validation dataset indicated the 
+training progress after each full training cycle (’epoch’).
+
+For the training process, a batch size of 20 images and an RMSprop optimiser with a learning rate of 0.001 and 
+a learning rate decay of 0.0001 was used. The chosen loss function was mean squared error, while the prediction 
+accuracy was quantified by the MAE of the respective dataset. The MAE of the validation dataset was computed 
+after each epoch. Models were trained until the validation MAE did not further improve compared to the preced-
+ing epochs and diverged from the training MAE (’overfit’). The trained model was then applied to the test dataset.
+All CNN were implemented using the Keras API version (2.3.0.0)54 and the TensorFlow backend (version 
+2.2.0)55 in R (version 3.6.3)23. Model training was undergone on a workstation with two CUDA-compatible 
+NVIDIA GPUs (GeForce RTX 2080 Ti, CUDA version 11.0).
+
+(3)  As a contextual constraint, bioclimatic data (see above) was fed into the CNN with the same model and 
+data configuration including Plasticity in a mixed data approach (‘Worldclim’ in Fig. 2, setup 3 in Fig. 1). 
+4) We tested an Ensemble approach, in which two more state-of-the-art model architectures, namely 
+ Xception51 and MobileNetV2, the latter with halved number of trainable  parameters52, were trained on the 
+configuration of setup 3, and their predictions were subsequently averaged (’Ensemble’ in Fig. 2, setup 4 in 
+Fig. 1). These models differed strongly in their number of trainable weights, resulting in a different depth. 
+The final model performance was assessed using a 3-fold cross-validation, with three different training, 
+validation and test splits. To enable a comparison of model performance across traits, the resulting mean 
+absolute error (MAE) was normalised by division over the range of the target values of the respective test
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Before training a deep learning model, several preprocessing steps can be involved depending on the nature of the data and the specific requirements of the model. However, based on the given context, there is no explicit mention of any specific preprocessing steps such as normalization, scaling, or cleaning. Instead, it focuses on the use of transfer learning, where pre-trained layer weights from a previous classification task on ImageNet are utilized for all Convolutional Neural Network (CNN) models in this study. Additionally, the context mentions the architecture of the CNN models, including the use of global average pooling, dense layers, and parallel branches for handling different input data types. It also discusses the splitting of the dataset into training, validation, and test datasets, along with details about the training process, such as the choice of optimizer, learning rate, loss function, and metrics for evaluating the model's performance. Therefore, without additional information regarding the specific preprocessing steps taken for this particular study, I cannot provide a detailed response to the query.

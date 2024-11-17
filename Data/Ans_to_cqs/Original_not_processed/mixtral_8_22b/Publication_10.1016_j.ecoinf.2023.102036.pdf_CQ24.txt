@@ -1,0 +1,97 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+number  of  classes  to  be identified)  and  the  second term  refers  to  the 
+small amount of K labelled images in each category. To overcome the 
+limitation  in  the  dataset  size,  we  exploit  existing  deep  learning  tech-
+niques in combination with statistical fundamentals.
+
+Table 1 
+Model training optimized parameters.  
+
+Parameter 
+
+Nomenclature 
+
+Search interval 
+
+Learning 
+rate 
+
+Momentum 
+SD threshold 
+Input size 
+
+μ 
+
+β 
+σ 
+s 
+
+[10
+
+(cid:0) 5, 10
+
+(cid:0) 2] 
+
+[0,1] 
+[0.05, 0.25] 
+{(75, 125, 3), (100, 150, 3), 
+(200, 250, 3)} 
+
+Optimized 
+value 
+
+0.096 
+
+0.845 
+0.05 
+(200, 250, 3)  
+
+Each optimization run consisted of 3000 train iterations with a batch 
+size of 25 individuals to pick a pair of similar and a pair of dissimilar 
+photos (i.e., a batch size of 100 images), and validating each 300 iter-
+ations. TensorBoard —a set of visualization tools included in the open- 
+source  library  for  machine  learning  TensorFlow—  was  used  to  study 
+the performance of the runs. The selected parameters correspond to the 
+run shown in Supplementary Fig. S3. 
+
+3. Results
+
+standard  for  most  research  teams  which  are  becoming  familiar  with 
+deep learning approaches.
+
+This  system  was  built  under  Python  3.9.5  using  TensorFlow  2.4.1 
+and training was performed on an Intel(R) Core(TM) i9-9900K CPU @ 
+3.60GHz processor and 32GB RAM memory. Learning was performed 
+with Stochastic Gradient Descendent (SGD) method, optimizing its pa-
+rameters (learning rate and momentum) and binary cross-entropy as a 
+loss function. The algorithm was also asked to exceed a certain threshold 
+of variability in its predictions, i.e., that the standard deviation of the 
+predicted probabilities exceeds a certain threshold —to be tuned—  so 
+that the output of the classifier is not almost the same for all images that 
+feed  the  model.  Moreover,  the  input  image  size  was  optimized,  since 
+there is a trade-off between the information provided by large resolu-
+tions and the number of weights of the network that need to be trained. 
+The parameters were tuned with Bayesian optimization (Snoek et al.,
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't any explicit mention of strategies employed to handle randomness in the deep learning pipeline, such as managing random seed values. However, some implicit strategies can be inferred from the details provided about the model training process.
+
+Firstly, the use of Stochastic Gradient Descent (SGD) as the learning method suggests that the model incorporates some level of randomness during training. In SGD, the gradient descent algorithm uses only one or a few samples to calculate the gradient instead of the entire dataset, introducing an element of randomness into the learning process. This helps prevent overfitting and improves generalization.
+
+Secondly, the context mentions that the algorithm was asked to exceed a certain threshold of variability in its predictions. This implies that the model was designed to account for some degree of uncertainty or randomness in its outputs. By setting a minimum standard deviation threshold for predicted probabilities, the model ensures that it does not produce nearly identical results for different inputs, thereby reducing the impact of randomness on the final classification outcome.
+
+Lastly, the optimization of input image sizes indicates another strategy to manage randomness indirectly. Larger input sizes provide more detailed information but require more computational resources and increase the risk of overfitting due to excessive complexity. Conversely, smaller input sizes may lead to loss of important features and potentially introduce more noise or randomness into the model. Therefore, finding an optimal balance between these factors through input size optimization can help mitigate the effects of randomness on the overall performance of the deep learning pipeline.

@@ -1,0 +1,79 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The most signiﬁcant variation of performance is concerning the number of parameters
+and with training and inference time. Despite being the best architecture in performance,
+According to Table 2, DeepLabv3+ needed more parameters than the other architectures,
+about 2.75 times more parameters than the U-Net, the least requiring one. The need for a
+more signiﬁcant number of parameters often implies a higher demand for training samples
+that our dataset or another dataset may not have met that the methods present in this
+research paper may be applied, possibly causing the DeepLabV3+ architecture to perform
+below its potential.
+
+Remote Sens. 2021, 13, 3054
+
+11 of 19
+
+Figure 11. Convergence of the evaluated networks.
+
+Table 2. Number of Parameters and Processing Time of the proposed approaches. The training time
+represents the results for the test set of each method. The inference time stands for the time taken by
+each model to make predictions for each image.
+
+Method
+
+FCN
+
+U-Net
+
+SegNet
+
+We adopted the same training/trial protocol for all CNNs. All networks used in
+this research have been trained from scratch (i.e., without pre-trained weights from other
+datasets, like ImageNet, for example). We used 1938 input patch sizes of 256 × 256 pixels,
+with 388 patches for the test, 1162 for train, and 388 for validation, a distribution of approx-
+imately 20%, 60%, and 20% respectively. It is important to note that additional input patch
+sizes were tested in an experimental phase, but the results did not change considerably
+and only increased the training time. All approaches used the same set of hyperparam-
+eters during training, which was deﬁned based on previous analyses. Speciﬁcally, the
+learning rate, weight decay, momentum, and iterations were 0.01, 0.005, 0.9, and 200,000,
+respectively. The model is optimized using stochastic gradient descent (SGD). To assist
+the convergence process and prevent overﬁtting (Overﬁtting is a concept used to refer to a
+
+Remote Sens. 2021, 13, 3054
+
+8 of 19
+
+Figure 9. Schematic diagram of the evaluation process.
+
+All deep learning-based models exploited in this work were implemented using the
+TensorFlow [51], a Python framework conceived to allow efﬁcient analysis and implemen-
+tation of deep learning with Graphics Processing Units (GPUs). All experiments conducted
+here were performed on a 64-bit Intel i7-8700K@3.70GHz CPU workstation, 64 GB memory,
+and NVIDIA® GTX 1080 GPU with 12Gb of memory, under a 10.0 CUDA version. Debian
+4.195.98-1 version was used as the operating system.
+
+2.2.2. Evaluation Metrics
+
+model that adjusts too well to the training data, but it does not generalize to the unseen
+before dataset, i.e., a test dataset), after 50,000 iterations, the learning rate was reduced
+following an exponential decay parameter of 0.5 by an SGD scheduler. Aside from this,
+we used rotation, noise, and ﬂip (as in [50]) for data augmentation, and we were capable
+of augmenting the dataset by six times. With the data augmentation technique, we can
+make the CNN classiﬁcation more robust and generalize better. In Figure 9, we can see the
+schematic diagram for the evaluation process.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The authors do not explicitly mention any specific datasets such as MNIST, CIFAR, or ImageNet. However, they state that they used their own dataset consisting of 1938 input patch sizes of 256 x 256 pixels, with 388 patches for testing, 1162 for training, and 388 for validation. This distribution represents approximately 20%, 60%, and 20% of the total dataset, respectively. They also mentioned that they experimented with different input patch sizes, but the results did not significantly improve, so they decided to use the current size. Additionally, they employed data augmentation techniques such as rotation, noise, and flip to increase the dataset by six times, making the CNN classification more robust and improving its ability to generalize.

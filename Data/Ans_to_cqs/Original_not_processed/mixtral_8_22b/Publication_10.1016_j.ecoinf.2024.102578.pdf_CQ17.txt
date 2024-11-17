@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+shown to reduce the processing time of image classification load by as 
+much as 5× to 13× depending on the tasks (Fennell et al., 2022; Henrich
+
+3.2. Image quality classification: Training dataset and model training 
+
+Using the manual classifications, we randomly selected images from 
+each site, camera, and year, to obtain ~15,000 images of Bad quality 
+and  ~  57,000  images  of  Good  quality  for  each  location  (Finnmark 
+2016–2018 and 2020–2021 and Yamal 2017–2021). These images were 
+then  reexamined  by  GC  and  DE,  and  any  misclassified  images  were 
+removed or reclassified. We also excluded marginal images (e.g., partly 
+blurred images, images where an animal is only visible with a tail in a 
+
+Table 2 
+Total number of images per classification group as assessed manually in Finn-
+mark  and  Yamal  (N),  together  with  median  and  mean  (standard  deviation) 
+percentage of images for each individual camera trap per year. The total dataset 
+(workflow development and independent validation) comprised 36 cameras at 5 
+sites for 6 years in Finnmark and 9 or 10 cameras for 6 years in Yamal.  
+
+Location 
+
+Class ID
+
+Separate  two-class  models  were  trained  for  Finnmark  and  Yamal 
+using  the  keras  package  in  R  (Allaire  and  Chollet,  2023)  with  a  Ten-
+sorFlow  backend (Allaire  and Tang,  2023).  Preliminary trials  showed 
+that region-specific models performed better. The ResNet-50 architec-
+ture, a convolutional neural network that is 50 layers deep (He et al., 
+2015), was used to train the models with 55 epochs (number of times the 
+algorithm goes through the entire training data set) and a batch size of 
+64  (number  of  samples  to  work  through  before  updating  model  pa-
+rameters)  with  a  one-cycle  learning  rate  (hyperparameter  controlling 
+model  response  to  estimated  error  each  time  the  model  weights  are 
+updated) policy with a minimum of 0.000001 and a maximum of 0.001 
+(Smith, 2018).
+
+2. Workflow 
+
+The multi-step, semi-automated workflow proposed here (Fig. 1) is 
+adapted from B¨ohner et al., 2023, including pre-processing of images, 
+model  training,  classification,  manual  quality  checks,  and  final  data 
+formatting. Specifically, we build on the results of Rigoudy et al. (2022) 
+and  Fennell  et  al.  (2022),  who  combined  MegaDetector  with  manual 
+classification and custom-trained models. The workflow consists of the 
+following two classification steps in addition to pre-processing of images 
+and  final  manual  inspection,  quality  control,  and  data  formatting 
+(Fig. 1). 
+
+2.1. Classification 1 – Image quality and animal presence/absence
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there is no explicit mention of specific regularization methods used to prevent overfitting in the deep learning pipeline. However, some common techniques include dropout, L2 regularization, early stopping, and data augmentation. Dropout involves temporarily removing random neurons during training to prevent complex co-adaptations between them. L2 regularization adds a penalty term to the loss function to discourage large weights. Early stopping stops training when performance on a validation set starts degrading. Data augmentation generates new training examples by applying transformations such as rotation, scaling, and flipping to existing ones. It is possible that these or other methods may have been employed but not explicitly mentioned in the provided text.

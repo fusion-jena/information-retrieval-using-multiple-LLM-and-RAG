@@ -1,0 +1,220 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+vancements in deep learning to enhance performance. Specifically, our 
+MLP architecture consists of four layers, each containing 512 neurons 
+and connected with residual connections (He et al., 2016). We employ 
+batch normalization (Ioffe and Szegedy, 2015) and the Rectified Linear 
+Unit (ReLU) activation function in all layers except the final one, where 
+instead a sigmoid function is used to enable multi-label classification. 
+The model is trained with a batch size of 256 for 30 epochs using the 
+AdamW optimizer (Loshchilov and Hutter, 2017). Both the weight decay 
+and learning rate are set to 0.0001. Additionally, we employ a learning 
+rate scheduler with exponential decay of 0.95, and introduce dropout
+
+3.5. Evaluation and baselines
+
+Table B.4 
+Mean AUC performance of other alternative ML loss functions. The performance is averaged over 10 random seeds.   
+
+CE 
+weighted CE 
+Focal CE (γ = 0.5) 
+Focal CE (γ = 1) 
+Focal CE (γ = 2) 
+Focal CE (γ = 5) 
+Focal full weighted (γ = 0.5) 
+Focal full weighted (γ = 1) 
+Focal full weighted (γ = 2) 
+Focal full weighted (γ = 5) 
+LDAM (C = 0.1) 
+LDAM (C = 1) 
+LDAM (C = 10) 
+DB loss (λ = 3) 
+DB loss (λ = 5) 
+Entmax (α = 0.01) 
+Entmax (α = 0.05) 
+Entmax (α = 0.1) 
+Full weighted (λ2 = 0.5) 
+Full weighted (λ2 = 0.8) 
+Full weighted (λ2 = 1) 
+
+AWT 
+
+0.663 
+0.670 
+0.663 
+0.663 
+0.662 
+0.660 
+0.680 
+0.686 
+0.689 
+0.682 
+0.663 
+0.662 
+0.648 
+0.669 
+0.668 
+0.665 
+0.680 
+0.676 
+0.698 
+0.704 
+0.696 
+
+CAN 
+
+0.718 
+0.706 
+0.718 
+0.718 
+0.718 
+0.719 
+0.684 
+0.682 
+0.678 
+0.665 
+0.718 
+0.718 
+0.719 
+0.704 
+0.698 
+0.687 
+0.697 
+0.683 
+0.650 
+0.696 
+0.714 
+
+NSW
+
+0.179 
+0.176 
+
+0.179 
+
+0.285 
+0.299 
+
+0.319 
+
+0.238 
+
+0.296 
+0.311 
+
+0.318 
+
+0.320 
+
+0.318 
+
+0.314 
+
+0.318 
+
+0.208 
+0.264 
+0.267 
+
+0.310 
+
+0.222 
+0.249 
+
+0.264 
+
+0.274 
+
+0.280 
+
+0.283 
+
+0.283 
+
+0.184 
+0.228 
+0.232  
+
+0.203 
+
+0.184 
+0.210 
+
+0.225 
+
+0.233 
+
+0.237 
+0.236 
+
+0.240   
+
+Table C.8 
+Mean area under the precision-recall gain curve (AUPRG) over the species. The best mean AUPRG in each column is highlighted in bold, while the second-best mean 
+AUPRG is underlined.   
+
+AWT 
+
+CAN 
+
+NSW 
+
+NZ 
+
+SA 
+
+SWI 
+
+avg 
+
+Cole et al. (2023) losses 
+SSDL loss, i.e., λ1 = S and λ2 = 0 
+SLDS loss, i.e., λ1 = S and λ2 = 1 
+Full loss, i.e., λ1 = S/2 and λ2 = 0.5 
+
+Full weighted loss (ours) 
+λ1 = 1 and λ2 = 0.8, without ws 
+λ1 = 1 and λ2 = 0, with ws 
+λ1 = 1 and λ2 = 0.2, with ws 
+λ1 = 1 and λ2 = 0.4, with ws 
+λ1 = 1 and λ2 = 0.6, with ws 
+λ1 = 1 and λ2 = 0.8, with ws 
+
+0.346 
+0.411 
+0.410 
+
+0.339 
+0.291 
+0.340 
+0.385 
+0.427 
+
+0.456 
+
+(cid:0) 1.606 
+(cid:0) 0.333 
+(cid:0) 0.552
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The evaluation of the deep learning model's performance is primarily based on two main metrics mentioned in the given context: Mean Area Under the Precision-Recall Curve (AUPRC) and Mean Area Under the Receiver Operating Characteristic Curve (AUROC), also known as Mean Average Precision (MAP) and Mean Average Recall (MAR), respectively. These metrics are used to assess the model's ability to accurately classify or predict outcomes.
+
+In Table C.8, the Mean AUPRC is presented for different datasets (AWT, CAN, NSW, NZ, SA, SWI) and various loss functions, including Cole et al.'s losses, SSDL loss, SLDS loss, Full loss, and Full Weighted Loss. This table highlights the best and second-best performing models based on their respective Mean AUPRC scores.
+
+Additionally, Table B.4 presents the Mean AUROC performance of several alternative Machine Learning (ML) loss functions, such as Cross Entropy (CE), Focal CE, LDAM, DB loss, Entmax, and Full Weighted. Each loss function has its own hyperparameters, which can be adjusted to improve the model's performance. The results are averaged over 10 random seeds to ensure reliable comparisons between the methods.
+
+Overall, these tables demonstrate how the chosen loss functions impact the model's performance across multiple datasets and provide insights into selecting the most suitable loss function for specific tasks.

@@ -1,0 +1,95 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Opposite to other families of ML models that have a narrow range of 
+hyperparameters  to  adjust,  ANN  are  defined  by  different  types  of 
+hyperparameters,  which  together  with  the  computational  cost  of 
+training deep ANN, restricts the options to optimize. On the one hand, 
+we have the hyperparameters that define the architecture of the ANN 
+(number of layers and number of neurons), while on the other hand we 
+have the hyperparameters that control de training process (mainly the 
+learning rate, the optimizer, the batch size and the number of epochs 
+that the training lasts). In order to avoid an exhaustive search that could 
+consume a lot of time, a small dimensional space was initially defined 
+and  explored  with  the  original variables.  The initial  hyperparameters 
+that composed this space are shown in Table 1. The number of epochs 
+was maintained in 500 as it proved to guarantee the stabilization of the
+
+Data-driven models are an alternative type of models, among which 
+machine learning and deep learning (ML and DL) models stand out in 
+recent years. According to Lee et al. (2023) data-driven models applied 
+to freshwater ecosystems have been mainly focused on phytoplankton, 
+while there is a lack of research in modelling future changes, such as 
+climate change and subsequent changes in habitat conditions. A good 
+example of a data-driven model focused on algal blooms prediction is 
+that  presented  by  Miura  et  al.  (2023).  Nonetheless,  there  are  several 
+examples in the scientific literature about ML or DL models designed to 
+predict the temperature profile in water masses. Liu and Chen (2012) 
+developed ML models based on Artificial Neural Networks (ANN) using 
+as inputs meteorological conditions to predict the temperature in the 3 
+
+Fig. 1. Map of the study site. Made with QGIS, data by OpenStreetMap.
+
+The result of this process was added to the dataset as a new cate-
+gorical binary variable that stored the existence of stratification or not 
+(took the value of 0 when the reservoir was not stratified and 1 when it 
+was stratified). 
+
+2.5.3. Forecasting ML models 
+
+A classification model was designed in order to detect if there existed 
+
+Table 1 
+Initial hyperparameters space.  
+
+Initial hyperparameters space 
+
+Hyperparameters 
+
+Values 
+
+Layers 
+
+Number of neurons of the dense layer 
+Dropout rate of the dropout layer 
+Learning rate 
+Batch size 
+
+1 dense layer, 1 dense layer +1 dropout 
+layer 
+32, 64 
+0.2, 0.4 
+(cid:0) 3, 10
+10
+32, 64  
+
+(cid:0) 4
+
+An ANN is composed of layers of neurons connected among them. 
+The  ANN  architecture  implemented  in  this  work  includes  sequential 
+dense  layers  and  dropout  layers.  Dense  layers  are  those  in  which  each 
+neuron of a layer is connected to all the neurons of the previous layer. 
+Each neuron receives a stimulus (an input) which is processed to pro-
+duce  a  response  (an  output).  This  processing  consists  of  assigning  a 
+weight to each input. Once these weights are calculated, the product of 
+each input and its associated weight (plus a bias) is added, and then an 
+activation function must be applied to obtain the output. Dropout layers 
+are used to prevent overfitting and they work by randomly setting the 
+inputs  to  0  with  a  given  frequency  rate,  which  is  another  hyper-
+parameter to tune, at each step during the training. Each dense layer has 
+an  associated  activation  function.  As  activation  function,  the  widely
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the purpose of the deep learning model (e.g., classification, segmentation, detection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The purpose of the deep learning model in this case is for classification. Specifically, the model is designed to classify whether there exists stratification in the reservoir or not. Stratification refers to the layering of water due to differences in density caused by factors like temperature or salinity. The model takes into account various meteorological conditions as inputs and outputs a categorical binary variable indicating the presence or absence of stratification.

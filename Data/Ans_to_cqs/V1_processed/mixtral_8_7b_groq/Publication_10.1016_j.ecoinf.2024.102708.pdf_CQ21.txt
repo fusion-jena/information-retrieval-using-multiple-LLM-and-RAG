@@ -1,0 +1,15 @@
+After the model training, there are several postprocessing steps involved, including metrics calculation and the creation of a confusion matrix. However, there is no mention of saliency maps in the provided context.
+
+Once the model training is complete, the validation loss curve metrics are used to select the best model. In this case, the model with the lowest validation loss at the end of epoch 6 was chosen.
+
+Next, the two independent validation datasets for each study site are used to calculate the result metrics. A positive detection is identified when the Intersection over Union (IoU) is greater than 0.5, meaning that the detection overlaps with a true Pacific oyster by more than 50% of the bounding boxes.
+
+Based on this criterion, each detection is classified as one of three categories: True Positive (TP), False Positive (FP), or False Negative (FN). A True Positive is a successfully detected Pacific oyster, while a False Positive is a detection that is not a Pacific oyster, and a False Negative is a Pacific oyster that was not detected.
+
+Using these classifications, a confusion matrix can be created, which provides a visual representation of the model's performance. The confusion matrix shows the number of True Positives, False Positives, True Negatives, and False Negatives.
+
+From the confusion matrix, several metrics can be calculated, including precision, recall, and F-score. Precision is the ratio of True Positives to the sum of True Positives and False Positives, while recall is the ratio of True Positives to the sum of True Positives and False Negatives. The F-score is the harmonic mean of precision and recall, which provides a single metric that balances both precision and recall.
+
+In the provided context, the F-score, Standard Error of Precision, Confidence Interval of Precision, Standard Error of Recall, and Confidence Interval of Recall are reported for four different models: FRCNN, TPH-YOLOv5, YOLOv5s, and YOLOv5m. These metrics are calculated for both study sites, Collapit Mudflat (Site A) and Scoble Point Rocky Shore (Site B).
+
+Therefore, the postprocessing steps involved after the model training include selecting the best model based on validation loss, calculating result metrics using a positive detection criterion, creating a confusion matrix, and calculating precision, recall, and F-score.

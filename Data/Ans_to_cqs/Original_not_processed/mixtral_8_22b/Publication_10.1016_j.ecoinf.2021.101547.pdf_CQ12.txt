@@ -1,0 +1,69 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The  mini-batch  size  is  user-adjustable  (typically  in  binary-number 
+increments,  e.g.  2,  4,  8,  16,  32,  etc.)  depending  on  the  data  set.  Too 
+small  a  mini-batch  size  may  provide  insufficient  image  data  for  the 
+network  to  meaningfully  learn from  some or  all  of  the  classes  within 
+each iteration, while too large a mini-batch size may cause the network 
+to  overfit  to  the  training  images.  Because  of  the  high  computational 
+complexity  of  the  deep  learning  process,  the  mini-batch  size  is  ulti-
+mately limited by the amount of memory available to the GPU (in our 
+case 8 GB), factoring in the size of the images (in our case 224 × 224 
+pixels × 3 bands) and the number of internal parameters in the network 
+(25.6 million in the case of ResNet-50). Thus, we were limited to mini-
+
+2.2. Deep learning tools, principles and practicalities 
+
+We  performed  all  deep  learning-related  operations  in  MATLAB 
+2020b  (MathWorks  Inc.,  Natick,  MA,  USA)  equipped  with  the  Image 
+Processing,  Computer  Vision,  Deep  Learning,  and  Parallel  Computing 
+toolboxes. CNN training and image classification operations were pro-
+cessed  on a  GeForce RTX  2070 Super  graphics processing  unit (GPU) 
+(Nvidia Corp., Santa Clara, CA, USA) with 8 GB of memory. 
+
+As the foundation of our CNN for detecting polar bears, we used the 
+freely available residual network ResNet-50 (He et al., 2016), which has 
+been  pre-trained  on  >1  million  images  from  the  ImageNet  database 
+(http://www.image-net.org)  to  recognize  1000  categories  of  common 
+objects,  including  numerous  animals.  Although  the  vast  majority  of 
+these images are of an entirely different nature and/or visual perspective
+
+2.4.4. Other CNN modifications 
+
+The only modifications we made to the pre-trained ResNet-50 net-
+work's architecture prior to training it with our images were to replace 
+the last learnable layer with a custom learnable layer defining the two 
+classes  of  interest—which  is  required  to  fine-tune  a  pre-trained 
+CNN—and  replace  the  final  classification  layer  with  a  custom 
+weighted classification layer to assign differing weights to the classes. 
+We  also  froze  the  ‘stem’  (aka  ‘backbone’)  of  the  network  (Xu  et  al., 
+2020), which for ResNet-50 corresponds to the first four layers before
+
+The  diversity  of  considerations  and  possibilities  for  improvement 
+highlights another general challenge of using deep learning at present: 
+as a still-burgeoning technology, optimized or standardized approaches 
+for different analysis tasks are not yet well-established, so the range of 
+possibilities  can  seem  overwhelming,  especially  to  non-expert  users. 
+Even the basic training options, some of which are listed in Table 1, are 
+numerous and highly technical. A sensible approach is to initially set 
+options based on a review of published studies involving similar analysis 
+tasks,  then  attempt  to  refine  certain  settings  through  trial  and  error. 
+However,  it  should  also  be  noted  that  the  computationally  laborious 
+process of training a CNN (several hours to several days of background 
+processing) imposes a practical limit on the extent of trial and error that 
+can  be  undertaken.  Nevertheless,  deep  learning  is  now  clearly  over-
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The deep learning model used in this pipeline is a Convolutional Neural Network (CNN). Specifically, they use the freely available residual network called ResNet-50, which was pre-trained on more than one million images from the ImageNet database. This network has been trained to recognize 1000 categories of common objects, including various animals. The authors modified the pre-trained ResNet-50 network by replacing the last learnable layer with a custom learnable layer defining their two classes of interest and replaced the final classification layer with a custom weighted classification layer to assign varying weights to the classes. They also froze the'stem' of the network, corresponding to the first four layers before any convolution occurs. All deep learning-related operations were carried out in MATLAB 2020b equipped with the Image Processing, Computer Vision, Deep Learning, and Parallel Computing toolboxes.

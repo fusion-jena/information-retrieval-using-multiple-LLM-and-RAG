@@ -1,0 +1,83 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.5. Model training 
+
+  To ensure the accuracy of the experimental results and obtain the best classification, the exact 
+parameters  and  functions  as  well  as  classifier  built-in  the  six  neural  network  models  are 
+designed as follows: 
+
+  The resolution of input data is 224×224 with Red Green Blue (RGB) format, and the inputs 
+
+are batch normalized before training; 
+
+  Batch size is applied which is set to 30 when training, but images are tested one by one; 
+  An  optimized  rectified  linear  activation,  Leaky  ReLU,  was  introduced  into  models  after 
+
+convolution or concatenate layer; 
+
+In MobileNet, width multiplier is 1.2, resolution multiplier is 1; 
+
+  Learning rate and dropout rate adopt same value 0.001, bias value is 0;  
+ 
+  For the neural networks with lower depth, the higher training epochs are, the higher probability 
+of over fitting is. Therefor models in which less than 100 layers adhibit raw data 60 epochs, 
+otherwise executed 80 epochs;
+
+4
+
+ 
+ 
+ 
+ 
+ IWECAI 2021
+Journal of Physics: Conference Series
+
+1873 (2021) 012002
+
+IOP Publishing
+doi:10.1088/1742-6596/1873/1/012002
+
+metrics. The highest score indicates the highest rank in a array which single sample inferred to n given 
+classes, and prediction label is the index of the highest score.  
+
+Model  loss  is  computed  by  compound  loss  which  is  added  by  softmax  cross-entropy  and 
+regularization  loss,  which  expresses  the  distance  between  two  distributions.  Lower  cross  entropy  is, 
+mutual  closer  are.  Regularization  loss  is  inserted  to  reduce  overfitting,  which  balances  model 
+performance and model complexity. On purpose of normalizing losses, softmax is introduced to map 
+true loss value to between zero to one. 
+
+2.5. Model training
+
+  A fully connected layer with softmax activation has 28 nodes, which is regarded as classifier 
+
+while training but removed when inference. 
+
+2.6. Computational resources and environment 
+In this study, the operation system is CentOS Linux release 7.7.1908 (Core) with 32 CPUs and each 
+CPU has 64 processors. The develop environment built-up is Python(version 3.6.2) packaged by Conda-
+forge which compiled with GCC (version4.8.2,20140120). Tool packages used in virtual environment 
+are the TensorFlow (version 1.12.0) and the Numpy (version 1.19.2).
+
+Pattern Analysis and Machine Intelligence, 29(2): 286-299. 
+
+[11]. Rao, Y., Lu, J., Lin, J., Zhou, J. (2019) Runtime network routing for efficient image classification. 
+IEEE Transactions on Pattern Analysis and Machine Intelligence, 41(10): 2291-2304. 
+[12]. Waeldchen,  J.,  Rzanny,  M.,  Seeland,  M.,  Maeder,  P.  (2018)  Automated  plant  species 
+
+identification-Trends and future directions. Plos computational biology, 14.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "How are the hyperparameters of the model optimized (e.g., grid search, random search)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The paper does not provide explicit information about how the hyperparameters were optimized. However, it mentions specific values for certain parameters such as learning rate, dropout rate, and bias value, all set to 0.001. It also specifies the use of Leaky ReLU as an activation function and the application of batch normalization before training. Additionally, the number of epochs varies depending on the depth of the neural network, with fewer epochs for deeper networks to avoid overfitting. Despite these details, there is no mention of using techniques like grid search or random search for hyperparameter optimization. Therefore, based on the available information, we cannot determine the method used for hyperparameter optimization in this study.

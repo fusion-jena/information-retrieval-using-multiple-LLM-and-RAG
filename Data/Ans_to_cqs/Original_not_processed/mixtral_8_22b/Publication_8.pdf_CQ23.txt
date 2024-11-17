@@ -1,0 +1,66 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Results
+
+This   rising   number   of   digitised   herbarium   sheets   provides   an   opportunity   to   employ
+computer-based   image   processing   techniques,   such   as   deep   learning,   to   automatically
+identify species and higher taxa (Carranza-Rojas et al. 2017, Younis et al. 2018, Carranza-
+Rojas   et   al.   2018)   or   to   extract   other   useful   information   from   the   images,   such   as   the
+presence   of   pathogens   (as   done   for   live   plant   photos   by   Mohanty   et   al.   2016).   Deep
+learning is a subset of machine learning methods for learning data representation. Deep
+learning   techniques   require   huge   amounts   of   training   data   to   learn   the   features   and
+representation of those data for the specified task by fine tuning parameters of hundreds or
+thousands of neural networks, arranged in multiple layers. Learning the value of these
+parameters can take vast computer and time resources, especially on huge datasets.
+
+Due to the large image size and additional parameters of Faster R-CNN, a minibatch size
+of four images per GPU (TITAN Xp) was selected for training the model. The model was
+trained   twice,   once   with   a   training   subset   of   498   images   on   a   single   GPU   for   9000
+iterations and performance evaluated on the test subset of 155 images, also on a single
+GPU   and   then   trained   again   on   all   653   annotated   images   on   three   GPUs   for   18000
+iterations   for   predicting   plant   organs   on   another   un-annotated   independent   dataset   to
+evaluate   our   method.   This   dataset   consists   of   708   full   scale   herbarium   scans,   with   an
+average  size of  ca. 9600  by  6500  pixels,   from  the   Herbarium  Senckenbergianum  (FR)
+(Otte et al. 2011) with a different set of species (Fig. 2) and geographical origins, which is
+also available at GBIF (Senckenberg 2020). The Python code and the trained model have
+
+Figure 5. 
+
+An illustration of Feature Pyramid Network, where feature maps are indicated by blue outlines
+and thicker outlines denote semantically stronger features (Lin et al. 2017).
+
+ 
+ 
+ 
+8
+
+Younis S et al
+
+In order to reduce the training time and, more importantly, because of the small size of the
+training dataset, transfer learning (Yosinski et al. 2014) was implemented to initialise the
+model weights pre-trained on the ImageNet dataset (Deng et al. 2009). Since the initial
+layers of a CNN usually learn very generic features that can also be used in new contexts,
+pre-trained   weights   can   initialise   the   weights   for   these   layers.   For   the   deeper   layers,
+transfer learning is used to initialise the parameter weights pre-trained on the ImageNet
+dataset and then fine-tuned during training, using the annotated herbarium scan dataset
+until convergence.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+To ensure the generalizability of their deep learning model, several measures were taken. Firstly, the model was trained on a diverse dataset consisting of 653 annotated images. To further evaluate its performance, it was tested on an independent dataset comprising 708 full-scale herbarium scans from the Herbarium Senckenbergianum (FR), featuring a different set of species and geographical origins. This approach allowed for assessing the model's ability to handle variations in both species and environmental conditions.
+
+Secondly, transfer learning was employed to initialize the model weights using pre-trained models from the ImageNet dataset. This technique leverages the knowledge gained from previous tasks to improve the performance on new tasks, thereby enhancing the model's adaptability across various domains. By utilizing this strategy, the researchers aimed to capitalize on the generic features learned by the initial layers of convolutional neural networks (CNNs) while fine-tuning the deeper layers specifically for the herbarium scan dataset.
+
+Lastly, although not explicitly mentioned in the given context, cross-validation or stratified splitting could potentially have been utilized to validate the model's performance further. Cross-validation involves dividing the dataset into k subsets, training the model on k-1 subsets, and testing it on the remaining subset. This process is repeated k times, each time with a different subset serving as the test set. On the other hand, stratified splitting ensures that the distribution of classes remains consistent between the training and validation sets. These techniques help prevent overfitting and provide a more robust evaluation of the model's performance. However, without explicit confirmation, we cannot definitively state whether they were applied in this case.

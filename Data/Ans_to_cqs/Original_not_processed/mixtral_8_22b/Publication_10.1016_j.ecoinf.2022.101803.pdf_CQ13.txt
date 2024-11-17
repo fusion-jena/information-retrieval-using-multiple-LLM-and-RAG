@@ -1,0 +1,122 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Parameter  estimation  with  ML  can  be  susceptible  to  over-fitting, 
+especially for sparse and noisy data. This can be addressed with regu-
+larization,  where  a  penalty  term  that  quantifies  model  complexity  is 
+added  to  the  log  likelihood;  see  e.g.  Section  3.2  in  Bishop  (2006).  A 
+particular form of regularization is ridge regression, where the model 
+coefficients are shrunk towards smaller values by altering the ML cri-
+terion to include a penalty term based on the weighted L2 norm of the 
+parameter vector: 
+(cid:0)
+
+)
+θ, z, y
+
+l
+
+(cid:0) λ‖θ‖2
+
+(16)
+
+While  the  ensemble  size  for  bagging  is  not  particularly  critical, 
+provided it is sufficiently large (500 is a widely used default value), it 
+does  matter  for boosting.  In  XGBoost, large  ensemble  sizes  can  cause 
+over-fitting because the gradient technique focuses on the most difficult 
+cases,  which  can  be  due  to  noise.  To  avoid  the  over-fitting  issue  in 
+XGBoost, we use a nested k-fold cross-validation scheme. We split each 
+dataset into 3 subsets: the tuning set (k-2 folds), validation set (1-fold), 
+and test set (1-fold). For each choice of number of iterations and each 
+fold, we train the model on the tuning set and monitor the performance 
+on the validation set by calculating the out-of-sample prediction accu-
+racy and taking the median of k-1 folds. This gives us k medians for each 
+number of iterations, as explained in Algorithm 1 and shown in Fig. S2 in 
+Supplement A.3.  
+
+Algorithm 1 Optimize the iteration number 
+
+for each k-1 folds do
+
+for each k-1 folds do 
+
+1: procedure SPLIT  THE  DATASET  TO  K  FOLDS (state)
+2: 
+3: 
+4: 
+
+for each number of iterations do 
+
+Split the dataset to datasets: k-2 folds (tuning set), and 1-fold (validation 
+
+dataset) 
+
+5: 
+6: 
+7: 
+8: 
+
+Train the model using the tuning set and the number of iterations. 
+Predict using the 1-fold validation set. 
+Calculate the out-of-sample R2. 
+
+Calculate the median of k-1 out-of-sample R2’s for each number of iterations to 
+
+pick the best number of iterations. 
+
+9: 
+
+return a matrix of medians for each fold (k folds) in rows and each number of 
+
+iterations in columns.  
+
+4. Simulations and evaluation 
+
+4.1. Study design and investigations
+
+Habitat variables 
+
+Sample number 
+
+Data size 
+
+Simulated Dataset in Matthiopoulos et al. (2015) 
+Simulated Dataset in Matthiopoulos et al. (2011) 
+Sparrow 
+Wolf 
+
+Food, temperature, and population size 
+Food, and cover 
+Grass, bush, roof, and colony size 
+Distance to high human use, distance to edge, slope, burnt, alpine, shrub, rock and herbaceous 
+
+400 
+20 
+32 
+11 
+
+200,000 
+50,000 
+1,280 
+18,042  
+
+EcologicalInformatics71(2022)1018036S. Aldossari et al.                                                                                                                                                                                                                               
+
+5.2. Real-life datasets 
+
+5.2.1. Sparrow population dataset
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information about the specific hyperparameters used in the deep learning model, such as the learning rate or optimizer. Therefore, I cannot provide a helpful answer to this query based on the available context.

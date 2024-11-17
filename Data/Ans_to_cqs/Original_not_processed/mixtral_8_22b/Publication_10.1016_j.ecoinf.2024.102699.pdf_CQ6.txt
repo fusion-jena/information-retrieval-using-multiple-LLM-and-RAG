@@ -1,0 +1,99 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+For the ViT models, we adapted the approach of pretraining deep
+bidirectional transformers for language understanding (BERT) by Devlin
+et al. (2018) for birdsong classification. Table 3 provides an overview of
+the investigated ViT models with their respective parameterizations.
+ViT-S/16, for example, denotes a ViT variant of reduced complexity with
+an input patch size of 16 × 16. The sequence length of the transformer
+models is inversely proportional to the square of the provided patch size.
+In the following, ViT-B/16 is further investigated as it strikes a balance
+between general model complexity and classification performance.
+
+training or validation progress could be observed. To fine-tune our ViT
+models, we deployed ImageNet-based weights for pretraining.
+
+Table 2
+Overview of our augmentation strategies, their IDs, and related information. For DenseNet-161 and ViT-B/16, their training times are provided in minutes per epoch
+for the different augmentation methods. For IDs 5 and 6, we added noise of the bird audio detection data set from the DCASE challenge (Berger et al., 2018; Himawan
+et al., 2018; Liaqat et al., 2018), which is abbreviated as BAD.
+
+Data augmentation
+
+Time domain
+
+Frequency domain
+
+Spectrogram
+
+Training time [min. / epoch]
+
+DenseNet-161
+
+ViT-B/16
+
+Gaussian noise
+Pink noise (background)
+Primary background noise soundscapes
+Secondary background noise soundscapes
+Primary background noise (BAD)
+Secondary background noise (BAD)
+Background noise (e.g., wind, thunder, or aircrafts)
+Mixed up random bird species
+Horizontal roll
+Vertical roll
+Pitch shift
+Time mask
+Frequency mask
+Gain
+Loudness normalization
+Horizontal flip
+Vertical flip
+Time stretch
+tanh-based distortion
+
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+
+✓
+
+✓
+✓
+
+✓
+
+The evaluated augmentation techniques consistently exhibited the
+same qualitative effects across all three of our deep learning models.
+Specifically, if the performance of an augmentation set improved for one
+model, it also improved for the other two, and vice versa. However,
+further research is needed to determine if this observation can be
+generalized. For optimizing augmentation strategies, a more effective
+approach would be to use only the least computationally intensive
+models, e.g., DenseNet-161 or ResNet-50. The best combined augmen-
+tations would then be applied to the best-performing model (ViT-B/16).
+In our future work, we plan on focusing on the creation of so-called
+no-call classifiers with training samples that do not contain bird events
+in general. For this purpose, as well as to explore different transformer-
+based models with improved prediction scores, encompassing, i.a., data-
+efficient image transformers (DeiT) as well as hybrid transformers (Han
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What preprocessing steps are involved before training a deep learning model (e.g., normalization, scaling, cleaning)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't explicit mention of specific preprocessing steps such as normalization, scaling, or cleaning prior to training the deep learning models. However, the text does discuss various data augmentation techniques used during training. These include adding Gaussian noise, pink noise, primary and secondary background noise soundscapes, background noise like wind, thunder, or aircraft sounds, mixed up random bird species, horizontal and vertical rolls, pitch shifts, time masks, frequency masks, gain adjustments, loudness normalization, horizontal and vertical flips, time stretching, and tanh-based distortions. While these aren't traditional preprocessing steps, they serve to enhance the dataset and improve the robustness of the trained models. It should be noted that the effectiveness of these augmentation techniques was consistent across all three deep learning models tested - DenseNet-161, ResNet-50, and ViT-B/16.

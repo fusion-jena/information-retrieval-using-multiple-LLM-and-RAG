@@ -1,0 +1,83 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We further improved Waveman by modifying BatNet and opti-
+mizing parameter setting of batch size. We add new kind of BNorm
+layers behind the 22 convolutional layers to prevent overfitting when
+we trained models using BatNet (Fig. 2C). Therefore the model
+“learned” to generalize from a trend in both “known” and “unknown”
+datasets rather than to maximize the performance on the “known”
+datasets (usually called training datasets, Ioffe and Szegedy, 2015).
+Computers can only train with small volumes of images at once as they
+have too little Random Access Memory or Graphic memory. Batch size
+was set to limit the image number. In this study, we set a large batch
+size equal to 128, which means training with 128 images for each
+iteration.
+
+rate equaled 1e-3 (only a network called ResNet_v2 was set to 1e-5). We
+trained a model using the training dataset (incl. 111,244 images) for
+50–60 times using Graphic Processing Unit (GPU, Nvidia 1080ti, US)
+for two hours and 10 min. After training the model contained refined
+parameters and a graph which were saved for the downstream analysis.
+
+2.2. Testing and further refinements of Waveman
+
+We used filtered data (i.e., validation dataset in which 19,614
+images were selected) to test different model and taxon bias. Then we
+collected audio-files from a corridor for the 15 species to test how to
+lower the misidentification and false positives. Finally, we optimized
+the BatNet and collected audio from different human and natural
+conditions to test the generalization of the model by recording the same
+species under different conditions these audio-files are unfiltered and
+were directly imported into Waveman.
+
+2.2.1. Comparison of BatNet and other three networks
+
+Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., et al., 2011.
+Scikit-learn: machine learning in python. J. Mach. Learn. Res. 12, 2825–2830.
+Pennell, M.W., Eastman, J.M., Slater, G.J., Brown, J.W., Uyeda, J.C., FitzJohn, R.G., et al.,
+2014. Geiger v2. 0: an expanded suite of methods for fitting macroevolutionary
+models to phylogenetic trees. Bioinformatics 30, 2216–2218.
+
+Proença, V., Martin, L.J., Pereira, H.M., Fernandez, M., McRae, L., Belnap, J., et al., 2017.
+Global biodiversity monitoring: from data sources to essential biodiversity variables.
+Biol. Conserv. 213, 256–263.
+
+Rich, L.N., Davis, C.L., Farris, Z.J., Miller, D.A., Tucker, J.M., Hamel, S., et al., 2017.
+Assessing global patterns in mammalian carnivore occupancy and richness by in-
+tegrating local camera trap surveys. Glob. Ecol. Biogeogr. 26, 918–929.
+
+Russo, D., Jones, G., 2002. Identification of twenty-two bat species (Mammalia: chir-
+
+2.1.4. Training models with the reference library
+
+The network is key to optimizing the parameters in the model using
+the reference dataset. The higher the efficiency of extracting acoustic
+feature from spectrum images, the higher the accuracy. We built a new
+network specifically for the tropical bats (termed BatNet), which was
+incorporated into our software Waveman. The BatNet has 22 convolu-
+tional layers for extracting useful acoustic features (Simonyan and
+Zisserman, 2014) and eight shortcut connections between layers to
+avoid the problem of information loss as layer number increases. There
+are two key parameter settings of batch size equal to 64, and learning
+
+3
+
+X. Chen, et al.
+
+Biological Conservation 241 (2020) 108269
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, it is mentioned that the learning rate was set to 1e-3 for all networks except one called ResNet_v2, where it was set to 1e-5. However, there is no explicit mention of the specific optimizer used in the deep learning model. It is also stated that the batch size was set to 128, which means training with 128 images for each iteration. Additionally, the model was trained for 50-60 times using a GPU (Nvidia 1080ti) for approximately two hours and ten minutes.

@@ -1,0 +1,89 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+4.3. Model parameters & hyperparameters 
+
+The dynamic β-VAE has several tunable model parameters, as seen in 
+Eqs.  (3)–(8).  These  model  parameters  were  tuned  on  an  independent 
+dataset, collected with the identical instrumentation but at a different 
+location. The data had a similar distribution as the data used in this work 
+and we obtained: a = 0.2 and b = 0.05, w1 = w2 = 1.2, w3 = 0.9 and 
+w4 = 1.1. These parameters were found to be sufficiently robust on the 
+dataset used in this work without any fine-tuning.
+
+[
+rec (cid:0) w4ℒ(t
+ℒ(t)
+
+)
+rec
+
+′
+
+]
+
+(8)  
+
+with hyperparameters [a, b,w1,w2,w3,w4] ∈ ℝ+
+. The notation (: t (cid:0) 1) is 
+′
+) is the epoch when β was 
+used to indicate all epochs up to (t-1) and (t
+last changed. The terms associated with (: t (cid:0) 1) provide a form of long 
+term memory of the previous local optima for each of the two loss terms. 
+The β dynamics in Eq. (5) can be divided into two regimes aimed at 
+optimizing  reconstruction-  and  regularization  terms  corresponding  to 
+increase- and decrease of β, respectively. 
+
+3.1.1. Reconstruction regime (β↓) 
+
+The value of β is decreased due to the (cid:0) b term in Eq. (5) when Δrec is 
+positive; meaning the reconstruction loss is increasing compared to the 
+historical  minimum  reconstruction  loss,  according  to  Eq.  (6).  The  β 
+decrease  rule  also  checks  if  the  regularization  loss  is  decreasing 
+compared to the historical minimum with the term 1 (cid:0) ψ[Δrec] in Eq. (5).
+
+dataset  recorded  at  a  different  location  and  was  gradually  expanded 
+until  reconstructions  were  sufficiently  good.  In  order  to  visualize  the 
+latent  representation,  the  size  of  the  bottleneck  of  the  model  (latent 
+dimension) was limited to two. Details of the network architecture are 
+reported in Table 1.
+
+All models were implemented in PyTorch (Paszke et al., 2019) and 
+trained for 5000 epochs using the Adam optimizer (Kingma et al., 2015) 
+(cid:0) 3. The models were trained on Nvidia GTX 
+with a learning rate of 10
+1050 graphics processing unit with 4 GB memory with a batch size of 
+256. A decision to adapt β was taken every fifth epoch to avoid random 
+fluctuations. The scaling of the clustering loss, γ, in the semi-supervised 
+mode was cycled between 0.01 and 0.2 every 100 epochs. 
+
+4.4. Results 
+
+The clustering performance on the labelled test set for the unsuper-
+vised and semi-supervised instances of the dynamic β-VAE is presented 
+in Table 2. 
+
+The dynamic β-VAE performs better than the baselines in the ARI- 
+and AMI-scores which quantifies the intra-class cohesion and inter-class 
+separability. While HCA have been successfully used to identify groups
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+The deep learning model used in this study is a dynamic β-VAE, which has several tunable model parameters. However, these are not considered hyperparameters in the traditional sense. The actual hyperparameters mentioned in the given context include the learning rate and the optimizer.
+
+The learning rate used for training the models is 10^-5. The optimizer used is Adam. Other details about the implementation include the use of PyTorch as the framework, training for 5000 epochs, and utilizing a Nvidia GTX 1050 graphics processing unit with 4 GB memory and a batch size of 256.
+
+A decision to adapt β, presumably a parameter related to the VAE's objective function, was made every fifth epoch to prevent random fluctuations. Additionally, the scaling of the clustering loss, denoted by γ, was cycled between 0.01 and 0.2 every 100 epochs during semi-supervised mode.

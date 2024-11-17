@@ -1,0 +1,70 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+To make an effective prompt for eye-level shot, we have to determine 
+that the face is complete in the footage captured by the front camera. 
+When the user raises the phone and aligns the front camera with his face, 
+GreenCam will  determine  if  the  face  in  the  footage  is  complete  and 
+meets the requirements. Specifically, as shown in the Fig. 4(a-b), only 
+lower or upper parts of the face are captured, indicating that the cam-
+era's  position  is  too  low  or  too  high.  Fig.  4(c-d)  show  suitable  facial 
+footages, so that the face can be reliably recognized by GreenCam to 
+better determine if the phone is at eye level.
+
+5.2. Deep GVI learning 
+
+In  GreenCam,  we  measure  photo  GVI  by  SegFormer  (Xie  et  al., 
+2021),  a  state-of-the-art  Transformer-based  model  for  semantic  seg-
+mentation. As shown in Fig. 12, SegFormer follows the encoder-decoder 
+structure, which combines a Transformer-based encoder (i.e., MiT) with 
+a  lightweight  decoder  (i.e.,  ALL-MLP)  that  is  composed  entirely  of 
+multilayer perceptron (MLP) blocks.
+
+Fig. 6. Structure of the neural network of learning eye-phone distance, where 
+the  number  attached  to  each  layer  is  the  number  of  neurons  included  in 
+that layer. 
+
+structure of EPDNet, which works with the face box's width and height 
+as  input  and  the  eye-phone  distance  as  output.  The  ReLU  activation 
+function  and  sigmoid  are  used  to  cope  with  non-linearity.  The  five 
+neuron  layers  following  the  concatenation  are  all  fully  connected.  In 
+EPDNet training, we employ the Mean Squared Error (MSE) loss func-
+tion and the Adam optimizer with a learning rate of 0.0001. We use the 
+R2  metric to assess the model's fit to the observed data. After training, 
+this model fits well with the R2  of 0.95.
+
+6.3. User study 
+
+We conducted a user study on our Urban GVI estimation system, and 
+25 participants filled out a questionnaire. The questionnaire includes the 
+following items:  
+
+• How familiar are you with Green View Index (GVI)?  
+• How  important  do  you  perceive  GVI  to  be  in  urban  green  space 
+
+planning?  
+
+• How willing are you to use GreenCam for capturing urban GVI?  
+• How smooth did you find the operation of GreenCam?  
+
+• How usable did you find GreenCam for capturing GVI?  
+• How similar do you find the photos captured by GreenCam to what 
+
+the human eye perceives?
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide explicit information about the specific postprocessing steps involved after the model training. However, based on general machine learning practices, some common postprocessing steps could include generating saliency maps, calculating metrics such as accuracy, precision, recall, F1 score, etc., and creating confusion matrices. These steps help evaluate the performance of the trained models.
+
+In this case, it is mentioned that during the training of EPDNet, the Mean Squared Error (MSE) loss function was employed, and the Adam optimizer was used with a learning rate of 0.0001. Additionally, the R2 metric was utilized to assess the model's fit to the observed data. This suggests that evaluating the model using these methods might be part of the postprocessing steps. However, without more specific details, it cannot be confirmed whether these were indeed the postprocessing steps taken after the model training.

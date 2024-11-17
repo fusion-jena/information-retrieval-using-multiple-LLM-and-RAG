@@ -1,0 +1,15 @@
+Answer:::
+
+Before training a deep learning model for noise reduction in bioacoustics, several preprocessing steps are involved. These steps include data collection, noise profile superimposition, spectral subtraction, and data splitting.
+
+Firstly, clean data is collected, which can be challenging or infeasible in many cases. Alternatively, data from adjacent fields can be used, but this may not be an option for many bioacoustic applications. Once clean data is collected, noise profiles are superimposed to provide both the input data and a "denoised" ground truth.
+
+To approximate "clean" ground-truth data, spectral subtraction is applied to remove noise from the signal. This involves subtracting the noise spectrum from the signal spectrum to obtain an estimate of the clean signal spectrum. Then, randomly sampled noise is superimposed onto the ground-truth to generate the noisy input. Noise is randomly sampled from a dataset containing 963 five-second noise samples collated from field recordings. These samples contain both stationary background noise and non-target transient noise features, including rain, wind gusts, vehicles, banging, and so on.
+
+After preprocessing the data, the dataset is split into training, validation, and testing sets. The training set is used to train the deep learning model, the validation set is used to tune the hyperparameters and prevent overfitting, and the testing set is used to evaluate the performance of the trained model.
+
+In addition to these preprocessing steps, data normalization or scaling may be required to ensure that the input features have similar scales and ranges. This can help improve the training efficiency and the final performance of the deep learning model.
+
+It is worth noting that the success of deep learning-based denoising methods is limited by the availability of large-scale datasets and the optimization of models for bandwidths and sparsity of vocalisations in bioacoustics applications. However, recent studies have shown the potential of deep noise reduction techniques to achieve state-of-the-art performance and be applied in sub-real time on limited hardware.
+
+In summary, the preprocessing steps involved before training a deep learning model for noise reduction in bioacoustics include data collection, noise profile superimposition, spectral subtraction, data splitting, and data normalization or scaling. These steps are crucial to ensure the quality and efficiency of the training process and the final performance of the deep learning model.

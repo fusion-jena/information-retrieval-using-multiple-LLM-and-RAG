@@ -1,0 +1,62 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+While building the RF model, the training samples were randomly 
+divided  according  to  proportions  of  80%  and  20%  and  used  for  the 
+training and test datasets, respectively. The parameters of the RF model, 
+number of trees (n_estimators), minimum number of leaves (minleaf), and 
+number of randomly selected node-split feature variables (max_features) 
+significantly affected  the  accuracy and  complexity  of  the model.  This 
+study used a grid search method (GridSearchCV) based on the out-of-bag 
+(OOB)  error  and  five-fold  cross-validation  to  search  for  the  optimal 
+parameters  of  the  model  (Chang  et  al.,  2023).  The  n_estimators  were 
+spaced at 50 intervals, ranging from 100 to 1000. The minleaf is 2, 5, 10, 
+20, and 50. The max_features were spaced at intervals of 1, ranging from 
+1 to k where k is the number of characteristic variables. 
+
+2.3.4. SCS + C terrain correction model
+
+2.3.3. Random Forest (RF) 
+
+The RF model is a machine learning algorithm based on a classifi-
+cation  tree  proposed by  Breiman  (1996, 2001)  that is  widely used  in 
+regression and classification. The basic idea is to construct decision trees 
+and combine them according to certain criteria to generate an RF model. 
+The randomness of RF is due to the random selection of samples and 
+characteristic variables. Compared to other black-box machine learning 
+algorithms,  the  RF  regression  model  has  a  high  tolerance  for  noisy 
+datasets,  is  straightforward  to  implement,  has  low  computational 
+overhead,  is  highly  interpretable,  effectively  prevents  variable  collin-
+earity, avoids model overfitting, and provides good prediction ability for 
+high-dimensional datasets.
+
+vegetation growth cycle included in the training samples.
+
+For machine learning methods such as RF models, the quality of the 
+training samples can seriously affect their prediction results. Although 
+this study utilised the pixel quality control metrics of MODIS products to 
+eliminate  cloud-contaminated  and  poor-quality  pixels  and  to  remove 
+outliers  from  the  training  samples,  the  surface  of  the  study  area  was 
+highly heterogeneous compared to that of Zhai et al. (2020). To ensure 
+that a sufficient number of LAI training samples could be selected, the 
+main  algorithm  saturated  the  pixels  during  the  selection  of  the  LAI 
+training  samples,  but  this  increased  the  high-value  LAI  uncertainty 
+(Kang  et  al.,  2021).  Jamali  et  al.  (2023)  used  a  variety  of  machine 
+learning  algorithms  to  estimate  various  leaf  parameters  for  wheat 
+leaves, concluding that deep neural networks were the most capable of 
+improving the prediction accuracy of leaf parameters. Therefore, field
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, it is mentioned that while building the RF model, the training samples were divided into two parts with proportions of 80% and 20%, which were then used for the training and test datasets, respectively. It means that the dataset was split into 80% for training the model and 20% for testing its performance. However, there is no mention of any specific criterion used to divide the data or any information about using a separate validation set. In general, when splitting the data for deep learning model training, one common approach is to use a stratified sampling technique to maintain the same distribution of classes in each subset. Another popular approach is to use a holdout method, where the data is randomly split into three subsets: training, validation, and testing sets. The training set is used to fit the model, the validation set is used to tune hyperparameters and prevent overfitting, and the testing set is used to evaluate the final model's performance.

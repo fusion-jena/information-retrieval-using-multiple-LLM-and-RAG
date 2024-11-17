@@ -1,0 +1,13 @@
+In the provided text, the specific hyperparameters used in the deep learning model are not explicitly stated. However, we can infer some of the hyperparameters based on the code snippet and the mentioned learning rate strategies.
+
+The deep learning model is built using PyTorch, as indicated by the cnn_learner function. The architecture of the model is a resnet18, and it is trained using the fit_one_cycle function.
+
+The fit_one_cycle function is a wrapper for the one-cycle policy for learning rate scheduling, as proposed by Leslie N. Smith in "A disciplined approach to neural network hyper-parameters: Part 1--learning rate, batch size, momentum, and weight decay" (2017). This learning rate strategy gradually increases the learning rate from a small value to a larger value, then decreases it back to a small value. This strategy helps the model escape shallow local minima and find a good minimum faster.
+
+The one-cycle policy has three main hyperparameters: the maximum learning rate, the number of cycles, and the pct\_start parameter, which controls the fraction of the cycle spent increasing the learning rate. In the code snippet, the maximum learning rate is not specified, the number of cycles is 2, and the pct\_start parameter is not explicitly stated but is set to the default value of 0.3.
+
+Additionally, the model uses the SaveModelCallback function, which saves the model after each epoch. This can be useful for resuming training or for model selection.
+
+The specific choice of optimizer is not mentioned in the text. PyTorch provides several optimizers, such as SGD, Adam, and RMSprop. The choice of optimizer and its hyperparameters (e.g., momentum for SGD, beta1 and beta2 for Adam) can significantly affect the training of the model.
+
+In summary, while the text does not provide explicit values for all hyperparameters, we can infer that the model uses the one-cycle policy for learning rate scheduling with 2 cycles and a default pct\_start value, and it saves the model after each epoch. The specific choice of optimizer and its hyperparameters is not mentioned.

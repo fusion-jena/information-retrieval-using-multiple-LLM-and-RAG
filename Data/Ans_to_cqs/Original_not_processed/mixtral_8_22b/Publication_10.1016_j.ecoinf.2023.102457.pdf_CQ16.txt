@@ -1,0 +1,60 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Using supervised classification, BirdNET returned the highest accu-
+racy of 98.2% ± 0.85 SD at 0 m. MFCCs and BirdNET performed simi-
+larly at closer distances while MFCCs returned the highest classification 
+accuracies at farther distances (> 150 m) with a minimum classification 
+accuracy  of  39.8%  ± 4.3  SD  at  300  m.  In  comparison  with  BirdNET, 
+VGGish and Wav2Vec 2.0 performed less well with VGGish and Wav2-
+Vec 2.0 returning maximum accuracies of respectively 76.4% ± 2.3 SD 
+and 52.7% ± 3 SD at 0 m. Acoustic indices performed the least well with 
+classification accuracies ranging between 17.1% ± 2.8 SD and 37.9% ±
+2.5  SD.  The  classification  accuracies  decrease  across  distance  for  all 
+feature extraction methods (Fig. 4).
+
+3. Feature extraction 
+
+3.1. Mel-frequency cepstral coefficients 
+
+The first feature extraction method we used in this study was Mel- 
+frequency  cepstral  coefficients  (MFCCs).  We  used  the  default  settings 
+in the R package ‘tuneR’ to calculate MFCCs (Ligges et al. 2018), apart 
+from setting the frequency range between 0.4 and 1.6 kHz. The default 
+settings  calculate  12  MFCCs  for  each  25-ms  time  window.  As  gibbon 
+calls vary in duration from 9.1 to 27.3 s, and the machine learning al-
+gorithms we used require feature vectors of equal length for each call, 
+we took the mean and standard deviation for each MFCC across all time 
+windows. As a result, this method returned a vector of 24 elements for 
+each great call. 
+
+3.2. Embeddings from pre-trained convolutional neural networks
+
+Fig. 4. Mean and 95% confidence intervals of classification accuracy over 20 random iterations for each of the five feature types as a function of distance. Feature 
+embeddings  from  the  BirdNET  algorithm  performed  comparably  to  MFCCs  for  calls  recorded  at  closer  distances,  whereas  embeddings  from  the  VGGish  model, 
+Wav2Vec2 model, and the acoustic indices performed worse. The lack of visible confidence intervals for some points indicates a very narrow confidence interval. 
+
+Fig. 5. Mean and 95% confidence intervals of Normalized Mutual Information (NMI) for the five feature types as a function of distance for affinity propagation 
+clustering (A) and HDBSCAN (B). The lack of visible confidence intervals for some points indicates a very narrow confidence interval. 
+
+Successful clustering was obtained through the use of MFCCs as a feature 
+extraction technique, and HDBSCAN for unsupervised classification at 
+distances ≤150 m (Fig. 6).
+
+hidden states and taking the mean and standard deviation for each 1-s 
+clip, which resulted in a feature vector of length 40.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't any information available regarding the specific criteria used to determine when training is complete in the given context. However, common criteria include reaching a certain number of epochs or iterations, achieving a desired level of performance on a validation set (such as a validation loss plateau), or observing no further improvement in performance after several consecutive epochs or iterations. These criteria can help ensure that the model has learned useful patterns without overfitting to the training data.

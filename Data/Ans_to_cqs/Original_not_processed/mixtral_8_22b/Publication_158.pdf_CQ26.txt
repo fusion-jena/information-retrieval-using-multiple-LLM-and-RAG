@@ -1,0 +1,63 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+There are numerous aspects to consider for enhancing the deep-learning classiﬁer,
+speciﬁcally regarding the input image size; network conﬁguration, depth, and width; and
+training strategy. In initial experimentation, several standard forms of deep-learning CNN
+architectures were tested based largely on ResNet [46] and Inception [63], but these did
+not perform well due to the range of image objects size/scales encountered. To account
+for objects represented as a single pixel up to larger assemblages extending beyond the
+32 by 32 pixel input image, the ensemble with varying input image sizes was selected.
+Segmentation-based approaches were also considered as an alternative, but sufﬁcient
+quality training data for segmentation was a limitation.
+
+3.3.3. Change Detection
+
+For training, the Adam optimizer was used with 500 epochs and categorical-cross
+entropy loss function. Batch size was set to 64. Data augmentation was applied to enhance
+sample variation and included rotation, reﬂectance bias of ±10%, and random noise of
+±10% reﬂectance for 15% of the input image. To determine training convergence, we
+monitored the validation data across training epochs and the network weights with the
+best performance were kept. Early stopping criteria was applied if no improvement was
+found in 50 epochs. For CNNs, weight initialization and random selection for batch
+training can lead to variability in the results. Thus, an ensemble of three models were
+generated and the average of the ﬁnal output layer taken. Max pooling was used for two
+models in the ensemble and average pooling for one. In initial tests using max or average
+pooling showed that both provided improvement in some cases and thus could enhance
+
+the ensemble results. All CNNs were trained using the TensorFlow backend on a Tesla
+M100 graphic processing unit.
+
+2.5. Classiﬁcation and Assessment
+
+In addition to the deep-learning classiﬁer, we also tested random forest that included
+spatial features for comparison. Random forest is an efﬁcient algorithm that can be easily
+applied in a distributed processing framework. Thus, if sufﬁcient accuracy could be
+achieved then it would be the preferred classiﬁer. For assessment, we evaluated the
+classiﬁcation results against the test sample and report error matrices, summary accuracy
+measures, and class accuracies. Summary measures included the overall accuracy, kappa,
+and average F1-score. For class accuracies we report the F1-score, which provides class-
+speciﬁc accuracy, accounting for both omission and commission error.
+
+2.5.1. Ensemble CNN
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The text does not provide explicit information about specific techniques used to address data bias during preprocessing of the deep learning pipeline such as stratified splitting, oversampling, undersampling, or diverse data collection. However, there are indications of certain strategies employed to improve model performance and mitigate potential biases.
+
+One technique mentioned is data augmentation, which is applied to enhance sample variation. This includes rotation, reflectance bias of ±10%, and random noise of ±10% reflectance for 15% of the input image. These methods help increase the diversity of the dataset and potentially reduce overfitting by introducing variations in the images.
+
+Additionally, early stopping criteria are applied if no improvement is found in 50 epochs. This helps prevent overfitting and ensures that the model generalizes better to unseen data. Furthermore, an ensemble of three models is generated, and the average of the final output layer is taken. Using multiple models and averaging their outputs can help reduce variance and improve the robustness of predictions.
+
+Lastly, spatial features are incorporated into a random forest classifier for comparison. Including spatial features may help capture patterns related to location and context, which could contribute to reducing any potential biases introduced by focusing solely on spectral information.

@@ -1,0 +1,68 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The training data was acquired by sending query parameters through 
+the  application  programming  interface  (API)  of  Xeno-Cano  which 
+returned a JSON object containing recording metadata. The recordings 
+were downloaded according to four query parameters: (i) audio quality, 
+corresponding  to  the  highest  audio  quality  (i.e.  A  quality  level),  (ii) 
+duration,  corresponding  to  recordings  lasting  from  20  to  60  s,  (iii) 
+maximum number of recordings allowed per species, which was set to 
+100 to avoid large imbalanced between the classes and ensure accept-
+able  computing  power,  and  (iv)  geographic  coordinates  of  the  re-
+cordings  that  surrounded  the  Equator  line  in  America.  Geographical 
+coordinates were defined according to the latitude of the Tropics, with 
+◦
+26 ‘10.6”N and 
+the Tropic of Cancer in the Northern Hemisphere at 23
+26′ 10.6”S. 
+the Tropic of Capricorn in the Southern Hemisphere at 23
+
+pretrained DenseNet might fit the Darksound dataset well, but there are 
+no  guarantees  that it  will  work  on  another  dataset in  the  exact  same 
+manner. All the CNN backbones used in this experiment were previously 
+trained on the ImageNet database, a large but very general dataset. It has 
+been recently shown that using features extracted from models trained 
+on smaller but more specific datasets, that bird sound datasets, leads to 
+higher quality classification (Ghani et al., 2023; McGinn et al., 2023). 
+Consequently, using features extracted from a model trained on spec-
+trograms of bird sounds (e.g.  BirdNET algorithm (Kahl et  al., 2021)), 
+could  improve  the  parameter  initialization  of  UML  algorithms  of  the 
+MEC method.
+
+Automatic  identification  of  biophonic  sources  in  soundscape  re-
+cordings  currently  relies  mainly  on  using  digital  signal  processing 
+techniques  and  advanced  recognition  technologies  from  the  deep 
+learning (DL) era (Stowell et al., 2015; Xie et al., 2023), and is achieved 
+through the use of supervised classification models. However, in most 
+situations, the lack of large labeled datasets is a serious limiting factor 
+for training robust supervised classification models. This is particularly 
+problematic  in  ecoacoustic  studies  when  (i)  the  number  of  species 
+emitting sounds is very high, a situation encountered, for example, in 
+tropical rainforest regions (Brown, 2014), (ii) species inventories are far 
+from complete as a result of high species numbers and limited taxonomic 
+and geographic sampling (Tolkova et al., 2021), and/or (iii) rare species 
+
+* Corresponding author. 
+
+E-mail address: joachipo@uio.no (J. Poutaraud).
+
+2.2. Fine-tuning of the pretrained CNN backbone 
+
+Fine-tuning of the pretrained CNN backbone was performed using 
+classical meta-metric learning architectures adapted from the EasyFSL
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, the criteria used to split the data for deep learning model training are not explicitly mentioned. However, typically, the data is divided into three sets: training, testing, and validation. The training set is used to train the model, the testing set is used to evaluate its performance after training, and the validation set is used during the training process to fine-tune hyperparameters and prevent overfitting. In this case, the data acquisition involved querying the API of Xeno-Cano and setting certain parameters such as audio quality, duration, maximum number of recordings per species, and geographic coordinates. These parameters could potentially influence how the data is split, depending on the specific approach taken for splitting the data. For instance, one might choose to stratify the data based on these parameters to ensure balanced representation across different categories in each set. However, without further information, it cannot be definitively stated what criteria were used to split the data in this particular case.

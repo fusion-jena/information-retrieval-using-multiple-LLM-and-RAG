@@ -1,0 +1,74 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.2. Model fine-tuning 
+
+To  fine-tune  the  base  model  with  Gulf  of  Mexico  data  the  feature 
+extractor remains frozen. Models are trained with the same parameters 
+as the base model but we use a cyclical learning rate of 0.0004 and is set 
+to run for 50 epochs, with early stopping set to deploy if the validation 
+loss does not improve within 10 epochs. A dropout rate of 0.2 is used 
+during  fine-tuning,  and  DropConnect  is  employed.  Drop  out  layers 
+randomly  discard  the  output  of  the  hidden  nodes  during  training, 
+DropConnect randomly discards the input of the hidden layer (Sun et al., 
+2022). 
+
+2.2.1. Data acquisition
+
+The model is constructed using the EfficientNet B0 network (Tan and 
+Le, 2019) which had been trained for generic image classification. The 
+EfficientNet feature extraction layers are frozen (transfer learning) with 
+only the weights of the final dense classification layers updated during 
+training.  Training  was  conducted  within  the  Google  Collaboratory 
+‘Colab’  platform  (Bisong,  2019),  using  the  Tesla  K80  GPU,  accessed 
+through  cloud  computing.  An  Adam  optimizer  was  used  to  control 
+gradient descent during training (Kingma and Ba, 2014), with parame-
+ters set to: learning rate of 0.001, decay factor of 0.75 and a step size of 
+
+EcologicalInformatics78(2023)1023632E.L. White et al.
+
+2.1.1. Experimental design 
+
+To evaluate the effect of local training data on model performance 
+we  fine-tune  a  base  model  with  randomly  pooled  training  sets  of 
+increasing size (sets of 50, 100, 200, 300 and 500- frames) from the Gulf 
+of Mexico acoustic data collected December 3rd 2019 (Fig. 3). An extra 
+training set is considered consisting of 500 frames of randomly sampled 
+ambient noise from December 3rd 2019. 
+
+The models are validated during training by combining the original 
+base model validation set (Table 1) with 100 frames per class from the 
+labelled December 3rd 2019 training set, randomly pooled per experi-
+ment. In this way the model’s performance is assessed across both en-
+vironments simultaneously(Fig. 4). 
+
+2.2. Model fine-tuning
+
+(Fig.  1),  considering  its  performance  in  the  new  environment  with 
+limited re-training. Starting with a pre-trained model (EfficientNet B0, 
+Tan and Le, 2019), we freeze the networks original feature extractor. We 
+then train fully connected layers, which operate on the output of the 
+EfficientNet  B0  network,  to  classify  the  PAM  data  frames  into  the 
+specified sound source classes. Audio data is input to the network in a 
+novel  spectrogram representation (White  et  al.,  2022). Networks  pre- 
+trained on image data have been proven to perform well on classifica-
+tion  tasks  using  spectrograms  as  image  input,  transformed  from  raw 
+audio data (Allen et al., 2021; Shiu et al., 2020; Stowell, 2022). In this 
+work  we fine-tune the  parameters  of the fully connected layers  itera-
+tively  on  small  batches  of  training  data  acquired  from  a  new  region. 
+Through  an  experimental  approach  to  retraining  we  demonstrate  the
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, the data is split into three parts for deep learning model training: train, test, and validation. However, the specific criteria used to split the data are not explicitly mentioned. Nevertheless, it can be inferred that the data is divided based on the number of frames available. For instance, the models are trained with increasing sizes of training sets ranging from 50 to 500 frames. Additionally, the validation set consists of the original base model validation set combined with 100 frames per class from the labeled December 3rd, 2019 training set, randomly pooled per experiment. Therefore, it appears that the data splitting criteria depend on the availability and labeling of the frames.

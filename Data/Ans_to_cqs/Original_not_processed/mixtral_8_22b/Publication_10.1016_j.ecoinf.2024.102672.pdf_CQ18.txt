@@ -1,0 +1,188 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The result of this process was added to the dataset as a new cate-
+gorical binary variable that stored the existence of stratification or not 
+(took the value of 0 when the reservoir was not stratified and 1 when it 
+was stratified). 
+
+2.5.3. Forecasting ML models 
+
+A classification model was designed in order to detect if there existed 
+
+Table 1 
+Initial hyperparameters space.  
+
+Initial hyperparameters space 
+
+Hyperparameters 
+
+Values 
+
+Layers 
+
+Number of neurons of the dense layer 
+Dropout rate of the dropout layer 
+Learning rate 
+Batch size 
+
+1 dense layer, 1 dense layer +1 dropout 
+layer 
+32, 64 
+0.2, 0.4 
+(cid:0) 3, 10
+10
+32, 64  
+
+(cid:0) 4
+
+Predicted classes   
+
+Training  
+
+Not-stratified  
+
+True classes 
+
+Not-stratified 
+Stratified 
+
+549  
+53  
+
+Stratified  
+
+31  
+681  
+
+Testing   
+
+Not-stratified  
+
+115  
+2  
+
+Stratified 
+
+7 
+166  
+
+Fig. 6. Real and predicted values of thermocline presence with the optimal classification model. The points at the left of the dashed line belong to the training set 
+while those at the right belongs to the test set. 
+
+Table 4 
+Results from the training and testing of the selected regression model for each set of variables.   
+
+Hyperparameters 
+
+Variables 
+
+Topology* 
+
+Learning rate 
+
+Batch size 
+
+Epochs 
+
+t 
++ t-1 
++ t-2 
+þ t-3 
++ t-4 
++ t-5 
+
+32(0.4)16(0.2)8 
+32(0.4) 
+32(0.2)4(0.2) 
+32(0.2)4(0.2) 
+32(0.2)4(0.2) 
+32(0.4)16(0.2) 
+
+(cid:0) 3 
+
+(cid:0) 3 
+
+(cid:0) 3 
+
+¡3 
+
+(cid:0) 3 
+
+(cid:0) 3 
+
+10
+10
+10
+10
+10
+10
+
+32 
+32 
+32 
+32 
+32 
+32 
+
+500 
+80 
+250 
+280 
+280 
+240 
+
+Training 
+
+MAE 
+
+2.42 
+2.70 
+2.44 
+1.94 
+1.83 
+1.83 
+
+Percentile 
+
+67.6 
+66.9 
+70.4 
+70.3 
+70.0 
+70.6 
+
+P50
+
+Opposite to other families of ML models that have a narrow range of 
+hyperparameters  to  adjust,  ANN  are  defined  by  different  types  of 
+hyperparameters,  which  together  with  the  computational  cost  of 
+training deep ANN, restricts the options to optimize. On the one hand, 
+we have the hyperparameters that define the architecture of the ANN 
+(number of layers and number of neurons), while on the other hand we 
+have the hyperparameters that control de training process (mainly the 
+learning rate, the optimizer, the batch size and the number of epochs 
+that the training lasts). In order to avoid an exhaustive search that could 
+consume a lot of time, a small dimensional space was initially defined 
+and  explored  with  the  original variables.  The initial  hyperparameters 
+that composed this space are shown in Table 1. The number of epochs 
+was maintained in 500 as it proved to guarantee the stabilization of the
+
+loss curves during the training. As optimizer, the Adam algorithm was 
+used, which is a stochastic gradient descent method. Then, one of the 
+hyperparameters was modified iteratively following the direction that
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: The strategy implemented to monitor the model performance during training involves maintaining the number of epochs at 500, which guarantees the stabilization of loss curves during training. Additionally, the Adam algorithm, a stochastic gradient descent method, was used as the optimizer. However, the specific metrics used to evaluate the model performance during training, such as accuracy, precision, recall, F1 score, etc., are not explicitly mentioned in the provided context.

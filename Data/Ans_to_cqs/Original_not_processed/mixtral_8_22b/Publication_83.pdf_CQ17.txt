@@ -1,0 +1,70 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The duration of audio ﬁles in CLO-43DS data is different,
+which cannot be directly used as the input to the CNN. The
+ﬁrst method for dealing with the multi-variate varying length
+audio data is that the signal is repeated from the beginning to
+force the ﬁxed duration of 2s, which has been used in [30].
+The second method is to directly resize the audio image to a
+ﬁxed size.
+
+D. DEEP LEARNING ARCHITECTURE
+The feature learning part of our proposed model follows a
+VGG style network [24], which has been previously used
+for classifying acoustic scenes [5]. The overall architec-
+ture is illustrated in Table 1. This network is trained using
+Adam optimizer with a learning rate of 10−4. The cate-
+gorical cross entropy is utilized as the loss function. The
+batch size is 64 samples and the network is trained with
+200 epochs.
+
+TABLE 3. Classification performance of different methods using single
+CNN-based model. Here, Mel-CNN, Harm-CNN, and Perc-CNN denote that
+the input to those CNNs are Mel-spectrogram, harmonic-component
+based spectrogram, and percussive-component based spectrogram.
+Subnet-CNN denotes that a SubSpectralNet architecture is used with the
+Mel-spectrogram as the input.
+
+trogram. In addition to different TFRs, a different deep learning architecture, SubSpectralNet, is employed
+to classify bird sounds. Experimental results on classifying 43 bird species show that fusing selected deep
+learning models can effectively increase the classiﬁcation performance. Our best fused model can achieve a
+balanced accuracy of 86.31% and a weighted F1-score of 93.31%.
+
+.
+
+signal-to-noise ratio of those collected recordings become a
+crucial issue, especially when building an automated robust
+bird sound classiﬁcation system [14], [26], [29].
+
+Recently, deep learning models have drawn much attention
+in constructing the automatic bird sound classiﬁcation system
+owning to its high performance [1], [7], [13], [16], [16], [25].
+Convolutional Neural Networks (CNNs) [1], [13], [16], [16],
+Binarized Neural Networks [25], and Convolutional Recur-
+rent Neural Networks [7] have been widely explored for
+bird sound detection and classiﬁcation. In addition, data
+augmentation and preprocessing techniques have been selec-
+tively used for further improving bird sound classiﬁcation
+performance [2], [15], [23].
+
+Since different deep learning based classiﬁcation frame-
+works have been proposed for classifying bird sounds,
+a direct research question to be asked is whether the
+
+VOLUME 7, 2019
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the regularization methods used to prevent overfitting in the deep learning pipeline (e.g., dropout, L2 regularization)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Answer: Based on the given context, there is no explicit mention of specific regularization methods used to prevent overfitting in the deep learning pipeline. However, some common regularization methods include dropout and L2 regularization. Dropout is a technique where randomly selected neurons are ignored during training, which helps prevent overfitting by making the model more robust to small changes in the inputs. L2 regularization adds a penalty term to the loss function, encouraging smaller weights and thus reducing the complexity of the model. Other possible regularization methods could include early stopping or data augmentation, but without additional information, it is not possible to determine if these were used in this particular case.

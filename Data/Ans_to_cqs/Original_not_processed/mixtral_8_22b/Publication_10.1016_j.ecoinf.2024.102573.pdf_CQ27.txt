@@ -1,0 +1,63 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3.1. Main results 
+
+Table 2 shows the test results. The largest performance gap between 
+the learnable and traditional frontends stems from using PCEN instead 
+of log compression. When combined with PCEN, the (mel-)spectrogram 
+is on par with the learnable frontends. Noticeably, a proper normaliza-
+tion on top of the log compression produced similar results to the PCEN 
+version of the models. It is hard to eyeball some of these effects, espe-
+cially for the data augmentation. Therefore, a performance summary for 
+the 48 models is depicted in Fig. 3 to comprehend the importance of 
+each component. Fig. 4 shows the confusion matrices of the base and the 
+best configuration for each frontend.
+
+It  seems  to  require  an  exhaustive  knowledge  of  each  species’  fre-
+quency  niche  to  create  optimal  individualized  features.  Yet,  the  most 
+celebrated capability of deep neural networks is automatic and task(s)- 
+relevant feature extraction while doing the classification task(s) jointly, 
+which  has  led  to  unprecedented  achievements  (LeCun  et  al.,  2015). 
+Hence, one could ask whether to consider a time-frequency represen-
+tation or the waveform as raw input to neural networks to capture all the 
+relevant information from bird vocalization. Although the former is the 
+prevalent  approach,  data  processing  inequality  indicates  that  post- 
+processing can not increase a signal’s information (Beaudry and Ren-
+ner,  2011).  Therefore,  the  waveform  is  a  promising  alternative  to 
+traditional features derived from it when leveraging neural networks.
+
+Recent years have seen impressive progress in bird species recogni-
+tion and related tasks (Stowell, 2022; Xie et al., 2023). It was foreseeable 
+that  deep  learning  would  emerge  as  the  most  successful  method  for 
+large-scale  bioacoustics  analysis  (Kahl  et  al.,  2021;  Stowell,  2022; 
+Stowell et al., 2019; Tang et al., 2023; Xie et al., 2023; Zsebok et al., 
+2019). The main advantage of neural networks is to avoid many brittle 
+and  difficult  choices  in  designing  manual  features  for  the  underlying 
+task. For example, Xie et al. (Xie and Zhu, 2019) compared three types of 
+features  for  bird  species  classification  consisting  of  hand-crafted 
+acoustic features, including features from Mel Frequency Cepstral Co-
+efficient (MFCC), visual features extracted from the Constant-Q Trans-
+form (CQT) time-frequency representation, and training a convolutional 
+network directly on the CQT. They also tested the fusion of classifiers
+
+This  experiment  used  both  learnable  frontends  with  80  filters  of 
+length  512  (16 ms)  that were  initialized  by  mel-filterbanks.  Gaussian 
+pooling  was  removed,  and  downsampling  happened  in  the  filtering 
+convolution layer by a stride of 320 (10 ms). Then, the outputs were log- 
+compressed  without  normalization.  These  plain  frontends  are  called 
+LEAF-P and SincNet-P, and Table 4 shows their test results.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What process was followed to deploy the trained deep learning model (e.g., Model serialization, Platform selection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: Unfortunately, there isn't enough context provided to accurately determine what specific process was followed to deploy the trained deep learning model. However, typically, after training a deep learning model, the next steps involve saving or serializing the model, selecting a platform for deployment, and then integrating the saved model into the chosen platform. This often involves converting the serialized model into a format compatible with the selected platform. After integration, testing should be performed to ensure the deployed model functions correctly and provides accurate predictions.

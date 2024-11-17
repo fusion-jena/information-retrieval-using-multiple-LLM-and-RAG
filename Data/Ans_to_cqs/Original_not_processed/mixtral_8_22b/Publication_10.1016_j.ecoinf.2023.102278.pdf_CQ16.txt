@@ -1,0 +1,233 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Appendix C. The training of the models 
+
+The best model with transfer learning was chosen based on the minimum total loss after nine epochs, as seen in Fig. C.5. Note that we observe 
+overfitting after nine epochs, where the validation loss starts to increase, although the bias is still very low. The increase is indicated by a higher 
+difference between training and validation loss and bias is the loss evaluated on the training dataset. 
+
+Note that the largest variation is 0.6%, which is very similar to the variation of 0.8% when training with different values of α in Fig. B.4. This 
+
+indicates a minimal impact on the change of accuracy for different choices of α. 
+
+References 
+
+An, G., Akiba, M., Omodaka, K., Nakazawa, T., Yokota, H., 2021. Hierarchical deep 
+
+learning models using transfer learning for disease detection and classification based 
+on small number of medical images. Scient. Rep. 11 (1) https://doi.org/10.1038/ 
+s41598-021-83503-7.
+
+calculated based on the results of the five trained models. The level-3 
+accuracy  was  ∈ {98.0,  97.8,  98.3,  97.7,  97.9}  for  the  five  models 
+trained  with  ResNet50  and  MTL.  Here, 
+the  best-performing 
+ResNet50MTL model was later used to evaluate the hierarchical classi-
+fication on the validation (TLm) and testing (TLt) dataset.
+
+Table 4 
+Average performance (Avg) and standard deviation (SD) for five trained models. Average precision, recall and F1-score for trained ResNet50 and EfficientNetB3 
+(EffNetB3) models modified for multitask learning (MTL) with transfer learning using pre-trained weights from ImageNet. The models are trained and validated on the 
+TLm  dataset. The models ResNet50, EfficientNetB3 are trained without MTL.  
+
+Model 
+
+Level 
+
+ResNet50MTL 
+EffNetB3MTL 
+
+ResNet50MTL 
+EffNetB3MTL 
+
+ResNet50MTL 
+EffNetB3MTL 
+
+ResNet50 
+EffNetB3 
+
+L1 Order 
+L1 Order 
+
+L2 Family 
+L2 Family 
+
+L3 Species 
+L3 Species 
+
+Species 
+Species 
+
+Avg 
+
+0.990 
+0.986 
+
+0.987 
+0.984 
+
+0.955 
+0.948 
+
+0.955 
+0.953 
+
+Precision 
+
+SD (10
+
+(cid:0) 3) 
+
+(1.0) 
+(4.4) 
+
+(0.8) 
+(3.1) 
+
+(4.3) 
+(5.2) 
+
+(3.3) 
+(2.5) 
+
+Avg 
+
+0.991 
+0.993 
+
+0.986 
+0.988 
+
+0.961 
+0.966 
+
+0.957 
+0.966 
+
+Recall 
+
+SD (10
+
+(cid:0) 3) 
+
+(1.1) 
+(0.5) 
+
+(0.9) 
+(0.7) 
+
+(9.8) 
+(5.1) 
+
+(7.3) 
+(2.5) 
+
+Avg 
+
+0.991 
+0.989 
+
+0.987 
+0.986 
+
+0.957 
+0.956 
+
+0.955 
+0.959
+
+F1-score 
+
+0.850 
+0.788 
+0.498  
+
+Table 8 
+Number of correct classifications at higher taxonomy rank for the TL (TLt) and 
+GBIFt  testing  dataset.  Unsure:  the  number  of  classifications  as  ‘unsure’  if  the 
+higher rank has a correct prediction. Correct: the higher rank is correctly clas-
+sified for an unsure prediction at level L2 or L3. Percentage: relative number of 
+correct predictions at higher rank.  
+
+Dataset 
+
+Level (rank) 
+
+Unsure 
+
+Correct 
+
+Percentage 
+
+Table 7 
+F1-scores for each level in the hierarchy of models (MIX, GBIF and TL) trained on 
+the three different datasets (GBIFm, TLm  and MIX) and validated on either the 
+TLm  or GBIFm  validation dataset.  
+
+Level-Model 
+
+Validated 
+
+F1-score 
+
+L1-MIX 
+L1-MIX 
+L1-GBIF 
+L1-TL 
+
+L2-MIX 
+L2-MIX 
+L2-GBIF 
+L2-TL 
+
+L3-MIX 
+L3-MIX 
+L3-GBIF 
+L3-TL 
+
+TL 
+GBIF 
+TL 
+GBIF 
+
+TL 
+GBIF 
+TL 
+GBIF 
+
+TL 
+GBIF 
+TL 
+GBIF 
+
+0.991 
+0.975 
+0.829 
+0.702  
+
+0.987 
+0.976 
+0.774 
+0.700  
+
+0.954 
+0.948 
+0.683 
+0.673
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What criteria are used to determine when training is complete (e.g., validation loss plateau)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Answer: The criterion used to determine when training is complete is the minimum total loss after nine epochs. This is observed through Fig. C.5, where overfitting begins after nine epochs, indicated by an increasing difference between training and validation loss. Despite this, the bias remains very low. It should be noted that the largest variation is only 0.6%, which is comparable to the variation of 0.8% when training with different values of alpha in Fig. B.4. This indicates a minimal impact on the change of accuracy for different choices of alpha.

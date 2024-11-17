@@ -1,0 +1,9 @@
+Answer:::
+
+The dataset used in the deep learning pipeline described in the context is a collection of bird songs. The bird songs are stored in .wav files and are organized into different folders based on their dialect type and the year they were collected. The file paths to these folders are listed in a metadata .csv file, which is used for training a Convolutional Neural Network (CNN) and a k-Nearest Neighbor (k-NN) classifier.
+
+The data preparation program generates spectrograms from the .wav files of each song using the Librosa python package. These spectrograms are then cropped to remove axis labels and borders, resulting in a dataset of images with a pixel size of 480 × 365. The CNN requires images to be 224 × 224, so the program rescales each image using the PyTorch function "resize" with a built-in anti-aliasing feature. The rescaled images are then converted into the appropriate input for the CNN.
+
+The CNN uses a train/validation/test split of 70%/10%/20% of the training dataset and is trained for 25 epochs. The model state from the epoch with the highest validation accuracy is used for classification.
+
+Therefore, the dataset used in this deep learning pipeline is a collection of bird songs, organized into folders based on dialect type and year, and represented as spectrograms for training a CNN and k-NN classifier.

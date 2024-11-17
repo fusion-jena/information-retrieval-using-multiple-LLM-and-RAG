@@ -1,0 +1,92 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+5.2. Deep GVI learning 
+
+In  GreenCam,  we  measure  photo  GVI  by  SegFormer  (Xie  et  al., 
+2021),  a  state-of-the-art  Transformer-based  model  for  semantic  seg-
+mentation. As shown in Fig. 12, SegFormer follows the encoder-decoder 
+structure, which combines a Transformer-based encoder (i.e., MiT) with 
+a  lightweight  decoder  (i.e.,  ALL-MLP)  that  is  composed  entirely  of 
+multilayer perceptron (MLP) blocks.
+
+SegFormer offers a set of MiT encoders (marked by MiT-B0, up to 
+MiT-B5) with increasing model sizes. To strike a balance between per-
+formance  and  efficiency,  and  to  facilitate  model  deployment  on 
+resource-constrained  mobile  devices,  we  choose  the  MiT-B1  as  the 
+encoder of GVI learning. We train the model on a server with an NVIDIA 
+GeForce GTX 3090 GPU (24 GB memory). The weights pretrained on 
+ImageNet-1 K dataset are used to initialize the encoder and decoder. In 
+training, we use the AdamW optimizer with the momentum parameter 
+(cid:0) 8  to prevent division by zero. 
+(β1
+We employ a cosine annealing schedule and set the initial learning rate 
+to 0.0001. The model is trained on the UGE-D dataset for 100 epochs 
+with the batch size of eight. We supervise SegFormer's training with the 
+Cross-Entropy loss function, which is formulated as: 
+
+) set to (0.9, 0.999) and ε set to 10
+
+, β2
+
+L = (cid:0) 1
+N
+
+∑N
+
+∑C
+
+(
+
+yijlog
+
+pij
+
+)
+,
+
+i=1
+
+j=1
+
+(4)
+
+training  datasets  in  use.  Until  now,  there  is  still  lack  of  high-quality 
+dataset for GVI extraction.
+
+Caesar, H., Uijlings, J., Ferrari, V., 2018. Coco-stuff: Thing and stuff classes in context. In: 
+
+Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 
+pp. 1209–1218. 
+
+Cai, B.Y., Li, X., Seiferling, I., Ratti, C., 2018. Treepedia 2.0: applying deep learning for 
+large-scale quantification of urban tree cover. In: 2018 IEEE International Congress 
+on Big Data (BigData Congress). IEEE, pp. 49–56. 
+
+Ca˜nas, I., Ayuga, E., Ayuga, F., 2009. A contribution to the assessment of scenic quality of 
+landscapes based on preferences expressed by the public. Land Use Policy 26, 
+1173–1181. 
+
+Chen, Z., Xu, B., Gao, B., 2015. Assessing visual green effects of individual urban trees 
+
+using airborne lidar data. Sci. Total Environ. 536, 232–244. 
+
+Chen, L.-C., Zhu, Y., Papandreou, G., Schroff, F., Adam, H., 2018. Encoder-decoder with 
+
+atrous separable convolution for semantic image segmentation. In: Proceedings of 
+the European Conference on Computer Vision (ECCV).
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "Where is the code repository of the deep learning pipeline available (e.g., GitHub, GitLab, BitBucket)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide information about where the code repository of the deep learning pipeline is available. It only discusses the architecture of SegFormer, its usage in measuring photo GVI in GreenCam, and the specifications of the training process. However, it does not mention any details regarding the location or availability of the source code. Therefore, without additional context, it is impossible to determine where the code repository of the deep learning pipeline is available.

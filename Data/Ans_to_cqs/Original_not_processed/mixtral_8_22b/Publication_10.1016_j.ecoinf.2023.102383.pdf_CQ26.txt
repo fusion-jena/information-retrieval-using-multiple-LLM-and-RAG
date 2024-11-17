@@ -1,0 +1,70 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Deeper layers derive additional features from the output of shallower 
+layers  through  progressive  downscaling.  Consequently,  feature  maps 
+from shallower layers contain more spatial feature information due to 
+higher resolution, while those from deeper layers have more bands and 
+may  provide  more  abstract  semantic  feature  information.  However, 
+when dealing with small objects containing only a limited number of 
+pixels, the vital spatial information about these objects can potentially 
+be lost in the deeper layers as part of the downsizing process, which may 
+not  only  fail  to  contribute  to  detection  process  but  can  also  diminish 
+detection precision. Additionally, to ensure that the predicted RoIs align
+
+compressed,  reducing  to  only  a  few  pixels  in  deeper  CNN  layers.  For 
+instance, an object with dimensions of 15 × 15 pixels in a UAV thermal 
+image might be represented by just 1 pixel in the feature map from Layer 
+4 of ResNet152 (refer to Fig. 4). The limited spatial resolution can lead to 
+loss of fine details, making it difficult for the model to distinguish small 
+objects from the background. Through FPN, different feature maps from 
+different layers can complement each other, and deeper feature map can 
+receive some spatial information from shallower layers. However, still 
+certain  spatial  features  might  have  been  lost  during  the  process  of 
+convolution operations. Consequently, the models of FRC_ResNet18FPN 
+and FRC_ResNet34FPN can obtain higher AP for medium and large ob-
+jects than the remaining models because they have less CNN layers than 
+others.  Notably,  the  FRC_ResNet152FPN  obtains  the  best  detection
+
+the output of Layer4 and is upsampled by a factor of 2 denoted by D5. 
+The output of Layer3 undergoes a 1 × 1 convolutional layer to reduce its 
+channel dimensions to be same with C5  denoted by E4. By element-wise 
+addition, M4  is generated and satisfies with the equation of M4 = D5 +
+E4.  Then,  by  a  3 × 3  convolutional  operation,  the  feature  map  P4  is 
+created. Then, M4  is downsampled by a factor of 2 to be D4. The output 
+of  Layer2  undergoes  a  1 × 1  convolutional  layer  to  generate  E3.  By 
+element-wise addition, M3 is generated and satisfies with the equation of 
+M3 = D4 + E3. Similarly, M2  and M1  can be generated and satisfy the 
+following equations: M2 = D3 + E2  and M1 = D2 + E1. Subsequently, by 
+3 × 3 convolutional operations, M1, M2, M3, and M4 are used to generate 
+four feature maps denoted by P1, P2, P3, and P4. Finally, P5  is generated 
+by  downsampling  P4.  Five  feature  maps  are  resulted  and  denoted  as
+
+for a model to detect and identify them. Under this condition, more CNN 
+layers mean that more abstractly semantic information can be extracted. 
+Therefore, FRC_ResNet152FPN has more advantages than others in this 
+sense.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What techniques are used to address data bias during preprocessing of the deep learning pipeline (e.g., Stratified splitting, oversampling, undersampling, Diverse data collection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+Techniques such as stratified splitting, oversampling, undersampling, and diverse data collection are often employed to mitigate data bias during the preprocessing stage of the deep learning pipeline.
+
+Stratified splitting involves dividing the dataset into training and testing sets while maintaining the original class distribution. This ensures that both subsets reflect the overall diversity of the entire dataset, thereby preventing any skewed representation of classes.
+
+Oversampling is another technique used to balance datasets where one or more classes are underrepresented. It works by duplicating examples from minority classes until their frequency matches that of majority classes. Alternatively, synthetic samples can be created using methods like SMOTE (Synthetic Minority Over-sampling Technique), which generates new instances based on interpolation between existing ones.
+
+Undersampling, conversely, reduces the size of overrepresented classes by randomly removing instances. While effective in achieving balanced distributions, undersampling risks discarding valuable information contained within removed examples. To avoid this issue, informed undersampling strategies like NearMiss and Tomek Links selectively eliminate instances based on specific criteria related to class boundaries and outliers.
+
+Lastly, collecting diverse data helps capture various aspects of real-world scenarios, thus improving model generalization capabilities. Efforts should focus on acquiring representative samples across all relevant domains, including edge cases and rare events. Moreover, augmentation techniques can artificially expand datasets by applying transformations such as rotations, translations, scaling, flipping, cropping, and color space manipulations. These modifications increase variability without altering underlying semantics, ultimately enhancing robustness against biases induced by limited sample sizes.

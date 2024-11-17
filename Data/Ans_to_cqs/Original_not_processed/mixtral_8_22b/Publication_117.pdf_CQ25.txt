@@ -1,0 +1,136 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+libraries	 such	 as	 TensorFlow	 (Abadi	 et	al.,	 2016).	 Currently,	 the	
+
+Raw count data are available from Enlighten: Research Data (https://
+
+doi.org//10.5525/gla.researchdata.732).  Source  code  is  available 
+
+from http://dx.doi.orgI10.5281/zenodo.2562058.
+
+greatest challenge for implementing these algorithms for bespoke 
+
+O R C I D 
+
+applications is obtaining sufficiently large training datasets. In this 
+
+regard,  citizen  scientists  have  a  clear  role  to  play.  While  we  have 
+
+shown that the trained algorithm achieves high accuracy levels, it 
+
+Colin J. Torney 
+
+ https://orcid.org/0000-0003-1673-7835  
+
+should  be  noted  that  the  algorithm  employed  the  crowd- sourced 
+
+data  to  create  the  training  sets.  Hence,  both  methods  should  be 
+
+R E F E R E N C E S
+
+viewed  as  complementary  approaches  with  citizen  science  data 
+
+forming the foundation for automated algorithms (Rey et al., 2017).
+
+science counts of the survey and comparison to expert counts.
+
+tee  that  the  approach  is  transferable  and  how  to  appropriately 
+
+4 |  D I S CU S S I O N
+
+filter the data may be affected by the wording of the guidelines, 
+
+the image resolution and sizes used, or the set of volunteers that 
+
+participate  in  the  project.  Other  more  sophisticated  approaches 
+
+to processing citizen science data have been proposed (Swanson 
+
+From our results, we see that both citizen science and deep learn-
+
+et al., 2016); however, given the range of counts provided by the 
+
+ing methods are capable of producing highly accurate image counts. 
+
+volunteers  and  the  large  errors  we  observe  in  the  baseline  met-
+
+Counting the wildebeest within the survey images is a difficult and 
+
+rics  (c.  11%  and c.  9%  undercount  for  the  mean  and  median,  re-
+
+time- consuming task. When collecting the census images, there are
+
+parallel  computing  power  provided  by  graphical  processing  units 
+
+tion professionals to focus on other tasks. Two novel methods can 
+
+(GPUs)  and  accessibility  of  image  training  datasets,  such  as  the 
+
+potentially replace the use of manual counts by experts, the deploy-
+
+COCO  dataset  (Lin  et al.,  2014),  have  led  to  rapid  improvements 
+
+ment of citizen scientists and the use of automated object detection 
+
+in  the  performance  of  multilayer  deep  convolutional  neural  net-
+
+algorithms.  In  this  work,  we  deploy  both  approaches  and  evaluate 
+
+works  (DCNNs).  These  multilayer  neural  networks  are  a  form  of 
+
+the performance and merits of each.
+
+deep learning and are distinct to traditional machine learning ap-
+
+1.1 | Citizen science and the wisdom of crowds
+
+proaches to computer vision in that no hand- crafted features are 
+
+required;  instead,  the  convolutional  layers  extract  relevant  fea-
+
+within the image. While there remains the potential for bias in the 
+
+three main steps.
+
+expert count, we take this count to be the gold standard. Hence, our 
+
+Firstly, we generated a training dataset by selecting 500 of the 
+
+results are a comparison between the two novel methods employed 
+
+survey images at random to be used exclusively for training. Images 
+
+and a count by a single experienced expert, which could in principle 
+
+were tiled into 864 × 864 subimages and then passed though a ver-
+
+deviate from the unknown true count.
+
+sion of the YOLO DCNN using pretrained weights from the COCO 
+
+dataset provided by (Redmon & Farhadi, 2018). This process created 
+
+a	list	 of	the	locations	of	potential	objects	in	each	image.	As	a	first	
+
+3 |  R E S U LT S
+
+pass, these results were filtered by discarding any object detections 
+
+that did not correspond to an identification from the Zooniverse data. 
+
+We  compared  the  accuracy  of  the  methods  by  calculating  the
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the purpose of the deep learning model (e.g., classification, segmentation, detection)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The purpose of the deep learning model in this context is object detection. Specifically, the model is used to detect wildebeest within survey images. The model employs a version of the YOLO Deep Convolutional Neural Network (DCNN) with pretrained weights from the COCO dataset. The goal is to automate the counting process, potentially replacing the need for manual counts by experts.

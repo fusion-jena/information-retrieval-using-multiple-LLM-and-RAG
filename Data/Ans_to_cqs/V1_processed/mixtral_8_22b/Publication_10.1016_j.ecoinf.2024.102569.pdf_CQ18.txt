@@ -1,0 +1,7 @@
+The strategy implemented to monitor the model performance during training involves utilizing the Root Trimmed Mean Squared Prediction Error (RTMSPE) to select the appropriate values for the tuning parameters τ and ϕ. This approach helps remove the impact of heterogeneous observations, which are often present when species are observed outside of their suitable habitats, such as in cultivation or captivity contexts.
+
+The RTMSPE is calculated based on the order statistics of the square residuals from the estimated model. It takes into account only a certain percentage of these residuals, determined by the value of δ (0 < δ < 1). By focusing on this subset of residuals, the RTMSPE provides a more robust measure of the model's predictive accuracy, especially when dealing with potentially contaminated datasets containing outliers or extreme observations.
+
+Furthermore, to perform simultaneous shrinkage estimation and variable selection, the authors use a penalized loss function with an L1 penalty. This technique encourages sparsity in the model coefficients, effectively performing feature selection by setting some coefficients to zero. The loss function includes penalties for all coefficient parameters except for the intercept parameter and the coefficient parameter for the detection probability model.
+
+By combining the RTMSPE and the penalized loss function, the authors aim to improve the overall performance of the model during training while also reducing overfitting and enhancing interpretability.

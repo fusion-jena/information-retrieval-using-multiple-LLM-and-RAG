@@ -1,0 +1,213 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Overall, the complete dataset has a length of 1430 days and contains 
+12 features (U2,Rs,RHmin,RHmax,Tmin,Tmax,ETo,SWC, NDVI, NDWI, DOY, 
+
+The  available  database  includes  weather  data  recorded  by  the 
+weather station from January 2018 to November 2021, as well as the 
+micro-meteorological data acquired by the EC tower from March 2019 
+to  November  2021,  in  both  cases  registered  at  sub-hourly  time-steps. 
+The  former  dataset  was  used  to  estimate  ETo,  by  Eq.  (3).  The  latter 
+dataset  was  processed, using  a  specific  software  developed  by  Manca 
+(2003),  excluding  all  the  records  acquired  in  days  where  the  rainfall 
+height was higher than 2.5 mm. The suitability of the records acquired 
+by  the  EC  tower  was  assessed  based  on  the  energy  balance  closure 
+
+Table 3 
+Variables used in the analysis and number of records available in the investi-
+gated years.     
+
+2018 
+
+2019 
+
+2020 
+
+2021 
+
+Instruments 
+
+Variable 
+
+Units
+
+(cid:0) 3, 10
+
+(cid:0) 4;  
+
+The following configuration optimized the performance of the model 
+and was accordingly adopted for analysis: Adam solver (Kingma and Ba, 
+(cid:0) 4,  constant  learning 
+2014),  10 neurons  per  hidden  layer, alpha  = 10
+rate, and rectifier activation function, also called Rectified Linear Unit 
+(ReLU) activation function, defined as: 
+
+(
+
+)
+
+{
+
+ReLU
+
+k
+
+=
+
+k, if k > 0;
+0, if k⩽0.
+
+(14) 
+
+In the case of the RF, the hyperparameters include the number of 
+decision trees in the forest, the maximum depth of the decision tree, the 
+number of features considered by each tree when splitting a node, etc. 
+This  set  of  hyperparameters  was  tested  using  the  grid  configuration 
+shown below:  
+
+1.  Number of decision trees: from 100 to 1000 (in steps of 100);  
+2.  Number of features to consider at every split (max features): auto,
+
+sqrt, log2, None;  
+
+3.  Maximum number of levels in decision tree: None, or from 10 to 100 
+
+(in steps of 10);
+
+Schrader, F., Durner, W., Fank, J., Gebler, S., Pütz, T., Hannes, M., Wollschl¨ager, U., 
+2013. Estimating precipitation and actual evapotranspiration from precision 
+lysimeter measurements. Proc. Environ. Sci. 19, 543–552. 
+
+Sowmya, M., Kumar, M.S., Ambat, S.K., 2020. Comparison of deep neural networks for 
+reference evapotranspiration prediction using minimal meteorological data. In: 2020 
+advanced computing and communication Technologies for High Performance 
+Applications (ACCTHPA). IEEE, pp. 27–33. 
+
+Toosi, A., Javan, F.D., Samadzadegan, F., Mehravar, S., Kurban, A., Azadi, H., 2022. 
+Citrus orchard mapping in juybar, iran: Analysis of ndvi time series and feature 
+fusion of multi-source satellite imageries. Ecol. Inform. 70, 101733. 
+
+Troyanskaya, O., Cantor, M., Sherlock, G., Brown, P., Hastie, T., Tibshirani, R., 
+Botstein, D., Altman, R.B., 2001. Missing value estimation methods for dna 
+microarrays. Bioinformatics 17 (6), 520–525.
+
+M5P, BAGGING, RF, SVR 
+ANN 
+ENN 
+RF, LSTM 
+LSTM 
+
+Mosre et al. (2021) 
+
+LR - EFS 
+
+Granata et al. (2020) 
+Zhang et al. (2021) 
+Wang et al. (2023) 
+Izadifar et al. (2010) 
+Hao et al. (2022) 
+
+RF, MLP, kNN, ARDS 
+RF 
+RF 
+ANN, GP, SAS/STAT 
+BMA 
+
+Pastures grass 
+Different land cover 
+Green peppers 
+Corn, soybeans, potatoes 
+Grassland, Forest,  
+Alpine meadow 
+Grassland,  
+Open shrubland,  
+Barren vegetation 
+Sawgrass 
+Grassland 
+Different land cover 
+Spontaneous flora 
+Grassland,  
+Cropland,  
+Forest 
+
+1825 
+11713 
+800 
+6208 
+300–500 
+
+4017 
+
+2069 
+Datasets of various sizes 
+Datasets of various sizes 
+150 
+Datasets of various sizes 
+
+Present work (2023) 
+
+RF, MLP 
+
+Citrus orchard 
+
+576 
+
+3–6 
+2–5 
+10 
+5–16 
+4–8 
+
+5–18 
+
+3–7 
+21 
+7 
+5–9 
+7 
+
+4–10 
+
+RMSE[mmd
+
+(cid:0) 1] 
+
+R2 
+
+0.18–0.40 
+0.39–0.78 
+0.35–0.61 
+0.40–1.30 
+0.21–1.06 
+
+0.93–0.98 
+0.98–0.99 
+0.86–0.97 
+0.42–0.70 
+0.16–0.80 
+
+0.42–1.81 
+
+0.15–0.82 
+
+0.42–1.06 
+0.28–0.73 
+0.99–2.18 
+0.06–0.10 
+0.32–0.67
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the datasets used in the deep learning pipeline (e.g., MNIST, CIFAR, ImageNet)? "
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it does not provide information about the use of any standard datasets such as MNIST, CIFAR, or ImageNet in the deep learning pipeline. Instead, the context mentions the use of a custom dataset containing weather and micro-meteorological data recorded over several years. This dataset is used to estimate ETo and is further processed using a specific software developed by Manca (2003). The resulting dataset is then utilized for training and evaluating machine learning models like ANNs and Random Forests. Therefore, no standard datasets were mentioned in this context.

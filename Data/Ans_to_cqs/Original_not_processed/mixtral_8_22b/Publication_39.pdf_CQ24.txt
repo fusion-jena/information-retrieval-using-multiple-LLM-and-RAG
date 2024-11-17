@@ -1,0 +1,67 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Stochastic Gradient Descent (SGD) is used as optimization technique. 
+We start with a learning rate of 0.0005, a momentum of 0.9 and weight 
+decay of 0.0005. Different settings of momentum and weight decay are 
+checked but show no improvements. In the training process, we decrease 
+the learning rate every 10 epochs by multiplying it with γ = 0.1. In the 
+first  epoch  we  use  warmup  iterations  for  the  learning  rate  with  a 
+warmup factor of 1/1000. These parameters gave the best results in our 
+evaluations. We train our models for 30 epochs.
+
+The SlowFast architecture is trained in 40 epochs with an initial base 
+learning rate of 0.1. We use 5 warmup epochs with a warmup learning 
+rate of 0.001. Momentum is set to 0.9 and the weight decay parameter is 
+(cid:0) 4.  The  learning  rate  is  decreased  with  a  cosine  strategy.  The 
+1  ⋅  10
+optimization technique is SGD and the loss function is the cross entropy 
+loss. In this parameter selection we follow Feichtenhofer et al. (2019). 
+We set the temporal length of the input to 16 frames. We set the sam-
+pling rate to 4 and α = 2. The parameter β is set to 1/8 as proposed by 
+
+EcologicalInformatics61(2021)1012159F. Schindler and V. Steinhage
+
+Feichtenhofer et al. (2019). This parameter combination achieved the 
+best  results  in  our  experiments.  The  Slow  and  Fast  pathways  are 
+implemented by a ResNet-101. 
+
+We  split  the  annotated  dataset  AnnotationsActions  (cf.  Section  2.2) 
+randomly (but fixed for all experiments and all networks) into a train set, 
+validation set and test set. The test set includes 20% of the video clips of 
+each class. Of the remaining clips, again 20% of the clips in each class 
+form the validation set. The remaining clips are the training set. 
+
+4.4.1. Data augmentation for action recognition
+
+4.4. Action recognition 
+
+The three ResNet variants are trained for 40 epochs starting with an 
+initial learning rate of 0.001. The learning rate is decreased every 10 
+epochs by multiplying it with a γ = 0.1. For optimization we utilize the 
+Stochastic  Gradient  Descent  (SGD)  with  a  momentum  of  0.9  and  a 
+
+EcologicalInformatics61(2021)1012158F. Schindler and V. Steinhage
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What strategies are employed to handle randomness in the deep learning pipeline (e.g., random seed value)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't any explicit information about handling randomness in the deep learning pipeline, such as managing random seed values. However, some implicit strategies can be derived from the text.
+
+One common approach to manage randomness is using a fixed random seed value across different runs or experiments. By doing so, researchers ensure that their results are reproducible and not influenced by varying random factors. Although the context does not explicitly mention setting a specific random seed value, it states that the dataset was randomly split into training, validation, and testing sets, but the splitting was done 'fixed for all experiments and all networks.' This implies that they might have used a consistent random seed value during data partitioning to maintain consistency across multiple runs.
+
+Additionally, the context mentions that the model was evaluated after trying out various combinations of hyperparameters like learning rates, momentum, weight decay, etc. While these adjustments do not directly address randomness, they contribute to optimizing the model performance and reducing variance caused by suboptimal configurations.
+
+Lastly, the context discusses employing Stochastic Gradient Descent (SGD) as an optimization technique. SGD introduces randomness by selecting a subset of samples for gradient calculation instead of using the entire dataset. To mitigate the impact of this randomness, one could use techniques like mini-batch SGD, which offers a balance between full batch and stochastic methods, providing more stable convergence while still benefiting from the noise introduced by SGD.
+
+In conclusion, although the context does not provide direct evidence of strategies addressing randomness in the deep learning pipeline, it suggests possible approaches like fixing random seeds, tuning hyperparameters, and utilizing optimization techniques like mini-batch SGD to indirectly manage randomness and improve overall model performance.

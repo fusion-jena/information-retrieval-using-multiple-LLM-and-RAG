@@ -1,0 +1,67 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+2.3.  Model training 
+
+2.3.1.  Training data preprocessing 
+
+The  CNN  model  used  in  this  study  requires  equally  sized  input 
+images. We chose a time-frequency input window size of 2 s as it is near 
+the mean and median template duration across target call types (Fig. 2). 
+Most  call  types  have  a  duration  below  1  s,  and  for  those  above  2  s,
+
+To  expand  this  approach  to  the  broader  community,  we  have 
+identified three important challenges for future research. First, future 
+developments  should  account  for  the  large  variability  in  the  size  of 
+target  calls  (i.e.  templates).  Introducing  recurrent  connections  in  the 
+CNN, or other architecture modifications could potentially reduce the 
+negative  effects  of  window  size.  Second,  previous  studies  have  found 
+data  augmentation  to  significantly  improve  performance  (Kahl  et  al., 
+2019).  In  these  cases,  training  data  was  mainly  based  on  monodirec-
+tional  recordings  of  single  species,  and  data  augmentation  (i.e.  noise 
+addition)  apparently  helped  to  emulate  the  conditions  of  soundscape 
+recordings.  The  effect  may  be  reduced  for  training  data  collected  di-
+rectly from soundscapes, as in this study. Still, data augmentation may
+
+best on field (soundscape) data. Incze et al. (2018) repurposed a pre- 
+trained  MobileNet  CNN  (Howard  et  al.,  2017)  for  single-species  clas-
+sification of bird audio recordings, and found that mapping grayscale 
+input  spectrograms  to  a  color  scheme  improved  performance  (Incze 
+et al., 2018). Other studies have found that combining various types of 
+spectrograms  into  3-channel  images  have  improved  performance  for 
+CNNs pre-trained for image classification (Sevilla et al., 2017; Xie et al., 
+2018; Xie et al., 2019). Sevilla et al. (2017) achieved relatively high- 
+performance classification of single-species recordings and soundscapes 
+by using an Inception-type CNN architecture (Szegedy et al., 2015) with 
+time  and  time-frequency  attention  mechanisms.  These  studies  have 
+used single-label models for classification, and aggregated predictions 
+over  segments  of  soundscape  recordings  to  make  multi-label  predic-
+
+The manual effort in training data creation was reduced to template 
+creation and validation of template-based detections in a graphical user 
+interface (Fig. 3). This addresses an important need for more accessible 
+training  data  from  study  sites  to  leverage  deep  learning  for  acoustic 
+monitoring.  Our  evaluation  demonstrates  that  strong  classification 
+performance  can  be  achieved  using  data  collected  from  the  study  re-
+gion,  without  relying  on  crowd-sourced  public  datasets.  The  pipeline 
+thus  increases  the  potential  for  region-optimized  acoustic  monitoring 
+systems.  Furthermore,  the  training  data  collection  pipeline  could  ac-
+celerate the collection of data for rare species. 
+
+Our  training  scheme  allowed  for  multi-label  learning  from  single- 
+label  training  data  by  defining  a  custom  training  loss  and  including
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What data formats are used in the deep learning pipeline (e.g., image, audio, video, CSV)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The deep learning pipeline primarily uses time-frequency input windows, which are essentially spectrograms derived from audio files. Spectrograms are visual representations of the spectrum of frequencies varying over time. They are often represented as two-dimensional images where one axis represents time, another axis represents frequency, and the intensity of color indicates the amplitude of a particular frequency at a specific point in time. Therefore, the primary data format used in this pipeline is image data, specifically spectrograms generated from audio files.

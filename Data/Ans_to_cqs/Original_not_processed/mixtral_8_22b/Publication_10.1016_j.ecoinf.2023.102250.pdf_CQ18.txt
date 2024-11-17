@@ -1,0 +1,155 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Operations 
+
+spectral normalization 
+spectral normalization 
+spectral normalization 
+spectral normalization 
+spectral normalization  
+spectral normalization  
+
+Activation 
+
+LeakyReLU 
+LeakyReLU 
+LeakyReLU 
+LeakyReLU 
+
+Output size 
+
+(16,256,256) 
+(32,128,128) 
+(64,64,64) 
+(128,32,32) 
+(128*32*32,1) 
+(128*32*32,17)  
+
+number of convolutional weights by a factor of K, resulting in a lack of 
+compactness  in  the  model.  Secondly,  jointly  optimizing  dynamic 
+attention and static convolutional kernels becomes a challenging task. 
+To address these issues, Li proposed the dynamic convolutional kernel 
+decomposition in 2021 (Li et al., 2021). This approach effectively re-
+duces the number of parameters in dynamic convolution and improves 
+the classification performance of neural networks that utilize dynamic 
+convolutional kernels. 
+
+In (Li et al., 2021), the static convolution kernel can be re-defining by 
+
+the formula 9. 
+
+Wk = W0 + ΔWk, k ∈ {1, …, K}
+
+(9)  
+
+∑
+
+(
+f 7×7
+
+= σ
+
+avg; Xs
+Xs
+
+max
+
+]) )
+
+)
+
+(5)  
+
+, Xs
+where Xs
+tures across the channel. 
+
+avg
+
+max  denotes average-pooled features and max-pooled fea-
+
+The  energy  magnitude  and  distribution  across  different  frequency 
+ranges are considered crucial information in the spectrograms generated 
+by WT. By incorporating the CBAM attention module into the generator, 
+the  model  can  learn  weight  parameters  for  the  spectrogram  channels 
+and spatial dimensions. It enables the generator to focus more on the 
+vital  information  in  the  image,  ultimately  enhancing  the  quality  and 
+level of detail in the generated image. 
+
+3.2.2. Discriminator structure for constraint training
+
+EcologicalInformatics77(2023)1022507Y. Fu et al.                                                                                                                                                                                                                                       
+
+3.4.2. Classification evaluation metrics 
+
+To  evaluate  the  accuracy  and  effectiveness  of  the  classification 
+model, we use several metrics including Accuracy, Precision, Recall, F1- 
+score,  Top-1  accuracy,  Top-5  accuracy,  Top-1  error,  and  Top-5  error. 
+The formulas for these metrics are shown in 14. 
+
+Accuracy =
+
+TP + TN
+TP + TN + FP + FN
+
+Precision =
+
+Recall =
+
+TP
+TP + FP
+TP
+TP + FN
+
+Table 5 
+Compare  the  IS  and  FID  values  of  the  sampled  generated  spectrogram  of 
+different ACGAN models.  
+
+Models 
+
+ACGAN 
+DR-ACGAN 
+
+Operating 
+
+– 
+( + )BN & ( (cid:0)
+)CBAM 
+( + )BN & ( + )CBAM 
+( + )SN & ( (cid:0)
+)CBAM 
+( + )SN & ( + )CBAM 
+
+IS 
+
+4.23 
+4.54 
+4.85 
+5.01 
+5.10 
+
+FID
+
+EcologicalInformatics77(2023)10225013Y. Fu et al.                                                                                                                                                                                                                                       
+
+Fig. 10. The classification accuracy of different models in Experimental Group I. The bar represents the Top-1 accuracy for each network group, while the line 
+represents the Top-5 accuracy. 
+
+Fig. 11. The classification accuracy of different models in Experimental Group II. The bar represents the Top-1 accuracy for each network group, while the line 
+represents the Top-5 accuracy.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, it appears that the authors used various evaluation metrics such as Accuracy, Precision, Recall, F1-score, Top-1 accuracy, Top-5 accuracy, Top-1 error, and Top-5 error to monitor the model performance during training. These metrics were calculated using specific formulas, which have been mentioned in the context. Additionally, the authors compared the Inception Score (IS) and Frechet Inception Distance (FID) values of the sampled generated spectrogram of different ACGAN models. They also presented figures showing the classification accuracy of different models in two experimental groups, with bars representing the Top-1 accuracy for each network group and lines representing the Top-5 accuracy. However, there isn't any explicit mention of a specific strategy or methodology employed to monitor the model performance during training beyond these evaluation methods.

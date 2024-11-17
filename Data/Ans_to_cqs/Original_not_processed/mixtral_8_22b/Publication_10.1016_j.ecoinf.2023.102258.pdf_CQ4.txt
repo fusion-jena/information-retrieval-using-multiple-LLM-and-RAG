@@ -1,0 +1,253 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Several systems adopted a prototypical network approach, perhaps 
+influenced by the baseline code and/or the outcomes of the 2021 edi-
+tion.  Simple  improvements  over  the  baselines  were  achieved  by 
+applying data augmentation techniques and intelligent post-processing. 
+Better ways to construct the negative prototype were also explored by 
+some  teams  who  reported  improved  results  (Liu_Surrey,  XuQianHu_-
+NUDT_BIT,  Jung_KT,  Wu_SHNU,  Jung_KT,  Willbo_RISE).  Transductive 
+inference—adapting  the  learnt  feature  space  at  test-time  based  on  the 
+newly-presented  positive  and  negative  events—was  also  applied  by 
+some  participants  (Liu_Surrey,  XuQianHu_NUDT_BIT,  Li_QMUL,  Tan_-
+WHU, Zou_PKU).
+
+DFSL 
+attentive 
+Finetune last 
+layer 
+Proto 
+
+Segment 
+length 
+technique 
+
+Derived from 
+shots 
+Template 
+length 
+
+Adaptive 
+length fixed 
+shift 
+Derived from 
+shots 
+
+Adaptive 
+length 
+Region 
+proposal 
+network 
+Derived from 
+shots 
+
+Post-processing 
+
+Delete very short 
+
+– 
+
+Peak picking, 
+thresholding 
+Peak picking, median 
+filtering 
+
+CRNN event filter 
+
+Split-merge-filter; 
+delete very long/ 
+short 
+– 
+
+– 
+
+– 
+
+thresholding, merge/ 
+filter small events
+
+Baselines 
+
+Prototypical 
+
+Mel +PCEN 
+
+Systems submitted 
+to the public 
+challenge 
+
+Template matching 
+
+Yang et al. (2021) 
+
+Lin 
+
+Mel 
+
+Tang et al. (2021) 
+
+Lin + PCEN 
+
+Du_NERCSLIP 
+
+Mel +PCEN 
+
+Liu_Surrey 
+
+Mel +PCEN & 
+delta-MFCC 
+
+CNN 
+
+n/a 
+
+CNN 
+
+CNN 
+
+CNN 
+framewise 
+
+CNN 
+
+n/a 
+
+x-ent 
+
+Proto 
+
+x-ent 
+
+Proto 
+(modifed) 
+
+Wu_SHNU (+Wu 
+2023 ICASSP) DFSL 
+Moummad_IMT 
+
+Other 
+
+Wolters 2021 arxiv 
+Perceiver 
+
+You et al. (2023) 
+(ICASSP 2023) 
+
+Mel 
+
+Mel 
+
+Mel 
+
+Mel +PCEN 
+
+CNN (ResNet) 
+
+x-ent 
+
+DFSL attentive 
+
+No 
+
+Pseudo-pos 
+
+– 
+
+Proto 
+
+Dist:Proto 
+
+TI, Retrain 
+
+5 
+
+Between-the-5 +
+Pseudo-neg 
+(SpecSim) 
+Pseudo-neg 
+
+CNN (ResNet) 
+
+SCL 
+
+CNN + CRNN 
++Perceiver 
+
+Proto +RPN 
+(R-CRNN) 
+
+Posterior 
+
+Finetune 
+
+Between-the-5 
+
+Dist:Proto 
+
+No 
+
+n/a 
+
+5 
+
+5 
+
+AST 
+
+Proto 
+
+Proto 
+
+Dist:Proto 
+
+Finetune, TI 
+
+Between-the-5 
+
+5 + aug 
+
+New 
+templates 
+Retrain (new 
+pos + neg) 
+Proto 
+
+Finetune last 
+layer 
+
+DFSL 
+attentive 
+Finetune last 
+layer 
+Proto
+
+Query-time adaptation (transductive inference) was shown in mul-
+tiple cases to lead to very strong performance, within both the proto-
+typical  and  fine-tuning  paradigms.  This  comes  at  a  cost  of  added 
+complexity  and  added  query-time  computation,  since  typically  a  new 
+run of statistical optimisation must be performed for a new query task. 
+Thus, from the present results we can recommend that a system should 
+include query-time adaptation for the best possible detections, but that a 
+system without query-time adaptation should be a widespread default. 
+Such fixed embeddings can easily be used off-the-shelf, in the same way 
+that  other  pretrained  networks  are  now  commonly  downloaded  and 
+used.  The  DFSL  method  employed  by  Wu_SHNU  is  an  alternative 
+approach  which  combines  an  unchanging  feature  extraction  with  a 
+query-time  adaptive  weighting.  This  combines  stability  with  dynamic 
+adaptation, and thus is worthy of further investigation.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the data augmentation techniques applied in the deep learning pipeline (e.g., Fliping, Roating, Scaling)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The given context does not provide specific details about the exact data augmentation techniques applied in the deep learning pipeline. However, it mentions that simple improvements over the baselines were achieved by applying data augmentation techniques. Data augmentation techniques generally refer to methods used to increase the amount of training data by creating modified versions of the original dataset. Common examples include flipping, rotating, scaling, cropping, zooming, and adding noise. These techniques help improve model generalization and prevent overfitting. Without explicit information, one cannot definitively state which specific data augmentation techniques were used in this case.

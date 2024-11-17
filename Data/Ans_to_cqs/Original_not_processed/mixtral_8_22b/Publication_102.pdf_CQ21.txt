@@ -1,0 +1,137 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Model evaluation: testing
+
+Table  1  shows  the  model’s  performance  on  the  test-
+ing  images  (see  “Data  preparation”  section).  Model-2, 
+with 37M parameters, outperformed Model-1 with 15M 
+parameters in terms of the counting prediction, for both 
+the  SSL  and  elephants’  data  sets.  Figure  4  shows  the 
+actual vs. predicted number of animals. The diagonal red 
+line represents the case of no errors (i.e., perfect predic-
+tion). The closer the points are to the line, the better the 
+prediction.
+
+Fig. 3  Training loss curve: training loss function gradient vs. iteration curve for Basic UNet (Model-1) and UNet with EfficientNet-B5 feature extractor 
+architecture (Model-2)
+
+Table 1  Performance comparison of Model-1, Model-2 on test data set
+
+Model
+
+Feature extractor
+
+Model-2
+
+Model-1
+
+Eff.Net-B5
+
+No
+
+SSL
+
+RMSE
+
+1.88
+
+5.57
+
+MAE
+
+1.09
+
+3.54
+
+Elephant
+
+RMSE
+
+0.60
+
+1.01
+
+MAE
+
+0.34
+
+0.53
+
+Parameters
+
+≈37M
+≈14M
+
+The  Model-K  architecture  is  a  regression  model  based 
+on  VGG16  without  the  feature  extractor  on  top.  The 
+output layer was flattened and given as input to 2 fully 
+connected  (FC)  layers  with  linear  output.  The  regres-
+sion  model  was  designed  to  predict  classwise  (five 
+categories)  count.  To  compare  it  with  the  proposed 
+solution,  we  modify  the  model  by  connecting  the  out-
+put  layer  with  a  fully  connected  one  output  neuron. 
+Model-K  was  initialized  with  pre-trained  Imagenet 
+weights  and  then  trained  using  our  training  data  set 
+with  a  Stochastic  Gradient  Descent  (SGD)  optimizer 
+and  an  MSE  loss  function.  The  proposed  Model-2 
+with  EfficientNet  feature  extractor  reached  an  RMSE 
+value  of  1.88  and  0.60  for  the  SLL  and  elephants’  data 
+sets,  respectively,  performing  better  than  the  Model-K 
+with  an  RMSE  of  2.17  and  0.81  for  SSL  and  elephants’
+
+In  the  proposed  work,  the  down-sampling  (contract-
+ing)  path  repeatedly  applies  a  block  comprised  of  two 
+3 × 3  convolutions,  followed  by  batch-normalization, 
+a  Rectified  Linear  Unit  (ReLU)  activation  and  a  2 × 2 
+max-pooling  layer  of  stride  2.  The  number  of  feature 
+map  channels  in  the  contracting  path  is  doubled  at 
+each  down-sampling  block.  Similarly,  the  up-sampling 
+(expansive)  path  replaces  the  max-pooling  layers  with 
+up-sampling layers that apply nearest-neighbor interpo-
+lation.  Analogous  to  the  contracting  path,  the  number 
+of  feature  map  channels  is  halved  at  each  up-sampling 
+block.  The  feature  maps  of  the  up-sampling  path  are 
+concatenated  with  the  feature  maps  of  the  contracting 
+path. Finally, the output layer results by applying a 1 × 1 
+convolution.
+
+Loss function
+
+Page 6 of 10
+
+EfficientNet-B5  feature  extractor  [27].  EfficientNet  is  a 
+CNN  developed  by  Google,  characterized  by  high  accu-
+racy  and  computational  efficiency.  Model-2  was  initial-
+ized  by  pre-trained  weights  based  on  the  Imagenet  data 
+set  [28].  All  the  parameters  were  optimized  using  the 
+Adam optimizer with a learning rate of 0.001.
+
+Training
+
+An  Nvidia  GeForce  RTX  2060  GPU  was  used  for  train-
+ing,  with  a  batch  size  of  8.  Model-1  (without  feature 
+extractor)  was  trained  for  7  h  and  Model-2  (with  a  fea-
+ture  extractor)  for  17  h.  Based  on  the  model’s  perfor-
+mance on the validation set, the early stopping technique 
+was  applied  to  avoid  over-fitting.  Model-2,  which  used 
+
+pre-trained  weights  and  thus  some  prior  relevant  infor-
+mation, converged faster than Model-1 (Fig. 3).
+
+Model evaluation: testing
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+After the model training process, several postprocessing steps can be performed depending on the specific requirements of the project or task. However, based on the provided context, there isn't any explicit mention of postprocessing steps such as saliency maps, confusion matrices, or other metrics calculations. Nevertheless, from the information available, we can infer that the models underwent evaluation using certain metrics like Root Mean Square Error (RMSE) and Mean Absolute Error (MAE), as shown in Table 1. These metrics help assess the performance of the models on the test dataset. Additionally, Fig. 4 displays actual versus predicted numbers of animals, providing visual insights into the accuracy of predictions made by the models. In summary, while the exact postprocessing steps aren't explicitly mentioned, the context suggests that the models were evaluated using error metrics and visual comparisons between actual and predicted values.

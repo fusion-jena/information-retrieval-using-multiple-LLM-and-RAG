@@ -1,0 +1,239 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+Successful systems also commonly used explicit methods to control 
+the  duration  of  the  detected  events.  In  many  cases  this  consists  of 
+postprocessing  predictions  to  delete/merge  very  short  events,  or  esti-
+mating the typical duration from the examples. Du_NERCSLIP(23) and 
+Wolters et al. (2021) made use of neural network architectures specif-
+ically trained to infer and output region annotations. 
+
+Overall, the different approaches submitted illustrate the introduc-
+tion of ideas to address challenges related to this task: how to deal with 
+very different event lengths; how to construct a negative class when no 
+explicit  labels  are  given  for  this;  and  how  to  bridge  the  gap  between 
+classification and detection for few-shot sound event detection. These 
+challenges derive from the combination of few-shot learning with sound 
+event  detection,  and  hence  are  not  addressed  in  standard  few-shot 
+learning (Wang et al., 2020a).
+
+• Transductive  few-shot  learning  -  Meta  learning  methods  aim  to 
+learn on scarce data in order to generalise to unseen tasks,  which 
+makes the problem fundamentally difficult. In order to mitigate the 
+difficulty, transductive based methods utilise the information present 
+in the unlabeled examples from the query set to adapt the model and 
+improve its predictions. In Liu et al. (2018), the samples in support 
+and query set are jointly modelled as nodes of a graph and the pre-
+diction on query set is conducted by label-propagation algorithm. In 
+Hou  et  al.  (2019),  a  cross-attention  based  map  is  learnt  between 
+support set and query set in order to make predictions on individual 
+query examples.
+
+Training 
+
+Val. 
+
+Evaluation 
+
+BV 
+HT 
+MT 
+JD 
+WMW 
+HB 
+PB 
+ME 
+CHE 
+DC 
+CT 
+MS 
+QU 
+MGE 
+
+Birds 
+Mammals 
+Mammals 
+Birds 
+Birds 
+Insects 
+Birds 
+Mammals 
+Birds 
+Birds 
+Mammals 
+Birds 
+Mammals (marine) 
+Birds 
+
+fixed 
+on-body 
+on-body 
+on-body 
+various 
+handheld 
+fixed 
+handheld 
+fixed 
+fixed 
+on-body 
+fixed 
+on-body 
+fixed 
+
+5 
+5 
+2 
+1 
+161 
+10 
+6 
+2 
+18 
+10 
+3 
+4 
+8 
+3 
+
+10 h 
+5 h 
+70 mins 
+10 mins 
+5 h 
+2.4 h 
+3 h 
+20 mins 
+3 h 
+95 mins 
+48 mins 
+40 mins 
+74 mins 
+32 mins 
+
+11 
+5 
+4 
+1 
+26 
+1 
+2 
+2 
+3 
+3 
+3 
+1 
+1 
+2 
+
+9026 
+611 
+1294 
+357 
+2941 
+712 
+292 
+73 
+2550 
+967 
+365 
+1087 
+3441 
+1195 
+
+0.038 
+0.047 
+0.042 
+0.062 
+0.25 
+0.67 
+0.003 
+0.011 
+0.263 
+0.350 
+0.017 
+0.084 
+0.045 
+0.194 
+
+0.15 
+1.42 
+0.15 
+0.11 
+1.54 
+11.67 
+0.11 
+0.19 
+1.94 
+1.66 
+0.16 
+0.18 
+0.06 
+0.27
+
+DFSL 
+attentive 
+Finetune last 
+layer 
+Proto 
+
+Segment 
+length 
+technique 
+
+Derived from 
+shots 
+Template 
+length 
+
+Adaptive 
+length fixed 
+shift 
+Derived from 
+shots 
+
+Adaptive 
+length 
+Region 
+proposal 
+network 
+Derived from 
+shots 
+
+Post-processing 
+
+Delete very short 
+
+– 
+
+Peak picking, 
+thresholding 
+Peak picking, median 
+filtering 
+
+CRNN event filter 
+
+Split-merge-filter; 
+delete very long/ 
+short 
+– 
+
+– 
+
+– 
+
+thresholding, merge/ 
+filter small events
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer: The postprocessing steps mentioned in the provided context include deleting or merging very short events, estimating the typical duration from the examples, using neural network architectures specifically trained to infer and output region annotations, peak picking, thresholding, median filtering, CRNN event filter, split-merge-filter, and deleting very long or short events. However, it does not explicitly mention saliency maps, metrics calculation, or confusion matrices as part of the postprocessing steps. Therefore, these may not be common postprocessing techniques used in the context of few-shot sound event detection.

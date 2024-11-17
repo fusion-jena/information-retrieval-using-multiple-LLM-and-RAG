@@ -1,0 +1,46 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+kernel to expand without increasing the number of parameters [39]. This expansion of the
+window is controlled by the dilation rate and it enables the network to capture information
+from a larger receptive ﬁeld of view with the same parameters and computational complex-
+ity as the normal convolution. The combination of spatial pyramid pooling with Atrous
+convolutions resulted in an efﬁcient multi-scale processing module called Atrous spatial
+pyramid pooling (ASPP). In the earlier version (DeepLabV3) [40], the last ResNet block of
+the modiﬁed ResNet-101 uses different Atrous convolutions with different dilation rates.
+ASPP, together with bilinear up sampling, is also used on top of the modiﬁed ResNet block.
+DeepLabv3+ is an improvement in the previous version by adding an effective decoder
+module to improve the boundaries of the segmentation results [41]. Furthermore, apart
+from ResNet-101, an Xception model can be used as a feature extractor while applying a
+
+6 of 23
+
+Figure 2. A schematic diagram of a fully convolution neural network for semantic segmentation. The network consists of
+an encoder part where the model extracts potential useful features and the decoder part, which up-samples the extracted
+feature map to produce the ﬁnal segmentation results.
+
+is an improvement in the previous version by adding an effec-tive decoder module to improve the boundaries of the segmentation results [41]. Further-more, apart from ResNet-101, an Xception model can be used as a feature extractor while applying a depth-wise separable convolution to both ASPP and the decoder module, hence improving the speed and robustness of the encoder-decoder network.  Figure 2. A schematic diagram of a fully convolution neural network for semantic segmentation. The network consists of an encoder part where the model extracts potential useful features and the decoder part, which up-samples the extracted feature map to produce the final segmentation results. 3.2. Phase 2: Leaf Extraction Using Connected Component A classic connected component algorithm was first introduced by Azriel and John in 1966 [42]. Since then, numerous different implementations have been proposed for im-proving existing ones [43]. In image processing, connected components analysis helps to
+
+Training procedure—We adapted a pre-trained VGG16 network that is a CNN trained
+on the ImageNet dataset and used for transfer learning on our dataset [51]. We froze
+earlier layers of the base version of the network to make them non-trainable and added an
+extra max-pooling layer before the fully connected layers to reduce the dimension of the
+previous layer. The feature vector of the fully connected layer was reduced from 2048 units
+of the original VGG16 to 128 units, which helped in reducing the computational complexity
+without sacriﬁcing much on performance. The model was implemented using Keras with
+TensorFlow backend [52].
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What type of deep learning model is used in the pipeline (e.g., CNN, RNN, Transformer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The pipeline utilizes a Convolutional Neural Network (CNN) based architecture known as DeepLabv3+. It employs a modified ResNet-101 or Xception model as its backbone for feature extraction. The network incorporates Atrous Spatial Pyramid Pooling (ASPP), which allows capturing information from a larger receptive field of view without increasing the number of parameters. Additionally, Depth-wise Separable Convolution is applied to both ASPP and the decoder module to enhance the speed and robustness of the encoder-decoder network. The training process involves adapting a pre-trained VGG16 network, freezing earlier layers, and adding extra max-pooling layers to reduce dimensionality and computational complexity.

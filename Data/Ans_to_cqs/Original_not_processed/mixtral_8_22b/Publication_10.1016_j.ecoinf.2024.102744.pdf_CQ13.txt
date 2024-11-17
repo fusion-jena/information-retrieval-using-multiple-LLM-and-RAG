@@ -1,0 +1,336 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+image for each model in our experiments are computed and shown in Table 6. 
+
+Table 6: Comparison of the number of parameters, GFLOPs, and inference time of models in our 
+
+experiments. 
+
+Method 
+
+Evaluation metrics 
+
+ 
+ 
+Journal Pre-proof
+
+Parameters (M)  GFLOPs  Time (ms) 
+
+Baseline methods 
+
+Yolov5 [39] 
+
+86.18 
+
+203.8 
+
+Faster RCNN [40] 
+
+41.20 
+
+446.7 
+
+52.9 
+
+60.0 
+
+Other state-of-the-art methods 
+
+EfficientDet [43] 
+
+6.55 
+
+2.8 
+
+322.0 
+
+698.0 
+
+79.4 
+
+22.0 
+
+52.3 
+
+110.0 
+
+Yolov5 + classification 
+
+RetinaNet [41] 
+
+DETR [44] 
+
+Yolov5 + focal loss 
+
+Faster RCNN 
+
++ Overlap Sampler 
+
+47.8 
+
+97.1 
+
+86.35 
+
+41.30 
+
+204.2 
+
+86.18 
+
+37.96 
+
+203.8 
+
+Our proposed methods 
+
+Journal Pre-proof
+
+1097.9 
+
+41.30 
+
+5.4. Application to the problem of counting pollen-bearing bees 
+
+Counting the number of pollen-bearing bees entering the hive enables beekeepers to monitor the 
+
+hive’s food status and promptly replenish it if necessary. Recognizing this benefit, we integrated
+
+VnPollenBee dataset. The best metrics values are shown in bold font. 
+
+Method 
+
+Evaluation metrics 
+
+Journal Pre-proof
+
+Our proposed methods 
+
+Baseline methods 
+
+0.12  0.004 
+
+0.15  0.009 
+
+0.086  0.03 
+
+0.99 
+
+0.99 
+
+0.58 
+
+0.96 
+
+0.41 
+
+0.91 
+
+0.85 
+
+0.88 
+
+0.88 
+
+MR 
+
+Yolov5 + classification  0.11 
+
+Yolov5 + focal loss 
+
+Yolov5 [39] 
+
+Faster RCNN [40] 
+
+0.91 
+
+0.93 
+
+0.70 
+
+0.93 
+
+FAR  Precision  Recall  F1-score 
+
+Faster RCNN 
+
++ Overlap Sampler 
+
+0.07 
+
+0.01 
+
+0.99 
+
+0.93 
+
+0.95 
+
+Figure 14: Evaluation metrics of the pollen-bearing bee detection results. 
+
+Figure 15: Detection results of the proposed improvement: (above) YOLOv5 + focal loss, (below) 
+
+Faster  RCNN  +  Overlap  sampler.  The  green  and  red  boxes  indicate  pollen-bearing  and 
+
+ 
+ 
+Journal Pre-proof
+
+non-pollen-bearing bees, respectively. Values indicate the confidence score. 
+
+Furthermore,  Fig.  15  depicts  some  detection  outcomes  of  the  second  proposed
+
+feature  images  while  retaining  crucial  features.  The  Dropout  layer  is  integrated  to  mitigate 
+
+overfitting. Additionally, the Global Average Pooling layer summarizes features, generating input 
+
+for the fully connected layer. This layer also facilitates the visualization of regions relied upon by 
+
+the network for predictions. The subsequent three fully connected layers generate the predicted 
+
+class for the original image 
+
+Table 1: Main parameters of the classification network 
+
+[
+
+Input size 
+
+Output size 
+
+Journal Pre-proof
+
+[
+
+[
+
+[
+
+Parameters 
+
+  conv, strides 1] 
+
+  conv, strides 1] 
+
+  max pool 
+
+  conv, strides 1] 
+
+  conv, strides 1] 
+
+Probability 0.5 
+
+  max pool 
+
+[
+
+  conv, strides 1] 
+
+Layers 
+
+Convolution 
+
+Convolution 
+
+Pooling 
+
+Convolution 
+
+Convolution 
+
+Dropout 
+
+Pooling 
+
+Convolution 
+
+Global Average Pooling 
+
+Dense 
+
+Dense 
+
+Classification layer (Dense) 
+
+128 
+
+128 
+
+128 
+
+128 
+
+128 
+
+128 
+
+1 
+
+- 
+
+- 
+
+- 
+
+-
+
+the objects of interest. Conversely, weights are reduced for simpler samples. 
+
+Consequently, focal loss diminishes the impact of straightforward samples on training loss 
+
+while  amplifying  the  significance  of  challenging  ones.  The  focal  loss  function  is  calculated  as 
+
+Journal Pre-proof
+
+  is the probability of belonging to the class 
+
+  represents  the  ratio  of  generated  boxes  containing  background  and  foreground 
+
+information, aiding in balancing the disparity between background and foreground when 
+
+generating boxes. 
+
+ 
+
+  represents the “concentration” of indistinguishable regions; the larger 
+
+, the smaller 
+
+the error values in the distinguishable regions, and the lower the contribution to the total 
+
+loss of the model. 
+
+follows: 
+
+where: 
+
+ 
+
+ 
+
+(6) 
+
+()=(1)()ttttFLpplogptpt 
+ 
+ 
+ 
+ 
+Journal Pre-proof
+
+4.5. Third improvement: Two class Faster RCNN + Overlap Sampler technique
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The paper does not provide explicit information about the specific hyperparameters such as learning rate or optimizer used in their deep learning model. However, they do mention using techniques like focal loss and overlap sampling which can influence the performance of the model. They also discuss using various architectures like YoloV5, RetinaNet, DETR, and Faster R-CNN with different modifications. For instance, they use a combination of YoloV5 with focal loss and another one with a classification layer. Similarly, they employ Faster R-CNN with an overlap sampler. These details suggest that the authors have experimented with different configurations and settings but the exact hyperparameter values remain undisclosed in the given context.

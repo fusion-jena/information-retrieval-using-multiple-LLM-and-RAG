@@ -1,0 +1,83 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+training and testing the model is provided, too.
+
+4.5. Implementation details
+
+We have implemented our models in PyTorch (Paszke et al., 2017).
+We trained 𝑀 = 5 models with batch size 𝐵 = 64 and a base learning
+rate 𝛼 = 10−4. The learning rate is automatically reduced by a factor
+of 0.1 when the validation loss has not improved for 15 consecutive
+epochs. We apply weight decay to control the strength of the unit
+Gaussian prior, with an empirically chosen magnitude of 10−3 that
+is inversely proportional to the hyperparameter 𝜆 from Eq. (1). We
+chose 𝛽1 = 0.9, 𝛽2 = 0.999 and 𝜖 = 10−8 as hyper-parameters for the
+Adam optimizer. Each neural network was trained on a single Nvidia
+RTX2080Ti GPU for ∼14 days.
+
+5. Experimental results and discussion
+
+Learn. Res. 814–822.
+
+Rasmussen, C.E., 2004. Gaussian processes in machine learning. In: Bousquet, O.,
+von Luxburg, U., Rätsch, G. (Eds.), Advanced Lectures on Machine Learning: ML
+Summer Schools 2003, Canberra, Australia, February 2 - 14, 2003, TÜBingen,
+Germany, August 4 - 16, 2003, Revised Lectures. Springer Berlin Heidelberg, Berlin,
+Heidelberg, pp. 63–71.
+
+Redmon, J., Divvala, S., Girshick, R., Farhadi, A., 2016. You only look once: Unified,
+real-time object detection. In: 2016 IEEE Conference on Computer Vision and
+Pattern Recognition (CVPR). pp. 779–788.
+
+Shimizu, K., Ota, T., Mizoue, N., Saito, H., 2020. Comparison of multi-temporal
+PlanetScope data with Landsat 8 and Sentinel-2 data for estimating airborne LiDAR
+derived canopy height in temperate forests. Remote Sens. 12 (11).
+
+Simonyan, K., Zisserman, A., 2015. Very deep convolutional networks for large-scale
+image recognition. In: 3rd International Conference on Learning Representations,
+ICLR.
+
+4.3. Loss function
+
+The loss function, which is optimized during training, measures
+the quality of a set of network parameters 𝜽 w.r.t. the training data
+ = {(𝒙𝑖, 𝒚𝑖)}𝑁
+𝑖=1, under some regularizing prior assumptions. We use a
+standard loss function (; 𝜽) whose minimization corresponds to max-
+imizing the posterior probability of the parameters given the training
+data. As it is commonly done in machine learning (see e.g. Goodfellow
+et al., 2016), we assume a zero-mean isotropic Gaussian prior over
+the network parameters (corresponding to 
+2 regularization) and a
+Gaussian likelihood function with mean ̂𝝁𝑖 ∶= ̂𝝁(𝒙𝑖; 𝜽) ∈ R5 and
+diagonal covariance matrix with logarithmic elements ̂𝒔𝑖 ∶= ̂𝒔(𝒙𝑖; 𝜽) ∈
+R5:
+
+(; 𝜽) = 𝜆 ‖𝜽‖
+
+2
+2 +
+
+∑
+
+[ ̂𝑠𝑖𝑗 + exp(− ̂𝑠𝑖𝑗 )( ̂𝜇𝑖𝑗 − 𝑦𝑖𝑗 )2]
+
+𝑖,𝑗
+
+(1)
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the postprocessing steps involved after the model training (e.g., Saliency maps, Metrics calculation, Confusion matrix)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Unfortunately, there isn't any explicit information about the postprocessing steps involved after the model training in the provided context. However, based on common practices in machine learning, one could infer that possible postprocessing steps might include generating saliency maps, calculating metrics such as accuracy or F1 score, creating confusion matrices, or performing other forms of analysis to evaluate the performance of the model. These steps would typically be used to assess how well the model generalizes to unseen data and to identify areas where the model may need improvement.

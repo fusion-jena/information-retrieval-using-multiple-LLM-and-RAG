@@ -1,0 +1,11 @@
+Answer:::
+
+The deep learning model in question is used for set-valued prediction, specifically for optimizing a model that returns likely species assemblages worldwide based on presence-only observations. This is achieved by training a deep species distribution model (SDM) on presence-only data for all species combined. The SDM output categorical probabilities associated with species are then used to predict a set of labels by thresholding these probabilities.
+
+The model utilizes a large environmental context around each observation, which includes 64 × 64 2D tensors sampled at the kilometre-scale resolution and centered on the observation. These predictors encompass WorldClim2 bioclimatic variables, Soilgrids pedological variables, human footprint rasters, terrestrial ecoregions of the world, and the observation location (longitude and latitude).
+
+The model's architecture, dataset spatial split, and training procedure are detailed in supplementary information (SI) Box A. The model's settings are summarized in Fig. 1.
+
+The loss function used for optimizing the neural network's parameters is a cross-entropy loss function. The authors have shown that the species assemblage predictor Sλ(x) of the model tends towards the optimal set S* as the number of training samples increases.
+
+In summary, the deep learning model is used for set-valued classification, specifically for predicting species assemblages worldwide based on presence-only observations.

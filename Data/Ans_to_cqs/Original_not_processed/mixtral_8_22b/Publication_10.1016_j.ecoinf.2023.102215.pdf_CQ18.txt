@@ -1,0 +1,177 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+We  also  conduct  a  comparative  analysis  of  total  training  time, 
+average  inference  time,  model parameters,  and  FLOPs  between  Trun-
+kNet and the other 10 SOTAs, aiming to evaluate the time and compu-
+tational performance. The experimental results are presented in Table 5. 
+Noticeably, TrunkNet is built entirely on the proposed MIF block that 
+
+needs to be trained from scratch, so necessitates a longer training time in 
+comparison to models built on pre-trained backbones. Since TrunkNet 
+prioritizes competitive performance, there may be a limitation in terms 
+of  time  efficiency.  However,  TrunkNet  achieves  an  average  inference 
+time of only 58.41 ms per image, that is 17.12 frames per second (FPS), 
+which  is  still  above  average.  Furthermore,  TrunkNet  showcases
+
+(cid:0) 8, (3) initial learning rate lr=1.0 × 10
+
+TrunkNet is trained with PyTorch 1.13.0.1  All training and test im-
+ages are uniformly resized to 288 × 288. TrunkNet is trained with the 
+Adam  optimizer  with  default  hyper-parameters:  (1)  betas=(0.9, 
+(cid:0) 3, and 
+0.999), (2) eps=1.0 × 10
+(4) weight_decay = 0. The evaluation experiments of TrunkNet are all 
+conducted on a computer that has a 14-core Intel(R) Xeon(R) Gold 6330 
+CPU (80 GB RAM) and an NVIDIA RTX 3090 GPU (24 GB memory). The 
+model is trained from scratch with a batch size of 12. After 65 K itera-
+tions,  the  training  loss  converges,  and  the  training  process  takes 
+approximately 11.5 h. 
+
+3.2. Performance evaluation metrics 
+
+To evaluate the performance of salient tree trunk detection on ST-D, 
+
+we follow seven metrics given below. 
+
+Mean Absolute Error (M) assesses the pixel-level similarity between 
+the  final  saliency  map  Spre  and  the  ground-truth  mask  G.  It  can  be 
+formulated as 
+
+M =
+
+2.3. Model training 
+
+Our study can be categorized as a binary classification. We supervise 
+TrunkNet’s training with the Binary Cross-Entropy (BCE) loss function, 
+which  is  a  commonly  employed  loss  function  in  supervised  deep 
+learning (Zhao et al., 2019b). The BCE loss function measures the dif-
+ference between the predicted probability and the actual value. Mini-
+mizing this difference indicates a better training effect. Specifically, the 
+BCE loss function in use is expressed with 
+
+L BCE = (cid:0)
+
+∑H
+
+∑W
+
+x=1
+
+y=1
+
+G(x, y)logSpre(x, y) + (1 (cid:0) G(x, y))log(1 (cid:0) Spre(x, y)),
+
+(3)  
+
+where (x,y) is the pixel coordinate, H and W are the height and width of 
+the image, respectively, G is the ground-truth, and Spre  is the final pre-
+dicted saliency map.
+
+EcologicalInformatics77(2023)10221510R. Li et al.                                                                                                                                                                                                                                        
+
+Fig. 11. Visual comparison between our TrunkNet with 10 SOTA models.  
+
+Table 5 
+Summary of models’ time and computational performance.  
+
+Model 
+
+PoolNet 
+
+BASNet 
+
+SCRNet 
+
+Average inference time(ms) 
+Total training time(h) 
+Total parameters(M) 
+FLOPs(G) 
+
+28.86 
+1.3 
+68.26 
+62.45 
+
+72.81 
+9.5 
+87.06 
+161.46 
+
+94.85 
+1.2 
+25.23 
+10.15 
+
+U2-Net 
+
+80.80 
+10.0 
+44.01 
+30.73 
+
+EGNet 
+
+ICON 
+
+GateNet 
+
+60.82 
+4.6 
+111.66 
+198.25 
+
+81.35 
+0.6 
+33.09 
+13.99 
+
+97.88 
+8.5 
+128.63 
+91.16 
+
+F3Net 
+
+29.16 
+0.4 
+25.54 
+10.99 
+
+MINet 
+
+PFSNet 
+
+TrunkNet 
+
+293.95 
+2.0 
+47.56 
+118.47 
+
+37.30 
+0.8 
+31.18 
+30.39 
+
+58.41 
+11.5 
+68.52 
+39.42  
+
+of the tree trunk edges and the integrity of the interior structures.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What is the strategy implemented to monitor the model performance during training?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+The strategy implemented to monitor the model performance during training is by using the Binary Cross-Entropy (BCE) loss function. This loss function measures the difference between the predicted probability and the actual value. Minimizing this difference indicates a better training effect. The specific BCE loss function used in this case is expressed as L\_BCE = \sum\_{x=1}^{H} \sum\_{y=1}^{W} [G(x, y)\log{Spre}(x, y) + (1 - G(x, y))\log{(1 - Spre)(x, y)}], where (x,y) is the pixel coordinate, H and W are the height and width of the image, respectively, G is the ground-truth, and Spre is the final predicted saliency map.

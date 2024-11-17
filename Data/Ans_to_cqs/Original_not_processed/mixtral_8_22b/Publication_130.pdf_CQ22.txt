@@ -1,0 +1,121 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+99%  accuracy  if  it  simply  learns  to  always  output  one  result—the 
+
+majority  class.  As  a  consequence  of  this,  data  containing  minority 
+
+recruited  to  the  study  population  (see  Section  2.5  below).  For  the 
+
+classes  (in  our  case  birds  with  fewer  images)  are  more  likely  to  be 
+
+FERREIRA Et Al. 2041210x, 2020, 9, Downloaded from https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13436 by Vamsi Krishna Kommineni - Friedrich-Schiller-Universität , Wiley Online Library on [28/08/2024]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons LicenseMethods in Ecology and Evolu(cid:13)on
+
+    |  1077
+
+misclassified than those belonging to the majority classes (Johnson 
+
+When using transfer learning, the bottom layers of the network can 
+
+& Khoshgoftaar, 2019). One countermeasure against class imbalance
+
+classes (in our case, different individuals). The validation dataset is 
+
+(Dutta & Zisserman, 2019). Since manually labelling the regions of 
+
+an independent set of samples that is used to compute the accuracy 
+
+interest is time-consuming, we started by training the model for 10 
+
+and loss (estimation of the error during training) of the model. This 
+
+epochs (i.e. passing the entire dataset through the neural network 
+
+validation dataset is used to assess the learning progress of the neu-
+
+10  times)  with  200  manually  labelled  pictures.  If  the  model  was 
+
+ral network. As the network never trains on or sees the validation 
+
+found to perform badly, additional pictures were manually labelled 
+
+data, this validation dataset can indicate if the model is overfitting 
+
+and added to the training dataset. This process was repeated until 
+
+the training data and not learning features that are key for recogniz-
+
+a  satisfactory  performance  was  achieved.  For  the  great  tits,  we
+
+now feasible to continuously collect training pictures and routinely 
+
+lenges presented here, among others.
+
+re-train a CNN using updated training data.
+
+Having large datasets will allow optimizing performance of CNNs 
+
+The arrival of new individuals to the study population is another 
+
+as  well  as  identifying  the  relative  performance  of  alternative  solu-
+
+challenge  that  needs  to  be  carefully  addressed.  If  these  new  birds 
+
+tions. Other network architectures (e.g. ResNet; He, Zhang, Ren, & 
+
+are  marked  with  a  PIT-tag,  the  CNN  could  be  updated  similarly  to 
+
+Sun,  2016)  and  different  hyper-parameters  settings  (e.g.  learning 
+
+the  problem  of  changes  in  appearance  discussed  above.  However, 
+
+rate)  than  the  ones  used  here  can  yield  different,  and  potentially 
+
+in many cases new individuals will not be marked. Such a problem 
+
+improved,  results.  Other  deep  learning  methods  approaches  could
+
+1,600 images of each zebra finch were randomly selected without 
+
+eight pictures are being provided to the model each time) was used 
+
+filtering for near-identical images. All birds had at least 1,600 images, 
+
+since it has been shown that small batch sizes improve models’ gen-
+
+except for one that had 1,197 for which oversampling was used by 
+
+eralization capability (Masters & Luschi, 2018). If there was no de-
+
+creating duplicates of 403 randomly sampled images.
+
+crease in loss (i.e. measure of the difference between the predicted 
+
+We used the VGG19 CNN architecture (Simonyan & Zisserman,  
+
+output and the actual output) for more than 10 consecutive epochs, 
+
+2014) and initialized the model with the weights of a network pre-
+
+we stopped training, and then retrained the model that achieved the 
+
+trained on the ImageNet dataset (a dataset with more than 14 mil-
+
+lowest loss with a SGD optimizer and a learning rate 10 times smaller
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What metrics are used to evaluate the performance of the deep learning model (e.g., accuracy, precision, recall)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In evaluating the performance of their deep learning model, Ferreira et al. primarily focused on two metrics: accuracy and loss. Accuracy refers to the proportion of correct predictions made by the model out of all the predictions made. It provides a general idea of how often the model is right. Loss, on the other hand, measures the difference between the predicted output and the actual output. In essence, it quantifies the cost of error in prediction. A decrease in loss indicates improved performance of the model.
+
+To calculate these metrics, they utilized a separate validation dataset, distinct from both the training and testing datasets. This validation dataset served to monitor the learning progress of the neural network and prevent overfitting, where the model performs exceptionally well on the training data but poorly on unseen data due to memorization rather than true understanding. By employing this strategy, they ensured that their model was robust and capable of making accurate predictions even when faced with previously unseen data.

@@ -1,0 +1,255 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+vancements in deep learning to enhance performance. Specifically, our 
+MLP architecture consists of four layers, each containing 512 neurons 
+and connected with residual connections (He et al., 2016). We employ 
+batch normalization (Ioffe and Szegedy, 2015) and the Rectified Linear 
+Unit (ReLU) activation function in all layers except the final one, where 
+instead a sigmoid function is used to enable multi-label classification. 
+The model is trained with a batch size of 256 for 30 epochs using the 
+AdamW optimizer (Loshchilov and Hutter, 2017). Both the weight decay 
+and learning rate are set to 0.0001. Additionally, we employ a learning 
+rate scheduler with exponential decay of 0.95, and introduce dropout
+
+situation, our approach can be effectively combined with methods that 
+aggregate nearby species presences, such as Kellenberger et al. (2022). 
+Furthermore, we observed in Fig. 4 (right) and Fig. 5 that different 
+species within the same region may have different optimal values for the 
+hyperparameter λ2. Consequently, setting distinct λ2  values per species 
+could  improve  model  performance.  In  particular,  higher  values  of  λ2 
+could be set for known generalist species, especially if there is a strong 
+sampling  bias.  While  the  evaluation  in  this  study  focused  on  multi- 
+species  neural  networks,  it  is  straightforward  to  adapt  our  loss  func-
+tion to single-species neural networks by removing the summation over 
+species and retaining only the species of interest.
+
+Table B.4 
+Mean AUC performance of other alternative ML loss functions. The performance is averaged over 10 random seeds.   
+
+CE 
+weighted CE 
+Focal CE (γ = 0.5) 
+Focal CE (γ = 1) 
+Focal CE (γ = 2) 
+Focal CE (γ = 5) 
+Focal full weighted (γ = 0.5) 
+Focal full weighted (γ = 1) 
+Focal full weighted (γ = 2) 
+Focal full weighted (γ = 5) 
+LDAM (C = 0.1) 
+LDAM (C = 1) 
+LDAM (C = 10) 
+DB loss (λ = 3) 
+DB loss (λ = 5) 
+Entmax (α = 0.01) 
+Entmax (α = 0.05) 
+Entmax (α = 0.1) 
+Full weighted (λ2 = 0.5) 
+Full weighted (λ2 = 0.8) 
+Full weighted (λ2 = 1) 
+
+AWT 
+
+0.663 
+0.670 
+0.663 
+0.663 
+0.662 
+0.660 
+0.680 
+0.686 
+0.689 
+0.682 
+0.663 
+0.662 
+0.648 
+0.669 
+0.668 
+0.665 
+0.680 
+0.676 
+0.698 
+0.704 
+0.696 
+
+CAN 
+
+0.718 
+0.706 
+0.718 
+0.718 
+0.718 
+0.719 
+0.684 
+0.682 
+0.678 
+0.665 
+0.718 
+0.718 
+0.719 
+0.704 
+0.698 
+0.687 
+0.697 
+0.683 
+0.650 
+0.696 
+0.714 
+
+NSW
+
+and λ2 = 0.5. The performance is averaged over 10 random seeds.  
+
+λ
+
+2 
+
+λ 
+
+1 
+2 
+4 
+8 
+16 
+32 
+64 
+128 
+256 
+512 
+1024 
+2048 
+S 
+
+AWT 
+
+0.682 
+0.690 
+0.695 
+0.697 
+0.699 
+0.695 
+0.684 
+0.672 
+0.662 
+0.654 
+0.649 
+0.647 
+0.698 
+
+CAN 
+
+0.682 
+0.677 
+0.673 
+0.675 
+0.680 
+0.684 
+0.687 
+0.688 
+0.684 
+0.675 
+0.660 
+0.640 
+0.673 
+
+NSW 
+
+0.689 
+0.707 
+0.716 
+0.721 
+0.724 
+0.725 
+0.724 
+0.723 
+0.718 
+0.711 
+0.702 
+0.695 
+0.723 
+
+NZ 
+
+0.730 
+0.737 
+0.740 
+0.741 
+0.742 
+0.745 
+0.746 
+0.744 
+0.740 
+0.733 
+0.727 
+0.721 
+0.742 
+
+SA 
+
+0.784 
+0.803 
+0.811 
+0.814 
+0.814 
+0.811 
+0.806 
+0.799 
+0.793 
+0.789 
+0.786 
+0.785 
+0.814 
+
+SWI 
+
+0.837 
+0.836 
+0.836 
+0.836 
+0.837 
+0.837 
+0.836 
+0.834 
+0.831 
+0.825 
+0.817 
+0.807 
+0.836 
+
+avg 
+
+0.734 
+0.742 
+0.745 
+0.747 
+0.749 
+0.749 
+0.747 
+0.743 
+0.738 
+0.731 
+0.723 
+0.716 
+0.748  
+
+References 
+
+Araújo, M.B., Peterson, A.T., 2012. Uses and misuses of bioclimatic envelope modeling. 
+
+Ecology 93 (7), 1527–1539.
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the hyperparameters used in the deep learning model (e.g., learning rate, optimizer)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+In the given context, the deep learning model uses an MLP architecture consisting of four layers, each containing 512 neurons and connected with residual connections. The model employs batch normalization and the ReLU activation function in all layers except the final one, where instead a sigmoid function is used to enable multi-label classification. The model is trained with a batch size of 256 for 30 epochs using the AdamW optimizer. Both the weight decay and learning rate are set to 0.0001. Additionally, a learning rate scheduler with exponential decay of 0.95 is employed, and dropout is introduced.

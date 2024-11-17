@@ -1,0 +1,78 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The Inception-V3 model accepts images resized to (299, 299) pixels 
+but ViT and ResNet resize to (224, 224) pixels. Dataset imbalance was 
+dealt with by including class weights in the cross-entropy loss function. 
+For the training we used AdamW optimizer for Hugging Face models, 
+which is the default optimizer in the transformers library by Hugging-
+Face. For Inception-V3, we used Adam since that was the optimizer used 
+in  previous  work  (and  AdamW  is  not  available  in  Keras).  We  used  a 
+(cid:0) 4  for 
+batch  size  of  16  examples  and  the  learning  rate  was  set  to  10
+(cid:0) 5  for  Vanilla  Inception-V3  and  ViT.  For  Deep  Otolith 
+ResNet  but  10
+(cid:0) 4 as suggested by Politikos 
+Inception we used a learning rate of 4 × 10
+et  al.  (2021).  For  every  fine-tuning  experiment,  the  model  with  the 
+
+smallest validation loss was used for evaluation on the test set. 
+
+2.3. Performance
+
+ResNet-50 is a convolutional neural network model that uses skip 
+connections,  which  made  it  possible  to  get  good  performance  with 
+deeper models than was previously possible (He et al., 2015). Training 
+deep neural networks can result in exploding gradients, and skip con-
+nections  were  introduced  to  ameliorate  that  problem.  ResNet-50  was 
+chosen  for  comparison  as  it  is  a  proven  CV  classification  model.  It  is 
+commonly used and provides a well-performing baseline. 
+
+Inception-V3  is  a  convolutional  neural  network  used  for  image 
+classification, that has an auxiliary classifier that acts as a regularizer 
+(Szegedy et al., 2015b). The Inception-V3 architecture is built on pre-
+vious Inception models, with the aim of making the V3 computationally
+
+3.3. Comparison with other models 
+
+Fig. 10 shows the plaice test set accuracy for the CLIP models and the 
+fine-tuned  models.  The  CLIP  regression  model  performs  the  best 
+achieving 55.9% accuracy with RMSE of 0.70 years, and 97.05% accu-
+racy when allowing a ±1 year margin of error like presented in Table 4. 
+The Inception models reached a considerably lower accuracy than 
+the other models, and we found it overfitting the training data consid-
+erably  faster  compared  to  ResNet  and  ViT.  Overall  the  CLIP  models 
+performed considerably better than the fine-tuned models. Comparing 
+the CLIP regression model to the ViT fine-tuning we see a 5.6% increase 
+in accuracy and a 0.19 decrease in the RMSE value. 
+
+3.4. Feature ablation
+
+training.  The  classification  accuracy  of  the  CLIP  regression  model 
+rapidly  increased  until  the  training  dataset  size  reached  200  images. 
+When  the training dataset size increased  further, the  accuracy slowly 
+increased.  When  the  training  dataset  size  reached  650  images,  it 
+appeared that the model was still learning as the classification accuracy 
+was still increasing. When fine-tuning the ViT model the classification 
+accuracy rapidly increased until the size of the training dataset reached 
+300 images. With increased training dataset size after 300, the accuracy 
+did not grow as rapidly as before. Using 100 training samples the CLIP 
+regression  model  surpassed  the  Inception  models  trained  on  a  full 
+training set. Figs. D.1–D.3, in Appendix D, show the learning curves for
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What are the criteria used to split the data for deep learning model training (e.g., train, test, validation)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+Based on the given context, there isn't any explicit mention of how the data was split into training, testing, and validation sets. However, some common practices in machine learning include splitting the data randomly or stratified based on the target variable. Typically, the data is divided into three parts: training, validation, and testing datasets. The training dataset is used to fit the model, while the validation dataset helps tune hyperparameters and prevent overfitting. Lastly, the testing dataset evaluates the final model's performance.
+
+Regarding the specific percentages for each set, they may vary depending on the total amount of data available. Common splits include 80/20, where 80% of the data goes towards training and 20% towards testing; 70/15/15, where 70% is allocated for training, 15% for validation, and another 15% for testing; or even 60/20/20. These ratios depend on factors such as the complexity of the task, the number of classes, and the overall size of the dataset.

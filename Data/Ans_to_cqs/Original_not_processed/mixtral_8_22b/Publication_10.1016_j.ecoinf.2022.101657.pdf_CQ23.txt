@@ -1,0 +1,79 @@
+Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+The official, MS-COCO pre-trained, version of this architecture has 
+then  been  further  trained,  a  technique  known  as  transfer-learning, 
+using the WCS dataset and its recommended data split, giving a cred-
+ible mean average precision mAP50 score of 0.75. The mAP metric, used 
+to  evaluate  the  PASCAL  VOC  challenge  dataset  (Everingham  et  al., 
+2010),  takes  the  mean  over  all  considered  species  of  their  respective, 
+species-specific  average  precision  as  defined  below.  The  subscript  50 
+refers  to  the  requirement  that  the  area  of  the  intersection  of  ground 
+truth  bounding  box  and  predicted  bounding  box  needs  to  be  at  least 
+50%  of  the  area  of  the  union  of  both  for  an  otherwise  true  species 
+identification to be considered correct. The network does not output a 
+binary  value  for  species  identification  but  instead  a  belief  b  ∈ [0, 1] 
+that  a  particular  species  has  been  identified.  Thresholding  these
+
+van Rijsbergen, C.J., 1979. Information Retrieval, 2nd ed. Butterworth-Heinemann, USA.  
+Wang, C.Y., Bochkovskiy, A., Liao, H.Y.M., 2021. Scaled-YOLOv4: Scaling cross stage 
+partial network. In: Conference on Computer Vision and Pattern Recognition 
+(CVPR), pp. 13029–13038. 
+
+Wei, W., Luo, G., Ran, J., Li, J., 2020. Zilong: a tool to identify empty images in camera- 
+trap data. Ecol. Inform. 55, 101021 https://doi.org/10.1016/j.ecoinf.2019.101021. 
+Weingarth, K., Zimmermann, F., Knauer, F., Heurich, M., 2013. Evaluation of six digital 
+
+camera models for the use in capture-recapture sampling of Eurasian Lynx. 
+Wald¨okologie Online 13, 87–92. 
+
+Xi, T., Wang, J., Qiao, H., Lin, C., Ji, L., 2021. Image filtering and labelling assistant 
+
+(ifla): expediting the analysis of data obtained from camera traps. Ecol. Inform. 64, 
+101355 https://doi.org/10.1016/j.ecoinf.2021.101355.
+
+7.1.3. Bespoke neural networks for species sets 
+
+While we selected a suitable neural network for species identifica-
+tion, we spent little research so far to train this network to sets of user- 
+selected  or  prevalent  species  in  the  region  where  the  camera  trap  is 
+deployed.  Training  for  a  bespoke  set  of  species  is  both  possible  and 
+desirable. Further research is needed to identify and automate a process 
+that,  given  a  set  of  species  of  interest,  outputs  a  robust  and  reliable 
+neural network model with suitable weights. 
+
+7.1.4. Low power neural networks in hardware
+
+6.2. Benchmarking setup 
+
+There are two ways in which the metric can be applied to test the 
+system. Firstly, as a comparison with existing camera traps. Secondly, to 
+evaluate the pipeline with respect to the underlying neural network. As 
+there is no dataset available that contains full videos with corresponding 
+PIR sensor information, such data would need to be manually produced. 
+This was done at a small scale to inform development, but it was not 
+feasible  to  scale  this  up  for  a  robust  test  set.  We  instead  focus  on 
+benchmarking different system configurations compared to existing ML 
+approaches. 
+
+6.2.1. Data
+
+Question: %INSTRUCTIONS:
+Use the provided pieces of context to answer the query in less than 400 words. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+%Query
+Query: "What measures were taken to ensure the generalizability of the deep learning model (e.g., Diverse dataset, cross-validation, Stratified splitting)?"
+
+Provide your answer as follows:
+
+Answer:::
+Answer: (provide your answer to query in less than 400 words)
+
+Answer:::
+
+Helpful Answer:
+
+To ensure the generalizability of the deep learning model, several measures have been taken. Firstly, the model was initially pre-trained using the MS-COCO dataset, which is a diverse dataset containing various objects and scenes. This helps the model learn a wide range of features that can be useful for identifying different species in camera trap images.
+
+Secondly, the model was then fine-tuned using the Wildlife Conservation Society (WCS) dataset, which is specifically designed for wildlife monitoring. By training on this dataset, the model becomes more specialized in recognizing animals commonly found in wildlife habitats. Furthermore, the recommended data split of the WCS dataset was followed during training, ensuring that the model is evaluated on unseen data, thus reducing the risk of overfitting.
+
+Lastly, while there isn't explicit mention of techniques like cross-validation or stratified splitting in the provided context, the Mean Average Precision (mAP50) metric used to evaluate the model's performance inherently considers the balance between precision and recall across different classes. This means that even if certain species are underrepresented in the dataset, the model will still aim to accurately classify them, promoting fairness and preventing bias towards dominant classes.
