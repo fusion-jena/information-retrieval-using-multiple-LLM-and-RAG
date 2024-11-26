@@ -28,15 +28,15 @@ def load_llm(model_id, embedding_model_id, use_groq):
             bnb_4bit_compute_dtype=torch.bfloat16
         )
         embeddings = HuggingFaceEmbeddings(model_name=embedding_model_id)
-        model_config = transformers.AutoConfig.from_pretrained(model_id, cache_dir="/mnt/lustre-emmy-hdd/usr/u11903/Hugging_Face/")
-        tokenizer = AutoTokenizer.from_pretrained(model_id, cache_dir="/mnt/lustre-emmy-hdd/usr/u11903/Hugging_Face/")
+        model_config = transformers.AutoConfig.from_pretrained(model_id, cache_dir='path_where_huggingface_models_can_save')
+        tokenizer = AutoTokenizer.from_pretrained(model_id, cache_dir='path_where_huggingface_models_can_save')
         model = AutoModelForCausalLM.from_pretrained(
             model_id,
             trust_remote_code=True,
             config=model_config,
             quantization_config=bnb_config,
             device_map='auto',
-            cache_dir="/mnt/lustre-emmy-hdd/usr/u11903/Hugging_Face/"
+            cache_dir='path_where_huggingface_models_can_save'
         )
         model.eval()
         pipe = pipeline(
